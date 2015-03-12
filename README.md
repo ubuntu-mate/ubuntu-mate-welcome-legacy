@@ -1,11 +1,7 @@
-![screenshot](https://raw.github.com/karasu/antergos-welcome/master/screenshot.png)
+# ubuntu-mate-welcome
 
-antergos-welcome
-================
+Ubuntu MATE welcome screen
 
-Antergos welcome screen
-
-* python3
-* gtk
-* python-simplejson
-
+  * gtk
+  * python3
+  * python-simplejson

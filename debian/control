@@ -1,0 +1,22 @@
+Source: ubuntu-mate-welcome
+Section: x11
+Priority: optional
+Maintainer: Ubuntu MATE Team <ubuntu-mate-dev@lists.launchpad.net>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: https://launchpad.net/ubuntu-mate/
+Vcs-Bzr: lp:~ubuntu-mate-dev/ubuntu-mate/ubuntu-mate-settings
+Vcs-Browser: http://bazaar.launchpad.net/~ubuntu-mate-dev/ubuntu-mate/ubuntu-mate-settings/files
+
+Package: ubuntu-mate-welcome
+Architecture: all
+Depends: ${misc:Depends},
+         gir1.2-gtk-3.0,
+         gir1.2-webkit-3.0,
+         python3,
+         python-gobject,
+         python3-simplejson
+Description: Ubuntu MATE Welcome
+ A welcome screen for Ubuntu MATE that provides links 
+ to helpful resources.
+

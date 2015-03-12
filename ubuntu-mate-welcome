@@ -4,13 +4,14 @@
 # Copyright 2012-2013 "Korora Project" <dev@kororaproject.org>
 # Copyright 2013 "Manjaro Linux" <support@manjaro.org>
 # Copyright 2014 Antergos
+# Copyright 2015 Ubuntu MATE <code@ubuntu-mate.org>
 #
-# Antergos Welcome is free software: you can redistribute it and/or modify
+# Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# Antergos Welcome is distributed in the hope that it will be useful,
+# Ubuntu MATE Welcome is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
@@ -19,7 +20,7 @@
 # along with Antergos Welcome. If not, see <http://www.gnu.org/licenses/>.
 #
 
-""" Welcome screen for Antergos """
+""" Welcome screen for Ubuntu MATE """
 
 import inspect
 import os
@@ -45,16 +46,16 @@ class WelcomeConfig(object):
             self._arch = '32-bit'
 
         # store we are a live CD session
-        self._live = (os.path.exists('/bootmnt/antergos'))
+        self._live = (os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'))
 
         # store full path to our binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
 
         # store directory to our welcome configuration
-        self._config_dir = os.path.expanduser('~/.config/antergos/welcome/')
+        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
 
         # store full path to our autostart symlink
-        self._autostart_path = os.path.expanduser('~/.config/autostart/antergos-welcome.desktop')
+        self._autostart_path = os.path.expanduser('~/.config/autostart/ubuntu-mate-welcome.desktop')
 
         # ensure our config directory exists
         if not os.path.exists(self._config_dir):
@@ -78,7 +79,7 @@ class WelcomeConfig(object):
         if state and not os.path.exists(self._autostart_path):
             # create the autostart symlink
             try:
-                os.symlink('/usr/share/applications/antergos-welcome.desktop', self._autostart_path)
+                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
                 pass
         elif not state and os.path.exists(self._autostart_path):
@@ -113,18 +114,12 @@ class AppView(WebKit.WebView):
         self.execute_script("$('#arch').html('%s')" % self._config.arch)
         self.execute_script("$('#autostart').toggleClass('icon-check', %s).toggleClass('icon-check-empty', %s)" % (to_json(self._config.autostart), to_json(not self._config.autostart)))
 
-        #if self._config.desktop == 'GNOME':
-        #  self.execute_script("$('#gnome_help').toggleClass('hide', false);")
-        #elif self._config.desktop == 'KDE':
-        #  self.execute_script("$('#kde_help').toggleClass('hide', false);")
-
         #self.execute_script("$('#codename').html('%s')" % (to_json(self._config.codename)))
         #self.execute_script("$('#desktop').html('%s')" % (to_json(self._config.desktop)))
         #self.execute_script("$('#version').html('%s')" % (self._config.version))
 
         if self._config.live:
             self.execute_script("$('#install').toggleClass('hide', false);")
-            self.execute_script("$('#install-cli').toggleClass('hide', false);")
         else:
             self.execute_script("$('#build').toggleClass('hide', false);")
             self.execute_script("$('#donate').toggleClass('hide', false);")
@@ -160,14 +155,8 @@ class AppView(WebKit.WebView):
         if uri.startswith('cmd://'):
             uri = uri[6:]
 
-        if uri == 'gnome-help':
-            subprocess.Popen(['yelp'])
-        elif uri == 'kde-help':
-            subprocess.Popen(['khelpcenter'])
-        #elif uri == 'install':
-            #subprocess.Popen(['sudo','live-installer'])
-        #elif uri == 'install-cli':
-            #subprocess.Popen(['xdg-terminal','sudo setup'])
+        if uri == 'install':
+            subprocess.Popen(['sudo','live-installer'])
         elif uri == 'close':
             Gtk.main_quit()
         elif uri == 'toggle-startup':
@@ -188,11 +177,11 @@ class WelcomeApp(object):
         if( os.path.exists( os.path.join(self._location, 'data/' ) ) ):
             print('Using relative path for data source. Non-production testing.')
             self._data_path = os.path.join(self._location, 'data/')
-        elif( os.path.exists('/usr/share/antergos-welcome/') ):
-            print('Using /usr/share/antergos-welcome/ path.')
-            self._data_path = '/usr/share/antergos-welcome/'
+        elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
+            print('Using /usr/share/ubuntu-mate-welcome/ path.')
+            self._data_path = '/usr/share/ubuntu-mate-welcome/'
         else:
-            print('Unable to source the antergos-welcome data directory.')
+            print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
 
         self._build_app()
@@ -201,11 +190,11 @@ class WelcomeApp(object):
         # build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
-        w.set_wmclass('Antergos Welcome', 'Antergos Welcome')
+        w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
         w.set_title('')
         w.set_size_request(768, 496)
 
-        icon_dir = os.path.join(self._data_path, 'img', 'antergos-icon.png')
+        icon_dir = os.path.join(self._data_path, 'img', 'ubuntu-mate-icon.png')
         w.set_icon_from_file(icon_dir)
 
         # build webkit container
