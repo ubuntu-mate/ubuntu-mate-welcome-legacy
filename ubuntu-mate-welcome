@@ -157,13 +157,17 @@ class AppView(WebKit.WebView):
 
         if uri == 'install':
             subprocess.Popen(['sudo','live-installer'])
+        if uri == 'chatroom':
+            subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
         elif uri == 'close':
             Gtk.main_quit()
         elif uri == 'toggle-startup':
             # toggle autostart
             self._config.autostart ^= True
             self._push_config()
-        elif uri.startswith("link?"):
+        elif uri.startswith('run?'):
+            subprocess.Popen([uri[4:]])
+        elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
         else:
             print('Unknown command: %s' % uri)
