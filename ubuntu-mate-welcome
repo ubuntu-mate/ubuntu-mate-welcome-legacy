@@ -156,7 +156,7 @@ class AppView(WebKit.WebView):
             uri = uri[6:]
 
         if uri == 'install':
-            subprocess.Popen(['sudo','live-installer'])
+            subprocess.Popen(['ubiquity','gtk_ui'])
         elif uri == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
         elif uri == 'control':
