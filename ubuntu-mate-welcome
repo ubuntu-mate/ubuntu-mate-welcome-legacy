@@ -157,14 +157,23 @@ class AppView(WebKit.WebView):
 
         if uri == 'install':
             subprocess.Popen(['sudo','live-installer'])
-        if uri == 'chatroom':
+        elif uri == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
-        elif uri == 'close':
+        elif uri == 'control':
+            subprocess.Popen(['mate-control-center'])
+        elif uri == 'drivers':
+            subprocess.Popen(['software-properties-gtk','--open-tab=4'])
+        elif uri == 'language':
+            subprocess.Popen(['gnome-language-selector'])
+        elif uri == 'quit':
             Gtk.main_quit()
-        elif uri == 'toggle-startup':
-            # toggle autostart
+        elif uri == 'toggle':
             self._config.autostart ^= True
             self._push_config()
+        elif uri == 'tweak':
+            subprocess.Popen(['mate-tweak'])
+        elif uri == 'update':
+            subprocess.Popen(['update-manager'])            
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
