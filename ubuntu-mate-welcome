@@ -156,7 +156,8 @@ class AppView(WebKit.WebView):
             uri = uri[6:]
 
         if uri.startswith('apt?'):
-            subprocess.Popen(['apturl-gtk', uri[4:]])            
+            subprocess.Popen(['apturl-gtk', uri[4:]])
+            #sudo software-properties-gtk --enable-ppa=ubuntu-mate-dev/vivid-mate
         elif uri == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
         elif uri == 'chatroom':
