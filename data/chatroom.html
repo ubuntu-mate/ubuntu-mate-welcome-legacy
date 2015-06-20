@@ -33,7 +33,9 @@
           have a question, do ask. <strong>However, it may take a while 
           for someone to reply. Just be patient and don't disconnect 
           right away.</strong></p>
-          <a class="btn btn-block btn-success" href="cmd://chatroom"><i class="icon-comments"></i> Chat</a>
+          <div id="social" align="center">
+          <a class="btn btn-lg btn-success" href="cmd://chatroom"><span class="icon icon-3x icon-comment"></span> Chat</a>
+          </div>
         </div>
       </div>
     </div>
@@ -45,13 +47,12 @@
           <a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social-twitter.png"></a>
         </div>
         <div class="form">
-          &nbsp;
+          <a href="cmd://quit" class="btn btn-inverse">Close</a>
         </div>
       </div>
     </div>
   </div>
   <script src="js/jquery.min.js"></script>
-  <script src="js/angular.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function() {
