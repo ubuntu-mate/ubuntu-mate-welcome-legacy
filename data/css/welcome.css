@@ -229,7 +229,7 @@ p.no-space {
   color: #fff;
 }
 
-#toggle_autostart {
+#toggle {
   margin-top: 8px;
 }
 
@@ -287,15 +287,4 @@ hr.soften {
   background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
   background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
   border: 0;
-}
-
-/* Fading for social icons */
-.social-icon {
-    opacity:1.0;
-    filter:alpha(opacity=100);
-}
-
-.social-icon:hover {
-    opacity:0.8;
-    filter:alpha(opacity=80);
 }
