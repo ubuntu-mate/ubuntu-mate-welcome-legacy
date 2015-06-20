@@ -155,7 +155,9 @@ class AppView(WebKit.WebView):
         if uri.startswith('cmd://'):
             uri = uri[6:]
 
-        if uri == 'install':
+        if uri.startswith('apt?'):
+            subprocess.Popen(['apturl-gtk', uri[4:]])            
+        elif uri == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
         elif uri == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
@@ -205,7 +207,7 @@ class WelcomeApp(object):
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
         w.set_title('')
-        w.set_size_request(768, 496)
+        w.set_size_request(768, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'ubuntu-mate-icon.png')
         w.set_icon_from_file(icon_dir)
