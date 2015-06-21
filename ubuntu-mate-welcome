@@ -158,6 +158,7 @@ class AppView(WebKit.WebView):
         if uri.startswith('apt?'):
             subprocess.Popen(['apturl-gtk', uri[4:]])
             #sudo software-properties-gtk --enable-ppa=ubuntu-mate-dev/vivid-mate
+            #sudo apt-add-repository --enable-source --yes "http://archive.canonical.com/ubuntu partner"
         elif uri == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
         elif uri == 'chatroom':
