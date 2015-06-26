@@ -38,12 +38,14 @@ from simplejson import dumps as to_json
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
     def __init__(self):
-        # store our base architecture
-        self.os_title = 'Ubuntu MATE ' + platform.dist()[1]
-        self._arch = os.uname()[4]
+        # store our base architecture        
+        self.os_version = platform.dist()[1]
+        self.os_codename = platform.dist()[2]
+        self.os_title = 'Ubuntu MATE ' + self.os_version
+        self.os_arch = os.uname()[4]
         
         # store we are a live CD session
-        self._live = (os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'))
+        self._live = os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override')
 
         # store full path to our binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
@@ -107,8 +109,7 @@ class AppView(WebKit.WebView):
         self.l_uri = None
 
     def _push_config(self):
-        # Use jQuery to manually toggle CSS classes
-
+        # Use jQuery to manipulate CSS classes and content
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (to_json(self._config.autostart), to_json(not self._config.autostart)))
 
