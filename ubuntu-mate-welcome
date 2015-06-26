@@ -23,28 +23,25 @@
 """ Welcome screen for Ubuntu MATE """
 
 import inspect
-import os
 import json
+import os
+import platform
 import signal
 import subprocess
 import sys
 import urllib.request
 import urllib.error
 import webbrowser
-
-from simplejson import dumps as to_json
-
 from gi.repository import WebKit, Gtk
+from simplejson import dumps as to_json
 
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
     def __init__(self):
         # store our base architecture
-        if os.uname()[4] == 'x86_64':
-            self._arch = '64-bit'
-        else:
-            self._arch = '32-bit'
-
+        self.os_title = 'Ubuntu MATE ' + platform.dist()[1]
+        self._arch = os.uname()[4]
+        
         # store we are a live CD session
         self._live = (os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'))
 
@@ -62,6 +59,7 @@ class WelcomeConfig(object):
             try:
                 os.makedirs(self._config_dir)
             except OSError as err:
+                print(err)
                 pass
         # does autostart symlink exist
         self._autostart = os.path.exists(self._autostart_path)
@@ -109,22 +107,20 @@ class AppView(WebKit.WebView):
         self.l_uri = None
 
     def _push_config(self):
-        # TODO: push notification should be connected to angularjs and use a broadcast event
-        # any suitable controllers will be able to listen and respond accordingly, for now
-        # we just use jQuery to manually toggle
+        # Use jQuery to manually toggle CSS classes
 
-        self.execute_script("$('#arch').html('%s')" % self._config.arch)
-        self.execute_script("$('#autostart').toggleClass('fa-check-square-o', %s).toggleClass('fa-square-o', %s)" % (to_json(self._config.autostart), to_json(not self._config.autostart)))
+        self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
+        self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (to_json(self._config.autostart), to_json(not self._config.autostart)))
 
-        #self.execute_script("$('#codename').html('%s')" % (to_json(self._config.codename)))
-        #self.execute_script("$('#desktop').html('%s')" % (to_json(self._config.desktop)))
-        #self.execute_script("$('#version').html('%s')" % (self._config.version))
-
+        # If this is a Live session (booted from ISO) show the 
+        # 'Install OS' button, if runningon an installed system show the
+        # 'Install Software' button.        
         if self._config.live:
-            self.execute_script("$('#install').toggleClass('hide', false);")
+            self.execute_script("$('#install').show();")
+            self.execute_script("$('#software').hide();")
         else:
-            self.execute_script("$('#build').toggleClass('hide', false);")
-            self.execute_script("$('#donate').toggleClass('hide', false);")
+            self.execute_script("$('#install').hide();")
+            self.execute_script("$('#software').show();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -161,8 +157,11 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['apturl-gtk', uri[4:]])
             #sudo software-properties-gtk --enable-ppa=ubuntu-mate-dev/vivid-mate
             #sudo apt-add-repository --enable-source --yes "http://archive.canonical.com/ubuntu partner"
+        elif uri == 'autostart':
+            self._config.autostart ^= True
+            self._push_config()
         elif uri == 'install':
-            subprocess.Popen(['ubiquity','gtk_ui'])
+            subprocess.Popen(['ubiquity','gtk_ui'])            
         elif uri == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
         elif uri == 'control':
@@ -173,9 +172,6 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['gnome-language-selector'])
         elif uri == 'quit':
             Gtk.main_quit()
-        elif uri == 'toggle':
-            self._config.autostart ^= True
-            self._push_config()
         elif uri == 'tweak':
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
@@ -206,11 +202,12 @@ class WelcomeApp(object):
         self._build_app()
 
     def _build_app(self):
+        
         # build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
-        w.set_title('')
+        w.set_title('Welcome to Ubuntu MATE')
         w.set_size_request(768, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
@@ -220,7 +217,7 @@ class WelcomeApp(object):
         mv = AppView()
 
         # load our index file
-        file = os.path.abspath( os.path.join( self._data_path, 'index.html') )
+        file = os.path.abspath(os.path.join(self._data_path, 'index.html'))
         uri = 'file://' + urllib.request.pathname2url(file)
         mv.open(uri)
 

@@ -11,19 +11,17 @@
     <div id="header" class="container-fluid">
       <div class="row-fluid">
         <div class="span6 offset3 center">
-          <h1>Welcome to Ubuntu MATE</h1>
+          <h1 id="os_title">Ubuntu MATE</h1>
         </div>
       </div>
       <div class="row-fluid">
         <div class="span12">
           <div class="summary">
-            <p>Welcome to Ubuntu MATE, and thank you for joining our
-            community. We, the Ubuntu MATE developers, hope that you will
-            enjoy using Ubuntu MATE as much as we enjoy building it. The
-            links below will help you get started with your new operating
-            system.</p>
-            <p>Enjoy the experience and don't hesitate to send us your
-            feedback.</p>
+            <p>Welcome to Ubuntu MATE! Thank you for joining our community.
+            Each menu below will take you to little page that will help
+            explain what Ubuntu MATE, get you orientated with your new
+            operating system and guide you through some initial
+            configuration.</p>
           </div>
         </div>
       </div>
@@ -41,7 +39,8 @@
           <h4>Support</h4>          
           <a class="btn btn-block btn-inverse" href="./community.html"><span class="fa fa-2x fa-group"></span>&nbsp;Community</a>
           <a class="btn btn-block btn-inverse" href="./chatroom.html"><span class="fa fa-2x fa-comment"></span>&nbsp;Chat Room</a>
-          <a class="btn btn-block btn-inverse" href="./software.html"><span class="fa fa-2x fa-download"></span>&nbsp;Install Software</a>
+          <a id="software" class="btn btn-block btn-inverse" href="software.html"><span class="fa fa-2x fa-download"></span>&nbsp;Install Software</a>
+          <a id="install" class="btn btn-block btn-inverse" href="cmd://install"><span class="fa fa-2x fa-hdd-o"></span>&nbsp;Install Ubuntu MATE</a>
         </div>
         <div class="span4 btn-showcase">
           <h4>Project</h4>
@@ -60,8 +59,7 @@
           <a href="cmd://link?https://ubuntu-mate.org"><img src="img/icons/website-24x24.png"></a>
         </div>
         <div class="form">
-          <a id="toggle" href="cmd://toggle"><span id="autostart" class="fa fa-square-o"></span> Show this dialog on startup.</a>
-          <a href="cmd://quit" class="btn btn-inverse">Close</a>
+          <a href="cmd://autostart">Show this welcome menu when you login&nbsp;&nbsp;<span id="autostart" class="fa fa-2x fa-sqaure"></span></a>          
         </div>
       </div>
     </div>
