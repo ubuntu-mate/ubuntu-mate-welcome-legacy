@@ -38,12 +38,12 @@ from simplejson import dumps as to_json
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
     def __init__(self):
-        # store our base architecture        
+        # store our base architecture
         self.os_version = platform.dist()[1]
         self.os_codename = platform.dist()[2]
         self.os_title = 'Ubuntu MATE ' + self.os_version
         self._arch = os.uname()[4]
-        
+
         # store we are a live CD session
         self._live = os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override')
 
@@ -57,15 +57,17 @@ class WelcomeConfig(object):
         self._autostart_dir = os.path.expanduser('~/.config/autostart/')
 
         # full path to the autostart symlink
-        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop')
+        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
 
-        # ensure our config directory exists
-        if not os.path.exists(self._config_dir):
-            try:
-                os.makedirs(self._config_dir)
-            except OSError as err:
-                print(err)
-                pass
+        # ensure our config and autostart directories exists
+        for _dir in [self._config_dir, self._autostart_dir]:
+            if not os.path.exists(_dir):
+                try:
+                    os.makedirs(_dir)
+                except OSError as err:
+                    print(err)
+                    pass
+
         # does autostart symlink exist
         self._autostart = os.path.exists(self._autostart_path)
 
@@ -81,8 +83,7 @@ class WelcomeConfig(object):
     def autostart(self, state):
         if state and not os.path.exists(self._autostart_path):
             # create the autostart symlink
-            try:
-                os.makedirs(self._autostart_dir)
+            try:                
                 os.symlink('/usr/share/mate/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
                 print(err)
@@ -159,7 +160,9 @@ class AppView(WebKit.WebView):
             uri = uri[6:]
 
         if uri.startswith('apt?'):
-            subprocess.Popen(['gksudo', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[4:]])
+            subprocess.Popen(['apturl-gtk', uri[4:]])
+            #sudo software-properties-gtk --enable-ppa=ubuntu-mate-dev/vivid-mate
+            #sudo apt-add-repository --enable-source --yes "http://archive.canonical.com/ubuntu partner"
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()

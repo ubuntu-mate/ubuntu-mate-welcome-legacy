@@ -4,9 +4,8 @@ Priority: optional
 Maintainer: Ubuntu MATE Team <ubuntu-mate-dev@lists.launchpad.net>
 Build-Depends: debhelper (>= 9),
 Standards-Version: 3.9.6
-Homepage: https://launchpad.net/ubuntu-mate/
-Vcs-Bzr: lp:~ubuntu-mate-dev/ubuntu-mate/ubuntu-mate-settings
-Vcs-Browser: http://bazaar.launchpad.net/~ubuntu-mate-dev/ubuntu-mate/ubuntu-mate-settings/files
+Homepage: https://bitbucket.org/ubuntu-mate/mate-mate-welcome
+Vcs-Browser: https://bitbucket.org/ubuntu-mate/ubuntu-mate-welcome/src
 
 Package: ubuntu-mate-welcome
 Architecture: all
@@ -25,4 +24,4 @@ Recommends: mate-control-center,
 Suggests: hexchat
 Description: Ubuntu MATE Welcome
  A welcome screen for Ubuntu MATE that provides links to helpful
- resources.
+ resources and utilities.
