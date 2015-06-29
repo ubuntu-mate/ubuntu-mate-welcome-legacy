@@ -52,41 +52,33 @@ if __name__ == "__main__":
 
     if os.getuid() == 0:
         codename = platform.dist()[2]
-        print(codename)
         
         if (apturl.find('skype') >= 1) or (apturl.find('adobe-flashplugin') >=1 ):
-            print('Adding partner repo')
             subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
             subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
         elif (apturl.find('telegram') >= 1):
-            print('Found telegram')
             subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'ppa:atareao/telegram'])
             subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])            
         elif apturl.find('google-chrome-stable') >=1:
-            print('Found google-chrome')
             add_repo_key('http://dl.google.com/linux/linux_signing_key.pub')
             subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb http://dl.google.com/linux/chrome/deb/ stable main']
+            lines = ['deb [arch=amd64,i386] http://dl.google.com/linux/chrome/deb/ stable main']
             add_repo(lines, 'google-chrome.list')
             subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
         elif apturl.find('steam-launcher') >=1:
-            print('Found steam')
             add_repo_key('http://repo.steampowered.com/steam/signature.gpg')
             subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam']
-  
-            add_repo(lines, 'steam-launcher.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])    
-            # Remove the transient source.list.d file.
-            os.remove(os.path.join('/', 'etc', 'apt', 'sources.list.d', 'steam-launcher.list'))
+            lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+                     'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+                     '']
+            add_repo(lines, 'steam.list')
+            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
         elif apturl.find('spotify-client') >=1:
-            print('Found spotify')
-            subprocess.call(['apt-key', 'adv', '--keyserver', 'keyserver.ubuntu.com', '--recv-keys', '94558F59'])
+            subprocess.call(['apt-key', 'adv', '--kf eyserver', 'keyserver.ubuntu.com', '--recv-keys', '94558F59'])
             lines = ['deb http://repository.spotify.com stable non-free']
             add_repo(lines, 'spotify.list')
             subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
         elif apturl.find('dropbox') >=1:
-            print('Found dropbox')
             if codename == 'wily':
                 codename == 'vivid'
 

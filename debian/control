@@ -19,6 +19,10 @@ Depends: gir1.2-gtk-3.0,
          software-properties-common,
          synaptic,
          ${misc:Depends},
+Recommends: mate-control-center,
+            mate-tweak,
+            update-manager,
+Suggests: hexchat
 Description: Ubuntu MATE Welcome
  A welcome screen for Ubuntu MATE that provides links to helpful
  resources.
