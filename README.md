@@ -1,6 +1,6 @@
 # ubuntu-mate-welcome
 
-Ubuntu MATE welcome screen
+Ubuntu MATE welcome screen. 
 
   * gtk
   * python3
