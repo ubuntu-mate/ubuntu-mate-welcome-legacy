@@ -12,10 +12,12 @@ Package: ubuntu-mate-welcome
 Architecture: all
 Depends: gir1.2-gtk-3.0,
          gir1.2-webkit-3.0,
+         gksudo,
          python-gobject,
          python3,
          python3-simplejson,
          software-properties-common,
+         synaptic,
          ${misc:Depends},
 Description: Ubuntu MATE Welcome
  A welcome screen for Ubuntu MATE that provides links to helpful

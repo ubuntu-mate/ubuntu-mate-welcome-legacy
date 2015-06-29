@@ -155,9 +155,7 @@ class AppView(WebKit.WebView):
             uri = uri[6:]
 
         if uri.startswith('apt?'):
-            subprocess.Popen(['apturl-gtk', uri[4:]])
-            #sudo software-properties-gtk --enable-ppa=ubuntu-mate-dev/vivid-mate
-            #sudo apt-add-repository --enable-source --yes "http://archive.canonical.com/ubuntu partner"
+            subprocess.Popen(['gksudo' '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[4:]])
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()
