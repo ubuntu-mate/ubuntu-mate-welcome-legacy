@@ -87,7 +87,6 @@ if __name__ == "__main__":
             add_repo(lines, 'dropbox.list')
             subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
         elif apturl.find('virtualbox-4.3') >=1:
-            print('Found virtualbox')
             if codename == 'wily':
                 codename == 'vivid'
             add_repo_key('https://www.virtualbox.org/download/oracle_vbox.asc')
