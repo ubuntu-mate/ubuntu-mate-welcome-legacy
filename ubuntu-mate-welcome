@@ -42,7 +42,7 @@ class WelcomeConfig(object):
         self.os_version = platform.dist()[1]
         self.os_codename = platform.dist()[2]
         self.os_title = 'Ubuntu MATE ' + self.os_version
-        self.os_arch = os.uname()[4]
+        self._arch = os.uname()[4]
         
         # store we are a live CD session
         self._live = os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override')
@@ -50,11 +50,14 @@ class WelcomeConfig(object):
         # store full path to our binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
 
-        # store directory to our welcome configuration
+        # directory for the configuration
         self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
 
-        # store full path to our autostart symlink
-        self._autostart_path = os.path.expanduser('~/.config/autostart/ubuntu-mate-welcome.desktop')
+        # autostart directory
+        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
+
+        # full path to the autostart symlink
+        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop')
 
         # ensure our config directory exists
         if not os.path.exists(self._config_dir):
@@ -79,6 +82,7 @@ class WelcomeConfig(object):
         if state and not os.path.exists(self._autostart_path):
             # create the autostart symlink
             try:
+                os.makedirs(self._autostart_dir)
                 os.symlink('/usr/share/mate/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
                 print(err)
