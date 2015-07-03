@@ -2,10 +2,11 @@
 Terminal=false
 Type=Application
 Categories=GTK;Core;Utility;
-OnlyShowIn=MATE;
 StartupNotify=false
 Name=Ubuntu MATE Welcome
+Comment=Welcome to Ubuntu MATE
 Exec=ubuntu-mate-welcome
-Icon=gtk-info
-Comment=The Ubuntu MATE Welcome utility.
-OnlyShowIn=MATE
+Icon=ubuntu-mate
+OnlyShowIn=MATE;
+StartupNotify=false
+NoDisplay=true
