@@ -127,6 +127,11 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
+        
+        if self._config.arch != 'i686' and self._config.arch != 'x86_64':
+            self.execute_script("$('.pc-only').hide();")
+        else:
+            self.execute_script("$('.pc-only').show();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
