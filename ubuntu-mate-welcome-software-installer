@@ -36,7 +36,7 @@ gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
 
 class SimpleApt(object):
     def __init__(self, packages):
-        self._timeout=250
+        self._timeout=100
         self.packages=packages
         self.update_cache = False
         self.loop = GLib.MainLoop()
@@ -54,12 +54,34 @@ class SimpleApt(object):
         error_dialog.run()
         error_dialog.hide()
 
-    def on_finished_update(self, trans, exit):
-        if exit != "exit-success":
+    def on_finished_update(self, transaction, status):
+        if status != 'exit-success':
+            self.do_notify(status)
             self.loop.quit()
             sys.exit(1)
         GLib.timeout_add(self._timeout,self.do_install)
         return True
+
+    def on_finished_install(self, transaction, status):
+        self.loop.quit()
+        if status != 'exit-success':
+            sys.exit(1)
+        else:
+            self.do_notify(status)
+
+    def do_notify(self, status):
+        #print(status)
+        if status == 'exit-success':
+            Notify.init(_('Install complete'))
+            apt_notify=Notify.Notification.new (_('Install complete'),_(','.join(self.packages) + ' has been successfully installed.'),'dialog-information')
+        elif status == 'exit-cancelled':
+            Notify.init(_('Install cancelled'))
+            apt_notify=Notify.Notification.new (_('Install cancelled'),_('The installation of ' + ','.join(self.packages) + ' has been cancelled.'),'dialog-information')
+        else:
+            Notify.init(_('Install failed'))
+            apt_notify=Notify.Notification.new (_('Install failed'),_('The installation of ' + ','.join(self.packages) + ' failed.'),'dialog-error')
+
+        apt_notify.show()
 
     def do_update(self):
         apt_update = self.client.update_cache()
@@ -72,14 +94,10 @@ class SimpleApt(object):
                 )
         return False
 
-    def on_finished_install(self, trans, exit):
-        self.loop.quit()
-        if exit != "exit-success":
-            sys.exit(1)
-
     def do_install(self):
         apt_install = self.client.install_packages(self.packages)
         apt_install.connect("finished", self.on_finished_install)
+
         install_dialog = AptProgressDialog(apt_install)
         install_dialog.run(close_on_finished=True, show_error=True,
                         reply_handler=lambda: True,
@@ -108,21 +126,6 @@ def add_repo(lines, listname):
     print('Writing ' + os.path.join('/','etc','apt','sources.list.d',listname))
     with open(os.path.join('/','etc','apt','sources.list.d',listname), 'w') as f:
         f.write('\n'.join(lines))
-
-def notify_install_cancelled():
-    Notify.init(_('Install cancelled'))
-    replace_windowmanager_notify=Notify.Notification.new (_('Install cancelled'),_('The installation of ' + packages + ' has been cancelled.'),'dialog-information')
-    replace_windowmanager_notify.show()
-
-def notify_install_success():
-    Notify.init(_('Install complete'))
-    replace_windowmanager_notify=Notify.Notification.new (_('Install complete'),_('The following software has been correctly installed ' + packages),'dialog-information')
-    replace_windowmanager_notify.show()
-
-def notify_install_failed():
-    Notify.init(_('Install failed'))
-    replace_windowmanager_notify=Notify.Notification.new (_('Install failed'),_('The installation of ' + packages + 'failed.'),'dialog-error')
-    replace_windowmanager_notify.show()
 
 if __name__ == "__main__":
     if len(sys.argv) >= 2:
