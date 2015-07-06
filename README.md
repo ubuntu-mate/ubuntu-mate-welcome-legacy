@@ -1,9 +1,19 @@
 # ubuntu-mate-welcome
 
-Ubuntu MATE welcome screen. 
+The Ubuntu MATE Welcome screen. 
+
+Based on:
+
+  * https://github.com/Antergos/antergos-welcome
+  * http://blog.schlomo.schapiro.org/2014/01/apt-install.html
+
+## Requirements
 
   * gtk
   * python3
+  * python-aptdaemon
+  * python-aptdaemon.gtk3widgets
+  * python-gi  
   * python-simplejson
 
 The social icons were created by Paul Robert Lloyd and licenced
