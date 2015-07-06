@@ -219,12 +219,8 @@ class WelcomeApp(object):
         w.set_title('Welcome to Ubuntu MATE')
         w.set_size_request(768, 552)
 
-        icon_theme = Gtk.IconTheme.get_default()
-        try:
-            Gtk.window_set_default_icon(icon_theme.load_icon("ubuntu-mate", 32, 0))
-        except (GLib.GError, AttributeError):
-            icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
-            w.set_icon_from_file(icon_dir)
+        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
+        w.set_icon_from_file(icon_dir)
 
         # build webkit container
         mv = AppView()
