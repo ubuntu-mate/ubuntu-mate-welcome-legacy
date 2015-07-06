@@ -38,6 +38,7 @@ class SimpleApt(object):
     def __init__(self, packages):
         self._timeout=100
         self.packages=packages
+        self.listname = None
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
@@ -70,7 +71,7 @@ class SimpleApt(object):
             self.do_notify(status)
 
     def do_notify(self, status):
-        #print(status)
+        print(status)
         if status == 'exit-success':
             Notify.init(_('Install complete'))
             apt_notify=Notify.Notification.new (_('Install complete'),_(','.join(self.packages) + ' has been successfully installed.'),'dialog-information')
@@ -84,7 +85,10 @@ class SimpleApt(object):
         apt_notify.show()
 
     def do_update(self):
-        apt_update = self.client.update_cache()
+        if self.listname:
+            apt_update = self.client.update_cache(self.listname)
+        else:
+            apt_update = self.client.update_cache()
         apt_update.connect("finished",self.on_finished_update)
         
         update_dialog = AptProgressDialog(apt_update)
@@ -121,19 +125,22 @@ def add_repo_key(repo_key_url):
     with urllib.request.urlopen(repo_key_url) as response, open(os.path.join('/', 'tmp', 'pub.key'), 'wb') as out_file:
         data = response.read() # a `bytes` object
         out_file.write(data)
+    subprocess.call(['aptdcon', '--add-vendor-key=' + os.path.join('/', 'tmp', 'pub.key')])
 
-def add_repo(lines, listname):
-    print('Writing ' + os.path.join('/','etc','apt','sources.list.d',listname))
-    with open(os.path.join('/','etc','apt','sources.list.d',listname), 'w') as f:
-        f.write('\n'.join(lines))
+def add_to_sources(source, listname):
+    #print('Writing ' + os.path.join('/','etc','apt','sources.list.d',listname))
+    #with open(os.path.join('/','etc','apt','sources.list.d',listname), 'w') as f:
+    #    f.write('\n'.join(source))
+    subprocess.call(['aptdcon', '--add-repository=' + source, '--sources-file', listname])
 
-if __name__ == "__main__":
+if __name__ == "__main__":    
     if len(sys.argv) >= 2:
         packages = sys.argv[1].split(',')
     else:
         print('No package(s) supplied')
         sys.exit(1)
 
+    codename = platform.dist()[2]
     transaction = SimpleApt(packages)
     
     # Perform any pre-install configuration. Basically enabling repositories or
@@ -149,9 +156,9 @@ if __name__ == "__main__":
         transaction.update_cache = True
     elif 'google-chrome-stable' in packages:
         add_repo_key('http://dl.google.com/linux/linux_signing_key.pub')
-        subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-        lines = ['deb [arch=amd64,i386] http://dl.google.com/linux/chrome/deb/ stable main']
-        add_repo(lines, 'google-chrome.list')
+        #subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+        add_to_sources('deb [arch=amd64,i386] http://dl.google.com/linux/chrome/deb/ stable main','google-chrome.list')
+        transaction.listname = 'google-chrome.list'
         transaction.update_cache = True
     elif 'syncthing' in packages:
         add_repo_key('https://syncthing.net/release-key.txt')
@@ -162,10 +169,12 @@ if __name__ == "__main__":
     elif 'steam-launcher' in packages:
         add_repo_key('http://repo.steampowered.com/steam/signature.gpg')
         subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-        lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                 'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                 '']
-        add_repo(lines, 'steam.list')
+        #lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+        #         'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+        #         '']
+        #add_repo(lines, 'steam.list')
+        add_to_sources('deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam','steam.list')
+        add_to_sources('deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam','steam.list')
         transaction.update_cache = True
     elif 'spotify-client' in packages:
         subprocess.call(['apt-key', 'adv', '--keyserver', 'keyserver.ubuntu.com', '--recv-keys', '94558F59'])
