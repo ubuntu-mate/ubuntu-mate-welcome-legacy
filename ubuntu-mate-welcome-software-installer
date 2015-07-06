@@ -36,6 +36,7 @@ gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
 
 class SimpleApt(object):
     def __init__(self, packages):
+        self._timeout=250
         self.packages=packages
         self.update_cache = False
         self.loop = GLib.MainLoop()
@@ -57,7 +58,7 @@ class SimpleApt(object):
         if exit != "exit-success":
             self.loop.quit()
             sys.exit(1)
-        GLib.timeout_add(200,self.do_install)
+        GLib.timeout_add(self._timeout,self.do_install)
         return True
 
     def do_update(self):
@@ -88,9 +89,9 @@ class SimpleApt(object):
 
     def install_packages(self):
         if self.update_cache:
-            GLib.timeout_add(50,self.do_update)
+            GLib.timeout_add(self._timeout,self.do_update)
         else:
-            GLib.timeout_add(200,self.do_install)
+            GLib.timeout_add(self._timeout,self.do_install)
         self.loop.run()
 
 def add_repo_key(repo_key_url):
