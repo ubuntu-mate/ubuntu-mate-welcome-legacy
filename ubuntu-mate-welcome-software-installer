@@ -49,9 +49,9 @@ class SimpleApt(object):
         elif not isinstance(error, aptdaemon.errors.TransactionFailed):
             # Catch internal errors of the client
             error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
-        dia = AptErrorDialog(error)
-        dia.run()
-        dia.hide()
+        error_dialog = AptErrorDialog(error)
+        error_dialog.run()
+        error_dialog.hide()
 
     def on_finished_update(self, trans, exit):
         if exit != "exit-success":
@@ -61,11 +61,11 @@ class SimpleApt(object):
         return True
 
     def do_update(self):
-        trans_update = self.client.update_cache()
-        trans_update.connect("finished",self.on_finished_update)
+        apt_update = self.client.update_cache()
+        apt_update.connect("finished",self.on_finished_update)
         
-        dia = AptProgressDialog(trans_update)
-        dia.run(close_on_finished=True, show_error=True,
+        update_dialog = AptProgressDialog(apt_update)
+        update_dialog.run(close_on_finished=True, show_error=True,
                 reply_handler=lambda: True,
                 error_handler=self.on_error,
                 )
@@ -77,10 +77,10 @@ class SimpleApt(object):
             sys.exit(1)
 
     def do_install(self):
-        trans_inst = self.client.install_packages(self.packages)
-        trans_inst.connect("finished", self.on_finished_install)
-        dia2 = AptProgressDialog(trans_inst)
-        dia2.run(close_on_finished=True, show_error=True,
+        apt_install = self.client.install_packages(self.packages)
+        apt_install.connect("finished", self.on_finished_install)
+        install_dialog = AptProgressDialog(apt_install)
+        install_dialog.run(close_on_finished=True, show_error=True,
                         reply_handler=lambda: True,
                         error_handler=self.on_error,
                         )
