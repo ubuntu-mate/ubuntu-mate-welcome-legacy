@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -17,16 +17,66 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
+
 import gettext
 import os
 import platform
 import subprocess
 import sys
 import urllib.request
-from gi.repository import Notify
+from gi.repository import GLib, Notify
+
+from aptdaemon.client import AptClient
+from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
+import aptdaemon.errors
+from aptdaemon.enums import *
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
+
+def on_error(error):
+    if isinstance(error, aptdaemon.errors.NotAuthorizedError):
+        # Silently ignore auth failures
+        return
+    elif not isinstance(error, aptdaemon.errors.TransactionFailed):
+        # Catch internal errors of the client
+        error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
+    dia = AptErrorDialog(error)
+    dia.run()
+    dia.hide()
+
+def on_finished_update(trans, exit):
+    if exit != "exit-success":
+        loop.quit()
+        sys.exit(1)
+    GLib.timeout_add(200,do_install)
+    return True
+
+def do_update():
+    trans_update = aptclient.update_cache()
+    trans_update.connect("finished",on_finished_update)
+    
+    dia = AptProgressDialog(trans_update)
+    dia.run(close_on_finished=True, show_error=True,
+            reply_handler=lambda: True,
+            error_handler=on_error,
+            )
+    return False
+
+def on_finished_install(trans, exit):
+    loop.quit()
+    if exit != "exit-success":
+        sys.exit(1)
+
+def do_install():
+    trans_inst = aptclient.install_packages(packages)
+    trans_inst.connect("finished", on_finished_install)
+    dia2 = AptProgressDialog(trans_inst)
+    dia2.run(close_on_finished=True, show_error=True,
+                    reply_handler=lambda: True,
+                    error_handler=on_error,
+                    )
+    return False
 
 def add_repo_key(repo_key_url):
     print('Getting ' + repo_key_url)
@@ -43,96 +93,97 @@ def add_repo(lines, listname):
     with open(os.path.join('/','etc','apt','sources.list.d',listname), 'w') as f:
         f.write('\n'.join(lines))
 
-def install_complete(software):
+def notify_install_cancelled():
+    Notify.init(_('Install cancelled'))
+    replace_windowmanager_notify=Notify.Notification.new (_('Install cancelled'),_('The installation of ' + packages + ' has been cancelled.'),'dialog-information')
+    replace_windowmanager_notify.show()
+
+def notify_install_success():
     Notify.init(_('Install complete'))
-    replace_windowmanager_notify=Notify.Notification.new (_('Install complete'),_('The following software has been correctly installed ' + software),'dialog-information')
+    replace_windowmanager_notify=Notify.Notification.new (_('Install complete'),_('The following software has been correctly installed ' + packages),'dialog-information')
+    replace_windowmanager_notify.show()
+
+def notify_install_failed():
+    Notify.init(_('Install failed'))
+    replace_windowmanager_notify=Notify.Notification.new (_('Install failed'),_('The installation of ' + packages + 'failed.'),'dialog-error')
     replace_windowmanager_notify.show()
 
 if __name__ == "__main__":
-    if len(sys.argv) == 2:
-        apturl = sys.argv[1]
-        if apturl.startswith('apt:'):
-            print('URL is ' + apturl)
-        else:
-            print('URL in invalid: ' + apturl)
-            sys.exit(1)
+    if len(sys.argv) >= 2:
+        packages = sys.argv[1].split(',')
     else:
-        print("No package supplied")
+        print('No package(s) supplied')
         sys.exit(1)
 
-    if os.getuid() == 0:
-        codename = platform.dist()[2]
-        
-        if (apturl.find('adobe-flashplugin') >=1 ):
-            subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Adobe Flash')
-        elif (apturl.find('skype') >= 1):
-            subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Skype')
-        elif (apturl.find('telegram') >= 1):
-            subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'ppa:atareao/telegram'])
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Telegram')
-        elif apturl.find('google-chrome-stable') >=1:
-            add_repo_key('http://dl.google.com/linux/linux_signing_key.pub')
-            subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb [arch=amd64,i386] http://dl.google.com/linux/chrome/deb/ stable main']
-            add_repo(lines, 'google-chrome.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Google Chrome')
-        elif apturl.find('syncthing') >=1:
-            add_repo_key('https://syncthing.net/release-key.txt')
-            subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb http://apt.syncthing.net/ syncthing release']
-            add_repo(lines, 'syncthing.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Syncthing')    
-        elif apturl.find('steam-launcher') >=1:
-            add_repo_key('http://repo.steampowered.com/steam/signature.gpg')
-            subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                     'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                     '']
-            add_repo(lines, 'steam.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Steam')
-        elif apturl.find('spotify-client') >=1:
-            subprocess.call(['apt-key', 'adv', '--kf eyserver', 'keyserver.ubuntu.com', '--recv-keys', '94558F59'])
-            lines = ['deb http://repository.spotify.com stable non-free']
-            add_repo(lines, 'spotify.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Spotify')
-        elif apturl.find('dropbox') >=1:
-            if codename == 'wily':
-                codename == 'vivid'
+    print(packages)
 
-            subprocess.call(['apt-key', 'adv', '--keyserver', 'pgp.mit.edu', '--recv-keys', '5044912E'])
-            lines = ['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main']
-            add_repo(lines, 'dropbox.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('Dropbox')
-        elif apturl.find('virtualbox-4.3') >=1:
-            if codename == 'wily':
-                codename == 'vivid'
-            add_repo_key('https://www.virtualbox.org/download/oracle_vbox.asc')
-            subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
-            lines = ['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib']
-            add_repo(lines, 'virtualbox.list')
-            subprocess.call(['synaptic', '--hide-main-window', '--update-at-startup', '--non-interactive'])
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete('VirtualBox')
+    loop = GLib.MainLoop()
+    aptclient = AptClient()
+    update_cache = False
+    # Perform any pre-install configuration. Basically enabling repositories or
+    # adding PPAs.
+    if 'adobe-flashplugin' in packages:
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
+        update_cache = True
+    elif 'skype' in packages:
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
+        update_cache = True
+    elif 'telegram' in packages:
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'ppa:atareao/telegram'])
+        update_cache = True
+    elif 'google-chrome-stable' in packages:
+        add_repo_key('http://dl.google.com/linux/linux_signing_key.pub')
+        subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+        lines = ['deb [arch=amd64,i386] http://dl.google.com/linux/chrome/deb/ stable main']
+        add_repo(lines, 'google-chrome.list')
+        update_cache = True
+    elif 'syncthing' in packages:
+        add_repo_key('https://syncthing.net/release-key.txt')
+        subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+        lines = ['deb http://apt.syncthing.net/ syncthing release']
+        add_repo(lines, 'syncthing.list')
+        update_cache = True
+    elif 'steam-launcher' in packages:
+        add_repo_key('http://repo.steampowered.com/steam/signature.gpg')
+        subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+        lines = ['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+                 'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+                 '']
+        add_repo(lines, 'steam.list')
+        update_cache = True
+    elif 'spotify-client' in packages:
+        subprocess.call(['apt-key', 'adv', '--keyserver', 'keyserver.ubuntu.com', '--recv-keys', '94558F59'])
+        
+        # Workaround vivid and wily no longer having libgcrypt11 that Spotify
+        # requires.
+        if codename == 'vivid' or codename == 'wily':
+            lines = ['deb http://repository.spotify.com stable non-free',
+                     'deb http://security.ubuntu.com/ubuntu utopic-security main']
+            packages.append(['libgcrypt11'])
         else:
-            subprocess.call(['apturl-gtk', apturl])
-            install_complete(apturl.replace('apt:',''))
+            lines = ['deb http://repository.spotify.com stable non-free']
+        add_repo(lines, 'spotify.list')
+        update_cache = True
+    elif 'dropbox' in packages:
+        if codename == 'wily':
+            codename == 'vivid'
+
+        subprocess.call(['apt-key', 'adv', '--keyserver', 'pgp.mit.edu', '--recv-keys', '5044912E'])
+        lines = ['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main']
+        add_repo(lines, 'dropbox.list')
+        update_cache = True
+    elif 'virtualbox-4.3' in packages:
+        if codename == 'wily':
+            codename == 'vivid'
+        add_repo_key('https://www.virtualbox.org/download/oracle_vbox.asc')
+        subprocess.call(['/usr/bin/apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+        lines = ['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib']
+        add_repo(lines, 'virtualbox.list')
+        update_cache = True
+
+    if update_cache:
+        GLib.timeout_add(50,do_update)
     else:
-        print('Authentication was cancelled.')
+        GLib.timeout_add(200,do_install)
+        
+    loop.run()
