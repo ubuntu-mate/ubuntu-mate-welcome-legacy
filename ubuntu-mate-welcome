@@ -254,5 +254,6 @@ class WelcomeApp(object):
     def close(self, p1, p2):
         Gtk.main_quit(p1, p2);
 
-app = WelcomeApp()
-app.run()
+if __name__ == "__main__":
+    app = WelcomeApp()
+    app.run()
