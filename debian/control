@@ -11,9 +11,9 @@ Package: ubuntu-mate-welcome
 Architecture: all
 Depends: gir1.2-gtk-3.0,
          gir1.2-webkit-3.0,
-         gksu,
          libgtk2-perl,
          libnotify4,
+         policykit-1,
          python-gobject,
          python3,
          python3-aptdaemon,
