@@ -33,8 +33,7 @@ import sys
 import urllib.request
 import urllib.error
 import webbrowser
-from gi.repository import WebKit, Gtk
-from simplejson import dumps as to_json
+from gi.repository import Gtk, WebKit
 
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
@@ -113,11 +112,10 @@ class AppView(WebKit.WebView):
         self.connect('load-finished', self._load_finished_cb)
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
-
+		
     def _push_config(self):
-        # Use jQuery to manipulate CSS classes and content
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
-        self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (to_json(self._config.autostart), to_json(not self._config.autostart)))
+        self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
 
         # If this is a Live session (booted from ISO) show the 
         # 'Install OS' button, if runningon an installed system show the
@@ -133,15 +131,39 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.pc-only').hide();")
         else:
             self.execute_script("$('.pc-only').show();")
+
+        if self._apt_cache['hexchat'].is_installed:
+            self.execute_script("$('.hexchat').show();")
+            self.execute_script("$('.webchat').hide();")
+        else:
+            self.execute_script("$('.hexchat').hide();")
+            self.execute_script("$('.webchat').show();")
         
         # Change button states for Software.html        
-        for package in ['geany', 'zim']:
-            if self._apt_cache[package].is_installed:             
-                self.execute_script("$('."+package+"-install').hide();")
-                self.execute_script("$('."+package+"-reinstall').show();")
+        # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
+        for package in ['audacity', 'blender','darktable','dropbox',
+                        'flashplugin-installer','geany', 'gimp',
+                        'google-chrome-stable','gstreamer1.0-fluendo-mp3',
+                        'inkscape','libavcodec-extra','meld','pysolfc',
+                        'scribus','skype','spotify-client','steam-launcher',
+                        'sweethome3d','syncthing','telegram','terminator',
+                        'ubuntu-sdk', 'uget','virtualbox-4.3','zim']:
+			
+            if package == 'virtualbox-4.3':
+                css_class = 'virtualbox'
+            elif package == 'gstreamer1.0-fluendo-mp3':	
+                css_class = 'fluendo-mp3'
             else:
-                self.execute_script("$('."+package+"-install').show();")
-                self.execute_script("$('."+package+"-reinstall').hide();")
+                css_class = package
+
+            if self._apt_cache[package].is_installed:
+                self.execute_script("$('."+css_class+"-install').hide();")
+                self.execute_script("$('."+css_class+"-reinstall').show();")
+                self.execute_script("$('."+css_class+"-remove').show();")
+            else:
+                self.execute_script("$('."+css_class+"-install').show();")
+                self.execute_script("$('."+css_class+"-reinstall').hide();")
+                self.execute_script("$('."+css_class+"-remove').hide();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -174,8 +196,12 @@ class AppView(WebKit.WebView):
         if uri.startswith('cmd://'):
             uri = uri[6:]
 
-        if uri.startswith('apt?'):
-            subprocess.Popen(['/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[4:]])
+        if uri.startswith('apt-install?'):
+            subprocess.Popen(['/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[12:], 'install'])
+            self._push_config()
+        elif uri.startswith('apt-remove?'):
+            subprocess.Popen(['/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[11:], 'remove'])
+            self._push_config()
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()
