@@ -83,7 +83,7 @@ class WelcomeConfig(object):
     def autostart(self, state):
         if state and not os.path.exists(self._autostart_path):
             # create the autostart symlink
-            try:                
+            try:
                 os.symlink('/usr/share/mate/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
                 print(err)
@@ -112,21 +112,21 @@ class AppView(WebKit.WebView):
         self.connect('load-finished', self._load_finished_cb)
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
-		
+
     def _push_config(self):
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
 
-        # If this is a Live session (booted from ISO) show the 
+        # If this is a Live session (booted from ISO) show the
         # 'Install OS' button, if runningon an installed system show the
-        # 'Install Software' button.        
+        # 'Install Software' button.
         if self._config.live:
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
-        
+
         if self._config.arch != 'i686' and self._config.arch != 'x86_64':
             self.execute_script("$('.pc-only').hide();")
         else:
@@ -138,8 +138,8 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('.hexchat').hide();")
             self.execute_script("$('.webchat').show();")
-        
-        # Change button states for Software.html        
+
+        # Change button states for Software.html
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
         for package in ['audacity', 'blender','darktable','dropbox',
                         'flashplugin-installer','geany', 'gimp',
@@ -148,19 +148,24 @@ class AppView(WebKit.WebView):
                         'scribus','skype','spotify-client','steam-launcher',
                         'sweethome3d','syncthing','telegram','terminator',
                         'ubuntu-sdk', 'uget','virtualbox-4.3','zim']:
-			
+
             if package == 'virtualbox-4.3':
                 css_class = 'virtualbox'
-            elif package == 'gstreamer1.0-fluendo-mp3':	
+            elif package == 'gstreamer1.0-fluendo-mp3':
                 css_class = 'fluendo-mp3'
             else:
                 css_class = package
 
-            if self._apt_cache[package].is_installed:
-                self.execute_script("$('."+css_class+"-install').hide();")
-                self.execute_script("$('."+css_class+"-reinstall').show();")
-                self.execute_script("$('."+css_class+"-remove').show();")
-            else:
+            try:
+                if self._apt_cache[package].is_installed:
+                    self.execute_script("$('."+css_class+"-install').hide();")
+                    self.execute_script("$('."+css_class+"-reinstall').show();")
+                    self.execute_script("$('."+css_class+"-remove').show();")
+                else:
+                    self.execute_script("$('."+css_class+"-install').show();")
+                    self.execute_script("$('."+css_class+"-reinstall').hide();")
+                    self.execute_script("$('."+css_class+"-remove').hide();")
+            except:
                 self.execute_script("$('."+css_class+"-install').show();")
                 self.execute_script("$('."+css_class+"-reinstall').hide();")
                 self.execute_script("$('."+css_class+"-remove').hide();")
@@ -206,9 +211,9 @@ class AppView(WebKit.WebView):
             self._config.autostart ^= True
             self._push_config()
         elif uri == 'install':
-            subprocess.Popen(['ubiquity','gtk_ui'])            
+            subprocess.Popen(['ubiquity','gtk_ui'])
         elif uri == 'chatroom':
-            subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])            
+            subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
         elif uri == 'control':
             subprocess.Popen(['mate-control-center'])
         elif uri == 'drivers':
@@ -220,7 +225,7 @@ class AppView(WebKit.WebView):
         elif uri == 'tweak':
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
-            subprocess.Popen(['update-manager'])            
+            subprocess.Popen(['update-manager'])
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
@@ -247,7 +252,7 @@ class WelcomeApp(object):
         self._build_app()
 
     def _build_app(self):
-        
+
         # build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
