@@ -22,6 +22,7 @@
 
 """ Welcome screen for Ubuntu MATE """
 
+import apt
 import inspect
 import json
 import os
@@ -108,7 +109,7 @@ class AppView(WebKit.WebView):
         WebKit.WebView.__init__(self)
 
         self._config = WelcomeConfig()
-
+        self._apt_cache = apt.Cache()
         self.connect('load-finished', self._load_finished_cb)
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
@@ -132,6 +133,15 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.pc-only').hide();")
         else:
             self.execute_script("$('.pc-only').show();")
+        
+        # Change button states for Software.html        
+        for package in ['geany', 'zim']:
+            if self._apt_cache[package].is_installed:             
+                self.execute_script("$('."+package+"-install').hide();")
+                self.execute_script("$('."+package+"-reinstall').show();")
+            else:
+                self.execute_script("$('."+package+"-install').show();")
+                self.execute_script("$('."+package+"-reinstall').hide();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
