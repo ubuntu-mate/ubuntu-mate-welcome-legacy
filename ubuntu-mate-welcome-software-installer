@@ -35,14 +35,15 @@ from aptdaemon.enums import *
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
 
 class SimpleApt(object):
-    def __init__(self, packages):
+    def __init__(self, packages, action):
         self._timeout=100
-        self.packages=packages
+        self.packages = packages
+        self.action = action
         self.source_to_update = None
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
-        print('Installing ' + ','.join(self.packages))
+        print('Processing: ' + ', '.join(self.packages))
 
     def on_error(self, error):
         if isinstance(error, aptdaemon.errors.NotAuthorizedError):
@@ -70,17 +71,22 @@ class SimpleApt(object):
         else:
             self.do_notify(status)
 
+    def on_finished_remove(self, transaction, status):		
+        self.loop.quit()
+        if status != 'exit-success':
+            sys.exit(1)
+
     def do_notify(self, status):
-        print(status)
+        print('Status: ' +status)
         if status == 'exit-success':
             Notify.init(_('Install complete'))
-            apt_notify=Notify.Notification.new (_('Install complete'),_(','.join(self.packages) + ' has been successfully installed.'),'dialog-information')
+            apt_notify=Notify.Notification.new (_('Install complete'),_(', '.join(self.packages) + ' has been successfully installed.'),'dialog-information')
         elif status == 'exit-cancelled':
             Notify.init(_('Install cancelled'))
-            apt_notify=Notify.Notification.new (_('Install cancelled'),_('The installation of ' + ','.join(self.packages) + ' has been cancelled.'),'dialog-information')
+            apt_notify=Notify.Notification.new (_('Install cancelled'),_('The installation of ' + ', '.join(self.packages) + ' has been cancelled.'),'dialog-information')
         else:
             Notify.init(_('Install failed'))
-            apt_notify=Notify.Notification.new (_('Install failed'),_('The installation of ' + ','.join(self.packages) + ' failed.'),'dialog-error')
+            apt_notify=Notify.Notification.new (_('Install failed'),_('The installation of ' + ', '.join(self.packages) + ' failed.'),'dialog-error')
 
         apt_notify.show()
 
@@ -108,6 +114,17 @@ class SimpleApt(object):
                         error_handler=self.on_error,
                         )
         return False
+        
+    def do_remove(self):
+        apt_remove = self.client.remove_packages(self.packages)
+        apt_remove.connect("finished", self.on_finished_remove)
+
+        remove_dialog = AptProgressDialog(apt_remove)
+        remove_dialog.run(close_on_finished=True, show_error=True,
+                        reply_handler=lambda: True,
+                        error_handler=self.on_error,
+                        )
+        return False        
 
     def install_packages(self):
         if self.update_cache:
@@ -116,50 +133,64 @@ class SimpleApt(object):
             GLib.timeout_add(self._timeout,self.do_install)
         self.loop.run()
 
+    def remove_packages(self):
+        GLib.timeout_add(self._timeout,self.do_remove)
+        self.loop.run()
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 2:
+    if len(sys.argv) >= 3:
         packages = sys.argv[1].split(',')
+        action = sys.argv[2]
     else:
         print('No package(s) supplied')
         sys.exit(1)
 
     codename = platform.dist()[2]
-    transaction = SimpleApt(packages)
+    transaction = SimpleApt(packages, action)
 
     # Perform any pre-install configuration. Basically enabling repositories or
     # adding PPAs.
-    if 'skype' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype'])
-        transaction.update_cache = True
-    elif 'telegram' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'telegram'])
-        transaction.update_cache = True
-    elif 'google-chrome-stable' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome'])
-        transaction.update_cache = True
-        transaction.source_to_update = 'google-chrome.list'
-    elif 'syncthing' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'syncthing'])
-        transaction.update_cache = True
-        transaction.source_to_update = 'syncthing.list'        
-    elif 'steam-launcher' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam'])
-        transaction.update_cache = True
-        transaction.source_to_update = 'steam.list'
-    elif 'spotify-client' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify'])
-        transaction.update_cache = True
-        transaction.source_to_update = 'spotify.list'
-        if codename == 'vivid' or codename == 'wily':
-            transaction.packages.append('libgcrypt11')
-    elif 'dropbox' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'dropbox'])
+    if 'dropbox' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'dropbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'dropbox.list'
+    elif 'google-chrome-stable' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'google-chrome.list'        
+    elif 'skype' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
+        transaction.update_cache = True
+    elif 'spotify-client' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'spotify.list'
+        if (codename == 'vivid' or codename == 'wily') and (action == 'install'):
+            transaction.packages.append('libgcrypt11')        
+    elif 'steam-launcher' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'steam.list'        
+    elif 'syncthing' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'syncthing', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'syncthing.list'                
+    elif 'telegram' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'telegram', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'atareao-ubuntu-telegram-'+codename+'.list'
+    elif 'ubuntu-sdk' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'ubuntu-sdk-team-ubuntu-ppa-'+codename+'.list'
     elif 'virtualbox-4.3' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox'])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
 
-    transaction.install_packages()
+    if transaction.action == 'install':
+        transaction.install_packages()
+    elif transaction.action == 'remove':
+        transaction.remove_packages()
+    else:
+        print('The requested action is unknown')
