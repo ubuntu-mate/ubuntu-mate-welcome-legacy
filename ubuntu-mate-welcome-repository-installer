@@ -25,24 +25,26 @@ import sys
 import urllib.request
 
 
-def add_apt_sources(source, name):
-    #subprocess.call(['aptdcon', '--add-repository=' + source, '--sources-file', name])
-    print('Writing ' + os.path.join('/','etc','apt','sources.list.d',name))
-    with open(os.path.join('/','etc','apt','sources.list.d',name + '.list'), 'w') as f:
+def add_apt_sources(source, listname):
+    #subprocess.call(['aptdcon', '--add-repository=' + source, '--sources-file', listname + '.list'])
+    sources_file = os.path.join('/','etc','apt','sources.list.d',listname + '.list')
+    print('Writing: ' + sources_file)
+    with open(sources_file, 'w') as f:
         f.write('\n'.join(source))
 
 
 def add_apt_key_from_url(key_url):
     #subprocess.call(['aptdcon', '--add-vendor-key=' + os.path.join('/', 'tmp', 'pub.key')])
-    print('Getting ' + key_url)
-    if os.path.exists(os.path.join('/', 'tmp', 'pub.key')):
-        os.remove(os.path.join('/', 'tmp', 'pub.key'))
+    temp_key = os.path.join('/', 'tmp', 'pub.key')
+    print('Processing: ' + key_url)
+    if os.path.exists(temp_key):
+        os.remove(temp_key)
 
     # Download the file from `url` and save it locally under `file_name`:
-    with urllib.request.urlopen(key_url) as response, open(os.path.join('/', 'tmp', 'pub.key'), 'wb') as out_file:
+    with urllib.request.urlopen(key_url) as response, open(temp_key, 'wb') as out_file:
         data = response.read() # a `bytes` object
         out_file.write(data)
-    subprocess.call(['apt-key', 'add', os.path.join('/', 'tmp', 'pub.key')])
+    subprocess.call(['apt-key', 'add', temp_key])
 
 
 def add_apt_key_from_keyserver(keyserver, key):
@@ -57,56 +59,51 @@ def enable_partner_repository():
     subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 2:
-        repository = sys.argv[1]
-    else:
-        print('No repository supplied')
-        sys.exit(1)
+	if len(sys.argv) >= 3:
+		repository = sys.argv[1]
+		action = sys.argv[2]
+	else:
+		print('No repository supplied')
+		sys.exit(1)
 
-    print('Add repository for: ' + repository)
-    codename = platform.dist()[2]
-    print('Codename: ' + codename)
+	codename = platform.dist()[2]
 
-    if repository ==  'telegram':
-        enable_ppa('ppa:atareao/telegram')
-
-    elif repository ==  'google-chrome':
-        add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
-        add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
-
-    elif repository ==  'syncthing':
-        add_apt_key_from_url('https://syncthing.net/release-key.txt')
-        add_apt_sources(['deb http://apt.syncthing.net/ syncthing release'], repository)
-
-    elif repository ==  'steam':
-        add_apt_key_from_url('http://repo.steampowered.com/steam/signature.gpg')        
-        add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                        'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                        ''], repository)
-
-    elif repository ==  'spotify':
-        add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
-        # Workaround vivid and wily no longer having libgcrypt11 that Spotify
-        # requires.
-        if codename == 'vivid' or codename == 'wily':
-            add_apt_sources(['deb http://repository.spotify.com stable non-free',                        
-                             'deb http://security.ubuntu.com/ubuntu utopic-security main'],
-                             repository)
-        else:
-            add_apt_sources(['deb http://repository.spotify.com stable non-free'],
-                             repository)
-    elif repository ==  'dropbox':
-        if codename == 'wily':
-            codename = 'vivid'
-
-        add_apt_key_from_keyserver('pgp.mit.edu', '5044912E')
-        add_apt_sources(['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'], repository)
-
-    elif repository == 'virtualbox':
-        if codename == 'wily':
-            codename = 'vivid'
-        add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')        
-        add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
-
-    else:
-        print('Repository ' + repository + ' is unknown.')
+	if action == 'install':
+		if repository ==  'dropbox':
+			if codename == 'wily':
+				codename = 'vivid'
+			add_apt_key_from_keyserver('pgp.mit.edu', '5044912E')
+			add_apt_sources(['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'], repository)		
+		elif repository ==  'google-chrome':
+			add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
+			add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
+		elif repository ==  'spotify':
+			add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
+			# Workaround vivid and wily no longer having libgcrypt11 that Spotify
+			# requires.
+			if codename == 'vivid' or codename == 'wily':
+				add_apt_sources(['deb http://repository.spotify.com stable non-free',                        
+								 'deb http://security.ubuntu.com/ubuntu utopic-security main'],
+								 repository)
+			else:
+				add_apt_sources(['deb http://repository.spotify.com stable non-free'],
+								 repository)
+		elif repository ==  'steam':
+			add_apt_key_from_url('http://repo.steampowered.com/steam/signature.gpg')        
+			add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+							'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
+							''], repository)
+		elif repository ==  'syncthing':
+			add_apt_key_from_url('https://syncthing.net/release-key.txt')
+			add_apt_sources(['deb http://apt.syncthing.net/ syncthing release'], repository)
+		elif repository ==  'telegram':
+			enable_ppa('ppa:atareao/telegram')
+		elif repository ==  'ubuntu-sdk':
+			enable_ppa('ppa:ubuntu-sdk-team/ppa')			
+		elif repository == 'virtualbox':
+			if codename == 'wily':
+				codename = 'vivid'
+			add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')        
+			add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
+		else:
+			print('Repository ' + repository + ' is unknown.')
