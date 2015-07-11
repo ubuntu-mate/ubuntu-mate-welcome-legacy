@@ -194,7 +194,7 @@ if __name__ == "__main__":
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
         transaction.update_cache = True
         transaction.source_to_update = 'ubuntu-sdk-team-ubuntu-ppa-'+codename+'.list'
-    elif 'virtualbox-4.3' in packages:
+    elif 'virtualbox-5.0' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
