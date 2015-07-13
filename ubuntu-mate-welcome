@@ -132,6 +132,16 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('.pc-only').show();")
 
+        if self._config.arch == 'i686':
+            self.execute_script("$('.i686-only').show();")
+        else:
+            self.execute_script("$('.i686-only').hide();")
+
+        if self._config.arch == 'x86_64':
+            self.execute_script("$('.x86_64-only').show();")
+        else:
+            self.execute_script("$('.x86_64-only').hide();")
+
         if self._apt_cache['hexchat'].is_installed:
             self.execute_script("$('.hexchat').show();")
             self.execute_script("$('.webchat').hide();")
