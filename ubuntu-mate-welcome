@@ -127,20 +127,19 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
 
-        if self._config.arch != 'i686' and self._config.arch != 'x86_64':
-            self.execute_script("$('.pc-only').hide();")
-        else:
-            self.execute_script("$('.pc-only').show();")
-
+        # Hide applications that are not supported on some architectures.
         if self._config.arch == 'i686':
             self.execute_script("$('.i686-only').show();")
-        else:
-            self.execute_script("$('.i686-only').hide();")
-
-        if self._config.arch == 'x86_64':
-            self.execute_script("$('.x86_64-only').show();")
-        else:
             self.execute_script("$('.x86_64-only').hide();")
+            self.execute_script("$('.pc-only').show();")
+        elif self._config.arch == 'x86_64':
+            self.execute_script("$('.i686-only').hide();")            
+            self.execute_script("$('.x86_64-only').show();")
+            self.execute_script("$('.pc-only').show();")
+        else:
+            self.execute_script("$('.i686-only').hide();")            
+            self.execute_script("$('.x86_64-only').hide();")
+            self.execute_script("$('.pc-only').hide();")
 
         if self._apt_cache['hexchat'].is_installed:
             self.execute_script("$('.hexchat').show();")
