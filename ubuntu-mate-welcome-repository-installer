@@ -17,14 +17,12 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-
 import glob
 import os
 import platform
 import subprocess
 import sys
 import urllib.request
-
 
 def del_apt_sources(listname):
     for filename in glob.glob(os.path.join('/','etc','apt','sources.list.d','*'+listname+'*.list*')):
@@ -36,7 +34,6 @@ def add_apt_sources(source, listname):
     print('Writing: ' + sources_file)
     with open(sources_file, 'w') as f:
         f.write('\n'.join(source))
-
 
 def add_apt_key_from_url(key_url):
     #subprocess.call(['aptdcon', '--add-vendor-key=' + os.path.join('/', 'tmp', 'pub.key')])
@@ -51,14 +48,11 @@ def add_apt_key_from_url(key_url):
         out_file.write(data)
     subprocess.call(['apt-key', 'add', temp_key])
 
-
 def add_apt_key_from_keyserver(keyserver, key):
     subprocess.call(['apt-key', 'adv', '--keyserver', keyserver, '--recv-keys', key])
 
-
 def enable_ppa(ppa):
     subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
-
 
 def enable_partner_repository():
     subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
