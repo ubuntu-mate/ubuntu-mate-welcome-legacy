@@ -23,6 +23,7 @@
 """ Welcome screen for Ubuntu MATE """
 
 import apt
+import gettext
 import inspect
 import json
 import os
@@ -33,22 +34,11 @@ import sys
 import urllib.request
 import urllib.error
 import webbrowser
-from gi.repository import Gtk, WebKit
-
-###
-import gettext
-#import os
-#import platform
-#import subprocess
-#import sys
-#import urllib.request
-from gi.repository import GLib, Notify
-
+from gi.repository import GLib, Gtk, Notify, WebKit
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
-###
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
@@ -168,7 +158,7 @@ class SimpleApt(object):
         self.loop.run()
 
 
-def process_packages(packages, action, apt_cache):
+def process_packages(packages, action):
     if len(packages) and len(action):
         packages = packages.split(',')            
     else:
@@ -176,7 +166,7 @@ def process_packages(packages, action, apt_cache):
         return
 
     codename = platform.dist()[2]
-    transaction = SimpleApt(packages, action, apt_cache)
+    transaction = SimpleApt(packages, action)
 
     # Perform any pre-install configuration. Basically enabling repositories or
     # adding PPAs.
