@@ -35,6 +35,197 @@ import urllib.error
 import webbrowser
 from gi.repository import Gtk, WebKit
 
+###
+import gettext
+#import os
+#import platform
+#import subprocess
+#import sys
+#import urllib.request
+from gi.repository import GLib, Notify
+
+from aptdaemon.client import AptClient
+from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
+import aptdaemon.errors
+from aptdaemon.enums import *
+###
+
+# i18n
+gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
+
+class SimpleApt(object):
+    def __init__(self, packages, action):
+        self._timeout=100
+        self.packages = packages
+        self.action = action
+        self.source_to_update = None
+        self.update_cache = False
+        self.loop = GLib.MainLoop()
+        self.client = AptClient()
+        print('Processing: ' + ', '.join(self.packages))
+
+    def on_error(self, error):
+        if isinstance(error, aptdaemon.errors.NotAuthorizedError):
+            # Silently ignore auth failures
+            return
+        elif not isinstance(error, aptdaemon.errors.TransactionFailed):
+            # Catch internal errors of the client
+            error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
+        error_dialog = AptErrorDialog(error)
+        error_dialog.run()
+        error_dialog.hide()
+
+    def on_finished_update(self, transaction, status):
+        if status != 'exit-success':
+            self.do_notify(status)
+            self.loop.quit()
+            sys.exit(1)
+        GLib.timeout_add(self._timeout,self.do_install)
+        return True
+
+    def on_finished_install(self, transaction, status):
+        self.loop.quit()
+        if status != 'exit-success':
+            sys.exit(1)
+        else:
+            self.do_notify(status)
+
+    def on_finished_remove(self, transaction, status):
+        self.loop.quit()
+        if status != 'exit-success':
+            sys.exit(1)
+        else:
+            self.do_notify(status)
+
+    def do_notify(self, status):
+        print('Status: ' + status)
+        if self.action == 'install':
+            title = _('Install')
+            noun = _('Installation of ')
+            action = _('installed.')
+        else:
+            title = _('Remove')
+            noun = _('Removal of ')
+            action = _('removed.')
+
+        if status == 'exit-success':
+            Notify.init(title + ' ' + _('complete'))
+            apt_notify=Notify.Notification.new(title + ' ' + _('complete'), ', '.join(self.packages) + ' ' + _('has been successfully ') +action, 'dialog-information')
+        elif status == 'exit-cancelled':
+            Notify.init(title + ' ' + _('cancelled'))
+            apt_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + ', '.join(self.packages) + ' ' + _('was cancelled.'), 'dialog-information')
+        else:
+            Notify.init(title + ' ' + _('failed'))
+            apt_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + ', '.join(self.packages) + ' ' + _('failed.'), 'dialog-error')
+
+        apt_notify.show()
+
+    def do_update(self):
+        if self.source_to_update:
+            apt_update = self.client.update_cache(self.source_to_update)
+        else:
+            apt_update = self.client.update_cache()
+        apt_update.connect("finished",self.on_finished_update)
+
+        update_dialog = AptProgressDialog(apt_update)
+        update_dialog.run(close_on_finished=True, show_error=True,
+                reply_handler=lambda: True,
+                error_handler=self.on_error,
+                )
+        return False
+
+    def do_install(self):
+        apt_install = self.client.install_packages(self.packages)
+        apt_install.connect("finished", self.on_finished_install)
+
+        install_dialog = AptProgressDialog(apt_install)
+        install_dialog.run(close_on_finished=True, show_error=True,
+                        reply_handler=lambda: True,
+                        error_handler=self.on_error,
+                        )
+        return False
+
+    def do_remove(self):
+        apt_remove = self.client.remove_packages(self.packages)
+        apt_remove.connect("finished", self.on_finished_remove)
+
+        remove_dialog = AptProgressDialog(apt_remove)
+        remove_dialog.run(close_on_finished=True, show_error=True,
+                        reply_handler=lambda: True,
+                        error_handler=self.on_error,
+                        )
+        return False
+
+    def install_packages(self):
+        if self.update_cache:
+            GLib.timeout_add(self._timeout,self.do_update)
+        else:
+            GLib.timeout_add(self._timeout,self.do_install)
+        self.loop.run()
+
+    def remove_packages(self):
+        GLib.timeout_add(self._timeout,self.do_remove)
+        self.loop.run()
+
+
+def process_packages(packages, action, apt_cache):
+    if len(packages) and len(action):
+        packages = packages.split(',')            
+    else:
+        print('No package(s) supplied')
+        return
+
+    codename = platform.dist()[2]
+    transaction = SimpleApt(packages, action, apt_cache)
+
+    # Perform any pre-install configuration. Basically enabling repositories or
+    # adding PPAs.
+    if 'dropbox' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'dropbox', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'dropbox.list'
+    elif 'google-chrome-stable' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'google-chrome.list'
+    elif 'skype' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
+        transaction.update_cache = True
+    elif 'spotify-client' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'spotify.list'
+        if (codename == 'vivid' or codename == 'wily') and (action == 'install'):
+            transaction.packages.append('libgcrypt11')
+    elif 'steam-launcher' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'steam.list'
+    elif 'syncthing' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'syncthing', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'syncthing.list'
+    elif 'telegram' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'telegram', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'atareao-ubuntu-telegram-'+codename+'.list'
+    elif 'ubuntu-sdk' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'ubuntu-sdk-team-ubuntu-ppa-'+codename+'.list'
+    elif 'virtualbox-5.0' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'virtualbox.list'
+
+    if transaction.action == 'install':
+        transaction.install_packages()
+    elif transaction.action == 'remove':
+        transaction.remove_packages()
+    else:
+        print('The requested action is unknown')
+
+
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
     def __init__(self):
@@ -154,7 +345,7 @@ class AppView(WebKit.WebView):
                         'flashplugin-installer','geany', 'gimp',
                         'google-chrome-stable','gstreamer1.0-fluendo-mp3',
                         'inkscape','libavcodec-extra','meld','pitivi','pysolfc',
-                        'scribus','skype','spotify-client','steam-launcher',
+                        'remmina', 'scribus','skype','spotify-client','steam-launcher',
                         'sweethome3d','syncthing','telegram','terminator',
                         'ubuntu-sdk', 'uget','virtualbox-5.0','zim']:
 
@@ -211,12 +402,12 @@ class AppView(WebKit.WebView):
             uri = uri[6:]
 
         if uri.startswith('apt-install?'):
-            subprocess.Popen(['/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[12:], 'install'])
+            process_packages(uri[12:], 'install')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
         elif uri.startswith('apt-remove?'):
-            subprocess.Popen(['/usr/lib/ubuntu-mate/ubuntu-mate-welcome-software-installer', uri[11:], 'remove'])
+            process_packages(uri[12:], 'install')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
