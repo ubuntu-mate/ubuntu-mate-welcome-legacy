@@ -73,9 +73,28 @@ if __name__ == "__main__":
                 codename = 'vivid'
             add_apt_key_from_keyserver('pgp.mit.edu', '5044912E')
             add_apt_sources(['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'], repository)
+        elif repository ==  'eviacam':
+            enable_ppa('ppa:cesar-crea-si/eviacam')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main',
+                                 '# deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main'],
+                                 'cesar-crea-si-ubuntu-eviacam-wily')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
+        elif repository ==  'google-earth':
+            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
+            add_apt_sources(['deb http://dl.google.com/linux/earth/deb/ stable main'], repository)
+        elif repository ==  'google-hangouts':
+            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
+            add_apt_sources(['deb http://dl.google.com/linux/talkplugin/deb/ stable main'], repository)
+        elif repository ==  'libdvdcss2':
+            add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
+            add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
+                             'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
+        elif repository ==  'mumble':
+            if codename == 'precise' or codename == 'trusty':
+                enable_ppa('ppa:mumble/release')
         elif repository ==  'skype':
             enable_partner_repository()
         elif repository ==  'spotify':
@@ -108,5 +127,5 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
         else:
             print('Repository ' + repository + ' is unknown.')
-    else:
+    elif action == 'remove':
         del_apt_sources(repository)

@@ -69,21 +69,21 @@ class SimpleApt(object):
         if status != 'exit-success':
             self.do_notify(status)
             self.loop.quit()
-            sys.exit(1)
+            return False
         GLib.timeout_add(self._timeout,self.do_install)
         return True
 
     def on_finished_install(self, transaction, status):
         self.loop.quit()
         if status != 'exit-success':
-            sys.exit(1)
+            return False
         else:
             self.do_notify(status)
 
     def on_finished_remove(self, transaction, status):
         self.loop.quit()
         if status != 'exit-success':
-            sys.exit(1)
+            return False
         else:
             self.do_notify(status)
 
@@ -160,7 +160,7 @@ class SimpleApt(object):
 
 def process_packages(packages, action):
     if len(packages) and len(action):
-        packages = packages.split(',')            
+        packages = packages.split(',')
     else:
         print('No package(s) supplied')
         return
@@ -174,10 +174,31 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'dropbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'dropbox.list'
+    elif 'eviacam' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
+    elif 'google-earth' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'google-earth.list'
     elif 'google-chrome-stable' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-chrome.list'
+    elif 'google-talkplugin' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-hangouts', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'google-hangouts.list'
+    elif 'libdvdcss2' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'libdvdcss2.list'
+    elif 'mumble' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'mumble', action])
+        transaction.update_cache = True
+        if codename == 'precise' or codename == 'trusty':
+            transaction.source_to_update = 'mumble-ubuntu-release-'+codename+'.list'
     elif 'skype' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
         transaction.update_cache = True
@@ -314,11 +335,11 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').show();")
         elif self._config.arch == 'x86_64':
-            self.execute_script("$('.i686-only').hide();")            
+            self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').show();")
             self.execute_script("$('.pc-only').show();")
         else:
-            self.execute_script("$('.i686-only').hide();")            
+            self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').hide();")
 
@@ -330,19 +351,22 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.webchat').show();")
 
         # Change button states for Software.html
+        # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
         for package in ['audacity', 'blender','darktable','dropbox',
-                        'flashplugin-installer','geany', 'gimp',
-                        'google-chrome-stable','gstreamer1.0-fluendo-mp3',
-                        'inkscape','libavcodec-extra','meld','pitivi','pysolfc',
-                        'remmina', 'scribus','skype','spotify-client','steam-launcher',
-                        'sweethome3d','syncthing','telegram','terminator',
-                        'ubuntu-sdk', 'uget','virtualbox-5.0','zim']:
+        'eviacam', 'flashplugin-installer','geany', 'gimp', 'glabels',
+        'gnucash', 'gramps', 'google-chrome-stable',
+        'google-earth-stable', 'google-talkplugin',
+        'inkscape', 'libavcodec-extra', 'libdvdcss2',
+        'meld', 'mumble', 'pitivi', 'pysolfc', 'remmina', 'scribus',
+        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d',
+        'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
+        'virtualbox-5.0', 'zim']:
 
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
-            elif package == 'gstreamer1.0-fluendo-mp3':
-                css_class = 'fluendo-mp3'
+            elif package == 'libavcodec-extra':
+                css_class = 'codecs'
             else:
                 css_class = package
 
@@ -397,7 +421,7 @@ class AppView(WebKit.WebView):
             self._apt_cache = apt.Cache()
             self._push_config()
         elif uri.startswith('apt-remove?'):
-            process_packages(uri[12:], 'install')
+            process_packages(uri[11:], 'remove')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
