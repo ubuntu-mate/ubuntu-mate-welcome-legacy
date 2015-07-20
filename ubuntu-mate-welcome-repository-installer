@@ -79,7 +79,8 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main',
                                  'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main'],
                                  'cesar-crea-si-ubuntu-eviacam-' + codename)
-        elif repository ==  'flash':
+        elif repository ==  'adobe-flashplugin':
+            enable_partner_repository()
             enable_ppa('ppa:flexiondotorg/hal-flash')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
@@ -95,10 +96,6 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://dl.google.com/linux/musicmanager/deb/ stable main'], repository)
         elif repository ==  'handbrake':
             enable_ppa('ppa:stebbins/handbrake-releases')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu vivid main'],
-                                 'stebbins-ubuntu-handbrake-releases-' + codename)
         elif repository ==  'insync':
             if codename == 'wily':
                 codename = 'vivid'
@@ -164,6 +161,12 @@ if __name__ == "__main__":
                 codename = 'vivid'
             add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
+        elif repository ==  'x2go':
+            enable_ppa('ppa:x2go/stable')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/x2go/stable/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.net/x2go/stable/ubuntu vivid main'],
+                                 'x2go-ubuntu-stable-' + codename)
         else:
             print('Repository ' + repository + ' is unknown.')
     elif action == 'remove':

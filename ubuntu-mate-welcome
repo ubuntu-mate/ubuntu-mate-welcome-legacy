@@ -239,10 +239,9 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
         transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
-    elif 'flashplugin-installer' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'flash', action])
+    elif 'adobe-flashplugin' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'adobe-flashplugin', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'flexiondotorg-ubuntu-hal-flash-'+codename+'.list'
     elif 'google-earth' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
         transaction.update_cache = True
@@ -271,7 +270,7 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
         transaction.update_cache = True
         transaction.source_to_update = 'libdvdcss2.list'
-    elif 'makemkv' in packages:
+    elif 'makemkv-bin' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
         transaction.update_cache = True
         transaction.source_to_update = 'heyarje-ubuntu-makemkv-beta-'+codename+'.list'
@@ -326,6 +325,14 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
+    elif 'x2goclient' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
+    elif 'x2goserver' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
 
     if transaction.action == 'install':
         transaction.install_packages()
@@ -494,8 +501,8 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
-        for package in ['audacity', 'bleachbit', 'blender', 'calibre',
-        'darktable', 'dropbox', 'eviacam', 'flashplugin-installer','geany', 'gimp',
+        for package in ['adobe-flashplugin', 'audacity', 'bleachbit', 'blender',
+        'calibre', 'darktable', 'dropbox', 'eviacam', 'geany', 'gimp',
         'glabels', 'gnucash', 'gramps', 'google-chrome-stable',
         'google-earth-stable', 'google-musicmanager-beta', 'google-talkplugin',
         'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
@@ -503,7 +510,7 @@ class AppView(WebKit.WebView):
         'pithos', 'pitivi', 'pysolfc', 'remmina', 'scribus', 'simplescreenrecorder',
         'skype', 'spotify-client', 'steam-launcher', 'sweethome3d', 'syncthing',
         'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'virtualbox-5.0', 'workrave',
-        'zim']:
+        'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':

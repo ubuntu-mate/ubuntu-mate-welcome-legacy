@@ -248,12 +248,16 @@
           <p><b>Adobe&reg; Flash&reg; Player</b> is a cross-platform, browser-based
           application runtime that provides uncompromised viewing of
           expressive applications, content, and videos across browsers
-          and operating systems. This package provides plugins
-          compatible with both Chromium and Firefox web browsers.</p>
+          and operating systems. This package provides plugins compatible
+          with both the Chromium and Firefox web browsers. Ubuntu MATE Welcome 
+          will also install <code>libhal1-flash</code> required by <code>libadobecp</code>
+          (which <code>libflashplayer.so</code> retrieves from the Internet) for
+          playing back DRM content from streaming services such as Amazon Prime
+          Instant Video.</p>
           <p class="text-right">
-          <a class="flashplugin-installer-install btn btn-xs btn-inverse" href="cmd://apt-install?flashplugin-installer,libhal1-flash"><span class="fa fa-download"></span>&nbsp; Install</a>
-          <a class="flashplugin-installer-reinstall btn btn-xs btn" href="cmd://apt-install?flashplugin-installer,libhal1-flash"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-          <a class="flashplugin-installer-remove btn btn-xs btn" href="cmd://apt-remove?flashplugin-installer,libhal1-flash"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          <a class="adobe-flashplugin-install btn btn-xs btn-inverse" href="cmd://apt-install?adobe-flashplugin,libhal1-flash"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="adobe-flashplugin-reinstall btn btn-xs btn" href="cmd://apt-install?adobe-flashplugin,libhal1-flash"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="adobe-flashplugin-remove btn btn-xs btn" href="cmd://apt-remove?adobe-flashplugin,libhal1-flash"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
           </div>
@@ -454,6 +458,34 @@
           </p>
           <hr class="soften" />
 
+          <div class="pc-only">
+          <a href="cmd://link?http://wiki.x2go.org/doku.php"><img class="left" src="img/applications/x2go.png" /></a>
+          <p><b>X2Go Client</b> is a graphical client for the X2Go Server.
+          You can use it to start new X2Go remote sessions or reconnect to
+          running sessions.</p>
+          <p class="text-right">
+          <a class="x2goclient-install btn btn-xs btn-inverse" href="cmd://apt-install?x2goclient"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="x2goclient-reinstall btn btn-xs btn" href="cmd://apt-install?x2goclient"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="x2goclient-remove btn btn-xs btn" href="cmd://apt-remove?x2goclient"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+
+          <div class="pc-only">
+          <a href="cmd://link?http://wiki.x2go.org/doku.php"><img class="left" src="img/applications/x2go.png" /></a>
+          <p><b>X2Go Server</b> is a remote computing environment with support for
+          session resuming, low bandwidth support, session brokerage,
+          client-side mass storage mounting, client-side printing, audio
+          redirection and authentication by smartcard or USB stick.</p>
+          <ul><li><b>Alternative to: </b><i>Citrix Workspace Cloud</i></li></ul>
+          <p class="text-right">
+          <a class="x2goserver-install btn btn-xs btn-inverse" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="x2goserver-reinstall btn btn-xs btn" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="x2goserver-remove btn btn-xs btn" href="cmd://apt-remove?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+
           <h2>Office</h2>
           <a href="cmd://link?http://calibre-ebook.com/"><img class="left" src="img/applications/calibre.png" /></a>
           <p><b>Calibre</b> is a complete e-library solution. It includes library
@@ -620,12 +652,13 @@
           that permits the playback of MPEG 1 audio layer III (MP3)
           streams in Rhythmbox.</p>
           <p class="text-right">
-          <a class="codecs-install btn btn-xs btn-inverse" href="cmd://apt-install?libavcodec-extra,gstreamer1.0-fluendo-mp3,gstreamer0.10-fluendo-mp3"><span class="fa fa-download"></span>&nbsp; Install</a>
-          <a class="codecs-reinstall btn btn-xs btn" href="cmd://apt-install?libavcodec-extra,gstreamer1.0-fluendo-mp3,gstreamer0.10-fluendo-mp3"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-          <a class="codecs-remove btn btn-xs btn" href="cmd://apt-remove?libavcodec-extra,gstreamer1.0-fluendo-mp3,gstreamer0.10-fluendo-mp3"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          <a class="codecs-install btn btn-xs btn-inverse" href="cmd://apt-install?libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="codecs-reinstall btn btn-xs btn" href="cmd://apt-install?libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="codecs-remove btn btn-xs btn" href="cmd://apt-remove?libavcodec-extra,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
 
+          <!--
           <div class="pc-only">
           <a href="cmd://link?https://handbrake.fr"><img class="left" src="img/applications/handbrake.png" /></a>
           <p><b>Handbrake</b> is a tool for converting video from nearly
@@ -640,6 +673,7 @@
           </p>
           <hr class="soften" />
           </div>
+          -->
 
           <div class="pc-only">
           <a href="cmd://link?http://www.videolan.org/developers/libdvdcss.html"><img class="left" src="img/applications/dvd.png" /></a>
