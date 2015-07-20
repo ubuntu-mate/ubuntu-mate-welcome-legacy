@@ -100,13 +100,15 @@ if __name__ == "__main__":
                                  'deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu vivid main'],
                                  'stebbins-ubuntu-handbrake-releases-' + codename)
         elif repository ==  'insync':
+            if codename == 'wily':
+                codename = 'vivid'
             add_apt_key_from_url('https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key')
             add_apt_sources(['deb http://apt.insynchq.com/ubuntu ' + codename + ' non-free contrib'], repository)
         elif repository ==  'libdvdcss2':
             add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
             add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
                              'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
-        elif repository ==  'makemkv':
+        elif repository == 'makemkv':
             enable_ppa('ppa:heyarje/makemkv-beta')
             if codename == 'wily':
                 add_apt_sources(['deb http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu vivid main',
@@ -127,11 +129,11 @@ if __name__ == "__main__":
         elif repository ==  'skype':
             enable_partner_repository()
         elif repository ==  'simplescreenrecorder':
-            enable_ppa('ppa:ppa:maarten-baert/simplescreenrecorder')
+            enable_ppa('ppa:maarten-baert/simplescreenrecorder')
             if codename == 'wily':
                 add_apt_sources(['deb http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu vivid main',
                                  'deb-src http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu vivid main'],
-                                 'maarten-baert-ubuntu-makemkv-beta-' + codename)
+                                 'maarten-baert-ubuntu-simplescreenrecorder-' + codename)
         elif repository ==  'spotify':
             add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
             # Workaround vivid and wily no longer having libgcrypt11 that Spotify
@@ -155,6 +157,8 @@ if __name__ == "__main__":
             enable_ppa('ppa:atareao/telegram')
         elif repository ==  'ubuntu-sdk':
             enable_ppa('ppa:ubuntu-sdk-team/ppa')
+        elif repository ==  'uget':
+            enable_ppa('ppa:plushuang-tw/uget-stable')
         elif repository == 'virtualbox':
             if codename == 'wily':
                 codename = 'vivid'

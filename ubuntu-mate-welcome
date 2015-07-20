@@ -254,11 +254,11 @@ def process_packages(packages, action):
     elif 'google-musicmanager-beta' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-musicmanager', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'google-music-manager.list'
+        transaction.source_to_update = 'google-musicmanager.list'
     elif 'google-talkplugin' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'google-hangouts.list'
+        transaction.source_to_update = 'google-talkplugin.list'
     elif 'handbrake-gtk' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'handbrake', action])
         transaction.update_cache = True
@@ -281,13 +281,13 @@ def process_packages(packages, action):
         transaction.source_to_update = 'minecraft-installer-peeps-ubuntu-minecraft-installer-'+codename+'.list'
     elif 'mumble' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'mumble', action])
-        transaction.update_cache = True
         if codename == 'precise' or codename == 'trusty':
+            transaction.update_cache = True
             transaction.source_to_update = 'mumble-ubuntu-release-'+codename+'.list'
     elif 'pithos' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'pithos', action])
-        transaction.update_cache = True
         if codename == 'precise' or codename == 'trusty':
+            transaction.update_cache = True
             transaction.source_to_update = 'pithos-ubuntu-ppa-'+codename+'.list'
     elif 'simplescreenrecorder' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'simplescreenrecorder', action])
@@ -318,6 +318,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
         transaction.update_cache = True
         transaction.source_to_update = 'ubuntu-sdk-team-ubuntu-ppa-'+codename+'.list'
+    elif 'uget' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'uget', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'plushuang-tw-ubuntu-uget-stable-'+codename+'.list'
     elif 'virtualbox-5.0' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
@@ -623,7 +627,7 @@ class WelcomeApp(object):
         s = Gdk.Screen.get_default()
         if s.get_height() <= 600:
             w.set_size_request(768, 528)
-        else
+        else:
             w.set_size_request(768, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
