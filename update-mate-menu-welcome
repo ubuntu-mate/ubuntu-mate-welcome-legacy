@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the
+# Free Software Foundation, Inc.,
+# 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# Copyright (C) 2007-2015 Oleksandr Shneyder <oleksandr.shneyder@obviously-nice.de>
+# Copyright (C) 2007-2015 Heinz-Markus Graesing <heinz-m.graesing@obviously-nice.de>
+# Copyright (C) 2013-2015 Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
+# Copyright (C) 2015 Martin Wimpress <code@flexion.org>
+
+use strict;
+
+my $mode=shift;
+if( $mode eq "--help" )
+{
+     print "Usage: $0 [--remove]\n";
+     print "       Add (or remove) \"Ubuntu MATE Welcome\" button to (from) MATE's Settings menu.\n";
+     exit;
+}
+my $menu;
+if ( -e "/etc/xdg/menus/mate-settings.menu" )
+{
+    $menu="/etc/xdg/menus/mate-settings.menu";
+}
+else
+{
+    die "MATE Settings menu not found in /etc/xdg/menus";
+}
+
+my $menustr="<MergeFile>/etc/xdg/menus/mate-settings-welcome.menu</MergeFile>\n";
+
+open(FILE,"<$menu");
+my @ln=<FILE>;
+close(FILE);
+my $text=join("",@ln);
+
+if( $mode eq "--remove" )
+{
+    if($text =~ m/$menustr/)
+    {
+        $text =~ s/\n$menustr//;
+        open(FILE,">$menu");
+        print FILE $text;
+        close(FILE);
+    }
+}
+else
+{
+    if(! ($text =~ m/$menustr/))
+    {
+        $text =~ s/<\/Layout>/<\/Layout>\n$menustr/;
+        open(FILE,">$menu");
+        print FILE $text;
+        close(FILE);
+    }
+}
