@@ -26,19 +26,23 @@ import apt
 import gettext
 import inspect
 import json
+import logging
 import os
 import platform
 import signal
 import subprocess
 import sys
-import urllib.request
+import tempfile
 import urllib.error
+import urllib.parse
+import urllib.request
 import webbrowser
-from gi.repository import GLib, Gtk, Notify, WebKit
+from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
+#from __future__ import division, absolute_import, print_function, unicode_literals
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
@@ -157,6 +161,63 @@ class SimpleApt(object):
         GLib.timeout_add(self._timeout,self.do_remove)
         self.loop.run()
 
+class SimpleDeb(object):
+    def __init__(self, debfile):
+        self._timeout=100
+        self.debfile = debfile
+        self.loop = GLib.MainLoop()
+        self.client = AptClient()
+        print('Processing: ' + self.debfile)
+
+    def on_error(self, error):
+        if isinstance(error, aptdaemon.errors.NotAuthorizedError):
+            # Silently ignore auth failures
+            return
+        elif not isinstance(error, aptdaemon.errors.TransactionFailed):
+            # Catch internal errors of the client
+            error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
+        error_dialog = AptErrorDialog(error)
+        error_dialog.run()
+        error_dialog.hide()
+
+    def on_finished_install(self, transaction, status):
+        self.loop.quit()
+        if status != 'exit-success':
+            return False
+        else:
+            self.do_notify(status)
+
+    def do_notify(self, status):
+        title = _('Install')
+        noun = _('Installation of ')
+        action = _('installed.')
+
+        if status == 'exit-success':
+            Notify.init(title + ' ' + _('complete'))
+            deb_notify=Notify.Notification.new(title + ' ' + _('complete'), os.path.basename(self.debfile) + ' ' + _('has been successfully ') +action, 'dialog-information')
+        elif status == 'exit-cancelled':
+            Notify.init(title + ' ' + _('cancelled'))
+            deb_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + os.path.basename(self.debfile) + ' ' + _('was cancelled.'), 'dialog-information')
+        else:
+            Notify.init(title + ' ' + _('failed'))
+            deb_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + os.path.basename(self.debfile) + ' ' + _('failed.'), 'dialog-error')
+
+        deb_notify.show()
+
+    def do_install(self):
+        deb_install = self.client.install_file(self.debfile)
+        deb_install.connect("finished", self.on_finished_install)
+
+        install_dialog = AptProgressDialog(deb_install)
+        install_dialog.run(close_on_finished=True, show_error=True,
+                        reply_handler=lambda: True,
+                        error_handler=self.on_error,
+                        )
+        return False
+
+    def install_file(self):
+        GLib.timeout_add(self._timeout,self.do_install)
+        self.loop.run()
 
 def process_packages(packages, action):
     if len(packages) and len(action):
@@ -178,6 +239,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
         transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
+    elif 'flashplugin-installer' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'flash', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'flexiondotorg-ubuntu-hal-flash-'+codename+'.list'
     elif 'google-earth' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
         transaction.update_cache = True
@@ -186,19 +251,48 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-chrome.list'
+    elif 'google-musicmanager-beta' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-musicmanager', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'google-music-manager.list'
     elif 'google-talkplugin' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-hangouts', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-hangouts.list'
+    elif 'handbrake-gtk' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'handbrake', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'stebbins-ubuntu-handbrake-releases-'+codename+'.list'
+    elif 'insync' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'insync.list'
     elif 'libdvdcss2' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
         transaction.update_cache = True
         transaction.source_to_update = 'libdvdcss2.list'
+    elif 'makemkv' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'heyarje-ubuntu-makemkv-beta-'+codename+'.list'
+    elif 'minecraft-installer' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'minecraft', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'minecraft-installer-peeps-ubuntu-minecraft-installer-'+codename+'.list'
     elif 'mumble' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'mumble', action])
         transaction.update_cache = True
         if codename == 'precise' or codename == 'trusty':
             transaction.source_to_update = 'mumble-ubuntu-release-'+codename+'.list'
+    elif 'pithos' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'pithos', action])
+        transaction.update_cache = True
+        if codename == 'precise' or codename == 'trusty':
+            transaction.source_to_update = 'pithos-ubuntu-ppa-'+codename+'.list'
+    elif 'simplescreenrecorder' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'simplescreenrecorder', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'maarten-baert-ubuntu-simplescreenrecorder-'+codename+'.list'
     elif 'skype' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
         transaction.update_cache = True
@@ -236,6 +330,49 @@ def process_packages(packages, action):
     else:
         print('The requested action is unknown')
 
+def download_file(url):
+    #http://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python/22776#22776
+    u = urllib.request.urlopen(url)
+
+    scheme, netloc, path, query, fragment = urllib.parse.urlsplit(url)
+    filename = os.path.join('/','tmp',os.path.basename(path))
+
+    with open(filename, 'wb') as f:
+        meta = u.info()
+        meta_func = meta.getheaders if hasattr(meta, 'getheaders') else meta.get_all
+        meta_length = meta_func("Content-Length")
+        file_size = None
+        if meta_length:
+            file_size = int(meta_length[0])
+        print("Downloading: {0} Bytes: {1}".format(url, file_size))
+
+        file_size_dl = 0
+        block_sz = 8192
+        while True:
+            buffer = u.read(block_sz)
+            if not buffer:
+                break
+
+            file_size_dl += len(buffer)
+            f.write(buffer)
+
+            status = "{0:16}".format(file_size_dl)
+            if file_size:
+                status += "   [{0:6.2f}%]".format(file_size_dl * 100 / file_size)
+                fraction = file_size_dl / file_size
+            status += chr(13)
+            print(status, end="")
+        print()
+
+    return filename
+
+# Look a good example - https://gist.github.com/hrasdt/8206777
+# Somewhat useful - http://python-gtk-3-tutorial.readthedocs.org/en/latest/progressbar.html
+
+def process_deburl(deburl):
+    debfile = download_file(deburl)
+    transaction = SimpleDeb(debfile)
+    transaction.install_file()
 
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
@@ -353,16 +490,16 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
-        for package in ['audacity', 'blender','darktable','dropbox',
-        'eviacam', 'flashplugin-installer','geany', 'gimp', 'glabels',
-        'gnucash', 'gramps', 'google-chrome-stable',
-        'google-earth-stable', 'google-talkplugin',
-        'inkscape', 'libavcodec-extra', 'libdvdcss2',
-        'meld', 'mumble', 'pitivi', 'pysolfc', 'remmina', 'scribus',
-        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d',
-        'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
-        'virtualbox-5.0', 'zim']:
-
+        for package in ['audacity', 'bleachbit', 'blender', 'calibre',
+        'darktable', 'dropbox', 'eviacam', 'flashplugin-installer','geany', 'gimp',
+        'glabels', 'gnucash', 'gramps', 'google-chrome-stable',
+        'google-earth-stable', 'google-musicmanager-beta', 'google-talkplugin',
+        'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
+        'makemkv-bin', 'meld', 'minecraft-installer', 'mumble', 'ocenaudio',
+        'pithos', 'pitivi', 'pysolfc', 'remmina', 'scribus', 'simplescreenrecorder',
+        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d', 'syncthing',
+        'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'virtualbox-5.0', 'workrave',
+        'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
@@ -425,6 +562,11 @@ class AppView(WebKit.WebView):
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+        elif uri.startswith('deb-install?'):
+            process_deburl(uri[12:])
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self._push_config()
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()
@@ -476,7 +618,13 @@ class WelcomeApp(object):
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
         w.set_title('Welcome to Ubuntu MATE')
-        w.set_size_request(768, 552)
+        
+        # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
+        s = Gdk.Screen.get_default()
+        if s.get_height() <= 600:
+            w.set_size_request(768, 528)
+        else
+            w.set_size_request(768, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
         w.set_icon_from_file(icon_dir)

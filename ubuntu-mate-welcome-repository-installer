@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
 #
@@ -77,26 +77,61 @@ if __name__ == "__main__":
             enable_ppa('ppa:cesar-crea-si/eviacam')
             if codename == 'wily':
                 add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main',
-                                 '# deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main'],
-                                 'cesar-crea-si-ubuntu-eviacam-wily')
+                                 'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main'],
+                                 'cesar-crea-si-ubuntu-eviacam-' + codename)
+        elif repository ==  'flash':
+            enable_ppa('ppa:flexiondotorg/hal-flash')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
         elif repository ==  'google-earth':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/earth/deb/ stable main'], repository)
-        elif repository ==  'google-hangouts':
+        elif repository ==  'google-talkplugin':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/talkplugin/deb/ stable main'], repository)
+        elif repository ==  'google-musicmanager':
+            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
+            add_apt_sources(['deb http://dl.google.com/linux/musicmanager/deb/ stable main'], repository)
+        elif repository ==  'handbrake':
+            enable_ppa('ppa:stebbins/handbrake-releases')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.net/stebbins/handbrake-releases/ubuntu vivid main'],
+                                 'stebbins-ubuntu-handbrake-releases-' + codename)
+        elif repository ==  'insync':
+            add_apt_key_from_url('https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key')
+            add_apt_sources(['deb http://apt.insynchq.com/ubuntu ' + codename + ' non-free contrib'], repository)
         elif repository ==  'libdvdcss2':
             add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
             add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
                              'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
+        elif repository ==  'makemkv':
+            enable_ppa('ppa:heyarje/makemkv-beta')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu vivid main'],
+                                 'heyarje-ubuntu-makemkv-beta-' + codename)
+        elif repository ==  'minecraft':
+            enable_ppa('ppa:minecraft-installer-peeps/minecraft-installer')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/minecraft-installer-peeps/minecraft-installer/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.net/minecraft-installer-peeps/minecraft-installer/ubuntu vivid main'],
+                                 'minecraft-installer-peeps-ubuntu-minecraft-installer-' + codename)
         elif repository ==  'mumble':
             if codename == 'precise' or codename == 'trusty':
                 enable_ppa('ppa:mumble/release')
+        elif repository ==  'pithos':
+            if codename == 'precise' or codename == 'trusty':
+                enable_ppa('ppa:pithos/ppa')
         elif repository ==  'skype':
             enable_partner_repository()
+        elif repository ==  'simplescreenrecorder':
+            enable_ppa('ppa:ppa:maarten-baert/simplescreenrecorder')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu vivid main'],
+                                 'maarten-baert-ubuntu-makemkv-beta-' + codename)
         elif repository ==  'spotify':
             add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
             # Workaround vivid and wily no longer having libgcrypt11 that Spotify
