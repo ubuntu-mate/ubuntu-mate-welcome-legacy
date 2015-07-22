@@ -304,6 +304,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
         transaction.update_cache = True
         transaction.source_to_update = 'steam.list'
+    elif 'synapse' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'synapse', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'synapse-core-ubuntu-testing-'+codename+'.list'
     elif 'syncthing' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'syncthing', action])
         transaction.update_cache = True
@@ -507,9 +511,9 @@ class AppView(WebKit.WebView):
         'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
         'makemkv-bin', 'meld', 'minecraft-installer', 'mumble', 'ocenaudio',
         'pithos', 'pitivi', 'pysolfc', 'remmina', 'scribus', 'simplescreenrecorder',
-        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d', 'syncthing',
-        'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'virtualbox-5.0', 'workrave',
-        'x2goclient', 'x2goserver', 'zim']:
+        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d',
+        'synapse', 'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
+        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
