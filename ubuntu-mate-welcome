@@ -437,7 +437,7 @@ class WelcomeConfig(object):
         if state and not os.path.exists(self._autostart_path):
             # create the autostart symlink
             try:
-                os.symlink('/usr/share/mate/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
+                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
                 print(err)
                 pass
