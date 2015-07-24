@@ -9,11 +9,11 @@ Vcs-Browser: https://bitbucket.org/ubuntu-mate/ubuntu-mate-welcome/src
 
 Package: ubuntu-mate-welcome
 Architecture: all
+Pre-Depends: mate-menus,
 Depends: gir1.2-gtk-3.0,
          gir1.2-notify-0.7,
          gir1.2-webkit-3.0,
          libgtk2-perl,
-         mate-menus,
          policykit-1,
          python3,
          python3-apt,
