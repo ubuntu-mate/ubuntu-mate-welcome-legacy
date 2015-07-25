@@ -95,7 +95,8 @@ if __name__ == "__main__":
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/musicmanager/deb/ stable main'], repository)
         elif repository ==  'handbrake':
-            enable_ppa('ppa:stebbins/handbrake-releases')
+            if codename != 'wily':
+                enable_ppa('ppa:stebbins/handbrake-releases')
         elif repository ==  'insync':
             if codename == 'wily':
                 codename = 'vivid'
@@ -147,7 +148,7 @@ if __name__ == "__main__":
             add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
                              'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
                              ''], repository)
-        
+
         elif repository ==  'synapse':
             enable_ppa('ppa:synapse-core/testing')
         elif repository ==  'syncthing':

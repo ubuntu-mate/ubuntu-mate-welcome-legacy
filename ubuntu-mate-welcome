@@ -257,10 +257,21 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-talkplugin.list'
-    elif 'handbrake-gtk' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'handbrake', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'stebbins-ubuntu-handbrake-releases-'+codename+'.list'
+    elif 'handbrake' in packages:
+        # Hand brake is not in the PPA yet. Also in the PPA is is known
+        # as 'hanbrake-gtk' while in the archive it is known as
+        # 'handbrake'
+        if codename == 'wily':
+            # libdvdcss2 is good to have for Handbrake
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
+            transaction.update_cache = True
+            transaction.source_to_update = 'libdvdcss2.list'
+        else:
+            transaction.packages = ['handbrake-gtk', 'libdvdcss2']
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'handbrake', action])
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
+            transaction.update_cache = True
+
     elif 'insync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
         transaction.update_cache = True
@@ -504,20 +515,25 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
-        for package in ['adobe-flashplugin', 'audacity', 'bleachbit', 'blender',
-        'calibre', 'darktable', 'dropbox', 'eviacam', 'geany', 'gimp',
-        'glabels', 'gnucash', 'gramps', 'google-chrome-stable',
-        'google-earth-stable', 'google-musicmanager-beta', 'google-talkplugin',
-        'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
-        'makemkv-bin', 'meld', 'minecraft-installer', 'mumble', 'ocenaudio',
-        'pithos', 'pitivi', 'pysolfc', 'remmina', 'scribus', 'simplescreenrecorder',
-        'skype', 'spotify-client', 'steam-launcher', 'sweethome3d',
-        'synapse', 'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
-        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver', 'zim']:
+        for package in ['adobe-flashplugin', 'audacity', 'bleachbit',
+        'blender', 'calibre', 'darktable', 'dropbox', 'eviacam',
+        'geany', 'gimp', 'glabels', 'gnucash', 'gramps',
+        'google-chrome-stable', 'google-earth-stable',
+        'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
+        'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra',
+        'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
+        'mumble', 'ocenaudio', 'pithos', 'pitivi', 'pysolfc',
+        'remmina', 'scribus', 'simplescreenrecorder', 'skype',
+        'spotify-client', 'steam-launcher', 'sweethome3d', 'synapse',
+        'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
+        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
+        'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
                 css_class = 'codecs'
+            elif package == 'handbrake-gtk':
+                css_class = 'handbrake'
             else:
                 css_class = package
 
@@ -632,7 +648,7 @@ class WelcomeApp(object):
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
         w.set_title('Welcome to Ubuntu MATE')
-        
+
         # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
         s = Gdk.Screen.get_default()
         if s.get_height() <= 600:
