@@ -1,7 +1,10 @@
 ubuntu-mate-welcome (1.0.1) UNRELEASED; urgency=medium
 
   * New upstream release.
-    + Fix enabling/disabling at startup.
+    + Add Handbrake.
+    + Add man page and remove unnecessary fonts. (LP: #1477962)
+    + Fix enable/disable toggle.
+    + White space clean up.
   * debian/control:
     + Add missing mate-menus dependency.
 
