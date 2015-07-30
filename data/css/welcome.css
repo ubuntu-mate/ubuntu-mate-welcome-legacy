@@ -330,3 +330,10 @@ hr.soften {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+.scrollup {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
