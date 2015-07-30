@@ -663,7 +663,7 @@ class WelcomeApp(object):
         mv = AppView()
 
         # load our index file
-        file = os.path.abspath(os.path.join(self._data_path, 'index.html'))
+        file = os.path.abspath(os.path.join(self._data_path, 'splash.html'))
         uri = 'file://' + urllib.request.pathname2url(file)
         mv.open(uri)
 
