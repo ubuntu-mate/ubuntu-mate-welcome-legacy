@@ -8,8 +8,10 @@ $(document).ready(function () {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scrollup').fadeIn();
+            $('.floatnav').fadeIn();
         } else {
             $('.scrollup').fadeOut();
+            $('.floatnav').fadeOut();
         }
     });
 
