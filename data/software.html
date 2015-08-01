@@ -5,6 +5,7 @@
   <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
   <link href="css/font-awesome.css" rel="stylesheet" media="screen">
   <link href="css/welcome.css" rel="stylesheet" media="screen">
+  <link href="css/animate.css" rel="stylesheet">
 </head>
 <body class="backdrop-simple">
   <div id="wrapper">
@@ -29,7 +30,26 @@
           some people find that choice overwhelming. Listed here are the
           best-of-breed applications that integrate well with Ubuntu MATE
           and complement the software that Ubuntu MATE ships with.
+          <br>
+          <hr class="soften" />
+          </div>
+          <div style="line-height: 35px">
+          <center>
+            <a id="Accessories1" class="btn btn-inverse"> <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
+            <a id="Games1"       class="btn btn-inverse"> <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
+            <a id="Graphics1"    class="btn btn-inverse"> <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
+            <a id="Internet1"    class="btn btn-inverse"> <span class="fa fa-globe">       </span>&nbsp; Internet</a>
+            <a id="Office1"      class="btn btn-inverse"> <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
+            <a id="Programming1" class="btn btn-inverse"> <span class="fa fa-code">        </span>&nbsp; Programming</a>
+            <a id="Media1"       class="btn btn-inverse"> <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
+            <a id="SysTools1"    class="btn btn-inverse"> <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
+            <a id="UnivAccess1"  class="btn btn-inverse"> <span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
+            <a id="MoreApps1"    class="btn btn-success"> <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
+            <hr class="soften" />
+           </center>
+        </div>
 
+        <div id="Accessories2" class="hideSection">
           <h2>Accessories</h2>
           <div class="pc-only">
           <a href="cmd://link?http://synapse.zeitgeist-project.com/wiki/index.php?title=Main_Page"><img class="left" src="img/applications/synapse.png" /></a>
@@ -67,6 +87,8 @@
           </p>
           <hr class="soften" />
 
+        </div>
+        <div id="Games2" class="hideSection">
           <h2>Games</h2>
           <div class="pc-only">
           <a href="cmd://link?https://minecraft.net/"><img class="left" src="img/applications/minecraft.png" /></a>
@@ -141,6 +163,8 @@
           <hr class="soften" />
           </div>
 
+        </div>
+        <div id="Graphics2" class="hideSection">
           <h2>Graphics</h2>
           <a href="cmd://link?https://www.blender.org/"><img class="left" src="img/applications/blender.png" /></a>
           <p><b>Blender</b> is an integrated 3d suite for modelling,
@@ -278,6 +302,8 @@
           </p>
           <hr class="soften" />
 
+        </div>
+        <div id="Internet2" class="hideSection">
           <h2>Internet</h2>
           <div class="pc-only">
           <a href="cmd://link?http://www.adobe.com/products/flashplayer.html"><img class="left" src="img/applications/adobeflash.png" /></a>
@@ -522,6 +548,8 @@
           <hr class="soften" />
           </div>
 
+        </div>
+        <div id="Office2" class="hideSection">
           <h2>Office</h2>
           <a href="cmd://link?http://calibre-ebook.com/"><img class="left" src="img/applications/calibre.png" /></a>
           <p><b>Calibre</b> is a complete e-library solution. It includes library
@@ -596,6 +624,8 @@
           </p>
           <hr class="soften" />
 
+        </div>
+        <div id="Programming2" class="hideSection">
           <h2>Programming</h2>
           <a href="cmd://link?http://www.geany.org/"><img class="left" src="img/applications/geany.png" /></a>
           <p><b>Geany</b> is a small and lightweight integrated
@@ -642,6 +672,8 @@
           <hr class="soften" />
           </div>
 
+        </div>
+        <div id="Media2" class="hideSection">
           <h2>Sound and Video</h2>
           <a href="cmd://link?http://audacityteam.org/"><img class="left" src="img/applications/audacity.png" /></a>
           <p><b>Audacity</b> is a multi-track audio editor It is
@@ -805,6 +837,8 @@
           <hr class="soften" />
           </div>
 
+        </div>
+        <div id="SysTools2" class="hideSection">
           <h2>System Tools</h2>
           <a href="cmd://link?http://bleachbit.sourceforge.net"><img class="left" src="img/applications/bleachbit.png" /></a>
           <p><b>Bleachbit</b> deletes unnecessary files to free valuable disk space, maintain
@@ -849,6 +883,8 @@
           <hr class="soften" />
           </div>
 
+        </div>
+        <div id="UnivAccess2" class="hideSection">
           <div class="pc-only">
           <h2>Universal Access</h2>
           <a href="cmd://link?http://eviacam.sourceforge.net/index.php"><img class="left" src="img/applications/eviacam.png" /></a>
@@ -876,7 +912,10 @@
           <a class="workrave-remove btn btn-xs btn" href="cmd://apt-remove?workrave"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
-
+        </div>
+        <div id="MoreApps2" class="hideSection">
+          <h2>Get More Apps</h2>
+          <p>[Placeholder - For Ubuntu Software Centre, AppGrid, and others]</p>
         </div>
       </div>
     </div>
@@ -902,6 +941,7 @@
   </div>
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>
+  <script src="js/janimate.js"></script>
   <script src="js/welcome.js"></script>
 </body>
 </html>
