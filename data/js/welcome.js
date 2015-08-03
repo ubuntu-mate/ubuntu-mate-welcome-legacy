@@ -69,3 +69,16 @@ $(document).ready(function () {
     $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2');  });
     $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2');  });
     $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
+
+
+// Only animate the main menu one-at-a-time once.
+    function welcomeReturning() {
+        $(document).ready(function () {
+            $(".fade").removeClass("fade");
+            $(".fade-1s").removeClass("fade-1s");
+            $(".fade-2s").removeClass("fade-2s");
+            $(".fade-3s").removeClass("fade-3s");
+            $(".fade-4s").removeClass("fade-4s");
+            $(".fade-5s").removeClass("fade-5s");
+        });
+    }

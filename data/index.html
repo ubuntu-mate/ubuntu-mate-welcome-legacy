@@ -67,5 +67,13 @@
   <script src="js/bootstrap-2.3.2.js"></script>
   <script src="js/janimate.js"></script>
   <script src="js/welcome.js"></script>
+  <script>
+    // Only animate once.
+    if ( document.cookie == 'greeted=yes' ) {
+      welcomeReturning()
+      } else {
+        document.cookie="greeted=yes";
+      }
+  </script>
 </body>
 </html>
