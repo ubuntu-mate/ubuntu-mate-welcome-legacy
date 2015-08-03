@@ -2,6 +2,15 @@ function WelcomeCtrl($scope) {
 
 }
 
+// All Pages - In Transition
+$(window).load(function() {
+    $('#header').addClass('hideSection');
+    $('#content').addClass('hideSection');
+    $('#header').fadeIn('fast');
+    $('#content').fadeIn('slow');
+});
+
+
 // "Slide in" navigation bar when page loads.
 $(document).ready(function() {
     var $nav = $('#navigation');
