@@ -8,13 +8,13 @@
 </head>
 <body class="backdrop" ng-controller="WelcomeCtrl">
   <div id="wrapper">
-    <div id="header" class="container-fluid">
+    <div id="header" class="container-fluid fade fade-1s">
       <div class="row-fluid">
         <div class="span12 center">
           <h1 id="os_title">Ubuntu MATE</h1>
         </div>
       </div>
-      <div class="row-fluid">
+      <div class="row-fluid fade fade-1s">
         <div class="span12 summary">
           <p>Welcome to Ubuntu MATE! Thank you for joining our community.
           Each menu below will take you to a little page that will help to
@@ -24,46 +24,56 @@
         </div>
       </div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid fade fade-2s">
       <div class="row-fluid divider">
         <div class="span4 btn-showcase">
           <!--Body content-->
           <h4>Documentation</h4>
-          <a class="btn btn-block btn-inverse" href="./introduction.html"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; Introduction</a>
-          <a class="btn btn-block btn-inverse" href="./features.html"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; Features</a>
-          <a class="btn btn-block btn-inverse" href="./gettingstarted.html"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; Getting Started</a>
+          <a class="btn btn-block btn-inverse fade fade-3s" href="./introduction.html"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; Introduction</a>
+          <a class="btn btn-block btn-inverse fade fade-4s" href="./features.html"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; Features</a>
+          <a class="btn btn-block btn-inverse fade fade-5s" href="./gettingstarted.html"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; Getting Started</a>
         </div>
         <div class="span4 btn-showcase">
           <h4>Support</h4>
-          <a class="btn btn-block btn-inverse" href="./community.html"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; Community</a>
-          <a class="btn btn-block btn-inverse" href="./chatroom.html"><span class="fa fa-2x fa-comment fa-va"></span>&nbsp; Chat Room</a>
-          <a id="software" class="btn btn-block btn-inverse" href="software.html"><span class="fa fa-2x fa-download fa-va"></span>&nbsp; Software</a>
-          <a id="install" class="btn btn-block btn-inverse" href="cmd://install"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; Install</a>
+          <a class="btn btn-block btn-inverse fade fade-3s" href="./community.html"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; Community</a>
+          <a class="btn btn-block btn-inverse fade fade-4s" href="./chatroom.html"><span class="fa fa-2x fa-comment fa-va"></span>&nbsp; Chat Room</a>
+          <a id="software" class="btn btn-block btn-inverse fade fade-5s" href="software.html"><span class="fa fa-2x fa-download fa-va"></span>&nbsp; Software</a>
+          <a id="install" class="btn btn-block btn-success fade fade-5s" href="cmd://install"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; Install</a>
         </div>
         <div class="span4 btn-showcase">
           <h4>Project</h4>
-          <a class="btn btn-block btn-inverse" href="./getinvolved.html"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; Get Involved</a>
-          <a class="btn btn-block btn-inverse" href="./shop.html"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; Shop</a>
-          <a class="btn btn-block btn-warning" href="./donate.html"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; Donate</a>
+          <a class="btn btn-block btn-inverse fade fade-3s" href="./getinvolved.html"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; Get Involved</a>
+          <a class="btn btn-block btn-inverse fade fade-4s" href="./shop.html"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; Shop</a>
+          <a class="btn btn-block btn-warning fade fade-5s" href="./donate.html"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; Donate</a>
         </div>
       </div>
     </div>
     <div id="footer">
       <div class="footer-content">
-        <div id="social" class="pull-left">
+        <div id="social" class="pull-left fade fade-5s">
           <a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/icons/google+-24x24.png"></a>
           <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/icons/facebook-24x24.png"></a>
           <a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/icons/twitter-24x24.png"></a>
           <a href="cmd://link?https://ubuntu-mate.org"><img src="img/icons/website-24x24.png"></a>
         </div>
         <div class="form">
-          <a class="label" href="cmd://autostart">Show this welcome menu when you login&nbsp; <span id="autostart" class="fa fa-2x fa-sqaure"></span></a>
+          <a href="cmd://autostart" class="fade fade-5s"><span id="autostart" class="fa fa-square fa-va"></span> Show the Welcome Screen when I log on.</a>
+          <a href="cmd://quit" class="btn btn-inverse">Close</a>
         </div>
       </div>
     </div>
   </div>
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>
+  <script src="js/janimate.js"></script>
   <script src="js/welcome.js"></script>
+  <script>
+    // Only animate once.
+    if ( document.cookie == 'greeted=yes' ) {
+      welcomeReturning()
+      } else {
+        document.cookie="greeted=yes";
+      }
+  </script>
 </body>
 </html>

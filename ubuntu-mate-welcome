@@ -17,7 +17,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with Antergos Welcome. If not, see <http://www.gnu.org/licenses/>.
+# along with Ubuntu MATE Welcome. If not, see <http://www.gnu.org/licenses/>.
 #
 
 """ Welcome screen for Ubuntu MATE """
@@ -518,7 +518,7 @@ class AppView(WebKit.WebView):
         for package in ['adobe-flashplugin', 'audacity', 'bleachbit',
         'blender', 'calibre', 'darktable', 'dropbox', 'eviacam',
         'geany', 'gimp', 'glabels', 'gnucash', 'gramps',
-        'google-chrome-stable', 'google-earth-stable',
+        'google-chrome-stable', 'chromium-browser', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra',
         'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
@@ -663,7 +663,7 @@ class WelcomeApp(object):
         mv = AppView()
 
         # load our index file
-        file = os.path.abspath(os.path.join(self._data_path, 'index.html'))
+        file = os.path.abspath(os.path.join(self._data_path, 'splash.html'))
         uri = 'file://' + urllib.request.pathname2url(file)
         mv.open(uri)
 
