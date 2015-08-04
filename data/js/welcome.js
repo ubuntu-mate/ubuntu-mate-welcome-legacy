@@ -79,6 +79,46 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2');  });
     $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2');  });
     $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
+
+    // Show the popover on hover
+    $('[rel=freedominfo]').popover({
+        html : true,
+        content: function() {
+          return $('#popover_content_wrapper').html();
+        }
+    });
+
+    // Hide Proprietary Toggle
+    $('#nonFreeToggle').on('click', function (e) {
+        if ( document.cookie == 'greeted=yes; hideNonFree=yes' ) {
+            // Toggle it OFF - Show non-free software.
+            document.cookie = "hideNonFree=no";
+            $("#nonFreeCheckBox").addClass("fa-square");
+            $("#nonFreeCheckBox").removeClass("fa-check-square");
+            $('.proprietary').css('display','');
+            $('.alternate').css('display','none');
+        } else {
+            // Toggle it ON - Hide non-free software.
+            document.cookie = "hideNonFree=yes";
+            $("#nonFreeCheckBox").removeClass("fa-square");
+            $("#nonFreeCheckBox").addClass("fa-check-square");
+            $('.proprietary').css('display','none');
+            $('.alternate').css('display','');
+        }
+    });
+
+    // Respect proprietary choice from sessions
+    if ( document.cookie == 'greeted=yes; hideNonFree=yes' ) {
+        // Hide and update check state.
+        $("#nonFreeCheckBox").removeClass("fa-square");
+        $("#nonFreeCheckBox").addClass("fa-check-square");
+        $('.proprietary').css('display','none');
+        $('.alternate').css('display','');
+    } else {
+        // Presume unchecked
+        $('.proprietary').css('display','');
+        $('.alternate').css('display','none');
+    }
 }
 
 

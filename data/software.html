@@ -92,7 +92,7 @@
         </div>
         <div id="Games2" class="hideSection">
           <h2>Games</h2>
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?https://minecraft.net/"><img class="left" src="img/applications/minecraft.png" /></a>
           <p><b>Minecraft</b> is a game about breaking and placing blocks.
           At first, people built structures to protect against nocturnal monsters,
@@ -129,7 +129,7 @@
           </p>
           <hr class="soften" />
 
-          <div class="i686-only">
+          <div class="i686-only proprietary">
           <a href="cmd://link?http://store.steampowered.com/"><img class="left" src="img/applications/steam.png" /></a>
           <p><b>Steam</b> is the ultimate entertainment platform. Play
           games, connect with friends, even create and share content of
@@ -149,7 +149,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="x86_64-only">
+          <div class="x86_64-only proprietary">
           <a href="cmd://link?http://store.steampowered.com/"><img class="left" src="img/applications/steam.png" /></a>
           <p><b>Steam</b> is the ultimate entertainment platform. Play
           games, connect with friends, even create and share content of
@@ -317,7 +317,7 @@
         </div>
         <div id="Internet2" class="hideSection">
           <h2>Internet</h2>
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?http://www.adobe.com/products/flashplayer.html"><img class="left" src="img/applications/adobeflash.png" /></a>
           <p><b>Adobe&reg; Flash&reg; Player</b> is a cross-platform, browser-based
           application runtime that provides uncompromised viewing of
@@ -337,7 +337,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?https://www.dropbox.com/"><img class="left" src="img/applications/dropbox.png" /></a>
           <p><b>Dropbox</b> lets you bring your photos, documents, and
           videos anywhere and share them easily.</p>
@@ -352,7 +352,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?http://www.google.com/chrome/"><img class="left" src="img/applications/google-chrome.png" /></a>
           <p><b>Google Chrome</b> is a browser that combines a minimal
           design with sophisticated technology to make the web faster,
@@ -370,8 +370,22 @@
           <hr class="soften" />
           </div>
 
+          <div class="pc-only alternate">
+          <a href="cmd://link?https://www.chromium.org/Home"><img class="left" src="img/applications/chromium.png" /></a>
+          <p><b>Chromium</b> is the open-source version of Google Chrome.
+          It looks and behaves exactly like Google Chrome,
+          except it does not include AAC, H.264, and
+          MP3 Support, as well as the built-in Flash and PDF Viewer.</p>
+          <p class="text-right">
+          <a class="btn btn-xs" href="cmd://link?https://www.chromium.org/Home"><span class="fa fa-info"></span></a>
+          <a class="chromium-browser-install btn btn-xs btn-inverse" href="cmd://apt-install?chromium-browser"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="chromium-browser-reinstall btn btn-xs btn" href="cmd://apt-install?chromium-browser"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="chromium-browser-remove btn btn-xs btn" href="cmd://apt-remove?chromium-browser"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
           <!--
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?http://www.google.com/earth/"><img class="left" src="img/applications/google-earth.png" /></a>
           <p><b>Google Earth</b> </p>
           <p class="text-right">
@@ -386,7 +400,7 @@
           </div>
           -->
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?https://www.google.com/tools/dlpage/hangoutplugin"><img class="left" src="img/applications/google-talkplugin.png" /></a>
           <p><b>Google Hangouts</b> is a browser plugin, for Firefox
           and Google Chrome, that enables you to have voice and video
@@ -402,7 +416,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?https://music.google.com"><img class="left" src="img/applications/google-musicmanager.png" /></a>
           <p><b>Google Music Manager</b> is a simple application for adding the music files on your computer
           to <a href="cmd://link?https://music.google.com">Google Music</a>. Use Music Manager to upload your
@@ -420,7 +434,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?https://www.insynchq.com/"><img class="left" src="img/applications/insync.png" /></a>
           <p><b>Insync</b> is an application that syncs your Google Drive files to your computer.
           It has more advanced features than Google's official client such as multiple account
@@ -473,7 +487,7 @@
           </p>
           <hr class="soften" />
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?http://www.skype.com"><img class="left" src="img/applications/skype.png" /></a>
           <p><b>Skype</b> is software that enables the world's
           conversations. Millions of individuals and businesses use
@@ -750,6 +764,7 @@
           </div>
           -->
 
+          <div class="proprietary">
           <img class="left" src="img/applications/codecs.png" />
           <p><b>Codecs</b> includes a library that offers a complete,
           cross-platform solution to decode, encode, record, convert and
@@ -762,6 +777,7 @@
           <a class="codecs-remove btn btn-xs btn" href="cmd://apt-remove?libavcodec-extra,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
+          </div>
 
           <div class="pc-only">
           <a href="cmd://link?https://handbrake.fr"><img class="left" src="img/applications/handbrake.png" /></a>
@@ -779,7 +795,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
+          <div class="pc-only proprietary">
           <a href="cmd://link?http://www.videolan.org/developers/libdvdcss.html"><img class="left" src="img/applications/dvd.png" /></a>
           <p><b>libdvdcss2</b> is a simple library designed for
           accessing DVDs like a block device without having to bother
@@ -867,7 +883,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="x86_64-only">
+          <div class="x86_64-only proprietary">
           <a href="cmd://link?https://www.spotify.com"><img class="left" src="img/applications/spotify.png" /></a>
           <p><b>Spotify</b> is a digital music service that gives you access to millions of songs.</p>
           <p class="text-right">
@@ -977,7 +993,18 @@
           <a href="cmd://link?https://ubuntu-mate.org"><img src="img/icons/website-24x24.png"></a>
         </div>
         <div class="form">
+          <a id="nonFreeToggle" class="fade fade-3s" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom"
+             data-placement="top"><i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> Hide Proprietary Software</a>
           <a href="cmd://quit" class="btn btn-inverse">Close</a>
+        </div>
+        <div id="popover_content_wrapper" style="display: none">
+          <b>Proprietary Software</b> is owned by an individual or company.
+          There may be restrictions on its use <i>(such as a license agreement)</i>, and
+          the source code may not be available for modification.
+          <br><br>
+          <b>Free and Open Source Software</b> grants the user the freedom to
+          share, study and modify the software without restriction. For instance,
+          the GPL is an example of a 'Free Software' license.
         </div>
       </div>
     </div>
