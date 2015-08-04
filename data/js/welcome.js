@@ -50,7 +50,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     var currentCategory;
     
     // Show the first category.
-    currentCategory = '#MoreApps2';
+    currentCategory = '#Intro';
     $(currentCategory).jAnimateOnce('zoomInRight');
     $(currentCategory).removeClass('hideSection');
 
@@ -79,6 +79,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2');  });
     $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2');  });
     $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
+    $("#MoreAppsL").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
 
     // Show the popover on hover
     $('[rel=freedominfo]').popover({
@@ -107,7 +108,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         }
     });
 
-    // Respect proprietary choice from sessions
+    // Remember proprietary choice when returning.
     if ( document.cookie == 'greeted=yes; hideNonFree=yes' ) {
         // Hide and update check state.
         $("#nonFreeCheckBox").removeClass("fa-square");
