@@ -191,7 +191,7 @@ p.no-space {
 
 #footer {
   background: url("../img/welcome/footer-bg.jpg");
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 64px;
   width: 100%;
@@ -284,6 +284,7 @@ hr.soften {
   vertical-align: middle;
 }
 
+/** Splash Screen **/
 .splash {
   position: absolute;
   top: 50%;
@@ -301,7 +302,7 @@ hr.soften {
              animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
   }
 
-  /** Keyframes - Move, fade in, spin **/
+  /** Logo keyframes - Move, fade in, spin **/
   @-webkit-keyframes hello {
     from { opacity: 0; left: 100%; -webkit-transform: rotate(60deg); }
     to   { opacity: 1; left: 50%; }
@@ -319,14 +320,57 @@ hr.soften {
     to   { opacity: 1; left: 50%; }
   }
 
+/** Fade elements on Main Menu **/
 .fade { opacity: 0 }
 .fade-1s { -webkit-animation: fadeIn 1000ms forwards 10ms;   animation: fadeIn 1000ms forwards 10ms; }   /** Header **/
 .fade-2s { -webkit-animation: fadeIn 1000ms forwards 400ms;  animation: fadeIn 1000ms forwards 400ms; }  /** Subheadings **/
 .fade-3s { -webkit-animation: fadeIn 1000ms forwards 600ms;  animation: fadeIn 1000ms forwards 600ms; }  /** Row 1 Buttons **/
 .fade-4s { -webkit-animation: fadeIn 1000ms forwards 800ms;  animation: fadeIn 1000ms forwards 800ms; }  /** Row 2 Buttons **/
 .fade-5s { -webkit-animation: fadeIn 1000ms forwards 1000ms; animation: fadeIn 1000ms forwards 1000ms; }  /** Row 3 Buttons **/
-.fade-6s { -webkit-animation: fadeIn 1000ms forwards 1200ms; animation: fadeIn 1000ms forwards 1200ms; }  /** Row 4 Buttons **/
+
 @-webkit-keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/** Floating Navigation **/
+.scrollup {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
+
+.floatnav {
+    position: fixed;
+    display: none;
+    left: 0px;
+    top: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    width: 100%;
+    height: 40px;
+    background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+}
+
+/** Floating Navigation Shadow **/
+.floatdivider {
+  position: fixed;
+  left: 0px;
+  top: 50px;
+  width: 100%;
+  height: 40px;
+  background: url("../img/welcome/header-shadow.png") center 0 no-repeat;
+}
+
+/** Toggling visibility on software page **/
+.hideSection { display: none; }
+.proprietary { }
+.alternate { }
+
+/** Popover **/
+.popover-title {
+    background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+    color: #fff;
 }
