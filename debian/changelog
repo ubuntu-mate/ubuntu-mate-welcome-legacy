@@ -1,3 +1,20 @@
+ubuntu-mate-welcome (1.0.2~wily2) wily; urgency=medium
+
+  * New upstream release. Closes (LP: #)
+    + Add VeraCrypt
+    + Add App Grid.
+    + Add Ubuntu Software Center.
+    + Add animations and transitions.
+    + Add categories to Software.
+    + Add toggle proprietary software to Software.
+    + Update content for Introduction and Features.
+    + Rename to just Welcome.
+    + Hide some elements in when in a live session.
+  * debian/copyright:
+    + Update copyright attibutions for new contributions.
+
+ -- Martin Wimpress <code@flexion.org>  Thu, 06 Aug 2015 10:23:21 +0100
+
 ubuntu-mate-welcome (1.0.1) wily; urgency=medium
 
   * New upstream release. Closes (LP: #1478323)
