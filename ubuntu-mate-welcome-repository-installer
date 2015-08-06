@@ -68,6 +68,13 @@ if __name__ == "__main__":
     codename = platform.dist()[2]
 
     if action == 'install':
+        if repository ==  'appgrid':
+            enable_partner_repository()
+            enable_ppa('ppa:appgrid/stable')
+            if codename == 'wily':
+                add_apt_sources(['deb http://ppa.launchpad.net/appgrid/stable/ubuntu vivid main',
+                                 'deb-src http://ppa.launchpad.netappgrid/stable/ubuntu vivid main'],
+                                 'appgrid-ubuntu-stable-' + codename)
         if repository ==  'dropbox':
             if codename == 'wily':
                 codename = 'vivid'
@@ -160,6 +167,8 @@ if __name__ == "__main__":
             enable_ppa('ppa:ubuntu-sdk-team/ppa')
         elif repository ==  'uget':
             enable_ppa('ppa:plushuang-tw/uget-stable')
+        elif repository ==  'veracrypt':
+            enable_ppa('ppa:unit193/encryption')
         elif repository == 'virtualbox':
             if codename == 'wily':
                 codename = 'vivid'

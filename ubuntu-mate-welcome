@@ -230,7 +230,11 @@ def process_packages(packages, action):
 
     # Perform any pre-install configuration. Basically enabling repositories or
     # adding PPAs.
-    if 'dropbox' in packages:
+    if 'appgrid' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'appgrid', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'appgrid-ubuntu-stable-'+codename+'.list'
+    elif 'dropbox' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'dropbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'dropbox.list'
@@ -335,6 +339,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'uget', action])
         transaction.update_cache = True
         transaction.source_to_update = 'plushuang-tw-ubuntu-uget-stable-'+codename+'.list'
+    elif 'veracrypt' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'veracrypt', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'unit193-ubuntu-encryption-'+codename+'.list'
     elif 'virtualbox-5.0' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
@@ -487,9 +495,11 @@ class AppView(WebKit.WebView):
         if self._config.live:
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
+            self.execute_script("$('.live-session').hide();")
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
+            self.execute_script("$('.live-session').show();")
 
         # Hide applications that are not supported on some architectures.
         if self._config.arch == 'i686':
@@ -515,19 +525,19 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
-        for package in ['adobe-flashplugin', 'audacity', 'bleachbit',
-        'blender', 'calibre', 'darktable', 'dropbox', 'eviacam',
-        'geany', 'gimp', 'glabels', 'gnucash', 'gramps',
+        for package in ['adobe-flashplugin', 'appgrid', 'audacity',
+        'bleachbit', 'blender', 'calibre', 'darktable', 'dropbox',
+        'eviacam', 'geany', 'gimp', 'glabels', 'gnucash', 'gramps',
         'google-chrome-stable', 'chromium-browser', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra',
         'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
         'mumble', 'ocenaudio', 'pithos', 'pitivi', 'pysolfc',
         'remmina', 'scribus', 'simplescreenrecorder', 'skype',
-        'spotify-client', 'steam-launcher', 'sweethome3d', 'synapse',
-        'syncthing', 'telegram', 'terminator', 'ubuntu-sdk', 'uget',
-        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
-        'zim']:
+        'software-center', 'spotify-client', 'steam-launcher',
+        'sweethome3d', 'synapse', 'syncthing', 'telegram', 'terminator',
+        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox-5.0', 'workrave',
+        'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
