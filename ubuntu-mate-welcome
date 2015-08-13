@@ -309,6 +309,10 @@ def process_packages(packages, action):
     elif 'skype' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
         transaction.update_cache = True
+    elif 'spideroakone' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spideroakone', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'spideroakone.list'
     elif 'spotify-client' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify', action])
         transaction.update_cache = True
@@ -526,18 +530,20 @@ class AppView(WebKit.WebView):
         # TODO - Read this from YAML or JSON
         # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
         for package in ['adobe-flashplugin', 'appgrid', 'audacity',
-        'bleachbit', 'blender', 'calibre', 'darktable', 'dropbox',
-        'eviacam', 'geany', 'gimp', 'glabels', 'gnucash', 'gramps',
-        'google-chrome-stable', 'chromium-browser', 'google-earth-stable',
+        'bleachbit', 'blender', 'calibre', 'chromium-browser',
+        'darktable', 'dropbox', 'eviacam', 'firefox', 'geany', 'gimp',
+        'glabels', 'gnome-disk-utility', 'gnucash', 'gramps',
+        'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra',
         'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
         'mumble', 'ocenaudio', 'pithos', 'pitivi', 'pysolfc',
         'remmina', 'scribus', 'simplescreenrecorder', 'skype',
-        'software-center', 'spotify-client', 'steam-launcher',
-        'sweethome3d', 'synapse', 'syncthing', 'telegram', 'terminator',
-        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox-5.0', 'workrave',
-        'x2goclient', 'x2goserver', 'zim']:
+        'software-center', 'spideroak', 'spotify-client',
+        'steam-launcher', 'sweethome3d', 'synapse', 'syncthing',
+        'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'veracrypt',
+        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
+        'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
