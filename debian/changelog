@@ -1,15 +1,22 @@
-ubuntu-mate-welcome (1.0.2~wily2) wily; urgency=medium
+ubuntu-mate-welcome (1.0.2) wily; urgency=medium
 
-  * New upstream release. Closes (LP: #)
+  * New upstream release. Closes (LP: #1486554)
     + Add VeraCrypt
     + Add App Grid.
     + Add Ubuntu Software Center.
-    + Add animations and transitions.
+    + Add Hardinfo.
+    + Add Disks.
+    + Add SpiderOakONE.
+    + Add Chromium as an alternative to Google Chrome.
     + Add categories to Software.
-    + Add toggle proprietary software to Software.
-    + Update content for Introduction and Features.
-    + Rename to just Welcome.
-    + Hide some elements in when in a live session.
+    + Add proprietary software toggle.
+    + Migrate to janimate.js to add animations and transitions.
+    + Assorted content updates and whitespace cleanup.
+    + Update content for Introduction and Features, assorted content
+    changes and whitespace cleanup throughout.
+    + Update buttons in Software to make them consistent.
+    + Rename to Welcome.
+    + Hide some elements when in a live session.
   * debian/copyright:
     + Update copyright attibutions for new contributions.
 

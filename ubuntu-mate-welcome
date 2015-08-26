@@ -262,20 +262,12 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'google-talkplugin.list'
     elif 'handbrake' in packages:
-        # Hand brake is not in the PPA yet. Also in the PPA is is known
+        # Handbrake is not in the PPA yet. Also in the PPA it is known
         # as 'hanbrake-gtk' while in the archive it is known as
         # 'handbrake'
-        if codename == 'wily':
-            # libdvdcss2 is good to have for Handbrake
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
-            transaction.update_cache = True
-            transaction.source_to_update = 'libdvdcss2.list'
-        else:
-            transaction.packages = ['handbrake-gtk', 'libdvdcss2']
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'handbrake', action])
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
-            transaction.update_cache = True
-
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'libdvdcss2.list'
     elif 'insync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
         transaction.update_cache = True
@@ -535,7 +527,7 @@ class AppView(WebKit.WebView):
         'glabels', 'gnome-disk-utility', 'gnucash', 'gramps',
         'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
-        'handbrake-gtk', 'inkscape', 'insync', 'libavcodec-extra',
+        'hardinfo', 'inkscape', 'insync', 'libavcodec-extra',
         'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
         'mumble', 'ocenaudio', 'pithos', 'pitivi', 'pysolfc',
         'remmina', 'scribus', 'simplescreenrecorder', 'skype',
@@ -548,8 +540,6 @@ class AppView(WebKit.WebView):
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
                 css_class = 'codecs'
-            elif package == 'handbrake-gtk':
-                css_class = 'handbrake'
             else:
                 css_class = package
 
