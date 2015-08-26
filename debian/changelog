@@ -3,7 +3,11 @@ ubuntu-mate-welcome (1.0.3) wily; urgency=medium
   * New upstream release. Closes (LP: #1488968)
     + Update UI to include missing elements for backup, firewall and
     user management.
+    + Remove obsolete styles and UI elements.
+    + Correct spelling of Ubuntu Software Centre.
     + Fix SpideOakONE references.
+  * debian/copyright:
+    + Correct email addresses of contributors.
 
  -- Martin Wimpress <code@flexion.org>  Wed, 26 Aug 2015 13:40:54 +0100
 
