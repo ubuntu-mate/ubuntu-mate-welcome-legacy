@@ -333,35 +333,12 @@ hr.soften {
   to   { opacity: 1; }
 }
 
-/** Floating Navigation **/
+/** Floating Back to Top **/
 .scrollup {
     position: fixed;
     top: 32px;
     right: 32px;
     display: none;
-}
-
-.floatnav {
-    position: fixed;
-    display: none;
-    left: 0px;
-    top: 0px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 0px;
-    width: 100%;
-    height: 40px;
-    background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
-}
-
-/** Floating Navigation Shadow **/
-.floatdivider {
-  position: fixed;
-  left: 0px;
-  top: 50px;
-  width: 100%;
-  height: 40px;
-  background: url("../img/welcome/header-shadow.png") center 0 no-repeat;
 }
 
 /** Toggling visibility on software page **/
