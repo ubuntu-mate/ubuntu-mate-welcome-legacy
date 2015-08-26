@@ -531,7 +531,7 @@ class AppView(WebKit.WebView):
         'libdvdcss2', 'makemkv-bin', 'meld', 'minecraft-installer',
         'mumble', 'ocenaudio', 'pithos', 'pitivi', 'pysolfc',
         'remmina', 'scribus', 'simplescreenrecorder', 'skype',
-        'software-center', 'spideroak', 'spotify-client',
+        'software-center', 'spideroakone', 'spotify-client',
         'steam-launcher', 'sweethome3d', 'synapse', 'syncthing',
         'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'veracrypt',
         'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
@@ -608,14 +608,20 @@ class AppView(WebKit.WebView):
             self._push_config()
         elif uri == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
+        elif uri == 'backup':
+            subprocess.Popen(['deja-dup-preferences'])
         elif uri == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
         elif uri == 'control':
             subprocess.Popen(['mate-control-center'])
         elif uri == 'drivers':
             subprocess.Popen(['software-properties-gtk','--open-tab=4'])
+        elif uri == 'firewall':
+            subprocess.Popen(['gufw'])
         elif uri == 'language':
             subprocess.Popen(['gnome-language-selector'])
+        elif uri == 'users':
+            subprocess.Popen(['users-admin'])
         elif uri == 'quit':
             Gtk.main_quit()
         elif uri == 'tweak':
