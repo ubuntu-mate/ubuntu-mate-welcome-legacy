@@ -158,7 +158,7 @@
           </p>
           <hr class="soften" />
 
-          <div class="i686-only proprietary">
+          <div class="proprietary">
           <a href="cmd://link?http://store.steampowered.com/"><img class="left" src="img/applications/steam.png" /></a>
           <p><b>Steam</b> is the ultimate entertainment platform. Play
           games, connect with friends, even create and share content of
@@ -171,29 +171,16 @@
             <a class="btn btn-xs" href="cmd://link?http://store.steampowered.com/"><span class="fa fa-info"></span></a>
             <a class="steam btn btn-xs" href="cmd://link?https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en"><span class="fa fa-android"></span></a>
             <a class="steam btn btn-xs" href="cmd://link?https://itunes.apple.com/gb/app/steam-mobile/id495369748?mt=8"><span class="fa fa-apple"></span></a>
-            <a class="steam-launcher-install btn btn-xs" href="cmd://apt-install?steam-launcher"><span class="fa fa-download"></span>&nbsp; Install</a>
-            <a class="steam-launcher-reinstall btn btn-xs" href="cmd://apt-install?steam-launcher"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-            <a class="steam-launcher-remove btn btn-xs" href="cmd://apt-remove?steam-launcher"><span class="fa fa-trash"></span>&nbsp; Remove</a>
-          </p>
-          <hr class="soften" />
-          </div>
-
-          <div class="x86_64-only proprietary">
-          <a href="cmd://link?http://store.steampowered.com/"><img class="left" src="img/applications/steam.png" /></a>
-          <p><b>Steam</b> is the ultimate entertainment platform. Play
-          games, connect with friends, even create and share content of
-          your own. Join 50 million of your closest friends on Steam.
-          Enjoy exclusive deals, automatic game updates, and
-          cross-platform multiplayer. Plus, now you take advantage of
-          Big Picture mode, designed for use with your TV and game
-          controller.</p>
-          <p class="text-right">
-          <a class="btn btn-xs" href="cmd://link?http://store.steampowered.com/"><span class="fa fa-info"></span></a>
-            <a class="steam btn btn-xs" href="cmd://link?https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en"><span class="fa fa-android"></span></a>
-            <a class="steam btn btn-xs" href="cmd://link?https://itunes.apple.com/gb/app/steam-mobile/id495369748?mt=8"><span class="fa fa-apple"></span></a>
-            <a class="steam-launcher-install btn btn-xs" href="cmd://apt-install?steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386"><span class="fa fa-download"></span>&nbsp; Install</a>
-            <a class="steam-launcher-reinstall btn btn-xs" href="cmd://apt-install?steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-            <a class="steam-launcher-remove btn btn-xs" href="cmd://apt-remove?steam-launcher"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+            <span class="i686-only">
+               <a class="steam-launcher-install btn btn-xs" href="cmd://apt-install?steam-launcher"><span class="fa fa-download"></span>&nbsp; Install</a>
+               <a class="steam-launcher-reinstall btn btn-xs" href="cmd://apt-install?steam-launcher"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+               <a class="steam-launcher-remove btn btn-xs" href="cmd://apt-remove?steam-launcher"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+            </span>
+            <span class="x86_64-only">
+               <a class="steam-launcher-install btn btn-xs" href="cmd://apt-install?steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386"><span class="fa fa-download"></span>&nbsp; Install</a>
+               <a class="steam-launcher-reinstall btn btn-xs" href="cmd://apt-install?steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+               <a class="steam-launcher-remove btn btn-xs" href="cmd://apt-remove?steam-launcher"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+            </span>
           </p>
           <hr class="soften" />
           </div>
@@ -1095,6 +1082,21 @@
           <a class="software-center-remove btn btn-xs" href="cmd://apt-remove?software-center"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
+          
+          <a href="cmd://link?http://www.nongnu.org/synaptic/index.html"><img class="left" src="img/applications/synaptic.png" /></a>
+          <p><b>Synaptic</b> is a graphical management frontend for <code>apt</code>,
+          primarily for power users who know what they need.
+          It allows you to install, upgrade, remove or purge individual
+          packages; modify repository settings; view change logs and
+          even lock a package to a specific version.</p>
+          <p class="text-right">
+          <a class="btn btn-xs" href="cmd://link?http://www.nongnu.org/synaptic/index.html"><span class="fa fa-info"></span></a>
+          <a class="synaptic-install btn btn-xs" href="cmd://apt-install?synaptic"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="synaptic-reinstall btn btn-xs" href="cmd://apt-install?synaptic"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="synaptic-remove btn btn-xs" href="cmd://apt-remove?synaptic"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          
         </div>
       </div>
     </div>
