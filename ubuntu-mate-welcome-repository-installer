@@ -71,10 +71,6 @@ if __name__ == "__main__":
         if repository ==  'appgrid':
             enable_partner_repository()
             enable_ppa('ppa:appgrid/stable')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/appgrid/stable/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/appgrid/stable/ubuntu vivid main'],
-                                 'appgrid-ubuntu-stable-' + codename)
         if repository ==  'dropbox':
             if codename == 'wily':
                 codename = 'vivid'
