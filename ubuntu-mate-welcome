@@ -520,23 +520,23 @@ class AppView(WebKit.WebView):
 
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
-        # grep "\-install" data/software.html | cut -d'>' -f1 | cut -d'"' -f2 | cut -d' ' -f2 | sed -e 's/-install//' | sort -u
         for package in ['adobe-flashplugin', 'appgrid', 'asunder',
         'audacity', 'bleachbit', 'blender', 'calibre',
         'chromium-browser', 'darktable', 'dropbox', 'eviacam',
-        'firefox', 'geany', 'gimp', 'glabels', 'gnome-disk-utility',
-        'gnucash', 'gramps', 'google-chrome-stable',
-        'google-earth-stable', 'google-musicmanager-beta',
-        'google-talkplugin', 'handbrake', 'hardinfo', 'inkscape',
-        'insync', 'libavcodec-extra', 'libdvdcss2', 'makemkv-bin',
-        'meld', 'minecraft-installer', 'mumble', 'ocenaudio', 'pithos',
-        'pitivi', 'pysolfc', 'rapid-photo-downloader', 'remmina',
-        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher',
-        'sweethome3d', 'synapse', 'synaptic', 'syncthing', 'telegram',
-        'terminator', 'ubuntu-sdk', 'uget', 'veracrypt',
-        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
-        'zim']:
+        'filezilla', 'firefox', 'geany', 'gimp', 'glabels',
+        'gnome-disk-utility', 'gnucash', 'gramps',
+        'google-chrome-stable', 'google-earth-stable',
+        'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
+        'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
+        'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
+        'minecraft-installer', 'mumble', 'ocenaudio', 'pavucontrol',
+        'pithos', 'pitivi', 'pysolfc', 'rapid-photo-downloader',
+        'remmina', 'scribus', 'simplescreenrecorder', 'skype',
+        'software-center', 'spideroakone', 'spotify-client',
+        'steam-launcher', 'supertuxkart', 'sweethome3d', 'synapse',
+        'synaptic', 'syncthing', 'telegram', 'terminator',
+        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox-5.0',
+        'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             elif package == 'libavcodec-extra':
