@@ -78,10 +78,6 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'], repository)
         elif repository ==  'eviacam':
             enable_ppa('ppa:cesar-crea-si/eviacam')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu vivid main'],
-                                 'cesar-crea-si-ubuntu-eviacam-' + codename)
         elif repository ==  'adobe-flashplugin':
             enable_partner_repository()
             enable_ppa('ppa:flexiondotorg/hal-flash')
