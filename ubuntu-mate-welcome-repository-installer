@@ -134,7 +134,7 @@ if __name__ == "__main__":
         elif repository == 'spideroakone':
             add_apt_key_from_url('https://spideroak.com/dist/spideroak-apt-2013.asc')
             add_apt_sources(['deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted',
-                             ''], repository)
+                             ' '], repository)
         elif repository ==  'spotify':
             add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
             # Workaround vivid and wily no longer having libgcrypt11 that Spotify
