@@ -113,10 +113,6 @@ if __name__ == "__main__":
                                  'heyarje-ubuntu-makemkv-beta-' + codename)
         elif repository ==  'minecraft':
             enable_ppa('ppa:minecraft-installer-peeps/minecraft-installer')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/minecraft-installer-peeps/minecraft-installer/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/minecraft-installer-peeps/minecraft-installer/ubuntu vivid main'],
-                                 'minecraft-installer-peeps-ubuntu-minecraft-installer-' + codename)
         elif repository ==  'mumble':
             if codename == 'precise' or codename == 'trusty':
                 enable_ppa('ppa:mumble/release')
