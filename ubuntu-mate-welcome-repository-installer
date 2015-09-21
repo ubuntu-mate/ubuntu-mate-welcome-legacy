@@ -107,10 +107,6 @@ if __name__ == "__main__":
                              'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
         elif repository == 'makemkv':
             enable_ppa('ppa:heyarje/makemkv-beta')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu vivid main'],
-                                 'heyarje-ubuntu-makemkv-beta-' + codename)
         elif repository ==  'minecraft':
             enable_ppa('ppa:minecraft-installer-peeps/minecraft-installer')
         elif repository ==  'mumble':
