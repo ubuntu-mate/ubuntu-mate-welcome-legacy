@@ -164,10 +164,6 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
         elif repository ==  'x2go':
             enable_ppa('ppa:x2go/stable')
-            if codename == 'wily':
-                add_apt_sources(['deb http://ppa.launchpad.net/x2go/stable/ubuntu vivid main',
-                                 'deb-src http://ppa.launchpad.net/x2go/stable/ubuntu vivid main'],
-                                 'x2go-ubuntu-stable-' + codename)
         else:
             print('Repository ' + repository + ' is unknown.')
     elif action == 'remove':
