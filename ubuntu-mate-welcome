@@ -533,7 +533,7 @@ class AppView(WebKit.WebView):
         'software-center', 'spideroakone', 'spotify-client',
         'steam-launcher', 'supertuxkart', 'sweethome3d', 'synapse',
         'synaptic', 'syncthing', 'telegram', 'terminator',
-        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox-5.0',
+        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox',
         'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
