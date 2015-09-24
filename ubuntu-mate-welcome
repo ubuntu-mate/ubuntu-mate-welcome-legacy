@@ -309,8 +309,6 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify', action])
         transaction.update_cache = True
         transaction.source_to_update = 'spotify.list'
-        if (codename == 'vivid' or codename == 'wily') and (action == 'install'):
-            transaction.packages.append('libgcrypt11')
     elif 'steam-launcher' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
         transaction.update_cache = True

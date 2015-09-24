@@ -129,15 +129,7 @@ if __name__ == "__main__":
                              ' '], repository)
         elif repository ==  'spotify':
             add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
-            # Workaround vivid and wily no longer having libgcrypt11 that Spotify
-            # requires.
-            if codename == 'vivid' or codename == 'wily':
-                add_apt_sources(['deb http://repository.spotify.com stable non-free',
-                                 'deb http://security.ubuntu.com/ubuntu utopic-security main'],
-                                 repository)
-            else:
-                add_apt_sources(['deb http://repository.spotify.com stable non-free'],
-                                repository)
+            add_apt_sources(['deb http://repository.spotify.com testing non-free'], repository)
         elif repository ==  'steam':
             add_apt_key_from_url('http://repo.steampowered.com/steam/signature.gpg')
             add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
