@@ -9,21 +9,18 @@
 </head>
 <body class="backdrop-simple">
   <div id="wrapper">
-    <div id="header" class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <h1>Software</h1>
-        </div>
-      </div>
+    <div class="container-fluid">
       <div id="navigation">
-        <ul>
-          <li><a href="./index.html"><span class="fa fa-3x fa-home"></span></a></li>
-          <li><a href="./donate.html"><span class="fa fa-3x fa-heart"></span></a></li>
-        </ul>
+        <a id="navigation-button" class="btn btn-success" href="./index.html">
+          <span class="fa fa-chevron-left"></span>
+        </a>
+        <div id="navigation-title">Software</div>
+        <div id="navigation-divider"><img src="img/welcome/header-shadow.png" width="100%"></div>
       </div>
+      <div id="navigation-dummy"></div>
     </div>
     <div id="content" class="container-fluid">
-      <div class="row-fluid divider">
+      <div class="row-fluid">
           <div align="center" style="line-height: 35px">
             <a id="Accessories1" class="btn btn-inverse"> <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
             <a id="Games1"       class="btn btn-inverse"> <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
@@ -1226,7 +1223,7 @@
         </div>
       </div>
     </div>
-    <a href="#" class="scrollup btn"><span class="fa fa-2x fa-arrow-circle-up"></span></a>
+    <a href="#" id="scrollTop" class="btn btn-default"><span class="fa fa-chevron-up"></span></a>
   </div>
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>

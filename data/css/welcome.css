@@ -99,49 +99,50 @@ p.no-space {
 }
 
 /*
-** HEADER OBJECTS
+** NAVIGATION OBJECTS
 */
 
 #navigation {
-  display: none;
-  position: absolute;
   left: 0;
-  top: 19px;
-}
-
-#navigation ul {
-  margin: 0;
-  padding: 0;
-
-}
-
-#navigation ul li {
-  float: left;
-  list-style-type: none;
+  top: 0;
+  position: fixed;
   padding: 8px;
-  margin: 0;
-
-  border: 1px solid #eee;
-  border-left: 0;
-  background-color: #fff;
+  width: 100%;
+  height: 32px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: rgba(243, 243, 243, 0.9);
+  z-index: 10;
 }
 
-#navigation ul li:last-child {
-  list-style-type: none;
-
-  border-radius: 0 4px 4px 0;
+#navigation-dummy {
+  height: 60px;
 }
 
-#navigation ul li:hover {
-  background-color: #f0f0f0;
+.navigation-button-hover {
+  background-image: url('../img/welcome/ubuntu-mate-gray.svg');
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 20px;
+  /** Prevent btn:hover from skewing the image position **/
+  background-position: center !important;
+  -webkit-transition: background-position 0s linear !important;
 }
 
-#navigation ul li a {
-  color: #333333;
+#navigation-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 4px;
+  vertical-align: middle;
+  display: inline-table;
 }
 
-#navigation ul li a:hover {
-  text-decoration: inherit;
+#navigation-divider {
+  top: 200px;
+  left: 0;
+  width: 100%;
+  height: 5px;
 }
 
 /*
@@ -329,15 +330,16 @@ hr.soften {
   to   { opacity: 1; }
 }
 
-/** Floating Back to Top **/
-.scrollup {
-    position: fixed;
-    top: 32px;
-    right: 32px;
-    display: none;
+/* Floating Back to Top */
+#scrollTop {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  display: none;
+  z-index: 11;
 }
 
-/* Show/hide on software page */
+/* Software Page Visibility Toggles */
 .hideSection { display: none; }
 .proprietary { }
 .alternate { }
