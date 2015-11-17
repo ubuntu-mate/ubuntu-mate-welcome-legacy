@@ -43,6 +43,76 @@ $(document).ready(function () {
 });
 
 
+// Main Menu Only = Rotate image on the main menu
+if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
+
+  // Bounce in logo once
+  $('#mainLogo').jAnimateOnce('bounceIn');
+
+  // Have we greeted the user already?
+  if ( document.cookie == 'greeted=yes' ) {
+
+    $(document).ready(function () {
+      $(".fade").removeClass("fade");
+      $(".fade-1s").removeClass("fade-1s");
+      $(".fade-2s").removeClass("fade-2s");
+      $(".fade-3s").removeClass("fade-3s");
+      $(".fade-4s").removeClass("fade-4s");
+      $(".fade-5s").removeClass("fade-5s");
+    });
+  }
+
+  // When Welcome first runs, thank the user.
+  if ( document.cookie == '') {
+    $('#textChoose').hide();
+    $('#textThanks').fadeIn('fast');
+
+    setTimeout(function(){
+      $('#textThanks').fadeOut('slow');
+    }, 5000);
+
+    setTimeout(function(){
+      $('#textChoose').fadeIn('slow');
+    }, 5600);
+
+    document.cookie="greeted=yes";
+  }
+
+  // (Easter Egg) Logo starts to animate after a minute. ;)
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('tada');
+    }, 60000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('flip');
+    }, 60000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('rotateOut');
+    }, 70000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('rotateIn');
+    }, 71000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('rollOut');
+    }, 80000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('rollIn');
+    }, 81000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('zoomOut');
+    }, 90000);
+
+    setTimeout(function(){
+      $('#mainLogo').jAnimateOnce('zoomIn');
+    }, 91000);
+}
+
+
 // Software Page Only - Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
@@ -120,19 +190,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         $('.proprietary').css('display','');
         $('.alternate').css('display','none');
     }
-}
-
-
-// Only animate the main menu one-at-a-time once.
-function welcomeReturning() {
-    $(document).ready(function () {
-        $(".fade").removeClass("fade");
-        $(".fade-1s").removeClass("fade-1s");
-        $(".fade-2s").removeClass("fade-2s");
-        $(".fade-3s").removeClass("fade-3s");
-        $(".fade-4s").removeClass("fade-4s");
-        $(".fade-5s").removeClass("fade-5s");
-    });
 }
 
 

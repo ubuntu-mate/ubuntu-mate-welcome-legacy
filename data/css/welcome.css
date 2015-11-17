@@ -39,13 +39,6 @@ p.no-space {
   vertical-align: middle;
 }
 
-.backdrop {
-  background: url("../img/welcome/background.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-color:#f4f4f4;
-}
-
 .backdrop-simple {
   background-color:#f4f4f4;
 }
@@ -344,16 +337,58 @@ hr.soften {
     display: none;
 }
 
-/** Toggling visibility on software page **/
+/* Show/hide on software page */
 .hideSection { display: none; }
 .proprietary { }
 .alternate { }
 
-/** Popover **/
+/* Popover */
 .popover-title {
-    background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
-    color: #fff;
+  background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+  color: #fff;
 }
+
+/* Main Menu */
+.menuLogo {
+  width: 200px;
+  height: 200px;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.menuMainTextBox {
+  height: 40px;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.menuMainText {
+  margin: 6px;
+  padding: 6px;
+  text-align: center;
+  vertical-align: bottom;
+  font-weight: bold;
+  font-size: 18px;
+  color: #5A6943;
+}
+
+.menuBkgnd {
+  height: 390px;
+  width: 390px;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: -10;
+  position: absolute;
+  overflow: hidden;
+  background-image: url('../img/welcome/menu-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
 
 /* Splash Elements */
 .splashCenter {
