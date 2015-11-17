@@ -114,16 +114,16 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     }, 91000);
 }
 
-
-// Software Page Only - Categories for Apps
+// Software Page Only = Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
-    // Set the first landing category and animations.
+    // Inital variables.
     var currentCategory;
+    var hideNonFree = false;
 
     // Show the first category.
     currentCategory = '#Intro';
-    $(currentCategory).jAnimateOnce('zoomInRight');
+    $(currentCategory).jAnimateOnce('zoomInUp');
     $(currentCategory).removeClass('hideSection');
 
     // Switch to another category.
@@ -163,35 +163,22 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
     // Hide Proprietary Toggle
     $('#nonFreeToggle').on('click', function (e) {
-        if ( document.cookie == 'greeted=yes; hideNonFree=yes' ) {
-            // Toggle it OFF - Show non-free software.
-            document.cookie = "hideNonFree=no";
-            $("#nonFreeCheckBox").addClass("fa-square");
-            $("#nonFreeCheckBox").removeClass("fa-check-square");
-            $('.proprietary').css('display','');
-            $('.alternate').css('display','none');
-        } else {
-            // Toggle it ON - Hide non-free software.
-            document.cookie = "hideNonFree=yes";
-            $("#nonFreeCheckBox").removeClass("fa-square");
-            $("#nonFreeCheckBox").addClass("fa-check-square");
-            $('.proprietary').css('display','none');
-            $('.alternate').css('display','');
-        }
+      if ( hideNonFree == true ) {
+          // Toggle it OFF - Show non-free software.
+          hideNonFree = false;
+          $("#nonFreeCheckBox").addClass("fa-square");
+          $("#nonFreeCheckBox").removeClass("fa-check-square");
+          $('.proprietary').css('display','');
+          $('.alternate').css('display','none');
+      } else {
+          // Toggle it ON - Hide non-free software.
+          hideNonFree = true;
+          $("#nonFreeCheckBox").removeClass("fa-square");
+          $("#nonFreeCheckBox").addClass("fa-check-square");
+          $('.proprietary').css('display','none');
+          $('.alternate').css('display','');
+      }
     });
-
-    // Remember proprietary choice when returning.
-    if ( document.cookie == 'greeted=yes; hideNonFree=yes' ) {
-        // Hide and update check state.
-        $("#nonFreeCheckBox").removeClass("fa-square");
-        $("#nonFreeCheckBox").addClass("fa-check-square");
-        $('.proprietary').css('display','none');
-        $('.alternate').css('display','');
-    } else {
-        // Presume unchecked
-        $('.proprietary').css('display','');
-        $('.alternate').css('display','none');
-    }
 }
 
 
