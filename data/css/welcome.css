@@ -281,41 +281,9 @@ hr.soften {
   vertical-align: middle;
 }
 
-/** Splash Screen **/
-.splash {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 446px;
-  height: 459px;
-  margin: -223px 0 0 -229.5px;
-  background-color: #f4f4f4;
-  opacity: 1;
-
-  /** Logo animation **/
-     -webkit-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-        -moz-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-          -o-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-             animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-  }
-
-  /** Logo keyframes - Move, fade in, spin **/
-  @-webkit-keyframes hello {
-    from { opacity: 0; left: 100%; -webkit-transform: rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @-moz-keyframes hello {
-    from { opacity: 0; left: 100%; -moz-transform: rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @-o-keyframes hello {
-    from { opacity: 0; left: 100%; -o-transform: rotate(60deg); transform:rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @keyframes hello {
-    from { opacity: 0; left: 100%; -webkit-transform: rotate(60deg); transform:rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
+/*
+** Welcome Styling
+*/
 
 /** Fade elements on Main Menu **/
 .fade { opacity: 0 }
