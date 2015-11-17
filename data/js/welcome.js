@@ -45,10 +45,10 @@ $(document).ready(function () {
 
 // Software Page Only - Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
-    
+
     // Set the first landing category and animations.
     var currentCategory;
-    
+
     // Show the first category.
     currentCategory = '#Intro';
     $(currentCategory).jAnimateOnce('zoomInRight');
@@ -133,4 +133,43 @@ function welcomeReturning() {
         $(".fade-4s").removeClass("fade-4s");
         $(".fade-5s").removeClass("fade-5s");
     });
+}
+
+
+// Splash Only - Animation Sequence
+if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
+
+  // Scenes - Delayed elements to appear
+  $(document).ready(function()
+  {
+    $('#sceneA').removeClass('hideSection');
+    $('#sceneA').jAnimateOnce('fadeIn');
+
+    setTimeout(function(){ $('#circle1').fadeOut('medium');}, 1000);
+    setTimeout(function(){ $('#circle2').fadeOut('medium');}, 1100);
+    setTimeout(function(){ $('#circle3').fadeOut('medium');}, 1200);
+    setTimeout(function(){ $('#circle4').fadeOut('medium');}, 1300);
+    setTimeout(function(){ $('#circle5').fadeOut('medium');}, 1400);
+
+    setTimeout(function(){
+      $('#sceneA').removeClass('hideSection');
+      $('#sceneA').fadeOut();
+    }, 1500);
+
+    setTimeout(function(){
+      $('#sceneB').removeClass('hideSection');
+      $('#sceneB').jAnimateOnce('zoomIn');
+      $('body').addClass('fadeToMenu');
+    }, 2000);
+
+    setTimeout(function(){
+      $('body').removeClass('fadeToMenu');
+      $('body').css('background-color','#f4f4f4');
+    }, 3000);
+
+    setTimeout(function(){
+      $('#sceneB').fadeOut();
+    }, 4000);
+
+  });
 }

@@ -351,3 +351,62 @@ hr.soften {
     background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
     color: #fff;
 }
+
+/* Splash Elements */
+.splashCenter {
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  z-index: -1;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 446px; height: 459px;
+  pointer-events: none;
+}
+
+.splashText {
+  font-family: "Ubuntu";
+  font-weight: 100;
+  font-size: 64px;
+  color: #fff;
+  position: relative;
+  top: 39%;
+}
+
+.bootCircle {
+  background: #8ba34f;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-table;
+}
+
+.bootCircleBlock {
+  width: 16px;
+  height: 16px;
+  display: inline-table;
+  margin: 0;
+  padding: 0;
+}
+
+.splashLogo {
+  top: 200px;
+}
+
+.splashVersion {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 20px;
+  color: #5A6943;
+  pointer-events: none;
+}
+
+@-webkit-keyframes fadeToMenu {
+  from { background-color: #3B3A36; }
+  to   { background-color: #f4f4f4; }
+}
+
+.fadeToMenu {
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation: fadeToMenu 1s ease-in-out;
+}

@@ -481,6 +481,7 @@ class AppView(WebKit.WebView):
 
     def _push_config(self):
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
+        self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
 
         # If this is a Live session (booted from ISO) show the
