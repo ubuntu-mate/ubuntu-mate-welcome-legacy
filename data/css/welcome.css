@@ -178,8 +178,10 @@ p.no-space {
   font-size: 20px;
 }
 
-img {
-  pointer-events: none;
+/* Prevent accidental dragging on images and links */
+img, a {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 /*
