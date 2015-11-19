@@ -80,7 +80,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     document.cookie="greeted=yes";
   }
 
-  // (Easter Egg) Logo starts to animate after a minute. ;)
+  // Sssh... You found the little secrets! ;)
+  //// Logo starts to animate after a minute.
     setTimeout(function(){
       $('#mainLogo').jAnimateOnce('tada');
     }, 60000);
@@ -112,6 +113,48 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     setTimeout(function(){
       $('#mainLogo').jAnimateOnce('zoomIn');
     }, 91000);
+
+  //// Ubuntu MATE's Birthday
+    // Become official flavour on 26/Feb/2015
+    var officialDay = 26; // (1-31)
+    var officialMonth = 1; // (0-11)
+    var officialYear = 2015;
+
+  //// Celebrate Distro's Birthday
+    var today = new Date();
+    if ( today.getMonth() == officialMonth ) {
+      if ( today.getDate() == officialDay ) {
+        var UMAge = today.getFullYear() - officialYear;
+        $('#textChoose').html("The distro is officially "+UMAge+" years old today. Happy Birthday!")
+        $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
+        //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
+        $('#mainLogo').jAnimateOnce('pulse');
+        startConfetti();
+      }
+    }
+
+  //// Celebrate Distro's Releases
+    function checkReleaseDay(dd,mm,yyyy,release) {
+      if ( today.getMonth() == mm - 1 ) {
+        if ( today.getDate() == dd ) {
+          if ( today.getFullYear() == yyyy ) {
+            $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".")
+            $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
+            //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
+            $('#mainLogo').jAnimateOnce('pulse');
+            startConfetti();
+          }
+        }
+      }
+    }
+
+    // Release Dates
+    // Possible improvement: Retrieve list from server.
+    checkReleaseDay(31,12,2015,'16.04 Alpha 1');
+    checkReleaseDay(28,01,2016,'16.04 Alpha 2');
+    checkReleaseDay(25,02,2016,'16.04 Beta 1');
+    checkReleaseDay(24,03,2016,'16.04 Beta 2');
+    checkReleaseDay(21,04,2016,'16.04');
 }
 
 // Software Page Only = Categories for Apps

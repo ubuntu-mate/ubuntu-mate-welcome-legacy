@@ -10,6 +10,7 @@
 <body class="backdrop" ng-controller="WelcomeCtrl" style="overflow: hidden;">
   <div class="menuBkgnd animated fadeIn"></div>
   <img id="mainLogo" class="menuLogo" src="img/welcome/ubuntu-mate-icon.svg" width="50%" height="50%">
+  <span id="special"></span>
   <div id="wrapper">
     <div id="header" class="container-fluid fade fade-1s">
       <div class="row-fluid">
@@ -72,7 +73,12 @@
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>
   <script src="js/janimate.js"></script>
+
+  <!-- Executed on special days - Limitations prevent script from loading dynamically -->
+  <script src="js/confetti.js"></script>
+
   <script src="js/welcome.js"></script>
+
   <script>
   </script>
 </body>
