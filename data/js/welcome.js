@@ -219,3 +219,56 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
 
   });
 }
+
+
+// Getting Started Only - Index Pane for Selecting Topics
+if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
+
+  function indexOpen() {
+    // Is the index already open?
+    if ($('#index-menu').is(':visible')) {
+      indexClose();
+    } else {
+      // Open the Index
+      $('#indexOpen').addClass('disabled');
+      $('#indexOpen').prop('disabled', true);
+      $("#index-overlay").fadeIn();
+      $("#index-menu").show();
+      $('#index-menu').jAnimateOnce('fadeInLeft');
+    }
+  }
+
+  function indexClose() {
+    $('#indexOpen').removeClass('disabled');
+    $('#indexOpen').prop('disabled', false);
+    if ($('#index-menu').is(':visible')) {
+      $("#index-overlay").fadeOut();
+      $('#index-menu').jAnimateOnce('fadeOutLeft',function(){
+        $("#index-menu").hide();
+      });
+    }
+  }
+
+  function changePage(id,humanText) {
+    // 'id' is one used for <div>.
+    // 'humanText' is displayed on navigation's sub title.
+    indexClose();
+    $('.topicContents').fadeOut();
+    $('#navigation-sub-title').fadeOut();
+
+    // Smoothly fade between topics
+    setTimeout(function() {
+    $('#navigation-sub-title').html(humanText);
+    $('#navigation-sub-title').fadeIn();
+    $('#'+id).fadeIn();
+    }, 500);
+  }
+
+  // Show inital page and index pane on page load
+  changePage('initial','Choose a Topic');
+
+  setTimeout(function() {
+    indexOpen();
+  }, 1000);
+
+}

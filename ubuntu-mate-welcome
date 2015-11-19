@@ -491,10 +491,12 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
             self.execute_script("$('.live-session').hide();")
+            self.execute_script("$('.live-session-only').show();")
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
             self.execute_script("$('.live-session').show();")
+            self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
         if self._config.arch == 'i686':
