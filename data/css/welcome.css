@@ -43,9 +43,9 @@ p.no-space {
   background-color:#f4f4f4;
 }
 
-/*
-** HEADER OBJECTS
-*/
+/************************
+ * Header
+*************************/
 
 #header {
   padding: 8px 0;
@@ -98,9 +98,9 @@ p.no-space {
   margin-bottom: 8px;
 }
 
-/*
-** NAVIGATION OBJECTS
-*/
+/************************
+ * Navigation
+*************************/
 
 #navigation {
   left: 0;
@@ -154,9 +154,9 @@ p.no-space {
   position: fixed;
 }
 
-/*
-** CONTENT OBJECTS
-*/
+/************************
+ * Content
+*************************/
 
 #content {
   padding-bottom: 64px;
@@ -193,9 +193,9 @@ img, a {
   user-drag: none;
 }
 
-/*
-** FOOTER OBJECTS
-*/
+/************************
+ * Footer
+*************************/
 
 #footer {
   background: url("../img/welcome/footer-bg.jpg");
@@ -300,9 +300,9 @@ hr.soften {
   vertical-align: middle;
 }
 
-/*
-** Welcome Styling
-*/
+/************************
+** Global
+*************************/
 
 /** Fade elements on Main Menu **/
 .fade { opacity: 0 }
@@ -326,18 +326,24 @@ hr.soften {
   z-index: 11;
 }
 
-/* Software Page Visibility Toggles */
+/************************
+ * Software Page
+*************************/
+
+/* Visibility Toggles */
 .hideSection { display: none; }
 .proprietary { }
 .alternate { }
 
-/* Popover */
+/* Proprietary Software Tooltip */
 .popover-title {
   background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
   color: #fff;
 }
 
-/* Main Menu */
+/************************
+ * Main Menu
+*************************/
 .menuLogo {
   width: 200px;
   height: 200px;
@@ -379,7 +385,9 @@ hr.soften {
 }
 
 
-/* Splash Elements */
+/************************
+ * Splash Screen
+*************************/
 .splashCenter {
   text-align: center;
   vertical-align: middle;
@@ -438,9 +446,9 @@ hr.soften {
   -webkit-animation: fadeToMenu 1s ease-in-out;
 }
 
-/*
-** Getting Started - Push Menu for Index
-*/
+/************************
+ * Getting Started - Push Menu (Index)
+*************************/
 #index-menu {
   height: 100%;
   width: 200px;
