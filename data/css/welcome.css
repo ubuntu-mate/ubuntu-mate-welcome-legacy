@@ -237,7 +237,8 @@ img, a {
   margin: 6px 0px 0 0;
 }
 
-#social img {
+#social img, #social span {
+  width: 24px; height: 24px;
   position: relative;
   top: 0px;
   opacity: 0.7;
@@ -251,10 +252,16 @@ img, a {
   -webkit-transition-delay: initial;
 }
 
-#social img:hover {
+#social img:hover, #social span:hover {
   top: -4px;
   opacity: 1.0;
 }
+
+.social-large img {
+  width: 48px !important;
+  height: 48px !important;
+}
+
 
 /* No margin for social icon in navbar */
 .no-margin {
