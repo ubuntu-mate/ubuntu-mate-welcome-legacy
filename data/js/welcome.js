@@ -212,15 +212,15 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           hideNonFree = false;
           $("#nonFreeCheckBox").addClass("fa-square");
           $("#nonFreeCheckBox").removeClass("fa-check-square");
-          $('.proprietary').css('display','');
-          $('.alternate').css('display','none');
+          $('.proprietary').fadeIn();
+          $('.alternate').fadeOut();
       } else {
           // Toggle it ON - Hide non-free software.
           hideNonFree = true;
           $("#nonFreeCheckBox").removeClass("fa-square");
           $("#nonFreeCheckBox").addClass("fa-check-square");
-          $('.proprietary').css('display','none');
-          $('.alternate').css('display','');
+          $('.proprietary').fadeOut();
+          $('.alternate').fadeIn();
       }
     });
 }
