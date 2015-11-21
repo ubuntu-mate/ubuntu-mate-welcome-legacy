@@ -45,7 +45,7 @@ $(document).ready(function () {
 });
 
 
-// Main Menu Only = Rotate image on the main menu
+// Main Menu Only = Animation
 if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
   // Bounce in logo once
@@ -156,6 +156,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     checkReleaseDay(24,03,2016,'16.04 Beta 2');
     checkReleaseDay(21,04,2016,'16.04');
 }
+
 
 // Software Page Only = Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
@@ -313,5 +314,185 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   setTimeout(function() {
     indexOpen();
   }, 1000);
+
+}
+
+
+// Donate Only = Links for donations and spendings per month.
+if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
+
+  var today = new Date();
+  var cellID = '2014-0';
+
+  // Add a Year = (New Row)
+  function addYear(year) {
+    $('#donationTable').append('<tr><th style="text-align:center" id="' + year + '">' + year + '</th>');
+  }
+
+  // Add a Month = (New Column)
+  function addMonth(m,y) {
+    cellID = y + '-' + m;
+    $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a href="cmd://link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/">' + numToShortMonth(m) + '</a></td>');
+  }
+
+  // Add a Blank Month = (New Column, Empty)
+  function addBlankMonth(m,y) {
+    cellID = y + '-' + m;
+    $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"></td>');
+  }
+
+  // Close the Row
+  function endYear() {
+    $('#donationTable tr:last').append("</tr>");
+  }
+
+  // Convert month number to long/short string.
+  function numToMonth(m) {
+    switch (m) {
+      case 0:
+        return 'january';
+        break;
+      case 1:
+        return 'february';
+        break;
+      case 2:
+        return 'march';
+        break;
+      case 3:
+        return 'april';
+        break;
+      case 4:
+        return 'may';
+        break;
+      case 5:
+        return 'june';
+        break;
+      case 6:
+        return 'july';
+        break;
+      case 7:
+        return 'august';
+        break;
+      case 8:
+        return 'september';
+        break;
+      case 9:
+        return 'october';
+        break;
+      case 10:
+        return 'november';
+        break;
+      case 11:
+        return 'december';
+        break;
+    }
+  }
+  function numToShortMonth(m) {
+    switch (m) {
+      case 0:
+        return 'Jan';
+        break;
+      case 1:
+        return 'Feb';
+        break;
+      case 2:
+        return 'Mar';
+        break;
+      case 3:
+        return 'Apr';
+        break;
+      case 4:
+        return 'May';
+        break;
+      case 5:
+        return 'Jun';
+        break;
+      case 6:
+        return 'Jul';
+        break;
+      case 7:
+        return 'Aug';
+        break;
+      case 8:
+        return 'Sep';
+        break;
+      case 9:
+        return 'Oct';
+        break;
+      case 10:
+        return 'Nov';
+        break;
+      case 11:
+        return 'Dec';
+        break;
+    }
+  }
+
+  // Determine if the date is Jan and set to Dec last year.
+  function determineLastMonth() {
+    lastMonthID = '#' + today.getFullYear() + '-' + (today.getMonth() - 1);
+
+    // Before January?! Then we mean December last year.
+    if ( today.getMonth()-1 == -1 ) {
+      lastMonthID = '#' +  (today.getFullYear() - 1) + '-11';
+    }
+    return lastMonthID;
+  }
+
+  // Shade Recent Months
+  function shadeCells() {
+    // Determine current and last month
+    currentMonthID = '#' + today.getFullYear() + '-' + today.getMonth();
+    lastMonthID = determineLastMonth();
+
+    // Shade today's month, year and show text (as it's a blank cell).
+    $(currentMonthID).css('background-color','#87A556');
+    $(currentMonthID).css('color','#fff');
+    $(currentMonthID).css('font-weight','bold');
+    $(currentMonthID).html(numToShortMonth(today.getMonth()));
+
+    currentYearID = '#'+today.getFullYear();
+    $(currentYearID).css('background-color','#87A556');
+    $(currentYearID).css('color','#fff');
+    $(currentYearID).css('font-weight','bold');
+
+    // Lightly shade last month.
+    $(lastMonthID).css('background-color','#CBD6BA');
+    $(lastMonthID).css('color','#000');
+    $(lastMonthID).css('font-weight','bold');
+
+    // Start of new month? Give 3 days grace before showing the link, just to be sure it's unlikely to be a 404.
+    if ( today.getDate() <= 3 ) {
+      if ( ! today.getMonth()-1 == -1 ) {
+        $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(today.getMonth()-1));
+      } else {
+        $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(11));
+      }
+    }
+  }
+
+  ////////////////////////////////
+
+  // Donations started at the end of 2014.
+  addYear('2014');
+  for ( m = 0; m < 10; m++ ) { var y = 2014; addBlankMonth(m,y); }
+  addMonth(10,2014);
+  addMonth(11,2014);
+  endYear();
+
+  // Determine each year's blog posts since 2015
+  for (y = 2015; y < today.getFullYear()+1; y++) {
+    addYear(y);
+    // Determine each month in that year
+    for (m = 0; m < 12; m++) {
+      if ( today.getFullYear() == y && today.getMonth() < m ) {
+        addBlankMonth(m,y);
+      } else {
+        addMonth(m,y);
+      }
+    }
+    endYear();
+    shadeCells();
+  }
 
 }
