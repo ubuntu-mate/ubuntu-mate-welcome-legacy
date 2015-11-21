@@ -171,7 +171,14 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     $(currentCategory).removeClass('hideSection');
 
     // Switch to another category.
-    function switchCategory(now, next) {
+    function switchCategory(now, next, subtitle) {
+        // Smoothly fade subtitle
+        $('#navigation-sub-title').fadeOut();
+        setTimeout(function() {
+          $('#navigation-sub-title').html(subtitle);
+          $('#navigation-sub-title').fadeIn();
+        }, 400);
+
         // Animate out, then animate in next category.
         $(now).fadeOut('fast');
         setTimeout(function() {
@@ -185,17 +192,17 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     }
 
     // Button triggers for functions
-    $("#Accessories1").click(function(){ switchCategory(currentCategory, '#Accessories2');  });
-    $("#Games1").click(function(){       switchCategory(currentCategory, '#Games2');  });
-    $("#Graphics1").click(function(){    switchCategory(currentCategory, '#Graphics2');  });
-    $("#Internet1").click(function(){    switchCategory(currentCategory, '#Internet2');  });
-    $("#Office1").click(function(){      switchCategory(currentCategory, '#Office2');  });
-    $("#Programming1").click(function(){ switchCategory(currentCategory, '#Programming2');  });
-    $("#Media1").click(function(){       switchCategory(currentCategory, '#Media2');  });
-    $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2');  });
-    $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2');  });
-    $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
-    $("#MoreAppsL").click(function(){    switchCategory(currentCategory, '#MoreApps2');  });
+    $("#Accessories1").click(function(){ switchCategory(currentCategory, '#Accessories2', 'Accessories');  });
+    $("#Games1").click(function(){       switchCategory(currentCategory, '#Games2', 'Games');  });
+    $("#Graphics1").click(function(){    switchCategory(currentCategory, '#Graphics2', 'Graphics');  });
+    $("#Internet1").click(function(){    switchCategory(currentCategory, '#Internet2', 'Internet');  });
+    $("#Office1").click(function(){      switchCategory(currentCategory, '#Office2', 'Office');  });
+    $("#Programming1").click(function(){ switchCategory(currentCategory, '#Programming2', 'Programming');  });
+    $("#Media1").click(function(){       switchCategory(currentCategory, '#Media2', 'Sound & Video');  });
+    $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2', 'System Tools');  });
+    $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2', 'Universal Access');  });
+    $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2', 'Get More Apps');  });
+    $("#MoreAppsL").click(function(){    switchCategory(currentCategory, '#MoreApps2', 'Get More Apps');  });
 
     // Show the popover on hover
     $('[rel=freedominfo]').popover({
