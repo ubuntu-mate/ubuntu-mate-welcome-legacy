@@ -7,7 +7,7 @@
   <link href="css/welcome.css" rel="stylesheet" media="screen">
   <link href="css/animate.css" rel="stylesheet">
 </head>
-<body class="backdrop-simple">
+<body class="backdrop-simple" style="overflow: hidden'">
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
@@ -19,20 +19,24 @@
       </div>
       <div id="navigation-dummy"></div>
     </div>
+    <div  style="z-index: 5; position: absolute; height: 70px">
+      <div align="center" style="line-height: 35px; text-align: center">
+        <a id="Accessories1" class="btn btn-inverse"> <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
+        <a id="Games1"       class="btn btn-inverse"> <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
+        <a id="Graphics1"    class="btn btn-inverse"> <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
+        <a id="Internet1"    class="btn btn-inverse"> <span class="fa fa-globe">       </span>&nbsp; Internet</a>
+        <a id="Office1"      class="btn btn-inverse"> <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
+        <a id="Programming1" class="btn btn-inverse"> <span class="fa fa-code">        </span>&nbsp; Programming</a>
+        <a id="Media1"       class="btn btn-inverse"> <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
+        <a id="SysTools1"    class="btn btn-inverse"> <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
+        <a id="UnivAccess1"  class="btn btn-inverse"> <span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
+        <a id="MoreApps1"    class="btn btn-success"> <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
+        <!--hr class="soften"-->
+      </div>
+    </div>
+    <div style="height:70px;"></div>
     <div id="content" class="container-fluid">
       <div class="row-fluid">
-          <div align="center" style="line-height: 35px">
-            <a id="Accessories1" class="btn btn-inverse"> <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
-            <a id="Games1"       class="btn btn-inverse"> <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
-            <a id="Graphics1"    class="btn btn-inverse"> <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
-            <a id="Internet1"    class="btn btn-inverse"> <span class="fa fa-globe">       </span>&nbsp; Internet</a>
-            <a id="Office1"      class="btn btn-inverse"> <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
-            <a id="Programming1" class="btn btn-inverse"> <span class="fa fa-code">        </span>&nbsp; Programming</a>
-            <a id="Media1"       class="btn btn-inverse"> <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
-            <a id="SysTools1"    class="btn btn-inverse"> <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
-            <a id="UnivAccess1"  class="btn btn-inverse"> <span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
-            <a id="MoreApps1"    class="btn btn-success"> <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
-        </div>
         <div id="Intro">
           <img src="img/applications/overview.png" align="right">
           <h2>Ubuntu MATE's Picks</h2>

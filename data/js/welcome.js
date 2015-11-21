@@ -172,15 +172,15 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
     // Switch to another category.
     function switchCategory(now, next) {
-        $(now).jAnimateOnce('fadeOut', function(self, effect){
-            // Finished exit animation
-            $(now).addClass('hideSection');
-
-            // Show next category
-            currentCategory = next;
-            $(next).removeClass('hideSection');
-            $(next).jAnimateOnce('fadeInLeft');
-        });
+        // Animate out, then animate in next category.
+        $(now).fadeOut('fast');
+        setTimeout(function() {
+          $(now).addClass('hideSection');
+          currentCategory = next;
+          $(next).removeClass('hideSection');
+          $(next).show();
+          $(next).jAnimateOnce('fadeInDown');
+        }, 250);
         return currentCategory;
     }
 
