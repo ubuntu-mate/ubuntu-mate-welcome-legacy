@@ -341,6 +341,40 @@ hr.soften {
   color: #fff;
 }
 
+/* Featured Apps Grid */
+#featuredGrid {
+  /* 4x4 Grid with 64px Icons */
+  width: 300px;
+  height: 271px;
+  float: right;
+  margin: 8px;
+}
+
+#featuredGrid img {
+  padding: 2.5px;
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.gridHidden {
+  opacity: 0 !important;
+}
+
+.gridOuter {
+  opacity: 0.3;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
+.gridInner {
+  opacity: 0.7;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
+#featuredGrid img:hover {
+  opacity: 1;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
 /************************
  * Main Menu
 *************************/

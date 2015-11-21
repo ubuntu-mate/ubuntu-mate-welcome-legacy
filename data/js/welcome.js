@@ -161,13 +161,13 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 // Software Page Only = Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
-    // Inital variables.
+    // Initial variables.
     var currentCategory;
     var hideNonFree = false;
 
     // Show the first category.
     currentCategory = '#Intro';
-    $(currentCategory).jAnimateOnce('zoomInUp');
+    $(currentCategory).jAnimateOnce('zoomInLeft');
     $(currentCategory).removeClass('hideSection');
 
     // Switch to another category.
@@ -232,6 +232,111 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("html, body").animate({scrollTop: 90}, 300);
       }
     });
+
+    // Icon filenames of apps to feature at random.
+
+    // A variety of apps that all kinds of users can identify:
+    // gamers, media enthusiasts, programmers and the average users.
+
+    var featuredApps = new Array();
+    featuredApps[0]  = 'audacity';
+    featuredApps[1]  = 'bleachbit';
+    featuredApps[2]  = 'blender';
+    featuredApps[3]  = 'control-centre';
+    featuredApps[4]  = 'darktable';
+    featuredApps[5]  = 'dropbox';
+    featuredApps[6] =  'geany';
+    featuredApps[7] = 'gimp';
+    featuredApps[8] = 'gnome-disk-utility';
+    featuredApps[9] = 'google-chrome';
+    featuredApps[10] = 'google-musicmanager';
+    featuredApps[11] = 'gpick';
+    featuredApps[12] = 'handbrake';
+    featuredApps[13] = 'inkscape';
+    featuredApps[14] = 'insync';
+    featuredApps[15] = 'minecraft';
+    featuredApps[16] = 'mumble';
+    featuredApps[17] = 'pavucontrol';
+    featuredApps[18] = 'pitivi';
+    featuredApps[19] = 'remmina';
+    featuredApps[20] = 'rhythmbox';
+    featuredApps[21] = 'shotwell';
+    featuredApps[22] = 'simplescreenrecorder';
+    featuredApps[23] = 'skype';
+    featuredApps[24] = 'spotify';
+    featuredApps[25] = 'steam';
+    featuredApps[26] = 'synaptic';
+    featuredApps[27] = 'syncthing';
+    featuredApps[28] = 'telegram';
+    featuredApps[29] = 'thunderbird';
+    featuredApps[30] = 'ubuntu-software-center';
+    featuredApps[31] = 'uget';
+    featuredApps[32] = 'veracrypt';
+    featuredApps[33] = 'virtualbox';
+    featuredApps[34] = 'vlc';
+
+    // Add application to the grid.
+    var iconID = 0;
+    function addToGrid(icon) {
+      iconID++;
+      $('#featuredGrid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="gridHidden" />');
+    }
+
+    // Randomly populate apps into the grid.
+    var random;
+    var a = 0;
+    while (a < 16) {
+      random = Math.floor(Math.random() * featuredApps.length);
+      if (featuredApps[random] != "OK" ) {
+          addToGrid(featuredApps[random]);
+          featuredApps[random] = "OK";
+          a++;
+      }
+    }
+
+    // Set classes to create a semi-circle fade effect.
+    $('#appIcon1').addClass('gridOuter');
+    $('#appIcon2').addClass('gridOuter');
+    $('#appIcon3').addClass('gridOuter');
+    $('#appIcon4').addClass('gridOuter');
+    $('#appIcon5').addClass('gridOuter');
+    $('#appIcon8').addClass('gridOuter');
+    $('#appIcon9').addClass('gridOuter');
+    $('#appIcon12').addClass('gridOuter');
+    $('#appIcon13').addClass('gridOuter');
+    $('#appIcon14').addClass('gridOuter');
+    $('#appIcon15').addClass('gridOuter');
+    $('#appIcon16').addClass('gridOuter');
+
+    $('#appIcon6').addClass('gridInner');
+    $('#appIcon7').addClass('gridInner');
+    $('#appIcon10').addClass('gridInner');
+    $('#appIcon11').addClass('gridInner');
+
+    // Gently fade the icons into view.
+    setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
+
+    setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
+    setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
+    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
+
+    setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
+    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
+    setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
+
+    setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
+    setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
+    setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
+    setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
+
+    setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
+    setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
+    setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
+
+    setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
+    setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
+
+    setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
 }
 
 
