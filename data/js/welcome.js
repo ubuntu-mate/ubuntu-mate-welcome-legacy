@@ -44,6 +44,15 @@ $(document).ready(function () {
 
 });
 
+// For pages that depend on an internet connection, but Welcome couldn't connect.
+function reconnectTimeout() {
+  if ( ! $('#reconnectFailed').is(':visible') ) {
+    $('#reconnectFailed').fadeIn();
+  } else {
+    $('#reconnectFailed').jAnimateOnce('pulse');
+  }
+}
+
 
 // Main Menu Only = Animation
 if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
