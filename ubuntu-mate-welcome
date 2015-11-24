@@ -479,6 +479,9 @@ class AppView(WebKit.WebView):
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
 
+        # disable right-click context menu as it isn't needed.
+        self.props.settings.props.enable_default_context_menu = False
+
     def _push_config(self):
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
         self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
