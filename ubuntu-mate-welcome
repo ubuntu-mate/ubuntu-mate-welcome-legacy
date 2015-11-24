@@ -522,6 +522,14 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.hexchat').hide();")
             self.execute_script("$('.webchat').show();")
 
+        # Display warnings if the user is not connected to the internet.
+        if onlineStatus == True:
+            self.execute_script("$('.offline').hide();")
+            self.execute_script("$('.online').show();")
+        else:
+            self.execute_script("$('.offline').show();")
+            self.execute_script("$('.online').hide();")
+
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         for package in ['adobe-flashplugin', 'appgrid', 'asunder',
@@ -637,6 +645,14 @@ class AppView(WebKit.WebView):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
+        elif uri.startswith('checkInternetConnection'):
+            checkInternetConnection()
+            if onlineStatus == True:
+                self.execute_script("$('.offline').hide();")
+                self.execute_script("$('.online').show();")
+            else:
+                self.execute_script("$('.offline').show();")
+                self.execute_script("$('.online').hide();")
         else:
             print('Unknown command: %s' % uri)
 
@@ -709,5 +725,17 @@ class WelcomeApp(object):
         Gtk.main_quit(p1, p2);
 
 if __name__ == "__main__":
+    # Before the app starts, check if the user is connected to the internet.
+    def checkInternetConnection():
+      global onlineStatus
+      try:
+          urllib.request.urlopen("http://archive.ubuntu.com/")
+          print ("Check connection: OK!")
+          onlineStatus = True
+      except:
+          print ("Check Connection: Unreachable.")
+          onlineStatus = False
+
+    checkInternetConnection()
     app = WelcomeApp()
     app.run()
