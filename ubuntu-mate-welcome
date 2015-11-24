@@ -670,7 +670,7 @@ class WelcomeApp(object):
         else:
             w.set_size_request(768, 552)
 
-        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
+        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
         # build webkit container
