@@ -44,6 +44,22 @@ $(document).ready(function () {
 
 });
 
+// Smoothly fade between two elements (by ID)
+function smoothFade(from, to) {
+  $('#'+from).fadeOut();
+  setTimeout(function(){ $('#'+to).fadeIn(); }, 400 );
+}
+
+// Smoothly fade the navigation sub-title
+function changeSubtitle(textToDisplay) {
+  // Smoothly fade subtitle
+  $('#navigation-sub-title').fadeOut();
+  setTimeout(function() {
+    $('#navigation-sub-title').html(textToDisplay);
+    $('#navigation-sub-title').fadeIn();
+  }, 400);
+}
+
 // For pages that depend on an internet connection, but Welcome couldn't connect.
 function reconnectTimeout() {
   if ( ! $('#reconnectFailed').is(':visible') ) {
@@ -182,11 +198,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     // Switch to another category.
     function switchCategory(now, next, subtitle) {
         // Smoothly fade subtitle
-        $('#navigation-sub-title').fadeOut();
-        setTimeout(function() {
-          $('#navigation-sub-title').html(subtitle);
-          $('#navigation-sub-title').fadeIn();
-        }, 400);
+        changeSubtitle(subtitle);
 
         // Animate out, then animate in next category.
         $(now).fadeOut('fast');
