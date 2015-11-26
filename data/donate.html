@@ -26,6 +26,11 @@
             <li class="active"><a href="#about" data-toggle="tab" id="tabAbout">About Donations</a></li>
             <li><a href="#supporters" data-toggle="tab" id="tabSupporters">Our Supporters</a></li>
           </ul>
+          <div class="alert alert-warning offline">
+            <h5>An Internet connection is required to donate and view our supporters.</h5>
+            <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
+            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+          </div>
         </div>
       </div>
 

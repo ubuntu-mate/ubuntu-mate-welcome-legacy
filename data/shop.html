@@ -29,6 +29,11 @@
           that come pre-installed with Ubuntu MATE to clothing and
           apparel that are all Ubuntu MATE branded. Every item sold pays
           a small commission to the Ubuntu MATE project.</p>
+          <div class="alert alert-warning offline" style="margin-left: 200px">
+            <h5>An Internet connection is required to access the shop.</h5>
+            <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
+            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+          </div>
           <div align="center">
             <a class="btn btn-lg btn-inverse" href="cmd://link?http://ubuntu-mate.boutique"><span class="fa fa-3x fa-shopping-cart fa-va"></span>&nbsp; Shop</a>
           </div>

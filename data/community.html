@@ -28,6 +28,11 @@
           members of our growing community, this is where to go. The
           best place to play an active role in the Ubuntu MATE
           community and to help shape its direction is via our forum.</p>
+          <div class="alert alert-warning offline">
+            <h5>An Internet connection is required to access the community.</h5>
+            <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
+            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+          </div>
           <div align="center">
             <a class="btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.community"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.community</a>
           </div>
