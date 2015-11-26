@@ -21,16 +21,16 @@
     </div>
     <div class="online" style="z-index: 5; position: absolute; height: 70px">
       <div align="center" style="line-height: 35px; text-align: center">
-        <a id="Accessories1" class="btn btn-inverse"> <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
-        <a id="Games1"       class="btn btn-inverse"> <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
-        <a id="Graphics1"    class="btn btn-inverse"> <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
-        <a id="Internet1"    class="btn btn-inverse"> <span class="fa fa-globe">       </span>&nbsp; Internet</a>
-        <a id="Office1"      class="btn btn-inverse"> <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
-        <a id="Programming1" class="btn btn-inverse"> <span class="fa fa-code">        </span>&nbsp; Programming</a>
-        <a id="Media1"       class="btn btn-inverse"> <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
-        <a id="SysTools1"    class="btn btn-inverse"> <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
-        <a id="UnivAccess1"  class="btn btn-inverse"> <span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
-        <a id="MoreApps1"    class="btn btn-success"> <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
+        <a id="AccessoriesBtn" class="btn btn-inverse" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
+        <a id="GamesBtn"       class="btn btn-inverse" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
+        <a id="GraphicsBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
+        <a id="InternetBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-globe">       </span>&nbsp; Internet</a>
+        <a id="OfficeBtn"      class="btn btn-inverse" onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
+        <a id="ProgrammingBtn" class="btn btn-inverse" onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-code">        </span>&nbsp; Programming</a>
+        <a id="MediaBtn"       class="btn btn-inverse" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
+        <a id="SysToolsBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
+        <a id="UnivAccessBtn"  class="btn btn-inverse" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
+        <a id="MoreAppsBtn"    class="btn btn-success" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
         <!--hr class="soften"-->
       </div>
     </div>
@@ -49,7 +49,7 @@
             and complement the software that Ubuntu MATE ships with.
             <br><br>
             And even if you do not find the application you're looking for,
-            <a id="MoreAppsL">browse one of the software centres</a>
+            <a href="#" onclick="changeCategoryTab('#MoreApps','Get More Apps');">browse one of the software centres</a>
             to explore even more available for Ubuntu.
           </div>
           <div class="offline">
@@ -117,7 +117,7 @@
             </div>
           </div>
         </div>
-        <div id="Accessories2" class="hideSection">
+        <div id="Accessories" class="hideSection">
           <h2>Accessories</h2>
 
           <a href="cmd://link?http://git.gnome.org/cgit/gnome-disk-utility/"><img class="left" src="img/applications/gnome-disk-utility.png" /></a>
@@ -189,7 +189,7 @@
           <hr class="soften" />
 
         </div>
-        <div id="Games2" class="hideSection">
+        <div id="Games" class="hideSection">
           <h2>Games</h2>
           <div class="pc-only proprietary">
           <a href="cmd://link?https://minecraft.net/"><img class="left" src="img/applications/minecraft.png" /></a>
@@ -278,7 +278,7 @@
           <hr class="soften" />
 
         </div>
-        <div id="Graphics2" class="hideSection">
+        <div id="Graphics" class="hideSection">
           <h2>Graphics</h2>
           <a href="cmd://link?https://www.blender.org/"><img class="left" src="img/applications/blender.png" /></a>
           <p><b>Blender</b> is an integrated 3d suite for modelling,
@@ -439,7 +439,7 @@
           <hr class="soften" />
 
         </div>
-        <div id="Internet2" class="hideSection">
+        <div id="Internet" class="hideSection">
           <h2>Internet</h2>
           <div class="pc-only proprietary">
           <a href="cmd://link?http://www.adobe.com/products/flashplayer.html"><img class="left" src="img/applications/adobeflash.png" /></a>
@@ -781,7 +781,7 @@
           </div>
 
         </div>
-        <div id="Office2" class="hideSection">
+        <div id="Office" class="hideSection">
           <h2>Office</h2>
           <a href="cmd://link?http://calibre-ebook.com/"><img class="left" src="img/applications/calibre.png" /></a>
           <p><b>Calibre</b> is a complete e-library solution. It includes library
@@ -861,7 +861,7 @@
           <hr class="soften" />
 
         </div>
-        <div id="Programming2" class="hideSection">
+        <div id="Programming" class="hideSection">
           <h2>Programming</h2>
           <a href="cmd://link?http://www.geany.org/"><img class="left" src="img/applications/geany.png" /></a>
           <p><b>Geany</b> is a small and lightweight integrated
@@ -912,7 +912,7 @@
           </div>
 
         </div>
-        <div id="Media2" class="hideSection">
+        <div id="Media" class="hideSection">
           <h2>Sound and Video</h2>
           <a href="cmd://link?http://www.littlesvr.ca/asunder/"><img class="left" src="img/applications/asunder.png" /></a>
           <p><b>Asunder</b> is a graphical Audio CD ripper and encoder. It
@@ -1119,7 +1119,7 @@
           </div>
 
         </div>
-        <div id="SysTools2" class="hideSection">
+        <div id="SysTools" class="hideSection">
           <h2>System Tools</h2>
           <a href="cmd://link?http://bleachbit.sourceforge.net"><img class="left" src="img/applications/bleachbit.png" /></a>
           <p><b>Bleachbit</b> deletes unnecessary files to free valuable disk space, maintain
@@ -1181,7 +1181,7 @@
           </div>
 
         </div>
-        <div id="UnivAccess2" class="hideSection">
+        <div id="UnivAccess" class="hideSection">
           <h2>Universal Access</h2>
           <div class="pc-only">
           <a href="cmd://link?http://eviacam.sourceforge.net/index.php"><img class="left" src="img/applications/eviacam.png" /></a>
@@ -1211,7 +1211,7 @@
           </p>
           <hr class="soften" />
         </div>
-        <div id="MoreApps2" class="hideSection">
+        <div id="MoreApps" class="hideSection">
           <h2>More Applications</h2>
           <!-- <p>The applications presented in Ubuntu MATE Welcome are only
           a tiny fraction of what is available. If you'd like to explore

@@ -212,18 +212,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         return currentCategory;
     }
 
-    // Button triggers for functions
-    $("#Accessories1").click(function(){ switchCategory(currentCategory, '#Accessories2', 'Accessories');  });
-    $("#Games1").click(function(){       switchCategory(currentCategory, '#Games2', 'Games');  });
-    $("#Graphics1").click(function(){    switchCategory(currentCategory, '#Graphics2', 'Graphics');  });
-    $("#Internet1").click(function(){    switchCategory(currentCategory, '#Internet2', 'Internet');  });
-    $("#Office1").click(function(){      switchCategory(currentCategory, '#Office2', 'Office');  });
-    $("#Programming1").click(function(){ switchCategory(currentCategory, '#Programming2', 'Programming');  });
-    $("#Media1").click(function(){       switchCategory(currentCategory, '#Media2', 'Sound & Video');  });
-    $("#SysTools1").click(function(){    switchCategory(currentCategory, '#SysTools2', 'System Tools');  });
-    $("#UnivAccess1").click(function(){  switchCategory(currentCategory, '#UnivAccess2', 'Universal Access');  });
-    $("#MoreApps1").click(function(){    switchCategory(currentCategory, '#MoreApps2', 'Get More Apps');  });
-    $("#MoreAppsL").click(function(){    switchCategory(currentCategory, '#MoreApps2', 'Get More Apps');  });
+    // A category tab is clicked.
+    function changeCategoryTab(id,humanText) {
+      switchCategory(currentCategory, id, humanText);
+    }
 
     // Show the popover on hover
     $('[rel=freedominfo]').popover({
