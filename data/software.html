@@ -53,22 +53,68 @@
             to explore even more available for Ubuntu.
           </div>
           <div class="offline">
-            <h2>More Apps Await.</h2>
-            <p>Connect your computer to the Internet to explore a wide selection
-            of applications for Ubuntu MATE.</p>
-            <p>Once online, you'll be able to download and install that have been
-            tried & tested for your desktop right here in Welcome. Our picks
-            ensure that this software integrates well the Ubuntu MATE desktop.</p>
+            <div id="offlineMessage">
+              <h2>More Apps Await.</h2>
+              <p>Connect your computer to the Internet to explore a wide selection
+              of applications for Ubuntu MATE.</p>
+              <p>Once online, you'll be able to download and install that have been
+              tried & tested for your desktop right here in Welcome. Our picks
+              ensure that this software integrates well the Ubuntu MATE desktop.</p>
 
-            <div id="reconnectFailed" hidden class="alert alert-danger" style="width: 350px; margin-top: 12px">
-              <span class="fa fa-exclamation-triangle"></span>
-              Sorry, Welcome could not establish a connection to the
-              Ubuntu repository server. Please check your connection and try again.
+              <div id="reconnectFailed" hidden class="alert alert-danger" style="width: 350px; margin-top: 12px">
+                <span class="fa fa-exclamation-triangle"></span>
+                Sorry, Welcome could not establish a connection to the
+                Ubuntu repository server. Please check your connection and try again.
+              </div>
+
+              <ul class="unstyled">
+                <li><a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-success"> <span class="fa fa-refresh"></span> Retry Connection</a></li>
+              </ul>
+              <ul class="unstyled" id="helpButton">
+                <li><a onclick="smoothFade('offlineMessage','helpMe'); changeSubtitle('Connection Troubleshooting'); smoothFade('featuredGrid','');" class="btn btn-default">
+                  <span class="fa fa-question-circle"></span> Connection Help</a>
+                </li>
+              </ul>
             </div>
 
-            <ul class="unstyled">
-              <li><a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-success"> <span class="fa fa-refresh"></span> Refresh Connection</a></li>
-            </ul>
+            <div id="helpMe" hidden>
+              <h3>Get Connected.</h3>
+              <p>Here's a few things you can check, depending on the type of connection you have:</p>
+              <h5><span class="fa fa-plug"></span> Wired Connection</h5>
+              <ul>
+                <li>Is the cable securely plugged in?</li>
+                <li>Is the router online and can other devices access the network? Try restarting the router.</li>
+              </ul>
+              <hr>
+              <h5><span class="fa fa-wifi"></span> Wireless Connection</h5>
+              <li>Have you entered the correct wireless password from the <b>network indicator</b> in the upper-right?</li>
+              <ul>
+                <li>When disconnected, the applet looks like this: <img src="img/screenshots/network-applet.svg"></li>
+              </ul>
+              <li>Is there a physical switch that may have accidentally switched off wireless functionality?</li>
+              <li>
+                Is there a soft (keyboard) switch that toggles it off?
+                <ul>
+                  <li>You may need to hold the FN key while pressing the function key.</li>
+                  <li>Here's an example: <img src="img/screenshots/hardware-wifi-button.png"></li>
+                </ul>
+              </li>
+              <hr>
+              <h5>Not working at all or experiencing sluggish connections?</h5>
+              <p>Sorry to hear that. You will need a temporary wired connection to install working drivers.</p>
+              <ul>
+                <li>The <a href="cmd://drivers">Additional Drivers</a> tab may have them available for your system.</li>
+                <li>Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
+                package containing the firmware. See <b>Drivers</b> in the <a href="gettingstarted.html">Getting Started</a> section for more details.</li>
+                <li>Feel free to <a href="community.html">ask the community</a> if you need assistance.</li>
+              </ul>
+              <br>
+              <ul class="unstyled" id="helpButtonBack">
+                <li><a onclick="smoothFade('helpMe','offlineMessage'); changeSubtitle('Our Picks'); smoothFade('','featuredGrid');" class="btn btn-inverse">
+                  <span class="fa fa-check"></span> OK</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div id="Accessories2" class="hideSection">
@@ -1234,7 +1280,7 @@
           <a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>
         </div>
         <div class="form">
-          <a id="nonFreeToggle" class="fade fade-3s" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom"
+          <a id="nonFreeToggle" class="fade fade-3s online" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom"
              data-placement="top"><i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> Hide Proprietary Software</a>
           <a href="cmd://quit" class="btn btn-inverse">Close</a>
         </div>

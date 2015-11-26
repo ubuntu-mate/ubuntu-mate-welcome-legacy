@@ -443,12 +443,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     }, 500);
   }
 
-  // Show inital page and index pane on page load
+  // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
-
-  setTimeout(function() {
-    indexOpen();
-  }, 1000);
+  setTimeout(function() { indexOpen(); }, 1000);
 
 }
 
