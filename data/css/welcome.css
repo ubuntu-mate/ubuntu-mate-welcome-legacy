@@ -418,6 +418,33 @@ hr.soften {
   background-position: center;
 }
 
+/* Raspberry Pi Button */
+.btn-rpi {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #C6053D;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#C6053D), to(#C6053D));
+  background-image: -webkit-linear-gradient(top, #C6053D, #C6053D);
+  background-image: linear-gradient(to bottom, #C6053D #C6053D);
+  background-repeat: repeat-x;
+  border-color: #51a351 #51a351 #387038;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.btn-rpi:hover,
+.btn-rpi:focus,
+.btn-rpi:active,
+.btn-rpi.active,
+.btn-rpi.disabled,
+.btn-rpi[disabled] {
+  color: #ffffff;
+  background-color: #C6053D;
+}
+
+.btn-rpi:active,
+.btn-rpi.active {
+  background-color: #C6053D \9;
+}
 
 /************************
  * Splash Screen
