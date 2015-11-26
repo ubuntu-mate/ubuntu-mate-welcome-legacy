@@ -502,18 +502,22 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
+        # If neither a i686 or x86_64, we must be running on the Raspberry Pi port (armv7)
         if self._config.arch == 'i686':
             self.execute_script("$('.i686-only').show();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').show();")
+            self.execute_script("$('.rpi-only').hide();")
         elif self._config.arch == 'x86_64':
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').show();")
             self.execute_script("$('.pc-only').show();")
+            self.execute_script("$('.rpi-only').hide();")
         else:
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').hide();")
+            self.execute_script("$('.rpi-only').show();")
 
         if self._apt_cache['hexchat'].is_installed:
             self.execute_script("$('.hexchat').show();")
