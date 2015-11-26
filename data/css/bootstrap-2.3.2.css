@@ -3945,7 +3945,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   margin-left: 0;
   list-style: none;
 }
@@ -4044,7 +4044,8 @@ input[type="submit"].btn.btn-mini {
 
 .nav-tabs > li,
 .nav-pills > li {
-  float: left;
+  float: none;
+  display: inline-block;
 }
 
 .nav-tabs > li > a,
@@ -4102,7 +4103,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: #87A556;
 }
 
 .nav-stacked > li {

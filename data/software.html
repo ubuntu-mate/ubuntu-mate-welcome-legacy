@@ -19,22 +19,20 @@
       </div>
       <div id="navigation-dummy"></div>
     </div>
-    <div class="online" style="z-index: 5; position: absolute; height: 70px">
-      <div align="center" style="line-height: 35px; text-align: center">
-        <a id="AccessoriesBtn" class="btn btn-inverse" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-paint-brush"> </span>&nbsp; Accessories</a>
-        <a id="GamesBtn"       class="btn btn-inverse" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-gamepad">     </span>&nbsp; Games</a>
-        <a id="GraphicsBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-picture-o">   </span>&nbsp; Graphics</a>
-        <a id="InternetBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-globe">       </span>&nbsp; Internet</a>
-        <a id="OfficeBtn"      class="btn btn-inverse" onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-bar-chart">   </span>&nbsp; Office</a>
-        <a id="ProgrammingBtn" class="btn btn-inverse" onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-code">        </span>&nbsp; Programming</a>
-        <a id="MediaBtn"       class="btn btn-inverse" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-file-video-o"></span>&nbsp; Sound & Video</a>
-        <a id="SysToolsBtn"    class="btn btn-inverse" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-cog">         </span>&nbsp; System Tools</a>
-        <a id="UnivAccessBtn"  class="btn btn-inverse" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-wheelchair">  </span>&nbsp; Universal Access</a>
-        <a id="MoreAppsBtn"    class="btn btn-success" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-hdd-o">       </span>&nbsp; More Apps</a>
-        <!--hr class="soften"-->
-      </div>
+    <div class="online" class="categoryTabs">
+      <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
+        <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
+        <li><a id="GamesBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
+        <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
+        <li><a id="InternetBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
+        <li><a id="OfficeBtn"      href="#" data-toggle="tab" onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
+        <li><a id="ProgrammingBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
+        <li><a id="MediaBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
+        <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
+        <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
+      </ul>
     </div>
-    <div class="online" style="height:70px;"></div>
     <div id="content" class="container-fluid">
       <div class="row-fluid">
         <div id="Intro">
@@ -48,8 +46,10 @@
             best-of-breed applications that integrate well with the desktop
             and complement the software that Ubuntu MATE ships with.
             <br><br>
-            And even if you do not find the application you're looking for,
-            <a href="#" onclick="changeCategoryTab('#MoreApps','Get More Apps');">browse one of the software centres</a>
+            And even if you do not find the application you're looking for, choose one of the many
+            <a href="#" onclick="changeCategoryTab('#MoreApps','Get More Apps'); $('#tabs a:last').tab('show');">
+              <span class="fa fa-download"></span> software centres
+            </a>
             to explore even more available for Ubuntu.
           </div>
           <div class="offline">
@@ -1212,10 +1212,10 @@
           <hr class="soften" />
         </div>
         <div id="MoreApps" class="hideSection">
-          <h2>More Applications</h2>
-          <!-- <p>The applications presented in Ubuntu MATE Welcome are only
-          a tiny fraction of what is available. If you'd like to explore
-          what else is available, try one of the following:</p> -->
+          <h2>Software Centres</h2>
+          <p>Easy to navigate graphical interfaces to browse a wide selection of
+          software availiable for your operating system. <b>Recommended for new users.</b></p>
+          <hr class="soften" />
 
           <div class="pc-only proprietary">
           <a href="cmd://link?http://www.appgrid.org/"><img class="left" src="img/applications/appgrid.png" /></a>
@@ -1252,11 +1252,14 @@
           </p>
           <hr class="soften" />
 
+          <h2>Package Managers</h2>
+          <p><span class="fa fa-warning"></span> Know exactly what you're looking for? Package Managers are primarilly used by power users.</p>
+          <hr class="soften" />
+
           <a href="cmd://link?http://www.nongnu.org/synaptic/index.html"><img class="left" src="img/applications/synaptic.png" /></a>
           <p><b>Synaptic</b> is a graphical package management program
           for <code>apt</code>. It provides the same features as the
-          <code>apt-get</code> command line utility, <u>primarily for
-          power users who know what they need</u> and allows you to
+          <code>apt-get</code> command line utility, allowing you to
           install, upgrade, remove or purge individual packages; modify
           repository settings; view change logs and even lock a package
           to a specific version.</p>
