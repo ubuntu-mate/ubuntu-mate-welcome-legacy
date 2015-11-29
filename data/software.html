@@ -71,7 +71,7 @@
                 <li><a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-success"> <span class="fa fa-refresh"></span> Retry Connection</a></li>
               </ul>
               <ul class="unstyled" id="helpButton">
-                <li><a onclick="smoothFade('offlineMessage','helpMe'); changeSubtitle('Connection Troubleshooting'); smoothFade('featuredGrid','');" class="btn btn-default">
+                <li><a onclick="smoothFade('#offlineMessage','#helpMe'); changeSubtitle('Connection Troubleshooting'); smoothFade('#featuredGrid','');" class="btn btn-default">
                   <span class="fa fa-question-circle"></span> Connection Help</a>
                 </li>
               </ul>
@@ -110,7 +110,7 @@
               </ul>
               <br>
               <ul class="unstyled" id="helpButtonBack">
-                <li><a onclick="smoothFade('helpMe','offlineMessage'); changeSubtitle('Our Picks'); smoothFade('','featuredGrid');" class="btn btn-inverse">
+                <li><a onclick="smoothFade('#helpMe','#offlineMessage'); changeSubtitle('Our Picks'); smoothFade('','#featuredGrid');" class="btn btn-inverse">
                   <span class="fa fa-check"></span> OK</a>
                 </li>
               </ul>

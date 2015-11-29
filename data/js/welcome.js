@@ -46,8 +46,8 @@ $(document).ready(function () {
 
 // Smoothly fade between two elements (by ID)
 function smoothFade(from, to) {
-  $('#'+from).fadeOut();
-  setTimeout(function(){ $('#'+to).fadeIn(); }, 400 );
+  $(from).fadeOut();
+  setTimeout(function(){ $(to).fadeIn(); }, 400 );
 }
 
 // Smoothly fade the navigation sub-title
