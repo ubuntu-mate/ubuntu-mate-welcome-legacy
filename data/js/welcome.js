@@ -437,7 +437,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
 
   // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
-  setTimeout(function() { indexOpen(); }, 1000);
+  setTimeout(function() { indexOpen(); }, 500);
+  $('#indexOpen').jAnimateOnce('fadeInDown');
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();
