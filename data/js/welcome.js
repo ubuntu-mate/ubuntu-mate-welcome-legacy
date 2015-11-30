@@ -439,6 +439,16 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   changePage('initial','Choose a Topic');
   setTimeout(function() { indexOpen(); }, 1000);
 
+  // Show additional information on the page based on checkbox state.
+  $('.dualBootWin').hide();
+  $('#showDualBootWin').click(function() {
+    if ( $(this).prop('checked') == true ) {
+      $('.dualBootWin').fadeIn();
+    } else {
+      $('.dualBootWin').fadeOut();
+    }
+});
+
 }
 
 

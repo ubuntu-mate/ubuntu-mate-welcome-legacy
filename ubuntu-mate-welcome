@@ -645,6 +645,10 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
+        elif uri == 'gparted':
+            subprocess.Popen(['gksudo','gparted'])
+        elif uri == 'sysmonitor':
+            subprocess.Popen(['mate-system-monitor'])
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
@@ -731,13 +735,14 @@ class WelcomeApp(object):
 if __name__ == "__main__":
     # Before the app starts, check if the user is connected to the internet.
     def checkInternetConnection():
+      print('Testing Connection... ', end="")
       global onlineStatus
       try:
           urllib.request.urlopen("http://archive.ubuntu.com/")
-          print ("Check connection: OK!")
+          print("Success!")
           onlineStatus = True
       except:
-          print ("Check Connection: Unreachable.")
+          print("Unreachable.")
           onlineStatus = False
 
     checkInternetConnection()

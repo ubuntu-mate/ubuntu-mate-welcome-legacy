@@ -22,7 +22,10 @@
     <a id="index-overlay" href="javascript:indexClose()" hidden></a>
     <div id="index-menu" hidden>
       <h5><a id="index-close" href="javascript:indexClose();"><span class="fa fa-close"></span></a> Index</h5>
-      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('prepare','Installation Preparation')">  <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
+      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('sysreq','System Requirements')">        <span class="fa fa-laptop"></span>        System Requirements</a>
+      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('prepare','Installation Preparations')"> <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
+      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('dualboot','Dual Booting')">             <span class="fa fa-retweet"></span>       Dual Booting</a>
+      <span class="live-session-only"><hr class="soften"><h5>Desktop</h5></span>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('updates','Software Updates')">          <span class="fa fa-refresh"></span>       Software Updates</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
@@ -45,11 +48,233 @@
         </div>
       </div>
 
+      <!-- System Requirements (shown in guest session only) -->
+      <div id="sysreq" class="topicContents" hidden>
+        <div class="row-fluid">
+          <div class="span12">
+            <h2>Modest System Requirements</h2>
+            <p>Ubuntu MATE works well on both high-end to slow computers,
+            optimised to be functional, while light on system resources.</p>
+
+            <h5>Minimum</h5>
+            <ul>
+              <li>Pentium III 750 megahertz (MHz)</li>
+              <li>512 megabytes (MB) of RAM</li>
+              <li>8 gigabytes (GB) of disk space</li>
+            </ul>
+
+            <h5>Recommended</h5>
+            <ul>
+              <li>Core 2 Duo 1.6 gigahertz (GHz)</li>
+              <li>2 gigabytes (GB) of RAM</li>
+              <li>16 gigabytes (GB) of disk space</li>
+            </ul>
+
+            <p>The operating system will run much more efficiently if your
+            computer meets or surpasses the recommended requirements.</p>
+
+            <div class="center">
+              <a href="cmd://sysmonitor" class="btn btn-inverse"><img src="img/applications/system-monitor.png" width="32px" height="32px">&nbsp; Open System Monitor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Installation Preparations (shown in guest session only) -->
       <div id="prepare" class="topicContents" hidden>
         <div class="row-fluid">
           <div class="span12">
-          <!-- Not yet written -->
+            <h2>Preparing to Install</h2>
+            <p>Ubuntu MATE is relatively simple to set up, whether you're looking to
+            replace your existing operating system or install Ubuntu MATE alongside
+            an existing one - such as &nbsp;<span class="fa fa-windows"></span>
+            Microsoft Windows or another <span class="fa fa-linux"></span>
+            GNU/Linux distribution.</p>
+
+            <h3>For the best results:</h3>
+            <ul>
+              <li><u><b>Back up</b></u> any important data to another storage device.</li>
+              <li class="offline">Connect to the Internet to install all available updates during installation.</li>
+              <li class="online">Stay connected to the Internet to install all available updates.</li>
+              <li>Plug in your device to the mains if it is running on battery power.</li>
+            </ul>
+            <hr class="soften"/>
+
+            <img src="img/applications/ubiquity.png" class="left"/>
+            <p>The live session you are currently in right now is a good opportunity
+            to test Ubuntu MATE without modifying your computer, allowing you to
+            test all of your peripherals are working as intended before committing
+            to installing it on your machine. Once you are ready, double click the
+            installation icon from the desktop.</p>
+            <hr class="soften"/>
+
+            <h3>For UEFI computers</h3>
+            <p>You may need to disable <b>Secure Boot</b> (or enable an <b>Unlock Bootloader</b>
+            option) prior to installation. If you are using a BIOS machine, you do not
+            need to do this.</p>
+            <hr class="soften"/>
+
+            <h3>Swap</h3>
+            <p>For computers that start to run low on memory (RAM), the operating system will
+            start swapping to disk. Known as a "paging file" in Windows.
+            Performance will decreases when running low on memory. The system could possibly freeze if
+            you completely run out of memory without anywhere to swap.</p>
+            <p>By default, <b>a swap partition is created by the size of your RAM.</b> For example, if you have
+            2 GiB of RAM, then 2 GiB of hard disk space will be reserved for swap at the end of the drive.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advise on Dual Booting (shown in guest session only) -->
+      <div id="dualboot" class="topicContents" hidden>
+        <div class="row-fluid">
+          <div class="span12">
+            <h3>Dual Booting</h3>
+            <p>Should you wish to install Ubuntu MATE alongside your existing
+            operating system, your partitions need to be shrunk. This results in
+            sections of your hard disk being split between multiple operating systems.</p>
+
+            <label class="checkbox">
+              <input type="checkbox" value="" id="showDualBootWin">
+                &nbsp;I'm dual booting with &nbsp;<span class="fa fa-windows"></span> Microsoft Windows.
+            </label>
+
+            <h5>To minimize the risk of data loss or failure, ensure that:</h5>
+            <ul class="unstyled" style="margin-left:8px">
+              <li><span class="fa fa-check-circle"></span> There is enough free space. 10 GB minimum is recommended.</li>
+              <li><span class="fa fa-check-circle"></span> <b><u>Back up</u></b> important data to another drive.</li>
+              <li class="dualBootWin"><span class="fa fa-windows"></span> Defragment the hard drive.</li>
+              <li class="dualBootWin"><span class="fa fa-windows"></span> Ensure Windows has been cleanly shut down (not hibernated).</li>
+            </ul>
+
+            <hr>
+            <p><b>Which approach would you prefer?</b></p>
+            <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
+              <li><a href="#" onclick="smoothFade('.partition','#partitionSimple')" data-toggle="tab">Simple</a></li>
+              <li><a href="#" onclick="smoothFade('.partition','#partitionAdvanced')" data-toggle="tab">Advanced</a></li>
+              <li><a href="#" onclick="smoothFade('.partition','#partitionWindows')" data-toggle="tab" class="dualBootWin"><span class="fa fa-windows"></span> Safest</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div class="tab-pane partition" id="partitionSimple">
+                <h5>The simplest method is to use the installer.</h5>
+                <p>
+                  The installer scans your disks for existing operating systems and provides
+                  a choice on what you'd like to do.
+                  <blockquote>
+                    <b>You will see an option similar to this:</b>
+                    <br>
+                    <img src="img/screenshots/install-split-choice.png"/>
+                    <br>
+                    <b>Followed by:</b>
+                    <br>
+                    <img src="img/screenshots/install-split-partitions.png"/>
+                  </blockquote>
+                </p>
+                <div class="alert alert-danger">
+                  <h5><span class="fa fa-warning"></span> Do not interrupt or power
+                  off the computer during a resize operation.</h5>
+                  <p>If you do, data loss or a partition table corruption could occur. Please
+                  double check your changes before proceeding.</p>
+                  <p>The installer may show a <span class="fa fa-spinner"></span> spinner cursor
+                  for a long period of time, depending on the size of your disk.</p>
+                </div>
+                <p class="dualBootWin">
+                  <span class="fa fa-windows"></span> <b>When you next boot Windows,</b>
+                  run <code>chkdsk /f</code> from the command prompt to check the
+                  file system for errors. Windows may schedule this automatically. This
+                  ensures consistency for the NTFS file system.
+                </p>
+              </div>
+
+              <div class="tab-pane partition" id="partitionAdvanced">
+                <h5>Use GParted or the installer's "Custom" option.</h5>
+                <p>
+                  <img class="left" src="img/applications/gparted.png"/>
+                  <b>GParted</b> is available during the live session under the
+                  <b>System <span class="fa fa-long-arrow-right"></span> Administration</b> menu.
+                  This tool provides complete flexibility over your partitions, primarily for
+                  power users who know how they'd like to layout their disks.
+                  This method makes changes to partitions prior to installation.
+                </p>
+                <div class="center">
+                  <a href="cmd://gparted" class="btn btn-inverse"><img src="img/applications/gparted.png" width="32px" height="32px"> Open GParted</a>
+                </div>
+                <br>
+                <p>After completing operations to your disk, you can leave the remaining space unallocated,
+                whereby the installer will detect this unused space to install Ubuntu MATE to.</p>
+                <div class="alert alert-info">
+                  <h5>GParted uses IEC Units!</h5>
+                  <p>This refers to prefixes such as mebibyte (MiB) and gibibyte (GiB)
+                  where <b>1024 MiB = 1 GiB</b>. Be careful when structuring your disk not to confuse
+                  these with the commonly used SI units: megabyte (MB), gigabyte (GB), etc.</p>
+                </div>
+                <br>
+                <h5>Using the Installer's "Custom" option.</h5>
+                <p>Instead or in addition to GParted, the <b>Custom</b> option during the
+                installation wizard can also configure and resize your partitions as well as
+                choose mount points. Dividing your disks can make it somewhat easier to
+                re-install the operating system later if desired.</p>
+
+                <p><b>You can specify these mount points:</b></p>
+                <ul>
+                  <li><code>/</code> - The base for Ubuntu MATE</li>
+                  <li><code>/boot</code> - Bootloader and kernels</li>
+                  <li><code>/home</code> - Your personal files and folders</li>
+                  <li><code>/tmp</code> - Temporary files</li>
+                  <li><code>/usr</code> - Contains most of the applications <i>(binaries, documentation, libraries, etc)</i></li>
+                  <li><code>/var</code> - Variable data <i>(such as system logs)</i></li>
+                  <li><code>/srv</code> - Data for System Services <i>(typically used for server configurations)</i></li>
+                  <li><code>/srv</code> - Additional software unmanaged by the package manager
+                                          <i>(such as <img src="img/applications/spotify.png" width="16px" height="16px"> Spotify)</i></li>
+                </ul>
+                <p>Creating separate partitions for all above mount points is not necessary.
+                The commonly partitioned directories being <code>/</code>, <code>/home</code>
+                and <code>/boot</code>. These mount points can also be set across different
+                physical disks, for instance, if you'd like the OS <code>/</code> on an SSD,
+                but your personal files <code>/home</code> on a mechanical hard drive.</p>
+              </div>
+
+              <div class="tab-pane partition" id="partitionWindows">
+                <h5>Shrink your system disk within Windows.</h5>
+                <div class="alert alert-warning">
+                  <h5><span class="fa fa-exclamation-circle"></span> Applies to Windows Vista and later.</h5>
+                  <p>If you are using Windows XP or earlier, you will need to use
+                  the <b>Simple</b> or <b>Advanced</b> method to shrink your disk.</p>
+                </div>
+
+                <p>Newer versions of Windows provide a tool to shrink the NTFS volume from within Windows.
+                This is a safer bet if it's essential that Windows still boots on your computer while
+                experiencing Ubuntu MATE.</p>
+                <blockquote>
+                  1. Open <b>Disk Management</b> from the start menu.
+                  <div class="center">
+                    <img src="img/screenshots/install-shrink-fromWindows-1.png">
+                  </div>
+                  <br>
+                  2. Right click your desired drive and choose <b>Shrink Partition</b> from the context menu.
+                  <div class="center">
+                    <img src="img/screenshots/install-shrink-fromWindows-2.png">
+                  </div>
+                  <br>
+                  3. Enter the amount to shrink your system partition by.
+                  <div class="center">
+                    <img src="img/screenshots/install-shrink-fromWindows-3.png">
+                  </div>
+                  <br>
+                  <div class="alert alert-info">
+                    Remember, Ubuntu MATE needs at minimum 8 GB of disk space.
+                    <b>1 GB = 1000 MB</b>
+                  </div>
+                </blockquote>
+
+                <h5>Further Reading</h5>
+                <p>For further information on the best practices to modify partitions containing
+                Windows, see the following
+                <a href="cmd://link?https://help.ubuntu.com/community/HowtoResizeWindowsPartitions">
+                  help article</a> online.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
