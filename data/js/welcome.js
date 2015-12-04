@@ -200,6 +200,14 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
 
+        // Fade in non-free toggle as it starts hidden, except on the Misc. page,
+        // where it's replaced by a command visibility toggle.
+        if ( next == '#Misc' ) {
+          smoothFade('#nonFreeToggle','#MiscCmd');
+        } else {
+          smoothFade('#MiscCmd','#nonFreeToggle');
+        }
+
         // Animate out, then animate in next category.
         $(now).fadeOut('fast');
         setTimeout(function() {
@@ -350,6 +358,26 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
 
     setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
+
+    // Misc Tab - Show commands if user wishes to know them.
+    var showMiscCommands = false;
+    $('.miscCmd').hide();
+
+    $('#MiscCmd').click(function() {
+      if ( showMiscCommands == false ) {
+        // Show the terminal commands.
+        showMiscCommands = true;
+        $('.miscCmd').fadeIn();
+        $("#MiscCheckbox").removeClass("fa-square");
+        $("#MiscCheckbox").addClass("fa-check-square");
+      } else {
+        // Hide the terminal commands.
+        showMiscCommands = false;
+        $('.miscCmd').fadeOut();
+        $("#MiscCheckbox").addClass("fa-square");
+        $("#MiscCheckbox").removeClass("fa-check-square");
+      }
+    });
 }
 
 
@@ -448,7 +476,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     } else {
       $('.dualBootWin').fadeOut();
     }
-});
+  });
 
 }
 

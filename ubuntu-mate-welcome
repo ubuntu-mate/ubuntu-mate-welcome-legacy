@@ -5,6 +5,7 @@
 # Copyright 2013 "Manjaro Linux" <support@manjaro.org>
 # Copyright 2014 Antergos
 # Copyright 2015 Martin Wimpress <code@flexion.org>
+# Copyright 2015 Luke Horwell <lukehorwell37+code@gmail.com>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
@@ -601,6 +602,19 @@ class AppView(WebKit.WebView):
         pol_dec.ignore()
         return True
 
+    # Execute a root (sudo) command within Welcome.
+    @staticmethod
+    def fixes_script(parameters):
+        #~ subprocess.Popen([self._data_path+'/scripts/app-fixes.sh',parameters])
+        print("fixme:Unimplemented function 'fixes_script' = ", parameters)
+
+        # FIXME: Not yet implemented : Execute sudo command based on parameter.
+        #
+        # While gksudo can present a dialog to the user, I have not
+        # figured out a way in either Python (or Bash) to present the results
+        # for a command like 'apt-get update'. Otherwise, the command would quietly
+        # run in the background with no way to know if there was an error.
+
     def _do_command(self, uri):
         if uri.startswith('cmd://'):
             uri = uri[6:]
@@ -653,7 +667,7 @@ class AppView(WebKit.WebView):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
-        elif uri.startswith('checkInternetConnection'):
+        elif uri == 'checkInternetConnection':
             checkInternetConnection()
             if onlineStatus == True:
                 self.execute_script("$('.offline').hide();")
@@ -661,6 +675,8 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
+        elif uri.startswith('fix?'):
+            self.fixes_script(uri[4:])
         else:
             print('Unknown command: %s' % uri)
 

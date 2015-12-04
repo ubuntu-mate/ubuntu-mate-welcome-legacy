@@ -30,7 +30,9 @@
         <li><a id="MediaBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
         <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
         <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        |
         <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
+        <li><a id="MiscBtn"        href="#" data-toggle="tab" onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
       </ul>
     </div>
     <div id="content" class="container-fluid">
@@ -1271,6 +1273,66 @@
           </p>
           <hr class="soften" />
         </div>
+        <div id="Misc" class="hideSection">
+          <h2>Miscellaneous Tasks</h2>
+          <p>This section contains operations that can fix common problems should you encounter an error
+          while upgrading or installing new software.</p>
+          <hr class="soften" />
+
+          <div class="row-fluid">
+            <div class="span12">
+
+              <h4>Outdated Package Lists</h4>
+              <p>Your repository lists may be out of date, which can cause <b>Not Found</b> errors and <b>outdated version</b>
+              information when trying to install new or newer versions of software. This is particularly the case when
+              Ubuntu MATE connects online for the first time after installation.</p>
+              <blockquote class="terminal miscCmd">
+                <b>Update the repository lists:</b><br>
+                <span class="fa fa-dollar"></span> sudo apt-get update
+              </blockquote>
+              <div class="text-right">
+                <a href="cmd://fix?apt-update" class="btn btn-inverse right"><span class="fa fa-refresh"></span> Update Sources List</a>
+              </div>
+              <hr class="soften"/>
+
+              <h4>Broken Packages</h4>
+              <p>When a previous installation or removal was interrupted <i>(for instance, due to power failure or loss
+              of Internet connection)</i>, further software cannot be added or removed without properly re-configuring these
+              broken packages. If necessary, you may need to also resolve dependencies and install any missing packages
+              in order for the software to run properly.</p>
+              <blockquote class="terminal miscCmd">
+                <b>Configure packages that were unpacked but not configured:</b><br>
+                <span class="fa fa-dollar"></span> sudo dpkg --configure -a
+              </blockquote>
+              <blockquote class="terminal miscCmd">
+                <b>Download and install any missing packages required by other packages:</b><br>
+                <span class="fa fa-dollar"></span> sudo apt-get --fix-missing install
+              </blockquote>
+              <blockquote class="terminal miscCmd">
+                <b>Download and install broken dependencies:</b><br>
+                <span class="fa fa-dollar"></span> sudo apt-get --fix-broken install
+              </blockquote>
+              <div class="text-right">
+                <a href="cmd://fix?configure-unpacked" class="btn btn-inverse right"><span class="fa fa-cube"></span> Configure Interrupted Packages</a>
+                <a href="cmd://fix?install-missing" class="btn btn-inverse right"><span class="fa fa-download"></span> Install Missing Packages</a>
+                <a href="cmd://fix?resolve-broken" class="btn btn-inverse right"><span class="fa fa-check"></span> Resolve Broken Packages</a>
+              </div>
+              <hr class="soften"/>
+
+              <p class="miscCmd"><b>In addition, listed below are terminal equivalent commands that
+              otherwise appear in the <a href="cmd://update">Software Updater</a>.</b></p>
+              <blockquote class="terminal miscCmd">
+                <b>Upgrade all packages that have a new version available:</b><br>
+                <span class="fa fa-dollar"></span> sudo apt-get dist-upgrade
+              </blockquote>
+              <blockquote class="terminal miscCmd">
+                <b>Upgrade to a new release of Ubuntu MATE:</b><br>
+                <span class="fa fa-dollar"></span> sudo do-release-upgrade
+              </blockquote>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="footer" class="bottom">
@@ -1283,8 +1345,9 @@
           <a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>
         </div>
         <div class="form">
-          <a id="nonFreeToggle" class="fade fade-3s online" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom"
+          <a id="nonFreeToggle" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom" hidden
              data-placement="top"><i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> Hide Proprietary Software</a>
+          <a id="MiscCmd" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> Show Terminal Commands</a>
           <a href="cmd://quit" class="btn btn-inverse">Close</a>
         </div>
         <div id="popover_content_wrapper" style="display: none">
