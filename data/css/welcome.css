@@ -119,15 +119,35 @@ p.no-space {
   height: 60px;
 }
 
+/* Custom btn and btn-success class */
+#navigation-button {
+  width: 11px;
+  height: 21px;
+  color: #ffffff;
+  background-color: #87A556;
+  border: 1px solid #cccccc;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-radius: 20%;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#navigation-button:active {
+  background-color: #667E40;
+}
+
 .navigation-button-hover {
   background-image: url('../img/welcome/ubuntu-mate-gray.svg');
   background-size: 80% 80%;
   background-repeat: no-repeat;
-  width: 11px;
-  height: 20px;
-  /** Prevent btn:hover from skewing the image position **/
-  background-position: center !important;
-  -webkit-transition: background-position 0s linear !important;
+  background-position: center;
 }
 
 #navigation-title {
@@ -153,6 +173,7 @@ p.no-space {
   height: 11px;
   position: fixed;
 }
+
 
 /************************
  * Content
