@@ -154,6 +154,11 @@ if __name__ == "__main__":
             enable_ppa('ppa:ubuntu-sdk-team/ppa')
         elif repository ==  'uget':
             enable_ppa('ppa:plushuang-tw/uget-stable')
+            if codename == 'xenial':
+                add_apt_sources(['deb http://ppa.launchpad.net/plushuang-tw/uget-stable/ubuntu wily main',
+                                 'deb-src http://ppa.launchpad.net/plushuang-tw/uget-stable/ubuntu wily main'],
+                                 'plushuang-tw-ubuntu-uget-stable-' + codename)
+
         elif repository ==  'veracrypt':
             enable_ppa('ppa:unit193/encryption')
         elif repository == 'virtualbox':
@@ -163,6 +168,11 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
         elif repository ==  'x2go':
             enable_ppa('ppa:x2go/stable')
+            if codename == 'xenial':
+                add_apt_sources(['deb http://ppa.launchpad.net/x2go/stable/ubuntu wily main',
+                                 'deb-src http://ppa.launchpad.net/x2go/stable/ubuntu wily main'],
+                                 'x2go-ubuntu-stable-' + codename)
+
         else:
             print('Repository ' + repository + ' is unknown.')
     elif action == 'remove':
