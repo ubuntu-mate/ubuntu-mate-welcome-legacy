@@ -183,27 +183,21 @@
               </div>
 
               <div class="tab-pane partition" id="partitionAdvanced">
-                <h5>Use GParted or the installer's "Custom" option.</h5>
+                <h5>Use Disks or the installer's "Custom" option.</h5>
                 <p>
                   <img class="left" src="img/applications/gparted.png"/>
-                  <b>GParted</b> is available during the live session under the
-                  <b>System <span class="fa fa-long-arrow-right"></span> Administration</b> menu.
-                  This tool provides complete flexibility over your partitions, primarily for
-                  power users who know how they'd like to layout their disks.
+                  <b>Disks</b> is available during the live session and installed by default. 
+                  It is located under the <b>Applications <span class="fa fa-long-arrow-right"></span>
+                  Accessories</b> menu. Disks provides complete flexibility over your partitions,
+                  primarily for power users who know how they'd like to layout their disks.
                   This method makes changes to partitions prior to installation.
                 </p>
                 <div class="center">
-                  <a href="cmd://gparted" class="btn btn-inverse"><img src="img/applications/gparted.png" width="32px" height="32px"> Open GParted</a>
+                  <a href="cmd://disks" class="btn btn-inverse"><img src="img/applications/gparted.png" width="32px" height="32px"> Open GParted</a>
                 </div>
                 <br>
                 <p>After completing operations to your disk, you can leave the remaining space unallocated,
                 whereby the installer will detect this unused space to install Ubuntu MATE to.</p>
-                <div class="alert alert-info">
-                  <h5>GParted uses IEC Units!</h5>
-                  <p>This refers to prefixes such as mebibyte (MiB) and gibibyte (GiB)
-                  where <b>1024 MiB = 1 GiB</b>. Be careful when structuring your disk not to confuse
-                  these with the commonly used SI units: megabyte (MB), gigabyte (GB), etc.</p>
-                </div>
                 <br>
                 <h5>Using the Installer's "Custom" option.</h5>
                 <p>Instead or in addition to GParted, the <b>Custom</b> option during the
@@ -220,7 +214,7 @@
                   <li><code>/usr</code> - Contains most of the applications <i>(binaries, documentation, libraries, etc)</i></li>
                   <li><code>/var</code> - Variable data <i>(such as system logs)</i></li>
                   <li><code>/srv</code> - Data for System Services <i>(typically used for server configurations)</i></li>
-                  <li><code>/srv</code> - Additional software unmanaged by the package manager
+                  <li><code>/opt</code> - Additional software unmanaged by the package manager
                                           <i>(such as <img src="img/applications/spotify.png" width="16px" height="16px"> Spotify)</i></li>
                 </ul>
                 <p>Creating separate partitions for all above mount points is not necessary.

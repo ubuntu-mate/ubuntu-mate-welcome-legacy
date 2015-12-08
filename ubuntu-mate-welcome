@@ -659,8 +659,8 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
-        elif uri == 'gparted':
-            subprocess.Popen(['gksudo','gparted'])
+        elif uri == 'disks':
+            subprocess.Popen(['gnome-disks'])
         elif uri == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
         elif uri.startswith('run?'):
