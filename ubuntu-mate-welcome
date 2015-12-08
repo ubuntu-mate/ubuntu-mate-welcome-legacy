@@ -515,10 +515,16 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.pc-only').show();")
             self.execute_script("$('.rpi-only').hide();")
         else:
+            # Not a PC, so could be PowerPC or ARM.
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').hide();")
-            self.execute_script("$('.rpi-only').show();")
+
+            # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
+            if os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+                self.execute_script("$('.rpi-only').show();")
+            else:
+                self.execute_script("$('.rpi-only').hide();")
 
         if self._apt_cache['hexchat'].is_installed:
             self.execute_script("$('.hexchat').show();")
