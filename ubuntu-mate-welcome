@@ -5,6 +5,7 @@
 # Copyright 2013 "Manjaro Linux" <support@manjaro.org>
 # Copyright 2014 Antergos
 # Copyright 2015 Martin Wimpress <code@flexion.org>
+# Copyright 2015 Luke Horwell <lukehorwell37+code@gmail.com>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
@@ -479,8 +480,12 @@ class AppView(WebKit.WebView):
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
 
+        # disable right-click context menu as it isn't needed.
+        self.props.settings.props.enable_default_context_menu = False
+
     def _push_config(self):
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
+        self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
 
         # If this is a Live session (booted from ISO) show the
@@ -490,24 +495,30 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
             self.execute_script("$('.live-session').hide();")
+            self.execute_script("$('.live-session-only').show();")
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
             self.execute_script("$('.live-session').show();")
+            self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
+        # If neither a i686 or x86_64, we must be running on the Raspberry Pi port (armv7)
         if self._config.arch == 'i686':
             self.execute_script("$('.i686-only').show();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').show();")
+            self.execute_script("$('.rpi-only').hide();")
         elif self._config.arch == 'x86_64':
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').show();")
             self.execute_script("$('.pc-only').show();")
+            self.execute_script("$('.rpi-only').hide();")
         else:
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').hide();")
+            self.execute_script("$('.rpi-only').show();")
 
         if self._apt_cache['hexchat'].is_installed:
             self.execute_script("$('.hexchat').show();")
@@ -515,6 +526,14 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('.hexchat').hide();")
             self.execute_script("$('.webchat').show();")
+
+        # Display warnings if the user is not connected to the internet.
+        if onlineStatus == True:
+            self.execute_script("$('.offline').hide();")
+            self.execute_script("$('.online').show();")
+        else:
+            self.execute_script("$('.offline').show();")
+            self.execute_script("$('.online').hide();")
 
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
@@ -583,6 +602,19 @@ class AppView(WebKit.WebView):
         pol_dec.ignore()
         return True
 
+    # Execute a root (sudo) command within Welcome.
+    @staticmethod
+    def fixes_script(parameters):
+        #~ subprocess.Popen([self._data_path+'/scripts/app-fixes.sh',parameters])
+        print("fixme:Unimplemented function 'fixes_script' = ", parameters)
+
+        # FIXME: Not yet implemented : Execute sudo command based on parameter.
+        #
+        # While gksudo can present a dialog to the user, I have not
+        # figured out a way in either Python (or Bash) to present the results
+        # for a command like 'apt-get update'. Otherwise, the command would quietly
+        # run in the background with no way to know if there was an error.
+
     def _do_command(self, uri):
         if uri.startswith('cmd://'):
             uri = uri[6:]
@@ -627,10 +659,24 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
+        elif uri == 'gparted':
+            subprocess.Popen(['gksudo','gparted'])
+        elif uri == 'sysmonitor':
+            subprocess.Popen(['mate-system-monitor'])
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
+        elif uri == 'checkInternetConnection':
+            checkInternetConnection()
+            if onlineStatus == True:
+                self.execute_script("$('.offline').hide();")
+                self.execute_script("$('.online').show();")
+            else:
+                self.execute_script("$('.offline').show();")
+                self.execute_script("$('.online').hide();")
+        elif uri.startswith('fix?'):
+            self.fixes_script(uri[4:])
         else:
             print('Unknown command: %s' % uri)
 
@@ -667,7 +713,7 @@ class WelcomeApp(object):
         else:
             w.set_size_request(768, 552)
 
-        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.png')
+        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
         # build webkit container
@@ -703,5 +749,18 @@ class WelcomeApp(object):
         Gtk.main_quit(p1, p2);
 
 if __name__ == "__main__":
+    # Before the app starts, check if the user is connected to the internet.
+    def checkInternetConnection():
+      print('Testing Connection... ', end="")
+      global onlineStatus
+      try:
+          urllib.request.urlopen("http://archive.ubuntu.com/")
+          print("Success!")
+          onlineStatus = True
+      except:
+          print("Unreachable.")
+          onlineStatus = False
+
+    checkInternetConnection()
     app = WelcomeApp()
     app.run()

@@ -39,20 +39,13 @@ p.no-space {
   vertical-align: middle;
 }
 
-.backdrop {
-  background: url("../img/welcome/background.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-color:#f4f4f4;
-}
-
 .backdrop-simple {
   background-color:#f4f4f4;
 }
 
-/*
-** HEADER OBJECTS
-*/
+/************************
+ * Header
+*************************/
 
 #header {
   padding: 8px 0;
@@ -105,55 +98,65 @@ p.no-space {
   margin-bottom: 8px;
 }
 
-/*
-** HEADER OBJECTS
-*/
+/************************
+ * Navigation
+*************************/
 
 #navigation {
-  display: none;
-  position: absolute;
   left: 0;
-  top: 19px;
-}
-
-#navigation ul {
-  margin: 0;
-  padding: 0;
-
-}
-
-#navigation ul li {
-  float: left;
-  list-style-type: none;
+  top: 0;
+  position: fixed;
   padding: 8px;
-  margin: 0;
-
-  border: 1px solid #eee;
-  border-left: 0;
-  background-color: #fff;
+  width: 100%;
+  height: 32px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: rgba(243, 243, 243, 0.9);
+  z-index: 10;
 }
 
-#navigation ul li:last-child {
-  list-style-type: none;
-
-  border-radius: 0 4px 4px 0;
+#navigation-dummy {
+  height: 60px;
 }
 
-#navigation ul li:hover {
-  background-color: #f0f0f0;
+.navigation-button-hover {
+  background-image: url('../img/welcome/ubuntu-mate-gray.svg');
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 20px;
+  /** Prevent btn:hover from skewing the image position **/
+  background-position: center !important;
+  -webkit-transition: background-position 0s linear !important;
 }
 
-#navigation ul li a {
-  color: #333333;
+#navigation-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 4px;
+  vertical-align: middle;
+  display: inline-table;
 }
 
-#navigation ul li a:hover {
-  text-decoration: inherit;
+#navigation-sub-title {
+  font-weight: normal;
+  font-size: 18px;
+  vertical-align: middle;
+  display: inline-table;
+  color: #959595;
 }
 
-/*
-** CONTENT OBJECTS
-*/
+#navigation-divider {
+  top: 47px;
+  left: 0;
+  width: 100%;
+  height: 11px;
+  position: fixed;
+}
+
+/************************
+ * Content
+*************************/
 
 #content {
   padding-bottom: 64px;
@@ -184,10 +187,15 @@ p.no-space {
   font-size: 20px;
 }
 
+/* Prevent accidental dragging on images and links */
+img, a {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
 
-/*
-** FOOTER OBJECTS
-*/
+/************************
+ * Footer
+*************************/
 
 #footer {
   background: url("../img/welcome/footer-bg.jpg");
@@ -196,6 +204,7 @@ p.no-space {
   height: 64px;
   width: 100%;
   padding: 0;
+  z-index: 10;
 }
 
 #footer .footer-content {
@@ -228,7 +237,8 @@ p.no-space {
   margin: 6px 0px 0 0;
 }
 
-#social img {
+#social img, #social span {
+  width: 24px; height: 24px;
   position: relative;
   top: 0px;
   opacity: 0.7;
@@ -242,10 +252,16 @@ p.no-space {
   -webkit-transition-delay: initial;
 }
 
-#social img:hover {
+#social img:hover, #social span:hover {
   top: -4px;
   opacity: 1.0;
 }
+
+.social-large img {
+  width: 48px !important;
+  height: 48px !important;
+}
+
 
 /* No margin for social icon in navbar */
 .no-margin {
@@ -284,41 +300,9 @@ hr.soften {
   vertical-align: middle;
 }
 
-/** Splash Screen **/
-.splash {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 446px;
-  height: 459px;
-  margin: -223px 0 0 -229.5px;
-  background-color: #f4f4f4;
-  opacity: 1;
-
-  /** Logo animation **/
-     -webkit-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-        -moz-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-          -o-animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-             animation: hello 1.2s cubic-bezier(.42,0,.58,1) 1;
-  }
-
-  /** Logo keyframes - Move, fade in, spin **/
-  @-webkit-keyframes hello {
-    from { opacity: 0; left: 100%; -webkit-transform: rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @-moz-keyframes hello {
-    from { opacity: 0; left: 100%; -moz-transform: rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @-o-keyframes hello {
-    from { opacity: 0; left: 100%; -o-transform: rotate(60deg); transform:rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
-  @keyframes hello {
-    from { opacity: 0; left: 100%; -webkit-transform: rotate(60deg); transform:rotate(60deg); }
-    to   { opacity: 1; left: 50%; }
-  }
+/************************
+** Global
+*************************/
 
 /** Fade elements on Main Menu **/
 .fade { opacity: 0 }
@@ -333,21 +317,250 @@ hr.soften {
   to   { opacity: 1; }
 }
 
-/** Floating Back to Top **/
-.scrollup {
-    position: fixed;
-    top: 32px;
-    right: 32px;
-    display: none;
+/* Floating Back to Top */
+#scrollTop {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  display: none;
+  z-index: 11;
 }
 
-/** Toggling visibility on software page **/
+/************************
+ * Software Page
+*************************/
+
+/* Visibility Toggles */
 .hideSection { display: none; }
 .proprietary { }
 .alternate { }
 
-/** Popover **/
+/* Proprietary Software Tooltip */
 .popover-title {
-    background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
-    color: #fff;
+  background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+  color: #fff;
+}
+
+/* Featured Apps Grid */
+#featuredGrid {
+  /* 4x4 Grid with 64px Icons */
+  width: 300px;
+  height: 271px;
+  float: right;
+  margin: 8px;
+}
+
+#featuredGrid img {
+  padding: 2.5px;
+  min-width: 64px;
+  min-height: 64px;
+}
+
+.gridHidden {
+  opacity: 0 !important;
+}
+
+.gridOuter {
+  opacity: 0.3;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
+.gridInner {
+  opacity: 0.7;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
+#featuredGrid img:hover {
+  opacity: 1;
+  -webkit-transition: opacity .5s ease-in-out;
+}
+
+/* Show cursor over check boxes */
+#nonFreeToggle { cursor: pointer; }
+#MiscCmd { cursor: pointer; }
+
+/* Terminal Commands Blockquote */
+blockquote.terminal {
+  font-family: "Ubuntu Mono";
+  font-size: 16px;
+  background-color: #000;
+  color: #D0D0D0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/************************
+ * Main Menu
+*************************/
+.menuLogo {
+  width: 200px;
+  height: 200px;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.menuMainTextBox {
+  height: 40px;
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.menuMainText {
+  margin: 6px;
+  padding: 6px;
+  text-align: center;
+  vertical-align: bottom;
+  font-weight: bold;
+  font-size: 18px;
+  color: #5A6943;
+}
+
+.menuBkgnd {
+  height: 390px;
+  width: 390px;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: -10;
+  position: absolute;
+  overflow: hidden;
+  background-image: url('../img/welcome/menu-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+/* Raspberry Pi Button */
+.btn-rpi {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #C6053D;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#C6053D), to(#C6053D));
+  background-image: -webkit-linear-gradient(top, #C6053D, #C6053D);
+  background-image: linear-gradient(to bottom, #C6053D #C6053D);
+  background-repeat: repeat-x;
+  border-color: #51a351 #51a351 #387038;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.btn-rpi:hover,
+.btn-rpi:focus,
+.btn-rpi:active,
+.btn-rpi.active,
+.btn-rpi.disabled,
+.btn-rpi[disabled] {
+  color: #ffffff;
+  background-color: #C6053D;
+}
+
+.btn-rpi:active,
+.btn-rpi.active {
+  background-color: #C6053D \9;
+}
+
+/************************
+ * Splash Screen
+*************************/
+.splashCenter {
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  z-index: -1;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 446px; height: 459px;
+  pointer-events: none;
+}
+
+.splashText {
+  font-family: "Ubuntu";
+  font-weight: 100;
+  font-size: 64px;
+  color: #fff;
+  position: relative;
+  top: 39%;
+}
+
+.bootCircle {
+  background: #8ba34f;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-table;
+}
+
+.bootCircleBlock {
+  width: 16px;
+  height: 16px;
+  display: inline-table;
+  margin: 0;
+  padding: 0;
+}
+
+.splashLogo {
+  top: 200px;
+}
+
+.splashVersion {
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 20px;
+  color: #5A6943;
+  pointer-events: none;
+}
+
+@-webkit-keyframes fadeToMenu {
+  from { background-color: #3B3A36; }
+  to   { background-color: #f4f4f4; }
+}
+
+.fadeToMenu {
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation: fadeToMenu 1s ease-in-out;
+}
+
+/************************
+ * Getting Started - Push Menu (Index)
+*************************/
+#index-menu {
+  height: 100%;
+  width: 200px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  position: fixed;
+  background: rgba(65,65,65,0.95);
+  border: 2px solid #000;
+  color: #fff;
+  z-index: 9;
+}
+
+.index-btn {
+  width: 172px;
+}
+
+#index-close {
+  float: right;
+  position: relative;
+  text-align: right;
+  color: #fff;
+}
+
+.topicContents { margin-bottom: 16px; }
+
+#index-overlay {
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  z-index: 8;
 }
