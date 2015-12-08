@@ -326,6 +326,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'telegram', action])
         transaction.update_cache = True
         transaction.source_to_update = 'atareao-ubuntu-telegram-'+codename+'.list'
+    elif 'terminator' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'        
     elif 'ubuntu-sdk' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
         transaction.update_cache = True
@@ -334,6 +338,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'uget', action])
         transaction.update_cache = True
         transaction.source_to_update = 'plushuang-tw-ubuntu-uget-stable-'+codename+'.list'
+    elif 'variety' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'variety', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'peterlevi-ubuntu-ppa-'+codename+'.list'        
     elif 'veracrypt' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'veracrypt', action])
         transaction.update_cache = True
@@ -558,7 +566,7 @@ class AppView(WebKit.WebView):
         'software-center', 'spideroakone', 'spotify-client',
         'steam-launcher', 'supertuxkart', 'sweethome3d', 'synapse',
         'synaptic', 'syncthing', 'telegram', 'terminator',
-        'ubuntu-sdk', 'uget', 'veracrypt', 'virtualbox',
+        'ubuntu-sdk', 'uget', 'variety', 'veracrypt', 'virtualbox-5.0',
         'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'

@@ -150,6 +150,12 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://apt.syncthing.net/ syncthing release'], repository)
         elif repository ==  'telegram':
             enable_ppa('ppa:atareao/telegram')
+        elif repository ==  'terminator':
+            enable_ppa('ppa:gnome-terminator/ppa')
+            if codename == 'xenial':
+                add_apt_sources(['deb http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main',
+                                 'deb-src http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main'],
+                                 'gnome-terminator-ubuntu-ppa-' + codename)            
         elif repository ==  'ubuntu-sdk':
             enable_ppa('ppa:ubuntu-sdk-team/ppa')
         elif repository ==  'uget':
@@ -158,7 +164,13 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/plushuang-tw/uget-stable/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/plushuang-tw/uget-stable/ubuntu wily main'],
                                  'plushuang-tw-ubuntu-uget-stable-' + codename)
-
+        elif repository ==  'variety':
+            enable_ppa('ppa:peterlevi/ppa')
+            if codename == 'xenial':
+                add_apt_sources(['deb http://ppa.launchpad.net/peterlevi/ppa/ubuntu wily main',
+                                 'deb-src http://ppa.launchpad.net/peterlevi/ppa/ubuntu wily main'],
+                                 'peterlevi-ubuntu-ppa-' + codename)
+                                 
         elif repository ==  'veracrypt':
             enable_ppa('ppa:unit193/encryption')
         elif repository == 'virtualbox':
