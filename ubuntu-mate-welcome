@@ -38,14 +38,31 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import webbrowser
-from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
+from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
+from ctypes import cdll, byref, create_string_buffer
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
+
+def set_proc_title(name=None):
+    '''Set the process title'''
+
+    if not name:
+        name = os.path.basename(sys.argv[0])
+
+    libc = cdll.LoadLibrary('libc.so.6')
+    buff = create_string_buffer(len(name)+1)
+    buff.value = name.encode("UTF-8")
+    ret = libc.prctl(15, byref(buff), 0, 0, 0)
+
+    if ret != 0:
+        print("Failed to set process title")
+
+    return ret
 
 class SimpleApt(object):
     def __init__(self, packages, action):
@@ -776,5 +793,6 @@ if __name__ == "__main__":
           onlineStatus = False
 
     checkInternetConnection()
+    set_proc_title()
     app = WelcomeApp()
     app.run()
