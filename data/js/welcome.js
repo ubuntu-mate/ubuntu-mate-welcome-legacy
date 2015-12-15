@@ -478,6 +478,40 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     }
   });
 
+  // Graphics Detection
+  // Must be executed shortly after page fully loads in order for variables to exist.
+  setTimeout(function() {
+    $('.graphics-vendor').html(graphicsVendor);
+    $('#graphics-pci').html(graphicsGrep);
+
+    // Auto detection alert initially displays "failed".
+    if ( graphicsVendor == 'NVIDIA' ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html('NVIDIA Graphics Card Detected.');
+      $('#graphics-describe').html("NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-proprietary').show();
+      $('#graphics-open-source').html("<code>nouveau</code> is the open source driver for NVIDIA cards.");
+
+    } else if ( graphicsVendor == "AMD" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html('AMD Graphics Card Detected.');
+      $('#graphics-describe').html("AMD may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-proprietary').show();
+      $('#graphics-open-source').html("<code>radeon</code> is the open source driver for AMD cards.");
+
+    } else if ( graphicsVendor == "Intel" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-success');
+      $('#graphics-brand').html("You're already good to go!");
+      $('#graphics-describe').html("Intel's drivers are open source and are maintained in the kernel.");
+
+    } else {
+      // Obscure graphics chip or something we can't tell.
+      $('#graphics-proprietary').show();
+    }
+  }, 1000);
 }
 
 

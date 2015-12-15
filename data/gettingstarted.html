@@ -273,12 +273,47 @@
         <div class="row-fluid">
           <div class="span12">
             <h2>Drivers</h2>
-            <p>Your computer may require additional drivers to function
-            correctly. Go and install them now.</p>
+            <p>While a wide range of hardware is compatible with Ubuntu
+            MATE, there are some components and peripherals that require proprietary
+            drivers to function properly.</p>
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install drivers.</h5>
             </div>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://drivers"><span class="fa fa-3x fa-wrench fa-va"></span>&nbsp; Install Drivers</a></div>
+            <div align="center"><a class="btn btn-inverse" href="cmd://drivers"><img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers</a></div>
+            <div id="drivers-graphics">
+              <h3>Graphics</h3>
+              <div id="graphics-detected" class="alert alert-danger">
+                <h5 id="graphics-brand">Sorry, Welcome was unable to automatically identify the graphics vendor on this system.</h5>
+                <p id="graphics-describe"></p>
+                <p><span class="fa fa-plug"></span><b> Card/Chipset: </b><i id="graphics-pci">Unknown</i></p>
+              </div>
+              <div id="graphics-proprietary" hidden>
+                <h5>Proprietary vs Open Source drivers?</h5>
+                <p>Proprietary drivers come directly from <span class="graphics-vendor">the manufacturer</span>.
+                As they are not open source, developers are <b>unable review and improve code</b> meaning you'll have to
+                rely on <span class="graphics-vendor">the manufacturer</span> to improve and fix bugs.</p>
+
+                <p>In addition, proprietary drivers can <b>significantly improve graphics performance</b> and as a result,
+                the entire system. Users may wish to install these drivers to:</p>
+                <ul>
+                  <li>Run 3D applications and games.</li>
+                  <li>Use Compiz's window effects.</li>
+                  <li>Improve power management, especially if the device overheats then usual under open source drivers.</li>
+                  <li>Improve support for high resolutions and multiple monitors.</li>
+                  <li>Fix blank screen issues.</li>
+                </ul>
+
+                <p>Proprietary drivers are known as "binary blobs". On rare occasions under certain hardware, these
+                can cause issues, such as:</p>
+                <ul>
+                  <li>Failing to boot to the graphical desktop.</li>
+                  <li>Broken drivers after an upgrade.</li>
+                  <li>General serve graphical glitches.</li>
+                </ul>
+
+                <p id="graphics-open-source"></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
