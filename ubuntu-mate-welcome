@@ -301,7 +301,7 @@ def process_packages(packages, action):
     elif 'minecraft-installer' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'minecraft', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'minecraft-installer-peeps-ubuntu-minecraft-installer-'+codename+'.list'
+        transaction.source_to_update = 'flexiondotorg-ubuntu-minecraft-'+codename+'.list'
     elif 'mumble' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'mumble', action])
         if codename == 'precise' or codename == 'trusty':
@@ -346,7 +346,7 @@ def process_packages(packages, action):
     elif 'terminator' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'        
+        transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'
     elif 'ubuntu-sdk' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
         transaction.update_cache = True
