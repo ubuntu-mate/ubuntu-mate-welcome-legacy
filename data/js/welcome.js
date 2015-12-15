@@ -512,6 +512,20 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       $('#graphics-proprietary').show();
     }
   }, 1000);
+
+  // Expand / Collapse sub-sections to keep it tidy.
+  function toggleSub(divID,arrowID) {
+    if ( $('#'+divID).is(":visible") ) {
+      $('#'+divID).fadeOut();
+      $('#'+arrowID).removeClass('fa-chevron-down');
+      $('#'+arrowID).addClass('fa-chevron-up');
+    } else {
+      $('#'+divID).fadeIn();
+      $('#'+arrowID).removeClass('fa-chevron-up');
+      $('#'+arrowID).addClass('fa-chevron-down');
+    }
+  }
+
 }
 
 
