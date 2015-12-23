@@ -295,7 +295,7 @@
                 <p><span class="fa fa-plug"></span><b> Card/Chipset: </b><i id="graphics-pci">Unknown</i></p>
               </div>
               <div id="graphics-proprietary" hidden>
-                <h5>Proprietary or Open Source Drivers?</h5>
+                <h4>Proprietary or Open Source Drivers?</h4>
                 <p>Proprietary drivers come directly from <span class="graphics-vendor">the manufacturer</span>.
                 As they are not open source, Ubuntu developers are <b>unable review and improve code</b> meaning you'll have to
                 rely on <span class="graphics-vendor">the manufacturer</span> for support.</p>
@@ -320,6 +320,31 @@
                 </ul>
 
                 <p id="graphics-open-source"></p>
+                <p id="graphics-nvidia-only" hidden>
+                  <hr class="soften"/>
+                  <h4>What about the latest NVIDIA drivers?</h4>
+                  <p><b>Additional Drivers</b> fetches the latest tested driver from the Ubuntu repositories.
+                  Advanced users and gamers who would like newer versions may wish to consider adding the
+                  <a href="cmd://link?https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">Ubuntu Graphics Driver PPA</a>,
+                  which packages up the latest NVIDIA drivers for Ubuntu. These packages are not as throughly tested.
+                  <div class="alert alert-warning">
+                    <span class="fa fa-exclamation-triangle"></span> This only applies for actively supported cards,
+                    and not older cards using the legacy driver.
+                  </div>
+                  <!-- TODO/FIXME: Detect if repository is enabled and add/remove with a push of the button. -->
+                  <!--
+                  <a class="btn btn-success" href="#"><span class="fa fa-download"></span>&nbsp; Add Repository</a>
+                  <a class="btn btn-danger" href="#"><span class="fa fa-trash"></span>&nbsp; Remove Repository</a>
+                  -->
+                  <p>To add the repository to the system, open a terminal and type the following:</p>
+                  <blockquote class="terminal miscCmd">
+                    <span class="fa fa-dollar"></span> sudo add-apt-repository ppa:graphics-drivers/ppa
+                    <br>&nbsp;<span class="fa fa-dollar"></span> sudo apt-get update
+                  </blockquote>
+                  <p>After the PPA is added, newer versions are presented
+                  to install in <a href="cmd://drivers">Additional Drivers:</a></p>
+                  <img src="img/screenshots/graphics-drivers-nvidia.png"/>
+                </p>
               </div>
             </div>
           </div>

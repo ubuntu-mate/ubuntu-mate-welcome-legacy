@@ -482,6 +482,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       $('#graphics-describe').html("NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
       $('#graphics-proprietary').show();
       $('#graphics-open-source').html("<code>nouveau</code> is the open source driver for NVIDIA cards.");
+      $('#graphics-nvidia-only').show();
 
     } else if ( graphicsVendor == "AMD" ) {
       $('#graphics-detected').removeClass('alert-danger');
