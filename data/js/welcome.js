@@ -2,6 +2,18 @@ function WelcomeCtrl($scope) {
 
 }
 
+// Consistant on all pages.
+var global_footer_left = '<div id="social" class="pull-left">' +
+        '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>' +
+        '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>' +
+        '<a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org"><img src="img/humanity/website.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
+      '</div>';
+
+var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">Close</a>';
+var global_scrollToTop = '<a href="#" id="scrollTop" class="btn btn-inverse"><span class="fa fa-chevron-up"></span></a>';
+
 // Global across all pages
 $(window).load(function() {
     $('#header').addClass('hideSection');
@@ -11,12 +23,16 @@ $(window).load(function() {
 });
 
 $(document).ready(function () {
-
   // Animate navigation elements on page load
     $('#navigation-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
 
-  // Scroll to the top
+  // Write shared elements
+  $('#footer-left').append(global_footer_left);
+  $('#footer-right').append(global_footer_right);
+  $('#footer').append(global_scrollToTop);
+
+  // Initalize scroll to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scrollTop').fadeIn();
@@ -377,6 +393,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   // Scenes - Delayed elements to appear
   $(document).ready(function()
   {
+    // Override the footer to only display "Skip".
+    $('#footer').html('<div class="footer-content"><div class="form"><a href="index.html" class="btn btn-inverse">Skip</a></div></div>');
+
     $('#sceneA').removeClass('hideSection');
     $('#sceneA').jAnimateOnce('fadeIn');
 

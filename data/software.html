@@ -1413,20 +1413,17 @@
     </div>
     <div id="footer" class="bottom">
       <div class="footer-content">
-        <div id="social" class="pull-left">
-          <a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>
-          <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>
-          <a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>
-          <a href="cmd://link?https://ubuntu-mate.org"><img src="img/humanity/website.svg"></a>
-          <a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>
+        <div id="footer-left">
+        <!-- Via welcome.js -->
         </div>
-        <div class="form">
-          <a id="nonFreeToggle" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom" hidden
-             data-placement="top"><i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> Hide Proprietary Software</a>
-          <a id="MiscCmd" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> Show Terminal Commands</a>
-          <a href="cmd://quit" class="btn btn-inverse">Close</a>
+        <div id="footer-right" class="form">
+	  <a id="nonFreeToggle" data-trigger="hover" rel="freedominfo" data-original-title="Proprietary vs Freedom" hidden data-placement="top">
+	    <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> Hide Proprietary Software
+	  </a>
+	  <a id="MiscCmd" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> Show Terminal Commands</a>
+          <!-- Global buttons appended via welcome.js -->
         </div>
-        <div id="popover_content_wrapper" style="display: none">
+	 <div id="popover_content_wrapper" style="display: none">
           <p><b>Proprietary Software</b> is owned by an individual or company.
           There may be restrictions on its use <i>(such as a license agreement)</i>, and
           the source code may not be available for modification.</p>
@@ -1436,7 +1433,6 @@
         </div>
       </div>
     </div>
-    <a href="#" id="scrollTop" class="btn btn-inverse"><span class="fa fa-chevron-up"></span></a>
   </div>
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>
