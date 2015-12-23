@@ -279,7 +279,13 @@
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install drivers.</h5>
             </div>
-            <div align="center"><a class="btn btn-inverse" href="cmd://drivers"><img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers</a></div>
+            <div align="center"><a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
+              <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers
+            </a></div>
+            <span id="drivers-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Additional Drivers</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
+            </small></span>
 
             <a onclick="toggleSub('graphics-section','graphics-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="graphics-arrow"></span> Graphics</h3></a>
             <div id="graphics-section" hidden>
@@ -332,7 +338,13 @@
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install updates.</h5>
             </div>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://update"><span class="fa fa-3x fa-refresh fa-va"></span>&nbsp; Software Updates</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
+              <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; Software Updater
+            </a></div>
+            <span id="updates-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Software Updater</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
+            </small></span>
           </div>
         </div>
       </div>
@@ -345,7 +357,14 @@
             <p>You computer may require updates to your language and
             localisation settings, or you may want to install additional
             language support.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language"><span class="fa fa-3x fa-language fa-va"></span>&nbsp; Language Support</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language" onclick="smoothFade('','#locale-hint')">
+              <img src="img/humanity/preferences-desktop-locale.svg" width="32px" height="32px"/>&nbsp; Language Support
+            </a></div>
+            <span id="locale-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Language Support</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Personal</i></b></p>
+            </small></span>
           </div>
         </div>
         <div class="row-fluid">
@@ -378,13 +397,34 @@
         </div>
         <div class="row-fluid">
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://backup"><span class="fa fa-3x fa-archive fa-va"></span>&nbsp; Backup</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://backup" onclick="smoothFade('','#backup-hint')">
+              <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; Configure Backup
+            </a>
+            <span id="backup-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Backups</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Personal</i></b>.</p>
+            </small></span>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://firewall"><span class="fa fa-3x fa-fire fa-va"></span>&nbsp; Firewall</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://firewall" onclick="smoothFade('','#firewall-hint')">
+              <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; Configure Firewall
+            </a>
+            <span id="firewall-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Firewall Configuration</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Internet and Network</i></b>.</p>
+            </small></span>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://users"><span class="fa fa-3x fa-users fa-va"></span>&nbsp; Users</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://users" onclick="smoothFade('','#users-hint')">
+              <img src="img/humanity/system-users.svg" width="32px" height="32px"/>&nbsp; Configure Users
+            </a>
+            <span id="users-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Users and Groups</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration
+                           <span class="fa fa-long-arrow-right"></span> Users and Groups</i></b>.</p>
+            </small></span>
           </div>
         </div>
       </div>
@@ -400,13 +440,26 @@
             and feel. The <b>Redmond</b> layouts are most similar to
             Microsoft Windows and <b>Cupertino</b> layouts are most
             similar to Apple Mac OS X.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak"><span class="fa fa-3x fa-adjust fa-va"></span>&nbsp; User Interface</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak" onclick="smoothFade('','#tweak-hint')">
+              <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; User Interface
+            </a></div>
+            <span id="tweak-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>MATE Tweak</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Look and Feel</i></b>.</p>
+            </small></span>
 
             <h2>Control Center</h2>
             <p>The utilities mentioned above are all part of the extensive
             Control Center that Ubuntu MATE provides. You can configure
             just about every aspect of your computer from the Control Center.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://control"><span class="fa fa-3x fa-cogs fa-va"></span>&nbsp; Control Center</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://control" onclick="smoothFade('','#control-hint')">
+              <img src="img/applications/user-desktop.svg" width="32px" height="32px"/>&nbsp; Control Center
+            </a></div>
+            <span id="control-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Control Center</b> can be found later
+              in the <b><i>System</i></b> menu.</p>
+            </small></span>
           </div>
         </div>
       </div>
