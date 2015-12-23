@@ -2,7 +2,7 @@ function WelcomeCtrl($scope) {
 
 }
 
-// Consistant on all pages.
+// Consistent on all pages.
 var global_footer_left = '<div id="social" class="pull-left">' +
         '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>' +
         '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>' +
@@ -12,7 +12,7 @@ var global_footer_left = '<div id="social" class="pull-left">' +
       '</div>';
 
 var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">Close</a>';
-var global_scrollToTop = '<a href="#" id="scrollTop" class="btn btn-inverse"><span class="fa fa-chevron-up"></span></a>';
+var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>';
 
 // Global across all pages
 $(window).load(function() {
@@ -24,7 +24,7 @@ $(window).load(function() {
 
 $(document).ready(function () {
   // Animate navigation elements on page load
-    $('#navigation-button').jAnimateOnce('fadeInLeft');
+    $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
 
   // Write shared elements

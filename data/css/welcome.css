@@ -123,8 +123,7 @@ p.no-space {
   height: 60px;
 }
 
-/* Custom btn and btn-success class */
-#navigation-button {
+.navigation-button {
   width: 11px;
   height: 21px;
 	color: #DED9CB;
@@ -138,12 +137,13 @@ p.no-space {
   text-decoration: none;
 }
 
-#navigation-button:hover {
+.navigation-button:hover {
   color: #fff;
 }
 
-#navigation-button:active {
+.navigation-button:active {
   background-color: #667E40;
+  color: #fff;
 }
 
 #navigation-title {
