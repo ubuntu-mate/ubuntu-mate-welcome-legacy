@@ -111,8 +111,12 @@ p.no-space {
   height: 32px;
   padding: 8px;
   margin-bottom: 8px;
-  background-color: rgba(243, 243, 243, 0.9);
   z-index: 10;
+  /* Ambience Theme Integration */
+  background-color: #3C3B37;
+	font-size: 24px;
+	font-weight: normal;
+  color: #DED9CB;
 }
 
 #navigation-dummy {
@@ -123,12 +127,7 @@ p.no-space {
 #navigation-button {
   width: 11px;
   height: 21px;
-  color: #ffffff;
-  background-color: #87A556;
-  border: 1px solid #cccccc;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-radius: 20%;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	color: #DED9CB;
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 0;
@@ -139,19 +138,15 @@ p.no-space {
   text-decoration: none;
 }
 
+#navigation-button:hover {
+  color: #fff;
+}
+
 #navigation-button:active {
   background-color: #667E40;
 }
 
-.navigation-button-hover {
-  background-image: url('../img/welcome/ubuntu-mate-gray.svg');
-  background-size: 80% 80%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 #navigation-title {
-  font-weight: bold;
   font-size: 18px;
   padding-left: 4px;
   vertical-align: middle;
@@ -505,7 +500,7 @@ blockquote.terminal {
   font-size: 64px;
   color: #fff;
   position: relative;
-  top: 39%;
+  top: 30%;
 }
 
 .bootCircle {

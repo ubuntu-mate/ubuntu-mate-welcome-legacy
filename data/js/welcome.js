@@ -32,16 +32,6 @@ $(document).ready(function () {
       return false;
   });
 
-  // Hover over navigation button
-  $('#navigation-button').hover(function() {
-    //$('#navigation-menu').html('<img src="img/welcome/ubuntu-mate-gray.svg" width="11px" height="18px" style="object-fit: contain; margin: 0;">');
-    $('#navigation-button').html('');
-    $('#navigation-button').addClass('navigation-button-hover');
-  }, function() {
-    $('#navigation-button').removeClass('navigation-button-hover');
-    $('#navigation-button').html('<span class="fa fa-chevron-left"></span>');
-  });
-
 });
 
 // Smoothly fade between two elements (by ID)
