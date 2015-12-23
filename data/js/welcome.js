@@ -500,6 +500,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     } else {
       // Obscure graphics chip or something we can't tell.
       $('#graphics-proprietary').show();
+      $('.graphics-vendor').html('the manufacturer');
     }
   }, 1000);
 
