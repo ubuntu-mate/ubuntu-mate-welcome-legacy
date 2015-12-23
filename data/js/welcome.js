@@ -438,8 +438,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       indexClose();
     } else {
       // Open the Index
-      $('#indexOpen').addClass('disabled');
-      $('#indexOpen').prop('disabled', true);
+      $('#index-open').addClass('disabled');
+      $('#index-open').prop('disabled', true);
       $("#index-overlay").fadeIn();
       $("#index-menu").show();
       $('#index-menu').jAnimateOnce('fadeInLeft');
@@ -447,8 +447,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   }
 
   function indexClose() {
-    $('#indexOpen').removeClass('disabled');
-    $('#indexOpen').prop('disabled', false);
+    $('#index-open').removeClass('disabled');
+    $('#index-open').prop('disabled', false);
     if ($('#index-menu').is(':visible')) {
       $("#index-overlay").fadeOut();
       $('#index-menu').jAnimateOnce('fadeOutLeft',function(){
@@ -475,7 +475,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
   setTimeout(function() { indexOpen(); }, 500);
-  $('#indexOpen').jAnimateOnce('fadeInDown');
+  $('#index-open').jAnimateOnce('fadeInDown');
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();
