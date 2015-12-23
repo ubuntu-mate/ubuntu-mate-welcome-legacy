@@ -811,6 +811,8 @@ if __name__ == "__main__":
         graphicsVendor = 'AMD'
       elif output.find('Intel') != -1:
         graphicsVendor = 'Intel'
+      elif output.find('VirtualBox') != -1:
+        graphicsVendor = 'VirtualBox'
       else:
         graphicsVendor = 'Unknown'
       print(graphicsVendor)

@@ -498,6 +498,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       $('#graphics-brand').html("You're already good to go!");
       $('#graphics-describe').html("Intel's drivers are open source and are maintained in the kernel.");
 
+    } else if ( graphicsVendor == "VirtualBox" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html("VirtualBox Guest Additions");
+      $('#graphics-describe').html("To accelerate graphics performance inside the virtual machine, please install Guest Additions.");
+
     } else {
       // Obscure graphics chip or something we can't tell.
       $('#graphics-proprietary').show();
