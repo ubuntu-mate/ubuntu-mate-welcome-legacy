@@ -82,8 +82,7 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main'],
                                  'cesar-crea-si-ubuntu-eviacam-' + codename)
-        elif repository ==  'adobe-flashplugin':
-            enable_partner_repository()
+        elif repository ==  'flashplugin-installer':
             enable_ppa('ppa:flexiondotorg/hal-flash')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')

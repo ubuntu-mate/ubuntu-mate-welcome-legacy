@@ -260,8 +260,8 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
         transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
-    elif 'adobe-flashplugin' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'adobe-flashplugin', action])
+    elif 'flashplugin-installer' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'flashplugin-installer', action])
         transaction.update_cache = True
     elif 'google-earth' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
@@ -358,7 +358,7 @@ def process_packages(packages, action):
     elif 'variety' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'variety', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'peterlevi-ubuntu-ppa-'+codename+'.list'        
+        transaction.source_to_update = 'peterlevi-ubuntu-ppa-'+codename+'.list'
     elif 'veracrypt' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'veracrypt', action])
         transaction.update_cache = True
@@ -568,12 +568,12 @@ class AppView(WebKit.WebView):
 
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
-        for package in ['adobe-flashplugin', 'appgrid', 'asunder',
+        for package in ['appgrid', 'asunder',
         'audacity', 'bleachbit', 'blender', 'calibre',
         'chromium-browser', 'darktable', 'dropbox', 'eviacam',
-        'filezilla', 'firefox', 'geany', 'gimp', 'glabels',
-        'gnome-disk-utility', 'gnome-schedule', 'gnote', 'gnucash',
-        'gramps', 'google-chrome-stable', 'google-earth-stable',
+        'filezilla', 'firefox', 'flashplugin-installer', 'geany', 'gimp',
+        'glabels', 'gnome-disk-utility', 'gnome-schedule', 'gnote',
+        'gnucash', 'gramps', 'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
         'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
