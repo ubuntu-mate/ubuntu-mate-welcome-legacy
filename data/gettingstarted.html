@@ -11,10 +11,10 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="navigation-button" class="btn btn-success" href="./index.html">
+        <a id="menu-button" class="navigation-button" href="./index.html">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <a id="indexOpen" href="javascript:indexOpen()" class="btn btn-inverse"><span class="fa fa-bars"></span></a>
+        <a id="index-open" href="javascript:indexOpen()" class="navigation-button"><span class="fa fa-bars"></span></a>
         <div id="navigation-title">Getting Started - <span id="navigation-sub-title"> </span></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
@@ -112,7 +112,7 @@
             <h3>Swap</h3>
             <p>For computers that start to run low on memory (RAM), the operating system will
             start swapping to disk. Known as a "paging file" in Windows.
-            Performance will decreases when running low on memory. The system could possibly freeze if
+            Performance will decrease when running low on memory and could possibly freeze if
             you completely run out of memory without anywhere to swap.</p>
             <p>By default, <b>a swap partition is created by the size of your RAM.</b> For example, if you have
             2 GiB of RAM, then 2 GiB of hard disk space will be reserved for swap at the end of the drive.</p>
@@ -186,7 +186,7 @@
                 <h5>Use Disks or the installer's "Custom" option.</h5>
                 <p>
                   <img class="left" src="img/applications/gparted.png"/>
-                  <b>Disks</b> is available during the live session and installed by default. 
+                  <b>Disks</b> is available during the live session and installed by default.
                   It is located under the <b>Applications <span class="fa fa-long-arrow-right"></span>
                   Accessories</b> menu. Disks provides complete flexibility over your partitions,
                   primarily for power users who know how they'd like to layout their disks.
@@ -273,12 +273,80 @@
         <div class="row-fluid">
           <div class="span12">
             <h2>Drivers</h2>
-            <p>Your computer may require additional drivers to function
-            correctly. Go and install them now.</p>
+            <p>While a wide range of hardware is compatible with Ubuntu
+            MATE, there are some components and peripherals that require proprietary
+            drivers to function properly.</p>
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install drivers.</h5>
             </div>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://drivers"><span class="fa fa-3x fa-wrench fa-va"></span>&nbsp; Install Drivers</a></div>
+            <div align="center"><a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
+              <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers
+            </a></div>
+            <span id="drivers-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Additional Drivers</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
+            </small></span>
+
+            <a onclick="toggleSub('graphics-section','graphics-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="graphics-arrow"></span> Graphics</h3></a>
+            <div id="graphics-section" hidden>
+              <div id="graphics-detected" class="alert alert-danger">
+                <h5 id="graphics-brand">Sorry, Welcome was unable to automatically identify the graphics vendor on this system.</h5>
+                <p id="graphics-describe"></p>
+                <p><span class="fa fa-plug"></span><b> Card/Chipset: </b><i id="graphics-pci">Unknown</i></p>
+              </div>
+              <div id="graphics-proprietary" hidden>
+                <h4>Proprietary or Open Source Drivers?</h4>
+                <p>Proprietary drivers come directly from <span class="graphics-vendor">the manufacturer</span>.
+                As they are not open source, Ubuntu developers are <b>unable review and improve code</b> meaning you'll have to
+                rely on <span class="graphics-vendor">the manufacturer</span> for support.</p>
+
+                <p>In addition, proprietary drivers can <b>significantly improve graphics performance</b> and as a result,
+                the entire system. Users may wish to install these drivers to:</p>
+                <ul>
+                  <li>Run 3D applications and games.</li>
+                  <li>Use Compiz's window effects.</li>
+                  <li>Improve power management, especially if the device overheats then usual under open source drivers.</li>
+                  <li>Improve support for high resolutions and multiple monitors.</li>
+                  <li>Fix blank screen issues.</li>
+                </ul>
+
+                <p>Proprietary drivers are known as "binary blobs". Certain hardware may experience worse behaviour,
+                causing more issues then the open source drivers, such as:</p>
+                <ul>
+                  <li>Failing to boot to the graphical desktop.</li>
+                  <li>Broken drivers after an upgrade.</li>
+                  <li>Serve graphical glitches.</li>
+                  <li>Problems with applications/games requiring hardware acceleration.</li>
+                </ul>
+
+                <p id="graphics-open-source"></p>
+                <p id="graphics-nvidia-only" hidden>
+                  <hr class="soften"/>
+                  <h4>What about the latest NVIDIA drivers?</h4>
+                  <p><b>Additional Drivers</b> fetches the latest tested driver from the Ubuntu repositories.
+                  Advanced users and gamers who would like newer versions may wish to consider adding the
+                  <a href="cmd://link?https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">Ubuntu Graphics Driver PPA</a>,
+                  which packages up the latest NVIDIA drivers for Ubuntu. These packages are not as throughly tested.
+                  <div class="alert alert-warning">
+                    <span class="fa fa-exclamation-triangle"></span> This only applies for actively supported cards,
+                    and not older cards using the legacy driver.
+                  </div>
+                  <!-- TODO/FIXME: Detect if repository is enabled and add/remove with a push of the button. -->
+                  <!--
+                  <a class="btn btn-success" href="#"><span class="fa fa-download"></span>&nbsp; Add Repository</a>
+                  <a class="btn btn-danger" href="#"><span class="fa fa-trash"></span>&nbsp; Remove Repository</a>
+                  -->
+                  <p>To add the repository to the system, open a terminal and type the following:</p>
+                  <blockquote class="terminal miscCmd">
+                    <span class="fa fa-dollar"></span> sudo add-apt-repository ppa:graphics-drivers/ppa
+                    <br>&nbsp;<span class="fa fa-dollar"></span> sudo apt-get update
+                  </blockquote>
+                  <p>After the PPA is added, newer versions are presented
+                  to install in <a href="cmd://drivers">Additional Drivers:</a></p>
+                  <img src="img/screenshots/graphics-drivers-nvidia.png"/>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -295,7 +363,13 @@
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install updates.</h5>
             </div>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://update"><span class="fa fa-3x fa-refresh fa-va"></span>&nbsp; Software Updates</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
+              <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; Software Updater
+            </a></div>
+            <span id="updates-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Software Updater</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
+            </small></span>
           </div>
         </div>
       </div>
@@ -308,7 +382,14 @@
             <p>You computer may require updates to your language and
             localisation settings, or you may want to install additional
             language support.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language"><span class="fa fa-3x fa-language fa-va"></span>&nbsp; Language Support</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language" onclick="smoothFade('','#locale-hint')">
+              <img src="img/humanity/preferences-desktop-locale.svg" width="32px" height="32px"/>&nbsp; Language Support
+            </a></div>
+            <span id="locale-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Language Support</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Personal</i></b></p>
+            </small></span>
           </div>
         </div>
         <div class="row-fluid">
@@ -341,13 +422,34 @@
         </div>
         <div class="row-fluid">
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://backup"><span class="fa fa-3x fa-archive fa-va"></span>&nbsp; Backup</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://backup" onclick="smoothFade('','#backup-hint')">
+              <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; Configure Backup
+            </a>
+            <span id="backup-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Backups</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Personal</i></b>.</p>
+            </small></span>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://firewall"><span class="fa fa-3x fa-fire fa-va"></span>&nbsp; Firewall</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://firewall" onclick="smoothFade('','#firewall-hint')">
+              <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; Configure Firewall
+            </a>
+            <span id="firewall-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Firewall Configuration</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Internet and Network</i></b>.</p>
+            </small></span>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://users"><span class="fa fa-3x fa-users fa-va"></span>&nbsp; Users</a>
+            <a class="btn btn-lg btn-inverse" href="cmd://users" onclick="smoothFade('','#users-hint')">
+              <img src="img/humanity/system-users.svg" width="32px" height="32px"/>&nbsp; Configure Users
+            </a>
+            <span id="users-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Users and Groups</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration
+                           <span class="fa fa-long-arrow-right"></span> Users and Groups</i></b>.</p>
+            </small></span>
           </div>
         </div>
       </div>
@@ -363,13 +465,26 @@
             and feel. The <b>Redmond</b> layouts are most similar to
             Microsoft Windows and <b>Cupertino</b> layouts are most
             similar to Apple Mac OS X.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak"><span class="fa fa-3x fa-adjust fa-va"></span>&nbsp; User Interface</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak" onclick="smoothFade('','#tweak-hint')">
+              <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; User Interface
+            </a></div>
+            <span id="tweak-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>MATE Tweak</b> can be found later in
+              <b><i>System <span class="fa fa-long-arrow-right"></span> Preferences
+                           <span class="fa fa-long-arrow-right"></span> Look and Feel</i></b>.</p>
+            </small></span>
 
             <h2>Control Center</h2>
             <p>The utilities mentioned above are all part of the extensive
             Control Center that Ubuntu MATE provides. You can configure
             just about every aspect of your computer from the Control Center.</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://control"><span class="fa fa-3x fa-cogs fa-va"></span>&nbsp; Control Center</a></div>
+            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://control" onclick="smoothFade('','#control-hint')">
+              <img src="img/applications/user-desktop.svg" width="32px" height="32px"/>&nbsp; Control Center
+            </a></div>
+            <span id="control-hint" class="center" hidden><small>
+              <p><span class="fa fa-info-circle"></span> <b>Control Center</b> can be found later
+              in the <b><i>System</i></b> menu.</p>
+            </small></span>
           </div>
         </div>
       </div>
@@ -460,22 +575,16 @@
 
       <br>
     </div>
-
     <div id="footer" class="bottom">
       <div class="footer-content">
-        <div id="social" class="pull-left">
-          <a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>
-          <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>
-          <a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>
-          <a href="cmd://link?https://ubuntu-mate.org"><img src="img/humanity/website.svg"></a>
-          <a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>
+        <div id="footer-left">
+        <!-- Via welcome.js -->
         </div>
-        <div class="form">
-          <a href="cmd://quit" class="btn btn-inverse">Close</a>
+        <div id="footer-right" class="form">
+          <!-- Global buttons appended via welcome.js -->
         </div>
       </div>
     </div>
-    <a href="#" id="scrollTop" class="btn btn-default"><span class="fa fa-chevron-up"></span></a>
   </div>
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>

@@ -2,6 +2,18 @@ function WelcomeCtrl($scope) {
 
 }
 
+// Consistent on all pages.
+var global_footer_left = '<div id="social" class="pull-left">' +
+        '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>' +
+        '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>' +
+        '<a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org"><img src="img/humanity/website.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
+      '</div>';
+
+var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">Close</a>';
+var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>';
+
 // Global across all pages
 $(window).load(function() {
     $('#header').addClass('hideSection');
@@ -11,12 +23,16 @@ $(window).load(function() {
 });
 
 $(document).ready(function () {
-
   // Animate navigation elements on page load
-    $('#navigation-button').jAnimateOnce('fadeInLeft');
+    $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
 
-  // Scroll to the top
+  // Write shared elements
+  $('#footer-left').append(global_footer_left);
+  $('#footer-right').append(global_footer_right);
+  $('#footer').append(global_scrollToTop);
+
+  // Initalize scroll to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scrollTop').fadeIn();
@@ -30,16 +46,6 @@ $(document).ready(function () {
           scrollTop: 0
       }, 600);
       return false;
-  });
-
-  // Hover over navigation button
-  $('#navigation-button').hover(function() {
-    //$('#navigation-menu').html('<img src="img/welcome/ubuntu-mate-gray.svg" width="11px" height="18px" style="object-fit: contain; margin: 0;">');
-    $('#navigation-button').html('');
-    $('#navigation-button').addClass('navigation-button-hover');
-  }, function() {
-    $('#navigation-button').removeClass('navigation-button-hover');
-    $('#navigation-button').html('<span class="fa fa-chevron-left"></span>');
   });
 
 });
@@ -387,6 +393,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   // Scenes - Delayed elements to appear
   $(document).ready(function()
   {
+    // Override the footer to only display "Skip".
+    $('#footer').html('<div class="footer-content"><div class="form"><a href="index.html" class="btn btn-inverse">Skip</a></div></div>');
+
     $('#sceneA').removeClass('hideSection');
     $('#sceneA').jAnimateOnce('fadeIn');
 
@@ -429,8 +438,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       indexClose();
     } else {
       // Open the Index
-      $('#indexOpen').addClass('disabled');
-      $('#indexOpen').prop('disabled', true);
+      $('#index-open').addClass('disabled');
+      $('#index-open').prop('disabled', true);
       $("#index-overlay").fadeIn();
       $("#index-menu").show();
       $('#index-menu').jAnimateOnce('fadeInLeft');
@@ -438,8 +447,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   }
 
   function indexClose() {
-    $('#indexOpen').removeClass('disabled');
-    $('#indexOpen').prop('disabled', false);
+    $('#index-open').removeClass('disabled');
+    $('#index-open').prop('disabled', false);
     if ($('#index-menu').is(':visible')) {
       $("#index-overlay").fadeOut();
       $('#index-menu').jAnimateOnce('fadeOutLeft',function(){
@@ -466,7 +475,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
   setTimeout(function() { indexOpen(); }, 500);
-  $('#indexOpen').jAnimateOnce('fadeInDown');
+  $('#index-open').jAnimateOnce('fadeInDown');
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();
@@ -477,6 +486,62 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
       $('.dualBootWin').fadeOut();
     }
   });
+
+  // Graphics Detection
+  // Must be executed shortly after page fully loads in order for variables to exist.
+  setTimeout(function() {
+    $('.graphics-vendor').html(graphicsVendor);
+    $('#graphics-pci').html(graphicsGrep);
+
+    // Auto detection alert initially displays "failed".
+    if ( graphicsVendor == 'NVIDIA' ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html('NVIDIA Graphics Card Detected.');
+      $('#graphics-describe').html("NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-proprietary').show();
+      $('#graphics-open-source').html("<code>nouveau</code> is the open source driver for NVIDIA cards.");
+      $('#graphics-nvidia-only').show();
+
+    } else if ( graphicsVendor == "AMD" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html('AMD Graphics Card Detected.');
+      $('#graphics-describe').html("AMD may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-proprietary').show();
+      $('#graphics-open-source').html("<code>radeon</code> is the open source driver for AMD cards.");
+
+    } else if ( graphicsVendor == "Intel" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-success');
+      $('#graphics-brand').html("You're already good to go!");
+      $('#graphics-describe').html("Intel's drivers are open source and are maintained in the kernel.");
+
+    } else if ( graphicsVendor == "VirtualBox" ) {
+      $('#graphics-detected').removeClass('alert-danger');
+      $('#graphics-detected').addClass('alert-info');
+      $('#graphics-brand').html("VirtualBox Guest Additions");
+      $('#graphics-describe').html("To accelerate graphics performance inside the virtual machine, please install Guest Additions.");
+
+    } else {
+      // Obscure graphics chip or something we can't tell.
+      $('#graphics-proprietary').show();
+      $('.graphics-vendor').html('the manufacturer');
+    }
+  }, 1000);
+
+  // Expand / Collapse sub-sections to keep it tidy.
+  function toggleSub(divID,arrowID) {
+    if ( $('#'+divID).is(":visible") ) {
+      $('#'+divID).fadeOut();
+      $('#'+arrowID).removeClass('fa-chevron-up');
+      $('#'+arrowID).addClass('fa-chevron-down');
+    } else {
+      $('#'+divID).fadeIn();
+      $('#'+arrowID).removeClass('fa-chevron-down');
+      $('#'+arrowID).addClass('fa-chevron-up');
+    }
+  }
 
 }
 

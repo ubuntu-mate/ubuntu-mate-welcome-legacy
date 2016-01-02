@@ -558,6 +558,10 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.hexchat').hide();")
             self.execute_script("$('.webchat').show();")
 
+        # Display information tailored to graphics vendor (Getting Started / Drivers)
+        self.execute_script('var graphicsVendor = "' + graphicsVendor + '";')
+        self.execute_script('var graphicsGrep = "' + graphicsGrep + '";')
+
         # Display warnings if the user is not connected to the internet.
         if onlineStatus == True:
             self.execute_script("$('.offline').hide();")
@@ -792,7 +796,32 @@ if __name__ == "__main__":
           print("Unreachable.")
           onlineStatus = False
 
+    # Attempt to detect graphics manufacturer.
+    # FIXME: Does not detect dual graphics.
+    def detectGraphics():
+      print('Detecting graphics vendor... ', end="")
+      output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
+      output = output.decode(encoding='UTF-8')
+      # Scan for and set known brand name.
+      global graphicsVendor
+      global graphicsGrep
+      if output.find('NVIDIA') != -1:
+        graphicsVendor = 'NVIDIA'
+      elif output.find('AMD') != -1:
+        graphicsVendor = 'AMD'
+      elif output.find('Intel') != -1:
+        graphicsVendor = 'Intel'
+      elif output.find('VirtualBox') != -1:
+        graphicsVendor = 'VirtualBox'
+      else:
+        graphicsVendor = 'Unknown'
+      print(graphicsVendor)
+      graphicsGrep = repr(output)
+      graphicsGrep = graphicsGrep.split("controller: ",1)[1]
+      graphicsGrep = graphicsGrep.split("\\n",1)[0]
+
     checkInternetConnection()
+    detectGraphics()
     set_proc_title()
     app = WelcomeApp()
     app.run()

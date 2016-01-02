@@ -111,27 +111,42 @@ p.no-space {
   height: 32px;
   padding: 8px;
   margin-bottom: 8px;
-  background-color: rgba(243, 243, 243, 0.9);
   z-index: 10;
+  /* Ambience Theme Integration */
+  background-color: #3C3B37;
+	font-size: 24px;
+	font-weight: normal;
+  color: #DED9CB;
 }
 
 #navigation-dummy {
   height: 60px;
 }
 
-.navigation-button-hover {
-  background-image: url('../img/welcome/ubuntu-mate-gray.svg');
-  background-size: 80% 80%;
-  background-repeat: no-repeat;
+.navigation-button {
   width: 11px;
-  height: 20px;
-  /** Prevent btn:hover from skewing the image position **/
-  background-position: center !important;
-  -webkit-transition: background-position 0s linear !important;
+  height: 21px;
+	color: #DED9CB;
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navigation-button:hover {
+  color: #fff;
+}
+
+.navigation-button:active {
+  background-color: #667E40;
+  color: #fff;
 }
 
 #navigation-title {
-  font-weight: bold;
   font-size: 18px;
   padding-left: 4px;
   vertical-align: middle;
@@ -153,6 +168,7 @@ p.no-space {
   height: 11px;
   position: fixed;
 }
+
 
 /************************
  * Content
@@ -192,6 +208,10 @@ img, a {
   -webkit-user-drag: none;
   user-drag: none;
 }
+
+/* Collapsible Sub-Sections */
+.sub-collapse { cursor: pointer; }
+.sub-collapse:hover { text-decoration: none; }
 
 /************************
  * Footer
@@ -480,7 +500,7 @@ blockquote.terminal {
   font-size: 64px;
   color: #fff;
   position: relative;
-  top: 39%;
+  top: 30%;
 }
 
 .bootCircle {
