@@ -346,6 +346,10 @@ def process_packages(packages, action):
     elif 'flashplugin-installer' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'flashplugin-installer', action])
         transaction.update_cache = True
+    elif 'git' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'git', action])
+        transaction.source_to_update = 'git-core-ubuntu-ppa-'+codename+'.list'
+        transaction.update_cache = True
     elif 'google-earth' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
         transaction.update_cache = True
@@ -659,7 +663,7 @@ class AppView(WebKit.WebView):
         'audacity', 'bleachbit', 'blender', 'calibre',
         'chromium-browser', 'darktable', 'dropbox', 'eviacam',
         'filezilla', 'firefox', 'flashplugin-installer', 'geany', 'gimp',
-        'glabels', 'gnome-disk-utility', 'gnome-schedule', 'gnote',
+        'git', 'glabels', 'gnome-disk-utility', 'gnome-schedule', 'gnote',
         'gnucash', 'gramps', 'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',

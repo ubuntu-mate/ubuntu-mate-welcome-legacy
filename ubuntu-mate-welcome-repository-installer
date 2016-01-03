@@ -84,6 +84,8 @@ if __name__ == "__main__":
                                  'cesar-crea-si-ubuntu-eviacam-' + codename)
         elif repository ==  'flashplugin-installer':
             enable_ppa('ppa:flexiondotorg/hal-flash')
+        elif repository ==  'git':
+            enable_ppa('ppa:git-core/ppa')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
