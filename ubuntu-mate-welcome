@@ -73,7 +73,8 @@ class SimpleApt(object):
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
-        print('Processing: ' + ', '.join(self.packages))
+        if self.packages:
+            print('Processing: ' + ', '.join(self.packages))
 
     def on_error(self, error):
         if isinstance(error, aptdaemon.errors.NotAuthorizedError):
@@ -86,13 +87,48 @@ class SimpleApt(object):
         error_dialog.run()
         error_dialog.hide()
 
-    def on_finished_update(self, transaction, status):
-        if status != 'exit-success':
-            self.do_notify(status)
-            self.loop.quit()
+    def on_finished_fix_incomplete_install(self, transaction, status):
+        self.loop.quit()
+        if status == 'exit-success':
+            Notify.init(_('Fixing incomplete install succeeded'))
+            apt_notify=Notify.Notification.new(_('Successfully fixed an incomplete install.'), _('Fixing the incomplete install was successful.'), 'dialog-information')
+            apt_notify.show()
+            return True
+        else:
+            Notify.init(_('Fixing incomplete install failed'))
+            apt_notify=Notify.Notification.new(_('Failed to fix incomplete install.'), _('Fixing the incomplete install failed.'), 'dialog-error')
+            apt_notify.show()
             return False
-        GLib.timeout_add(self._timeout,self.do_install)
-        return True
+
+    def on_finished_fix_broken_depends(self, transaction, status):
+        self.loop.quit()
+        if status == 'exit-success':
+            Notify.init(_('Fixing broken dependencies succeeded'))
+            apt_notify=Notify.Notification.new(_('Successfully fixed broken dependencies.'), _('Fixing the broken dependencies was successful.'), 'dialog-information')
+            apt_notify.show()
+            return True
+        else:
+            Notify.init(_('Fixing broken dependencies failed'))
+            apt_notify=Notify.Notification.new(_('Failed to fix broken dependencies.'), _('Fixing the broken dependencies failed.'), 'dialog-error')
+            apt_notify.show()
+            return False
+
+    def on_finished_update(self, transaction, status):
+        # If the action is only to update do not display notifcations
+        if self.action == 'update':
+            self.loop.quit()
+            if status == 'exit-success':
+                return True
+            else:
+                return False
+        else:
+            if status != 'exit-success':
+                self.do_notify(status)
+                self.loop.quit()
+                return False
+
+            GLib.timeout_add(self._timeout,self.do_install)
+            return True
 
     def on_finished_install(self, transaction, status):
         self.loop.quit()
@@ -114,22 +150,48 @@ class SimpleApt(object):
             title = _('Install')
             noun = _('Installation of ')
             action = _('installed.')
-        else:
+        elif self.action == 'remove':
             title = _('Remove')
             noun = _('Removal of ')
             action = _('removed.')
 
-        if status == 'exit-success':
-            Notify.init(title + ' ' + _('complete'))
-            apt_notify=Notify.Notification.new(title + ' ' + _('complete'), ', '.join(self.packages) + ' ' + _('has been successfully ') +action, 'dialog-information')
-        elif status == 'exit-cancelled':
-            Notify.init(title + ' ' + _('cancelled'))
-            apt_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + ', '.join(self.packages) + ' ' + _('was cancelled.'), 'dialog-information')
-        else:
-            Notify.init(title + ' ' + _('failed'))
-            apt_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + ', '.join(self.packages) + ' ' + _('failed.'), 'dialog-error')
+        # Do not show notifications when updating the cache
+        if self.action != 'update':
+            if status == 'exit-success':
+                Notify.init(title + ' ' + _('complete'))
+                apt_notify=Notify.Notification.new(title + ' ' + _('complete'), ', '.join(self.packages) + ' ' + _('has been successfully ') +action, 'dialog-information')
+            elif status == 'exit-cancelled':
+                Notify.init(title + ' ' + _('cancelled'))
+                apt_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + ', '.join(self.packages) + ' ' + _('was cancelled.'), 'dialog-information')
+            else:
+                Notify.init(title + ' ' + _('failed'))
+                apt_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + ', '.join(self.packages) + ' ' + _('failed.'), 'dialog-error')
 
-        apt_notify.show()
+            apt_notify.show()
+
+    def do_fix_incomplete_install(self):
+        # Corresponds to: dpkg --configure -a
+        apt_fix_incomplete = self.client.fix_incomplete_install()
+        apt_fix_incomplete.connect("finished",self.on_finished_fix_incomplete_install)
+
+        fix_incomplete_dialog = AptProgressDialog(apt_fix_incomplete)
+        fix_incomplete_dialog.run(close_on_finished=True, show_error=True,
+                reply_handler=lambda: True,
+                error_handler=self.on_error,
+                )
+        return False
+
+    def do_fix_broken_depends(self):
+        # Corresponds to: apt-get --fix-broken install
+        apt_fix_broken = self.client.fix_broken_depends()
+        apt_fix_broken.connect("finished",self.on_finished_fix_broken_depends)
+
+        fix_broken_dialog = AptProgressDialog(apt_fix_broken)
+        fix_broken_dialog.run(close_on_finished=True, show_error=True,
+                reply_handler=lambda: True,
+                error_handler=self.on_error,
+                )
+        return False
 
     def do_update(self):
         if self.source_to_update:
@@ -176,6 +238,14 @@ class SimpleApt(object):
 
     def remove_packages(self):
         GLib.timeout_add(self._timeout,self.do_remove)
+        self.loop.run()
+
+    def fix_incomplete_install(self):
+        GLib.timeout_add(self._timeout,self.do_fix_incomplete_install)
+        self.loop.run()
+
+    def fix_broken_depends(self):
+        GLib.timeout_add(self._timeout,self.do_fix_broken_depends)
         self.loop.run()
 
 class SimpleDeb(object):
@@ -235,6 +305,19 @@ class SimpleDeb(object):
     def install_file(self):
         GLib.timeout_add(self._timeout,self.do_install)
         self.loop.run()
+
+def update_repos():
+    transaction = SimpleApt('', 'update')
+    transaction.update_cache = True
+    transaction.do_update()
+
+def fix_incomplete_install():
+    transaction = SimpleApt('', 'fix-incomplete-install')
+    transaction.fix_incomplete_install()
+
+def fix_broken_depends():
+    transaction = SimpleApt('', 'fix-broken-depends')
+    transaction.fix_broken_depends()
 
 def process_packages(packages, action):
     if len(packages) and len(action):
@@ -669,6 +752,21 @@ class AppView(WebKit.WebView):
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+        elif uri == 'apt-update':
+            update_repos()
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self._push_config()
+        elif uri == 'fix-incomplete-install':
+            fix_incomplete_install()
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self._push_config()
+        elif uri == 'fix-broken-depends':
+            fix_broken_depends()
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self._push_config()
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()
@@ -694,8 +792,8 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
-        elif uri == 'disks':
-            subprocess.Popen(['gnome-disks'])
+        elif uri == 'gparted':
+            subprocess.Popen(['gparted-pkexec'])
         elif uri == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
         elif uri.startswith('run?'):

@@ -1,3 +1,27 @@
+ubuntu-mate-welcome (16.04.1~xenial1.1) xenial; urgency=medium
+
+  [ Luke Horwell ]
+  * New Ambience theme for the navigation bar.
+  * Improved code re-use for footers (uses JavaScript)
+  * Welcome will detect the graphics card (including VirtualBox)
+  including information about the NVIDIA drivers PPA.
+  * Expandable/collapsible sub-sections.
+  * Hints appear after opening utilities.
+  * Rename 'index' ID for consistency in code naming.
+  * Fade in software categories and corrected minor visual quirks.
+  * Updated Firefox, LibreOffice and Control Centre icons.
+  * Removed links on software icons. Users were getting confused why
+  this opened a web page.
+  * Only use one FontAwesome font supported by WebKit.
+
+  [ Martin Wimpress ]
+  * Added miscellaneous tasks to update cache, fix an incomplete install
+  and fix broken dependencies.
+  * Installing Adobe Flash now uses flashplugin-installer.
+  * Update PPAs for Veracrypt and X2Go.
+
+ -- Martin Wimpress <code@flexion.org>  Sat, 02 Jan 2016 13:17:21 +0000
+
 ubuntu-mate-welcome (16.04.0) xenial; urgency=medium
 
   * Overhaul of the user interface.

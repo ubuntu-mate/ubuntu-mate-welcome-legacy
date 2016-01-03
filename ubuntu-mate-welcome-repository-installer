@@ -167,6 +167,10 @@ if __name__ == "__main__":
                                  'peterlevi-ubuntu-ppa-' + codename)
         elif repository ==  'veracrypt':
             enable_ppa('ppa:unit193/encryption')
+            if codename == 'xenial':
+                add_apt_sources(['deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main',
+                                 'deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main'],
+                                 'unit193-ubuntu-encryption-' + codename)
         elif repository == 'virtualbox':
             if codename == 'xenial':
                 codename = 'wily'
@@ -174,11 +178,6 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
         elif repository ==  'x2go':
             enable_ppa('ppa:x2go/stable')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/x2go/stable/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/x2go/stable/ubuntu wily main'],
-                                 'x2go-ubuntu-stable-' + codename)
-
         else:
             print('Repository ' + repository + ' is unknown.')
     elif action == 'remove':

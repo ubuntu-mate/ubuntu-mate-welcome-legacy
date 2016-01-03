@@ -1367,7 +1367,7 @@
                 <span class="fa fa-dollar"></span> sudo apt-get update
               </blockquote>
               <div class="text-right">
-                <a href="cmd://fix?apt-update" class="btn btn-inverse right"><span class="fa fa-refresh"></span> Update Sources List</a>
+                <a href="cmd://apt-update" class="btn btn-inverse right"><span class="fa fa-refresh"></span> Update Sources List</a>
               </div>
               <hr class="soften"/>
 
@@ -1381,17 +1381,12 @@
                 <span class="fa fa-dollar"></span> sudo dpkg --configure -a
               </blockquote>
               <blockquote class="terminal miscCmd">
-                <b>Download and install any missing packages required by other packages:</b><br>
-                <span class="fa fa-dollar"></span> sudo apt-get --fix-missing install
-              </blockquote>
-              <blockquote class="terminal miscCmd">
                 <b>Download and install broken dependencies:</b><br>
                 <span class="fa fa-dollar"></span> sudo apt-get --fix-broken install
               </blockquote>
               <div class="text-right">
-                <a href="cmd://fix?configure-unpacked" class="btn btn-inverse right"><span class="fa fa-cube"></span> Configure Interrupted Packages</a>
-                <a href="cmd://fix?install-missing" class="btn btn-inverse right"><span class="fa fa-download"></span> Install Missing Packages</a>
-                <a href="cmd://fix?resolve-broken" class="btn btn-inverse right"><span class="fa fa-check"></span> Resolve Broken Packages</a>
+                <a href="cmd://fix-incomplete-install" class="btn btn-inverse right"><span class="fa fa-cube"></span> Configure Interrupted Packages</a>
+                <a href="cmd://fix-broken-depends" class="btn btn-inverse right"><span class="fa fa-check"></span> Resolve Broken Packages</a>
               </div>
               <hr class="soften"/>
 
