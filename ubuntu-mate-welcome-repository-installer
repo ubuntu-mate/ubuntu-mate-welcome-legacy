@@ -118,6 +118,12 @@ if __name__ == "__main__":
         elif repository ==  'mumble':
             if codename == 'precise' or codename == 'trusty' or codename == 'wily':
                 enable_ppa('ppa:mumble/release')
+        elif repository ==  'opera-stable':
+            add_apt_key_from_url('https://deb.opera.com/archive.key')
+            add_apt_sources(['# This file makes sure that Opera Browser is kept up-to-date',
+                             '# as part of regular system upgrades',
+                             '',
+                             'deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)'], repository)
         elif repository ==  'pithos':
             if codename == 'precise' or codename == 'trusty':
                 enable_ppa('ppa:pithos/ppa')
