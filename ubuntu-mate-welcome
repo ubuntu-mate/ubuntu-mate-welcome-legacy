@@ -320,7 +320,7 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
         transaction.update_cache = True
         transaction.source_to_update = 'heyarje-ubuntu-makemkv-beta-'+codename+'.list'
-    elif 'minecraft-installer' in packages:
+    elif ('minecraft-installer' in packages) or ('minecraft-server-installer' in packages):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'minecraft', action])
         transaction.update_cache = True
         transaction.source_to_update = 'flexiondotorg-ubuntu-minecraft-'+codename+'.list'
@@ -560,7 +560,7 @@ class AppView(WebKit.WebView):
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
         'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
-        'minecraft-installer', 'mumble', 'pavucontrol',
+        'minecraft-installer', 'minecraft-server-installer', 'mumble', 'pavucontrol',
         'pithos', 'pitivi', 'planner', 'pysolfc', 'rapid-photo-downloader',
         'redshift', 'remmina', 'scribus', 'simplescreenrecorder', 'skype',
         'software-center', 'spideroakone', 'spotify-client',
