@@ -660,7 +660,7 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         for package in ['appgrid', 'asunder',
-        'audacity', 'bleachbit', 'blender', 'calibre',
+        'audacity', 'bleachbit', 'blender', 'bzr', 'calibre',
         'chromium-browser', 'darktable', 'dropbox', 'eviacam',
         'filezilla', 'firefox', 'flashplugin-installer', 'geany', 'gimp',
         'git', 'glabels', 'gnome-disk-utility', 'gnome-schedule', 'gnote',
