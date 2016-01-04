@@ -31,6 +31,7 @@
         <li><a id="MediaBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
         <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
         <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        <li><a id="ServersBtn"     href="#" data-toggle="tab" onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
         <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
         <li><a id="MiscBtn"        href="#" data-toggle="tab" onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
       </ul>
@@ -260,7 +261,7 @@
           <a class="btn" href="cmd://link?http://www.stellarium.org/"><span class="fa fa-info"></span></a>
           <a class="stellarium-install btn btn-success" href="cmd://apt-install?stellarium"><span class="fa fa-download"></span>&nbsp; Install</a>
           <a class="stellarium-reinstall btn" href="cmd://apt-install?stellarium"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-          <a class="stellarium-remove btn btn-danger" href="cmd://apt-remove?stellarium"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          <a class="stellarium-remove btn btn-danger" href="cmd://apt-remove?stellarium,stellarium-data"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
         </div>
@@ -840,22 +841,6 @@
           <hr class="soften" />
           </div>
 
-          <div class="pc-only">
-          <img class="left" src="img/applications/x2go.png" />
-          <p><b>X2Go Server</b> is a remote computing environment with support for
-          session resuming, low bandwidth support, session brokerage,
-          client-side mass storage mounting, client-side printing, audio
-          redirection and authentication by smartcard or USB stick.</p>
-          <ul><li><b>Alternative to: </b><i>Citrix Workspace Cloud</i></li></ul>
-          <p class="text-right">
-          <a class="btn" href="cmd://link?http://wiki.x2go.org/doku.php"><span class="fa fa-info"></span></a>
-          <a class="x2goserver-install btn btn-success" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-download"></span>&nbsp; Install</a>
-          <a class="x2goserver-reinstall btn" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-          <a class="x2goserver-remove btn btn-danger" href="cmd://apt-remove?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-trash"></span>&nbsp; Remove</a>
-          </p>
-          <hr class="soften" />
-          </div>
-
         </div>
         <div id="Office" class="hideSection">
           <h2>Office</h2>
@@ -1319,8 +1304,8 @@
           </p>
           <hr class="soften" />
           </div>
-
         </div>
+
         <div id="UnivAccess" class="hideSection">
           <h2>Universal Access</h2>
           <div class="pc-only">
@@ -1351,6 +1336,26 @@
           </p>
           <hr class="soften" />
         </div>
+
+        <div id="Servers" class="hideSection">
+          <h2>Servers</h2>
+          <div class="pc-only">
+          <img class="left" src="img/applications/x2go.png" />
+          <p><b>X2Go Server</b> is a remote computing environment with support for
+          session resuming, low bandwidth support, session brokerage,
+          client-side mass storage mounting, client-side printing, audio
+          redirection and authentication by smartcard or USB stick.</p>
+          <ul><li><b>Alternative to: </b><i>Citrix Workspace Cloud</i></li></ul>
+          <p class="text-right">
+          <a class="btn" href="cmd://link?http://wiki.x2go.org/doku.php"><span class="fa fa-info"></span></a>
+          <a class="x2goserver-install btn btn-success" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="x2goserver-reinstall btn" href="cmd://apt-install?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="x2goserver-remove btn btn-danger" href="cmd://apt-remove?x2goserver,x2goserver-extensions,x2goserver-xsession,x2gomatebindings"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+        </div>
+
         <div id="MoreApps" class="hideSection">
           <h2>Software Centres</h2>
           <p>Easy to navigate graphical interfaces to browse a wide selection of
