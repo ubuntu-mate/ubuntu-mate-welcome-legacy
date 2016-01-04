@@ -73,11 +73,6 @@ if __name__ == "__main__":
         elif repository ==  'appgrid':
             enable_partner_repository()
             enable_ppa('ppa:appgrid/stable')
-        elif repository ==  'dropbox':
-            if codename == 'xenial':
-                codename = 'wily'
-            add_apt_key_from_keyserver('pgp.mit.edu', '5044912E')
-            add_apt_sources(['deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'], repository)
         elif repository ==  'eviacam':
             enable_ppa('ppa:cesar-crea-si/eviacam')
             if codename == 'xenial':
