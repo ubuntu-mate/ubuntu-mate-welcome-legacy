@@ -331,7 +331,11 @@ def process_packages(packages, action):
 
     # Perform any pre-install configuration. Basically enabling repositories or
     # adding PPAs.
-    if 'appgrid' in packages:
+    if '0ad' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', '0ad', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'wfg-ubuntu-0ad-'+codename+'.list'
+    elif 'appgrid' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'appgrid', action])
         transaction.update_cache = True
         transaction.source_to_update = 'appgrid-ubuntu-stable-'+codename+'.list'
@@ -663,7 +667,7 @@ class AppView(WebKit.WebView):
 
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
-        for package in ['appgrid', 'asunder',
+        for package in ['0ad', 'appgrid', 'asunder',
         'audacity', 'bleachbit', 'blender', 'bzr', 'calibre',
         'chromium-browser', 'darktable', 'dropbox', 'eviacam',
         'filezilla', 'firefox', 'flashplugin-installer', 'geany', 'gimp',

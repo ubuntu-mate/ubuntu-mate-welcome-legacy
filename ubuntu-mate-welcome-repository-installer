@@ -68,10 +68,12 @@ if __name__ == "__main__":
     codename = platform.dist()[2]
 
     if action == 'install':
-        if repository ==  'appgrid':
+        if repository ==  '0ad':
+            enable_ppa('ppa:wfg/0ad')
+        elif repository ==  'appgrid':
             enable_partner_repository()
             enable_ppa('ppa:appgrid/stable')
-        if repository ==  'dropbox':
+        elif repository ==  'dropbox':
             if codename == 'xenial':
                 codename = 'wily'
             add_apt_key_from_keyserver('pgp.mit.edu', '5044912E')
