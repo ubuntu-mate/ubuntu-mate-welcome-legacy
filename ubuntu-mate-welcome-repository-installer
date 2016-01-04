@@ -144,6 +144,8 @@ if __name__ == "__main__":
             add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
                              'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
                              ''], repository)
+        elif repository ==  'stellarium':
+            enable_ppa('ppa:stellarium/stellarium-releases')
         elif repository ==  'synapse':
             enable_ppa('ppa:synapse-core/testing')
         elif repository ==  'syncthing':

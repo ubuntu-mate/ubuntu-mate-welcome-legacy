@@ -22,6 +22,7 @@
     <div class="online animated fadeInDown" id="categoryTabs">
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
         <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
+        <li><a id="EducationBtn"   href="#" data-toggle="tab" onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
         <li><a id="GamesBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
         <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
         <li><a id="InternetBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
@@ -231,8 +232,39 @@
           <a class="zim-remove btn btn-danger" href="cmd://apt-remove?libgtkspell0,scrot,zim"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
-
         </div>
+
+        <div id="Education" class="hideSection">
+          <h2>Education</h2>
+
+          <img class="left" src="img/applications/stellarium.png" />
+          <p><b>Stellarium</b> is a planetarium for your computer that
+          renders 3D photo-realistic skies in real-time so you really
+          see what you can see with your eyes, binoculars or a small
+          telescope. It features a default star catalogue with over 600
+          thousand stars, information about the brightest stars
+          (spectral type, distance, etc.), downloadable star catalogue
+          extensions, for up to 210 million stars, all New General
+          Catalogue (NGC) objects, images of almost all Messier objects
+          and the Milky Way, real time positions of the planets and
+          their satellites, 13 different cultures with their
+          constellations, artistic illustrations of the 88 Western
+          constellations, very realistic atmosphere, sunrise and
+          sunset, and 7 panoramic landscapes (more can be made or
+          downloaded from the website). Stellarium should not be used
+          for very high accurate calculation or ephemerids like eclipse
+          predictions. However, it is the ideal program to prepare an
+          observation evening with naked eye, binocular, or small
+          telescope.</p>
+          <p class="text-right">
+          <a class="btn" href="cmd://link?http://www.stellarium.org/"><span class="fa fa-info"></span></a>
+          <a class="stellarium-install btn btn-success" href="cmd://apt-install?stellarium"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="stellarium-reinstall btn" href="cmd://apt-install?stellarium"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="stellarium-remove btn btn-danger" href="cmd://apt-remove?stellarium"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+        </div>
+
         <div id="Games" class="hideSection">
           <h2>Games</h2>
           <div class="pc-only proprietary">

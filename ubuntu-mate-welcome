@@ -418,6 +418,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
         transaction.update_cache = True
         transaction.source_to_update = 'steam.list'
+    elif 'stellarium' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'stellarium', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'stellarium-ubuntu-stellarium-releases-'+codename+'.list'
     elif 'synapse' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'synapse', action])
         transaction.update_cache = True
@@ -672,7 +676,7 @@ class AppView(WebKit.WebView):
         'pithos', 'pitivi', 'planner', 'pysolfc', 'rapid-photo-downloader',
         'redshift', 'remmina', 'scribus', 'simplescreenrecorder', 'skype',
         'software-center', 'spideroakone', 'spotify-client',
-        'steam-launcher', 'supertuxkart', 'sweethome3d', 'synapse',
+        'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
         'synaptic', 'syncthing', 'telegram', 'terminator',
         'ubuntu-sdk', 'uget', 'variety', 'veracrypt', 'virtualbox-5.0',
         'workrave', 'x2goclient', 'x2goserver', 'zim']:
