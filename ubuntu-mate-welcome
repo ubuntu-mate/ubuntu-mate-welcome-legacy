@@ -248,64 +248,6 @@ class SimpleApt(object):
         GLib.timeout_add(self._timeout,self.do_fix_broken_depends)
         self.loop.run()
 
-class SimpleDeb(object):
-    def __init__(self, debfile):
-        self._timeout=100
-        self.debfile = debfile
-        self.loop = GLib.MainLoop()
-        self.client = AptClient()
-        print('Processing: ' + self.debfile)
-
-    def on_error(self, error):
-        if isinstance(error, aptdaemon.errors.NotAuthorizedError):
-            # Silently ignore auth failures
-            return
-        elif not isinstance(error, aptdaemon.errors.TransactionFailed):
-            # Catch internal errors of the client
-            error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
-        error_dialog = AptErrorDialog(error)
-        error_dialog.run()
-        error_dialog.hide()
-
-    def on_finished_install(self, transaction, status):
-        self.loop.quit()
-        if status != 'exit-success':
-            return False
-        else:
-            self.do_notify(status)
-
-    def do_notify(self, status):
-        title = _('Install')
-        noun = _('Installation of ')
-        action = _('installed.')
-
-        if status == 'exit-success':
-            Notify.init(title + ' ' + _('complete'))
-            deb_notify=Notify.Notification.new(title + ' ' + _('complete'), os.path.basename(self.debfile) + ' ' + _('has been successfully ') +action, 'dialog-information')
-        elif status == 'exit-cancelled':
-            Notify.init(title + ' ' + _('cancelled'))
-            deb_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + os.path.basename(self.debfile) + ' ' + _('was cancelled.'), 'dialog-information')
-        else:
-            Notify.init(title + ' ' + _('failed'))
-            deb_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + os.path.basename(self.debfile) + ' ' + _('failed.'), 'dialog-error')
-
-        deb_notify.show()
-
-    def do_install(self):
-        deb_install = self.client.install_file(self.debfile)
-        deb_install.connect("finished", self.on_finished_install)
-
-        install_dialog = AptProgressDialog(deb_install)
-        install_dialog.run(close_on_finished=True, show_error=True,
-                        reply_handler=lambda: True,
-                        error_handler=self.on_error,
-                        )
-        return False
-
-    def install_file(self):
-        GLib.timeout_add(self._timeout,self.do_install)
-        self.loop.run()
-
 def update_repos():
     transaction = SimpleApt('', 'update')
     transaction.update_cache = True
@@ -366,13 +308,6 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-talkplugin.list'
-    elif 'handbrake' in packages:
-        # Handbrake is not in the PPA yet. Also in the PPA it is known
-        # as 'hanbrake-gtk' while in the archive it is known as
-        # 'handbrake'
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'libdvdcss2.list'
     elif 'insync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
         transaction.update_cache = True
@@ -458,11 +393,7 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
-    elif 'x2goclient' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
-    elif 'x2goserver' in packages:
+    elif ('x2goclient' in packages) or ('x2goserver' in packages):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
         transaction.update_cache = True
         transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
@@ -474,49 +405,6 @@ def process_packages(packages, action):
     else:
         print('The requested action is unknown')
 
-def download_file(url):
-    #http://stackoverflow.com/questions/22676/how-do-i-download-a-file-over-http-using-python/22776#22776
-    u = urllib.request.urlopen(url)
-
-    scheme, netloc, path, query, fragment = urllib.parse.urlsplit(url)
-    filename = os.path.join('/','tmp',os.path.basename(path))
-
-    with open(filename, 'wb') as f:
-        meta = u.info()
-        meta_func = meta.getheaders if hasattr(meta, 'getheaders') else meta.get_all
-        meta_length = meta_func("Content-Length")
-        file_size = None
-        if meta_length:
-            file_size = int(meta_length[0])
-        print("Downloading: {0} Bytes: {1}".format(url, file_size))
-
-        file_size_dl = 0
-        block_sz = 8192
-        while True:
-            buffer = u.read(block_sz)
-            if not buffer:
-                break
-
-            file_size_dl += len(buffer)
-            f.write(buffer)
-
-            status = "{0:16}".format(file_size_dl)
-            if file_size:
-                status += "   [{0:6.2f}%]".format(file_size_dl * 100 / file_size)
-                fraction = file_size_dl / file_size
-            status += chr(13)
-            print(status, end="")
-        print()
-
-    return filename
-
-# Look a good example - https://gist.github.com/hrasdt/8206777
-# Somewhat useful - http://python-gtk-3-tutorial.readthedocs.org/en/latest/progressbar.html
-
-def process_deburl(deburl):
-    debfile = download_file(deburl)
-    transaction = SimpleDeb(debfile)
-    transaction.install_file()
 
 class WelcomeConfig(object):
     """ Manages Welcome configuration """
@@ -682,8 +570,6 @@ class AppView(WebKit.WebView):
         'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
-            elif package == 'libavcodec-extra':
-                css_class = 'codecs'
             else:
                 css_class = package
 
@@ -728,19 +614,6 @@ class AppView(WebKit.WebView):
         pol_dec.ignore()
         return True
 
-    # Execute a root (sudo) command within Welcome.
-    @staticmethod
-    def fixes_script(parameters):
-        #~ subprocess.Popen([self._data_path+'/scripts/app-fixes.sh',parameters])
-        print("fixme:Unimplemented function 'fixes_script' = ", parameters)
-
-        # FIXME: Not yet implemented : Execute sudo command based on parameter.
-        #
-        # While gksudo can present a dialog to the user, I have not
-        # figured out a way in either Python (or Bash) to present the results
-        # for a command like 'apt-get update'. Otherwise, the command would quietly
-        # run in the background with no way to know if there was an error.
-
     def _do_command(self, uri):
         if uri.startswith('cmd://'):
             uri = uri[6:]
@@ -752,11 +625,6 @@ class AppView(WebKit.WebView):
             self._push_config()
         elif uri.startswith('apt-remove?'):
             process_packages(uri[11:], 'remove')
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
-            self._push_config()
-        elif uri.startswith('deb-install?'):
-            process_deburl(uri[12:])
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
@@ -816,8 +684,6 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
-        elif uri.startswith('fix?'):
-            self.fixes_script(uri[4:])
         else:
             print('Unknown command: %s' % uri)
 
