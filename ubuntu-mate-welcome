@@ -559,24 +559,26 @@ class AppView(WebKit.WebView):
 
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
-        for package in ['0ad', 'appgrid', 'asunder',
-        'audacity', 'bleachbit', 'blender', 'bzr', 'caja-dropbox', 'caja-share',
-        'calibre', 'chromium-browser', 'darktable', 'dia-gnome', 'eviacam',
-        'filezilla', 'firefox', 'flashplugin-installer', 'geany', 'gimp',
-        'git', 'glabels', 'gnome-disk-utility', 'gnome-schedule', 'gnote',
-        'gnucash', 'gramps', 'google-chrome-stable', 'google-earth-stable',
+        for package in ['0ad', 'appgrid', 'asunder', 'audacity',
+        'bleachbit', 'blender', 'bzr', 'caja-dropbox', 'caja-share',
+        'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
+        'eviacam', 'filezilla', 'firefox', 'flashplugin-installer',
+        'geany', 'gimp', 'git', 'glabels', 'gnome-disk-utility',
+        'gnome-schedule', 'gnote', 'gnucash', 'gramps',
+        'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
         'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
         'minecraft-installer', 'minecraft-server-installer', 'mumble',
         'opera-stable', 'pavucontrol', 'pithos', 'pitivi', 'planner',
-        'pysolfc', 'rapid-photo-downloader', 'redshift', 'remmina',
-        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher', 'stellarium',
-        'supertuxkart', 'sweethome3d', 'synapse', 'synaptic', 'syncthing',
-        'telegram', 'terminator', 'tor-browser', 'ubuntu-sdk', 'uget',
-        'variety', 'veracrypt', 'virtualbox-5.0', 'workrave', 'x2goclient',
-        'x2goserver', 'zim']:
+        'poedit', 'pysolfc', 'rapid-photo-downloader', 'redshift',
+        'remmina', 'scribus', 'simplescreenrecorder', 'skype',
+        'software-center', 'spideroakone', 'spotify-client',
+        'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d',
+        'synapse', 'synaptic', 'syncthing', 'telegram', 'terminator',
+        'tor-browser', 'ubuntu-sdk', 'uget', 'variety', 'veracrypt',
+        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
+        'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             else:
