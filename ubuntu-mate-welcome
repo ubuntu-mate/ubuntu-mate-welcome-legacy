@@ -377,6 +377,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
         transaction.update_cache = True
         transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'
+    elif 'tor-browser' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'tor-browser', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'webupd8team-ubuntu-tor-browser-'+codename+'.list'
     elif 'ubuntu-sdk' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
         transaction.update_cache = True
@@ -570,8 +574,8 @@ class AppView(WebKit.WebView):
         'scribus', 'simplescreenrecorder', 'skype', 'software-center',
         'spideroakone', 'spotify-client', 'steam-launcher', 'stellarium',
         'supertuxkart', 'sweethome3d', 'synapse', 'synaptic', 'syncthing',
-        'telegram', 'terminator', 'ubuntu-sdk', 'uget', 'variety',
-        'veracrypt', 'virtualbox-5.0', 'workrave', 'x2goclient',
+        'telegram', 'terminator', 'tor-browser', 'ubuntu-sdk', 'uget',
+        'variety', 'veracrypt', 'virtualbox-5.0', 'workrave', 'x2goclient',
         'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
