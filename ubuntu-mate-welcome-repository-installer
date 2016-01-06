@@ -93,6 +93,9 @@ if __name__ == "__main__":
             enable_ppa('ppa:flexiondotorg/hal-flash')
         elif repository ==  'git':
             enable_ppa('ppa:git-core/ppa')
+        elif repository ==  'gobby':
+            if codename == 'trusty':
+                enable_ppa('ppa:flexiondotorg/gobby')
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)

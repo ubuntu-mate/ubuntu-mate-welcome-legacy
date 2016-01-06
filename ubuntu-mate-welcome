@@ -300,6 +300,11 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'git', action])
         transaction.source_to_update = 'git-core-ubuntu-ppa-'+codename+'.list'
         transaction.update_cache = True
+    elif 'gobby' in packages:
+        if codename == 'trusty':
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'gobby', action])
+            transaction.source_to_update = 'flexiondotorg-ubuntu-gobby-'+codename+'.list'
+            transaction.update_cache = True
     elif 'google-earth' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
         transaction.update_cache = True
@@ -573,7 +578,7 @@ class AppView(WebKit.WebView):
         'darktable', 'dia-gnome', 'eviacam', 'filezilla', 'firefox',
         'flashplugin-installer', 'geany', 'gimp', 'git', 'glabels',
         'gnome-disk-utility', 'gnome-schedule', 'gnote', 'gnucash',
-        'gramps', 'google-chrome-stable', 'google-earth-stable',
+        'gramps', 'gobby', 'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
         'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
