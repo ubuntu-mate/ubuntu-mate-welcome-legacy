@@ -162,6 +162,10 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main'],
                                  'gnome-terminator-ubuntu-ppa-' + codename)
+        elif repository ==  'tor':
+            add_apt_key_from_keyserver('keys.gnupg.net', '886DDD89')
+            add_apt_sources(['deb http://deb.torproject.org/torproject.org utopic main',
+                             'deb-src http://deb.torproject.org/torproject.org utopic main'], repository)
         elif repository ==  'tor-browser':
             enable_ppa('ppa:webupd8team/tor-browser')
         elif repository ==  'ubuntu-sdk':
