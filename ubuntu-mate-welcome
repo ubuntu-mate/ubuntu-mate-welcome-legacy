@@ -285,6 +285,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'audio-recorder', action])
         transaction.update_cache = True
         transaction.source_to_update = 'audio-recorder-ubuntu-ppa-'+codename+'.list'
+    elif 'btsync' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'btsync.list'
     elif 'eviacam' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
@@ -564,7 +568,7 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         for package in ['0ad', 'appgrid', 'asunder', 'audacity',
-        'audio-recorder', 'bleachbit', 'blender', 'bzr',
+        'audio-recorder', 'bleachbit', 'blender', 'btsync-gui', 'bzr',
         'caja-dropbox', 'caja-share', 'calibre', 'chromium-browser',
         'darktable', 'dia-gnome', 'eviacam', 'filezilla', 'firefox',
         'flashplugin-installer', 'geany', 'gimp', 'git', 'glabels',

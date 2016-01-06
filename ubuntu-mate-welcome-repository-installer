@@ -78,6 +78,11 @@ if __name__ == "__main__":
                 enable_ppa('ppa:osmoma/audio-recorder')
             else:
                 enable_ppa('ppa:audio-recorder/ppa')
+        elif repository ==  'btsync':
+            add_apt_key_from_url('http://debian.yeasoft.net/btsync.key')
+            add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",
+                             'deb http://debian.yeasoft.net/btsync unstable main',
+                             'deb-src http://debian.yeasoft.net/btsync unstable main'], repository)
         elif repository ==  'eviacam':
             enable_ppa('ppa:cesar-crea-si/eviacam')
             if codename == 'xenial':
