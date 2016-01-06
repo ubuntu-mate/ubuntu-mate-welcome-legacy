@@ -73,6 +73,8 @@ if __name__ == "__main__":
         elif repository ==  'appgrid':
             enable_partner_repository()
             enable_ppa('ppa:appgrid/stable')
+        elif repository ==  'audio-recorder':
+            enable_ppa('ppa:audio-recorder/ppa')
         elif repository ==  'eviacam':
             enable_ppa('ppa:cesar-crea-si/eviacam')
             if codename == 'xenial':

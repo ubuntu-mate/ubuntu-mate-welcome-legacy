@@ -281,6 +281,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'appgrid', action])
         transaction.update_cache = True
         transaction.source_to_update = 'appgrid-ubuntu-stable-'+codename+'.list'
+    elif 'audio-recorder' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'audio-recorder', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'audio-recorder-ubuntu-ppa-'+codename+'.list'
     elif 'eviacam' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
@@ -560,12 +564,12 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         for package in ['0ad', 'appgrid', 'asunder', 'audacity',
-        'bleachbit', 'blender', 'bzr', 'caja-dropbox', 'caja-share',
-        'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
-        'eviacam', 'filezilla', 'firefox', 'flashplugin-installer',
-        'geany', 'gimp', 'git', 'glabels', 'gnome-disk-utility',
-        'gnome-schedule', 'gnote', 'gnucash', 'gramps',
-        'google-chrome-stable', 'google-earth-stable',
+        'audio-recorder', 'bleachbit', 'blender', 'bzr',
+        'caja-dropbox', 'caja-share', 'calibre', 'chromium-browser',
+        'darktable', 'dia-gnome', 'eviacam', 'filezilla', 'firefox',
+        'flashplugin-installer', 'geany', 'gimp', 'git', 'glabels',
+        'gnome-disk-utility', 'gnome-schedule', 'gnote', 'gnucash',
+        'gramps', 'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
         'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
