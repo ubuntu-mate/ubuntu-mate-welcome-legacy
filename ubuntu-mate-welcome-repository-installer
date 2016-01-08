@@ -111,6 +111,8 @@ if __name__ == "__main__":
         elif repository ==  'handbrake':
             if codename != 'wily':
                 enable_ppa('ppa:stebbins/handbrake-releases')
+        elif repository == 'indicator-kdeconnect':
+            enable_ppa('ppa:vikoadi/ppa')
         elif repository ==  'insync':
             if codename == 'xenial':
                 codename = 'wily'

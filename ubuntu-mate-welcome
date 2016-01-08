@@ -329,6 +329,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
         transaction.update_cache = True
         transaction.source_to_update = 'libdvdcss2.list'
+    elif 'indicator-kdeconnect' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'indicator-kdeconnect', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'vikoadi-ubuntu-ppa-'+codename+'.list'
     elif 'makemkv-bin' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
         transaction.update_cache = True
@@ -580,10 +584,10 @@ class AppView(WebKit.WebView):
         'gnome-disk-utility', 'gnome-schedule', 'gnote', 'gnucash',
         'gramps', 'gobby', 'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
-        'hardinfo', 'icedtea-7-plugin', 'inkscape', 'insync',
-        'libavcodec-extra', 'libdvdcss2', 'makemkv-bin', 'meld',
-        'minecraft-installer', 'minecraft-server-installer', 'mumble',
-        'opera-stable', 'pavucontrol', 'pithos', 'pitivi', 'planner',
+        'hardinfo', 'icedtea-7-plugin', 'indicator-kdeconnect',
+        'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
+        'makemkv-bin', 'meld', 'minecraft-installer', 'minecraft-server-installer',
+        'mumble', 'opera-stable', 'pavucontrol', 'pithos', 'pitivi', 'planner',
         'poedit', 'pysolfc', 'rapid-photo-downloader', 'redshift',
         'remmina', 'scribus', 'simplescreenrecorder', 'skype',
         'software-center', 'spideroakone', 'spotify-client',
