@@ -293,6 +293,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
         transaction.update_cache = True
         transaction.source_to_update = 'btsync.list'
+    elif 'emby-server' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'emby-server', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'emby-server.list'
     elif 'enpass' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'enpass', action])
         transaction.update_cache = True
@@ -595,7 +599,7 @@ class AppView(WebKit.WebView):
         'audacity', 'audio-recorder', 'bleachbit', 'blender',
         'btsync-gui', 'bzr', 'caja-dropbox', 'caja-share', 'calibre',
         'chromium-browser', 'darktable', 'dia-gnome', 'easytag',
-        'enpass', 'eviacam', 'filezilla', 'firefox',
+        'emby-server', 'enpass', 'eviacam', 'filezilla', 'firefox',
         'flashplugin-installer', 'focuswriter', 'geany', 'gimp', 'git',
         'glade', 'glabels', 'gnome-schedule', 'gnote', 'gnucash',
         'gobby', 'google-chrome-stable', 'google-earth-stable',

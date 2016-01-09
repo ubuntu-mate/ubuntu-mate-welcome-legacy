@@ -84,6 +84,11 @@ if __name__ == "__main__":
             add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",
                              'deb http://debian.yeasoft.net/btsync unstable main',
                              'deb-src http://debian.yeasoft.net/btsync unstable main'], repository)
+        elif repository ==  'emby-server':
+            if os_version == '16.04':
+                os_version = '15.10'
+            add_apt_key_from_url('http://download.opensuse.org/repositories/home:emby/xUbuntu_'+os_version+'/Release.key')
+            add_apt_sources(['deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_'+os_version+'/ /'], repository)
         elif repository ==  'enpass':
             add_apt_key_from_url('http://repo.sinew.in/keys/enpass-linux.key')
             add_apt_sources(['deb http://repo.sinew.in/ stable main'], repository)
