@@ -84,6 +84,9 @@ if __name__ == "__main__":
             add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",
                              'deb http://debian.yeasoft.net/btsync unstable main',
                              'deb-src http://debian.yeasoft.net/btsync unstable main'], repository)
+        elif repository ==  'enpass':
+            add_apt_key_from_url('http://repo.sinew.in/keys/enpass-linux.key')
+            add_apt_sources(['deb http://repo.sinew.in/ stable main'], repository)
         elif repository ==  'eviacam':
             enable_ppa('ppa:cesar-crea-si/eviacam')
             if codename == 'xenial':

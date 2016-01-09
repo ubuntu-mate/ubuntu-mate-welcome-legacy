@@ -289,6 +289,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
         transaction.update_cache = True
         transaction.source_to_update = 'btsync.list'
+    elif 'enpass' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'enpass', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'enpass.list'
     elif 'eviacam' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
         transaction.update_cache = True
@@ -586,23 +590,23 @@ class AppView(WebKit.WebView):
         for package in ['0ad', 'appgrid', 'asunder', 'audacity',
         'audio-recorder', 'bleachbit', 'blender', 'btsync-gui', 'bzr',
         'caja-dropbox', 'caja-share', 'calibre', 'chromium-browser',
-        'darktable', 'dia-gnome', 'easytag', 'eviacam', 'filezilla',
-        'firefox', 'flashplugin-installer', 'focuswriter', 'geany',
-        'gimp', 'git', 'glade', 'glabels', 'gnome-disk-utility',
-        'gnome-schedule', 'gnote', 'gnucash', 'gramps', 'gobby',
-        'google-chrome-stable', 'google-earth-stable',
-        'google-musicmanager-beta', 'google-talkplugin', 'handbrake',
-        'hardinfo', 'icedtea-7-plugin', 'indicator-kdeconnect',
-        'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
-        'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'opera-stable',
-        'owncloud-client', 'pavucontrol', 'pithos', 'pitivi',
-        'planner', 'playonlinux', 'poedit', 'pysolfc',
-        'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
-        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher',
-        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
-        'synaptic', 'syncthing', 'telegram', 'terminator',
+        'darktable', 'dia-gnome', 'easytag', 'enpass', 'eviacam',
+        'filezilla', 'firefox', 'flashplugin-installer', 'focuswriter',
+        'geany', 'gimp', 'git', 'glade', 'glabels',
+        'gnome-disk-utility', 'gnome-schedule', 'gnote', 'gnucash',
+        'gramps', 'gobby', 'google-chrome-stable',
+        'google-earth-stable', 'google-musicmanager-beta',
+        'google-talkplugin', 'handbrake', 'hardinfo',
+        'icedtea-7-plugin', 'indicator-kdeconnect', 'inkscape',
+        'insync', 'libavcodec-extra', 'libdvdcss2', 'makemkv-bin',
+        'meld', 'minecraft-installer', 'minecraft-server-installer',
+        'mumble', 'opera-stable', 'owncloud-client', 'pavucontrol',
+        'pithos', 'pitivi', 'planner', 'playonlinux', 'poedit',
+        'pysolfc', 'rapid-photo-downloader', 'rednotebook', 'redshift',
+        'remmina', 'scribus', 'simplescreenrecorder', 'skype',
+        'software-center', 'spideroakone', 'spotify-client',
+        'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d',
+        'synapse', 'synaptic', 'syncthing', 'telegram', 'terminator',
         'tor-browser', 'ubuntu-sdk', 'uget', 'variety', 'veracrypt',
         'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
         'zim']:
