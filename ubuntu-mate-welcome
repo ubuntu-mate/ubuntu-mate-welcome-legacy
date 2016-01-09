@@ -355,6 +355,9 @@ def process_packages(packages, action):
         if codename == 'precise' or codename == 'trusty':
             transaction.update_cache = True
             transaction.source_to_update = 'pithos-ubuntu-ppa-'+codename+'.list'
+    elif 'playonlinux' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'playonlinux', action])
+        transaction.update_cache = True
     elif 'simplescreenrecorder' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'simplescreenrecorder', action])
         transaction.update_cache = True
@@ -589,11 +592,12 @@ class AppView(WebKit.WebView):
         'insync', 'libavcodec-extra', 'libdvdcss2', 'makemkv-bin',
         'meld', 'minecraft-installer', 'minecraft-server-installer',
         'mumble', 'opera-stable', 'pavucontrol', 'pithos', 'pitivi',
-        'planner', 'poedit', 'pysolfc', 'rapid-photo-downloader',
-        'redshift', 'remmina', 'scribus', 'simplescreenrecorder',
-        'skype', 'software-center', 'spideroakone', 'spotify-client',
-        'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d',
-        'synapse', 'synaptic', 'syncthing', 'telegram', 'terminator',
+        'planner', 'playonlinux', 'poedit', 'pysolfc',
+        'rapid-photo-downloader', 'redshift', 'remmina', 'scribus',
+        'simplescreenrecorder', 'skype', 'software-center',
+        'spideroakone', 'spotify-client', 'steam-launcher',
+        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
+        'synaptic', 'syncthing', 'telegram', 'terminator',
         'tor-browser', 'ubuntu-sdk', 'uget', 'variety', 'veracrypt',
         'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
         'zim']:

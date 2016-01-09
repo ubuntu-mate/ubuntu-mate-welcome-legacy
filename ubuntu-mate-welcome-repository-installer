@@ -142,6 +142,15 @@ if __name__ == "__main__":
         elif repository ==  'pithos':
             if codename == 'precise' or codename == 'trusty':
                 enable_ppa('ppa:pithos/ppa')
+        elif repository == 'playonlinux':
+            add_apt_key_from_url('http://deb.playonlinux.com/public.gpg')
+            if codename == 'precise' or codename == 'trusty':
+                add_apt_sources(['deb http://deb.playonlinux.com/ '+codename+' main'],
+                                 'playonlinux_'+codename+'.list')
+            else:
+                add_apt_sources(['deb http://deb.playonlinux.com/ trusty main'],
+                                 'playonlinux_trusty.list')
+            enable_ppa('ppa:ubuntu-wine/ppa')
         elif repository ==  'skype':
             enable_partner_repository()
         elif repository ==  'simplescreenrecorder':
