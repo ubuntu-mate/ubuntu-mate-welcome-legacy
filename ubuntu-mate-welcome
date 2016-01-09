@@ -525,8 +525,8 @@ class AppView(WebKit.WebView):
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
 
         # If this is a Live session (booted from ISO) show the
-        # 'Install OS' button, if runningon an installed system show the
-        # 'Install Software' button.
+        # 'Install OS' button, if running on an installed system show
+        # the 'Install Software' button.
         if self._config.live:
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
