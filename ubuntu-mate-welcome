@@ -650,18 +650,18 @@ class AppView(WebKit.WebView):
         'google-talkplugin', 'gparted', 'gramps', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'indicator-kdeconnect',
         'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
-        'libreoffice-core', 'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'opera-stable',
-        'owncloud-client', 'pavucontrol', 'pithos', 'pitivi',
-        'planner', 'playonlinux', 'poedit', 'pysolfc',
+        'libreoffice-core', 'makemkv-bin', 'meld',
+        'minecraft-installer', 'minecraft-server-installer', 'mumble',
+        'opera-stable', 'owncloud-client', 'pavucontrol', 'pithos',
+        'pitivi', 'planner', 'playonlinux', 'poedit', 'pysolfc',
         'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
         'scribus', 'simplescreenrecorder', 'skype', 'software-center',
         'spideroakone', 'spotify-client', 'steam-launcher',
         'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
         'synaptic', 'syncthing', 'telegram', 'terminator',
-        'tor-browser', 'ubuntu-sdk', 'uget', 'variety', 'veracrypt',
-        'virtualbox-5.0', 'workrave', 'x2goclient', 'x2goserver',
-        'zim']:
+        'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
+        'veracrypt', 'virtualbox-5.0', 'workrave', 'x2goclient',
+        'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             else:
