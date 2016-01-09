@@ -27,8 +27,8 @@
       <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('prepare','Installation Preparations')"> <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
       <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('dualboot','Dual Booting')">             <span class="fa fa-retweet"></span>       Dual Booting</a>
       <span class="live-session-only"><hr class="soften"><h5>Desktop</h5></span>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('updates','Software Updates')">          <span class="fa fa-refresh"></span>       Software Updates</a>
+      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('tasks','Additional Tasks')">            <span class="fa fa-check-square"></span>  Additional Tasks</a>
       <a class="btn btn-inverse index-btn"                   href="javascript:changePage('customize','Customization')">           <span class="fa fa-adjust"></span>        Customization</a>
@@ -274,14 +274,21 @@
           <div class="span12">
             <h2>Drivers</h2>
             <p>While a wide range of hardware is compatible with Ubuntu
-            MATE, there are some components and peripherals that require proprietary
-            drivers to function properly.</p>
+            MATE, there are some components and peripherals that
+            require proprietary drivers to function properly. The Firmware
+            is often required to get some devices, typically Bluetooth and
+            Wifi, to work correctly.</p>
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install drivers.</h5>
             </div>
-            <div align="center"><a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
-              <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers
-            </a></div>
+            <div align="center">
+                <a class="btn btn-inverse" href="cmd://apt-install?firmware-b43-installer,linux-firmware,linux-firmware-nonfree">
+                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Firmware
+                </a>
+                <a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
+                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers
+                </a>
+            </div>
             <span id="drivers-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>Additional Drivers</b> can be found later in
               <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
@@ -360,12 +367,21 @@
             and security updates are available for your computer. If you
             have just installed Ubuntu MATE, you might want to do this now.
             </p>
+            <p>The Codecs include a complete, cross-platform solution to
+            decode, encode, record, convert and stream audio and video.
+            It also includes a MP3 audio decoder that permits the playback
+            of MPEG 1 audio layer III (MP3).</p>
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install updates.</h5>
             </div>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
-              <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; Software Updater
-            </a></div>
+            <div align="center">
+                <a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
+                <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; Software Updater
+                </a>
+                <a class="btn btn-lg btn-inverse" href="apt-install://libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav">
+                <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; Codecs
+                </a>
+            </div>
             <span id="updates-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>Software Updater</b> can be found later in
               <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
