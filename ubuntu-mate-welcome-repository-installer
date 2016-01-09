@@ -109,9 +109,6 @@ if __name__ == "__main__":
         elif repository ==  'google-chrome':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
-        elif repository ==  'google-earth':
-            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
-            add_apt_sources(['deb http://dl.google.com/linux/earth/deb/ stable main'], repository)
         elif repository ==  'google-talkplugin':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/talkplugin/deb/ stable main'], repository)

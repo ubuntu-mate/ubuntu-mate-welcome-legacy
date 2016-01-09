@@ -354,10 +354,6 @@ def process_packages(packages, action):
             subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'gobby', action])
             transaction.source_to_update = 'flexiondotorg-ubuntu-gobby-'+codename+'.list'
             transaction.update_cache = True
-    elif 'google-earth' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-earth', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'google-earth.list'
     elif 'google-chrome-stable' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
         transaction.update_cache = True
