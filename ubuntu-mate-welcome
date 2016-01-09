@@ -350,6 +350,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'opera-stable', action])
         transaction.update_cache = True
         transaction.source_to_update = 'opera.list'
+    elif 'owncloud-client' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'owncloud-client', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'owncloud-client.list'
     elif 'pithos' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'pithos', action])
         if codename == 'precise' or codename == 'trusty':
@@ -591,10 +595,10 @@ class AppView(WebKit.WebView):
         'icedtea-7-plugin', 'indicator-kdeconnect', 'inkscape',
         'insync', 'libavcodec-extra', 'libdvdcss2', 'makemkv-bin',
         'meld', 'minecraft-installer', 'minecraft-server-installer',
-        'mumble', 'opera-stable', 'pavucontrol', 'pithos', 'pitivi',
-        'planner', 'playonlinux', 'poedit', 'pysolfc',
-        'rapid-photo-downloader', 'redshift', 'remmina', 'scribus',
-        'simplescreenrecorder', 'skype', 'software-center',
+        'mumble', 'opera-stable', 'owncloud-client', 'pavucontrol',
+        'pithos', 'pitivi', 'planner', 'playonlinux', 'poedit',
+        'pysolfc', 'rapid-photo-downloader', 'redshift', 'remmina',
+        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
         'spideroakone', 'spotify-client', 'steam-launcher',
         'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
         'synaptic', 'syncthing', 'telegram', 'terminator',

@@ -65,6 +65,7 @@ if __name__ == "__main__":
         print('No repository supplied')
         sys.exit(1)
 
+    os_version = platform.dist()[1]
     codename = platform.dist()[2]
 
     if action == 'install':
@@ -134,11 +135,17 @@ if __name__ == "__main__":
             if codename == 'precise' or codename == 'trusty' or codename == 'wily':
                 enable_ppa('ppa:mumble/release')
         elif repository ==  'opera-stable':
+
             add_apt_key_from_url('https://deb.opera.com/archive.key')
             add_apt_sources(['# This file makes sure that Opera Browser is kept up-to-date',
                              '# as part of regular system upgrades',
                              '',
                              'deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)'], repository)
+        elif repository ==  'owncloud-client':
+            if os_version == '16.04':
+                os_version = '15.10'
+            add_apt_key_from_url('http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_'+os_version+'/Release.key')
+            add_apt_sources(['deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_'+os_version+'/ /'], repository)
         elif repository ==  'pithos':
             if codename == 'precise' or codename == 'trusty':
                 enable_ppa('ppa:pithos/ppa')
