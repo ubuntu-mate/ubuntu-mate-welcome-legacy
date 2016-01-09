@@ -121,13 +121,21 @@ class SimpleApt(object):
                 return True
             else:
                 return False
-        else:
+        elif self.action == 'install':
             if status != 'exit-success':
                 self.do_notify(status)
                 self.loop.quit()
                 return False
 
             GLib.timeout_add(self._timeout,self.do_install)
+            return True
+        elif self.action == 'upgrade':
+            if status != 'exit-success':
+                self.do_notify(status)
+                self.loop.quit()
+                return False
+
+            GLib.timeout_add(self._timeout,self.do_upgrade)
             return True
 
     def on_finished_install(self, transaction, status):
@@ -144,6 +152,13 @@ class SimpleApt(object):
         else:
             self.do_notify(status)
 
+    def on_finished_upgrade(self, transaction, status):
+        self.loop.quit()
+        if status != 'exit-success':
+            return False
+        else:
+            self.do_notify(status)
+
     def do_notify(self, status):
         print('Status: ' + status)
         if self.action == 'install':
@@ -154,6 +169,10 @@ class SimpleApt(object):
             title = _('Remove')
             noun = _('Removal of ')
             action = _('removed.')
+        elif self.action == 'upgrade':
+            title = _('Upgrade')
+            noun = _('Upgrade of ')
+            action = _('upgraded.')
 
         # Do not show notifications when updating the cache
         if self.action != 'update':
@@ -229,6 +248,17 @@ class SimpleApt(object):
                         )
         return False
 
+    def do_upgrade(self):
+        apt_upgrade = self.client.upgrade_system(True)
+        apt_upgrade.connect("finished", self.on_finished_upgrade)
+
+        upgrade_dialog = AptProgressDialog(apt_upgrade)
+        upgrade_dialog.run(close_on_finished=True, show_error=True,
+                        reply_handler=lambda: True,
+                        error_handler=self.on_error,
+                        )
+        return False
+
     def install_packages(self):
         if self.update_cache:
             GLib.timeout_add(self._timeout,self.do_update)
@@ -238,6 +268,13 @@ class SimpleApt(object):
 
     def remove_packages(self):
         GLib.timeout_add(self._timeout,self.do_remove)
+        self.loop.run()
+
+    def upgrade_packages(self):
+        if self.update_cache:
+            GLib.timeout_add(self._timeout,self.do_update)
+        else:
+            GLib.timeout_add(self._timeout,self.do_upgrade)
         self.loop.run()
 
     def fix_incomplete_install(self):
@@ -341,6 +378,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
         transaction.update_cache = True
         transaction.source_to_update = 'libdvdcss2.list'
+    elif 'libreoffice-core' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libreoffice', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'libreoffice-ubuntu-ppa-'+codename+'.list'
     elif 'indicator-kdeconnect' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'indicator-kdeconnect', action])
         transaction.update_cache = True
@@ -446,6 +487,8 @@ def process_packages(packages, action):
         transaction.install_packages()
     elif transaction.action == 'remove':
         transaction.remove_packages()
+    elif transaction.action == 'upgrade':
+        transaction.upgrade_packages()
     else:
         print('The requested action is unknown')
 
@@ -607,7 +650,7 @@ class AppView(WebKit.WebView):
         'google-talkplugin', 'gparted', 'gramps', 'handbrake',
         'hardinfo', 'icedtea-7-plugin', 'indicator-kdeconnect',
         'inkscape', 'insync', 'libavcodec-extra', 'libdvdcss2',
-        'makemkv-bin', 'meld', 'minecraft-installer',
+        'libreoffice-core', 'makemkv-bin', 'meld', 'minecraft-installer',
         'minecraft-server-installer', 'mumble', 'opera-stable',
         'owncloud-client', 'pavucontrol', 'pithos', 'pitivi',
         'planner', 'playonlinux', 'poedit', 'pysolfc',
@@ -629,14 +672,17 @@ class AppView(WebKit.WebView):
                     self.execute_script("$('."+css_class+"-install').hide();")
                     self.execute_script("$('."+css_class+"-reinstall').show();")
                     self.execute_script("$('."+css_class+"-remove').show();")
+                    self.execute_script("$('."+css_class+"-upgrade').show();")
                 else:
                     self.execute_script("$('."+css_class+"-install').show();")
                     self.execute_script("$('."+css_class+"-reinstall').hide();")
                     self.execute_script("$('."+css_class+"-remove').hide();")
+                    self.execute_script("$('."+css_class+"-upgrade').hide();")
             except:
                 self.execute_script("$('."+css_class+"-install').show();")
                 self.execute_script("$('."+css_class+"-reinstall').hide();")
                 self.execute_script("$('."+css_class+"-remove').hide();")
+                self.execute_script("$('."+css_class+"-upgrade').hide();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -676,6 +722,11 @@ class AppView(WebKit.WebView):
             self._push_config()
         elif uri.startswith('apt-remove?'):
             process_packages(uri[11:], 'remove')
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self._push_config()
+        elif uri.startswith('apt-upgrade?'):
+            process_packages(uri[12:], 'upgrade')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()

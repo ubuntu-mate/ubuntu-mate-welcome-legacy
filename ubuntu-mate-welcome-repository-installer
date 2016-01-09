@@ -61,6 +61,7 @@ if __name__ == "__main__":
     if len(sys.argv) >= 3:
         repository = sys.argv[1]
         action = sys.argv[2]
+        print('Repository: ' + repository)
     else:
         print('No repository supplied')
         sys.exit(1)
@@ -68,7 +69,7 @@ if __name__ == "__main__":
     os_version = platform.dist()[1]
     codename = platform.dist()[2]
 
-    if action == 'install':
+    if action == 'install' or action == 'upgrade':
         if repository ==  '0ad':
             enable_ppa('ppa:wfg/0ad')
         elif repository ==  'appgrid':
@@ -131,6 +132,8 @@ if __name__ == "__main__":
             add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
             add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
                              'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
+        elif repository == 'libreoffice':
+            enable_ppa('ppa:libreoffice/ppa')
         elif repository == 'makemkv':
             enable_ppa('ppa:heyarje/makemkv-beta')
             if codename == 'xenial':
