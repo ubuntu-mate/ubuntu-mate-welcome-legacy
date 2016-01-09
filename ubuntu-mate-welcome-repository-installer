@@ -188,6 +188,9 @@ if __name__ == "__main__":
         elif repository ==  'syncthing':
             add_apt_key_from_url('https://syncthing.net/release-key.txt')
             add_apt_sources(['deb http://apt.syncthing.net/ syncthing release'], repository)
+        elif repository ==  'teejee2008':
+            # Aptik
+            enable_ppa('ppa:teejee2008/ppa')
         elif repository ==  'telegram':
             enable_ppa('ppa:atareao/telegram')
         elif repository ==  'terminator':
