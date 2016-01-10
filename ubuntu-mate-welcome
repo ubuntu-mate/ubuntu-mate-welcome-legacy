@@ -656,8 +656,8 @@ class AppView(WebKit.WebView):
         'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d',
         'synapse', 'synaptic', 'syncthing', 'telegram', 'terminator',
         'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
-        'veracrypt', 'virtualbox-5.0', 'workrave', 'x2goclient',
-        'x2goserver', 'zim']:
+        'veracrypt', 'virt-manager', 'virtualbox-5.0', 'workrave',
+        'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 css_class = 'virtualbox'
             else:
