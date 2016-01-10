@@ -31,6 +31,7 @@ import logging
 import os
 import platform
 import signal
+import socket
 import subprocess
 import sys
 import tempfile
@@ -856,15 +857,20 @@ class WelcomeApp(object):
 if __name__ == "__main__":
     # Before the app starts, check if the user is connected to the internet.
     def checkInternetConnection():
-      print('Testing Connection... ', end="")
-      global onlineStatus
-      try:
-          urllib.request.urlopen("http://archive.ubuntu.com/")
-          print("Success!")
-          onlineStatus = True
-      except:
-          print("Unreachable.")
-          onlineStatus = False
+        print('Testing Connection... ', end="")
+        global onlineStatus
+        url = "http://archive.ubuntu.com/"
+        try:
+            response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
+        except socket.timeout:
+            print('Socket timed out - URL %s', url)
+            onlineStatus = False
+        except:
+            print("Unable to access " + url)
+            onlineStatus = False
+        else:
+            print(url + ' is available.')
+            onlineStatus = True
 
     # Attempt to detect graphics manufacturer.
     # FIXME: Does not detect dual graphics.
