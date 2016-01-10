@@ -367,6 +367,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
         transaction.update_cache = True
         transaction.source_to_update = 'google-talkplugin.list'
+    elif 'nvidia-settings' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'graphics-drivers', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'graphics-drivers-ubuntu-ppa-'+codename+'.list'
     elif 'insync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
         transaction.update_cache = True

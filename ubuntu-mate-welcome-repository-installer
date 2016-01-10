@@ -115,6 +115,8 @@ if __name__ == "__main__":
         elif repository ==  'google-musicmanager':
             add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
             add_apt_sources(['deb http://dl.google.com/linux/musicmanager/deb/ stable main'], repository)
+        elif repository ==  'graphics-drivers':
+            enable_ppa('ppa:graphics-drivers/ppa')
         elif repository ==  'handbrake':
             if codename != 'wily':
                 enable_ppa('ppa:stebbins/handbrake-releases')
