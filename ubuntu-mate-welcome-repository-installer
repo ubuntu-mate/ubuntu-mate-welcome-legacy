@@ -145,7 +145,6 @@ if __name__ == "__main__":
             if codename == 'precise' or codename == 'trusty' or codename == 'wily':
                 enable_ppa('ppa:mumble/release')
         elif repository ==  'opera-stable':
-
             add_apt_key_from_url('https://deb.opera.com/archive.key')
             add_apt_sources(['# This file makes sure that Opera Browser is kept up-to-date',
                              '# as part of regular system upgrades',
@@ -201,15 +200,8 @@ if __name__ == "__main__":
         elif repository ==  'telegram':
             enable_ppa('ppa:atareao/telegram')
         elif repository ==  'terminator':
-            enable_ppa('ppa:gnome-terminator/ppa')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/gnome-terminator/ppa/ubuntu wily main'],
-                                 'gnome-terminator-ubuntu-ppa-' + codename)
-        elif repository ==  'tor':
-            add_apt_key_from_keyserver('keys.gnupg.net', '886DDD89')
-            add_apt_sources(['deb http://deb.torproject.org/torproject.org utopic main',
-                             'deb-src http://deb.torproject.org/torproject.org utopic main'], repository)
+            if codename != 'xenial':
+                enable_ppa('ppa:gnome-terminator/ppa')
         elif repository ==  'tor-browser':
             enable_ppa('ppa:webupd8team/tor-browser')
         elif repository ==  'ubuntu-sdk':
@@ -218,10 +210,6 @@ if __name__ == "__main__":
             enable_ppa('ppa:plushuang-tw/uget-stable')
         elif repository ==  'variety':
             enable_ppa('ppa:peterlevi/ppa')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/peterlevi/ppa/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/peterlevi/ppa/ubuntu wily main'],
-                                 'peterlevi-ubuntu-ppa-' + codename)
         elif repository ==  'veracrypt':
             enable_ppa('ppa:unit193/encryption')
             if codename == 'xenial':

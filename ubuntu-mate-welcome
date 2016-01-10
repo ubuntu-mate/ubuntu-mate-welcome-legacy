@@ -452,9 +452,10 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'atareao-ubuntu-telegram-'+codename+'.list'
     elif 'terminator' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'
+        if codename != 'xenial':
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
+            transaction.update_cache = True
+            transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'
     elif 'tor-browser' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'tor-browser', action])
         transaction.update_cache = True
