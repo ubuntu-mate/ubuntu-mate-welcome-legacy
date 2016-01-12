@@ -416,6 +416,10 @@ def process_packages(packages, action):
     elif 'playonlinux' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'playonlinux', action])
         transaction.update_cache = True
+    elif 'rednotebook' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'rednotebook', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'rednotebook-ubuntu-stable-'+codename+'.list'
     elif 'simplescreenrecorder' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'simplescreenrecorder', action])
         transaction.update_cache = True

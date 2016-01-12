@@ -140,6 +140,8 @@ if __name__ == "__main__":
         elif repository ==  'mumble':
             if codename == 'precise' or codename == 'trusty' or codename == 'wily':
                 enable_ppa('ppa:mumble/release')
+        elif repository ==  'rednotebook':
+            enable_ppa('ppa:rednotebook/stable')
         elif repository ==  'opera-stable':
             add_apt_key_from_url('https://deb.opera.com/archive.key')
             add_apt_sources(['# This file makes sure that Opera Browser is kept up-to-date',
