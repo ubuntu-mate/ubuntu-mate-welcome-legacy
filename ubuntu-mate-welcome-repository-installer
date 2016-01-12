@@ -135,10 +135,6 @@ if __name__ == "__main__":
             enable_ppa('ppa:libreoffice/ppa')
         elif repository == 'makemkv':
             enable_ppa('ppa:heyarje/makemkv-beta')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/heyarje/makemkv-beta/ubuntu wily main'],
-                                 'heyarje-ubuntu-makemkv-beta-' + codename)
         elif repository ==  'minecraft':
             enable_ppa('ppa:flexiondotorg/minecraft')
         elif repository ==  'mumble':
@@ -200,8 +196,7 @@ if __name__ == "__main__":
         elif repository ==  'telegram':
             enable_ppa('ppa:atareao/telegram')
         elif repository ==  'terminator':
-            if codename != 'xenial':
-                enable_ppa('ppa:gnome-terminator/ppa')
+            enable_ppa('ppa:gnome-terminator/ppa')
         elif repository ==  'tor-browser':
             enable_ppa('ppa:webupd8team/tor-browser')
         elif repository ==  'ubuntu-sdk':
