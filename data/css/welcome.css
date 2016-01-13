@@ -203,6 +203,14 @@ p.no-space {
   font-size: 20px;
 }
 
+/* Center images within the div */
+div .center-inside {
+    height: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
 /* Prevent accidental dragging on images and links */
 img, a {
   -webkit-user-drag: none;
@@ -310,9 +318,12 @@ img.right {
 hr.soften {
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
+  border: 0;
+}
+
+hr.soften-light {
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(150,150,150,.4), rgba(0,0,0,0));
   border: 0;
 }
 
@@ -344,6 +355,42 @@ hr.soften {
   right: 8px;
   display: none;
   z-index: 11;
+}
+
+/************************
+ * Introduction Page
+*************************/
+.slogan-box {
+  position: relative;
+  top: -20px;
+  margin-left: -20px;
+  margin-right: -20px;
+  height: 530px;
+  background: url('/usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Cold-no-logo.png');
+  -webkit-mask-image: -webkit-gradient(linear, left 85%, left bottom, from(rgba(0,0,0,1)), to(rgba(244,244,244,0)));
+}
+
+.slogan-area {
+  display: block;
+  width: 100%;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.slogan-text {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  display: block;
+  color: #FFF;
+  font-size: 32px;
+}
+
+.mate-table {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 /************************

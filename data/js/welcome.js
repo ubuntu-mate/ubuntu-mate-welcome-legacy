@@ -22,7 +22,7 @@ $(window).load(function() {
     $('#content').fadeIn('slow');
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Animate navigation elements on page load
     $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
@@ -188,6 +188,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     checkReleaseDay(21,04,2016,'16.04');
 }
 
+// Introduction/Features = Animation
+if ( document.location.href.match(/[^\/]+$/)[0] == 'introduction.html' || document.location.href.match(/[^\/]+$/)[0] == 'features.html' ) {
+  new WOW().init();
+}
 
 // Software Page Only = Categories for Apps
 if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
