@@ -119,10 +119,6 @@ p.no-space {
   color: #DED9CB;
 }
 
-#navigation-dummy {
-  height: 60px;
-}
-
 .navigation-button {
   width: 11px;
   height: 21px;
@@ -175,6 +171,7 @@ p.no-space {
 *************************/
 
 #content {
+  padding-top: 64px;
   padding-bottom: 64px;
 }
 
@@ -269,6 +266,7 @@ img, a {
   width: 24px; height: 24px;
   position: relative;
   top: 0px;
+  margin-right: 4px;
   opacity: 0.7;
 
   -webkit-backface-visibility: hidden;

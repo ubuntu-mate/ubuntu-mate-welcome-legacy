@@ -827,7 +827,7 @@ class WelcomeApp(object):
         if s.get_height() <= 600:
             w.set_size_request(768, 528)
         else:
-            w.set_size_request(768, 552)
+            w.set_size_request(800, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
