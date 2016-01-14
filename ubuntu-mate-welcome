@@ -600,7 +600,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
-        # If neither a i686 or x86_64, we must be running on the Raspberry Pi port (armv7)
+        # If neither a i686 or x86_64, we must be running on the Raspberry Pi (armv7) or the PowerPC.
         if self._config.arch == 'i686':
             self.execute_script("$('.i686-only').show();")
             self.execute_script("$('.x86_64-only').hide();")
@@ -631,11 +631,11 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.webchat').show();")
 
         # Display information tailored to graphics vendor (Getting Started / Drivers)
-        self.execute_script('var graphicsVendor = "' + graphicsVendor + '";')
-        self.execute_script('var graphicsGrep = "' + graphicsGrep + '";')
+        self.execute_script('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
+        self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
 
         # Display warnings if the user is not connected to the internet.
-        if onlineStatus == True:
+        if systemstate.is_online:
             self.execute_script("$('.offline').hide();")
             self.execute_script("$('.online').show();")
         else:
@@ -786,8 +786,8 @@ class AppView(WebKit.WebView):
         elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
         elif uri == 'checkInternetConnection':
-            checkInternetConnection()
-            if onlineStatus == True:
+            systemstate.check_internet_connection()
+            if systemstate.is_online:
                 self.execute_script("$('.offline').hide();")
                 self.execute_script("$('.online').show();")
             else:
@@ -864,54 +864,65 @@ class WelcomeApp(object):
     def close(self, p1, p2):
         Gtk.main_quit(p1, p2);
 
-if __name__ == "__main__":
-    # Before the app starts, check if the user is connected to the internet.
-    def checkInternetConnection():
-        print('Testing Connection... ', end="")
-        global onlineStatus
+class SystemState(object):
+    def __init__(self):
+        self.check_internet_connection()
+        self.detect_graphics()
+        self.get_system_info()
+
+    def check_internet_connection(self):
+        print('[Welcome] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            print('Socket timed out - URL %s', url)
-            onlineStatus = False
+            print("[Welcome] -- Socket timed out to URL {0}", format(url))
+            self.is_online = False
         except:
-            print("Unable to access " + url)
-            onlineStatus = False
+            print("[Welcome] -- Could not establish a connection to '{0}'. ".format(url))
+            self.is_online = False
         else:
-            print(url + ' is available.')
-            onlineStatus = True
+            print("[Welcome] -- Successfully pinged '{0}' ".format(url))
+            self.is_online = True
 
-    # Attempt to detect graphics manufacturer.
-    # FIXME: Does not detect dual graphics.
-    def detectGraphics():
-        print('Detecting graphics vendor... ', end="")
-        output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
-        output = output.decode(encoding='UTF-8')
+    def detect_graphics(self):
+        # TODO: Support dual graphic cards.
+        print('[Welcome] Detecting graphics vendor... ')
+        try:
+            output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            output = output.decode(encoding='UTF-8')
+        except:
+            # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
+            output = 'Unknown'
 
         # Scan for and set known brand name.
-        global graphicsVendor
-        global graphicsGrep
-        if output.find('NVIDIA') != -1:
-            graphicsVendor = 'NVIDIA'
-        elif output.find('AMD') != -1:
-            graphicsVendor = 'AMD'
-        elif output.find('Intel') != -1:
-            graphicsVendor = 'Intel'
-        elif output.find('VirtualBox') != -1:
-            graphicsVendor = 'VirtualBox'
+        if output.find('NVIDIA'): # != -1
+            self.graphics_vendor = 'NVIDIA'
+        elif output.find('AMD'):
+            self.graphics_vendor = 'AMD'
+        elif output.find('Intel'):
+            self.graphics_vendor = 'Intel'
+        elif output.find('VirtualBox'):
+            self.graphics_vendor = 'VirtualBox'
         else:
-            graphicsVendor = 'Unknown'
+            self.graphics_vendor = 'Unknown'
 
-        print(graphicsVendor)
-        graphicsGrep = repr(output)
-        graphicsGrep = graphicsGrep.split("controller: ",1)[1]
-        graphicsGrep = graphicsGrep.split("\\n",1)[0]
-        print(graphicsGrep)
+        self.graphics_grep = repr(output)
+        self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
+        self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
 
-    checkInternetConnection()
-    detectGraphics()
+    def get_system_info(self):
+        print('[Welcome] Gathering system info... ')
+        try:
+            self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            self.system_info = self.system_info.decode(encoding='UTF-8')
+        except:
+            system_info = 'There was a problem gathering this data.'
+            print("There was a problem running 'inxi -F'. Is this program no longer installed?")
 
+if __name__ == "__main__":
     set_proc_title()
     app = WelcomeApp()
+    systemstate = SystemState()
+    print('[Welcome] Application running.')
     app.run()
