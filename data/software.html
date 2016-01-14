@@ -21,21 +21,22 @@
     <div id="content" class="container-fluid">
     <div class="online animated fadeInDown" id="categoryTabs">
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
-        <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
-        <li><a id="EducationBtn"   href="#" data-toggle="tab" onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
-        <li><a id="GamesBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
-        <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
-        <li><a id="InternetBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
-        <li><a id="OfficeBtn"      href="#" data-toggle="tab" onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
-        <li><a id="ProgrammingBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
-        <li><a id="MediaBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
-        <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
-        <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
-        <li><a id="ServersBtn"     href="#" data-toggle="tab" onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
-        <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
-        <li><a id="MiscBtn"        href="#" data-toggle="tab" onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
+        <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Accessories','#AccessoriesBtn')"     onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
+        <li><a id="EducationBtn"   href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Education','#EducationBtn')"         onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
+        <li><a id="GamesBtn"       href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Games','#GamesBtn')"                 onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
+        <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Graphics','#GraphicsBtn')"           onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
+        <li><a id="InternetBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Internet','#InternetBtn')"           onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
+        <li><a id="OfficeBtn"      href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Office','#OfficeBtn')"               onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
+        <li><a id="ProgrammingBtn" href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Programming','#ProgrammingBtn')"     onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
+        <li><a id="MediaBtn"       href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Sound & Video','#MediaBtn')"         onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
+        <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('System Tools','#SysToolsBtn')"       onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
+        <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Universal Access','#UnivAccessBtn')" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        <li><a id="ServersBtn"     href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Servers','#ServersBtn')"             onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
+        <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('More Apps','#MoreAppsBtn')"          onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
+        <li><a id="MiscBtn"        href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Miscellaneous Tasks','#MiscBtn')"    onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
       </ul>
     </div>
+    <div id="categoryHover" hidden>Internet</div>
       <div class="row-fluid">
         <div id="Intro">
           <div id="featuredGrid">
