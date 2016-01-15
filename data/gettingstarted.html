@@ -21,17 +21,33 @@
     </div>
     <a id="index-overlay" href="javascript:indexClose()" hidden></a>
     <div id="index-menu" hidden>
-      <h5><a id="index-close" href="javascript:indexClose();"><span class="fa fa-close"></span></a> Index</h5>
+      <a id="index-close" href="javascript:indexClose();"><span class="fa fa-close"></span></a>
+
+      <!-- Shown in live session only -->
+      <span class="live-session-only"><h5>Prerequisites</h5></span>
       <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('sysreq','System Requirements')">        <span class="fa fa-laptop"></span>        System Requirements</a>
       <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('prepare','Installation Preparations')"> <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
       <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('dualboot','Dual Booting')">             <span class="fa fa-retweet"></span>       Dual Booting</a>
-      <span class="live-session-only"><hr class="soften"><h5>Desktop</h5></span>
+      <a class="btn btn-success index-btn live-session-only" href="cmd://install">                                                <span class="fa fa-download"></span>      Install Now</a>
+
+      <!-- Shown when installed -->
+      <br class="live-session-only"/>
+      <span class="live-session"><h5>Post-Installation</h5></span>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('updates','Software Updates')">          <span class="fa fa-refresh"></span>       Software Updates</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
       <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('tasks','Additional Tasks')">            <span class="fa fa-check-square"></span>  Additional Tasks</a>
+      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('tasks','Optional Tasks')">              <span class="fa fa-check-square"></span>  Optional Tasks</a>
+      <a class="btn btn-success index-btn live-session"      href="software.html">                                                <span class="fa fa-download"></span>      Discover Software</a>
+
+      <br><h5>Familiarity</h5>
       <a class="btn btn-inverse index-btn"                   href="javascript:changePage('customize','Customization')">           <span class="fa fa-adjust"></span>        Customization</a>
       <a class="btn btn-inverse index-btn"                   href="javascript:changePage('shortcuts','Keyboard Shortcuts')">      <span class="fa fa-keyboard-o"></span>    Keyboard Shortcuts</a>
+
+      <!-- Shown in either session -->
+      <br><h5>Troubleshooting</h5>
+      <a class="btn btn-inverse index-btn"                  href="javascript:changePage('specs','System Specifications')">        <span class="fa fa-cube"></span>         System Specifications</a>
+      <a class="btn btn-success index-btn"                  href="community.html">                                                <span class="fa fa-comments"></span>     Ask the Community</a>
+
     </div>
     <div id="content" class="container-fluid">
 
@@ -332,7 +348,7 @@
                   <p><b>Additional Drivers</b> fetches the latest tested driver from the Ubuntu repositories.
                   Advanced users and gamers who would like newer versions may wish to consider adding the
                   <a href="cmd://link?https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">Ubuntu Graphics Driver PPA</a>,
-                  which packages up the latest NVIDIA drivers for Ubuntu. These packages are not as throughly tested.
+                  which packages up the latest NVIDIA drivers for Ubuntu. These packages are not as thoroughly tested.</p>
                   <div class="alert alert-warning">
                     <span class="fa fa-exclamation-triangle"></span> This only applies for actively supported cards,
                     and not older cards using the legacy driver.
