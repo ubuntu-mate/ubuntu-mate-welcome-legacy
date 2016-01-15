@@ -793,6 +793,17 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
+        elif uri == 'get-system-info':
+            systemstate.get_system_info();
+            # Clear out terminal colour codes.
+            self.execute_script('$("#system-specs").html("")')
+            for line in systemstate.system_info.splitlines():
+                write_buffer = line
+                write_buffer = write_buffer.replace('[1;34m','<b>')
+                write_buffer = write_buffer.replace('[1;37m','</b>')
+                write_buffer = write_buffer.replace('[0;37m','</b>')
+                print(write_buffer)
+                self.execute_script('$("#system-specs").append("' + write_buffer + '")')
         else:
             print('Unknown command: %s' % uri)
 
@@ -868,7 +879,7 @@ class SystemState(object):
     def __init__(self):
         self.check_internet_connection()
         self.detect_graphics()
-        self.get_system_info()
+        self.system_info_cached = False
 
     def check_internet_connection(self):
         print('[Welcome] Checking for internet connectivity... ')
@@ -913,12 +924,14 @@ class SystemState(object):
 
     def get_system_info(self):
         print('[Welcome] Gathering system info... ')
-        try:
-            self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
-            self.system_info = self.system_info.decode(encoding='UTF-8')
-        except:
-            system_info = 'There was a problem gathering this data.'
-            print("There was a problem running 'inxi -F'. Is this program no longer installed?")
+        if not self.system_info_cached:
+            try:
+                self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
+                self.system_info = self.system_info.decode(encoding='UTF-8')
+                self.system_info_cached = True
+            except:
+                system_info = 'There was a problem gathering this data.'
+                print("There was a problem running 'inxi -F'. Is this program no longer installed?")
 
 if __name__ == "__main__":
     set_proc_title()

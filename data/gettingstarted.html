@@ -45,7 +45,7 @@
 
       <!-- Shown in either session -->
       <br><h5>Troubleshooting</h5>
-      <a class="btn btn-inverse index-btn"                  href="javascript:changePage('specs','System Specifications')">        <span class="fa fa-cube"></span>         System Specifications</a>
+      <a class="btn btn-inverse index-btn" href="cmd://get-system-info" onclick="changePage('specs','System Specifications')">    <span class="fa fa-cube"></span>         System Specifications</a>
       <a class="btn btn-success index-btn"                  href="community.html">                                                <span class="fa fa-comments"></span>     Ask the Community</a>
 
     </div>
@@ -597,6 +597,24 @@
               <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Middle Mouse Button</b> Resize focused window.</li>
               <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Right Mouse Button</b> Show window menu.</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's inside my computer? -->
+      <div id="specs" class="topicContents" hidden>
+        <div class="row-fluid">
+          <div class="span12">
+            <h2>What's inside my computer?</h2>
+            <p>Your machine is made up of various components that
+            interact with one another. This information is useful
+            when providing support to ensure hardware and software
+            works on your machine and Ubuntu MATE.</p>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12">
+            <pre id="system-specs">Gathering system information...</pre>
           </div>
         </div>
       </div>

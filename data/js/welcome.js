@@ -201,6 +201,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     // Initial variables.
     var currentCategory;
     var hideNonFree = false;
+    var system_info = '';
 
     // Show the first category.
     currentCategory = '#Intro';
