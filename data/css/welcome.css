@@ -17,7 +17,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%
+  height: 100%;
+  /* Behave more like an application by
+   * preventing text highlighting / dragging. */
+  -webkit-user-select: none;
 }
 
 body, button {
