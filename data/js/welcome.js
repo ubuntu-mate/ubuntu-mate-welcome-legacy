@@ -145,47 +145,122 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       $('#mainLogo').jAnimateOnce('zoomIn');
     }, 91000);
 
+    function create_canvas() {
+      $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
+      $('#mainLogo').jAnimateOnce('pulse');
+      startConfetti();
+    }
+
   //// Ubuntu MATE's Birthday
     // Become official flavour on 26/Feb/2015
     var officialDay = 26; // (1-31)
     var officialMonth = 1; // (0-11)
     var officialYear = 2015;
 
-  //// Celebrate Distro's Birthday
+    // Celebrate Distro's Birthday
     var today = new Date();
     if ( today.getMonth() == officialMonth ) {
       if ( today.getDate() == officialDay ) {
         var UMAge = today.getFullYear() - officialYear;
-        $('#textChoose').html("The distro is officially "+UMAge+" years old today. Happy Birthday!")
-        $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
-        //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
-        $('#mainLogo').jAnimateOnce('pulse');
-        startConfetti();
+        $('#textChoose').html("The distro is officially "+UMAge+" years old today. Happy Birthday!");
+        create_canvas();
+      } else {
+        checkEventDate(officialDay,officialMonth,"the distro's birthday")
       }
+    } else {
+      checkEventDate(officialDay,officialMonth,"the distro's birthday")
     }
 
-  //// Celebrate Distro's Releases
+    // Celebrate New Year
+    var today = new Date();
+    if ( today.getMonth() == 12 && today.getDate() == 31 ) {
+      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      create_canvas();
+    }
+    if ( today.getMonth() == 01 && today.getDate() == 01 ) {
+      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      create_canvas();
+    }
+
+    // Celebrate Distro's Releases
     function checkReleaseDay(dd,mm,yyyy,release) {
-      if ( today.getMonth() == mm - 1 ) {
-        if ( today.getDate() == dd ) {
-          if ( today.getFullYear() == yyyy ) {
-            $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".")
-            $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
-            //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
-            $('#mainLogo').jAnimateOnce('pulse');
-            startConfetti();
+      var today = new Date();
+      if ( today.getFullYear() == yyyy ) {
+        if ( today.getMonth() == mm - 1 ) {
+          if ( today.getDate() == dd ) {
+            if ( today.getFullYear() == yyyy ) {
+              $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".");
+              create_canvas();
+            } else {
+              checkEventDate(dd,mm,'the release of '+release)
+            }
+          } else {
+              checkEventDate(dd,mm,'the release of '+release)
           }
+        } else {
+            checkEventDate(dd,mm,'the release of '+release)
         }
       }
     }
 
-    // Release Dates
-    // Possible improvement: Retrieve list from server.
-    checkReleaseDay(31,12,2015,'16.04 Alpha 1');
+    // Determine day of year
+    function dayOfYear(day,month) {
+      // Assumes 'month' parameter is in base 0.
+      var now = new Date();
+      now.setMonth(month);
+      now.setDate(day);
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = now - start;
+      var oneDay = 1000 * 60 * 60 * 24;
+      var yearDay = Math.floor(diff / oneDay);
+      return yearDay;
+    }
+
+    // Is an event upcoming or has it already passed?
+    function checkEventDate(day,month,event) {
+      month = month - 1; // JS uses base 0.
+      var now = new Date();
+      today_year_number = parseInt(dayOfYear(now.getDate(),now.getMonth()));
+      event_year_number = parseInt(dayOfYear(day,month));
+
+      // Event was 7 days before now.
+      for (d=1; d<=7; d++) {
+        past_year_number = parseInt(today_year_number-d)
+        if ( past_year_number == event_year_number ) {
+          if ( d == 1 ) {
+            $('#textChoose').html("It was " + event + " yesterday.");
+          } else {
+            $('#textChoose').html("It was " + event + " " + d.toString() + " days ago.");
+          }
+          create_canvas();
+        }
+      }
+
+      // Event will be 7 days after today.
+      for (d=1; d<=7; d++) {
+        future_year_number = parseInt(today_year_number+d)
+        if ( future_year_number == event_year_number ) {
+          if ( d == 1 ) {
+            $('#textChoose').html("It's going to be " + event + " tomorrow.");
+          } else {
+            $('#textChoose').html("It's going to be " + event + " in " + d.toString() + " days time.");
+          }
+          create_canvas();
+        }
+      }
+      // FIXME: Determine between year changes.
+    }
+
+  //// Release Dates
+    // TODO / Possible Improvement: Retrieve list from server.
+    // Dates written here are human-readable, in other words, base 1 (1-12).
+    // DD,MM,YYYY
+    checkReleaseDay(04,01,2015,'16.04 Alpha 1');
     checkReleaseDay(28,01,2016,'16.04 Alpha 2');
     checkReleaseDay(25,02,2016,'16.04 Beta 1');
     checkReleaseDay(24,03,2016,'16.04 Beta 2');
     checkReleaseDay(21,04,2016,'16.04');
+
 }
 
 
