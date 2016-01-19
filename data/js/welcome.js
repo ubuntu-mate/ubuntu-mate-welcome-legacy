@@ -154,22 +154,40 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
   //// Ubuntu MATE's Birthday
     // Become official flavour on 26/Feb/2015
     var officialDay = 26; // (1-31)
-    var officialMonth = 1; // (0-11)
+    var officialMonth = 2; // (1-12)
     var officialYear = 2015;
-
     // Celebrate Distro's Birthday
     var today = new Date();
     if ( today.getMonth() == officialMonth ) {
       if ( today.getDate() == officialDay ) {
-        var UMAge = today.getFullYear() - officialYear;
-        $('#textChoose').html("The distro is officially "+UMAge+" years old today. Happy Birthday!");
+        var age = today.getFullYear() - officialYear;
+        $('#textChoose').html("The distro become an official flavour " + age + " years ago.");
         create_canvas();
       } else {
-        checkEventDate(officialDay,officialMonth,"the distro's birthday")
+        checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
       }
     } else {
-      checkEventDate(officialDay,officialMonth,"the distro's birthday")
+      checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
     }
+
+    // Project started on 21/Jun/2014
+    var birthdayDay = 21; // (1-31)
+    var birthdayMonth = 6; // (1-12)
+    var birthdayYear = 2014;
+    // Celebrate Distro's Birthday
+    var today = new Date();
+    if ( today.getMonth() == birthdayMonth ) {
+      if ( today.getDate() == birthdayDay ) {
+        var age = today.getFullYear() - birthdayYear;
+        $('#textChoose').html("The project is " + age + " years old today. Happy Birthday!");
+        create_canvas();
+      } else {
+        checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
+      }
+    } else {
+      checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
+    }
+
 
     // Celebrate New Year
     var today = new Date();
@@ -524,7 +542,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
 
   });
 
-  // In live sessions, show a "Hello" page instead formally introducing the user.
+  // In live sessions, show a "Hello" page instead to introduce ourselves.
   var splashNextPage = 'index'
 
   function continueToPage() {
