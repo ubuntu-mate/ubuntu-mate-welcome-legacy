@@ -80,6 +80,8 @@ if __name__ == "__main__":
                 enable_ppa('ppa:osmoma/audio-recorder')
             else:
                 enable_ppa('ppa:audio-recorder/ppa')
+        elif repository ==  'boot-repair':
+            enable_ppa('ppa:yannubuntu/boot-repair')
         elif repository ==  'btsync':
             add_apt_key_from_url('http://debian.yeasoft.net/btsync.key')
             add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",

@@ -278,7 +278,31 @@
                 <a href="cmd://link?https://help.ubuntu.com/community/HowtoResizeWindowsPartitions">
                   help article</a> online.</p>
               </div>
+
+            <hr class="soften"/>
+            <h3>Repairing Boot Problems</h3>
+
+            <p>Linux distributions use a boot loader known as <code>grub</code>,
+            which looks for and bootstraps the operating system. However, some operating
+            systems (such as Windows) do not integrate with existing
+            boot loaders and will overwrite them, with the potential to lose access
+            to Ubuntu MATE temporally.</p>
+
+            <p>Fortunately, you can use the <b>Boot Repair</b> tool to repair common
+            problems caused by other operating systems.</p>
             </div>
+
+            <div class="alert alert-warning offline">
+              <h5>Requires downloading a package.</h5>
+              <p>Please connect to the Internet in order to download
+              and use this utility.</p>
+              <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
+              <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+            </div>
+
+            <a class="boot-repair-install btn btn-inverse online" href="cmd://apt-install?boot-repair"><span class="fa fa-download"></span>&nbsp; Download Boot Repair</a>
+            <a class="boot-repair-remove btn btn-success" href="cmd://run?boot-repair"><span class="fa fa-wrench"></span>&nbsp; Open Boot-Repair</a>
+
           </div>
         </div>
       </div>

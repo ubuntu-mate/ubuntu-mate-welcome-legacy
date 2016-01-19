@@ -327,6 +327,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'audio-recorder', action])
         transaction.update_cache = True
         transaction.source_to_update = 'audio-recorder-ubuntu-ppa-'+codename+'.list'
+    elif 'boot-repair' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'boot-repair', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'yannubuntu-ubuntu-boot-repair-'+codename+'.list'
     elif 'btsync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
         transaction.update_cache = True
@@ -646,7 +650,7 @@ class AppView(WebKit.WebView):
         # Change button states for Software.html
         # TODO - Read this from YAML or JSON
         for package in ['0ad', 'appgrid', 'aptik', 'asunder',
-        'audacity', 'audio-recorder', 'bleachbit', 'blender',
+        'audacity', 'audio-recorder', 'bleachbit', 'blender', 'boot-repair',
         'btsync-gui', 'bzr-explorer', 'caja-dropbox', 'caja-share',
         'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
         'dvdstyler', 'easytag', 'emby-server', 'enpass', 'eviacam',
