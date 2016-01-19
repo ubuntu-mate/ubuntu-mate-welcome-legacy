@@ -51,6 +51,7 @@ import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
+from threading import Thread
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
@@ -888,33 +889,42 @@ class WelcomeApp(object):
 
 class SystemState(object):
     def __init__(self):
-        self.check_internet_connection()
-        self.detect_graphics()
+        # Set initial variables
         self.system_info_cached = False
+        self.is_online = False
+
+        # Create, then spawn threads
+        thread1 = Thread(target=self.check_internet_connection)
+        thread2 = Thread(target=self.detect_graphics)
+        thread3 = Thread(target=self.get_system_info)
+        thread1.start()
+        thread2.start()
+        thread3.start()
 
     def check_internet_connection(self):
-        print('[Welcome] Checking for internet connectivity... ')
+        print('[Network Test] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            print("[Welcome] -- Socket timed out to URL {0}", format(url))
+            print("[Network Test] -- Socket timed out to URL {0}", format(url))
             self.is_online = False
         except:
-            print("[Welcome] -- Could not establish a connection to '{0}'. ".format(url))
+            print("[Network Test] -- Could not establish a connection to '{0}'. ".format(url))
             self.is_online = False
         else:
-            print("[Welcome] -- Successfully pinged '{0}' ".format(url))
+            print("[Network Test] Successfully pinged '{0}' ".format(url))
             self.is_online = True
 
     def detect_graphics(self):
         # TODO: Support dual graphic cards.
-        print('[Welcome] Detecting graphics vendor... ')
+        print('[Graphics] Detecting graphics vendor... ')
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
+            print("[Graphics] Couldn't detect a VGA Controller on this system.")
             output = 'Unknown'
 
         # Scan for and set known brand name.
@@ -932,21 +942,22 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
+        print("[Graphics] Detected: {0}".format(self.graphics_grep))
 
     def get_system_info(self):
-        print('[Welcome] Gathering system info... ')
-        if not self.system_info_cached:
-            try:
-                self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
-                self.system_info = self.system_info.decode(encoding='UTF-8')
-                self.system_info_cached = True
-            except:
-                system_info = 'There was a problem gathering this data.'
-                print("There was a problem running 'inxi -F'. Is this program no longer installed?")
+        print('[System Info] Caching system info... ')
+        try:
+            self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            self.system_info = self.system_info.decode(encoding='UTF-8')
+            self.system_info_cached = True
+            print("[System Info] Successfully cached system information.")
+        except:
+            system_info = 'There was a problem gathering this data.'
+            print("[System Info] There was a problem running 'inxi -F'. Is this program no longer installed?")
 
 if __name__ == "__main__":
     set_proc_title()
     app = WelcomeApp()
     systemstate = SystemState()
-    print('[Welcome] Application running.')
+    print('[Welcome] Application Started.')
     app.run()
