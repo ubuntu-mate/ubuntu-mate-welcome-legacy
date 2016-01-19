@@ -445,11 +445,23 @@
           <div class="span12">
             <h2>Backup, Firewall &amp; User Management</h2>
             <p>Ubuntu MATE provides tools to backup your files, comes with
-            a firewall and supports multiple user profiles.</p>
+            a firewall pre-installed and supports multiple user accounts.</p>
           </div>
         </div>
-        <div class="row-fluid">
-          <div class="span4 center">
+        <hr class="soften-light">
+
+        <div class="row-fluid wow fadeIn">
+          <div class="span6 center-inside">
+            <img src="img/screenshots/tasks-backup.png">
+          </div>
+          <div class="span6">
+            <h3>Backups</h3>
+            <p>Nothing is more important then having a backup
+              of your personal files, just in case something
+              disastrous happens to your computer.</p>
+            <p><img src="img/applications/deja-dup.png" width="20px" height="20px"/>
+            <b>Deja-Dup</b> comes pre-installed and supports backups to
+            local devices as well as online cloud-based services.</p>
             <a class="btn btn-lg btn-inverse" href="cmd://backup" onclick="smoothFade('','#backup-hint')">
               <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; Configure Backup
             </a>
@@ -459,7 +471,22 @@
                            <span class="fa fa-long-arrow-right"></span> Personal</i></b>.</p>
             </small></span>
           </div>
-          <div class="span4 center">
+        </div>
+        <hr class="soften-light">
+
+        <div class="row-fluid wow fadeIn">
+          <div class="span6 center-inside">
+            <img src="img/screenshots/tasks-firewall.png">
+          </div>
+          <div class="span6">
+            <h3>Firewall</h3>
+            <p>Firewalls prevent malicious connections entering and leaving
+              your computer. By default, the firewall is disabled,
+              <a href="cmd://link?https://help.ubuntu.com/community/DoINeedAFirewall">learn more about firewalls</a>.</p>
+            <p><img src="img/applications/gufw.png" width="20px" height="20px"/>
+              <b>Gufw</b> provides a graphical frontend to <code>ufw</code>
+              (<u>U</u>ncomplicated <u>F</u>ire<u>w</u>all). If security is important to you, there are
+              <a href="cmd://link?https://wiki.ubuntu.com/BasicSecurity">more ways to stay secure</a> too.</p>
             <a class="btn btn-lg btn-inverse" href="cmd://firewall" onclick="smoothFade('','#firewall-hint')">
               <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; Configure Firewall
             </a>
@@ -469,7 +496,22 @@
                            <span class="fa fa-long-arrow-right"></span> Internet and Network</i></b>.</p>
             </small></span>
           </div>
-          <div class="span4 center">
+        </div>
+        <hr class="soften-light">
+
+        <div class="row-fluid wow fadeIn">
+          <div class="span6 center-inside">
+            <img src="img/screenshots/tasks-users.png">
+          </div>
+          <div class="span6">
+            <h3>Users</h3>
+            <p>
+              Share your computer with others? Set up each user with
+              their own unique profile that they can use to login and
+              isolate their personal data with yours.
+            </p>
+            <p>You can also log in to a <b>Guest Session</b> if someone
+            is using your computer as a one-off.</p>
             <a class="btn btn-lg btn-inverse" href="cmd://users" onclick="smoothFade('','#users-hint')">
               <img src="img/humanity/system-users.svg" width="32px" height="32px"/>&nbsp; Configure Users
             </a>
