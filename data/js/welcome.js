@@ -487,7 +487,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   $(document).ready(function()
   {
     // Override the footer to only display "Skip".
-    $('#footer').html('<div class="footer-content"><div class="form"><a href="index.html" class="btn btn-inverse">Skip</a></div></div>');
+    $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage()" class="btn btn-inverse">Skip</a></div></div>');
 
     $('#sceneA').removeClass('hideSection');
     $('#sceneA').jAnimateOnce('fadeIn');
@@ -518,7 +518,19 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
       $('#sceneB').fadeOut();
     }, 4000);
 
+    setTimeout(function(){
+      continueToPage()
+    }, 4500);
+
   });
+
+  // In live sessions, show a "Hello" page instead formally introducing the user.
+  var splashNextPage = 'index'
+
+  function continueToPage() {
+    window.location.href = splashNextPage + '.html';
+  }
+
 }
 
 

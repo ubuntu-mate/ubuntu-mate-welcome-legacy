@@ -593,6 +593,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#software').hide();")
             self.execute_script("$('.live-session').hide();")
             self.execute_script("$('.live-session-only').show();")
+            self.execute_script('var splashNextPage = "hello"')
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
@@ -802,7 +803,7 @@ class AppView(WebKit.WebView):
                 write_buffer = write_buffer.replace('[1;34m','<b>')
                 write_buffer = write_buffer.replace('[1;37m','</b>')
                 write_buffer = write_buffer.replace('[0;37m','</b>')
-                print(write_buffer)
+                # FIXME: Improve appearance of this page. It's a bit of a mess.
                 self.execute_script('$("#system-specs").append("' + write_buffer + '")')
         else:
             print('Unknown command: %s' % uri)
