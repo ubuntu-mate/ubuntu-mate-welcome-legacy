@@ -592,6 +592,7 @@ class AppView(WebKit.WebView):
         self.props.settings.props.enable_default_context_menu = False
 
     def _push_config(self):
+        ### Global - On all pages ###
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
         self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
@@ -635,17 +636,6 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.rpi-only').hide();")
 
-        if self._apt_cache['hexchat'].is_installed:
-            self.execute_script("$('.hexchat').show();")
-            self.execute_script("$('.webchat').hide();")
-        else:
-            self.execute_script("$('.hexchat').hide();")
-            self.execute_script("$('.webchat').show();")
-
-        # Display information tailored to graphics vendor (Getting Started / Drivers)
-        self.execute_script('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
-        self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
-
         # Display warnings if the user is not connected to the internet.
         if systemstate.is_online:
             self.execute_script("$('.offline').hide();")
@@ -654,60 +644,90 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.offline').show();")
             self.execute_script("$('.online').hide();")
 
-        # Change button states for Software.html
-        # TODO - Read this from YAML or JSON
-        for package in ['0ad', 'appgrid', 'aptik', 'asunder',
-        'audacity', 'audio-recorder', 'bleachbit', 'blender', 'boot-repair',
-        'btsync-gui', 'bzr-explorer', 'caja-dropbox', 'caja-share',
-        'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
-        'dvdstyler', 'easytag', 'emby-server', 'enpass', 'eviacam',
-        'evolution', 'filezilla', 'firefox', 'flashplugin-installer',
-        'focuswriter', 'geany', 'gimp', 'git-cola', 'glade', 'glabels',
-        'gnome-schedule', 'gnote', 'gnucash', 'gobby',
-        'google-chrome-stable', 'google-earth-stable',
-        'google-musicmanager-beta', 'google-talkplugin', 'gparted',
-        'gramps', 'handbrake', 'hardinfo', 'icedtea-7-plugin',
-        'indicator-kdeconnect', 'inkscape', 'insync',
-        'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
-        'libreoffice-base', 'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'opera-stable', 'ssh',
-        'owncloud-client', 'parcellite', 'pavucontrol', 'pithos',
-        'pitivi', 'planner', 'playonlinux', 'poedit', 'pysolfc',
-        'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
-        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher',
-        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
-        'synaptic', 'syncthing', 'telegram', 'terminator',
-        'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
-        'veracrypt', 'virt-manager', 'virtualbox-5.0', 'workrave',
-        'x2goclient', 'x2goserver', 'zim']:
-            if package == 'virtualbox-5.0':
-                css_class = 'virtualbox'
+        ### Chat Page ###
+        if self.current_page == 'chatroom.html':
+            if self._apt_cache['hexchat'].is_installed:
+                self.execute_script("$('.hexchat').show();")
+                self.execute_script("$('.webchat').hide();")
             else:
-                css_class = package
+                self.execute_script("$('.hexchat').hide();")
+                self.execute_script("$('.webchat').show();")
 
-            try:
-                if self._apt_cache[package].is_installed:
-                    self.execute_script("$('."+css_class+"-install').hide();")
-                    self.execute_script("$('."+css_class+"-reinstall').show();")
-                    self.execute_script("$('."+css_class+"-remove').show();")
-                    self.execute_script("$('."+css_class+"-upgrade').show();")
+        ### Getting Started Page ###
+        if self.current_page == 'gettingstarted.html':
+            # Display information tailored to graphics vendor (Getting Started / Drivers)
+            self.execute_script('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
+            self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
+
+            # Display system information if successfully cached.
+            if systemstate.system_info_cached:
+                self.execute_script('$("#system-specs").html("")')
+                # Clear out terminal colour codes.
+                for line in systemstate.system_info.splitlines():
+                    write_buffer = line
+                    write_buffer = write_buffer.replace('[1;34m','<b>')
+                    write_buffer = write_buffer.replace('[1;37m','</b>')
+                    write_buffer = write_buffer.replace('[0;37m','</b>')
+                    # FIXME: Improve appearance of this page. It's a bit of a mess.
+                    self.execute_script('$("#system-specs").append("' + write_buffer + '")')
+
+        ### Software Page ###
+        if self.current_page == 'software.html' or self.current_page == 'gettingstarted.html':
+            # Change button states for Software.html
+            # TODO - Read this from JSON (Dynamic Apps)
+            for package in ['0ad', 'appgrid', 'aptik', 'asunder',
+            'audacity', 'audio-recorder', 'bleachbit', 'blender', 'boot-repair',
+            'btsync-gui', 'bzr-explorer', 'caja-dropbox', 'caja-share',
+            'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
+            'dvdstyler', 'easytag', 'emby-server', 'enpass', 'eviacam',
+            'evolution', 'filezilla', 'firefox', 'flashplugin-installer',
+            'focuswriter', 'geany', 'gimp', 'git-cola', 'glade', 'glabels',
+            'gnome-schedule', 'gnote', 'gnucash', 'gobby',
+            'google-chrome-stable', 'google-earth-stable',
+            'google-musicmanager-beta', 'google-talkplugin', 'gparted',
+            'gramps', 'handbrake', 'hardinfo', 'icedtea-7-plugin',
+            'indicator-kdeconnect', 'inkscape', 'insync',
+            'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
+            'libreoffice-base', 'makemkv-bin', 'meld', 'minecraft-installer',
+            'minecraft-server-installer', 'mumble', 'opera-stable', 'ssh',
+            'owncloud-client', 'parcellite', 'pavucontrol', 'pithos',
+            'pitivi', 'planner', 'playonlinux', 'poedit', 'pysolfc',
+            'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
+            'scribus', 'simplescreenrecorder', 'skype', 'software-center',
+            'spideroakone', 'spotify-client', 'steam-launcher',
+            'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
+            'synaptic', 'syncthing', 'telegram', 'terminator',
+            'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
+            'veracrypt', 'virt-manager', 'virtualbox-5.0', 'workrave',
+            'x2goclient', 'x2goserver', 'zim']:
+                if package == 'virtualbox-5.0':
+                    css_class = 'virtualbox'
                 else:
+                    css_class = package
+
+                try:
+                    if self._apt_cache[package].is_installed:
+                        self.execute_script("$('."+css_class+"-install').hide();")
+                        self.execute_script("$('."+css_class+"-reinstall').show();")
+                        self.execute_script("$('."+css_class+"-remove').show();")
+                        self.execute_script("$('."+css_class+"-upgrade').show();")
+                    else:
+                        self.execute_script("$('."+css_class+"-install').show();")
+                        self.execute_script("$('."+css_class+"-reinstall').hide();")
+                        self.execute_script("$('."+css_class+"-remove').hide();")
+                        self.execute_script("$('."+css_class+"-upgrade').hide();")
+                except:
                     self.execute_script("$('."+css_class+"-install').show();")
                     self.execute_script("$('."+css_class+"-reinstall').hide();")
                     self.execute_script("$('."+css_class+"-remove').hide();")
                     self.execute_script("$('."+css_class+"-upgrade').hide();")
-            except:
-                self.execute_script("$('."+css_class+"-install').show();")
-                self.execute_script("$('."+css_class+"-reinstall').hide();")
-                self.execute_script("$('."+css_class+"-remove').hide();")
-                self.execute_script("$('."+css_class+"-upgrade').hide();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
 
     def _nav_request_policy_decision_cb(self, view, frame, net_req, nav_act, pol_dec):
         uri = net_req.get_uri()
+        self.current_page = uri.rsplit('/', 1)[1]
 
         try:
             if uri.index('#') > 0:
@@ -805,17 +825,6 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
-        elif uri == 'get-system-info':
-            systemstate.get_system_info();
-            # Clear out terminal colour codes.
-            self.execute_script('$("#system-specs").html("")')
-            for line in systemstate.system_info.splitlines():
-                write_buffer = line
-                write_buffer = write_buffer.replace('[1;34m','<b>')
-                write_buffer = write_buffer.replace('[1;37m','</b>')
-                write_buffer = write_buffer.replace('[0;37m','</b>')
-                # FIXME: Improve appearance of this page. It's a bit of a mess.
-                self.execute_script('$("#system-specs").append("' + write_buffer + '")')
         else:
             print('Unknown command: %s' % uri)
 
@@ -868,7 +877,7 @@ class WelcomeApp(object):
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         sw.add(mv)
 
-        # build a an autoexpanding box and add our scrolled window
+        # build an autoexpanding box and add our scrolled window
         b = Gtk.VBox(homogeneous=False, spacing=0)
         b.pack_start(sw, expand=True, fill=True, padding=0)
 

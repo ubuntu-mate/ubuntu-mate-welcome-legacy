@@ -25,28 +25,28 @@
 
       <!-- Shown in live session only -->
       <span class="live-session-only"><h5>Prerequisites</h5></span>
-      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('sysreq','System Requirements')">        <span class="fa fa-laptop"></span>        System Requirements</a>
-      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('prepare','Installation Preparations')"> <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
-      <a class="btn btn-inverse index-btn live-session-only" href="javascript:changePage('dualboot','Dual Booting')">             <span class="fa fa-retweet"></span>       Dual Booting</a>
-      <a class="btn btn-success index-btn live-session-only" href="cmd://install">                                                <span class="fa fa-download"></span>      Install Now</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('sysreq','System Requirements')">        <span class="fa fa-laptop"></span>        System Requirements</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('prepare','Installation Preparations')"> <span class="fa fa-hdd-o"></span>         Installation Preparation</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('dualboot','Dual Booting')">             <span class="fa fa-retweet"></span>       Dual Booting</a>
+      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                     <span class="fa fa-download"></span>      Install Now</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
       <span class="live-session"><h5>Post-Installation</h5></span>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('updates','Software Updates')">          <span class="fa fa-refresh"></span>       Software Updates</a>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
-      <a class="btn btn-inverse index-btn live-session"      href="javascript:changePage('tasks','Optional Tasks')">              <span class="fa fa-check-square"></span>  Optional Tasks</a>
-      <a class="btn btn-success index-btn live-session"      href="software.html">                                                <span class="fa fa-download"></span>      Discover Software</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('updates','Software Updates')">          <span class="fa fa-refresh"></span>       Software Updates</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('tasks','Optional Tasks')">              <span class="fa fa-check-square"></span>  Optional Tasks</a>
+      <a class="btn btn-success index-btn live-session"      href="software.html">                                        <span class="fa fa-download"></span>      Discover Software</a>
 
       <br><h5>Familiarity</h5>
-      <a class="btn btn-inverse index-btn"                   href="javascript:changePage('customize','Customization')">           <span class="fa fa-adjust"></span>        Customization</a>
-      <a class="btn btn-inverse index-btn"                   href="javascript:changePage('shortcuts','Keyboard Shortcuts')">      <span class="fa fa-keyboard-o"></span>    Keyboard Shortcuts</a>
+      <a class="btn btn-inverse index-btn"                   onclick="changePage('customize','Customization')">           <span class="fa fa-adjust"></span>        Customization</a>
+      <a class="btn btn-inverse index-btn"                   onclick="changePage('shortcuts','Keyboard Shortcuts')">      <span class="fa fa-keyboard-o"></span>    Keyboard Shortcuts</a>
 
       <!-- Shown in either session -->
       <br><h5>Troubleshooting</h5>
-      <a class="btn btn-inverse index-btn" href="cmd://get-system-info" onclick="changePage('specs','System Specifications')">    <span class="fa fa-cube"></span>         System Specifications</a>
-      <a class="btn btn-success index-btn"                  href="community.html">                                                <span class="fa fa-comments"></span>     Ask the Community</a>
+      <a class="btn btn-inverse index-btn"                   onclick="changePage('specs','System Specifications')">       <span class="fa fa-cube"></span>         System Specifications</a>
+      <a class="btn btn-success index-btn"                   href="community.html">                                       <span class="fa fa-comments"></span>     Ask the Community</a>
 
     </div>
     <div id="content" class="container-fluid">
@@ -680,7 +680,7 @@
         </div>
         <div class="row-fluid">
           <div class="span12">
-            <pre id="system-specs">Gathering system information...</pre>
+            <pre id="system-specs">No information to display.</pre>
           </div>
         </div>
       </div>
