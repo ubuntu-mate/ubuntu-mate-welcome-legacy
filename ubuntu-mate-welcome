@@ -23,6 +23,12 @@
 
 """ Welcome screen for Ubuntu MATE """
 
+import gi
+gi.require_version("Gdk", "3.0")
+gi.require_version("Gtk", "3.0")
+gi.require_version("Notify", "0.7")
+gi.require_version("WebKit", "3.0")
+
 import apt
 import gettext
 import inspect
