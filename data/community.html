@@ -11,15 +11,14 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Community</div>
+        <div id="navigation-title" hidden>Community</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
-      <div id="navigation-dummy"></div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid entire-page-fade" hidden>
       <div class="row-fluid">
         <div class="span12">
           <!--Body content-->

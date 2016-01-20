@@ -80,6 +80,8 @@ if __name__ == "__main__":
                 enable_ppa('ppa:osmoma/audio-recorder')
             else:
                 enable_ppa('ppa:audio-recorder/ppa')
+        elif repository ==  'boot-repair':
+            enable_ppa('ppa:yannubuntu/boot-repair')
         elif repository ==  'btsync':
             add_apt_key_from_url('http://debian.yeasoft.net/btsync.key')
             add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",
@@ -213,7 +215,7 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main'],
                                  'unit193-ubuntu-encryption-' + codename)
-        elif repository == 'virtualbox':
+        elif repository == 'virtualbox-5.0':
             if codename == 'xenial':
                 codename = 'wily'
             add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')

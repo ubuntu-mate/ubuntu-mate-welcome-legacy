@@ -11,32 +11,32 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Software - <span id="navigation-sub-title"> Our Picks</span></div>
+        <div id="navigation-title" hidden>Software - <span id="navigation-sub-title"> Our Picks</span></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
-      <div id="navigation-dummy"></div>
     </div>
+    <div id="content" class="container-fluid entire-page-fade" hidden>
     <div class="online animated fadeInDown" id="categoryTabs">
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
-        <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
-        <li><a id="EducationBtn"   href="#" data-toggle="tab" onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
-        <li><a id="GamesBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
-        <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
-        <li><a id="InternetBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
-        <li><a id="OfficeBtn"      href="#" data-toggle="tab" onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
-        <li><a id="ProgrammingBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
-        <li><a id="MediaBtn"       href="#" data-toggle="tab" onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
-        <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
-        <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
-        <li><a id="ServersBtn"     href="#" data-toggle="tab" onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
-        <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
-        <li><a id="MiscBtn"        href="#" data-toggle="tab" onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
+        <li><a id="AccessoriesBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Accessories','#AccessoriesBtn')"     onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
+        <li><a id="EducationBtn"   data-toggle="tab" onmouseover="hoverCategoryTab('Education','#EducationBtn')"         onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
+        <li><a id="GamesBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Games','#GamesBtn')"                 onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
+        <li><a id="GraphicsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Graphics','#GraphicsBtn')"           onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
+        <li><a id="InternetBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Internet','#InternetBtn')"           onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
+        <li><a id="OfficeBtn"      data-toggle="tab" onmouseover="hoverCategoryTab('Office','#OfficeBtn')"               onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
+        <li><a id="ProgrammingBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Programming','#ProgrammingBtn')"     onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
+        <li><a id="MediaBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Sound & Video','#MediaBtn')"         onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
+        <li><a id="SysToolsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('System Tools','#SysToolsBtn')"       onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
+        <li><a id="UnivAccessBtn"  data-toggle="tab" onmouseover="hoverCategoryTab('Universal Access','#UnivAccessBtn')" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        <li><a id="ServersBtn"     data-toggle="tab" onmouseover="hoverCategoryTab('Servers','#ServersBtn')"             onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
+        <li><a id="MoreAppsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('More Apps','#MoreAppsBtn')"          onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
+        <li><a id="MiscBtn"        data-toggle="tab" onmouseover="hoverCategoryTab('Miscellaneous Tasks','#MiscBtn')"    onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
       </ul>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="categoryHover" hidden>Internet</div>
       <div class="row-fluid">
         <div id="Intro">
           <div id="featuredGrid">
@@ -108,8 +108,8 @@
               <ul>
                 <li>The <a href="cmd://drivers">Additional Drivers</a> tab may have them available for your system.</li>
                 <li>Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
-                package containing the firmware. See <b>Drivers</b> in the <a href="gettingstarted.html">Getting Started</a> section for more details.</li>
-                <li>Feel free to <a href="community.html">ask the community</a> if you need assistance.</li>
+                package containing the firmware. See <b>Drivers</b> in the <a onclick="smoothOut('gettingstarted.html')">Getting Started</a> section for more details.</li>
+                <li>Feel free to <a onclick="smoothOut('community.html')">ask the community</a> if you need assistance.</li>
               </ul>
               <br>
               <ul class="unstyled" id="helpButtonBack">
@@ -132,7 +132,7 @@
           saved locally on user’s device and optionally he can sync
           through other devices using his accounts of Dropbox, Box,
           Google Drive, OneDrive and ownCloud.</p>
-          <ul><li><b>Browser Extensions Available: </b><i>Enpass <a href="https://enpass.io/enpass-browser-extension/">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>
+          <ul><li><b>Browser Extensions Available: </b><i>Enpass <a href="cmd://link?https://enpass.io/enpass-browser-extension/">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>
           <p class="text-right">
           <a class="btn" href="cmd://link?https://enpass.io/"><span class="fa fa-info"></span></a>
           <a class="btn" href="cmd://link?https://play.google.com/store/apps/details?id=io.enpass.app&hl=en"><span class="fa fa-android"></span></a>
@@ -333,7 +333,7 @@
           terrible things in The Nether, which is more scary than
           pretty. You can also visit a land of mushrooms if it sounds
           more like your cup of tea.</p>
-          <ul><li><b>Server available: </b><i>A one-click install for the <u>Official Minecraft Server</u> is in the <a id="ServersBtn" href="#" data-toggle="tab" onclick="changeCategoryTab('#Servers','Servers');">Servers</a> section.</i></li></ul>
+          <ul><li><b>Server available: </b><i>A one-click install for the <u>Official Minecraft Server</u> is in the <a onclick="changeCategoryTab('#Servers','Servers'); $('#ServersBtn').tab('show');" data-toggle="tab">Servers</a> section.</i></li></ul>
           <p class="text-right">
           <a class="btn" href="cmd://link?https://minecraft.net"><span class="fa fa-info"></span></a>
           <a class="minecraft-installer-install btn btn-success" href="cmd://apt-install?minecraft-installer"><span class="fa fa-download"></span>&nbsp; Install</a>
@@ -345,9 +345,9 @@
 
           <div class="pc-only">
           <img class="left" src="img/applications/playonlinux.png" />
-          <p><b>Play on Linux</b> is a frontend for wine. It permits
-          you to easily install Windows Games and software on
-          Linux.</p>
+          <p><b>PlayOnLinux</b> is a frontend for the Wine Compatibility Layer.
+          It enables you to easily install and configure Windows games and
+          software on Linux.</p>
           <p class="text-right">
           <a class="btn" href="cmd://link?https://www.playonlinux.com/"><span class="fa fa-info"></span></a>
           <a class="playonlinux-install btn btn-success" href="cmd://apt-install?playonlinux,wine"><span class="fa fa-download"></span>&nbsp; Install</a>
@@ -642,6 +642,7 @@
           <hr class="soften" />
           </div>
 
+          <div class="pc-only alternate">
           <img class="left" src="img/applications/chromium.png" />
           <p><b>Chromium</b> web browser is the open-source version of
           Google Chrome. Chromium is an open-source browser project that
@@ -654,6 +655,7 @@
           <a class="chromium-browser-remove btn btn-danger" href="cmd://apt-remove?chromium-browser"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
+          </div>
 
           <div class="pc-only proprietary">
           <img class="left" src="img/applications/dropbox.png" />
@@ -1118,14 +1120,30 @@
           <hr class="soften" />
           </div>
 
+          <div class="pc-only">
+          <img class="left" src="img/applications/libreoffice-base.png" />
+          <p><b>LibreOffice Base</b> is a database management program that
+          provides a frontend to creating and modifying tables, forms and
+          reports as well as connecting to a variety of databases, including
+          MySQL, OOBC and JDBC.</p>
+          <ul><li><b>Alternative to: </b><i>Microsoft(R) Access</i></li></ul>
+          <p class="text-right">
+          <a class="btn" href="cmd://link?https://www.libreoffice.org/discover/base/"><span class="fa fa-info"></span></a>
+          <a class="libreoffice-base-install btn btn-success" href="cmd://apt-install?libreoffice-base"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="libreoffice-base-reinstall btn" href="cmd://apt-install?libreoffice-base"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="libreoffice-base-remove btn btn-danger" href="cmd://apt-remove?libreoffice-base"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+
 		  <img class="left" src="img/applications/planner.png" />
-		  <p><b>Planner</b> is a Project Management application that
-		  supports Gantt charts and resource allocation. Among its
-		  important features are the definition of tasks with start/end
-		  dates and durations, dependancies between tasks, sub-tasks
-		  can also be defined, project calendars with holidays,
-		  definition of resources, assignment of resources to tasks,
-		  resource specific calendars.</p>
+          <p><b>Planner</b> is a Project Management application that
+          supports Gantt charts and resource allocation. Among its
+          important features are the definition of tasks with start/end
+          dates and durations, dependancies between tasks, sub-tasks
+          can also be defined, project calendars with holidays,
+          definition of resources, assignment of resources to tasks,
+          resource specific calendars.</p>
           <p class="text-right">
           <a class="btn" href="cmd://link?http://www.simpleprojectmanagement.com/planner/home.html"><span class="fa fa-info"></span></a>
           <a class="planner-install btn btn-success" href="cmd://apt-install?planner"><span class="fa fa-download"></span>&nbsp; Install</a>
@@ -1578,7 +1596,7 @@
           </div>
 
           <img class="left" src="img/applications/gnome-schedule.png" />
-		  <p><b>Schduled Tasks</b> is a UI for configuring a users
+          <p><b>Scheduled Tasks</b> is a UI for configuring a users
 		  <code>crontab</code> so that tasks run at set intervals. It
 		  has templates support so that you won't have to create the
 		  same task again and again. If run as root, you can edit any
@@ -1587,7 +1605,6 @@
 		  instead</i> of <code>0 * * * *</code>. There is an Advanced
 		  mode for <code>crontab</code> experts. A calendar allows you
 		  to choose the day you want a task executed.</p>
-          </ul>
           <p class="text-right">
           <a class="btn" href="cmd://link?http://gnome-schedule.sourceforge.net/"><span class="fa fa-info"></span></a>
           <a class="gnome-schedule-install btn btn-success" href="cmd://apt-install?gnome-schedule"><span class="fa fa-download"></span>&nbsp; Install</a>
@@ -1640,12 +1657,31 @@
           <ul><li><b>Alternative to: </b><i>VMware Workstation</i></li></ul>
           <p class="text-right">
           <a class="btn" href="cmd://link?https://www.virtualbox.org/"><span class="fa fa-info"></span></a>
-          <a class="virtualbox-install btn btn-success" href="cmd://apt-install?virtualbox-5.0"><span class="fa fa-download"></span>&nbsp; Install</a>
-          <a class="virtualbox-reinstall btn" href="cmd://apt-install?virtualbox-5.0"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
-          <a class="virtualbox-remove btn btn-danger" href="cmd://apt-remove?virtualbox-5.0"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          <a class="virtualbox-5-0-install btn btn-success" href="cmd://apt-install?virtualbox-5.0"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="virtualbox-5-0-reinstall btn" href="cmd://apt-install?virtualbox-5.0"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="virtualbox-5-0-remove btn btn-danger" href="cmd://apt-remove?virtualbox-5.0"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
           </div>
+
+          <div class="pc-only alternate">
+          <img class="left" src="img/applications/virtualbox-open-source.png" />
+          <p><b>VirtualBox</b> is a powerful PC virtualization solution
+          allowing you to run a wide range of PC operating systems on
+          your Linux system. This includes Windows, Linux, FreeBSD,
+          DOS, OpenBSD and others. VirtualBox comes with a broad
+          feature set and excellent performance, making it the premier
+          virtualization software solution on the market.</p>
+          <ul><li><b>Alternative to: </b><i>VMware Workstation</i></li></ul>
+          <p class="text-right">
+          <a class="btn" href="cmd://link?https://www.virtualbox.org/"><span class="fa fa-info"></span></a>
+          <a class="virtualbox-install btn btn-success" href="cmd://apt-install?virtualbox,virtualbox-ext-pack,virtualbox-guest-additions"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="virtualbox-reinstall btn" href="cmd://apt-install?virtualbox,virtualbox-ext-pack,virtualbox-guest-additions"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="virtualbox-remove btn btn-danger" href="cmd://apt-remove?virtualbox,virtualbox-ext-pack,virtualbox-guest-additions"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+
         </div>
 
         <div id="UnivAccess" class="hideSection">
@@ -1722,7 +1758,7 @@
           <hr class="soften" />
           </div>
 
-          <div class="proprietary">
+          <div class="pc-only proprietary">
           <img class="left" src="img/applications/minecraft.png" />
           <p><b>Minecraft Server</b> installs the official server so
           you can create your own multi-player world.</p>
@@ -1731,6 +1767,23 @@
           <a class="minecraft-server-installer-install btn btn-success" href="cmd://apt-install?minecraft-server-installer"><span class="fa fa-download"></span>&nbsp; Install</a>
           <a class="minecraft-server-installer-reinstall btn" href="cmd://apt-install?minecraft-server-installer"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
           <a class="minecraft-server-installer-remove btn btn-danger" href="cmd://apt-remove?minecraft-server-installer"><span class="fa fa-trash"></span>&nbsp; Remove</a>
+          </p>
+          <hr class="soften" />
+          </div>
+
+          <div class="pc-only">
+          <img class="left" src="img/applications/openssh.png" />
+          <p><b>OpenSSH</b> is a suite of software utilising the
+          <code>ssh</code> protocol to securely connect to another
+          computer. The protocol uses encryption and multiple
+          authentication methods to provide secure tunneling as
+          well as support for SFTP and X11 forwarding.</p>
+
+          <p class="text-right">
+          <a class="btn" href="cmd://link?https://www.openssh.com/"><span class="fa fa-info"></span></a>
+          <a class="ssh-install btn btn-success" href="cmd://apt-install?ssh,sshguard"><span class="fa fa-download"></span>&nbsp; Install</a>
+          <a class="ssh-reinstall btn" href="cmd://apt-install?ssh,sshguard"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>
+          <a class="ssh-remove btn btn-danger" href="cmd://apt-remove?ssh,sshguard"><span class="fa fa-trash"></span>&nbsp; Remove</a>
           </p>
           <hr class="soften" />
           </div>

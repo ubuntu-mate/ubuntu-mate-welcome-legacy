@@ -11,15 +11,14 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Get Involved</div>
+        <div id="navigation-title" hidden>Get Involved</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
-      <div id="navigation-dummy"></div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid entire-page-fade" hidden>
       <div class="row-fluid">
         <div class="span12">
           <h3>Development</h3>
@@ -34,26 +33,34 @@
       <div class="row-fluid">
         <div class="span3">
           <div id="social" class="text-center social-large">
-            <a href="cmd://link?https://launchpad.net/ubuntu-mate/" title="Ubuntu MATE Launchpad"><img class="centered" src="img/logos/launchpad.png" alt="Ubuntu MATE Launchpad"></a>
-            <p><b>Ubuntu MATE Launchpad</b></p>
+            <a href="cmd://link?https://launchpad.net/ubuntu-mate/" title="Ubuntu MATE Launchpad">
+              <img class="center" src="img/logos/launchpad.png" alt="Ubuntu MATE Launchpad"/>
+              <p><b>Ubuntu MATE Launchpad</b></p>
+            </a>
           </div>
         </div>
         <div class="span3">
           <div id="social" class="text-center social-large">
-            <a href="cmd://link?https://bitbucket.org/ubuntu-mate" title="Ubuntu MATE Bitbucket"><img class="centered" src="img/logos/bitbucket.png" alt="Ubuntu MATE Bitbucket"></a>
+            <a href="cmd://link?https://bitbucket.org/ubuntu-mate" title="Ubuntu MATE Bitbucket">
+              <img class="center" src="img/logos/bitbucket.png" alt="Ubuntu MATE Bitbucket"/>
               <p><b>Ubuntu MATE Bitbucket</b></p>
+            </a>
           </div>
         </div>
         <div class="span3">
           <div id="social" class="text-center social-large">
-            <a  href="cmd://link?https://github.com/mate-desktop/" title="MATE Desktop GitHub"><img class="centered" src="img/logos/github.png" alt="MATE Desktop GitHub"></a>
-            <p><b>MATE Desktop GitHub</b></p>
+            <a href="cmd://link?https://github.com/mate-desktop/" title="MATE Desktop GitHub">
+              <img class="center" src="img/logos/github.png" alt="MATE Desktop GitHub"/>
+              <p><b>MATE Desktop GitHub</b></p>
+            </a>
           </div>
         </div>
         <div class="span3">
           <div id="social" class="text-center social-large">
-            <a href="cmd://link?https://www.transifex.com/projects/p/MATE/" title="MATE Desktop Transifex"><img class="centered" src="img/logos/transifex.jpg" alt="MATE Desktop Transifex"></a>
-            <p><b>MATE Desktop Transifex</b></p>
+            <a href="cmd://link?https://www.transifex.com/projects/p/MATE/" title="MATE Desktop Transifex">
+              <img class="center" src="img/logos/transifex.jpg" alt="MATE Desktop Transifex"/>
+              <p><b>MATE Desktop Transifex</b></p>
+            </a>
           </div>
         </div>
       </div>

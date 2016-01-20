@@ -17,7 +17,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%
+  height: 100%;
+  /* Behave more like an application by
+   * preventing text highlighting / dragging. */
+  -webkit-user-select: none;
 }
 
 body, button {
@@ -40,7 +43,7 @@ p.no-space {
 }
 
 .backdrop-simple {
-  background-color:#f4f4f4;
+  background-color: #f4f4f4;
 }
 
 /************************
@@ -119,10 +122,6 @@ p.no-space {
   color: #DED9CB;
 }
 
-#navigation-dummy {
-  height: 60px;
-}
-
 .navigation-button {
   width: 11px;
   height: 21px;
@@ -175,6 +174,7 @@ p.no-space {
 *************************/
 
 #content {
+  padding-top: 64px;
   padding-bottom: 64px;
 }
 
@@ -203,6 +203,14 @@ p.no-space {
   font-size: 20px;
 }
 
+/* Center images within the div */
+div .center-inside {
+    height: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
 /* Prevent accidental dragging on images and links */
 img, a {
   -webkit-user-drag: none;
@@ -212,6 +220,11 @@ img, a {
 /* Collapsible Sub-Sections */
 .sub-collapse { cursor: pointer; }
 .sub-collapse:hover { text-decoration: none; }
+
+/* Any link (href / onclick) shows the pointing cursor */
+a {
+  cursor: pointer;
+}
 
 /************************
  * Footer
@@ -261,6 +274,7 @@ img, a {
   width: 24px; height: 24px;
   position: relative;
   top: 0px;
+  margin-right: 4px;
   opacity: 0.7;
 
   -webkit-backface-visibility: hidden;
@@ -280,6 +294,7 @@ img, a {
 .social-large img {
   width: 48px !important;
   height: 48px !important;
+  padding-bottom: 8px;
 }
 
 
@@ -310,9 +325,12 @@ img.right {
 hr.soften {
   height: 1px;
   background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
+  border: 0;
+}
+
+hr.soften-light {
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(150,150,150,.4), rgba(0,0,0,0));
   border: 0;
 }
 
@@ -344,6 +362,42 @@ hr.soften {
   right: 8px;
   display: none;
   z-index: 11;
+}
+
+/************************
+ * Introduction Page
+*************************/
+.slogan-box {
+  position: relative;
+  top: -20px;
+  margin-left: -20px;
+  margin-right: -20px;
+  height: 530px;
+  background: url('/usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Cold-no-logo.png');
+  -webkit-mask-image: -webkit-gradient(linear, left 85%, left bottom, from(rgba(0,0,0,1)), to(rgba(244,244,244,0)));
+}
+
+.slogan-area {
+  display: block;
+  width: 100%;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.slogan-text {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  display: block;
+  color: #FFF;
+  font-size: 32px;
+}
+
+.mate-table {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
 /************************
@@ -407,6 +461,19 @@ blockquote.terminal {
   color: #D0D0D0;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+/* Hover label for categories */
+#categoryHover {
+  position: absolute;
+  top: 110px;
+  margin: auto;
+  font-size: 14px;
+  width: 90px;
+  padding-top: 2px;
+  padding-left: 3px;
+  text-align: center;
+  color: #758A53;
 }
 
 /************************
@@ -583,4 +650,32 @@ blockquote.terminal {
   height: 100%;
   cursor: default;
   z-index: 8;
+}
+
+/************************
+ * Hello Page
+*************************/
+#hello-page {
+  padding-left: 350px;
+}
+
+#hello-image {
+  position: absolute;
+  left: -200px;
+  height: 450px;
+  width: auto;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#hello-header {
+  font-weight: lighter;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  overflow: hidden;
+}
+
+.hello p {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }

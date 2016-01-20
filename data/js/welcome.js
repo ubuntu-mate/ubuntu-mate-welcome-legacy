@@ -16,13 +16,21 @@ var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><
 
 // Global across all pages
 $(window).load(function() {
-    $('#header').addClass('hideSection');
-    $('#content').addClass('hideSection');
-    $('#header').fadeIn('fast');
-    $('#content').fadeIn('slow');
+    // Smoothly fade into the page.
+    $('.entire-page-fade').fadeIn('medium');
 });
 
-$(document).ready(function () {
+// Smoothly fade out of the page.
+function smoothOut(target_href) {
+    $('.entire-page-fade').fadeOut('medium');
+    $('#navigation-title').fadeOut('medium');
+    $('#menu-button').fadeOut('medium');
+    setTimeout(function(){
+        window.location.href = target_href;
+    }, 400);
+}
+
+$(document).ready(function() {
   // Animate navigation elements on page load
     $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
@@ -79,8 +87,18 @@ function reconnectTimeout() {
 // Main Menu Only = Animation
 if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
-  // Bounce in logo once
-  $('#mainLogo').jAnimateOnce('bounceIn');
+  // Animate elements of the page
+  $('#mainLogo').jAnimateOnce('rotateIn');
+  $('#open-at-start').jAnimateOnce('fadeIn');
+  setTimeout(function(){
+    $('#mate-blur').jAnimateOnce('zoomIn');
+    $('#mate-blur').show();
+  }, 50);
+
+  function exitMenu(target) {
+      $('#mate-blur').jAnimateOnce('zoomOut');
+      smoothOut(target)
+  }
 
   // Have we greeted the user already?
   if ( document.cookie == 'greeted=yes' ) {
@@ -145,47 +163,146 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       $('#mainLogo').jAnimateOnce('zoomIn');
     }, 91000);
 
+    function create_canvas() {
+      $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
+      $('#mainLogo').jAnimateOnce('pulse');
+      startConfetti();
+    }
+
   //// Ubuntu MATE's Birthday
     // Become official flavour on 26/Feb/2015
     var officialDay = 26; // (1-31)
-    var officialMonth = 1; // (0-11)
+    var officialMonth = 2; // (1-12)
     var officialYear = 2015;
-
-  //// Celebrate Distro's Birthday
+    // Celebrate Distro's Birthday
     var today = new Date();
     if ( today.getMonth() == officialMonth ) {
       if ( today.getDate() == officialDay ) {
-        var UMAge = today.getFullYear() - officialYear;
-        $('#textChoose').html("The distro is officially "+UMAge+" years old today. Happy Birthday!")
-        $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
-        //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
-        $('#mainLogo').jAnimateOnce('pulse');
-        startConfetti();
+        var age = today.getFullYear() - officialYear;
+        $('#textChoose').html("The distro become an official flavour " + age + " years ago.");
+        create_canvas();
+      } else {
+        checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
       }
+    } else {
+      checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
     }
 
-  //// Celebrate Distro's Releases
+    // Project started on 21/Jun/2014
+    var birthdayDay = 21; // (1-31)
+    var birthdayMonth = 6; // (1-12)
+    var birthdayYear = 2014;
+    // Celebrate Distro's Birthday
+    var today = new Date();
+    if ( today.getMonth() == birthdayMonth ) {
+      if ( today.getDate() == birthdayDay ) {
+        var age = today.getFullYear() - birthdayYear;
+        $('#textChoose').html("The project is " + age + " years old today. Happy Birthday!");
+        create_canvas();
+      } else {
+        checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
+      }
+    } else {
+      checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
+    }
+
+
+    // Celebrate New Year
+    var today = new Date();
+    if ( today.getMonth() == 12 && today.getDate() == 31 ) {
+      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      create_canvas();
+    }
+    if ( today.getMonth() == 01 && today.getDate() == 01 ) {
+      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      create_canvas();
+    }
+
+    // Celebrate Distro's Releases
     function checkReleaseDay(dd,mm,yyyy,release) {
-      if ( today.getMonth() == mm - 1 ) {
-        if ( today.getDate() == dd ) {
-          if ( today.getFullYear() == yyyy ) {
-            $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".")
-            $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>')
-            //~ jQuery.getScript('js/confetti.js'); // This doesn't work! :(
-            $('#mainLogo').jAnimateOnce('pulse');
-            startConfetti();
+      var today = new Date();
+      if ( today.getFullYear() == yyyy ) {
+        if ( today.getMonth() == mm - 1 ) {
+          if ( today.getDate() == dd ) {
+            if ( today.getFullYear() == yyyy ) {
+              $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".");
+              create_canvas();
+            } else {
+              checkEventDate(dd,mm,'the release of '+release)
+            }
+          } else {
+              checkEventDate(dd,mm,'the release of '+release)
           }
+        } else {
+            checkEventDate(dd,mm,'the release of '+release)
         }
       }
     }
 
-    // Release Dates
-    // Possible improvement: Retrieve list from server.
-    checkReleaseDay(31,12,2015,'16.04 Alpha 1');
+    // Determine day of year
+    function dayOfYear(day,month) {
+      // Assumes 'month' parameter is in base 0.
+      var now = new Date();
+      now.setMonth(month);
+      now.setDate(day);
+      var start = new Date(now.getFullYear(), 0, 0);
+      var diff = now - start;
+      var oneDay = 1000 * 60 * 60 * 24;
+      var yearDay = Math.floor(diff / oneDay);
+      return yearDay;
+    }
+
+    // Is an event upcoming or has it already passed?
+    function checkEventDate(day,month,event) {
+      month = month - 1; // JS uses base 0.
+      var now = new Date();
+      today_year_number = parseInt(dayOfYear(now.getDate(),now.getMonth()));
+      event_year_number = parseInt(dayOfYear(day,month));
+
+      // Event was 7 days before now.
+      for (d=1; d<=7; d++) {
+        past_year_number = parseInt(today_year_number-d)
+        if ( past_year_number == event_year_number ) {
+          if ( d == 1 ) {
+            $('#textChoose').html("It was " + event + " yesterday.");
+          } else {
+            $('#textChoose').html("It was " + event + " " + d.toString() + " days ago.");
+          }
+          create_canvas();
+        }
+      }
+
+      // Event will be 7 days after today.
+      for (d=1; d<=7; d++) {
+        future_year_number = parseInt(today_year_number+d)
+        if ( future_year_number == event_year_number ) {
+          if ( d == 1 ) {
+            $('#textChoose').html("It's going to be " + event + " tomorrow.");
+          } else {
+            $('#textChoose').html("It's going to be " + event + " in " + d.toString() + " days time.");
+          }
+          create_canvas();
+        }
+      }
+      // FIXME: Determine between year changes.
+    }
+
+  //// Release Dates
+    // TODO / Possible Improvement: Retrieve list from server.
+    // Dates written here are human-readable, in other words, base 1 (1-12).
+    // DD,MM,YYYY
+    checkReleaseDay(04,01,2015,'16.04 Alpha 1');
     checkReleaseDay(28,01,2016,'16.04 Alpha 2');
     checkReleaseDay(25,02,2016,'16.04 Beta 1');
     checkReleaseDay(24,03,2016,'16.04 Beta 2');
     checkReleaseDay(21,04,2016,'16.04');
+
+}
+
+
+// Introduction/Features = Animation
+if ( document.location.href.match(/[^\/]+$/)[0] == 'introduction.html' || document.location.href.match(/[^\/]+$/)[0] == 'features.html' ) {
+  new WOW().init();
 }
 
 
@@ -195,6 +312,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     // Initial variables.
     var currentCategory;
     var hideNonFree = false;
+    var system_info = '';
+    var system_arch = 'unknown';
 
     // Show the first category.
     currentCategory = '#Intro';
@@ -223,12 +342,56 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $(next).show();
           $(next).jAnimateOnce('fadeInDown');
         }, 250);
+
+        // FIXME: Logic flawed! Some apps will appear on architectures
+        // but because they have a 'proprietary' class, they will for now.
+
+        // Force hide apps unsupported on this platform.
+        if ( system_arch == 'i686' ) {
+            $('.i686-only').show();
+            $('.x86_64-only').hide();
+            $('.pc-only').show();
+            $('.rpi-only').hide();
+        } else if ( system_arch == 'x86_64' ) {
+            $('.i686-only').hide();
+            $('.x86_64-only').show();
+            $('.pc-only').show();
+            $('.rpi-only').hide();
+        } else {
+            // FIXME: Dirty guess until better implementation (dynamic apps)
+            // but assume if not a PC, then it's a Raspberry Pi.
+            $('.i686-only').hide();
+            $('.x86_64-only').hide();
+            $('.pc-only').hide();
+        }
+
+
+        // Force hide 'non-free' if checked previously.
+        if ( hideNonFree == true ) {
+            $('.proprietary').hide();
+            $('.alternate').show();
+        } else {
+            $('.proprietary').show();
+            $('.alternate').hide();
+        }
+
         return currentCategory;
+    }
+
+    // Show small label while hovering categories.
+    function hoverCategoryTab(text,menuItemID) {
+      $('#categoryHover').html(text);
+      $('#categoryHover').show();
+
+      var x = $(menuItemID).position();
+      var length = $('#categoryHover').width();
+      $('#categoryHover').css('left', (x.left+24) - (90/2) )
     }
 
     // A category tab is clicked.
     function changeCategoryTab(id,humanText) {
       switchCategory(currentCategory, id, humanText);
+      $('#categoryHover').fadeOut()
     }
 
     // Show the popover on hover
@@ -248,7 +411,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("#nonFreeCheckBox").removeClass("fa-check-square");
           $('.proprietary').fadeIn();
           $('.alternate').fadeOut();
-          $("html, body").animate({scrollTop: 90}, 300);
       } else {
           // Toggle it ON - Hide non-free software.
           hideNonFree = true;
@@ -256,7 +418,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("#nonFreeCheckBox").addClass("fa-check-square");
           $('.proprietary').fadeOut();
           $('.alternate').fadeIn();
-          $("html, body").animate({scrollTop: 90}, 300);
       }
     });
 
@@ -265,42 +426,72 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     // A variety of apps that all kinds of users can identify:
     // gamers, media enthusiasts, programmers and the average users.
 
+    // TODO: There's probably a better way to do this. (Dynamic apps?)
     var featuredApps = new Array();
-    featuredApps[0]  = 'audacity';
-    featuredApps[1]  = 'bleachbit';
-    featuredApps[2]  = 'blender';
-    featuredApps[3]  = 'control-centre';
-    featuredApps[4]  = 'darktable';
-    featuredApps[5]  = 'dropbox';
-    featuredApps[6] =  'geany';
-    featuredApps[7] = 'gimp';
-    featuredApps[8] = 'gnome-disk-utility';
-    featuredApps[9] = 'google-chrome';
-    featuredApps[10] = 'google-musicmanager';
-    featuredApps[11] = 'gpick';
-    featuredApps[12] = 'handbrake';
-    featuredApps[13] = 'inkscape';
-    featuredApps[14] = 'insync';
-    featuredApps[15] = 'minecraft';
-    featuredApps[16] = 'mumble';
-    featuredApps[17] = 'pavucontrol';
-    featuredApps[18] = 'pitivi';
-    featuredApps[19] = 'remmina';
-    featuredApps[20] = 'rhythmbox';
-    featuredApps[21] = 'shotwell';
-    featuredApps[22] = 'simplescreenrecorder';
-    featuredApps[23] = 'skype';
-    featuredApps[24] = 'spotify';
-    featuredApps[25] = 'steam';
-    featuredApps[26] = 'synaptic';
-    featuredApps[27] = 'syncthing';
-    featuredApps[28] = 'telegram';
-    featuredApps[29] = 'thunderbird';
-    featuredApps[30] = 'ubuntu-software-center';
-    featuredApps[31] = 'uget';
-    featuredApps[32] = 'veracrypt';
-    featuredApps[33] = 'virtualbox';
-    featuredApps[34] = 'vlc';
+    featuredApps.push('audacity');
+    featuredApps.push('bleachbit');
+    featuredApps.push('blender');
+    featuredApps.push('control-centre');
+    featuredApps.push('darktable');
+    featuredApps.push('dropbox');
+    featuredApps.push('geany');
+    featuredApps.push('gimp');
+    featuredApps.push('google-chrome');
+    featuredApps.push('google-musicmanager');
+    featuredApps.push('gpick');
+    featuredApps.push('handbrake');
+    featuredApps.push('inkscape');
+    featuredApps.push('insync');
+    featuredApps.push('minecraft');
+    featuredApps.push('mumble');
+    featuredApps.push('pavucontrol');
+    featuredApps.push('pitivi');
+    featuredApps.push('remmina');
+    featuredApps.push('rhythmbox');
+    featuredApps.push('shotwell');
+    featuredApps.push('simplescreenrecorder');
+    featuredApps.push('skype');
+    featuredApps.push('spotify');
+    featuredApps.push('steam');
+    featuredApps.push('synaptic');
+    featuredApps.push('syncthing');
+    featuredApps.push('telegram');
+    featuredApps.push('thunderbird');
+    featuredApps.push('ubuntu-software-center');
+    featuredApps.push('uget');
+    featuredApps.push('veracrypt');
+    featuredApps.push('virtualbox');
+    featuredApps.push('vlc');
+    featuredApps.push('libreoffice-base');
+    featuredApps.push('opera');
+    featuredApps.push('evolution');
+    featuredApps.push('dvd');
+    featuredApps.push('playonlinux');
+    featuredApps.push('virt-manager');
+    featuredApps.push('gparted');
+    featuredApps.push('emby');
+    featuredApps.push('aptik');
+    featuredApps.push('easytag');
+    featuredApps.push('owncloud');
+    featuredApps.push('rednotebook');
+    featuredApps.push('enpass');
+    featuredApps.push('glade');
+    featuredApps.push('btsync');
+    featuredApps.push('audio-recorder');
+    featuredApps.push('poedit');
+    featuredApps.push('minecraft');
+    featuredApps.push('caja-share');
+    featuredApps.push('git-cola');
+    featuredApps.push('gnucash');
+    featuredApps.push('kdeconnect');
+    featuredApps.push('sweethome3d');
+    featuredApps.push('gnote');
+    featuredApps.push('bzr');
+    featuredApps.push('stellarium');
+    featuredApps.push('dia');
+    featuredApps.push('gobby');
+    featuredApps.push('planner');
+    //~ featuredApps.push('kodi');
 
     // Add application to the grid.
     var iconID = 0;
@@ -394,7 +585,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   $(document).ready(function()
   {
     // Override the footer to only display "Skip".
-    $('#footer').html('<div class="footer-content"><div class="form"><a href="index.html" class="btn btn-inverse">Skip</a></div></div>');
+    $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage(true)" class="btn btn-inverse">Skip</a></div></div>');
 
     $('#sceneA').removeClass('hideSection');
     $('#sceneA').jAnimateOnce('fadeIn');
@@ -425,7 +616,29 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
       $('#sceneB').fadeOut();
     }, 4000);
 
+    setTimeout(function(){
+      continueToPage(false)
+    }, 4300);
+
   });
+
+  // In live sessions, show a "Hello" page instead to introduce ourselves.
+  var splashNextPage = 'index'
+
+  function continueToPage(skipped) {
+    if ( skipped == true ) {
+      $('body').addClass('fadeToMenu');
+      $('#sceneA').fadeOut('medium');
+      $('#sceneB').fadeOut('medium');
+      setTimeout(function(){
+          smoothOut(splashNextPage + '.html');
+      }, 500);
+    } else {
+      smoothOut(splashNextPage + '.html');
+    }
+
+  }
+
 }
 
 

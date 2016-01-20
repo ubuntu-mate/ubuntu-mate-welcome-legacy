@@ -4,8 +4,8 @@
 # Copyright 2012-2013 "Korora Project" <dev@kororaproject.org>
 # Copyright 2013 "Manjaro Linux" <support@manjaro.org>
 # Copyright 2014 Antergos
-# Copyright 2015 Martin Wimpress <code@flexion.org>
-# Copyright 2015 Luke Horwell <lukehorwell37+code@gmail.com>
+# Copyright 2015-2016 Martin Wimpress <code@flexion.org>
+# Copyright 2015-2016 Luke Horwell <lukehorwell37+code@gmail.com>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
@@ -22,6 +22,12 @@
 #
 
 """ Welcome screen for Ubuntu MATE """
+
+import gi
+gi.require_version("Gdk", "3.0")
+gi.require_version("Gtk", "3.0")
+gi.require_version("Notify", "0.7")
+gi.require_version("WebKit", "3.0")
 
 import apt
 import gettext
@@ -45,6 +51,8 @@ import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
+from threading import Thread
+from getpass import getuser
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
@@ -327,6 +335,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'audio-recorder', action])
         transaction.update_cache = True
         transaction.source_to_update = 'audio-recorder-ubuntu-ppa-'+codename+'.list'
+    elif 'boot-repair' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'boot-repair', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'yannubuntu-ubuntu-boot-repair-'+codename+'.list'
     elif 'btsync' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
         transaction.update_cache = True
@@ -481,7 +493,7 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'unit193-ubuntu-encryption-'+codename+'.list'
     elif 'virtualbox-5.0' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox-5.0', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
     elif ('x2goclient' in packages) or ('x2goserver' in packages):
@@ -581,6 +593,7 @@ class AppView(WebKit.WebView):
         self.props.settings.props.enable_default_context_menu = False
 
     def _push_config(self):
+        ### Global - On all pages ###
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
         self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
         self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
@@ -600,7 +613,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
-        # If neither a i686 or x86_64, we must be running on the Raspberry Pi port (armv7)
+        # If neither a i686 or x86_64, we must be running on the Raspberry Pi (armv7) or the PowerPC.
         if self._config.arch == 'i686':
             self.execute_script("$('.i686-only').show();")
             self.execute_script("$('.x86_64-only').hide();")
@@ -618,84 +631,126 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.pc-only').hide();")
 
             # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
-            if os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+            if systemstate.session_type == 'pi':
                 self.execute_script("$('.rpi-only').show();")
             else:
                 self.execute_script("$('.rpi-only').hide();")
 
-        if self._apt_cache['hexchat'].is_installed:
-            self.execute_script("$('.hexchat').show();")
-            self.execute_script("$('.webchat').hide();")
-        else:
-            self.execute_script("$('.hexchat').hide();")
-            self.execute_script("$('.webchat').show();")
-
-        # Display information tailored to graphics vendor (Getting Started / Drivers)
-        self.execute_script('var graphicsVendor = "' + graphicsVendor + '";')
-        self.execute_script('var graphicsGrep = "' + graphicsGrep + '";')
-
         # Display warnings if the user is not connected to the internet.
-        if onlineStatus == True:
+        if systemstate.is_online:
             self.execute_script("$('.offline').hide();")
             self.execute_script("$('.online').show();")
         else:
             self.execute_script("$('.offline').show();")
             self.execute_script("$('.online').hide();")
 
-        # Change button states for Software.html
-        # TODO - Read this from YAML or JSON
-        for package in ['0ad', 'appgrid', 'aptik', 'asunder',
-        'audacity', 'audio-recorder', 'bleachbit', 'blender',
-        'btsync-gui', 'bzr-explorer', 'caja-dropbox', 'caja-share',
-        'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
-        'dvdstyler', 'easytag', 'emby-server', 'enpass', 'eviacam',
-        'evolution', 'filezilla', 'firefox', 'flashplugin-installer',
-        'focuswriter', 'geany', 'gimp', 'git-cola', 'glade', 'glabels',
-        'gnome-schedule', 'gnote', 'gnucash', 'gobby',
-        'google-chrome-stable', 'google-earth-stable',
-        'google-musicmanager-beta', 'google-talkplugin', 'gparted',
-        'gramps', 'handbrake', 'hardinfo', 'icedtea-7-plugin',
-        'indicator-kdeconnect', 'inkscape', 'insync',
-        'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
-        'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'opera-stable',
-        'owncloud-client', 'parcellite', 'pavucontrol', 'pithos',
-        'pitivi', 'planner', 'playonlinux', 'poedit', 'pysolfc',
-        'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
-        'scribus', 'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher',
-        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
-        'synaptic', 'syncthing', 'telegram', 'terminator',
-        'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
-        'veracrypt', 'virt-manager', 'virtualbox-5.0', 'workrave',
-        'x2goclient', 'x2goserver', 'zim']:
-            if package == 'virtualbox-5.0':
-                css_class = 'virtualbox'
-            else:
-                css_class = package
+        ### Main Menu ###
+        if self.current_page == 'index.html':
+            if systemstate.session_type == 'guest':
+                # Disable features that are unavailable to guests.
+                self.execute_script("$('#gettingstarted').hide();")
+                self.execute_script("$('#software').hide();")
+                self.execute_script("$('#introduction').addClass('btn-success');")
+                self.execute_script("$('#community').addClass('btn-success');")
 
-            try:
-                if self._apt_cache[package].is_installed:
-                    self.execute_script("$('."+css_class+"-install').hide();")
-                    self.execute_script("$('."+css_class+"-reinstall').show();")
-                    self.execute_script("$('."+css_class+"-remove').show();")
-                    self.execute_script("$('."+css_class+"-upgrade').show();")
+        ### Splash ###
+        if self.current_page == 'splash.html':
+            # Determine which screen to show after the splash screen.
+            if systemstate.session_type == 'live':
+                self.execute_script('var splashNextPage = "hellolive"')
+            elif systemstate.session_type == 'guest':
+                self.execute_script('var splashNextPage = "helloguest"')
+            else:
+                self.execute_script('var splashNextPage = "index"')
+
+        ### Chat Page ###
+        if self.current_page == 'chatroom.html':
+            if self._apt_cache['hexchat'].is_installed:
+                self.execute_script("$('.hexchat').show();")
+                self.execute_script("$('.webchat').hide();")
+            else:
+                self.execute_script("$('.hexchat').hide();")
+                self.execute_script("$('.webchat').show();")
+
+        ### Getting Started Page ###
+        if self.current_page == 'gettingstarted.html':
+            # Display information tailored to graphics vendor (Getting Started / Drivers)
+            self.execute_script('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
+            self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
+
+            # Display system information if successfully cached.
+            if systemstate.system_info_cached:
+                self.execute_script('$("#system-specs").html("")')
+                # Clear out terminal colour codes.
+                for line in systemstate.system_info.splitlines():
+                    write_buffer = line
+                    write_buffer = write_buffer.replace('[1;34m','<b>')
+                    write_buffer = write_buffer.replace('[1;37m','</b>')
+                    write_buffer = write_buffer.replace('[0;37m','</b>')
+                    # FIXME: Improve appearance of this page. It's a bit of a mess.
+                    self.execute_script('$("#system-specs").append("' + write_buffer + '")')
+
+        ### Software Page ###
+        if self.current_page == 'software.html' or self.current_page == 'gettingstarted.html':
+            self.execute_script('var system_arch = "' + self._config.arch + '"' )
+
+            # Change button states for Software.html
+            # TODO - Read this from JSON (Dynamic Apps)
+            for package in ['0ad', 'appgrid', 'aptik', 'asunder',
+            'audacity', 'audio-recorder', 'bleachbit', 'blender', 'boot-repair',
+            'btsync-gui', 'bzr-explorer', 'caja-dropbox', 'caja-share',
+            'calibre', 'chromium-browser', 'darktable', 'dia-gnome',
+            'dvdstyler', 'easytag', 'emby-server', 'enpass', 'eviacam',
+            'evolution', 'filezilla', 'firefox', 'flashplugin-installer',
+            'focuswriter', 'geany', 'gimp', 'git-cola', 'glade', 'glabels',
+            'gnome-schedule', 'gnote', 'gnucash', 'gobby',
+            'google-chrome-stable', 'google-earth-stable',
+            'google-musicmanager-beta', 'google-talkplugin', 'gparted',
+            'gramps', 'handbrake', 'hardinfo', 'icedtea-7-plugin',
+            'indicator-kdeconnect', 'inkscape', 'insync',
+            'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
+            'libreoffice-base', 'makemkv-bin', 'meld', 'minecraft-installer',
+            'minecraft-server-installer', 'mumble', 'opera-stable', 'ssh',
+            'owncloud-client', 'parcellite', 'pavucontrol', 'pithos',
+            'pitivi', 'planner', 'playonlinux', 'poedit', 'pysolfc',
+            'rapid-photo-downloader', 'rednotebook', 'redshift', 'remmina',
+            'scribus', 'simplescreenrecorder', 'skype', 'software-center',
+            'spideroakone', 'spotify-client', 'steam-launcher',
+            'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
+            'synaptic', 'syncthing', 'telegram', 'terminator',
+            'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
+            'veracrypt', 'virt-manager', 'virtualbox', 'virtualbox-5.0', 'workrave',
+            'x2goclient', 'x2goserver', 'zim']:
+
+                if package == 'virtualbox-5.0':
+                    # Dots (.) in CSS Classes are not allowed.
+                    css_class = 'virtualbox-5-0'
                 else:
+                    css_class = package
+
+                try:
+                    if self._apt_cache[package].is_installed:
+                        self.execute_script("$('."+css_class+"-install').hide();")
+                        self.execute_script("$('."+css_class+"-reinstall').show();")
+                        self.execute_script("$('."+css_class+"-remove').show();")
+                        self.execute_script("$('."+css_class+"-upgrade').show();")
+                    else:
+                        self.execute_script("$('."+css_class+"-install').show();")
+                        self.execute_script("$('."+css_class+"-reinstall').hide();")
+                        self.execute_script("$('."+css_class+"-remove').hide();")
+                        self.execute_script("$('."+css_class+"-upgrade').hide();")
+                except:
                     self.execute_script("$('."+css_class+"-install').show();")
                     self.execute_script("$('."+css_class+"-reinstall').hide();")
                     self.execute_script("$('."+css_class+"-remove').hide();")
                     self.execute_script("$('."+css_class+"-upgrade').hide();")
-            except:
-                self.execute_script("$('."+css_class+"-install').show();")
-                self.execute_script("$('."+css_class+"-reinstall').hide();")
-                self.execute_script("$('."+css_class+"-remove').hide();")
-                self.execute_script("$('."+css_class+"-upgrade').hide();")
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
 
     def _nav_request_policy_decision_cb(self, view, frame, net_req, nav_act, pol_dec):
         uri = net_req.get_uri()
+        self.current_page = uri.rsplit('/', 1)[1]
 
         try:
             if uri.index('#') > 0:
@@ -777,6 +832,8 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
+        elif uri == 'printers':
+            subprocess.Popen(['system-config-printer'])
         elif uri == 'gparted':
             subprocess.Popen(['gparted-pkexec'])
         elif uri == 'sysmonitor':
@@ -786,8 +843,8 @@ class AppView(WebKit.WebView):
         elif uri.startswith('link?'):
             webbrowser.open_new_tab(uri[5:])
         elif uri == 'checkInternetConnection':
-            checkInternetConnection()
-            if onlineStatus == True:
+            systemstate.check_internet_connection()
+            if systemstate.is_online:
                 self.execute_script("$('.offline').hide();")
                 self.execute_script("$('.online').show();")
             else:
@@ -827,7 +884,7 @@ class WelcomeApp(object):
         if s.get_height() <= 600:
             w.set_size_request(768, 528)
         else:
-            w.set_size_request(768, 552)
+            w.set_size_request(800, 552)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
@@ -845,7 +902,7 @@ class WelcomeApp(object):
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         sw.add(mv)
 
-        # build a an autoexpanding box and add our scrolled window
+        # build an autoexpanding box and add our scrolled window
         b = Gtk.VBox(homogeneous=False, spacing=0)
         b.pack_start(sw, expand=True, fill=True, padding=0)
 
@@ -864,54 +921,88 @@ class WelcomeApp(object):
     def close(self, p1, p2):
         Gtk.main_quit(p1, p2);
 
-if __name__ == "__main__":
-    # Before the app starts, check if the user is connected to the internet.
-    def checkInternetConnection():
-        print('Testing Connection... ', end="")
-        global onlineStatus
+class SystemState(object):
+    def __init__(self):
+        # Set initial variables
+        self.system_info_cached = False
+        self.is_online = False
+        self.user_name = getuser()
+
+        # Determine which type of session we are in.
+        if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
+            self.session_type = 'live'
+        elif self.user_name[:6] == 'guest-':
+            self.session_type = 'guest'
+        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+            self.session_type = 'pi'
+        else:
+            self.session_type = 'normal'
+
+        # Create, then spawn threads
+        thread1 = Thread(target=self.check_internet_connection)
+        thread2 = Thread(target=self.detect_graphics)
+        thread3 = Thread(target=self.get_system_info)
+        thread1.start()
+        thread2.start()
+        thread3.start()
+
+    def check_internet_connection(self):
+        print('[Network Test] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            print('Socket timed out - URL %s', url)
-            onlineStatus = False
+            print("[Network Test] -- Socket timed out to URL {0}", format(url))
+            self.is_online = False
         except:
-            print("Unable to access " + url)
-            onlineStatus = False
+            print("[Network Test] -- Could not establish a connection to '{0}'. ".format(url))
+            self.is_online = False
         else:
-            print(url + ' is available.')
-            onlineStatus = True
+            print("[Network Test] Successfully pinged '{0}' ".format(url))
+            self.is_online = True
 
-    # Attempt to detect graphics manufacturer.
-    # FIXME: Does not detect dual graphics.
-    def detectGraphics():
-        print('Detecting graphics vendor... ', end="")
-        output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
-        output = output.decode(encoding='UTF-8')
+    def detect_graphics(self):
+        # TODO: Support dual graphic cards.
+        print('[Graphics] Detecting graphics vendor... ')
+        try:
+            output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            output = output.decode(encoding='UTF-8')
+        except:
+            # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
+            print("[Graphics] Couldn't detect a VGA Controller on this system.")
+            output = 'Unknown'
 
         # Scan for and set known brand name.
-        global graphicsVendor
-        global graphicsGrep
-        if output.find('NVIDIA') != -1:
-            graphicsVendor = 'NVIDIA'
-        elif output.find('AMD') != -1:
-            graphicsVendor = 'AMD'
-        elif output.find('Intel') != -1:
-            graphicsVendor = 'Intel'
-        elif output.find('VirtualBox') != -1:
-            graphicsVendor = 'VirtualBox'
+        if output.find('NVIDIA'): # != -1
+            self.graphics_vendor = 'NVIDIA'
+        elif output.find('AMD'):
+            self.graphics_vendor = 'AMD'
+        elif output.find('Intel'):
+            self.graphics_vendor = 'Intel'
+        elif output.find('VirtualBox'):
+            self.graphics_vendor = 'VirtualBox'
         else:
-            graphicsVendor = 'Unknown'
+            self.graphics_vendor = 'Unknown'
 
-        print(graphicsVendor)
-        graphicsGrep = repr(output)
-        graphicsGrep = graphicsGrep.split("controller: ",1)[1]
-        graphicsGrep = graphicsGrep.split("\\n",1)[0]
-        print(graphicsGrep)
+        self.graphics_grep = repr(output)
+        self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
+        self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
+        print("[Graphics] Detected: {0}".format(self.graphics_grep))
 
-    checkInternetConnection()
-    detectGraphics()
+    def get_system_info(self):
+        print('[System Info] Caching system info... ')
+        try:
+            self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            self.system_info = self.system_info.decode(encoding='UTF-8')
+            self.system_info_cached = True
+            print("[System Info] Successfully cached system information.")
+        except:
+            system_info = 'There was a problem gathering this data.'
+            print("[System Info] There was a problem running 'inxi -F'. Is this program no longer installed?")
 
+if __name__ == "__main__":
     set_proc_title()
     app = WelcomeApp()
+    systemstate = SystemState()
+    print('[Welcome] Application Started.')
     app.run()
