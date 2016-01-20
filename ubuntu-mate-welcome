@@ -973,13 +973,13 @@ class SystemState(object):
             output = 'Unknown'
 
         # Scan for and set known brand name.
-        if output.find('NVIDIA'): # != -1
+        if output.find('NVIDIA') != -1:
             self.graphics_vendor = 'NVIDIA'
-        elif output.find('AMD'):
+        elif output.find('AMD') != -1:
             self.graphics_vendor = 'AMD'
-        elif output.find('Intel'):
+        elif output.find('Intel') != -1:
             self.graphics_vendor = 'Intel'
-        elif output.find('VirtualBox'):
+        elif output.find('VirtualBox') != -1:
             self.graphics_vendor = 'VirtualBox'
         else:
             self.graphics_vendor = 'Unknown'
