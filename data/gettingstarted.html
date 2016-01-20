@@ -314,25 +314,27 @@
             <h2>Drivers</h2>
             <p>While a wide range of hardware is compatible with Ubuntu
             MATE, there are some components and peripherals that
-            require proprietary drivers to function properly. The Firmware
-            is often required to get some devices, typically Bluetooth and
-            Wifi, to work correctly.</p>
+            require proprietary drivers to function properly. Installing
+            the firmware package is often required to get some devices,
+            typically Bluetooth and Wi-Fi, to work correctly.</p>
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install drivers.</h5>
             </div>
             <div align="center">
-                <a class="btn btn-inverse" href="cmd://apt-install?firmware-b43-installer,linux-firmware,linux-firmware-nonfree">
-                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Firmware
-                </a>
                 <a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
                     <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Additional Drivers
                 </a>
+                <a class="btn btn-inverse" href="cmd://apt-install?firmware-b43-installer,linux-firmware,linux-firmware-nonfree">
+                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; Install Firmware Package
+                </a>
             </div>
+
             <span id="drivers-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>Additional Drivers</b> can be found later in
               <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
             </small></span>
 
+            <!-- Advice about graphics -->
             <a onclick="toggleSub('graphics-section','graphics-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="graphics-arrow"></span> Graphics</h3></a>
             <div id="graphics-section" hidden>
               <div id="graphics-detected" class="alert alert-danger">
@@ -389,6 +391,47 @@
                   <img src="img/screenshots/graphics-drivers-nvidia.png"/>
                 </p>
               </div>
+            </div>
+
+            <!-- Advice about wireless -->
+            <a onclick="toggleSub('wireless-section','wireless-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="wireless-arrow"></span> Wireless, Bluetooth and Other Devices</h3></a>
+            <div id="wireless-section" hidden>
+              If there were no additional drivers found for the hardware
+              nor did it work after installing the <code>firmware</code>
+              packages, you may need to research your device to find
+              the appropriate driver.</p>
+
+              <p>Unfortunately, this is due to the fact the manufacturer
+               for your hardware hasn't provided any open source code for
+               developers to freely use, or there is insufficient
+               documentation to create drivers for your
+               particular brand and model.</p>
+
+               <p>Some manufacturers may provide closed source drivers
+               provided by themselves directly. If you require assistance,
+               feel free to <a onclick="smoothOut('community.html')">ask the community</a>.</p>
+
+               <p><a href="cmd://link?https://help.ubuntu.com/community/WifiDocs/WirelessTroubleShootingGuide/Drivers">
+               <span class="fa fa-globe"></span> Read more on troubleshooting wireless hardware.</a></p>
+            </div>
+
+            <!-- Advice about printers -->
+            <a onclick="toggleSub('printers-section','printers-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="printers-arrow"></span> Printers</h3></a>
+            <div id="printers-section" hidden>
+              <p>When you set up a printer in the
+                <a href="cmd://printers">
+                  <img src="/usr/share/icons/Humanity/actions/16/document-print.svg" width="20px" height="20px"/>
+                  <b>Printers</b>
+                </a>
+                utility <i>(under System <span class="fa fa-long-arrow-right"></span>
+                Administration)</i>, you will be presented with a
+                list of drivers available to use, if applicable.</p>
+
+              <p>Some manufacturers however may provide their own
+              drivers and require you to download them from their website.</p>
+
+              <p><a href="cmd://link?https://help.ubuntu.com/community/Printers">
+                <span class="fa fa-globe"></span> Read more on printing</a>.</p>
             </div>
           </div>
         </div>

@@ -828,6 +828,8 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
             subprocess.Popen(['update-manager'])
+        elif uri == 'printers':
+            subprocess.Popen(['system-config-printer'])
         elif uri == 'gparted':
             subprocess.Popen(['gparted-pkexec'])
         elif uri == 'sysmonitor':
