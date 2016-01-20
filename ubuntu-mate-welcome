@@ -692,6 +692,8 @@ class AppView(WebKit.WebView):
 
         ### Software Page ###
         if self.current_page == 'software.html' or self.current_page == 'gettingstarted.html':
+            self.execute_script('var system_arch = "' + self._config.arch + '"' )
+
             # Change button states for Software.html
             # TODO - Read this from JSON (Dynamic Apps)
             for package in ['0ad', 'appgrid', 'aptik', 'asunder',

@@ -313,6 +313,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     var currentCategory;
     var hideNonFree = false;
     var system_info = '';
+    var system_arch = 'unknown';
 
     // Show the first category.
     currentCategory = '#Intro';
@@ -341,6 +342,39 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $(next).show();
           $(next).jAnimateOnce('fadeInDown');
         }, 250);
+
+        // FIXME: Logic flawed! Some apps will appear on architectures
+        // but because they have a 'proprietary' class, they will for now.
+
+        // Force hide apps unsupported on this platform.
+        if ( system_arch == 'i686' ) {
+            $('.i686-only').show();
+            $('.x86_64-only').hide();
+            $('.pc-only').show();
+            $('.rpi-only').hide();
+        } else if ( system_arch == 'x86_64' ) {
+            $('.i686-only').hide();
+            $('.x86_64-only').show();
+            $('.pc-only').show();
+            $('.rpi-only').hide();
+        } else {
+            // FIXME: Dirty guess until better implementation (dynamic apps)
+            // but assume if not a PC, then it's a Raspberry Pi.
+            $('.i686-only').hide();
+            $('.x86_64-only').hide();
+            $('.pc-only').hide();
+        }
+
+
+        // Force hide 'non-free' if checked previously.
+        if ( hideNonFree == true ) {
+            $('.proprietary').hide();
+            $('.alternate').show();
+        } else {
+            $('.proprietary').show();
+            $('.alternate').hide();
+        }
+
         return currentCategory;
     }
 
