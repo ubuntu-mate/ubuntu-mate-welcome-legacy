@@ -52,6 +52,7 @@ from aptdaemon.enums import *
 from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
+from getpass import getuser
 
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
@@ -605,7 +606,6 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#software').hide();")
             self.execute_script("$('.live-session').hide();")
             self.execute_script("$('.live-session-only').show();")
-            self.execute_script('var splashNextPage = "hello"')
         else:
             self.execute_script("$('#install').hide();")
             self.execute_script("$('#software').show();")
@@ -631,7 +631,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.pc-only').hide();")
 
             # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
-            if os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+            if systemstate.session_type == 'pi':
                 self.execute_script("$('.rpi-only').show();")
             else:
                 self.execute_script("$('.rpi-only').hide();")
@@ -643,6 +643,25 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('.offline').show();")
             self.execute_script("$('.online').hide();")
+
+        ### Main Menu ###
+        if self.current_page == 'index.html':
+            if systemstate.session_type == 'guest':
+                # Disable features that are unavailable to guests.
+                self.execute_script("$('#gettingstarted').hide();")
+                self.execute_script("$('#software').hide();")
+                self.execute_script("$('#introduction').addClass('btn-success');")
+                self.execute_script("$('#community').addClass('btn-success');")
+
+        ### Splash ###
+        if self.current_page == 'splash.html':
+            # Determine which screen to show after the splash screen.
+            if systemstate.session_type == 'live':
+                self.execute_script('var splashNextPage = "hellolive"')
+            elif systemstate.session_type == 'guest':
+                self.execute_script('var splashNextPage = "helloguest"')
+            else:
+                self.execute_script('var splashNextPage = "index"')
 
         ### Chat Page ###
         if self.current_page == 'chatroom.html':
@@ -901,6 +920,17 @@ class SystemState(object):
         # Set initial variables
         self.system_info_cached = False
         self.is_online = False
+        self.user_name = getuser()
+
+        # Determine which type of session we are in.
+        if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
+            self.session_type = 'live'
+        elif self.user_name[:6] == 'guest-':
+            self.session_type = 'guest'
+        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+            self.session_type = 'pi'
+        else:
+            self.session_type = 'normal'
 
         # Create, then spawn threads
         thread1 = Thread(target=self.check_internet_connection)
