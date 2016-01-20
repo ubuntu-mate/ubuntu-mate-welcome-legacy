@@ -377,7 +377,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("#nonFreeCheckBox").removeClass("fa-check-square");
           $('.proprietary').fadeIn();
           $('.alternate').fadeOut();
-          $("html, body").animate({scrollTop: 90}, 300);
       } else {
           // Toggle it ON - Hide non-free software.
           hideNonFree = true;
@@ -385,7 +384,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("#nonFreeCheckBox").addClass("fa-check-square");
           $('.proprietary').fadeOut();
           $('.alternate').fadeIn();
-          $("html, body").animate({scrollTop: 90}, 300);
       }
     });
 
