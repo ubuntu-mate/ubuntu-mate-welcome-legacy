@@ -493,7 +493,7 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'unit193-ubuntu-encryption-'+codename+'.list'
     elif 'virtualbox-5.0' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox-5.0', action])
         transaction.update_cache = True
         transaction.source_to_update = 'virtualbox.list'
     elif ('x2goclient' in packages) or ('x2goserver' in packages):
@@ -717,10 +717,12 @@ class AppView(WebKit.WebView):
             'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
             'synaptic', 'syncthing', 'telegram', 'terminator',
             'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
-            'veracrypt', 'virt-manager', 'virtualbox-5.0', 'workrave',
+            'veracrypt', 'virt-manager', 'virtualbox', 'virtualbox-5.0', 'workrave',
             'x2goclient', 'x2goserver', 'zim']:
+
                 if package == 'virtualbox-5.0':
-                    css_class = 'virtualbox'
+                    # Dots (.) in CSS Classes are not allowed.
+                    css_class = 'virtualbox-5-0'
                 else:
                     css_class = package
 

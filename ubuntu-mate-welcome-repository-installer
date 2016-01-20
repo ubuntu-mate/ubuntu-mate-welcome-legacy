@@ -215,7 +215,7 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main'],
                                  'unit193-ubuntu-encryption-' + codename)
-        elif repository == 'virtualbox':
+        elif repository == 'virtualbox-5.0':
             if codename == 'xenial':
                 codename = 'wily'
             add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')
