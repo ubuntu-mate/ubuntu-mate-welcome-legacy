@@ -11,14 +11,14 @@
     <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Features</div>
+        <div id="navigation-title" hidden>Features</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
-      <div id="content" class="container-fluid">
+      <div id="content" class="container-fluid entire-page-fade" hidden>
         <div class="row-fluid wow fadeIn">
           <div class="span12">
             <!--Body content-->
@@ -221,7 +221,7 @@
             <p>Naturally you'll also find a firewall, backup
             application, document/photo scanner and printer management
             all included in Ubuntu MATE. And this is just the start.
-            The <a href="software.html">Software</a> sections includes
+            The <a onclick="smoothOut('software.html')">Software</a> sections includes
             best-in-class applications for most tasks and a one-click
             installer for an <i>"App Store"</i> that will give you
             access to thousands of applications suitable for just about

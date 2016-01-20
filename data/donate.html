@@ -11,19 +11,19 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Donate</div>
+        <div id="navigation-title" hidden>Donate</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid entire-page-fade" hidden>
       <div class="row-fluid">
         <div class="span12">
           <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
-            <li class="active"><a href="#about" data-toggle="tab" id="tabAbout">About Donations</a></li>
-            <li><a href="#supporters" data-toggle="tab" id="tabSupporters">Our Supporters</a></li>
+            <li class="active"><a onclick="smoothFade('#supporters','#about')" data-toggle="tab" id="tabAbout">About Donations</a></li>
+            <li><a onclick="smoothFade('#about','#supporters')" data-toggle="tab" id="tabSupporters">Our Supporters</a></li>
           </ul>
           <div class="alert alert-warning offline">
             <h5>An Internet connection is required to donate and view our supporters.</h5>

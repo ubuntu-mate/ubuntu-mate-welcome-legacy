@@ -11,29 +11,29 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" href="./index.html">
+        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title">Software - <span id="navigation-sub-title"> Our Picks</span></div>
+        <div id="navigation-title" hidden>Software - <span id="navigation-sub-title"> Our Picks</span></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid entire-page-fade" hidden>
     <div class="online animated fadeInDown" id="categoryTabs">
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
-        <li><a id="AccessoriesBtn" href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Accessories','#AccessoriesBtn')"     onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
-        <li><a id="EducationBtn"   href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Education','#EducationBtn')"         onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
-        <li><a id="GamesBtn"       href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Games','#GamesBtn')"                 onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
-        <li><a id="GraphicsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Graphics','#GraphicsBtn')"           onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
-        <li><a id="InternetBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Internet','#InternetBtn')"           onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
-        <li><a id="OfficeBtn"      href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Office','#OfficeBtn')"               onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
-        <li><a id="ProgrammingBtn" href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Programming','#ProgrammingBtn')"     onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
-        <li><a id="MediaBtn"       href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Sound & Video','#MediaBtn')"         onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
-        <li><a id="SysToolsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('System Tools','#SysToolsBtn')"       onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
-        <li><a id="UnivAccessBtn"  href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Universal Access','#UnivAccessBtn')" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
-        <li><a id="ServersBtn"     href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Servers','#ServersBtn')"             onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
-        <li><a id="MoreAppsBtn"    href="#" data-toggle="tab" onmouseover="hoverCategoryTab('More Apps','#MoreAppsBtn')"          onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
-        <li><a id="MiscBtn"        href="#" data-toggle="tab" onmouseover="hoverCategoryTab('Miscellaneous Tasks','#MiscBtn')"    onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
+        <li><a id="AccessoriesBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Accessories','#AccessoriesBtn')"     onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
+        <li><a id="EducationBtn"   data-toggle="tab" onmouseover="hoverCategoryTab('Education','#EducationBtn')"         onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
+        <li><a id="GamesBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Games','#GamesBtn')"                 onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
+        <li><a id="GraphicsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Graphics','#GraphicsBtn')"           onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
+        <li><a id="InternetBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Internet','#InternetBtn')"           onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
+        <li><a id="OfficeBtn"      data-toggle="tab" onmouseover="hoverCategoryTab('Office','#OfficeBtn')"               onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
+        <li><a id="ProgrammingBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Programming','#ProgrammingBtn')"     onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
+        <li><a id="MediaBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Sound & Video','#MediaBtn')"         onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
+        <li><a id="SysToolsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('System Tools','#SysToolsBtn')"       onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
+        <li><a id="UnivAccessBtn"  data-toggle="tab" onmouseover="hoverCategoryTab('Universal Access','#UnivAccessBtn')" onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
+        <li><a id="ServersBtn"     data-toggle="tab" onmouseover="hoverCategoryTab('Servers','#ServersBtn')"             onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
+        <li><a id="MoreAppsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('More Apps','#MoreAppsBtn')"          onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
+        <li><a id="MiscBtn"        data-toggle="tab" onmouseover="hoverCategoryTab('Miscellaneous Tasks','#MiscBtn')"    onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
       </ul>
     </div>
     <div id="categoryHover" hidden>Internet</div>
@@ -108,8 +108,8 @@
               <ul>
                 <li>The <a href="cmd://drivers">Additional Drivers</a> tab may have them available for your system.</li>
                 <li>Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
-                package containing the firmware. See <b>Drivers</b> in the <a href="gettingstarted.html">Getting Started</a> section for more details.</li>
-                <li>Feel free to <a href="community.html">ask the community</a> if you need assistance.</li>
+                package containing the firmware. See <b>Drivers</b> in the <a onclick="smoothOut('gettingstarted.html')">Getting Started</a> section for more details.</li>
+                <li>Feel free to <a onclick="smoothOut('community.html')">ask the community</a> if you need assistance.</li>
               </ul>
               <br>
               <ul class="unstyled" id="helpButtonBack">
@@ -132,7 +132,7 @@
           saved locally on user’s device and optionally he can sync
           through other devices using his accounts of Dropbox, Box,
           Google Drive, OneDrive and ownCloud.</p>
-          <ul><li><b>Browser Extensions Available: </b><i>Enpass <a href="https://enpass.io/enpass-browser-extension/">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>
+          <ul><li><b>Browser Extensions Available: </b><i>Enpass <a href="cmd://link?https://enpass.io/enpass-browser-extension/">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>
           <p class="text-right">
           <a class="btn" href="cmd://link?https://enpass.io/"><span class="fa fa-info"></span></a>
           <a class="btn" href="cmd://link?https://play.google.com/store/apps/details?id=io.enpass.app&hl=en"><span class="fa fa-android"></span></a>

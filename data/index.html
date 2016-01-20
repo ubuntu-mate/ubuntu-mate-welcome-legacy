@@ -7,17 +7,17 @@
   <link href="css/animate.css" rel="stylesheet" media="screen">
   <link href="css/welcome.css" rel="stylesheet" media="screen">
 </head>
-<body class="backdrop" ng-controller="WelcomeCtrl" style="overflow: hidden;">
-  <div class="menuBkgnd animated fadeIn"></div>
+<body class="backdrop-simple" ng-controller="WelcomeCtrl" style="overflow: hidden;">
+  <div id="mate-blur" class="menuBkgnd" hidden></div>
   <div class="container-fluid">
     <div id="navigation">
-      <div id="navigation-title">Main Menu</div>
+      <div id="navigation-title" hidden>Main Menu</div>
       <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
     </div>
   </div>
-  <img id="mainLogo" class="menuLogo" src="img/welcome/ubuntu-mate-icon.svg" width="50%" height="50%">
+  <img id="mainLogo" class="entire-page-fade menuLogo" src="img/welcome/ubuntu-mate-icon.svg" width="50%" height="50%" hidden>
   <span id="special"></span>
-  <div id="wrapper">
+  <div class="entire-page-fade" id="wrapper" hidden>
     <div id="header" class="container-fluid fade fade-1s" style="padding-top: 64px">
       <div class="row-fluid">
         <div class="span12 center splashVersion">
@@ -34,17 +34,17 @@
       <div class="row-fluid divider">
         <div class="span4 btn-showcase">
           <!-- Documentation -->
-          <a id="introduction"   class="btn btn-block btn-default fade fade-3s" href="./introduction.html"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; Introduction</a>
-          <a id="features"       class="btn btn-block btn-default fade fade-4s" href="./features.html"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; Features</a>
-          <a id="gettingstarted" class="btn btn-block btn-success fade fade-5s live-session" href="./gettingstarted.html"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; Getting Started</a>
-          <a id="install-guide"  class="btn btn-block btn-success fade fade-5s live-session-only" href="./gettingstarted.html"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; Installation Help</a>
+          <a id="introduction"   class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('introduction.html')"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; Introduction</a>
+          <a id="features"       class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('features.html')"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; Features</a>
+          <a id="gettingstarted" class="btn btn-block btn-success fade fade-5s live-session" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; Getting Started</a>
+          <a id="install-guide"  class="btn btn-block btn-success fade fade-5s live-session-only" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; Installation Help</a>
         </div>
         <div class="span4 btn-showcase"></div>
         <div class="span4 btn-showcase">
           <!-- Project -->
-          <a id="getinvolved" class="btn btn-block btn-default fade fade-3s" href="./getinvolved.html"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; Get Involved</a>
-          <a id="shop"        class="btn btn-block btn-default fade fade-4s" href="./shop.html"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; Shop</a>
-          <a id="donate"      class="btn btn-block btn-success fade fade-5s" href="./donate.html"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; Donate</a>
+          <a id="getinvolved" class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('getinvolved.html')"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; Get Involved</a>
+          <a id="shop"        class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('shop.html')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; Shop</a>
+          <a id="donate"      class="btn btn-block btn-success fade fade-5s" onclick="exitMenu('donate.html')"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; Donate</a>
         </div>
       </div>
       <br>
@@ -52,29 +52,31 @@
         <div class="span4 btn-showcase">
           <br>
           <!-- Support -->
-          <a id="community"   class="btn btn-block btn-default fade fade-3s" href="./community.html"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; Community</a>
-          <a id="chatroom"    class="btn btn-block btn-default fade fade-4s" href="./chatroom.html"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; Chat Room</a>
-          <a id="software"    class="btn btn-block btn-success fade fade-5s" href="software.html"><span class="fa fa-2x fa-download fa-va"></span>&nbsp; Software</a>
+          <a id="community"   class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('community.html')"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; Community</a>
+          <a id="chatroom"    class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('chatroom.html')"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; Chat Room</a>
+          <a id="software"    class="btn btn-block btn-success fade fade-5s" onclick="exitMenu('software.html')"><span class="fa fa-2x fa-download fa-va"></span>&nbsp; Software</a>
           <a id="install"     class="btn btn-block btn-success fade fade-5s" href="cmd://install"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; Install Now</a>
         </div>
         <div class="span4 btn-showcase"></div>
         <div class="span4 btn-showcase">
-          <a class="btn btn-block btn-rpi fade fade-5s rpi-only" href="./rpi.html" style="height: 80px; padding-top:10px;">
+          <a class="btn btn-block btn-rpi fade fade-5s rpi-only" onclick="exitMenu('rpi.html')" style="height: 80px; padding-top:10px;">
             <span class="fa fa-2x fa-va fa-pencil-square-o"></span>
             <br>Notes for the Raspberry Pi 2
           </a>
         </div>
       </div>
     </div>
-    <div id="footer" class="bottom">
-      <div class="footer-content">
-        <div id="footer-left">
-        <!-- Via welcome.js -->
-        </div>
-        <div id="footer-right" class="form">
-          <a href="cmd://autostart" class="live-session fade fade-5s"><span id="autostart" class="fa fa-square fa-va"></span> Open Welcome when I log on.</a>
-          <!-- Global buttons appended via welcome.js -->
-        </div>
+  </div>
+  <div id="footer" class="bottom">
+    <div class="footer-content">
+      <div id="footer-left">
+      <!-- Via welcome.js -->
+      </div>
+      <div id="footer-right" class="form">
+        <a href="cmd://autostart" id="open-at-start" class="live-session entire-page-fade" style="display:none">
+          <span id="autostart" class="fa fa-square fa-va"></span> Open Welcome when I log on.
+        </a>
+        <!-- Global buttons appended via welcome.js -->
       </div>
     </div>
   </div>

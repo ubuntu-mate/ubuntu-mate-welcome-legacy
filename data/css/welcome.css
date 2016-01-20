@@ -43,7 +43,7 @@ p.no-space {
 }
 
 .backdrop-simple {
-  background-color:#f4f4f4;
+  background-color: #f4f4f4;
 }
 
 /************************
@@ -220,6 +220,11 @@ img, a {
 /* Collapsible Sub-Sections */
 .sub-collapse { cursor: pointer; }
 .sub-collapse:hover { text-decoration: none; }
+
+/* Any link (href / onclick) shows the pointing cursor */
+a {
+  cursor: pointer;
+}
 
 /************************
  * Footer

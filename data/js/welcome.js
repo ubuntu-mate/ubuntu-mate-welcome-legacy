@@ -16,11 +16,19 @@ var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><
 
 // Global across all pages
 $(window).load(function() {
-    $('#header').addClass('hideSection');
-    $('#content').addClass('hideSection');
-    $('#header').fadeIn('fast');
-    $('#content').fadeIn('slow');
+    // Smoothly fade into the page.
+    $('.entire-page-fade').fadeIn('medium');
 });
+
+// Smoothly fade out of the page.
+function smoothOut(target_href) {
+    $('.entire-page-fade').fadeOut('medium');
+    $('#navigation-title').fadeOut('medium');
+    $('#menu-button').fadeOut('medium');
+    setTimeout(function(){
+        window.location.href = target_href;
+    }, 400);
+}
 
 $(document).ready(function() {
   // Animate navigation elements on page load
@@ -79,8 +87,18 @@ function reconnectTimeout() {
 // Main Menu Only = Animation
 if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
-  // Bounce in logo once
-  $('#mainLogo').jAnimateOnce('bounceIn');
+  // Animate elements of the page
+  $('#mainLogo').jAnimateOnce('rotateIn');
+  $('#open-at-start').jAnimateOnce('fadeIn');
+  setTimeout(function(){
+    $('#mate-blur').jAnimateOnce('zoomIn');
+    $('#mate-blur').show();
+  }, 50);
+
+  function exitMenu(target) {
+      $('#mate-blur').jAnimateOnce('zoomOut');
+      smoothOut(target)
+  }
 
   // Have we greeted the user already?
   if ( document.cookie == 'greeted=yes' ) {
@@ -535,7 +553,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   $(document).ready(function()
   {
     // Override the footer to only display "Skip".
-    $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage()" class="btn btn-inverse">Skip</a></div></div>');
+    $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage(true)" class="btn btn-inverse">Skip</a></div></div>');
 
     $('#sceneA').removeClass('hideSection');
     $('#sceneA').jAnimateOnce('fadeIn');
@@ -567,16 +585,26 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
     }, 4000);
 
     setTimeout(function(){
-      continueToPage()
-    }, 4500);
+      continueToPage(false)
+    }, 4300);
 
   });
 
   // In live sessions, show a "Hello" page instead to introduce ourselves.
   var splashNextPage = 'index'
 
-  function continueToPage() {
-    window.location.href = splashNextPage + '.html';
+  function continueToPage(skipped) {
+    if ( skipped == true ) {
+      $('body').addClass('fadeToMenu');
+      $('#sceneA').fadeOut('medium');
+      $('#sceneB').fadeOut('medium');
+      setTimeout(function(){
+          smoothOut(splashNextPage + '.html');
+      }, 500);
+    } else {
+      smoothOut(splashNextPage + '.html');
+    }
+
   }
 
 }
