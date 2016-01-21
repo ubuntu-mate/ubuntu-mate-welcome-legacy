@@ -114,18 +114,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
   }
 
   // When Welcome first runs, thank the user.
+  $('.menuMainText').fadeIn('slow');
   if ( document.cookie == '') {
-    $('#textChoose').hide();
-    $('#textThanks').fadeIn('fast');
-
-    setTimeout(function(){
-      $('#textThanks').fadeOut('slow');
-    }, 5000);
-
-    setTimeout(function(){
-      $('#textChoose').fadeIn('slow');
-    }, 5600);
-
     document.cookie="greeted=yes";
   }
 
@@ -179,7 +169,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     if ( today.getMonth() == officialMonth ) {
       if ( today.getDate() == officialDay ) {
         var age = today.getFullYear() - officialYear;
-        $('#textChoose').html("The distro become an official flavour " + age + " years ago.");
+        $('.menuMainText').html("The distro become an official flavour " + age + " years ago.");
         create_canvas();
       } else {
         checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
@@ -197,7 +187,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     if ( today.getMonth() == birthdayMonth ) {
       if ( today.getDate() == birthdayDay ) {
         var age = today.getFullYear() - birthdayYear;
-        $('#textChoose').html("The project is " + age + " years old today. Happy Birthday!");
+        $('.menuMainText').html("The project is " + age + " years old today. Happy Birthday!");
         create_canvas();
       } else {
         checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
@@ -210,11 +200,11 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     // Celebrate New Year
     var today = new Date();
     if ( today.getMonth() == 12 && today.getDate() == 31 ) {
-      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
       create_canvas();
     }
     if ( today.getMonth() == 01 && today.getDate() == 01 ) {
-      $('#textChoose').html("Happy New Year from Ubuntu MATE!");
+      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
       create_canvas();
     }
 
@@ -225,7 +215,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
         if ( today.getMonth() == mm - 1 ) {
           if ( today.getDate() == dd ) {
             if ( today.getFullYear() == yyyy ) {
-              $('#textChoose').html("Today marks the release of Ubuntu MATE "+release+".");
+              $('.menuMainText').html("Today marks the release of Ubuntu MATE "+release+".");
               create_canvas();
             } else {
               checkEventDate(dd,mm,'the release of '+release)
@@ -264,9 +254,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
         past_year_number = parseInt(today_year_number-d)
         if ( past_year_number == event_year_number ) {
           if ( d == 1 ) {
-            $('#textChoose').html("It was " + event + " yesterday.");
+            $('.menuMainText').html("It was " + event + " yesterday.");
           } else {
-            $('#textChoose').html("It was " + event + " " + d.toString() + " days ago.");
+            $('.menuMainText').html("It was " + event + " " + d.toString() + " days ago.");
           }
           create_canvas();
         }
@@ -277,9 +267,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
         future_year_number = parseInt(today_year_number+d)
         if ( future_year_number == event_year_number ) {
           if ( d == 1 ) {
-            $('#textChoose').html("It's going to be " + event + " tomorrow.");
+            $('.menuMainText').html("It's going to be " + event + " tomorrow.");
           } else {
-            $('#textChoose').html("It's going to be " + event + " in " + d.toString() + " days time.");
+            $('.menuMainText').html("It's going to be " + event + " in " + d.toString() + " days time.");
           }
           create_canvas();
         }
