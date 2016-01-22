@@ -211,6 +211,21 @@ div .center-inside {
     text-align: center;
 }
 
+/* System Specifications Table */
+#system-specs table {
+  width: 100%;
+}
+
+#system-specs th {
+  width: 100px;
+  text-align: center;
+}
+
+#system-specs td {
+  font-family: 'Ubuntu Mono';
+}
+
+
 /* Prevent accidental dragging on images and links */
 img, a {
   -webkit-user-drag: none;
