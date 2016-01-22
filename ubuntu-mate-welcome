@@ -680,15 +680,7 @@ class AppView(WebKit.WebView):
 
             # Display system information if successfully cached.
             if systemstate.system_info_cached:
-                self.execute_script('$("#system-specs").html("")')
-                # Clear out terminal colour codes.
-                for line in systemstate.system_info.splitlines():
-                    write_buffer = line
-                    write_buffer = write_buffer.replace('[1;34m','<b>')
-                    write_buffer = write_buffer.replace('[1;37m','</b>')
-                    write_buffer = write_buffer.replace('[0;37m','</b>')
-                    # FIXME: Improve appearance of this page. It's a bit of a mess.
-                    self.execute_script('$("#system-specs").append("' + write_buffer + '")')
+                systemstate.append_system_info(self)
 
         ### Software Page ###
         if self.current_page == 'software.html' or self.current_page == 'gettingstarted.html':
@@ -850,6 +842,8 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
+        elif uri == 'get-spec-ram':
+            systemstate.append_system_info(self, True)
         else:
             print('Unknown command: %s' % uri)
 
@@ -992,13 +986,129 @@ class SystemState(object):
     def get_system_info(self):
         print('[System Info] Caching system info... ')
         try:
-            self.system_info = subprocess.Popen('inxi -F', stdout=subprocess.PIPE, shell='True').communicate()[0]
-            self.system_info = self.system_info.decode(encoding='UTF-8')
+            self.specs_raw_system = str(subprocess.Popen('inxi -S', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_machine = str(subprocess.Popen('inxi -M', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_cpu = str(subprocess.Popen('inxi -C', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_memory = str(subprocess.Popen('free | grep \'Mem:\' | awk \'{print $2}\'', stdout=subprocess.PIPE, shell='True').communicate()[0]).strip("b'\\n")
+            self.specs_raw_drivelist = str(subprocess.Popen('inxi -D', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_partitions = str(subprocess.Popen('inxi -p', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_raid = str(subprocess.Popen('inxi -R', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_optical = str(subprocess.Popen('inxi -d', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_optical = 'Optical:  ' + '<b>dev:</b> ' + self.specs_raw_optical.split('Optical:')[1]
+            self.specs_raw_graphics = str(subprocess.Popen('inxi -G', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_audio = str(subprocess.Popen('inxi -A', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_network = str(subprocess.Popen('inxi -i', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            self.specs_raw_sensors = str(subprocess.Popen('inxi -s', stdout=subprocess.PIPE, shell='True').communicate()[0])
             self.system_info_cached = True
             print("[System Info] Successfully cached system information.")
+
         except:
-            system_info = 'There was a problem gathering this data.'
-            print("[System Info] There was a problem running 'inxi -F'. Is this program no longer installed?")
+            print("[System Info] There was a problem running 'inxi'. Is this program no longer installed?")
+            return
+
+    def append_system_info(self, webkit, ram_only=False):
+
+        # Cleans up raw data from the command.
+        def append_raw(data, label, target_element, existing=False):
+
+          try:
+            ## Only show the string after the "System:", "Network:" bit.
+            output = data.split(label+':')[1]
+
+            ## Clear out terminal colour codes.
+            output = output.replace(' \\x1b[1;34m','<b>')
+            output = output.replace('\\x1b[0;37m','</b>')
+            output = output.replace(' </b>','')
+            output = output.replace(' \\x1b','<br>')
+            output = output.replace('[0;37m','')
+            output = output.replace('[1;34m','')
+            output = output.replace('\\x1b','')
+            output = output.replace('[0m\'','')
+            output = output.replace('\\n','\n')
+            output = output.replace('<b>','<br><b>')
+            output = output.split('<br>', 1)[1]
+            output = output.strip('          ')
+
+            ## Replace some strings that inxi outputs with something tidier.
+            output = output.replace('<br><b>Desktop:</b> N/A','')
+            output = output.replace('Mobo:','Motherboard:')
+            output = output.replace('model:','Model:')
+            output = output.replace('<b>v:','<b>Version:')
+            output = output.replace('Bios:','BIOS Vendor:')
+            output = output.replace('date:','Date:')
+            output = output.replace('cache:','Cache:')
+            output = output.replace('clock speeds:','<br><u>Current Clock Speeds:</u>')
+            output = output.replace('max:','Max:')
+            output = output.replace('<br><b>ID-','<br><br><b>ID-')
+            output = output.replace('<br><b>Card-','<br><br><b>Card-')
+            output = output.replace('<br><b>Device-','<br><br><b>Device-')
+            output = output.replace('size:','Size:')
+            output = output.replace('used:','Used:')
+            output = output.replace('fs:','File System:')
+            output = output.replace('dev:','Device Block:')
+            output = output.replace('Features:','<br><b><u>Features:</u></b><br>')
+            output = output.replace('features:','Features:')
+            output = output.replace('driver:','Drivers:')
+            output = output.replace('drivers:','Drivers:')
+            output = output.replace('state:','State:')
+            output = output.replace('speed:','Speed:')
+            output = output.replace('dev-links:','Device Block Links:')
+            output = output.replace('multissession:','Multi-Session Support:')
+            output = output.replace('audio:','Audio Support:')
+            output = output.replace('dvd:','DVD Support:')
+            output = output.replace('rw:','Read/Write Support:')
+            output = output.replace('duplex:','Duplex:')
+            output = output.replace('mac:','MAC Address:')
+            output = output.replace('ip:','LAN IP Address:')
+            output = output.replace('IF:','Interface:')
+            output = output.replace('WAN IP:','Public IP Address:')
+            output = output.replace('mobo:','Motherboard:')
+            output = output.replace('gpu:','GPU:')
+            output = output.replace('cpu:','<br>CPU:')
+            output = output.replace('(in rpm)','(in RPM)')
+            output = output.replace('devices:','Devices:')
+
+            # Write to target element, but only clear if no data is appended here yet.
+            if not existing:
+                # No information exists in this element yet.
+                webkit.execute_script('$("#spec-' + target_element + '").html("")')
+            else:
+                # Additional commands provide more data for here, add a gap.
+                webkit.execute_script('$("#spec-' + target_element + '").append("<br><br>")')
+
+            for line in output.split('\n'):
+                webkit.execute_script('$("#spec-' + target_element + '").append("' + line + '")')
+
+          except:
+              print('[System Info] No suitable data to process for "' + label + '".')
+              if not existing:
+                  webkit.execute_script('$("#spec-' + target_element + '").html("No information available.")')
+
+        # If authenticating to retrieve root privileged information about the RAM.
+        if ram_only:
+            print('[System Info] Authenticating to retrieve RAM details...')
+            ram_output = str(subprocess.Popen('pkexec inxi -m', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            append_raw(ram_output, 'Memory', 'ram-advanced')
+            return
+
+        # Process each category of system information.
+        append_raw(self.specs_raw_system, 'System', 'system')
+        append_raw(self.specs_raw_machine, 'Machine', 'machine')
+        append_raw(self.specs_raw_cpu, 'CPU', 'cpu')
+        append_raw(self.specs_raw_drivelist, 'Drives', 'storage')
+        append_raw(self.specs_raw_partitions, 'Partition', 'storage', True)
+        append_raw(self.specs_raw_raid, 'RAID', 'storage', True)
+        append_raw(self.specs_raw_optical, 'Optical', 'optical')
+        append_raw(self.specs_raw_graphics, 'Graphics', 'graphics')
+        append_raw(self.specs_raw_audio, 'Audio', 'audio')
+        append_raw(self.specs_raw_network, 'Network', 'network')
+        append_raw(self.specs_raw_sensors, 'Sensors', 'sensors')
+
+        # Details for RAM require root privilages, show total capacity instead.
+        webkit.execute_script('$("#spec-ram").html("")')
+        webkit.execute_script('$("#spec-ram").append("<b>Total:</b> ' + str(round(int(self.specs_raw_memory)/1024/1024,1)) + ' GiB (' + str(round(int(self.specs_raw_memory)/1024)) + ' MiB)")')
+        webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
+
 
 if __name__ == "__main__":
     set_proc_title()
