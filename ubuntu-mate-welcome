@@ -963,6 +963,13 @@ class SystemState(object):
             self.is_online = True
 
     def detect_graphics(self):
+
+        # If we're the Raspberry Pi 2, there is nothing to output.
+        if self.session_type == 'pi':
+            self.graphics_grep = 'Raspberry Pi 2'
+            self.graphics_vendor = 'Raspberry Pi 2'
+            return
+
         # TODO: Support dual graphic cards.
         print('[Graphics] Detecting graphics vendor... ')
         try:
