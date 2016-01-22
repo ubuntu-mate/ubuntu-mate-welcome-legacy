@@ -460,29 +460,32 @@
         <div class="row-fluid">
           <div class="span12">
             <h2>Software Updates</h2>
-            <p>Ubuntu MATE periodically will check to see if new software
-            and security updates are available for your computer. If you
-            have just installed Ubuntu MATE, you might want to do this now.
-            </p>
-            <p>The Codecs include a complete, cross-platform solution to
-            decode, encode, record, convert and stream audio and video.
-            It also includes a MP3 audio decoder that permits the playback
-            of MPEG 1 audio layer III (MP3).</p>
+
             <div class="alert alert-warning offline">
               <h5>An Internet connection is required to download and install updates.</h5>
             </div>
+            <p>Ubuntu MATE periodically will check to see if new software
+            and security updates are available for your computer. If you
+            have just installed Ubuntu MATE, you might want to do this now.</p>
             <div align="center">
-                <a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
+              <a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
                 <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; Software Updater
-                </a>
-                <a class="btn btn-lg btn-inverse" href="apt-install://libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav">
-                <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; Codecs
-                </a>
+              </a>
+              <span id="updates-hint" class="center" hidden><small>
+                <p><span class="fa fa-info-circle"></span> <b>Software Updater</b> can be found later in
+                <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
+              </small></span>
             </div>
-            <span id="updates-hint" class="center" hidden><small>
-              <p><span class="fa fa-info-circle"></span> <b>Software Updater</b> can be found later in
-              <b><i>System <span class="fa fa-long-arrow-right"></span> Administration.</i></b></p>
-            </small></span>
+            <hr class="soften"/>
+            <p>The codecs package includes a complete, cross-platform solution to
+            decode, encode, record, convert and stream audio and video.
+            It also includes a MP3 audio decoder that permits the playback
+            of MPEG 1 audio layer III (MP3).</p>
+            <div align="center">
+              <a class="btn btn-lg btn-inverse" href="apt-install://libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav">
+                <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; Install Codecs Package
+              </a>
+            </div>
           </div>
         </div>
       </div>
