@@ -118,10 +118,28 @@
             installation icon from the desktop.</p>
             <hr class="soften"/>
 
-            <h3>For UEFI computers</h3>
-            <p>You may need to disable <b>Secure Boot</b> (or enable an <b>Unlock Bootloader</b>
-            option) prior to installation. If you are using a BIOS machine, you do not
-            need to do this.</p>
+            <h3>Modern UEFI-based computers</h3>
+            <p>If you have a modern PC that uses the Unifed Extended Firmware Interface (UEFI),
+            you may need to disable <b>Secure Boot</b> (or enable an <b>Unlock Bootloader</b>
+            option) prior to installation, particularly if an operating system was pre-installed.</p>
+
+            <p>If you are using a legacy BIOS machine, you do not need to do this.</p>
+
+            <p>
+              Especially when dual booting, it is important that you boot your system
+              in the correct mode and use the <b>64-bit image</b>, as you cannot boot
+              an operating system installed in BIOS mode after installing a
+              UEFI-enabled operating system or vice versa.
+            </p>
+
+            <p>Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also show a
+            "protection layer". <b>Do not worry,</b> your data is not lost or corrupt!
+            </p>
+
+            <div class="alert alert-info">
+              Your system is currently running in <b><span id="boot-mode">???</span> mode</b>.
+            </div>
+
             <hr class="soften"/>
 
             <h3>Swap</h3>
