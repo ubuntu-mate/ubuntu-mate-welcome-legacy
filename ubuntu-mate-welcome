@@ -831,6 +831,8 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['gparted-pkexec'])
         elif uri == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
+        elif uri == 'hardinfo':
+            subprocess.Popen(['hardinfo'])
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
@@ -934,8 +936,10 @@ class SystemState(object):
             self.session_type = 'normal'
 
         # To inform the user if they are running in BIOS or UEFI mode.
-        if ( os.path.exists("/sys/firmware/efi") ):
+        if os.path.exists("/sys/firmware/efi"):
             self.boot_mode = 'UEFI'
+        elif self.session_type == 'pi':
+            self.boot_mode = 'Raspberry Pi 2'
         else:
             self.boot_mode = 'BIOS'
 
@@ -1084,6 +1088,7 @@ class SystemState(object):
             output = output.replace('cpu:','<br>CPU:')
             output = output.replace('(in rpm)','(in RPM)')
             output = output.replace('devices:','Devices:')
+            output = output.replace('<b>Device Block:</b> No optical drives detected.','No optical drives detected.')
 
             # Write to target element, but only clear if no data is appended here yet.
             if not existing:
