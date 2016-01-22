@@ -24,7 +24,7 @@ $(window).load(function() {
 function smoothOut(target_href) {
     $('.entire-page-fade').fadeOut('medium');
     $('#navigation-title').fadeOut('medium');
-    $('#menu-button').fadeOut('medium');
+    $('.navigation-button').fadeOut('medium');
     setTimeout(function(){
         window.location.href = target_href;
     }, 400);
