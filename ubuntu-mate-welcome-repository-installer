@@ -101,9 +101,9 @@ if __name__ == "__main__":
                 add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main',
                                  'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main'],
                                  'cesar-crea-si-ubuntu-eviacam-' + codename)
-        elif repository ==  'flashplugin-installer':
+        elif repository ==  'hal-flash':
             enable_ppa('ppa:flexiondotorg/hal-flash')
-        elif repository ==  'git':
+        elif repository ==  'git-core':
             enable_ppa('ppa:git-core/ppa')
         elif repository ==  'gobby':
             if codename == 'trusty':
@@ -122,7 +122,7 @@ if __name__ == "__main__":
         elif repository ==  'handbrake':
             if codename != 'wily':
                 enable_ppa('ppa:stebbins/handbrake-releases')
-        elif repository == 'indicator-kdeconnect':
+        elif repository == 'vikoadi':
             enable_ppa('ppa:vikoadi/ppa')
         elif repository ==  'insync':
             if codename == 'xenial':
@@ -207,9 +207,9 @@ if __name__ == "__main__":
             enable_ppa('ppa:ubuntu-sdk-team/ppa')
         elif repository ==  'uget':
             enable_ppa('ppa:plushuang-tw/uget-stable')
-        elif repository ==  'variety':
+        elif repository ==  'peterlevi':
             enable_ppa('ppa:peterlevi/ppa')
-        elif repository ==  'veracrypt':
+        elif repository ==  'encryption':
             enable_ppa('ppa:unit193/encryption')
             if codename == 'xenial':
                 add_apt_sources(['deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main',

@@ -356,10 +356,10 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
     elif 'flashplugin-installer' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'flashplugin-installer', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'hal-flash', action])
         transaction.update_cache = True
     elif 'git' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'git', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'git-core', action])
         transaction.source_to_update = 'git-core-ubuntu-ppa-'+codename+'.list'
         transaction.update_cache = True
     elif 'gobby' in packages:
@@ -396,7 +396,7 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'libreoffice-ubuntu-ppa-'+codename+'.list'
     elif 'indicator-kdeconnect' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'indicator-kdeconnect', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'vikoadi', action])
         transaction.update_cache = True
         transaction.source_to_update = 'vikoadi-ubuntu-ppa-'+codename+'.list'
     elif 'makemkv-bin' in packages:
@@ -485,11 +485,11 @@ def process_packages(packages, action):
         transaction.update_cache = True
         transaction.source_to_update = 'plushuang-tw-ubuntu-uget-stable-'+codename+'.list'
     elif 'variety' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'variety', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'peterlevi', action])
         transaction.update_cache = True
         transaction.source_to_update = 'peterlevi-ubuntu-ppa-'+codename+'.list'
     elif 'veracrypt' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'veracrypt', action])
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'encryption', action])
         transaction.update_cache = True
         transaction.source_to_update = 'unit193-ubuntu-encryption-'+codename+'.list'
     elif 'virtualbox-5.0' in packages:
