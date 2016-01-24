@@ -428,6 +428,10 @@ def process_packages(packages, action):
     elif 'playonlinux' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'playonlinux', action])
         transaction.update_cache = True
+    elif 'indicator-notifications-gtk2' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'recent-notifications', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'jconti-ubuntu-recent-notifications-'+codename+'.list'
     elif 'rednotebook' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'rednotebook', action])
         transaction.update_cache = True
@@ -702,8 +706,9 @@ class AppView(WebKit.WebView):
         'google-chrome-stable', 'google-earth-stable',
         'google-musicmanager-beta', 'google-talkplugin', 'gparted',
         'gramps', 'handbrake', 'hardinfo', 'hedgewars',
-        'icedtea-7-plugin', 'indicator-kdeconnect', 'inkscape',
-        'insync', 'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
+        'icedtea-7-plugin', 'indicator-kdeconnect',
+        'indicator-notifications-gtk2', 'inkscape', 'insync',
+        'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
         'libreoffice-base', 'libreoffice-draw', 'libreoffice-math',
         'liferea', 'makemkv-bin', 'meld', 'minecraft-installer',
         'minecraft-server-installer', 'mumble', 'mypaint',
