@@ -72,8 +72,20 @@
             prevent your installation from booting, or cause serve glitches.</p>
 
             <p>You can, however, install <b>regular updates</b> via the
-            <a href="cmd://update">Software Updater</a> utility for your
-            installed software.</p>
+            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            Software Updater</a> utility for your installed software.</p>
+
+            <hr class="soften"/>
+            <h3>Kernel Updates</h3>
+            <p>The same kernel provided by the
+            <a href="cmd://link?https://www.raspberrypi.org/documentation/linux/kernel/">Raspberry Pi foundation</a>
+            is used in this edition of Ubuntu MATE. As this kernel is delivered
+            like a "firmware" blob, updates are not distributed via the
+            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            Software Updater</a> or <b>apt-get</b>.</p>
+
+            <p><b>Instead, to update the kernel, open a terminal and run:</b></p>
+            <blockquote><code>sudo rpi-update</code></blockquote>
 
             <hr class="soften"/>
             <h3>Hardware Acceleration</h3>
