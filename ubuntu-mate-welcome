@@ -706,19 +706,19 @@ class AppView(WebKit.WebView):
         'insync', 'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
         'libreoffice-base', 'libreoffice-draw', 'libreoffice-math',
         'liferea', 'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'mysql-workbench',
-        'neverball', 'neverputt', 'nexuiz', 'opera-stable', 'ssh',
-        'owncloud-client', 'parcellite', 'pavucontrol', 'pgadmin3',
-        'pithos', 'pitivi', 'planner', 'playonlinux', 'poedit',
-        'pysolfc', 'rapid-photo-downloader', 'rednotebook', 'redshift',
-        'remmina', 'retext', 'scribus', 'simplescreenrecorder',
-        'skype', 'software-center', 'spideroakone', 'spotify-client',
-        'steam-launcher', 'stellarium', 'supertuxkart', 'sweethome3d',
-        'synapse', 'synaptic', 'syncthing', 'teeworlds', 'telegram',
-        'terminator', 'tor-browser', 'ubuntu-make', 'ubuntu-sdk',
-        'uget', 'variety', 'veracrypt', 'virt-manager',
-        'virtualbox-5.0', 'warzone2100', 'wesnoth', 'workrave',
-        'x2goclient', 'x2goserver', 'zim']:
+        'minecraft-server-installer', 'mumble', 'mypaint',
+        'mysql-workbench', 'neverball', 'neverputt', 'nexuiz',
+        'opera-stable', 'ssh', 'owncloud-client', 'parcellite',
+        'pavucontrol', 'pgadmin3', 'pithos', 'pitivi', 'planner',
+        'playonlinux', 'poedit', 'pysolfc', 'rapid-photo-downloader',
+        'rednotebook', 'redshift', 'remmina', 'retext', 'scribus',
+        'simplescreenrecorder', 'skype', 'software-center',
+        'spideroakone', 'spotify-client', 'steam-launcher',
+        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
+        'synaptic', 'syncthing', 'teeworlds', 'telegram', 'terminator',
+        'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
+        'veracrypt', 'virt-manager', 'virtualbox-5.0', 'warzone2100',
+        'wesnoth', 'workrave', 'x2goclient', 'x2goserver', 'zim']:
             if package == 'virtualbox-5.0':
                 # Dots (.) in CSS Classes are not allowed.
                 css_class = 'virtualbox-5-0'
