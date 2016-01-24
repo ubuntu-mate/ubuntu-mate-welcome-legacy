@@ -323,6 +323,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', '0ad', action])
         transaction.update_cache = True
         transaction.source_to_update = 'wfg-ubuntu-0ad-'+codename+'.list'
+    elif 'anoise' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'anoise', action])
+        transaction.update_cache = True
+        transaction.source_to_update = 'costales-ubuntu-anoise-'+codename+'.list'
     elif 'appgrid' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'appgrid', action])
         transaction.update_cache = True
@@ -693,7 +697,7 @@ class AppView(WebKit.WebView):
 
         # Change button states for Software.html
         # TODO - Read this from JSON (Dynamic Apps)
-        for package in ['0ad', 'appgrid', 'aptik', 'asunder',
+        for package in ['0ad', 'anoise', 'appgrid', 'aptik', 'asunder',
         'audacity', 'audio-recorder', 'bleachbit', 'blender',
         'boot-repair', 'btsync-gui', 'bzr-explorer', 'caja-dropbox',
         'caja-share', 'calibre', 'chromium-browser', 'chromium-bsu',
