@@ -498,19 +498,35 @@
             <a onclick="toggleSub('printers-section','printers-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="printers-arrow"></span> Printers</h3></a>
             <div id="printers-section" hidden>
               <p>When you set up a printer in the
-                <a href="cmd://printers">
-                  <img src="/usr/share/icons/Humanity/actions/16/document-print.svg" width="20px" height="20px"/>
-                  <b>Printers</b>
-                </a>
-                utility <i>(under System <span class="fa fa-long-arrow-right"></span>
-                Administration)</i>, you will be presented with a
-                list of drivers available to use, if applicable.</p>
+              <a href="cmd://printers">
+              <img src="/usr/share/icons/Humanity/actions/16/document-print.svg" width="20px" height="20px"/>
+              <b>Printers</b></a>
+              utility <i>(under System <span class="fa fa-long-arrow-right"></span>
+              Administration)</i>, you will be presented with a
+              list of drivers available to use, if applicable.</p>
 
-              <p>Some manufacturers however may provide their own
-              drivers and require you to download them from their website.</p>
-
+              <p>Some manufacturers may provide their own drivers and
+              require you to download them from their website.</p>
               <p><a href="cmd://link?https://help.ubuntu.com/community/Printers">
-                <span class="fa fa-globe"></span> Read more on printing</a>.</p>
+              <span class="fa fa-globe"></span> Read more on
+              printing</a>.</p>            
+
+              <hr class="soften"/>
+              <div class="hplip-gui-install">
+                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
+                <b>HP Linux Printing and Imaging System</b> is
+                recommended if you have an HP printer becuase it provides
+                full support for printing on most HP SFP (single function
+                peripheral) inkjets and many LaserJets, and for scanning,
+                sending faxes and for photo-card access on most HP MFP
+                (multi-function peripheral) printers.</p>
+                <p><a class="btn btn-success" href="cmd://apt-install?hplip-gui"><span class="fa fa-download"></span>&nbsp; Install</a></p>
+              </div>
+              <div class="hplip-gui-remove">
+                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
+                <b>HP Linux Printing and Imaging System</b> is installed, which provides full support for a wide variety of HP printers.</p>
+                <p><a class="btn btn-inverse" href="cmd://run?hp-toolbox"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; Open</a></p>
+              </div>
             </div>
 
             <div class="center">
