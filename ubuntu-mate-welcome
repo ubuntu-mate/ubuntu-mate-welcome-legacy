@@ -343,7 +343,7 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'boot-repair', action])
         transaction.update_cache = True
         transaction.source_to_update = 'yannubuntu-ubuntu-boot-repair-'+codename+'.list'
-    elif 'btsync' in packages:
+    elif 'btsync-gui' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
         transaction.update_cache = True
         transaction.source_to_update = 'btsync.list'
