@@ -159,134 +159,152 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       startConfetti();
     }
 
-  //// Ubuntu MATE's Birthday
-    // Become official flavour on 26/Feb/2015
-    var officialDay = 26; // (1-31)
-    var officialMonth = 2; // (1-12)
-    var officialYear = 2015;
-    // Celebrate Distro's Birthday
-    var today = new Date();
-    if ( today.getMonth() == officialMonth ) {
-      if ( today.getDate() == officialDay ) {
-        var age = today.getFullYear() - officialYear;
-        $('.menuMainText').html("The distro become an official flavour " + age + " years ago.");
-        create_canvas();
-      } else {
-        checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
-      }
-    } else {
-      checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
-    }
-
-    // Project started on 21/Jun/2014
-    var birthdayDay = 21; // (1-31)
-    var birthdayMonth = 6; // (1-12)
-    var birthdayYear = 2014;
-    // Celebrate Distro's Birthday
-    var today = new Date();
-    if ( today.getMonth() == birthdayMonth ) {
-      if ( today.getDate() == birthdayDay ) {
-        var age = today.getFullYear() - birthdayYear;
-        $('.menuMainText').html("The project is " + age + " years old today. Happy Birthday!");
-        create_canvas();
-      } else {
-        checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
-      }
-    } else {
-      checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
-    }
-
-
-    // Celebrate New Year
-    var today = new Date();
-    if ( today.getMonth() == 12 && today.getDate() == 31 ) {
-      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
-      create_canvas();
-    }
-    if ( today.getMonth() == 01 && today.getDate() == 01 ) {
-      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
-      create_canvas();
-    }
-
-    // Celebrate Distro's Releases
-    function checkReleaseDay(dd,mm,yyyy,release) {
-      var today = new Date();
-      if ( today.getFullYear() == yyyy ) {
-        if ( today.getMonth() == mm - 1 ) {
-          if ( today.getDate() == dd ) {
-            if ( today.getFullYear() == yyyy ) {
-              $('.menuMainText').html("Today marks the release of Ubuntu MATE "+release+".");
-              create_canvas();
-            } else {
-              checkEventDate(dd,mm,'the release of '+release)
-            }
-          } else {
-              checkEventDate(dd,mm,'the release of '+release)
-          }
-        } else {
-            checkEventDate(dd,mm,'the release of '+release)
-        }
-      }
-    }
-
-    // Determine day of year
-    function dayOfYear(day,month) {
+    // Internally work with days, months and years as a number.
+    function dateAsNumber(day, month, year) {
       // Assumes 'month' parameter is in base 0.
-      var now = new Date();
-      now.setMonth(month);
-      now.setDate(day);
-      var start = new Date(now.getFullYear(), 0, 0);
-      var diff = now - start;
-      var oneDay = 1000 * 60 * 60 * 24;
-      var yearDay = Math.floor(diff / oneDay);
-      return yearDay;
+      // day, month   = Required.
+      // year         = Optional, set to 'null' to use current year.
+      var then = new Date();
+      if ( year != null ) {
+        then.setYear(year);
+      }
+      then.setMonth(month-1);
+      then.setDate(day);
+      var finalNumber = Math.floor( then / (1000 * 60 * 60 * 24) );
+      //~ var dateInYears = current + todayAsNumber;
+      //~ console.log('** finalNumber: '+finalNumber)
+      //~ return dateInYears;
+      return finalNumber;
     }
 
-    // Is an event upcoming or has it already passed?
-    function checkEventDate(day,month,event) {
-      month = month - 1; // JS uses base 0.
-      var now = new Date();
-      today_year_number = parseInt(dayOfYear(now.getDate(),now.getMonth()));
-      event_year_number = parseInt(dayOfYear(day,month));
+    // What is today?
+    var today = new Date();
+    var todayAsNumber = dateAsNumber(today.getDate(), today.getMonth()+1, null)
 
-      // Event was 7 days before now.
-      for (d=1; d<=7; d++) {
-        past_year_number = parseInt(today_year_number-d)
-        if ( past_year_number == event_year_number ) {
-          if ( d == 1 ) {
-            $('.menuMainText').html("It was " + event + " yesterday.");
-          } else {
-            $('.menuMainText').html("It was " + event + " " + d.toString() + " days ago.");
-          }
+    // Check dates for special events.
+    function specialEventCheck(dateNo, title_text, show_confetti, fa_icon) {
+      // dateNo        = dateAsNumber(dd, mm, yyyy) function.
+      // title_text    = Text to display when date matches.
+      // show_confetti = True / False = Celebrate when date matches.
+      // fa_icon       = FontAwesome icon to display. Usually 'bell' or 'calendar'.
+      var do_show_this = false;
+      if ( dateNo == todayAsNumber) {
+        // Today is the day!
+        var do_show_this = true;
+      }
+      if ( do_show_this == true ) {
+        $('.menuMainText').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
+        if ( show_confetti == true ) {
           create_canvas();
         }
       }
-
-      // Event will be 7 days after today.
-      for (d=1; d<=7; d++) {
-        future_year_number = parseInt(today_year_number+d)
-        if ( future_year_number == event_year_number ) {
-          if ( d == 1 ) {
-            $('.menuMainText').html("It's going to be " + event + " tomorrow.");
-          } else {
-            $('.menuMainText').html("It's going to be " + event + " in " + d.toString() + " days time.");
-          }
-          create_canvas();
-        }
-      }
-      // FIXME: Determine between year changes.
     }
 
-  //// Release Dates
-    // TODO / Possible Improvement: Retrieve list from server.
-    // Dates written here are human-readable, in other words, base 1 (1-12).
-    // DD,MM,YYYY
-    checkReleaseDay(04,01,2015,'16.04 Alpha 1');
-    checkReleaseDay(28,01,2016,'16.04 Alpha 2');
-    checkReleaseDay(25,02,2016,'16.04 Beta 1');
-    checkReleaseDay(24,03,2016,'16.04 Beta 2');
-    checkReleaseDay(21,04,2016,'16.04');
+    // Dates to be checking for.
+      // Use 'dd', 'mm' and 'yyyy' variables to re-use code.
+      var dd = 0;  var mm = 0;  var yyyy = 0;
 
+      // Official Flavour Status - 26/Feb/2015
+      var age = today.getFullYear() - 2015;
+      dd = 26; mm = 02; yyyy = null;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE celebrates its official flavour status in 7 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE celebrates its official flavour status in 6 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE celebrates its official flavour status in 5 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE celebrates its official flavour status in 4 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE celebrates its official flavour status in 3 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE celebrates its official flavour status in 2 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE celebrates its official flavour status tomorrow.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE become an official flavour " + age + " years ago today.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE celebrated its official flavour status yesterday.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE celebrated its official flavour status 2 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE celebrated its official flavour status 3 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE celebrated its official flavour status 4 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE celebrated its official flavour status 5 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE celebrated its official flavour status 6 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE celebrated its official flavour status 7 days ago.", false, 'calendar');
+
+      // Project Birthday - 21/Jun/2014
+      var age = today.getFullYear() - 2014;
+      dd = 21; mm = 06; yyyy = null;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "The project will be " + age + " years old a week today!", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "The project will be " + age + " years old in 6 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "The project will be " + age + " years old in 5 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "The project will be " + age + " years old in 4 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "The project will be " + age + " years old in 3 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "The project will be " + age + " years old in 2 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "The project will be " + age + " years old tomorrow. Happy Birthday!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "The project is " + age + " years old today. Happy Birthday!", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "The project turned " + age + " years old yesterday. Happy Birthday!", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "The project turned " + age + " years old 2 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "The project turned " + age + " years old 3 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "The project turned " + age + " years old 4 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "The project turned " + age + " years old 5 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "The project turned " + age + " years old 6 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "The project turned " + age + " years old last week.", false, 'calendar');
+
+      // Holiday Celebrations
+      specialEventCheck(dateAsNumber(31,12,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
+      specialEventCheck(dateAsNumber(01,01,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
+
+      // 16.04 Alpha 1
+      dd = 04; mm = 01; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+
+      // 16.04 Alpha 2
+      dd = 28; mm = 01; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+
+      // 16.04 Beta 1
+      dd = 25; mm = 02; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", true, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+
+      // 16.04 Beta 2
+      dd = 24; mm = 03; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+
+      // 16.04 Final Release
+      dd = 21; mm = 04; yyyy = 2016; var build = '16.04 LTS'
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE " + build + " will be released a week today.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE " + build + " will be released in 6 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE " + build + " will be released in 5 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE " + build + " will be released in 4 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " will be released in 3 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " will be released in 2 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " will be released tomorrow.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " was released yesterday.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " was released 2 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " was released 3 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE " + build + " was released 4 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE " + build + " was released 5 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE " + build + " was released 6 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE " + build + " was released last week.", false, 'calendar');
+
+    // To-do as possible improvement: Retrieve events as a list from server.
 }
 
 
@@ -818,6 +836,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
         break;
     }
   }
+
   function numToShortMonth(m) {
     switch (m) {
       case 0:
