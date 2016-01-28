@@ -72,6 +72,8 @@ if __name__ == "__main__":
     if action == 'install' or action == 'upgrade':
         if repository ==  '0ad':
             enable_ppa('ppa:wfg/0ad')
+        elif repository ==  'anoise':
+            enable_ppa('ppa:costales/anoise')
         elif repository ==  'appgrid':
             enable_partner_repository()
             enable_ppa('ppa:appgrid/stable')
