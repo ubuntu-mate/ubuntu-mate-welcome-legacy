@@ -419,7 +419,7 @@ def process_packages(packages, action):
     elif 'opera-stable' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'opera-stable', action])
         transaction.update_cache = True
-        transaction.source_to_update = 'opera.list'
+        transaction.source_to_update = 'opera-stable.list'
     elif 'owncloud-client' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'owncloud-client', action])
         transaction.update_cache = True
