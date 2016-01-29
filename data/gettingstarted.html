@@ -326,10 +326,9 @@
 
             <div class="alert alert-warning offline">
               <h5>Requires downloading a package.</h5>
-              <p>Please connect to the Internet in order to download
-              and use this utility.</p>
-              <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
-              <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+              <p>Please connect to the Internet to download and use this utility.</p>
+              <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, Welcome was unable to establish a connection.</p></div>
+              <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> Retry</a>
             </div>
 
             <a class="boot-repair-install btn btn-inverse online" href="cmd://apt-install?boot-repair"><span class="fa fa-download"></span>&nbsp; Download Boot Repair</a>
@@ -509,7 +508,7 @@
               require you to download them from their website.</p>
               <p><a href="cmd://link?https://help.ubuntu.com/community/Printers">
               <span class="fa fa-globe"></span> Read more on
-              printing</a>.</p>            
+              printing</a>.</p>
 
               <hr class="soften"/>
               <div class="hplip-gui-install">
