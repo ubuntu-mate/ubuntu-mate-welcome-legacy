@@ -471,6 +471,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     featuredApps.push('virtualbox');
     featuredApps.push('vlc');
     featuredApps.push('libreoffice-base');
+    featuredApps.push('libreoffice-math');
     featuredApps.push('opera');
     featuredApps.push('evolution');
     featuredApps.push('dvd');
@@ -499,6 +500,14 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     featuredApps.push('dia');
     featuredApps.push('gobby');
     featuredApps.push('planner');
+    featuredApps.push('retext');
+    featuredApps.push('flightgear');
+    featuredApps.push('mysql-workbench');
+    featuredApps.push('liferea');
+    featuredApps.push('mypaint');
+    featuredApps.push('recent-notifications');
+    featuredApps.push('anoise');
+    featuredApps.push('hplip');
     //~ featuredApps.push('kodi');
 
     // Add application to the grid.
