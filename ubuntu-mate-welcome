@@ -526,10 +526,7 @@ class WelcomeConfig(object):
         self.os_version = platform.dist()[1]
         self.os_codename = platform.dist()[2]
         self.os_title = 'Ubuntu MATE ' + self.os_version
-        self._arch = os.uname()[4]
-
-        # store we are a live CD session
-        self._live = os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override')
+        self._arch = systemstate.arch
 
         # store full path to our binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
@@ -556,10 +553,6 @@ class WelcomeConfig(object):
         self._autostart = os.path.exists(self._autostart_path)
 
     @property
-    def arch(self):
-        return self._arch
-
-    @property
     def autostart(self):
         return self._autostart
 
@@ -583,9 +576,6 @@ class WelcomeConfig(object):
         # determine autostart state based on absence of the disable file
         self._autostart = os.path.exists(self._autostart_path)
 
-    @property
-    def live(self):
-        return self._live
 
 class AppView(WebKit.WebView):
     def __init__(self):
@@ -609,7 +599,7 @@ class AppView(WebKit.WebView):
         # If this is a Live session (booted from ISO) show the
         # 'Install OS' button, if running on an installed system show
         # the 'Install Software' button.
-        if self._config.live:
+        if systemstate.session_type == 'live':
             self.execute_script("$('#install').show();")
             self.execute_script("$('#software').hide();")
             self.execute_script("$('.live-session').hide();")
@@ -621,13 +611,13 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session-only').hide();")
 
         # Hide applications that are not supported on some architectures.
-        # If neither a i686 or x86_64, we must be running on the Raspberry Pi (armv7) or the PowerPC.
-        if self._config.arch == 'i686':
+        # If running neither i386 or amd64, we must be running on the Raspberry Pi (armv7) or the PowerPC.
+        if systemstate.arch == 'i386':
             self.execute_script("$('.i686-only').show();")
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').show();")
             self.execute_script("$('.rpi-only').hide();")
-        elif self._config.arch == 'x86_64':
+        elif systemstate.arch == 'amd64':
             self.execute_script("$('.i686-only').hide();")
             self.execute_script("$('.x86_64-only').show();")
             self.execute_script("$('.pc-only').show();")
@@ -638,11 +628,11 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.x86_64-only').hide();")
             self.execute_script("$('.pc-only').hide();")
 
-            # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
-            if systemstate.session_type == 'pi':
-                self.execute_script("$('.rpi-only').show();")
-            else:
-                self.execute_script("$('.rpi-only').hide();")
+        # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
+        if systemstate.session_type == 'pi':
+            self.execute_script("$('.rpi-only').show();")
+        else:
+            self.execute_script("$('.rpi-only').hide();")
 
         # Display warnings if the user is not connected to the internet.
         if systemstate.is_online:
@@ -870,7 +860,7 @@ class WelcomeApp(object):
 
         # check for relative path
         if( os.path.exists( os.path.join(self._location, 'data/' ) ) ):
-            print('Using relative path for data source. Non-production testing.')
+            print('[Debug] Using relative path for data source. Non-production testing.')
             self._data_path = os.path.join(self._location, 'data/')
         elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
             print('Using /usr/share/ubuntu-mate-welcome/ path.')
@@ -937,6 +927,10 @@ class SystemState(object):
         self.system_info_cached = False
         self.is_online = False
         self.user_name = getuser()
+
+        # Get current architecture of system.
+        # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
+        self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
         # Determine which type of session we are in.
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
@@ -1148,9 +1142,85 @@ class SystemState(object):
         webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
 
 
+class Arguments(object):
+    # Check arguments for:
+    #   --verbose -v                Be more verbose in output.
+    #   --simulate-arch=<ARCH>      Simulate another architecture ('i386', 'amd64', 'armvf')
+    #   --simulate-session=<TYPE>   Simulate a session ('guest', 'live', 'pi')
+
+    def __init__(self):
+        self.verbose_enabled = False
+        self.simulate_arch = None
+        self.simulate_session = None
+
+        for arg in sys.argv:
+          if arg == '--help':
+              print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
+              print('\nUsage: ubuntu-mate-welcome [arguments]')
+              print('  --verbose                   Show more details.')
+              print('  --simulate-arch=<ARCH>      Simulate a specific architecture.')
+              print('                               = "i386", "amd64" or "armvf"')
+              print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
+              print('                               = "guest", "live" or "pi"')
+              exit()
+
+          if arg == '--verbose':
+              print('[Debug] Verbose mode enabled.')
+              self.verbose_enabled = True
+
+          if arg.startswith('--simulate-arch'):
+              try:
+                  self.simulate_arch = arg.split('--simulate-arch=')[1]
+                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armvf':
+                      print('[Debug] Unrecognised architecture: ' + self.simulate_arch)
+                      exit()
+                  else:
+                      print('[Debug] Simulating architecture: ' + self.simulate_arch)
+              except:
+                  print('[Debug] Invalid arguments for "--simulate-arch"')
+                  exit()
+
+
+          if arg.startswith('--simulate-session'):
+              try:
+                  self.simulate_session = arg.split('--simulate-session=')[1]
+                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi':
+                      print('[Debug] Unrecognised session type: ' + self.simulate_session)
+                      exit()
+                  else:
+                      print('[Debug] Simulating session: ' + self.simulate_session)
+              except:
+                  print('[Debug] Invalid arguments for "--simulate-session"')
+                  exit()
+
+
+    def print_verbose(self, text):
+        if self.verbose_enabled:
+            print('[Debug] '+text)
+
+    def override_arch(self):
+        if not self.simulate_arch == None:
+            systemstate.arch = self.simulate_arch
+
+    def override_session(self):
+        if not self.simulate_session == None:
+            systemstate.session_type = self.simulate_session
+
+
 if __name__ == "__main__":
+    # Process any parameters.
+    arg = Arguments()
+
+    # Application Initialization
     set_proc_title()
-    app = WelcomeApp()
     systemstate = SystemState()
+    dynamicapps = DynamicApps()
+
+    # Argument Overrides
+    arg.override_arch()
+    arg.override_session()
+
+    # Run the program
+    app = WelcomeApp()
     print('[Welcome] Application Started.')
     app.run()
