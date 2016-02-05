@@ -1373,7 +1373,7 @@ class Arguments(object):
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               print('  --verbose                   Show more details.')
               print('  --simulate-arch=<ARCH>      Simulate a specific architecture.')
-              print('                               = "i386", "amd64" or "armhf"')
+              print('                               = "i386", "amd64" or "armhf" or "powerpc"')
               print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
               print('                               = "guest", "live" or "pi"')
               exit()
@@ -1385,7 +1385,7 @@ class Arguments(object):
           if arg.startswith('--simulate-arch'):
               try:
                   self.simulate_arch = arg.split('--simulate-arch=')[1]
-                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf':
+                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf' and not self.simulate_arch == 'powerpc':
                       print('[Debug] Unrecognised architecture: ' + self.simulate_arch)
                       exit()
                   else:
