@@ -681,65 +681,14 @@ class AppView(WebKit.WebView):
             if systemstate.system_info_cached:
                 systemstate.append_system_info(self)
 
+            # Update any applications featured on these pages.
+            dynamicapps.update_app_statuses(self)
+
         ### Software Page ###
-        if self.current_page == 'software.html' or self.current_page == 'gettingstarted.html':
-            self.execute_script('var system_arch = "' + self._config.arch + '"' )
-
-        # Change button states for Software.html
-        # TODO - Read this from JSON (Dynamic Apps)
-        for package in ['0ad', 'anoise', 'appgrid', 'aptik', 'asunder',
-        'audacity', 'audio-recorder', 'bleachbit', 'blender',
-        'boot-repair', 'btsync-gui', 'bzr-explorer', 'caja-dropbox',
-        'caja-share', 'calibre', 'chromium-browser', 'chromium-bsu',
-        'darktable', 'dia-gnome', 'dvdstyler', 'easytag',
-        'emby-server', 'enpass', 'extremetuxracer', 'eviacam',
-        'evolution', 'filezilla', 'firefox', 'flashplugin-installer',
-        'flightgear', 'focuswriter', 'frozen-bubble', 'gcompris',
-        'geany', 'gimp', 'git-cola', 'glade', 'glabels',
-        'gnome-schedule', 'gnote', 'gnucash', 'gobby',
-        'google-chrome-stable', 'google-earth-stable',
-        'google-musicmanager-beta', 'google-talkplugin', 'gparted',
-        'gramps', 'handbrake', 'hardinfo', 'hedgewars', 'hplip-gui',
-        'icedtea-7-plugin', 'indicator-kdeconnect',
-        'indicator-notifications-gtk2', 'inkscape', 'insync',
-        'libavcodec-extra', 'libdvdcss2', 'libreoffice-core',
-        'libreoffice-base', 'libreoffice-draw', 'libreoffice-math',
-        'liferea', 'makemkv-bin', 'meld', 'minecraft-installer',
-        'minecraft-server-installer', 'mumble', 'mypaint',
-        'mysql-workbench', 'neverball', 'neverputt', 'nexuiz',
-        'opera-stable', 'ssh', 'owncloud-client', 'parcellite',
-        'pavucontrol', 'pgadmin3', 'pithos', 'pitivi', 'planner',
-        'playonlinux', 'poedit', 'pysolfc', 'rapid-photo-downloader',
-        'rednotebook', 'redshift', 'remmina', 'retext', 'scribus',
-        'simplescreenrecorder', 'skype', 'software-center',
-        'spideroakone', 'spotify-client', 'steam-launcher',
-        'stellarium', 'supertuxkart', 'sweethome3d', 'synapse',
-        'synaptic', 'syncthing', 'teeworlds', 'telegram', 'terminator',
-        'tor-browser', 'ubuntu-make', 'ubuntu-sdk', 'uget', 'variety',
-        'veracrypt', 'virt-manager', 'virtualbox-5.0', 'warzone2100',
-        'wesnoth', 'workrave', 'x2goclient', 'x2goserver', 'zim']:
-            if package == 'virtualbox-5.0':
-                # Dots (.) in CSS Classes are not allowed.
-                css_class = 'virtualbox-5-0'
-            else:
-                css_class = package
-
-            try:
-                if self._apt_cache[package].is_installed:
-                    self.execute_script("$('."+css_class+"-install').hide();")
-                    self.execute_script("$('."+css_class+"-reinstall').show();")
-                    self.execute_script("$('."+css_class+"-remove').show();")
-                    self.execute_script("$('."+css_class+"-upgrade').show();")
-                else:
-                    self.execute_script("$('."+css_class+"-install').show();")
-                    self.execute_script("$('."+css_class+"-reinstall').hide();")
-                    self.execute_script("$('."+css_class+"-remove').hide();")
-                    self.execute_script("$('."+css_class+"-upgrade').hide();")
-            except:
-                self.execute_script("$('."+css_class+"-install').show();")
-                self.execute_script("$('."+css_class+"-reinstall').hide();")
-                self.execute_script("$('."+css_class+"-remove').hide();")
-                self.execute_script("$('."+css_class+"-upgrade').hide();")
+        if self.current_page == 'software.html':
+            # Dynamically load application lists.
+            dynamicapps.populate_categories(self)
+            dynamicapps.update_app_statuses(self)
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -778,16 +727,19 @@ class AppView(WebKit.WebView):
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+            dynamicapps.update_app_statuses(self);
         elif uri.startswith('apt-remove?'):
             process_packages(uri[11:], 'remove')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+            dynamicapps.update_app_statuses(self);
         elif uri.startswith('apt-upgrade?'):
             process_packages(uri[12:], 'upgrade')
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+            dynamicapps.update_app_statuses(self);
         elif uri == 'apt-update':
             update_repos()
             self._apt_cache.close()
@@ -850,6 +802,9 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.online').hide();")
         elif uri == 'get-spec-ram':
             systemstate.append_system_info(self, True)
+        elif uri.startswith('launchid?'):
+            appid = uri[9:]
+            dynamicapps.launch_app(appid)
         else:
             print('Unknown command: %s' % uri)
 
@@ -974,7 +929,6 @@ class SystemState(object):
             self.is_online = True
 
     def detect_graphics(self):
-
         # If we're the Raspberry Pi 2, there is nothing to output.
         if self.session_type == 'pi':
             self.graphics_grep = 'Raspberry Pi 2'
@@ -1141,11 +1095,267 @@ class SystemState(object):
         webkit.execute_script('$("#spec-ram").append("<b>Total:</b> ' + str(round(int(self.specs_raw_memory)/1024/1024,1)) + ' GiB (' + str(round(int(self.specs_raw_memory)/1024)) + ' MiB)")')
         webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
 
+class DynamicApps(object):
+    def __init__(self):
+        # Load JSON Index into Memory
+        self.reload_index()
+
+        # All categories in JSON and application.
+        self.allcategories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
+
+    ###### JSON Index Structure
+    #
+    # {
+    #   "Category Name" {
+    #       "myapp" {                                          - Unique simple identifier, apps are sorted A-Z by this. Hyphens preferred.
+    #           "name": "Template",                            - Name of application.
+    #           "img": "template",                             - Image name, excluding ".png" at end.
+    #           "main-package": "template",                    - Package named used to detect if installed.
+    #           "launch-command": "template",                  - Command to launch the installed program. If N/A, use null.
+    #           "install-packages": "template-1,template-2",   - Packages used to install/reinstall the application. Comma separated.
+    #           "remove-packages": "template-1,template-2",    - Packages used to be removed for this application. Comma separated.
+    #           "description": [
+    #             "Template text. Line 1.",                    - Multi-line description, use usual HTML tags for formatting.
+    #             "This is still the same line."
+    #           ],
+    #           "alternate-to": "This Other App",              - If the app is similar or has an alternate. If N/A, use null.
+    #           "subcategory": "Partitioning Tools",           - Sub-category of what this app is. Eg. "Partitioning", "Audio Production".
+    #           "open-source": true,                           - true/false indicating open source or proprietary.
+    #           "url-info": "http://example.com",              - URL to the web page for more information.
+    #           "url-android": null,                           - URL if there is an associated Android app. If N/A, use null.
+    #           "url-ios": null,                               - URL if there is an associated iOS app. If N/A, use null.
+    #           "arch": "i386,amd64,armhf",                    - Supported architectures for this app.
+    #           "working": true                                - true/false indicating whether this app works and can be listed.
+
+    #           "upgradable": true,                            - (Upgrade only) Set to true if this app is to be upgraded.
+    #           "upgrade-packages": "libreoffice"              - (Upgrade only) Packages to be upgraded.
+    #           }
+    #       }
+    #   }
+    # }
+    #     ## Important:  Use &#8217; instead of ' for an apostrophe character!
+    #
+
+    def reload_index(self):
+        try:
+            print('[Apps] Reading index...')
+            json_path = os.path.abspath(os.path.join(app._data_path, 'js/applications.json'))
+            with open(json_path) as data_file:
+                self.index = json.load(data_file)
+                print('[Apps] Successfully loaded index.')
+        except Exception as e:
+            self.index = None
+            print("[Apps] ERROR: Software Index JSON is invalid or missing!")
+            print("------------------------------------------------------------")
+            print("Exception:")
+            print(str(e))
+            print("------------------------------------------------------------")
+
+    def populate_categories(self, webkit):
+        ''' List all of the applications supported on the current architecture. '''
+        total_added = 0
+        total_skipped = 0
+        total_unsupported = 0
+
+        # Don't attempt to continue if the index is missing/incorrectly parsed.
+        if not self.index:
+            print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
+            return
+
+        # Get the app data from each category and list them.
+        for category in self.allcategories:
+            arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
+
+            # Convert to a list to work with. Sort alphabetically.
+            category_items = list(self.index[category].keys())
+            category_items.sort()
+
+            # Keep a count of apps in case there are none to list.
+            apps_here = 0
+
+            # Enumerate each program in this category.
+            for program_id in category_items:
+                app_name = self.index[category][program_id]['name']
+                app_img = self.index[category][program_id]['img']
+                app_main_package = self.index[category][program_id]['main-package']
+                try:
+                    app_upgradable = self.index[category][program_id]['upgradable']
+                except:
+                    app_upgradable = False
+
+                if app_upgradable == True:
+                    arg.print_verbose('Apps', 'Upgrade: ' + app_name)
+                    app_upgrade_packages = self.index[category][program_id]['upgrade-packages']
+                else:
+                    app_install_packages = self.index[category][program_id]['install-packages']
+                    app_remove_packages = self.index[category][program_id]['remove-packages']
+                    app_launch_command = self.index[category][program_id]['launch-command']
+
+                app_description = ''
+                for line in self.index[category][program_id]['description']:
+                    app_description = app_description + ' ' + line
+
+                app_alternate_to = self.index[category][program_id]['alternate-to']
+                app_subcategory = self.index[category][program_id]['subcategory']
+                app_freedom = self.index[category][program_id]['open-source']
+                app_url_info = self.index[category][program_id]['url-info']
+                app_url_android = self.index[category][program_id]['url-android']
+                app_url_ios = self.index[category][program_id]['url-ios']
+                app_arch = self.index[category][program_id]['arch']
+                app_listed = self.index[category][program_id]['working']
+
+                # Only list the program if it's working.
+                if not app_listed:
+                    arg.print_verbose('Apps', ' Unlisted: ' + app_name)
+                    total_skipped = total_skipped + 1
+                    continue
+
+                # Only list the program if it supports our architecture:
+                # i386, x86_64, armhf
+                app_supported = False
+                for architecture in app_arch.split(','):
+                    if architecture == systemstate.arch:
+                        app_supported = True
+
+                if not app_supported:
+                    arg.print_verbose('Apps', ' Unsupported: ' + app_name + ' (Only: ' + app_arch + ')' )
+                    total_unsupported = total_unsupported + 1
+                    continue
+
+                # If the app has made it this far, it can be added to the grid.
+                arg.print_verbose('Apps', ' Added: ' + app_name)
+                html_buffer = ''
+                css_class = app_main_package.replace('.','-')
+
+                # "Normal" packages that can be installed/removed by the user.
+                if app_freedom:
+                    html_buffer = html_buffer + '<div id="' + program_id + '">'
+                else:
+                    html_buffer = html_buffer + '<div id="' + program_id + '" class="proprietary">'
+                html_buffer = html_buffer + '<div class="row-fluid">'
+                html_buffer = html_buffer + '<div class="span2 center-inside">'
+                html_buffer = html_buffer + '<img src="img/applications/' + app_img + '.png">'
+                html_buffer = html_buffer + '</div><div class="span10">'
+                html_buffer = html_buffer + '<p><b>' + app_name + '</b></p>'
+                html_buffer = html_buffer + '<p>' + app_description + '</p>'
+
+                if not app_alternate_to == None:
+                    html_buffer = html_buffer + '<ul><li><b>Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
+                html_buffer = html_buffer + '<p class="text-right">'
+                if not app_url_info == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
+                if not app_url_android == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_android + '"><span class="fa fa-android"></span></a>&nbsp;'
+                if not app_url_ios == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_ios + '"><span class="fa fa-apple"></span></a>&nbsp;'
+
+                # "Regular" packages - can be installed or removed with one-click by the user.
+                if not app_upgradable:
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://apt-install?' + app_install_packages + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://apt-install?' + app_install_packages + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://apt-remove?' + app_remove_packages + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
+
+                # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
+                if app_upgradable:
+                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://apt-upgrade?' + app_upgrade_packages + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+
+                if not app_launch_command == None:
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launchid?' + program_id + '"><img src="img/applications/' + app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
+
+                html_buffer = html_buffer + '</p><hr class="soften">'
+                html_buffer = html_buffer + '</div></div></div>'
+
+                webkit.execute_script('$("#' + category + '").append(\'' + html_buffer + '\')')
+
+                # Keep track of how many apps added.
+                apps_here = apps_here + 1
+                total_added = total_added + 1
+
+            # Display a message if there is nothing for this category.
+            if apps_here == 0:
+                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; Sorry, Welcome could not feature any software for this category that is compatible on this system.</p>")')
+
+        # "Stats for nerds"
+        total_apps = total_added + total_skipped + total_unsupported
+        arg.print_verbose('Apps','------------------')
+        arg.print_verbose('Apps','Applications added: ' + str(total_added))
+        arg.print_verbose('Apps','Applications unsupported on this architecture: ' + str(total_unsupported))
+        arg.print_verbose('Apps','Applications that are broken or not suitable for inclusion: ' + str(total_skipped))
+        arg.print_verbose('Apps','Total number of applications: ' + str(total_apps))
+        arg.print_verbose('Apps','------------------')
+
+
+    def update_app_statuses(self, webkit):
+        ''' Update the webpage based on whether the application is installed or not. '''
+        self._apt_cache = apt.Cache()
+
+        # Don't attempt to continue if the index is missing/incorrectly parsed.
+        if not self.index:
+            print('[Apps] ERROR: Application index not loaded. Cannot update page.')
+            return
+
+        # Get the app data from each category and list them.
+        arg.print_verbose('Apps', '---- Checking cache for installed applications ----')
+        for category in self.allcategories:
+
+            # Convert to a list to work with.
+            category_items = list(self.index[category].keys())
+
+            # Enumerate each program and check if installed.
+            for program_id in category_items:
+                app_package = self.index[category][program_id]['main-package']
+                try:
+                    if self._apt_cache[app_package].is_installed:
+                        this_installed = True
+                        arg.print_verbose('Apps', '   Installed: ' + app_package)
+                    else:
+                        this_installed = False
+                        arg.print_verbose('Apps', ' Not present: ' + app_package)
+                except:
+                    this_installed = False
+                    arg.print_verbose('Apps', ' Not present: ' + app_package)
+
+                # Replace any dots with dashes, as they are unsupported in CSS.
+                css_class = app_package.replace('.','-')
+
+                # Update appearance on this page.
+                if this_installed:
+                    webkit.execute_script("$('." + css_class + "-launch').show();")
+                    webkit.execute_script("$('." + css_class + "-install').hide();")
+                    webkit.execute_script("$('." + css_class + "-reinstall').show();")
+                    webkit.execute_script("$('." + css_class + "-remove').show();")
+                    webkit.execute_script("$('." + css_class + "-upgrade').show();")
+                else:
+                    webkit.execute_script("$('." + css_class + "-launch').hide();")
+                    webkit.execute_script("$('." + css_class + "-install').show();")
+                    webkit.execute_script("$('." + css_class + "-reinstall').hide();")
+                    webkit.execute_script("$('." + css_class + "-remove').hide();")
+                    webkit.execute_script("$('." + css_class + "-upgrade').hide();")
+        arg.print_verbose('Apps', '----------------------------------------')
+
+    def get_attribute_for_app(self, appid, attribute):
+        ''' Retrieves a specific attribute from a listed application, regardless of category. '''
+        for category in self.allcategories:
+            category_items = list(self.index[category].keys())
+            for program_id in category_items:
+                if program_id == appid:
+                    return self.index[category][program_id][attribute]
+
+    def launch_app(self, appid):
+        ''' Launch an application directly from Welcome '''
+        program_name = self.get_attribute_for_app(appid, 'name')
+        program_command = self.get_attribute_for_app(appid, 'launch-command')
+        print('[Apps] Launched "' + program_name + '" (Command: "' + program_command + '").')
+        try:
+            subprocess.Popen(program_command.split(' '))
+        except:
+            print('[Apps] Failed to launch command: ' + program_command)
+
 
 class Arguments(object):
     # Check arguments for:
     #   --verbose -v                Be more verbose in output.
-    #   --simulate-arch=<ARCH>      Simulate another architecture ('i386', 'amd64', 'armvf')
+    #   --simulate-arch=<ARCH>      Simulate another architecture ('i386', 'amd64', 'armhf')
     #   --simulate-session=<TYPE>   Simulate a session ('guest', 'live', 'pi')
 
     def __init__(self):
@@ -1159,7 +1369,7 @@ class Arguments(object):
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               print('  --verbose                   Show more details.')
               print('  --simulate-arch=<ARCH>      Simulate a specific architecture.')
-              print('                               = "i386", "amd64" or "armvf"')
+              print('                               = "i386", "amd64" or "armhf"')
               print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
               print('                               = "guest", "live" or "pi"')
               exit()
@@ -1171,7 +1381,7 @@ class Arguments(object):
           if arg.startswith('--simulate-arch'):
               try:
                   self.simulate_arch = arg.split('--simulate-arch=')[1]
-                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armvf':
+                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf':
                       print('[Debug] Unrecognised architecture: ' + self.simulate_arch)
                       exit()
                   else:
@@ -1194,9 +1404,9 @@ class Arguments(object):
                   exit()
 
 
-    def print_verbose(self, text):
+    def print_verbose(self, feature, text):
         if self.verbose_enabled:
-            print('[Debug] '+text)
+            print('[' + feature + '] ' + text)
 
     def override_arch(self):
         if not self.simulate_arch == None:
@@ -1214,13 +1424,12 @@ if __name__ == "__main__":
     # Application Initialization
     set_proc_title()
     systemstate = SystemState()
+    app = WelcomeApp()
     dynamicapps = DynamicApps()
 
     # Argument Overrides
     arg.override_arch()
     arg.override_session()
 
-    # Run the program
-    app = WelcomeApp()
     print('[Welcome] Application Started.')
     app.run()

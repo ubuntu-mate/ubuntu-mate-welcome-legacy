@@ -321,12 +321,11 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     var currentCategory;
     var hideNonFree = false;
     var system_info = '';
-    var system_arch = 'unknown';
 
     // Show the first category.
     currentCategory = '#Intro';
     $(currentCategory).jAnimateOnce('zoomInLeft');
-    $(currentCategory).removeClass('hideSection');
+    $(currentCategory).show();
 
     // Switch to another category.
     function switchCategory(now, next, subtitle) {
@@ -344,35 +343,11 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         // Animate out, then animate in next category.
         $(now).fadeOut('fast');
         setTimeout(function() {
-          $(now).addClass('hideSection');
+          $(now).hide();
           currentCategory = next;
-          $(next).removeClass('hideSection');
           $(next).show();
           $(next).jAnimateOnce('fadeInDown');
         }, 250);
-
-        // FIXME: Logic flawed! Some apps will appear on architectures
-        // but because they have a 'proprietary' class, they will for now.
-
-        // Force hide apps unsupported on this platform.
-        if ( system_arch == 'i686' ) {
-            $('.i686-only').show();
-            $('.x86_64-only').hide();
-            $('.pc-only').show();
-            $('.rpi-only').hide();
-        } else if ( system_arch == 'x86_64' ) {
-            $('.i686-only').hide();
-            $('.x86_64-only').show();
-            $('.pc-only').show();
-            $('.rpi-only').hide();
-        } else {
-            // FIXME: Dirty guess until better implementation (dynamic apps)
-            // but assume if not a PC, then it's a Raspberry Pi.
-            $('.i686-only').hide();
-            $('.x86_64-only').hide();
-            $('.pc-only').hide();
-        }
-
 
         // Force hide 'non-free' if checked previously.
         if ( hideNonFree == true ) {
@@ -402,6 +377,22 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
       $('#categoryHover').fadeOut()
     }
 
+    function jumpOneClickServers(appno) {
+      changeCategoryTab('#Servers','Servers');
+      $('#ServersBtn').tab('show');
+      $('html, body').animate({ scrollTop: 0 }, 100)
+
+      // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
+      if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
+      if ( appno == 2 ) {  targetDiv = 'x2go-server';  }
+
+      setTimeout(function(){
+          $('html, body').animate({
+              scrollTop: $('#'+targetDiv).offset().top - 10
+          }, 1000);
+      }, 1000);
+    }
+
     // Show the popover on hover
     $('[rel=freedominfo]').popover({
         html : true,
@@ -418,14 +409,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $("#nonFreeCheckBox").addClass("fa-square");
           $("#nonFreeCheckBox").removeClass("fa-check-square");
           $('.proprietary').fadeIn();
-          $('.alternate').fadeOut();
       } else {
           // Toggle it ON - Hide non-free software.
           hideNonFree = true;
           $("#nonFreeCheckBox").removeClass("fa-square");
           $("#nonFreeCheckBox").addClass("fa-check-square");
           $('.proprietary').fadeOut();
-          $('.alternate').fadeIn();
       }
     });
 
