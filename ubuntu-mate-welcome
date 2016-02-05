@@ -900,6 +900,12 @@ class SystemState(object):
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
+
+        if arg.simulate_no_connection:
+            print('[Network Test] Simulation argument override. Retrying will reset this.')
+            arg.simulate_no_connection = False
+            return
+
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
@@ -1366,6 +1372,7 @@ class Arguments(object):
         self.verbose_enabled = False
         self.simulate_arch = None
         self.simulate_session = None
+        self.simulate_no_connection = False
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1373,9 +1380,11 @@ class Arguments(object):
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               print('  --verbose                   Show more details.')
               print('  --simulate-arch=<ARCH>      Simulate a specific architecture.')
-              print('                               = "i386", "amd64" or "armhf" or "powerpc"')
+              print('                                 "i386", "amd64" or "armhf" or "powerpc"')
               print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
-              print('                               = "guest", "live" or "pi"')
+              print('                                 "guest", "live" or "pi"')
+              print('  --simulate-no-net           Simulate no internet connection.')
+              print('')
               exit()
 
           if arg == '--verbose':
@@ -1406,6 +1415,10 @@ class Arguments(object):
               except:
                   print('[Debug] Invalid arguments for "--simulate-session"')
                   exit()
+
+          if arg.startswith('--simulate-no-net'):
+              print('[Debug] Simulating the application without an internet connection.')
+              self.simulate_no_connection = True
 
 
     def print_verbose(self, feature, text):
