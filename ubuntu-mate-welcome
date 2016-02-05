@@ -1304,16 +1304,19 @@ class DynamicApps(object):
             # Enumerate each program and check if installed.
             for program_id in category_items:
                 app_package = self.index[category][program_id]['main-package']
-                try:
-                    if self._apt_cache[app_package].is_installed:
-                        this_installed = True
-                        arg.print_verbose('Apps', '   Installed: ' + app_package)
-                    else:
+                if systemstate.arch in self.index[category][program_id]['arch']:
+                    try:
+                        if self._apt_cache[app_package].is_installed:
+                            this_installed = True
+                            arg.print_verbose('Apps', '   Installed: ' + app_package)
+                        else:
+                            this_installed = False
+                            arg.print_verbose('Apps', ' Not present: ' + app_package)
+                    except:
                         this_installed = False
                         arg.print_verbose('Apps', ' Not present: ' + app_package)
-                except:
-                    this_installed = False
-                    arg.print_verbose('Apps', ' Not present: ' + app_package)
+                else:
+                    continue
 
                 # Replace any dots with dashes, as they are unsupported in CSS.
                 css_class = app_package.replace('.','-')
