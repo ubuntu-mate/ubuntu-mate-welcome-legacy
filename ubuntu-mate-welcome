@@ -36,6 +36,7 @@ import json
 import logging
 import os
 import platform
+import random
 import signal
 import socket
 import subprocess
@@ -671,6 +672,7 @@ class AppView(WebKit.WebView):
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_app_statuses(self)
+            dynamicapps.populate_featured_apps(self)
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -1264,6 +1266,23 @@ class DynamicApps(object):
         arg.print_verbose('Apps','Applications unsupported on this architecture: ' + str(total_unsupported))
         arg.print_verbose('Apps','Applications that are broken or not suitable for inclusion: ' + str(total_skipped))
         arg.print_verbose('Apps','Total number of applications: ' + str(total_apps))
+        arg.print_verbose('Apps','------------------')
+
+    def populate_featured_apps(self, webkit):
+        arg.print_verbose('Apps', '---- Populating Featured Apps Grid ----')
+        # Randomly generate a list of apps to feature if supported on this architecture.
+        possible_apps = []
+        for category in self.allcategories:
+            category_items = list(self.index[category].keys())
+            for program_id in category_items:
+                if systemstate.arch in self.index[category][program_id]['arch']:
+                    possible_apps.append(self.index[category][program_id]['img'])
+
+        random.shuffle(possible_apps)
+        for no in range(0,17):
+            arg.print_verbose('Apps', str(no) + '. ' + possible_apps[no])
+            webkit.execute_script("addToGrid('" + possible_apps[no] + "');")
+        webkit.execute_script("initGrid();")
         arg.print_verbose('Apps','------------------')
 
 

@@ -418,149 +418,58 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
       }
     });
 
-    // Icon filenames of apps to feature at random.
-
-    // A variety of apps that all kinds of users can identify:
-    // gamers, media enthusiasts, programmers and the average users.
-
-    // TODO: There's probably a better way to do this. (Dynamic apps?)
-    var featuredApps = new Array();
-    featuredApps.push('audacity');
-    featuredApps.push('bleachbit');
-    featuredApps.push('blender');
-    featuredApps.push('control-centre');
-    featuredApps.push('darktable');
-    featuredApps.push('dropbox');
-    featuredApps.push('geany');
-    featuredApps.push('gimp');
-    featuredApps.push('google-chrome');
-    featuredApps.push('google-musicmanager');
-    featuredApps.push('gpick');
-    featuredApps.push('handbrake');
-    featuredApps.push('inkscape');
-    featuredApps.push('insync');
-    featuredApps.push('minecraft');
-    featuredApps.push('mumble');
-    featuredApps.push('pavucontrol');
-    featuredApps.push('pitivi');
-    featuredApps.push('remmina');
-    featuredApps.push('rhythmbox');
-    featuredApps.push('shotwell');
-    featuredApps.push('simplescreenrecorder');
-    featuredApps.push('skype');
-    featuredApps.push('spotify');
-    featuredApps.push('steam');
-    featuredApps.push('synaptic');
-    featuredApps.push('syncthing');
-    featuredApps.push('telegram');
-    featuredApps.push('thunderbird');
-    featuredApps.push('ubuntu-software-center');
-    featuredApps.push('uget');
-    featuredApps.push('veracrypt');
-    featuredApps.push('virtualbox');
-    featuredApps.push('vlc');
-    featuredApps.push('libreoffice-base');
-    featuredApps.push('libreoffice-math');
-    featuredApps.push('opera');
-    featuredApps.push('evolution');
-    featuredApps.push('dvd');
-    featuredApps.push('playonlinux');
-    featuredApps.push('virt-manager');
-    featuredApps.push('gparted');
-    featuredApps.push('emby');
-    featuredApps.push('aptik');
-    featuredApps.push('easytag');
-    featuredApps.push('owncloud');
-    featuredApps.push('rednotebook');
-    featuredApps.push('enpass');
-    featuredApps.push('glade');
-    featuredApps.push('btsync');
-    featuredApps.push('audio-recorder');
-    featuredApps.push('poedit');
-    featuredApps.push('minecraft');
-    featuredApps.push('caja-share');
-    featuredApps.push('git-cola');
-    featuredApps.push('gnucash');
-    featuredApps.push('kdeconnect');
-    featuredApps.push('sweethome3d');
-    featuredApps.push('gnote');
-    featuredApps.push('bzr');
-    featuredApps.push('stellarium');
-    featuredApps.push('dia');
-    featuredApps.push('gobby');
-    featuredApps.push('planner');
-    featuredApps.push('retext');
-    featuredApps.push('flightgear');
-    featuredApps.push('mysql-workbench');
-    featuredApps.push('liferea');
-    featuredApps.push('mypaint');
-    featuredApps.push('recent-notifications');
-    featuredApps.push('anoise');
-    featuredApps.push('hplip');
-    //~ featuredApps.push('kodi');
-
-    // Add application to the grid.
+    // Featured Grid - Randomly populate and add applications to the grid.
     var iconID = 0;
     function addToGrid(icon) {
       iconID++;
       $('#featuredGrid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="gridHidden" />');
     }
 
-    // Randomly populate apps into the grid.
-    var random;
-    var a = 0;
-    while (a < 16) {
-      random = Math.floor(Math.random() * featuredApps.length);
-      if (featuredApps[random] != "OK" ) {
-          addToGrid(featuredApps[random]);
-          featuredApps[random] = "OK";
-          a++;
-      }
+    // Featured Grid - Set classes to create a semi-circle fade effect.
+    function initGrid() {
+        $('#appIcon1').addClass('gridOuter');
+        $('#appIcon2').addClass('gridOuter');
+        $('#appIcon3').addClass('gridOuter');
+        $('#appIcon4').addClass('gridOuter');
+        $('#appIcon5').addClass('gridOuter');
+        $('#appIcon8').addClass('gridOuter');
+        $('#appIcon9').addClass('gridOuter');
+        $('#appIcon12').addClass('gridOuter');
+        $('#appIcon13').addClass('gridOuter');
+        $('#appIcon14').addClass('gridOuter');
+        $('#appIcon15').addClass('gridOuter');
+        $('#appIcon16').addClass('gridOuter');
+
+        $('#appIcon6').addClass('gridInner');
+        $('#appIcon7').addClass('gridInner');
+        $('#appIcon10').addClass('gridInner');
+        $('#appIcon11').addClass('gridInner');
+
+        // Gently fade the icons into view.
+        setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
+
+        setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
+
+        setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
+
+        setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
+
+        setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
+
+        setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
+        setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
+
+        setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
     }
-
-    // Set classes to create a semi-circle fade effect.
-    $('#appIcon1').addClass('gridOuter');
-    $('#appIcon2').addClass('gridOuter');
-    $('#appIcon3').addClass('gridOuter');
-    $('#appIcon4').addClass('gridOuter');
-    $('#appIcon5').addClass('gridOuter');
-    $('#appIcon8').addClass('gridOuter');
-    $('#appIcon9').addClass('gridOuter');
-    $('#appIcon12').addClass('gridOuter');
-    $('#appIcon13').addClass('gridOuter');
-    $('#appIcon14').addClass('gridOuter');
-    $('#appIcon15').addClass('gridOuter');
-    $('#appIcon16').addClass('gridOuter');
-
-    $('#appIcon6').addClass('gridInner');
-    $('#appIcon7').addClass('gridInner');
-    $('#appIcon10').addClass('gridInner');
-    $('#appIcon11').addClass('gridInner');
-
-    // Gently fade the icons into view.
-    setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
-
-    setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
-    setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
-    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
-
-    setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
-    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
-    setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
-
-    setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
-
-    setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
-    setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
-    setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
-
-    setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
-    setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
-
-    setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
 
     // Misc Tab - Show commands if user wishes to know them.
     var showMiscCommands = false;
