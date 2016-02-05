@@ -610,24 +610,6 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session').show();")
             self.execute_script("$('.live-session-only').hide();")
 
-        # Hide applications that are not supported on some architectures.
-        # If running neither i386 or amd64, we must be running on the Raspberry Pi (armv7) or the PowerPC.
-        if systemstate.arch == 'i386':
-            self.execute_script("$('.i686-only').show();")
-            self.execute_script("$('.x86_64-only').hide();")
-            self.execute_script("$('.pc-only').show();")
-            self.execute_script("$('.rpi-only').hide();")
-        elif systemstate.arch == 'amd64':
-            self.execute_script("$('.i686-only').hide();")
-            self.execute_script("$('.x86_64-only').show();")
-            self.execute_script("$('.pc-only').show();")
-            self.execute_script("$('.rpi-only').hide();")
-        else:
-            # Not a PC, so could be PowerPC or ARM.
-            self.execute_script("$('.i686-only').hide();")
-            self.execute_script("$('.x86_64-only').hide();")
-            self.execute_script("$('.pc-only').hide();")
-
         # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
         if systemstate.session_type == 'pi':
             self.execute_script("$('.rpi-only').show();")
