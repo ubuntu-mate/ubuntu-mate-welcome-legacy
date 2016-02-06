@@ -930,7 +930,7 @@ class SystemState(object):
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            print("[Network Test] -- Socket timed out to URL {0}", format(url))
+            print("[Network Test] -- Socket timed out to URL {0}".format(url))
             self.is_online = False
         except:
             print("[Network Test] -- Could not establish a connection to '{0}'. ".format(url))
@@ -1240,18 +1240,19 @@ class DynamicApps(object):
 
                 # "Normal" packages that can be installed/removed by the user.
                 if app_freedom:
-                    html_buffer = html_buffer + '<div id="' + program_id + '">'
+                    html_buffer = html_buffer + '<div id="' + program_id + '" class="">'
                 else:
                     html_buffer = html_buffer + '<div id="' + program_id + '" class="proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
                 html_buffer = html_buffer + '<img src="img/applications/' + app_img + '.png">'
+                html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
                 html_buffer = html_buffer + '</div><div class="span10">'
-                html_buffer = html_buffer + '<p><b>' + app_name + '</b></p>'
-                html_buffer = html_buffer + '<p>' + app_description + '</p>'
+                html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + app_name + '</b></p>'
+                html_buffer = html_buffer + '<p class="' + css_class + '-text">' + app_description + '</p>'
 
                 if not app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li><b>Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
+                    html_buffer = html_buffer + '<ul><li><b class="' + css_class + '-text">Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
                 if not app_url_info == None:
                     html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
@@ -1273,8 +1274,7 @@ class DynamicApps(object):
                 if not app_launch_command == None:
                     html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launchid?' + program_id + '"><img src="img/applications/' + app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
 
-                html_buffer = html_buffer + '</p><hr class="soften">'
-                html_buffer = html_buffer + '</div></div></div>'
+                html_buffer = html_buffer + '</p><hr class="soften"></div></div></div>'
 
                 webkit.execute_script('$("#' + category + '").append(\'' + html_buffer + '\')')
 
@@ -1356,12 +1356,14 @@ class DynamicApps(object):
                     webkit.execute_script("$('." + css_class + "-reinstall').show();")
                     webkit.execute_script("$('." + css_class + "-remove').show();")
                     webkit.execute_script("$('." + css_class + "-upgrade').show();")
+                    webkit.execute_script("$('." + css_class + "-text').css('color','#466E00');")
                 else:
                     webkit.execute_script("$('." + css_class + "-launch').hide();")
                     webkit.execute_script("$('." + css_class + "-install').show();")
                     webkit.execute_script("$('." + css_class + "-reinstall').hide();")
                     webkit.execute_script("$('." + css_class + "-remove').hide();")
                     webkit.execute_script("$('." + css_class + "-upgrade').hide();")
+                    webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
         arg.print_verbose('Apps', '----------------------------------------')
 
     def get_attribute_for_app(self, appid, attribute):

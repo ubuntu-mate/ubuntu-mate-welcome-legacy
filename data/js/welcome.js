@@ -388,7 +388,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
       setTimeout(function(){
           $('html, body').animate({
-              scrollTop: $('#'+targetDiv).offset().top - 10
+              scrollTop: $('#'+targetDiv).offset().top - 100
           }, 1000);
       }, 1000);
     }
