@@ -669,10 +669,18 @@ class AppView(WebKit.WebView):
 
         ### Software Page ###
         if self.current_page == 'software.html':
+            # If loading a minimal "Get More Software" only page.
+            if arg.jump_software_page:
+                self.execute_script('$("#menu-button").hide()')
+                self.execute_script('$("#footer-left").hide()')
+                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Our Picks</span>")')
+                self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
+
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_app_statuses(self)
             dynamicapps.populate_featured_apps(self)
+
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -812,18 +820,30 @@ class WelcomeApp(object):
 
     def _build_app(self):
 
+        # Slightly different attributes if "--software-only" is activated.
+        if arg.jump_software_page:
+            title = "Get More Software"
+            width = 900
+            height = 600
+            load_file = 'software.html'
+        else:
+            title = "Welcome"
+            width = 800
+            height = 552
+            load_file = 'splash.html'
+
         # build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
-        w.set_title('Welcome to Ubuntu MATE')
+        w.set_title(title)
 
         # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
         s = Gdk.Screen.get_default()
         if s.get_height() <= 600:
             w.set_size_request(768, 528)
         else:
-            w.set_size_request(800, 552)
+            w.set_size_request(width, height)
 
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
@@ -832,7 +852,8 @@ class WelcomeApp(object):
         mv = AppView()
 
         # load our index file
-        file = os.path.abspath(os.path.join(self._data_path, 'splash.html'))
+        file = os.path.abspath(os.path.join(self._data_path, load_file))
+
         uri = 'file://' + urllib.request.pathname2url(file)
         mv.open(uri)
 
@@ -1367,12 +1388,14 @@ class Arguments(object):
     #   --verbose -v                Be more verbose in output.
     #   --simulate-arch=<ARCH>      Simulate another architecture ('i386', 'amd64', 'armhf')
     #   --simulate-session=<TYPE>   Simulate a session ('guest', 'live', 'pi')
+    #   --software-only             Open the software page directly (Hides social links, uses a larger window)
 
     def __init__(self):
         self.verbose_enabled = False
         self.simulate_arch = None
         self.simulate_session = None
         self.simulate_no_connection = False
+        self.jump_software_page = False
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1384,6 +1407,7 @@ class Arguments(object):
               print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
               print('                                 "guest", "live" or "pi"')
               print('  --simulate-no-net           Simulate no internet connection.')
+              print('  --software-only             Open Welcome only for the software selections.')
               print('')
               exit()
 
@@ -1416,9 +1440,13 @@ class Arguments(object):
                   print('[Debug] Invalid arguments for "--simulate-session"')
                   exit()
 
-          if arg.startswith('--simulate-no-net'):
+          if arg == '--simulate-no-net':
               print('[Debug] Simulating the application without an internet connection.')
               self.simulate_no_connection = True
+
+          if arg == '--software-only':
+              print('[Welcome] Starting in software selections only mode.')
+              self.jump_software_page = True
 
 
     def print_verbose(self, feature, text):
