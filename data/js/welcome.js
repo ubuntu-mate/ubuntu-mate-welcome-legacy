@@ -502,7 +502,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
     // Override the footer to only display "Skip".
     $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage(true)" class="btn btn-inverse">Skip</a></div></div>');
 
-    $('#sceneA').removeClass('hideSection');
+    $('#sceneA').show();
     $('#sceneA').jAnimateOnce('fadeIn');
 
     setTimeout(function(){ $('#circle1').fadeOut('medium');}, 1000);
@@ -512,12 +512,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
     setTimeout(function(){ $('#circle5').fadeOut('medium');}, 1400);
 
     setTimeout(function(){
-      $('#sceneA').removeClass('hideSection');
+      $('#sceneA').show();
       $('#sceneA').fadeOut();
     }, 1500);
 
     setTimeout(function(){
-      $('#sceneB').removeClass('hideSection');
+      $('#sceneB').show();
       $('#sceneB').jAnimateOnce('zoomIn');
       $('body').addClass('fadeToMenu');
     }, 2000);
