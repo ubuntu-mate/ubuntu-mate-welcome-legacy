@@ -1252,7 +1252,7 @@ class DynamicApps(object):
                 html_buffer = html_buffer + '<p class="' + css_class + '-text">' + app_description + '</p>'
 
                 if not app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li><b class="' + css_class + '-text">Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
+                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
                 if not app_url_info == None:
                     html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
