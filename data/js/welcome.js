@@ -368,7 +368,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
       var x = $(menuItemID).position();
       var length = $('#categoryHover').width();
-      $('#categoryHover').css('left', (x.left+24) - (90/2) )
+      $('#categoryHover').css('left', (x.left+24) - (110/2) )
     }
 
     // A category tab is clicked.
