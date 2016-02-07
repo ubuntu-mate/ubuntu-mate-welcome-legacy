@@ -665,7 +665,14 @@ class AppView(WebKit.WebView):
                 systemstate.append_system_info(self)
 
             # Update any applications featured on these pages.
-            dynamicapps.update_all_app_status(self)
+            dynamicapps.update_app_status(self, 'hardinfo')
+            dynamicapps.update_app_status(self, 'boot-repair')
+            dynamicapps.update_app_status(self, 'codecs')
+            dynamicapps.update_app_status(self, 'firmware')
+            dynamicapps.update_app_status(self, 'hp-printer')
+            dynamicapps.update_app_status(self, 'keyboard-chinese')
+            dynamicapps.update_app_status(self, 'keyboard-japanese')
+            dynamicapps.update_app_status(self, 'keyboard-korean')
 
         ### Software Page ###
         if self.current_page == 'software.html':
