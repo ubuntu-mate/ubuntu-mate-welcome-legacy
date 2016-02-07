@@ -588,7 +588,7 @@ class AppView(WebKit.WebView):
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
 
-        # disable right-click context menu as it isn't needed.
+        # Disable right-click context menu as it isn't needed.
         self.props.settings.props.enable_default_context_menu = False
 
     def _push_config(self):
@@ -1162,6 +1162,34 @@ class DynamicApps(object):
             print(str(e))
             print("------------------------------------------------------------")
 
+    def set_app_info(self, category, program_id):
+        self.app_name = self.index[category][program_id]['name']
+        self.app_img = self.index[category][program_id]['img']
+        self.app_main_package = self.index[category][program_id]['main-package']
+        self.app_launch_command = self.index[category][program_id]['launch-command']
+        self.app_upgrade_only = False
+        try:
+            if self.index[category][program_id]['upgradable']:
+                self.app_upgrade_only = True
+                self.app_upgrade_packages = self.index[category][program_id]['upgrade-packages']
+        except:
+            self.app_upgrade_only = False
+
+        if not self.app_upgrade_only:
+            self.app_install_packages = self.index[category][program_id]['install-packages']
+            self.app_remove_packages = self.index[category][program_id]['remove-packages']
+        self.app_description = ''
+        for line in self.index[category][program_id]['description']:
+            self.app_description = self.app_description + ' ' + line
+        self.app_alternate_to = self.index[category][program_id]['alternate-to']
+        self.app_subcategory = self.index[category][program_id]['subcategory']
+        self.app_open_source = self.index[category][program_id]['open-source']
+        self.app_url_info = self.index[category][program_id]['url-info']
+        self.app_url_android = self.index[category][program_id]['url-android']
+        self.app_url_ios = self.index[category][program_id]['url-ios']
+        self.app_arch = self.index[category][program_id]['arch']
+        self.app_working = self.index[category][program_id]['working']
+
     def populate_categories(self, webkit):
         ''' List all of the applications supported on the current architecture. '''
         total_added = 0
@@ -1186,93 +1214,67 @@ class DynamicApps(object):
 
             # Enumerate each program in this category.
             for program_id in category_items:
-                app_name = self.index[category][program_id]['name']
-                app_img = self.index[category][program_id]['img']
-                app_main_package = self.index[category][program_id]['main-package']
-                try:
-                    app_upgradable = self.index[category][program_id]['upgradable']
-                except:
-                    app_upgradable = False
-
-                if app_upgradable == True:
-                    arg.print_verbose('Apps', 'Upgrade: ' + app_name)
-                    app_upgrade_packages = self.index[category][program_id]['upgrade-packages']
-                else:
-                    app_install_packages = self.index[category][program_id]['install-packages']
-                    app_remove_packages = self.index[category][program_id]['remove-packages']
-                    app_launch_command = self.index[category][program_id]['launch-command']
-
-                app_description = ''
-                for line in self.index[category][program_id]['description']:
-                    app_description = app_description + ' ' + line
-
-                app_alternate_to = self.index[category][program_id]['alternate-to']
-                app_subcategory = self.index[category][program_id]['subcategory']
-                app_freedom = self.index[category][program_id]['open-source']
-                app_url_info = self.index[category][program_id]['url-info']
-                app_url_android = self.index[category][program_id]['url-android']
-                app_url_ios = self.index[category][program_id]['url-ios']
-                app_arch = self.index[category][program_id]['arch']
-                app_listed = self.index[category][program_id]['working']
+                self.set_app_info(category, program_id)
 
                 # Only list the program if it's working.
-                if not app_listed:
-                    arg.print_verbose('Apps', ' Unlisted: ' + app_name)
+                if not self.app_working:
+                    arg.print_verbose('Apps', ' Unlisted: ' + self.app_name)
                     total_skipped = total_skipped + 1
                     continue
 
-                # Only list the program if it supports our architecture:
-                # i386, x86_64, armhf
-                app_supported = False
-                for architecture in app_arch.split(','):
+                # Only list the program if it supports the current architecture in use.
+                supported = False
+                for architecture in self.app_arch.split(','):
                     if architecture == systemstate.arch:
-                        app_supported = True
+                        supported = True
 
-                if not app_supported:
-                    arg.print_verbose('Apps', ' Unsupported: ' + app_name + ' (Only: ' + app_arch + ')' )
+                if not supported:
+                    arg.print_verbose('Apps', ' Unsupported: ' + self.app_name + ' (Only: ' + self.app_arch + ')' )
                     total_unsupported = total_unsupported + 1
                     continue
 
                 # If the app has made it this far, it can be added to the grid.
-                arg.print_verbose('Apps', ' Added: ' + app_name)
+                # CSS breaks with dots (.), so any must become hyphens (-).
+                arg.print_verbose('Apps', ' Added: ' + self.app_name)
                 html_buffer = ''
-                css_class = app_main_package.replace('.','-')
+                css_class = self.app_main_package.replace('.','-')
 
                 # "Normal" packages that can be installed/removed by the user.
-                if app_freedom:
+                if self.app_open_source:
                     html_buffer = html_buffer + '<div id="' + program_id + '" class="">'
                 else:
                     html_buffer = html_buffer + '<div id="' + program_id + '" class="proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
-                html_buffer = html_buffer + '<img src="img/applications/' + app_img + '.png">'
+                html_buffer = html_buffer + '<img src="img/applications/' + self.app_img + '.png">'
                 html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
                 html_buffer = html_buffer + '</div><div class="span10">'
-                html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + app_name + '</b></p>'
-                html_buffer = html_buffer + '<p class="' + css_class + '-text">' + app_description + '</p>'
+                html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+                html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
-                if not app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + app_alternate_to + '</i></li></ul>'
+                if not self.app_alternate_to == None:
+                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
-                if not app_url_info == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
-                if not app_url_android == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_android + '"><span class="fa fa-android"></span></a>&nbsp;'
-                if not app_url_ios == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + app_url_ios + '"><span class="fa fa-apple"></span></a>&nbsp;'
+                if not self.app_url_info == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
+                if not self.app_url_android == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_android + '"><span class="fa fa-android"></span></a>&nbsp;'
+                if not self.app_url_ios == None:
+                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span></a>&nbsp;'
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
-                if not app_upgradable:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://apt-install?' + app_install_packages + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://apt-install?' + app_install_packages + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://apt-remove?' + app_remove_packages + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
+                if not self.app_upgrade_only:
+                    arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://apt-install?' + self.app_install_packages + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://apt-install?' + self.app_install_packages + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://apt-remove?' + self.app_remove_packages + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
-                if app_upgradable:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://apt-upgrade?' + app_upgrade_packages + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                if self.app_upgrade_only:
+                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://apt-upgrade?' + self.app_upgrade_packages + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
 
-                if not app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launchid?' + program_id + '"><img src="img/applications/' + app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
+                if not self.app_launch_command == None:
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launchid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
 
                 html_buffer = html_buffer + '</p><hr class="soften"></div></div></div>'
 
