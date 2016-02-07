@@ -665,7 +665,7 @@ class AppView(WebKit.WebView):
                 systemstate.append_system_info(self)
 
             # Update any applications featured on these pages.
-            dynamicapps.update_app_statuses(self)
+            dynamicapps.update_all_app_status(self)
 
         ### Software Page ###
         if self.current_page == 'software.html':
@@ -678,7 +678,7 @@ class AppView(WebKit.WebView):
 
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
-            dynamicapps.update_app_statuses(self)
+            dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
 
 
@@ -714,24 +714,14 @@ class AppView(WebKit.WebView):
         if uri.startswith('cmd://'):
             uri = uri[6:]
 
-        if uri.startswith('apt-install?'):
-            process_packages(uri[12:], 'install')
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
-            self._push_config()
-            dynamicapps.update_app_statuses(self);
-        elif uri.startswith('apt-remove?'):
-            process_packages(uri[11:], 'remove')
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
-            self._push_config()
-            dynamicapps.update_app_statuses(self);
-        elif uri.startswith('apt-upgrade?'):
-            process_packages(uri[12:], 'upgrade')
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
-            self._push_config()
-            dynamicapps.update_app_statuses(self);
+        if uri.startswith('install-appid?'):
+            dynamicapps.modify_app(self, 'install', uri[14:])
+        elif uri.startswith('remove-appid?'):
+            dynamicapps.modify_app(self, 'remove', uri[13:])
+        elif uri.startswith('upgrade-appid?'):
+            dynamicapps.modify_app(self, 'upgrade', uri[14:])
+        elif uri.startswith('launch-appid?'):
+            dynamicapps.launch_app(uri[13:])
         elif uri == 'apt-update':
             update_repos()
             self._apt_cache.close()
@@ -794,9 +784,6 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.online').hide();")
         elif uri == 'get-spec-ram':
             systemstate.append_system_info(self, True)
-        elif uri.startswith('launchid?'):
-            appid = uri[9:]
-            dynamicapps.launch_app(appid)
         else:
             print('Unknown command: %s' % uri)
 
@@ -1112,7 +1099,10 @@ class DynamicApps(object):
         self.reload_index()
 
         # All categories in JSON and application.
-        self.allcategories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
+        self.all_categories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
+
+        # Reading the apt cache later.
+        self._apt_cache = apt.Cache()
 
     ###### JSON Index Structure
     #
@@ -1202,7 +1192,7 @@ class DynamicApps(object):
             return
 
         # Get the app data from each category and list them.
-        for category in self.allcategories:
+        for category in self.all_categories:
             arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
 
             # Convert to a list to work with. Sort alphabetically.
@@ -1237,7 +1227,7 @@ class DynamicApps(object):
                 # CSS breaks with dots (.), so any must become hyphens (-).
                 arg.print_verbose('Apps', ' Added: ' + self.app_name)
                 html_buffer = ''
-                css_class = self.app_main_package.replace('.','-')
+                css_class = program_id.replace('.','-')
 
                 # "Normal" packages that can be installed/removed by the user.
                 if self.app_open_source:
@@ -1264,17 +1254,17 @@ class DynamicApps(object):
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
-                    arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://apt-install?' + self.app_install_packages + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://apt-install?' + self.app_install_packages + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://apt-remove?' + self.app_remove_packages + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://apt-upgrade?' + self.app_upgrade_packages + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                    arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
+                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launchid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
 
                 html_buffer = html_buffer + '</p><hr class="soften"></div></div></div>'
 
@@ -1301,7 +1291,7 @@ class DynamicApps(object):
         arg.print_verbose('Apps', '---- Populating Featured Apps Grid ----')
         # Randomly generate a list of apps to feature if supported on this architecture.
         possible_apps = []
-        for category in self.allcategories:
+        for category in self.all_categories:
             category_items = list(self.index[category].keys())
             for program_id in category_items:
                 if systemstate.arch in self.index[category][program_id]['arch']:
@@ -1314,66 +1304,89 @@ class DynamicApps(object):
         webkit.execute_script("initGrid();")
         arg.print_verbose('Apps','------------------')
 
-
-    def update_app_statuses(self, webkit):
-        ''' Update the webpage based on whether the application is installed or not. '''
+    def modify_app(self, webkit, action, program_id):
+        ''' Installs, removes or upgrades an application. '''
+        if action == 'install':
+            process_packages(self.get_attribute_for_app(program_id, 'install-packages'), 'install')
+        elif action == 'remove':
+            process_packages(self.get_attribute_for_app(program_id, 'remove-packages'), 'remove')
+        elif action == 'upgrade':
+            process_packages(self.get_attribute_for_app(program_id, 'upgrade-packages'), 'upgrade')
+        else:
+            print('[Apps] An unknown action was requested.')
+        self._apt_cache.close()
         self._apt_cache = apt.Cache()
+        self.update_app_status(webkit, program_id)
+
+    def update_app_status(self, webkit, program_id):
+        ''' Update the web page for an individual application. '''
+
+        # Don't attempt to continue if the index is missing/incorrectly parsed.
+        if not self.index:
+            print('[Apps] ERROR: Application index not loaded. Cannot update application status.')
+            return
+
+        # Check whether the application is installed or not.
+        main_package = self.get_attribute_for_app(program_id, 'main-package')
+        try:
+            if self._apt_cache[main_package].is_installed:
+                this_installed = True
+                arg.print_verbose('Apps', '  Installed: ' + main_package)
+            else:
+                this_installed = False
+                arg.print_verbose('Apps', 'Not present: ' + main_package)
+        except:
+            this_installed = False
+            arg.print_verbose('Apps', 'Not present: ' + main_package)
+
+        # Replace any dots with dashes, as they are unsupported in CSS.
+        css_class = program_id.replace('.','-')
+
+        # Update appearance on this page.
+        if this_installed:
+            webkit.execute_script("$('." + css_class + "-launch').show();")
+            webkit.execute_script("$('." + css_class + "-install').hide();")
+            webkit.execute_script("$('." + css_class + "-reinstall').show();")
+            webkit.execute_script("$('." + css_class + "-remove').show();")
+            webkit.execute_script("$('." + css_class + "-upgrade').show();")
+            webkit.execute_script("$('." + css_class + "-text').css('color','#466E00');")
+        else:
+            webkit.execute_script("$('." + css_class + "-launch').hide();")
+            webkit.execute_script("$('." + css_class + "-install').show();")
+            webkit.execute_script("$('." + css_class + "-reinstall').hide();")
+            webkit.execute_script("$('." + css_class + "-remove').hide();")
+            webkit.execute_script("$('." + css_class + "-upgrade').hide();")
+            webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
+
+    def update_all_app_status(self, webkit):
+        ''' Update the webpage whether all indexed applications are installed or not. '''
 
         # Don't attempt to continue if the index is missing/incorrectly parsed.
         if not self.index:
             print('[Apps] ERROR: Application index not loaded. Cannot update page.')
             return
 
-        # Get the app data from each category and list them.
+        # Enumerate each program and check each one from the index.
         arg.print_verbose('Apps', '---- Checking cache for installed applications ----')
-        for category in self.allcategories:
-
-            # Convert to a list to work with.
+        for category in self.all_categories:
             category_items = list(self.index[category].keys())
-
-            # Enumerate each program and check if installed.
             for program_id in category_items:
-                app_package = self.index[category][program_id]['main-package']
+                main_package = self.index[category][program_id]['main-package']
+                # Only check if it's supported on this architecture.
                 if systemstate.arch in self.index[category][program_id]['arch']:
-                    try:
-                        if self._apt_cache[app_package].is_installed:
-                            this_installed = True
-                            arg.print_verbose('Apps', '   Installed: ' + app_package)
-                        else:
-                            this_installed = False
-                            arg.print_verbose('Apps', ' Not present: ' + app_package)
-                    except:
-                        this_installed = False
-                        arg.print_verbose('Apps', ' Not present: ' + app_package)
+                    self.update_app_status(webkit, program_id)
                 else:
                     continue
 
-                # Replace any dots with dashes, as they are unsupported in CSS.
-                css_class = app_package.replace('.','-')
-
-                # Update appearance on this page.
-                if this_installed:
-                    webkit.execute_script("$('." + css_class + "-launch').show();")
-                    webkit.execute_script("$('." + css_class + "-install').hide();")
-                    webkit.execute_script("$('." + css_class + "-reinstall').show();")
-                    webkit.execute_script("$('." + css_class + "-remove').show();")
-                    webkit.execute_script("$('." + css_class + "-upgrade').show();")
-                    webkit.execute_script("$('." + css_class + "-text').css('color','#466E00');")
-                else:
-                    webkit.execute_script("$('." + css_class + "-launch').hide();")
-                    webkit.execute_script("$('." + css_class + "-install').show();")
-                    webkit.execute_script("$('." + css_class + "-reinstall').hide();")
-                    webkit.execute_script("$('." + css_class + "-remove').hide();")
-                    webkit.execute_script("$('." + css_class + "-upgrade').hide();")
-                    webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
         arg.print_verbose('Apps', '----------------------------------------')
 
-    def get_attribute_for_app(self, appid, attribute):
+
+    def get_attribute_for_app(self, requested_id, attribute):
         ''' Retrieves a specific attribute from a listed application, regardless of category. '''
-        for category in self.allcategories:
+        for category in list(self.index.keys()):
             category_items = list(self.index[category].keys())
             for program_id in category_items:
-                if program_id == appid:
+                if program_id == requested_id:
                     return self.index[category][program_id][attribute]
 
     def launch_app(self, appid):
