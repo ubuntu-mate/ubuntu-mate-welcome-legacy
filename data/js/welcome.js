@@ -96,6 +96,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
   }, 50);
 
   function exitMenu(target) {
+      // Show a "wait" cursor for the Software page, as there is a slight delay.
+      if ( target == 'software.html' ) {
+          $('html').css('cursor','wait')
+          $('a').css('cursor','wait')
+      }
+
       $('#mate-blur').jAnimateOnce('zoomOut');
       smoothOut(target)
   }
