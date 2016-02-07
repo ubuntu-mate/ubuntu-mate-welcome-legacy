@@ -29,14 +29,11 @@ and testing purposes, the following can be specified:
 
   * `--verbose` = Show more details to stdout.
   * `--simulate-arch=<ARCH>` = Simulate an architecture.
-    * `i386`
-    * `amd64`
-    * `armvf`
-    * Does not affect System Specifications page.
-  * `--simulate-session=<TYPE>` = Simulate a specific type of session.
-    * `live` = Accessed from a live session.
-    * `guest` = Accessed from a guest session.
-    * `pi` = Accessed from a Raspberry Pi.
+    * `i386` or `amd64` or `armvf` or `powerpc`
+  * `--simulate-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
+    * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
+  * `--simulate-no-net` = Simulate no internet connection.
+  * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
 
 
 ## Requirements

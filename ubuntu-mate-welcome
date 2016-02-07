@@ -1423,11 +1423,7 @@ class DynamicApps(object):
 
 
 class Arguments(object):
-    # Check arguments for:
-    #   --verbose -v                Be more verbose in output.
-    #   --simulate-arch=<ARCH>      Simulate another architecture ('i386', 'amd64', 'armhf')
-    #   --simulate-session=<TYPE>   Simulate a session ('guest', 'live', 'pi')
-    #   --software-only             Open the software page directly (Hides social links, uses a larger window)
+    '''Check arguments passed the application.'''
 
     def __init__(self):
         self.verbose_enabled = False
@@ -1486,7 +1482,6 @@ class Arguments(object):
           if arg == '--software-only':
               print('[Welcome] Starting in software selections only mode.')
               self.jump_software_page = True
-
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:
