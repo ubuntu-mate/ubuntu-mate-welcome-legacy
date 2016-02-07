@@ -1421,7 +1421,7 @@
 			"url-info": "http://www.opera.com/",
 			"url-android": "https://play.google.com/store/apps/details?id=com.opera.browser",
 			"url-ios": "https://itunes.apple.com/gb/app/opera-mini-web-browser/id363729560",
-			"arch": "i386",
+			"arch": "i386,amd64",
 			"working": true
 		},
 		"owncloud-client": {
@@ -2617,14 +2617,14 @@
 			"working": true
 		},
 		"gnome-schedule": {
-			"name": "GNOME Schedule",
+			"name": "Scheduled Tasks",
 			"img": "gnome-schedule",
 			"main-package": "gnome-schedule",
 			"launch-command": "gnome-schedule",
 			"install-packages": "gnome-schedule",
 			"remove-packages": "gnome-schedule",
 			"description": [
-		        "A UI for configuring a users",
+		        "A UI for configuring a users&#8217;",
 						"<code>crontab</code> so that tasks run at set intervals. It",
 						"has templates support so that you won&#8217;t have to create the",
 						"same task again and again. If run as root, you can edit any",
