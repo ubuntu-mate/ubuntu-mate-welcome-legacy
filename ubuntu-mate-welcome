@@ -1261,6 +1261,7 @@ class DynamicApps(object):
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
+                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> Applying Changes... &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
@@ -1313,6 +1314,17 @@ class DynamicApps(object):
 
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
+        # Indicate changes are in progress.
+        css_class = program_id.replace('.','-')
+        webkit.execute_script("$('." + css_class + "-applying').show();")
+        webkit.execute_script("$('." + css_class + "-launch').hide();")
+        webkit.execute_script("$('." + css_class + "-install').hide();")
+        webkit.execute_script("$('." + css_class + "-reinstall').hide();")
+        webkit.execute_script("$('." + css_class + "-remove').hide();")
+        webkit.execute_script("$('." + css_class + "-upgrade').hide();")
+        webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
+
+        # Asynchronous apt process
         if action == 'install':
             process_packages(self.get_attribute_for_app(program_id, 'install-packages'), 'install')
         elif action == 'remove':
@@ -1321,6 +1333,8 @@ class DynamicApps(object):
             process_packages(self.get_attribute_for_app(program_id, 'upgrade-packages'), 'upgrade')
         else:
             print('[Apps] An unknown action was requested.')
+
+        # Refresh the page to reflect changes (if any).
         self._apt_cache.close()
         self._apt_cache = apt.Cache()
         self.update_app_status(webkit, program_id)
@@ -1350,6 +1364,7 @@ class DynamicApps(object):
         css_class = program_id.replace('.','-')
 
         # Update appearance on this page.
+        webkit.execute_script("$('." + css_class + "-applying').hide();")
         if this_installed:
             webkit.execute_script("$('." + css_class + "-launch').show();")
             webkit.execute_script("$('." + css_class + "-install').hide();")
