@@ -1261,7 +1261,7 @@ class DynamicApps(object):
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
-                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> Applying Changes... &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
+                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
@@ -1324,12 +1324,20 @@ class DynamicApps(object):
         webkit.execute_script("$('." + css_class + "-upgrade').hide();")
         webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
 
+        # Text to display when applying changes.
+        install_text = "Installing..."
+        remove_text = "Removing..."
+        upgrade_text = "Upgrading..."
+
         # Asynchronous apt process
         if action == 'install':
+            webkit.execute_script("$('." + css_class + "-applying-status').html('" + install_text + "');")
             process_packages(self.get_attribute_for_app(program_id, 'install-packages'), 'install')
         elif action == 'remove':
+            webkit.execute_script("$('." + css_class + "-applying-status').html('" + remove_text + "');")
             process_packages(self.get_attribute_for_app(program_id, 'remove-packages'), 'remove')
         elif action == 'upgrade':
+            webkit.execute_script("$('." + css_class + "-applying-status').html('" + upgrade_text + "');")
             process_packages(self.get_attribute_for_app(program_id, 'upgrade-packages'), 'upgrade')
         else:
             print('[Apps] An unknown action was requested.')
@@ -1402,7 +1410,6 @@ class DynamicApps(object):
 
         arg.print_verbose('Apps', '----------------------------------------')
 
-
     def get_attribute_for_app(self, requested_id, attribute):
         ''' Retrieves a specific attribute from a listed application, regardless of category. '''
         for category in list(self.index.keys()):
@@ -1420,7 +1427,6 @@ class DynamicApps(object):
             subprocess.Popen(program_command.split(' '))
         except:
             print('[Apps] Failed to launch command: ' + program_command)
-
 
 class Arguments(object):
     '''Check arguments passed the application.'''
