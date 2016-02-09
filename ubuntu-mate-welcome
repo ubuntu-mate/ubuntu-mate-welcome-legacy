@@ -1348,8 +1348,27 @@ class DynamicApps(object):
                 html_buffer = html_buffer + '<tr><th>License</th><td>' + license_string + '</td></tr>'
                 html_buffer = html_buffer + '<tr><th>Platform</th><td>' + platform_string + '</td></tr>'
                 html_buffer = html_buffer + '<tr><th>Category</th><td>' + self.app_subcategory + '</td></tr>'
+
+                ## Add a website URL if there is one.
                 if self.app_url_info:
                     html_buffer = html_buffer + '<tr><th>Website</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+
+                ## Add a screenshot if there is any.
+                ## Images should be labelled the same as 'img' and increment starting at 1.
+                screenshots = 1
+                screenshots_end = False
+                screenshot_buffer = ''
+                while not screenshots_end:
+                    screenshot_path = os.path.join(app._data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
+                    if os.path.exists(screenshot_path):
+                        screenshot_buffer = screenshot_buffer + '<img src="' + screenshot_path + '" class="screenshot-preview"/>'
+                        screenshots = screenshots + 1
+                    else:
+                        screenshots_end = True
+
+                if not screenshots == 1:
+                    html_buffer = html_buffer + '<tr><th>Screenshot</th><td>' + screenshot_buffer + '</td></tr>'
+
                 html_buffer = html_buffer + '</table>'
 
                 # End the div's for this application.
