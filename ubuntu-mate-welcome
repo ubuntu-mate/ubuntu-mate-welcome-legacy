@@ -1522,7 +1522,7 @@ class Arguments(object):
           if arg == '--help':
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
-              print('  --verbose                   Show more details.')
+              print('  -v  --verbose               Show more details.')
               print('  --force-arch=<ARCH>         Simulate a specific architecture.')
               print('                                 "i386", "amd64" or "armhf" or "powerpc"')
               print('  --force-session=<TYPE>      Simulate a specific architecture.')
@@ -1533,7 +1533,7 @@ class Arguments(object):
               print('')
               exit()
 
-          if arg == '--verbose':
+          if arg == '--verbose' or arg == '-v':
               print('[Debug] Verbose mode enabled.')
               self.verbose_enabled = True
 
