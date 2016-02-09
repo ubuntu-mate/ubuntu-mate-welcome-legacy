@@ -902,10 +902,8 @@ class SystemState(object):
         # Create, then spawn threads
         thread1 = Thread(target=self.check_internet_connection)
         thread2 = Thread(target=self.detect_graphics)
-        thread3 = Thread(target=self.get_system_info)
         thread1.start()
         thread2.start()
-        thread3.start()
 
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
@@ -969,6 +967,15 @@ class SystemState(object):
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
         arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
+
+    def start_system_info_cache(self):
+        # Don't bother caching system specifications if the page cannot be visited by this session.
+        if arg.jump_software_page or self.session_type == 'guest':
+            print('[System Specs] Not applicable to this session. Skipping.')
+            return
+        else:
+            thread_cache = Thread(target=self.get_system_info)
+            thread_cache.start()
 
     def get_system_info(self):
         print('[System Specs] Caching system specifications in background... ')
@@ -1542,7 +1549,6 @@ class Arguments(object):
                   print('[Debug] Invalid arguments for "--simulate-arch"')
                   exit()
 
-
           if arg.startswith('--simulate-session'):
               try:
                   self.simulate_session = arg.split('--simulate-session=')[1]
@@ -1581,7 +1587,8 @@ class Arguments(object):
 
 
 if __name__ == "__main__":
-    # Process any parameters.
+
+    # Process any parameters passed to the program.
     arg = Arguments()
 
     # Application Initialization
@@ -1595,4 +1602,5 @@ if __name__ == "__main__":
     arg.override_session()
 
     print('[Welcome] Application Started.')
+    systemstate.start_system_info_cache()
     app.run()
