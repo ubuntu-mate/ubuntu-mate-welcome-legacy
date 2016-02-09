@@ -423,14 +423,14 @@ hr.soften-light {
 /* Always keep category tabs visible */
 #categoryTabs {
   position: fixed;
-  background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
+  background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
   width: 100%;
   left: 0;
   top: 48px;
   z-index: 5;
   padding-top: 8px;
   margin-bottom: 2px;
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 }
 
 /* Hover label for categories */
