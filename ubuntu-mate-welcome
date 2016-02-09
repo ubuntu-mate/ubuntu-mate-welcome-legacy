@@ -944,13 +944,13 @@ class SystemState(object):
             return
 
         # TODO: Support dual graphic cards.
-        print('[Graphics] Detecting graphics vendor... ')
+        arg.print_verbose('[Graphics]','Detecting graphics vendor... ')
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            print("[Graphics] Couldn't detect a VGA Controller on this system.")
+            arg.print_verbose("[Graphics]","Couldn't detect a VGA Controller on this system.")
             output = 'Unknown'
 
         # Scan for and set known brand name.
@@ -968,35 +968,48 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        print("[Graphics] Detected: {0}".format(self.graphics_grep))
+        arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
 
     def get_system_info(self):
-        print('[System Info] Caching system info... ')
+        print('[System Specs] Caching system specifications in background... ')
         try:
             # Use 'inxi' to retrieve the system information.
+            arg.print_verbose('System Specs','Caching: System')
             self.specs_raw_system = str(subprocess.Popen('inxi -S', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Machine')
             self.specs_raw_machine = str(subprocess.Popen('inxi -M', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: CPU')
             self.specs_raw_cpu = str(subprocess.Popen('inxi -C', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Memory (RAM)')
             self.specs_raw_memory = str(subprocess.Popen('free | grep \'Mem:\' | awk \'{print $2}\'', stdout=subprocess.PIPE, shell='True').communicate()[0]).strip("b'\\n")
+            arg.print_verbose('System Specs','Caching: Drive List')
             self.specs_raw_drivelist = str(subprocess.Popen('inxi -D', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Partition')
             self.specs_raw_partitions = str(subprocess.Popen('inxi -p', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: RAID')
             self.specs_raw_raid = str(subprocess.Popen('inxi -R', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Optical Drive')
             self.specs_raw_optical = str(subprocess.Popen('inxi -d', stdout=subprocess.PIPE, shell='True').communicate()[0])
             self.specs_raw_optical = 'Optical:  ' + '<b>dev:</b> ' + self.specs_raw_optical.split('Optical:')[1]
+            arg.print_verbose('System Specs','Caching: Graphics')
             self.specs_raw_graphics = str(subprocess.Popen('inxi -G', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Audio')
             self.specs_raw_audio = str(subprocess.Popen('inxi -A', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Network')
             self.specs_raw_network = str(subprocess.Popen('inxi -i', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            arg.print_verbose('System Specs','Caching: Sensors')
             self.specs_raw_sensors = str(subprocess.Popen('inxi -s', stdout=subprocess.PIPE, shell='True').communicate()[0])
 
             # If commands were successfully executed.
             self.system_info_cached = True
-            print("[System Info] Successfully cached system information.")
+            print("[System Specs] Successfully cached system specifications.")
 
-        except:
-            print("[System Info] There was a problem running 'inxi'. Is this program no longer installed?")
+        except Exception as e:
+            print("[System Specs] There was a problem running 'inxi'. Is this program no longer installed?")
+            print("[System Specs] Exception: "+e)
             return
 
-    def append_system_info(self, webkit, ram_only=False):
+    def append_system_info(self, webkit, get_root_ram_details_only=False):
 
         # Cleans up raw data from the command.
         def append_raw(data, label, target_element, existing=False):
@@ -1071,13 +1084,13 @@ class SystemState(object):
                 webkit.execute_script('$("#spec-' + target_element + '").append("' + line + '")')
 
           except:
-              print('[System Info] No suitable data to process for "' + label + '".')
+              print('[System Specs] No suitable data to process for "' + label + '".')
               if not existing:
                   webkit.execute_script('$("#spec-' + target_element + '").html("No information available.")')
 
         # If authenticating to retrieve root privileged information about the RAM.
-        if ram_only:
-            print('[System Info] Authenticating to retrieve RAM details...')
+        if get_root_ram_details_only:
+            print('[System Specs] Authenticating to retrieve RAM details...')
             ram_output = str(subprocess.Popen('pkexec inxi -m', stdout=subprocess.PIPE, shell='True').communicate()[0])
             append_raw(ram_output, 'Memory', 'ram-advanced')
             return
@@ -1102,6 +1115,7 @@ class SystemState(object):
         webkit.execute_script('$("#spec-ram").html("")')
         webkit.execute_script('$("#spec-ram").append("<b>Total:</b> ' + str(round(int(self.specs_raw_memory)/1024/1024,1)) + ' GiB (' + str(round(int(self.specs_raw_memory)/1024)) + ' MiB)")')
         webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
+
 
 class DynamicApps(object):
     def __init__(self):
