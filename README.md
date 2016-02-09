@@ -28,12 +28,12 @@ Welcome does not require arguments for general usage, but for debugging
 and testing purposes, the following can be specified:
 
   * `--verbose` = Show more details to stdout.
-  * `--simulate-arch=<ARCH>` = Simulate an architecture.
+  * `--force-arch=<ARCH>` = Simulate an architecture.
     * `i386` or `amd64` or `armvf` or `powerpc`
-  * `--simulate-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
+  * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
     * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
-  * `--simulate-no-net` = Simulate no internet connection.
-  * `--simulate-net` = Simulate an internet connection.
+  * `--force-no-net` = Simulate no internet connection.
+  * `--force-net` = Simulate an internet connection.
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
 
 

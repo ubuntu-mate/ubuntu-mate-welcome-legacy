@@ -1523,12 +1523,12 @@ class Arguments(object):
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               print('  --verbose                   Show more details.')
-              print('  --simulate-arch=<ARCH>      Simulate a specific architecture.')
+              print('  --force-arch=<ARCH>         Simulate a specific architecture.')
               print('                                 "i386", "amd64" or "armhf" or "powerpc"')
-              print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
+              print('  --force-session=<TYPE>      Simulate a specific architecture.')
               print('                                 "guest", "live" or "pi"')
-              print('  --simulate-no-net           Simulate no internet connection.')
-              print('  --simulate-net              Simulate a working internet connection.')
+              print('  --force-no-net              Simulate no internet connection.')
+              print('  --force-net                 Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
               print('')
               exit()
@@ -1537,35 +1537,35 @@ class Arguments(object):
               print('[Debug] Verbose mode enabled.')
               self.verbose_enabled = True
 
-          if arg.startswith('--simulate-arch'):
+          if arg.startswith('--force-arch'):
               try:
-                  self.simulate_arch = arg.split('--simulate-arch=')[1]
+                  self.simulate_arch = arg.split('--force-arch=')[1]
                   if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf' and not self.simulate_arch == 'powerpc':
                       print('[Debug] Unrecognised architecture: ' + self.simulate_arch)
                       exit()
                   else:
                       print('[Debug] Simulating architecture: ' + self.simulate_arch)
               except:
-                  print('[Debug] Invalid arguments for "--simulate-arch"')
+                  print('[Debug] Invalid arguments for "--force-arch"')
                   exit()
 
-          if arg.startswith('--simulate-session'):
+          if arg.startswith('--force-session'):
               try:
-                  self.simulate_session = arg.split('--simulate-session=')[1]
+                  self.simulate_session = arg.split('--force-session=')[1]
                   if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi':
                       print('[Debug] Unrecognised session type: ' + self.simulate_session)
                       exit()
                   else:
                       print('[Debug] Simulating session: ' + self.simulate_session)
               except:
-                  print('[Debug] Invalid arguments for "--simulate-session"')
+                  print('[Debug] Invalid arguments for "--force-session"')
                   exit()
 
-          if arg == '--simulate-no-net':
+          if arg == '--force-no-net':
               print('[Debug] Simulating the application without an internet connection.')
               self.simulate_no_connection = True
 
-          if arg == '--simulate-net':
+          if arg == '--force-net':
               print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
               self.simulate_force_connection = True
 
