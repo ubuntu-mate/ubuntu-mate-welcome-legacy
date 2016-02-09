@@ -29,23 +29,10 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
 gi.require_version("WebKit", "3.0")
 
-import apt
-import gettext
-import inspect
-import json
-import logging
-import os
-import platform
-import random
-import signal
-import socket
-import subprocess
-import sys
-import tempfile
-import urllib.error
-import urllib.parse
-import urllib.request
-import webbrowser
+import apt, gettext, inspect, random, socket
+import json, tempfile, logging
+import os, sys, platform, subprocess, signal
+import urllib.error, urllib.parse, urllib.request, webbrowser
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
 import aptdaemon.errors
