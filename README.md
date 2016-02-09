@@ -33,6 +33,7 @@ and testing purposes, the following can be specified:
   * `--simulate-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
     * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
   * `--simulate-no-net` = Simulate no internet connection.
+  * `--simulate-net` = Simulate an internet connection.
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
 
 

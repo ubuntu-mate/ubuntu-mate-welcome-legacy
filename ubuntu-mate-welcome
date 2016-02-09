@@ -914,6 +914,14 @@ class SystemState(object):
         if arg.simulate_no_connection:
             print('[Network Test] Simulation argument override. Retrying will reset this.')
             arg.simulate_no_connection = False
+            self.is_online = False
+            return
+
+        if arg.simulate_force_connection:
+            print('[Network Test] Simulation argument override. Forcing connection presence.')
+            print('[Network Test] WARNING: Do not attempt to install/remove software offline as this may lead to errors later!')
+            arg.simulate_connection = False
+            self.is_online = True
             return
 
         try:
@@ -1486,6 +1494,7 @@ class Arguments(object):
         self.simulate_arch = None
         self.simulate_session = None
         self.simulate_no_connection = False
+        self.simulate_force_connection = False
         self.jump_software_page = False
 
         for arg in sys.argv:
@@ -1498,6 +1507,7 @@ class Arguments(object):
               print('  --simulate-session=<TYPE>   Simulate a specific architecture.')
               print('                                 "guest", "live" or "pi"')
               print('  --simulate-no-net           Simulate no internet connection.')
+              print('  --simulate-net              Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
               print('')
               exit()
@@ -1534,6 +1544,10 @@ class Arguments(object):
           if arg == '--simulate-no-net':
               print('[Debug] Simulating the application without an internet connection.')
               self.simulate_no_connection = True
+
+          if arg == '--simulate-net':
+              print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
+              self.simulate_force_connection = True
 
           if arg == '--software-only':
               print('[Welcome] Starting in software selections only mode.')
