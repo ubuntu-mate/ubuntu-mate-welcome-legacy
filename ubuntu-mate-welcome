@@ -723,6 +723,16 @@ class AppView(WebKit.WebView):
                 dynamicapps.apply_filter(self, filter_name, True)
             else:
                 dynamicapps.apply_filter(self, filter_name)
+        elif uri.startswith('app-info-show?'):
+            appid = uri.split('?')[1]
+            self.execute_script('$("#info-show-' + appid + '").hide()')
+            self.execute_script('$("#info-hide-' + appid + '").show()')
+            self.execute_script('$("#details-' + appid + '").fadeIn("fast")')
+        elif uri.startswith('app-info-hide?'):
+            appid = uri.split('?')[1]
+            self.execute_script('$("#info-show-' + appid + '").show()')
+            self.execute_script('$("#info-hide-' + appid + '").hide()')
+            self.execute_script('$("#details-' + appid + '").fadeOut("fast")')
         elif uri == 'apt-update':
             update_repos()
             self._apt_cache.close()
@@ -1287,19 +1297,15 @@ class DynamicApps(object):
                 if not self.app_alternate_to == None:
                     html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
-                if not self.app_url_info == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_info + '"><span class="fa fa-info"></span></a>&nbsp;'
-                if not self.app_url_android == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_android + '"><span class="fa fa-android"></span></a>&nbsp;'
-                if not self.app_url_ios == None:
-                    html_buffer = html_buffer + '<a class="btn" href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span></a>&nbsp;'
+                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> More</a>&nbsp;'
+                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> Hide</a>&nbsp;'
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
                     html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span>&nbsp; Reinstall</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span>&nbsp; Remove</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
@@ -1309,9 +1315,49 @@ class DynamicApps(object):
                 if not self.app_launch_command == None:
                     html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
 
-                html_buffer = html_buffer + '</p><hr class="soften"></div></div></div>'
+                # More details section.
+                html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
 
+                ## Determine string for license
+                if self.app_open_source:
+                    license_string = 'Open Source'
+                else:
+                    license_string = 'Proprietary'
+
+                ## Determine supported platforms
+                platform_string = ''
+                for arch in self.app_arch.split(','):
+                    if arch == 'i386':
+                        platform_string = platform_string + '<span class="i386"><span class="i386 fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
+                    elif arch =='amd64':
+                        platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
+                    elif arch =='armhf':
+                        platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> Raspberry Pi 2</span> &nbsp;&nbsp;'
+                    elif arch =='powerpc':
+                        platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
+
+                ## Add Android / iOS app links if necessary.
+                if not self.app_url_android == None:
+                    platform_string = platform_string + '<a href="cmd://link?' + self.app_url_android + '"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+
+                if not self.app_url_ios == None:
+                    platform_string = platform_string + '<a href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+
+                ## Write contents of the table.
+                html_buffer = html_buffer + '<table class="more-details table table-striped">'
+                html_buffer = html_buffer + '<tr><th>License</th><td>' + license_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>Platform</th><td>' + platform_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>Category</th><td>' + self.app_subcategory + '</td></tr>'
+                if self.app_url_info:
+                    html_buffer = html_buffer + '<tr><th>Website</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+                html_buffer = html_buffer + '</table>'
+
+                # End the div's for this application.
+                html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
+
+                # Append buffer to page
                 webkit.execute_script('$("#' + category + '").append(\'' + html_buffer + '\')')
+                webkit.execute_script('$("#info-hide-' + css_class + '").hide()')
 
                 # Keep track of how many apps added.
                 apps_here = apps_here + 1
@@ -1320,6 +1366,10 @@ class DynamicApps(object):
             # Display a message if there is nothing for this category.
             if apps_here == 0:
                 webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; Sorry, Welcome could not feature any software for this category that is compatible on this system.</p>")')
+
+            # Post actions to page
+            ## Colour the architecture currently in use.
+            webkit.execute_script('$(".' + systemstate.arch + '").addClass("arch-in-use")')
 
             # Process filters for this category.
             filters = list(set(subcategories))

@@ -512,6 +512,21 @@ blockquote.terminal {
 /* Filter drop down */
 .filter-box {
   float: right;
+  font-family: 'Ubuntu';
+}
+
+/* More details for an individual application */
+.more-details th {
+  font-family: 'Ubuntu';
+  width: 100px;
+}
+
+.more-details td {
+  font-family: 'Ubuntu';
+}
+
+.arch-in-use {
+  font-weight: bold;
 }
 
 /************************
