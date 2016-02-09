@@ -704,9 +704,10 @@ class AppView(WebKit.WebView):
         return True
 
     def _do_command(self, uri):
-        if uri.startswith('cmd://'):
-            uri = uri[6:]
+      if uri.startswith('cmd://'):
+          uri = uri[6:]
 
+      try:
         if uri.startswith('install-appid?'):
             dynamicapps.modify_app(self, 'install', uri[14:])
         elif uri.startswith('remove-appid?'):
@@ -785,7 +786,10 @@ class AppView(WebKit.WebView):
         elif uri == 'get-spec-ram':
             systemstate.append_system_info(self, True)
         else:
-            print('Unknown command: %s' % uri)
+            print('[Error] Unknown command: ', uri)
+      except Exception as e:
+        print('[Error] Failed to execute command: ', uri)
+        print('[Error] Exception: ', e)
 
 
 class WelcomeApp(object):
