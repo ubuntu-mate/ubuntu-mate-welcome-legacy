@@ -688,7 +688,6 @@ class AppView(WebKit.WebView):
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
 
-
     def _load_finished_cb(self, view, frame):
         self._push_config()
 
@@ -729,6 +728,13 @@ class AppView(WebKit.WebView):
             dynamicapps.modify_app(self, 'upgrade', uri[14:])
         elif uri.startswith('launch-appid?'):
             dynamicapps.launch_app(uri[13:])
+        elif uri.startswith('filter-apps?'):
+            filter_name = uri.split('?')[1]
+            nonfree_toggle = uri.split('?')[2]
+            if nonfree_toggle == 'toggle':
+                dynamicapps.apply_filter(self, filter_name, True)
+            else:
+                dynamicapps.apply_filter(self, filter_name)
         elif uri == 'apt-update':
             update_repos()
             self._apt_cache.close()
@@ -793,6 +799,7 @@ class AppView(WebKit.WebView):
             systemstate.append_system_info(self, True)
         else:
             print('Unknown command: %s' % uri)
+
 
 class WelcomeApp(object):
     def __init__(self):
@@ -874,6 +881,7 @@ class WelcomeApp(object):
 
     def close(self, p1, p2):
         Gtk.main_quit(p1, p2);
+
 
 class SystemState(object):
     def __init__(self):
@@ -1105,11 +1113,13 @@ class DynamicApps(object):
         # Load JSON Index into Memory
         self.reload_index()
 
-        # All categories in JSON and application.
+        # Variables to remember common details.
         self.all_categories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
+        self.hide_non_free = False
 
         # Reading the apt cache later.
         self._apt_cache = apt.Cache()
+
 
     ###### JSON Index Structure
     #
@@ -1209,6 +1219,9 @@ class DynamicApps(object):
             # Keep a count of apps in case there are none to list.
             apps_here = 0
 
+            # Keep track of the subcategories of the apps in this category so we can filter them.
+            subcategories = []
+
             # Enumerate each program in this category.
             for program_id in category_items:
                 self.set_app_info(category, program_id)
@@ -1233,14 +1246,16 @@ class DynamicApps(object):
                 # If the app has made it this far, it can be added to the grid.
                 # CSS breaks with dots (.), so any must become hyphens (-).
                 arg.print_verbose('Apps', ' Added: ' + self.app_name)
+                subcategories.append(self.app_subcategory)
                 html_buffer = ''
                 css_class = program_id.replace('.','-')
+                css_subcategory = self.app_subcategory.replace(' ','-')
 
                 # "Normal" packages that can be installed/removed by the user.
                 if self.app_open_source:
-                    html_buffer = html_buffer + '<div id="' + program_id + '" class="">'
+                    html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + '">'
                 else:
-                    html_buffer = html_buffer + '<div id="' + program_id + '" class="proprietary">'
+                    html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
                 html_buffer = html_buffer + '<img src="img/applications/' + self.app_img + '.png">'
@@ -1285,6 +1300,13 @@ class DynamicApps(object):
             # Display a message if there is nothing for this category.
             if apps_here == 0:
                 webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; Sorry, Welcome could not feature any software for this category that is compatible on this system.</p>")')
+
+            # Process filters for this category.
+            filters = list(set(subcategories))
+            filters.sort()
+            for string in filters:
+                css_subcategory = string.replace(' ','-')
+                webkit.execute_script('$("#Filter-' + category + '").append(\'<option value="' + css_subcategory + '">' + string + '</option>\')')
 
         # "Stats for nerds"
         total_apps = total_added + total_skipped + total_unsupported
@@ -1427,6 +1449,47 @@ class DynamicApps(object):
             subprocess.Popen(program_command.split(' '))
         except:
             print('[Apps] Failed to launch command: ' + program_command)
+
+    def apply_filter(self, webkit, filter_value, nonfree_toggle=False):
+        sub_css_class = 'filter-' + filter_value
+
+        # Toggle visibility of non-free software.
+        if nonfree_toggle:
+            if self.hide_non_free:
+                self.hide_non_free = False
+                webkit.execute_script('$("#nonFreeCheckBox").addClass("fa-square");')
+                webkit.execute_script('$("#nonFreeCheckBox").removeClass("fa-check-square");')
+            else:
+                self.hide_non_free = True
+                webkit.execute_script('$("#nonFreeCheckBox").removeClass("fa-square");')
+                webkit.execute_script('$("#nonFreeCheckBox").addClass("fa-check-square");')
+
+        if filter_value == 'none':
+            arg.print_verbose('Apps','Filter reset.')
+            webkit.execute_script('$(".app-entry").show();')
+            if self.hide_non_free:
+                arg.print_verbose('Apps','Hiding all proprietary software.')
+                webkit.execute_script('$(".proprietary").hide();')
+            return
+        else:
+            arg.print_verbose('Apps','Applying filter: ' + filter_value)
+            webkit.execute_script('$(".app-entry").hide();')
+
+            for category in self.all_categories:
+                category_items = list(self.index[category].keys())
+                for program_id in category_items:
+                    app_subcategory = self.index[category][program_id]['subcategory'].replace(' ','-')
+                    app_open_source = self.index[category][program_id]['open-source']
+
+                    # If the application is closed source and we're told to hide it.
+                    if not app_open_source and self.hide_non_free:
+                        webkit.execute_script('$("#' + program_id.replace('.','-') + '").hide();')
+                        continue
+
+                    # Only show if subcategory matches.
+                    if app_subcategory.replace(' ','-') == filter_value:
+                        webkit.execute_script('$("#' + program_id.replace('.','-') + '").show();')
+
 
 class Arguments(object):
     '''Check arguments passed the application.'''

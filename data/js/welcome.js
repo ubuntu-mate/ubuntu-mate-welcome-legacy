@@ -355,14 +355,13 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
           $(next).jAnimateOnce('fadeInDown');
         }, 250);
 
-        // Force hide 'non-free' if checked previously.
-        if ( hideNonFree == true ) {
-            $('.proprietary').hide();
-            $('.alternate').show();
-        } else {
-            $('.proprietary').show();
-            $('.alternate').hide();
-        }
+        // Show all apps again, in case the previous page was filtered.
+        $('.app-entry').fadeIn();
+
+        // Reset filters
+        selected_filter = 'none';
+        $('.filter-box').val('none');
+        applyFilter();
 
         return currentCategory;
     }
@@ -407,22 +406,26 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         }
     });
 
-    // Hide Proprietary Toggle
-    $('#nonFreeToggle').on('click', function (e) {
-      if ( hideNonFree == true ) {
-          // Toggle it OFF - Show non-free software.
-          hideNonFree = false;
-          $("#nonFreeCheckBox").addClass("fa-square");
-          $("#nonFreeCheckBox").removeClass("fa-check-square");
-          $('.proprietary').fadeIn();
-      } else {
-          // Toggle it ON - Hide non-free software.
-          hideNonFree = true;
-          $("#nonFreeCheckBox").removeClass("fa-square");
-          $("#nonFreeCheckBox").addClass("fa-check-square");
-          $('.proprietary').fadeOut();
-      }
+    // Filtering applications by subcategory and/or proprietary software.
+    selected_filter = 'none';
+
+    $("select").change(function(){
+        selected_filter = $(this).val();
+        applyFilter();
     });
+
+    $('#nonFreeToggle').on('click', function (e) {
+        toggleNonFree();
+    });
+
+    function applyFilter() {
+        window.location.href = 'cmd://filter-apps?' + selected_filter + '?';
+    }
+
+    function toggleNonFree() {
+        window.location.href = 'cmd://filter-apps?' + selected_filter + '?toggle';
+    }
+
 
     // Featured Grid - Randomly populate and add applications to the grid.
     var iconID = 0;
