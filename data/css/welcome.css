@@ -529,9 +529,18 @@ blockquote.terminal {
   font-weight: bold;
 }
 
-.screenshot-preview {
+.screenshot {
   height: 100px;
-  padding: 4px;
+  margin: 4px;
+  border: 2px solid white;
+}
+
+.screenshot:hover, .screenshot:focus {
+  border: 2px solid #799251;
+}
+
+.screenshot-link {
+  cursor: -webkit-zoom-in;
 }
 
 /************************

@@ -45,6 +45,14 @@ from getpass import getuser
 # i18n
 gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
 
+def goodbye(a=None, b=None):
+    ''' Closing the program '''
+    print('[Welcome] Application Closed.')
+
+    # FIXME: Dirty way to kill the program, Gtk is no longer gracefully closed
+    #        since child 'screenshot preview' windows may still running.
+    exit()
+
 def set_proc_title(name=None):
     '''Set the process title'''
 
@@ -733,6 +741,9 @@ class AppView(WebKit.WebView):
             self.execute_script('$("#info-show-' + appid + '").show()')
             self.execute_script('$("#info-hide-' + appid + '").hide()')
             self.execute_script('$("#details-' + appid + '").fadeOut("fast")')
+        elif uri.startswith('screenshot?'):
+            filename = uri.split('?')[1]
+            dynamicapps.show_screenshot(filename)
         elif uri == 'apt-update':
             update_repos()
             self._apt_cache.close()
@@ -768,7 +779,7 @@ class AppView(WebKit.WebView):
         elif uri == 'users':
             subprocess.Popen(['users-admin'])
         elif uri == 'quit':
-            Gtk.main_quit()
+            goodbye()
         elif uri == 'tweak':
             subprocess.Popen(['mate-tweak'])
         elif uri == 'update':
@@ -870,7 +881,7 @@ class WelcomeApp(object):
 
         # add the box to the parent window and show
         w.add(b)
-        w.connect('delete-event', self.close)
+        w.connect('delete-event', goodbye)
         w.show_all()
 
         self._window = w
@@ -1361,7 +1372,7 @@ class DynamicApps(object):
                 while not screenshots_end:
                     screenshot_path = os.path.join(app._data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
                     if os.path.exists(screenshot_path):
-                        screenshot_buffer = screenshot_buffer + '<img src="' + screenshot_path + '" class="screenshot-preview"/>'
+                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" href="cmd://screenshot?' + self.app_img + '-' + str(screenshots) + '"><img src="' + screenshot_path + '" class="screenshot"/></a>'
                         screenshots = screenshots + 1
                     else:
                         screenshots_end = True
@@ -1578,6 +1589,40 @@ class DynamicApps(object):
                     # Only show if subcategory matches.
                     if app_subcategory.replace(' ','-') == filter_value:
                         webkit.execute_script('$("#' + program_id.replace('.','-') + '").show();')
+
+    def show_screenshot(self, filename):
+        ssw = ScreenshotWindow(filename)
+
+class ScreenshotWindow(Gtk.Window):
+    ''' Displays a simple window when enlarging a screenshot. '''
+
+    # FIXME: Destroy this window when finished as it prevents the app from closing via the "Close" button and bloats memory.
+
+    def __init__(self, filename):
+        # Strings for this child window.
+        title_string = 'Preview Screenshot'
+        close_string = 'Close'
+        path = app._data_path + '/img/applications/screenshots/' + filename + '.jpg'
+
+        # Build a basic pop up window containing the screenshot at its full dimensions.
+        Gtk.Window.__init__(self, title=title_string)
+        self.overlay = Gtk.Overlay()
+        self.add(self.overlay)
+        self.background = Gtk.Image.new_from_file(path)
+        self.overlay.add(self.background)
+        self.grid = Gtk.Grid()
+        self.overlay.add_overlay(self.grid)
+        self.connect('button-press-event', self.destroy_window)      # Click anywhere to close the window.
+        self.connect('delete-event', Gtk.main_quit)
+        self.set_position(Gtk.WindowPosition.CENTER)
+        self.set_resizable(False)
+        # FIXME: Set the cursor to a hand, like it was a link.
+        #~ self.get_root_window().set_cursor(Gdk.Cursor(Gdk.CursorType.HAND1))
+        self.show_all()
+        Gtk.main()
+
+    def destroy_window(self, widget, dummy=None):
+        self.destroy()
 
 
 class Arguments(object):
