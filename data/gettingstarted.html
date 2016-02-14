@@ -37,7 +37,6 @@
       <a class="btn btn-inverse index-btn live-session"      onclick="changePage('drivers','Drivers')">                   <span class="fa fa-gear"></span>          Drivers</a>
       <a class="btn btn-inverse index-btn live-session"      onclick="changePage('languageInput','Language & Input')">    <span class="fa fa-globe"></span>         Language & Input</a>
       <a class="btn btn-inverse index-btn live-session"      onclick="changePage('tasks','Optional Tasks')">              <span class="fa fa-check-square"></span>  Optional Tasks</a>
-      <a class="btn btn-success index-btn live-session"      onclick="smoothOut('software.html')">                           <span class="fa fa-download"></span>      Discover Software</a>
 
       <br><h5>Familiarity</h5>
       <a class="btn btn-inverse index-btn"                   onclick="changePage('customize','Customization')">           <span class="fa fa-adjust"></span>        Customization</a>
@@ -46,7 +45,6 @@
       <!-- Shown in either session -->
       <br><h5>Troubleshooting</h5>
       <a class="btn btn-inverse index-btn"                   onclick="changePage('specs','System Specifications')">       <span class="fa fa-cube"></span>         System Specifications</a>
-      <a class="btn btn-success index-btn"                   onclick="smoothOut('community.html')">                       <span class="fa fa-comments"></span>     Ask the Community</a>
 
     </div>
     <div id="content" class="container-fluid entire-page-fade" hidden>
@@ -84,7 +82,7 @@
             computer meets or surpasses the recommended requirements.</p>
 
             <div class="center">
-              <a href="cmd://sysmonitor" class="btn btn-inverse"><img src="img/applications/system-monitor.png" width="32px" height="32px">&nbsp; Open System Monitor</a>
+              <a onclick="changePage('specs','System Specifications')" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; What's inside my computer?</a>
             </div>
 
             <div class="center">
@@ -511,7 +509,7 @@
               printing</a>.</p>
 
               <hr class="soften"/>
-              <div class="hplip-gui-install">
+              <div class="hp-printer-install">
                 <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
                 <b>HP Linux Printing and Imaging System</b> is
                 recommended if you have an HP printer because it provides
@@ -521,7 +519,7 @@
                 (multi-function peripheral) printers.</p>
                 <p><a class="btn btn-success" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; Install</a></p>
               </div>
-              <div class="hplip-gui-remove">
+              <div class="hp-printer-remove">
                 <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
                 <b>HP Linux Printing and Imaging System</b> is installed, which provides full support for a wide variety of HP printers.</p>
                 <p><a class="btn btn-inverse" href="cmd://run?hp-toolbox"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; Open</a></p>
