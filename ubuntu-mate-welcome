@@ -606,7 +606,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session').show();")
             self.execute_script("$('.live-session-only').hide();")
 
-        # If we find a Raspberry Pi 2 kernel, we're running on a Pi 2.
+        # If started from a Raspberry Pi 2
         if systemstate.session_type == 'pi':
             self.execute_script("$('.rpi-only').show();")
         else:
@@ -682,6 +682,11 @@ class AppView(WebKit.WebView):
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
+
+        ### Raspberry Pi 2 Page ###
+        if self.current_page == 'rpi.html':
+            # Check file system resize flag.
+            systemstate.rpi_resize('check', self)
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -806,6 +811,8 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.online').hide();")
         elif uri == 'get-spec-ram':
             systemstate.append_system_info(self, True)
+        elif uri == 'resize-rpi':
+            systemstate.rpi_resize('do-resize')
         else:
             print('[Error] Unknown command: ', uri)
       except Exception as e:
@@ -901,6 +908,9 @@ class SystemState(object):
         self.system_info_cached = False
         self.is_online = False
         self.user_name = getuser()
+
+        # These variables are determined:
+        # self.arch;  self.session_type;  self.boot_mode
 
         # Get current architecture of system.
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
@@ -1147,6 +1157,22 @@ class SystemState(object):
         webkit.execute_script('$("#spec-ram").html("")')
         webkit.execute_script('$("#spec-ram").append("<b>Total:</b> ' + str(round(int(self.specs_raw_memory)/1024/1024,1)) + ' GiB (' + str(round(int(self.specs_raw_memory)/1024)) + ' MiB)")')
         webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
+
+    def rpi_resize(self, action, webkit=None):
+        if action == 'do-resize':
+            print('fixme:rpi_resize do_resize not implemented')
+            app._appView._push_config()
+
+        elif action == 'check':
+            print('fixme:rpi_resize check not implemented')
+            resized = False
+
+            if resized:
+                webkit.execute_script('$("#rpi-resized").show()')
+                webkit.execute_script('$("#rpi-not-resized").hide()')
+            else:
+                webkit.execute_script('$("#rpi-resized").hide()')
+                webkit.execute_script('$("#rpi-not-resized").show()')
 
 
 class DynamicApps(object):
@@ -1592,6 +1618,7 @@ class DynamicApps(object):
 
     def show_screenshot(self, filename):
         ssw = ScreenshotWindow(filename)
+
 
 class ScreenshotWindow(Gtk.Window):
     ''' Displays a simple window when enlarging a screenshot. '''
