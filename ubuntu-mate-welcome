@@ -1527,14 +1527,12 @@ class DynamicApps(object):
             webkit.execute_script("$('." + css_class + "-reinstall').show();")
             webkit.execute_script("$('." + css_class + "-remove').show();")
             webkit.execute_script("$('." + css_class + "-upgrade').show();")
-            webkit.execute_script("$('." + css_class + "-text').css('color','#466E00');")
         else:
             webkit.execute_script("$('." + css_class + "-launch').hide();")
             webkit.execute_script("$('." + css_class + "-install').show();")
             webkit.execute_script("$('." + css_class + "-reinstall').hide();")
             webkit.execute_script("$('." + css_class + "-remove').hide();")
             webkit.execute_script("$('." + css_class + "-upgrade').hide();")
-            webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
 
     def update_all_app_status(self, webkit):
         ''' Update the webpage whether all indexed applications are installed or not. '''
