@@ -1369,7 +1369,7 @@ class DynamicApps(object):
                     elif arch =='amd64':
                         platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
                     elif arch =='armhf':
-                        platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> Raspberry Pi 2</span> &nbsp;&nbsp;'
+                        platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
                     elif arch =='powerpc':
                         platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
 
