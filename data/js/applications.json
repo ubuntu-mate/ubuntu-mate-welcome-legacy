@@ -26,6 +26,32 @@
 			"arch": "i386,amd64",
 			"working": true
 		},
+		"gip": {
+			"name": "Gip",
+			"img": "gip",
+			"main-package": "gip",
+			"install-packages": "gip",
+			"remove-packages": "gip",
+			"launch-command": "gip",
+			"description": [
+				"Provides system administrators with tools for IP address",
+                                "based calculations. For example, an administrator who needs",
+                                "to find out which IP prefix length equals the IP netmask",
+                                "255.255.240.0, just types in the mask and gets the prefix",
+                                "length presented. But many more advanced calculations can be",
+                                "made. Gip can convert an address range into a list of prefix",
+                                "lengths. It can also split subnets using a given IP netmask",
+                                "or IP prefix length. Many more calculations are possible."
+			],
+			"alternate-to": null,
+			"subcategory": "Calculator",
+			"open-source": true,
+			"url-info": "https://code.google.com/archive/p/gip/",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"working": true
+		},                
 		"gnote": {
 			"name": "Gnote",
 			"img": "gnote",
@@ -228,7 +254,7 @@
 				"Do brainstorming."
 			],
 			"alternate-to": null,
-			"subcategory": "Text Editor",
+			"subcategory": "Note Taking",
 			"open-source": true,
 			"url-info": "http://zim-wiki.org/",
 			"url-android": null,
