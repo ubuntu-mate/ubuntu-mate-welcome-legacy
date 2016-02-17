@@ -205,10 +205,11 @@ p.no-space {
 
 /* Center images within the div */
 div .center-inside {
-    height: 100%;
-    min-height: 50px;
-    line-height: 50px;
-    text-align: center;
+  position: relative;
+  height: 100%;
+  min-height: 50px;
+  line-height: 50px;
+  text-align: center;
 }
 
 /* System Specifications Table */
@@ -379,6 +380,10 @@ hr.soften-light {
   z-index: 11;
 }
 
+.success-text {
+  color: #477301;
+}
+
 /************************
  * Introduction Page
 *************************/
@@ -419,10 +424,32 @@ hr.soften-light {
  * Software Page
 *************************/
 
-/* Visibility Toggles */
-.hideSection { display: none; }
-.proprietary { }
-.alternate { }
+/* Always keep category tabs visible */
+#categoryTabs {
+  position: fixed;
+  background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
+  width: 100%;
+  left: 0;
+  top: 48px;
+  z-index: 5;
+  padding-top: 8px;
+  margin-bottom: 2px;
+  padding-bottom: 28px;
+}
+
+/* Hover label for categories */
+#categoryHover {
+  position: fixed;
+  top: 100px;
+  margin: auto;
+  font-size: 14px;
+  width: 110px;
+  padding-top: 4px;
+  padding-left: 3px;
+  text-align: center;
+  color: #758A53;
+  z-index: 10;
+}
 
 /* Proprietary Software Tooltip */
 .popover-title {
@@ -478,17 +505,46 @@ blockquote.terminal {
   padding-bottom: 8px;
 }
 
-/* Hover label for categories */
-#categoryHover {
+/* Installed checkmark that overlays the application's icon */
+.installed-check {
   position: absolute;
-  top: 110px;
-  margin: auto;
-  font-size: 14px;
-  width: 90px;
-  padding-top: 2px;
-  padding-left: 3px;
-  text-align: center;
-  color: #758A53;
+  bottom: -15px;
+  right: 15px;
+  color: #466E00;
+}
+
+/* Filter drop down */
+.filter-box {
+  float: right;
+  font-family: 'Ubuntu';
+}
+
+/* More details for an individual application */
+.more-details th {
+  font-family: 'Ubuntu';
+  width: 100px;
+}
+
+.more-details td {
+  font-family: 'Ubuntu';
+}
+
+.arch-in-use {
+  font-weight: bold;
+}
+
+.screenshot {
+  height: 100px;
+  margin: 4px;
+  border: 2px solid white;
+}
+
+.screenshot:hover, .screenshot:focus {
+  border: 2px solid #799251;
+}
+
+.screenshot-link {
+  cursor: -webkit-zoom-in;
 }
 
 /************************

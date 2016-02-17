@@ -27,6 +27,21 @@
             edition of Ubuntu MATE, the underlying architecture is
             very different. This page will highlight a few of these
             differences.</p>
+            <hr class="soften"/>
+
+            <h3>Resizing the file system</h3>
+            <span id="rpi-resized" hidden>
+              <p class="success-text"><span class="fa fa-check-circle"></span>
+              Your file system has already been resized.</p>
+            </span>
+            <span id="rpi-not-resized" hidden>
+              <p>After setting up Ubuntu MATE for the first time on your
+              Raspberry Pi 2, the file system will be restricted to the
+              size of the original image, which is about 3.9 GB. Use
+              this button to resize to fill the entire Micro-SD card.</p>
+              <a href="cmd://resize-rpi" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; Resize Now</a>
+            </span>
+            <hr class="soften"/>
 
             <h3>Incompatible Software</h3>
             <p>Some packages available for Ubuntu have only been written
@@ -72,8 +87,20 @@
             prevent your installation from booting, or cause serve glitches.</p>
 
             <p>You can, however, install <b>regular updates</b> via the
-            <a href="cmd://update">Software Updater</a> utility for your
-            installed software.</p>
+            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            Software Updater</a> utility for your installed software.</p>
+
+            <hr class="soften"/>
+            <h3>Kernel Updates</h3>
+            <p>The same kernel provided by the
+            <a href="cmd://link?https://www.raspberrypi.org/documentation/linux/kernel/">Raspberry Pi foundation</a>
+            is used in this edition of Ubuntu MATE. As this kernel is delivered
+            like a "firmware" blob, updates are not distributed via the
+            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            Software Updater</a> or <b>apt-get</b>.</p>
+
+            <p><b>Instead, to update the kernel, open a terminal and run:</b></p>
+            <blockquote><code>sudo rpi-update</code></blockquote>
 
             <hr class="soften"/>
             <h3>Hardware Acceleration</h3>

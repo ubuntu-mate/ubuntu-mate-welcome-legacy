@@ -96,6 +96,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
   }, 50);
 
   function exitMenu(target) {
+      // Show a "wait" cursor for the Software page, as there is a slight delay.
+      if ( target == 'software.html' ) {
+          $('html').css('cursor','wait')
+          $('a').css('cursor','wait')
+      }
+
       $('#mate-blur').jAnimateOnce('zoomOut');
       smoothOut(target)
   }
@@ -159,134 +165,152 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       startConfetti();
     }
 
-  //// Ubuntu MATE's Birthday
-    // Become official flavour on 26/Feb/2015
-    var officialDay = 26; // (1-31)
-    var officialMonth = 2; // (1-12)
-    var officialYear = 2015;
-    // Celebrate Distro's Birthday
-    var today = new Date();
-    if ( today.getMonth() == officialMonth ) {
-      if ( today.getDate() == officialDay ) {
-        var age = today.getFullYear() - officialYear;
-        $('.menuMainText').html("The distro become an official flavour " + age + " years ago.");
-        create_canvas();
-      } else {
-        checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
-      }
-    } else {
-      checkEventDate(officialDay,officialMonth,"the distro's official status anniversary")
-    }
-
-    // Project started on 21/Jun/2014
-    var birthdayDay = 21; // (1-31)
-    var birthdayMonth = 6; // (1-12)
-    var birthdayYear = 2014;
-    // Celebrate Distro's Birthday
-    var today = new Date();
-    if ( today.getMonth() == birthdayMonth ) {
-      if ( today.getDate() == birthdayDay ) {
-        var age = today.getFullYear() - birthdayYear;
-        $('.menuMainText').html("The project is " + age + " years old today. Happy Birthday!");
-        create_canvas();
-      } else {
-        checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
-      }
-    } else {
-      checkEventDate(birthdayDay,birthdayMonth,"the distro's birthday")
-    }
-
-
-    // Celebrate New Year
-    var today = new Date();
-    if ( today.getMonth() == 12 && today.getDate() == 31 ) {
-      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
-      create_canvas();
-    }
-    if ( today.getMonth() == 01 && today.getDate() == 01 ) {
-      $('.menuMainText').html("Happy New Year from Ubuntu MATE!");
-      create_canvas();
-    }
-
-    // Celebrate Distro's Releases
-    function checkReleaseDay(dd,mm,yyyy,release) {
-      var today = new Date();
-      if ( today.getFullYear() == yyyy ) {
-        if ( today.getMonth() == mm - 1 ) {
-          if ( today.getDate() == dd ) {
-            if ( today.getFullYear() == yyyy ) {
-              $('.menuMainText').html("Today marks the release of Ubuntu MATE "+release+".");
-              create_canvas();
-            } else {
-              checkEventDate(dd,mm,'the release of '+release)
-            }
-          } else {
-              checkEventDate(dd,mm,'the release of '+release)
-          }
-        } else {
-            checkEventDate(dd,mm,'the release of '+release)
-        }
-      }
-    }
-
-    // Determine day of year
-    function dayOfYear(day,month) {
+    // Internally work with days, months and years as a number.
+    function dateAsNumber(day, month, year) {
       // Assumes 'month' parameter is in base 0.
-      var now = new Date();
-      now.setMonth(month);
-      now.setDate(day);
-      var start = new Date(now.getFullYear(), 0, 0);
-      var diff = now - start;
-      var oneDay = 1000 * 60 * 60 * 24;
-      var yearDay = Math.floor(diff / oneDay);
-      return yearDay;
+      // day, month   = Required.
+      // year         = Optional, set to 'null' to use current year.
+      var then = new Date();
+      if ( year != null ) {
+        then.setYear(year);
+      }
+      then.setMonth(month-1);
+      then.setDate(day);
+      var finalNumber = Math.floor( then / (1000 * 60 * 60 * 24) );
+      //~ var dateInYears = current + todayAsNumber;
+      //~ console.log('** finalNumber: '+finalNumber)
+      //~ return dateInYears;
+      return finalNumber;
     }
 
-    // Is an event upcoming or has it already passed?
-    function checkEventDate(day,month,event) {
-      month = month - 1; // JS uses base 0.
-      var now = new Date();
-      today_year_number = parseInt(dayOfYear(now.getDate(),now.getMonth()));
-      event_year_number = parseInt(dayOfYear(day,month));
+    // What is today?
+    var today = new Date();
+    var todayAsNumber = dateAsNumber(today.getDate(), today.getMonth()+1, null)
 
-      // Event was 7 days before now.
-      for (d=1; d<=7; d++) {
-        past_year_number = parseInt(today_year_number-d)
-        if ( past_year_number == event_year_number ) {
-          if ( d == 1 ) {
-            $('.menuMainText').html("It was " + event + " yesterday.");
-          } else {
-            $('.menuMainText').html("It was " + event + " " + d.toString() + " days ago.");
-          }
+    // Check dates for special events.
+    function specialEventCheck(dateNo, title_text, show_confetti, fa_icon) {
+      // dateNo        = dateAsNumber(dd, mm, yyyy) function.
+      // title_text    = Text to display when date matches.
+      // show_confetti = True / False = Celebrate when date matches.
+      // fa_icon       = FontAwesome icon to display. Usually 'bell' or 'calendar'.
+      var do_show_this = false;
+      if ( dateNo == todayAsNumber) {
+        // Today is the day!
+        var do_show_this = true;
+      }
+      if ( do_show_this == true ) {
+        $('.menuMainText').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
+        if ( show_confetti == true ) {
           create_canvas();
         }
       }
-
-      // Event will be 7 days after today.
-      for (d=1; d<=7; d++) {
-        future_year_number = parseInt(today_year_number+d)
-        if ( future_year_number == event_year_number ) {
-          if ( d == 1 ) {
-            $('.menuMainText').html("It's going to be " + event + " tomorrow.");
-          } else {
-            $('.menuMainText').html("It's going to be " + event + " in " + d.toString() + " days time.");
-          }
-          create_canvas();
-        }
-      }
-      // FIXME: Determine between year changes.
     }
 
-  //// Release Dates
-    // TODO / Possible Improvement: Retrieve list from server.
-    // Dates written here are human-readable, in other words, base 1 (1-12).
-    // DD,MM,YYYY
-    checkReleaseDay(04,01,2015,'16.04 Alpha 1');
-    checkReleaseDay(28,01,2016,'16.04 Alpha 2');
-    checkReleaseDay(25,02,2016,'16.04 Beta 1');
-    checkReleaseDay(24,03,2016,'16.04 Beta 2');
-    checkReleaseDay(21,04,2016,'16.04');
+    // Dates to be checking for.
+      // Use 'dd', 'mm' and 'yyyy' variables to re-use code.
+      var dd = 0;  var mm = 0;  var yyyy = 0;
 
+      // Official Flavour Status - 26/Feb/2015
+      var age = today.getFullYear() - 2015;
+      dd = 26; mm = 02; yyyy = null;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE celebrates its official flavour status in 7 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE celebrates its official flavour status in 6 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE celebrates its official flavour status in 5 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE celebrates its official flavour status in 4 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE celebrates its official flavour status in 3 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE celebrates its official flavour status in 2 days time.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE celebrates its official flavour status tomorrow.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE become an official flavour " + age + " years ago today.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE celebrated its official flavour status yesterday.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE celebrated its official flavour status 2 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE celebrated its official flavour status 3 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE celebrated its official flavour status 4 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE celebrated its official flavour status 5 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE celebrated its official flavour status 6 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE celebrated its official flavour status 7 days ago.", false, 'calendar');
+
+      // Project Birthday - 21/Jun/2014
+      var age = today.getFullYear() - 2014;
+      dd = 21; mm = 06; yyyy = null;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "The project will be " + age + " years old a week today!", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "The project will be " + age + " years old in 6 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "The project will be " + age + " years old in 5 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "The project will be " + age + " years old in 4 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "The project will be " + age + " years old in 3 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "The project will be " + age + " years old in 2 days time!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "The project will be " + age + " years old tomorrow. Happy Birthday!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "The project is " + age + " years old today. Happy Birthday!", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "The project turned " + age + " years old yesterday. Happy Birthday!", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "The project turned " + age + " years old 2 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "The project turned " + age + " years old 3 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "The project turned " + age + " years old 4 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "The project turned " + age + " years old 5 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "The project turned " + age + " years old 6 days ago.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "The project turned " + age + " years old last week.", false, 'calendar');
+
+      // Holiday Celebrations
+      specialEventCheck(dateAsNumber(31,12,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
+      specialEventCheck(dateAsNumber(01,01,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
+
+      // 16.04 Alpha 1
+      dd = 04; mm = 01; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+
+      // 16.04 Alpha 2
+      dd = 28; mm = 01; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+
+      // 16.04 Beta 1
+      dd = 25; mm = 02; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", true, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+
+      // 16.04 Beta 2
+      dd = 24; mm = 03; yyyy = 2016;
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 will be released in 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 will be released in 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 will be released tomorrow.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+
+      // 16.04 Final Release
+      dd = 21; mm = 04; yyyy = 2016; var build = '16.04 LTS'
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE " + build + " will be released a week today.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE " + build + " will be released in 6 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE " + build + " will be released in 5 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE " + build + " will be released in 4 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " will be released in 3 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " will be released in 2 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " will be released tomorrow.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " was released yesterday.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " was released 2 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " was released 3 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE " + build + " was released 4 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE " + build + " was released 5 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE " + build + " was released 6 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE " + build + " was released last week.", false, 'calendar');
+
+    // To-do as possible improvement: Retrieve events as a list from server.
 }
 
 
@@ -303,12 +327,11 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     var currentCategory;
     var hideNonFree = false;
     var system_info = '';
-    var system_arch = 'unknown';
 
     // Show the first category.
     currentCategory = '#Intro';
     $(currentCategory).jAnimateOnce('zoomInLeft');
-    $(currentCategory).removeClass('hideSection');
+    $(currentCategory).show();
 
     // Switch to another category.
     function switchCategory(now, next, subtitle) {
@@ -326,44 +349,19 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         // Animate out, then animate in next category.
         $(now).fadeOut('fast');
         setTimeout(function() {
-          $(now).addClass('hideSection');
+          $(now).hide();
           currentCategory = next;
-          $(next).removeClass('hideSection');
           $(next).show();
           $(next).jAnimateOnce('fadeInDown');
         }, 250);
 
-        // FIXME: Logic flawed! Some apps will appear on architectures
-        // but because they have a 'proprietary' class, they will for now.
+        // Show all apps again, in case the previous page was filtered.
+        $('.app-entry').fadeIn();
 
-        // Force hide apps unsupported on this platform.
-        if ( system_arch == 'i686' ) {
-            $('.i686-only').show();
-            $('.x86_64-only').hide();
-            $('.pc-only').show();
-            $('.rpi-only').hide();
-        } else if ( system_arch == 'x86_64' ) {
-            $('.i686-only').hide();
-            $('.x86_64-only').show();
-            $('.pc-only').show();
-            $('.rpi-only').hide();
-        } else {
-            // FIXME: Dirty guess until better implementation (dynamic apps)
-            // but assume if not a PC, then it's a Raspberry Pi.
-            $('.i686-only').hide();
-            $('.x86_64-only').hide();
-            $('.pc-only').hide();
-        }
-
-
-        // Force hide 'non-free' if checked previously.
-        if ( hideNonFree == true ) {
-            $('.proprietary').hide();
-            $('.alternate').show();
-        } else {
-            $('.proprietary').show();
-            $('.alternate').hide();
-        }
+        // Reset filters
+        selected_filter = 'none';
+        $('.filter-box').val('none');
+        applyFilter();
 
         return currentCategory;
     }
@@ -375,13 +373,29 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
       var x = $(menuItemID).position();
       var length = $('#categoryHover').width();
-      $('#categoryHover').css('left', (x.left+24) - (90/2) )
+      $('#categoryHover').css('left', (x.left+24) - (110/2) )
     }
 
     // A category tab is clicked.
     function changeCategoryTab(id,humanText) {
       switchCategory(currentCategory, id, humanText);
       $('#categoryHover').fadeOut()
+    }
+
+    function jumpOneClickServers(appno) {
+      changeCategoryTab('#Servers','Servers');
+      $('#ServersBtn').tab('show');
+      $('html, body').animate({ scrollTop: 0 }, 100)
+
+      // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
+      if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
+      if ( appno == 2 ) {  targetDiv = 'x2go-server';  }
+
+      setTimeout(function(){
+          $('html, body').animate({
+              scrollTop: $('#'+targetDiv).offset().top - 100
+          }, 1000);
+      }, 1000);
     }
 
     // Show the popover on hover
@@ -392,159 +406,79 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
         }
     });
 
-    // Hide Proprietary Toggle
-    $('#nonFreeToggle').on('click', function (e) {
-      if ( hideNonFree == true ) {
-          // Toggle it OFF - Show non-free software.
-          hideNonFree = false;
-          $("#nonFreeCheckBox").addClass("fa-square");
-          $("#nonFreeCheckBox").removeClass("fa-check-square");
-          $('.proprietary').fadeIn();
-          $('.alternate').fadeOut();
-      } else {
-          // Toggle it ON - Hide non-free software.
-          hideNonFree = true;
-          $("#nonFreeCheckBox").removeClass("fa-square");
-          $("#nonFreeCheckBox").addClass("fa-check-square");
-          $('.proprietary').fadeOut();
-          $('.alternate').fadeIn();
-      }
+    // Filtering applications by subcategory and/or proprietary software.
+    selected_filter = 'none';
+
+    $("select").change(function(){
+        selected_filter = $(this).val();
+        applyFilter();
     });
 
-    // Icon filenames of apps to feature at random.
+    $('#nonFreeToggle').on('click', function (e) {
+        toggleNonFree();
+    });
 
-    // A variety of apps that all kinds of users can identify:
-    // gamers, media enthusiasts, programmers and the average users.
+    function applyFilter() {
+        window.location.href = 'cmd://filter-apps?' + selected_filter + '?';
+    }
 
-    // TODO: There's probably a better way to do this. (Dynamic apps?)
-    var featuredApps = new Array();
-    featuredApps.push('audacity');
-    featuredApps.push('bleachbit');
-    featuredApps.push('blender');
-    featuredApps.push('control-centre');
-    featuredApps.push('darktable');
-    featuredApps.push('dropbox');
-    featuredApps.push('geany');
-    featuredApps.push('gimp');
-    featuredApps.push('google-chrome');
-    featuredApps.push('google-musicmanager');
-    featuredApps.push('gpick');
-    featuredApps.push('handbrake');
-    featuredApps.push('inkscape');
-    featuredApps.push('insync');
-    featuredApps.push('minecraft');
-    featuredApps.push('mumble');
-    featuredApps.push('pavucontrol');
-    featuredApps.push('pitivi');
-    featuredApps.push('remmina');
-    featuredApps.push('rhythmbox');
-    featuredApps.push('shotwell');
-    featuredApps.push('simplescreenrecorder');
-    featuredApps.push('skype');
-    featuredApps.push('spotify');
-    featuredApps.push('steam');
-    featuredApps.push('synaptic');
-    featuredApps.push('syncthing');
-    featuredApps.push('telegram');
-    featuredApps.push('thunderbird');
-    featuredApps.push('ubuntu-software-center');
-    featuredApps.push('uget');
-    featuredApps.push('veracrypt');
-    featuredApps.push('virtualbox');
-    featuredApps.push('vlc');
-    featuredApps.push('libreoffice-base');
-    featuredApps.push('opera');
-    featuredApps.push('evolution');
-    featuredApps.push('dvd');
-    featuredApps.push('playonlinux');
-    featuredApps.push('virt-manager');
-    featuredApps.push('gparted');
-    featuredApps.push('emby');
-    featuredApps.push('aptik');
-    featuredApps.push('easytag');
-    featuredApps.push('owncloud');
-    featuredApps.push('rednotebook');
-    featuredApps.push('enpass');
-    featuredApps.push('glade');
-    featuredApps.push('btsync');
-    featuredApps.push('audio-recorder');
-    featuredApps.push('poedit');
-    featuredApps.push('minecraft');
-    featuredApps.push('caja-share');
-    featuredApps.push('git-cola');
-    featuredApps.push('gnucash');
-    featuredApps.push('kdeconnect');
-    featuredApps.push('sweethome3d');
-    featuredApps.push('gnote');
-    featuredApps.push('bzr');
-    featuredApps.push('stellarium');
-    featuredApps.push('dia');
-    featuredApps.push('gobby');
-    featuredApps.push('planner');
-    //~ featuredApps.push('kodi');
+    function toggleNonFree() {
+        window.location.href = 'cmd://filter-apps?' + selected_filter + '?toggle';
+    }
 
-    // Add application to the grid.
+
+    // Featured Grid - Randomly populate and add applications to the grid.
     var iconID = 0;
     function addToGrid(icon) {
       iconID++;
       $('#featuredGrid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="gridHidden" />');
     }
 
-    // Randomly populate apps into the grid.
-    var random;
-    var a = 0;
-    while (a < 16) {
-      random = Math.floor(Math.random() * featuredApps.length);
-      if (featuredApps[random] != "OK" ) {
-          addToGrid(featuredApps[random]);
-          featuredApps[random] = "OK";
-          a++;
-      }
+    // Featured Grid - Set classes to create a semi-circle fade effect.
+    function initGrid() {
+        $('#appIcon1').addClass('gridOuter');
+        $('#appIcon2').addClass('gridOuter');
+        $('#appIcon3').addClass('gridOuter');
+        $('#appIcon4').addClass('gridOuter');
+        $('#appIcon5').addClass('gridOuter');
+        $('#appIcon8').addClass('gridOuter');
+        $('#appIcon9').addClass('gridOuter');
+        $('#appIcon12').addClass('gridOuter');
+        $('#appIcon13').addClass('gridOuter');
+        $('#appIcon14').addClass('gridOuter');
+        $('#appIcon15').addClass('gridOuter');
+        $('#appIcon16').addClass('gridOuter');
+
+        $('#appIcon6').addClass('gridInner');
+        $('#appIcon7').addClass('gridInner');
+        $('#appIcon10').addClass('gridInner');
+        $('#appIcon11').addClass('gridInner');
+
+        // Gently fade the icons into view.
+        setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
+
+        setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
+
+        setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
+
+        setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
+
+        setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
+
+        setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
+        setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
+
+        setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
     }
-
-    // Set classes to create a semi-circle fade effect.
-    $('#appIcon1').addClass('gridOuter');
-    $('#appIcon2').addClass('gridOuter');
-    $('#appIcon3').addClass('gridOuter');
-    $('#appIcon4').addClass('gridOuter');
-    $('#appIcon5').addClass('gridOuter');
-    $('#appIcon8').addClass('gridOuter');
-    $('#appIcon9').addClass('gridOuter');
-    $('#appIcon12').addClass('gridOuter');
-    $('#appIcon13').addClass('gridOuter');
-    $('#appIcon14').addClass('gridOuter');
-    $('#appIcon15').addClass('gridOuter');
-    $('#appIcon16').addClass('gridOuter');
-
-    $('#appIcon6').addClass('gridInner');
-    $('#appIcon7').addClass('gridInner');
-    $('#appIcon10').addClass('gridInner');
-    $('#appIcon11').addClass('gridInner');
-
-    // Gently fade the icons into view.
-    setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
-
-    setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
-    setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
-    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
-
-    setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
-    setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
-    setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
-
-    setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
-    setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
-
-    setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
-    setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
-    setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
-
-    setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
-    setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
-
-    setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
 
     // Misc Tab - Show commands if user wishes to know them.
     var showMiscCommands = false;
@@ -577,7 +511,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
     // Override the footer to only display "Skip".
     $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage(true)" class="btn btn-inverse">Skip</a></div></div>');
 
-    $('#sceneA').removeClass('hideSection');
+    $('#sceneA').show();
     $('#sceneA').jAnimateOnce('fadeIn');
 
     setTimeout(function(){ $('#circle1').fadeOut('medium');}, 1000);
@@ -587,12 +521,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
     setTimeout(function(){ $('#circle5').fadeOut('medium');}, 1400);
 
     setTimeout(function(){
-      $('#sceneA').removeClass('hideSection');
+      $('#sceneA').show();
       $('#sceneA').fadeOut();
     }, 1500);
 
     setTimeout(function(){
-      $('#sceneB').removeClass('hideSection');
+      $('#sceneB').show();
       $('#sceneB').jAnimateOnce('zoomIn');
       $('body').addClass('fadeToMenu');
     }, 2000);
@@ -818,6 +752,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
         break;
     }
   }
+
   function numToShortMonth(m) {
     switch (m) {
       case 0:

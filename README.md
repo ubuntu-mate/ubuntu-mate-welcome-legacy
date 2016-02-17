@@ -7,6 +7,8 @@ The Ubuntu MATE Welcome application to greet both new and returning users on the
   * **Introduce new users to the operating system.**
     * Highlight key features of Ubuntu MATE.
     * Provide quick guidelines on getting started.
+    * Provide quick installation guidance.
+    * Inform users of their own system specifications.
   * **Grow the Ubuntu MATE Community**
     * Accessible links to the community forums and social networks.
     * Inform of Ubuntu MATE branded products for sale.
@@ -19,6 +21,21 @@ Originally based on:
 
   * https://github.com/Antergos/antergos-welcome
   * http://blog.schlomo.schapiro.org/2014/01/apt-install.html
+
+## Optional Arguments
+
+Welcome does not require arguments for general usage, but for debugging
+and testing purposes, the following can be specified:
+
+  * `--verbose` = Show more details to stdout.
+  * `--force-arch=<ARCH>` = Simulate an architecture.
+    * `i386` or `amd64` or `armvf` or `powerpc`
+  * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
+    * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
+  * `--force-no-net` = Simulate no internet connection.
+  * `--force-net` = Simulate an internet connection.
+  * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
+
 
 ## Requirements
 

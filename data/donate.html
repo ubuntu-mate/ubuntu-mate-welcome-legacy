@@ -26,9 +26,9 @@
             <li><a onclick="smoothFade('#about','#supporters')" data-toggle="tab" id="tabSupporters">Our Supporters</a></li>
           </ul>
           <div class="alert alert-warning offline">
-            <h5>An Internet connection is required to donate and view our supporters.</h5>
-            <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, please check your connection and try again.</p></div>
-            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-default"> <span class="fa fa-refresh"></span> Retry</a>
+            <h5>It appears you are not connected to the Internet. Please check your connection to access this content.</h5>
+            <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> Sorry, Welcome was unable to establish a connection.</p></div>
+            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> Retry</a>
           </div>
         </div>
       </div>
