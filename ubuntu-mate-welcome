@@ -509,6 +509,10 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
         transaction.update_cache = True
         transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
+    elif 'ubuntu-mate-welcome' in packages:
+        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-mate-welcome', action])
+        transaction.update_cache = True
+        transaction.source_to_update =  'ubuntu-mate-dev-ubuntu-welcome-'+codename+'.list'
 
     if transaction.action == 'install':
         transaction.install_packages()
@@ -633,6 +637,10 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('#software').hide();")
                 self.execute_script("$('#introduction').addClass('btn-success');")
                 self.execute_script("$('#community').addClass('btn-success');")
+
+            # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
+            if not systemstate.updates_subscribed:
+                self.execute_script('$("#update-notification").fadeIn("slow")')
 
         ### Splash ###
         if self.current_page == 'splash.html':
@@ -818,6 +826,16 @@ class AppView(WebKit.WebView):
             systemstate.append_system_info(self, True)
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
+        elif uri == 'subscribe-updates':
+            print('[Welcome] Adding Ubuntu MATE Welcome Updates PPA...')
+            dynamicapps.modify_app(self, 'upgrade', 'ubuntu-mate-welcome')
+            # Verify if the PPA was successfully added.
+            if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
+                print('[Welcome] Welcome Updates PPA successfully added. Application restarting...')
+                os.execv(__file__, sys.argv)
+            else:
+                print('[Welcome] Welcome Updates PPA failed to add.')
+
         else:
             print('[Error] Unknown command: ', uri)
       except Exception as e:
@@ -913,6 +931,7 @@ class SystemState(object):
         self.system_info_cached = False
         self.is_online = False
         self.user_name = getuser()
+        self.updates_subscribed = False
 
         # These variables are determined:
         # self.arch;  self.session_type;  self.boot_mode
@@ -948,6 +967,10 @@ class SystemState(object):
         thread2 = Thread(target=self.detect_graphics)
         thread1.start()
         thread2.start()
+
+        # Check whether Welcome is subscribed for updates.
+        if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'):
+            self.updates_subscribed = True
 
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
