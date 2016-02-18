@@ -1160,7 +1160,8 @@ class SystemState(object):
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
-            print('fixme:rpi_resize do_resize not implemented')
+            print('rpi_resize do_resize not implemented')
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
             app._appView._push_config()
 
         elif action == 'check':
