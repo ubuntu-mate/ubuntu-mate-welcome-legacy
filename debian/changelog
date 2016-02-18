@@ -1,3 +1,35 @@
+ubuntu-mate-welcome (16.04.2) xenial; urgency=medium
+
+  [ Luke Horwell ]  
+    * Friendlier "not connected" messages.
+    * Title bar is simply "Welcome".
+    * Many minor tweaks and code consistency.
+    * Catch exceptions when commands fail.
+    * Rewrite date functions for Main Menu events.
+    * New images.
+    * Raspberry Pi 2 information about kernel upgrades.
+    * Software Page is now built dynamically.
+    * Add ability to launch apps.
+    * Add ability to filter by subcategory.
+    * Add expandable/collapsible more details for each app.
+    * Add screenshots.
+    * Add a Software Only Mode
+    * Highlight installed applications.
+    * Show a spinner when applying actions.
+    * One-click install links now scroll to specific server app.
+    * Dynamically populate the random featured apps grid.
+    * Always show software categories at top of page.
+    * Show a 'busy' cursor when entering Software/Getting Started.
+    * Handle apt operations via DynamicApps class.
+    * Optimisations updating installed state of applications.    
+    * Fixed Proprietary software toggle.
+
+  [ Martin Wimpress ]
+    * Raspberry Pi 2 button to resize partitions.
+    * Closes (LP: #)
+
+ -- Martin Wimpress <code@flexion.org>  Wed, 19 Feb 2016 21:35:21 +0000
+
 ubuntu-mate-welcome (16.04.1) xenial; urgency=medium
 
   [ Luke Horwell ]
