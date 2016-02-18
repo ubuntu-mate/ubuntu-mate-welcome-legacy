@@ -32,6 +32,8 @@ and testing purposes, the following can be specified:
     * `i386` or `amd64` or `armvf` or `powerpc`
   * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
     * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
+  * `--force-codename=<NAME>` = Simulate a specific Ubuntu release.
+    * Eg. `trusty` or `wily` or `xenial`.
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
