@@ -114,7 +114,7 @@
                                 "insert the key-disk to unlock the whole database. The databases are",
                                 "encrypted using the algorithms AES or Twofish."
 			],
-			"alternate-to": "Enpass",
+			"alternate-to": "Enpass and LastPass",
 			"subcategory": "Password Management",
 			"open-source": true,
 			"url-info": "https://www.keepassx.org/",
@@ -3206,6 +3206,24 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"working": true
+		},
+		"ubuntu-mate-wallpapers-complete": {
+			"name": "Every Ubuntu MATE Wallpaper",
+			"img": "null",
+			"main-package": "ubuntu-mate-wallpapers-complete",
+			"launch-command": null,
+			"install-packages": "ubuntu-mate-wallpapers-complete",
+			"remove-packages": "ubuntu-mate-wallpapers-complete",
+			"description": "Complete set of all Ubuntu MATE wallpapers",
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "wily,xenial",
 			"working": true
 		}
 	}
