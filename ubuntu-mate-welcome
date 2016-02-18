@@ -399,6 +399,11 @@ def process_packages(packages, action):
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'vikoadi', action])
         transaction.update_cache = True
         transaction.source_to_update = 'vikoadi-ubuntu-ppa-'+codename+'.list'
+    elif 'keypassx' in packages:
+        if codename == 'trusty' or codename == 'wily':
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'keypassx', action])
+            transaction.source_to_update = 'flexiondotorg-ubuntu-keypassx-'+codename+'.list'
+            transaction.update_cache = True        
     elif 'makemkv-bin' in packages:
         subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
         transaction.update_cache = True

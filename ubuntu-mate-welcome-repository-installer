@@ -131,6 +131,8 @@ if __name__ == "__main__":
                 codename = 'wily'
             add_apt_key_from_url('https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key')
             add_apt_sources(['deb http://apt.insynchq.com/ubuntu ' + codename + ' non-free contrib'], repository)
+        elif repository == 'keypassx':
+            enable_ppa('ppa:flexiondotorg/keeypassx')            
         elif repository ==  'libdvdcss2':
             add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
             add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
