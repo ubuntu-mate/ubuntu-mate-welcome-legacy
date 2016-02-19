@@ -228,6 +228,8 @@ if __name__ == "__main__":
             add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
         elif repository ==  'x2go':
             enable_ppa('ppa:x2go/stable')
+        elif repository ==  'ubuntu-mate-welcome':
+            enable_ppa('ppa:ubuntu-mate-dev/welcome')
         else:
             print('Repository ' + repository + ' is unknown.')
     elif action == 'remove':

@@ -3100,6 +3100,24 @@
 		}
 	},
 	"Unlisted": {
+		"ubuntu-mate-welcome": {
+			"name": "Ubuntu MATE Welcome Updates",
+			"img": "",
+			"main-package": "ubuntu-mate-welcome",
+			"launch-command": "ubuntu-mate-welcome",
+			"upgradable": true,
+			"upgrade-packages": "ubuntu-mate-welcome",
+			"description": [""],
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "trusty,wily,xenial",
+			"working": true
+		},
 		"boot-repair": {
 			"name": "Boot-Repair",
 			"img": "null",
