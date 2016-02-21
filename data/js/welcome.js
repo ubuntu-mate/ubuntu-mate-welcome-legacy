@@ -40,7 +40,7 @@ $(document).ready(function() {
   $('#footer-right').append(global_footer_right);
   $('#footer').append(global_scrollToTop);
 
-  // Initalize scroll to the top
+  // Initialize scroll to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scrollTop').fadeIn();

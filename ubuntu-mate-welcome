@@ -595,8 +595,12 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('#community').addClass('btn-success');")
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
+            self.execute_script('$("#update-subscribing").hide()')
             if not systemstate.updates_subscribed:
-                self.execute_script('$("#update-notification").fadeIn("slow")')
+                if systemstate.is_online:
+                    self.execute_script('$("#update-notification").fadeIn("slow")')
+            else:
+                self.execute_script('$("#update-notification").hide()')
 
         ### Splash ###
         if self.current_page == 'splash.html':
@@ -783,14 +787,18 @@ class AppView(WebKit.WebView):
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
         elif uri == 'subscribe-updates':
-            print('[Welcome] Adding Ubuntu MATE Welcome Updates PPA...')
+            print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
+            self.execute_script("$('#update-notification').hide()")
+            self.execute_script("$('#update-subscribing').show()")
             dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
-                print('[Welcome] Welcome Updates PPA successfully added. Application restarting...')
+                print('[Welcome] Success, PPA added! Application restarting...')
                 os.execv(__file__, sys.argv)
             else:
-                print('[Welcome] Welcome Updates PPA failed to add.')
+                print('[Welcome] Failed, PPA not detected!')
+                self.execute_script('$("#update-subscribing").hide()')
+                self.execute_script('$("#update-notification").show()')
 
         else:
             print('[Error] Unknown command: ', uri)
