@@ -865,3 +865,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
   }
 
 }
+
+// Entering Software Only Mode
+if ( document.location.href.match(/[^\/]+$/)[0] == 'software-only.html' ) {
+    $('html').css('cursor','wait')
+}
+
