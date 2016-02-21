@@ -99,7 +99,7 @@ cat <<EOF > /etc/init.d/resize2fs_once &&
 case "\$1" in
   start)
     log_daemon_msg "Starting resize2fs_once" &&
-    resize2fs /dev/$ROOT_PART &&
+    /sbin/resize2fs /dev/$ROOT_PART &&
     update-rc.d resize2fs_once remove &&
     rm /etc/init.d/resize2fs_once &&
     log_end_msg \$?
@@ -114,3 +114,5 @@ EOF
   update-rc.d resize2fs_once defaults &&
   notify-send "Root partition has been resized." "The filesystem will be enlarged upon the next reboot."
 }
+
+do_expand_rootfs
