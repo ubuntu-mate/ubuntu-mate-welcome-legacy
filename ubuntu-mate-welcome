@@ -1378,6 +1378,18 @@ class DynamicApps(object):
                 html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
                 html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
+                # Check any "Upgrade" packages if the PPA has already been added.
+                upgraded = False
+                if self.app_upgrade_only:
+                    try:
+                        listname = dynamicapps.index[category][program_id]['pre-install']['all']['source-file']
+                        listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                        if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
+                            upgraded = True
+                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> This application is set to receive the latest updates.</h5>'
+                    except:
+                        pass
+
                 if not self.app_alternate_to == None:
                     html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
@@ -1394,7 +1406,8 @@ class DynamicApps(object):
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
                     arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
-                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                    if not upgraded:
+                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
 
                 if not self.app_launch_command == None:
                     html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
