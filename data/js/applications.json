@@ -137,7 +137,7 @@
                                 "insert the key-disk to unlock the whole database. The databases are",
                                 "encrypted using the algorithms AES or Twofish."
 			],
-			"alternate-to": "Enpass",
+			"alternate-to": "Enpass and LastPass",
 			"subcategory": "Password Management",
 			"open-source": true,
 			"url-info": "https://www.keepassx.org/",
@@ -1524,12 +1524,7 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
-			"pre-install": {
-				"all": {
-					"method": "skip"
-				}
-			},
+			"releases": "xenial",
 			"working": true
 		},
 		"filezilla": {
@@ -2376,7 +2371,7 @@
 			"url-info": "https://www.libreoffice.org/",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64,armhf,powerpc",
+			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -3256,15 +3251,8 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
 			"pre-install": {
-				"xenial": {
-					"method": "ppa+manual",
-					"enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
-					"source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME",
-					"apt-sources": ["deb http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu wily main",
-													"deb-src http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu wily main"]
-				},
 				"all": {
 					"method": "ppa",
 					"enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
@@ -3451,7 +3439,7 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
 			"pre-install": {
 				"all": {
 					"method": "skip"
@@ -3484,7 +3472,7 @@
 			  "xenial": {
 					"method": "ppa",
 					"enable-ppa": "ppa:gnome-terminator/ppa",
-					"source-file": "gnome-terminator-ubuntu-ppa-"
+					"source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
 			  },
 				"all": {
 					"method": "skip"
@@ -3547,14 +3535,8 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
 			"pre-install": {
-				"xenial": {
-					"method": "manual",
-					"source-file": "virtualbox",
-					"apt-key-url": "https://www.virtualbox.org/download/oracle_vbox.asc",
-					"apt-sources": ["deb http://download.virtualbox.org/virtualbox/debian wily contrib"]
-				},
 				"all": {
 					"method": "manual",
 					"source-file": "virtualbox",
@@ -4063,6 +4045,24 @@
 					"source-file": "graphics-drivers-ubuntu-ppa-CODENAME"
 				}
 			},
+			"working": true
+		},
+		"ubuntu-mate-wallpapers-complete": {
+			"name": "Every Ubuntu MATE Wallpaper",
+			"img": "null",
+			"main-package": "ubuntu-mate-wallpapers-complete",
+			"launch-command": null,
+			"install-packages": "ubuntu-mate-wallpapers-complete",
+			"remove-packages": "ubuntu-mate-wallpapers-complete",
+			"description": "Complete set of all Ubuntu MATE wallpapers",
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "wily,xenial",
 			"working": true
 		}
 	}

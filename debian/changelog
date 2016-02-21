@@ -1,4 +1,4 @@
-ubuntu-mate-welcome (16.04.2) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.3) UNRELEASED; urgency=medium
 
   [ Luke Horwell ]  
     * Friendlier "not connected" messages.
@@ -13,7 +13,8 @@ ubuntu-mate-welcome (16.04.2) xenial; urgency=medium
     * Add ability to filter by subcategory.
     * Add expandable/collapsible more details for each app.
     * Add screenshots.
-    * Add a Software Only Mode
+    * Add a Software Only Mode.
+    * Add update subscription.
     * Highlight installed applications.
     * Show a spinner when applying actions.
     * One-click install links now scroll to specific server app.
@@ -28,7 +29,13 @@ ubuntu-mate-welcome (16.04.2) xenial; urgency=medium
     * Raspberry Pi 2 button to resize partitions.
     * Closes (LP: #)
 
- -- Martin Wimpress <code@flexion.org>  Wed, 19 Feb 2016 21:35:21 +0000
+ -- Martin Wimpress <code@flexion.org>  Wed, 17 Feb 2016 21:35:21 +0000
+
+ubuntu-mate-welcome (16.04.2) xenial; urgency=medium
+
+  * Add the missing image files (LP: #1537476)
+
+ -- Timo Jyrinki <timo-jyrinki@ubuntu.com>  Mon, 25 Jan 2016 15:52:00 +0200
 
 ubuntu-mate-welcome (16.04.1) xenial; urgency=medium
 
