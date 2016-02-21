@@ -89,6 +89,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
   // Animate elements of the page
   $('#mainLogo').jAnimateOnce('rotateIn');
+  $('.menuMainText').fadeIn('slow');
   $('#open-at-start').jAnimateOnce('fadeIn');
   setTimeout(function(){
     $('#mate-blur').jAnimateOnce('zoomIn');
@@ -119,11 +120,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     });
   }
 
-  // When Welcome first runs, thank the user.
-  $('.menuMainText').fadeIn('slow');
-  if ( document.cookie == '') {
-    document.cookie="greeted=yes";
-  }
+  // Enable tooltips
+  $(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+  });
 
   // Sssh... You found the little secrets! ;)
   //// Logo starts to animate after a minute.
