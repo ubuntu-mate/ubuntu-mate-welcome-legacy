@@ -1222,7 +1222,8 @@ class DynamicApps(object):
     #   url-ios                 string      No          URL if there is an associated Android app. Can be ignored.
     #   arch                    string      Yes         Supported architectures for this app. Comma seperated.
     #   releases                string      Yes         Supported versions of Ubuntu MATE to show this application. Comma seperated.
-    #   working                 string      Yes         Show/hide visibility of this application.
+    #   working                 boolean     Yes         Show/hide visibility of this application.
+    #   notes                   string      No          Optional developer notes for the application.
     #
     #### * Only if applicable to application.
 
