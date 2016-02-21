@@ -1388,8 +1388,8 @@ class DynamicApps(object):
                 if not self.app_upgrade_only:
                     html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Reinstall"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Remove"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:

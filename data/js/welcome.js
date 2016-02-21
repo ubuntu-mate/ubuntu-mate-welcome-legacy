@@ -398,7 +398,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
       }, 1000);
     }
 
-    // Show the popover on hover
+    // Show the popover/tooltips on hover
+    $(document).ready(function() {
+      $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    });
     $('[rel=freedominfo]').popover({
         html : true,
         content: function() {
