@@ -547,6 +547,15 @@ blockquote.terminal {
   cursor: -webkit-zoom-in;
 }
 
+/* Software Only Mode Splash */
+#center-spinner {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  top: 0; bottom: 0; left: 0; right: 0;
+  position: absolute;
+}
+
 /************************
  * Main Menu
 *************************/
@@ -618,12 +627,14 @@ blockquote.terminal {
   background-color: #C6053D \9;
 }
 
-/* Welcome Updates Subscription Button */
-#update-notification {
+/* Shows a notification in the top-right corner */
+.heads-up {
   position: fixed;
   top: 8px;
   right: 8px;
   z-index: 11;
+  font-size: 16px;
+  text-align: right;
 }
 
 /************************

@@ -25,6 +25,14 @@
 			"url-ios": "https://itunes.apple.com/gb/app/enpass-password-manager/id455566716",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "enpass",
+					"apt-key-url": "http://repo.sinew.in/keys/enpass-linux.key",
+					"apt-sources": ["deb http://repo.sinew.in/ stable main"]
+				}
+			},
 			"working": true
 		},
 		"gip": {
@@ -52,6 +60,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"gnote": {
@@ -73,6 +86,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -96,6 +114,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -122,6 +145,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/keypassx",
+					"source-file": "flexiondotorg-ubuntu-keypassx-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"parcellite": {
@@ -143,6 +173,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -167,6 +202,14 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:jconti/recent-notifications",
+					"source-file": "jconti-ubuntu-recent-notifications-CODENAME"
+				}
+			},
+			"notes": "package not avaliable in xenial",
 			"working": false
 		},
 		"redshift": {
@@ -191,6 +234,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -216,6 +264,14 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:synapse-core/testing",
+					"source-file": "synapse-core-ubuntu-testing-CODENAME"
+				}
+			},
+			"notes": "broken in xenial. segfaults.",
 			"working": false
 		},
 		"variety": {
@@ -241,6 +297,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:peterlevi/ppa",
+					"source-file": "peterlevi-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"veracrypt": {
@@ -265,6 +328,20 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"xenial": {
+					"method": "ppa+manual",
+					"enable-ppa":	"ppa:unit193/encryption",
+					"source-file": "unit193-ubuntu-encryption-CODENAME",
+					"apt-sources": ["deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main",
+													"deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main"]
+				},
+				"all": {
+					"method": "ppa",
+					"enable-ppa":	"ppa:unit193/encryption",
+					"source-file": "unit193-ubuntu-encryption-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"zim": {
@@ -296,6 +373,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	},
@@ -324,6 +406,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -351,6 +438,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
@@ -389,6 +481,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:stellarium/stellarium-releases",
+					"source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
+				}
+			},
 			"working": true
 		}
 	},
@@ -418,6 +517,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:wfg/0ad",
+					"source-file": "wfg-ubuntu-0ad-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"chromiumbsu": {
@@ -443,6 +549,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"extremetuxracer": {
@@ -468,6 +579,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"flightgear": {
@@ -493,6 +609,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"frozenbubble": {
@@ -522,6 +643,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"hedgewars": {
@@ -553,6 +679,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"minecraft": {
@@ -582,6 +713,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/minecraft",
+					"source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"neverball": {
@@ -607,6 +745,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"neverputt": {
@@ -632,6 +775,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"nexuiz": {
@@ -660,6 +808,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"playonlinux": {
@@ -682,6 +835,26 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"precise": {
+					"method": "ppa+manual",
+					"enable-ppa": "ppa:ubuntu-wine/ppa",
+					"apt-key-url": "http://deb.playonlinux.com/public.gpg",
+					"apt-sources": ["deb http://deb.playonlinux.com/ CODENAME main"]
+				},
+				"trusty": {
+					"method": "ppa+manual",
+					"enable-ppa": "ppa:ubuntu-wine/ppa",
+					"apt-key-url": "http://deb.playonlinux.com/public.gpg",
+					"apt-sources": ["deb http://deb.playonlinux.com/ CODENAME main"]
+				},
+				"all": {
+					"method": "ppa+manual",
+					"enable-ppa": "ppa:ubuntu-wine/ppa",
+					"apt-key-url": "http://deb.playonlinux.com/public.gpg",
+					"apt-sources": ["deb http://deb.playonlinux.com/ trusty main"]
+				}
+			},
 			"working": true
 		},
 		"pysolfc": {
@@ -711,6 +884,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"steam32": {
@@ -737,6 +915,16 @@
 			"url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
 			"arch": "i386",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "steam",
+					"apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
+					"apt-sources": ["deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+													"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+													""]
+				}
+			},
 			"working": true
 		},
 		"steam64": {
@@ -763,6 +951,16 @@
 			"url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
 			"arch": "amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "steam",
+					"apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
+					"apt-sources": ["deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+													"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+													""]
+				}
+			},
 			"working": true
 		},
 		"supertuxkart": {
@@ -795,6 +993,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"teeworlds": {
@@ -820,6 +1023,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"warzone2100": {
@@ -848,6 +1056,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"wesnoth": {
@@ -875,6 +1088,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	},
@@ -907,6 +1125,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"dia": {
@@ -931,6 +1154,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"darktable": {
@@ -968,6 +1196,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"gimp": {
@@ -998,6 +1231,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"inkscape": {
@@ -1029,6 +1267,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"mypaint": {
@@ -1054,6 +1297,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"rapid-photo-downloader": {
@@ -1078,6 +1326,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"scribus": {
@@ -1126,6 +1379,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"sweethome3d": {
@@ -1148,6 +1406,12 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"notes": "package not avaliable in xenial",
 			"working": false
 		}
 	},
@@ -1178,6 +1442,12 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "flexiondotorg/hal-flash"
+				}
+			},
 			"working": true
 		},
 		"btsync": {
@@ -1199,6 +1469,16 @@
 			"url-ios": "https://itunes.apple.com/gb/app/bittorrent-sync/id665156116",
 			"arch": "i386,amd64,armhf",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "btsync",
+					"apt-key-url": "http://debian.yeasoft.net/btsync.key",
+					"apt-sources": ["# YeaSoft's BitTorrent Sync Packaging Repository",
+													"deb http://debian.yeasoft.net/btsync unstable main",
+													"deb-src http://debian.yeasoft.net/btsync unstable main"]
+				}
+			},
 			"working": true
 		},
 		"chromium": {
@@ -1221,6 +1501,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"dropbox": {
@@ -1273,6 +1558,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"gobby": {
@@ -1298,6 +1588,16 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/gobby",
+					"source-file": "flexiondotorg-ubuntu-gobby-CODENAME"
+				},
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"google-chrome": {
@@ -1322,6 +1622,14 @@
 			"url-ios": "https://itunes.apple.com/gb/app/chrome-web-browser-by-google/id535886823",
 			"arch": "amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "google-chrome",
+					"apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+					"apt-sources": ["deb http://dl.google.com/linux/chrome/deb/ stable main"]
+				}
+			},
 			"working": true
 		},
 		"google-talkplugin": {
@@ -1344,6 +1652,14 @@
 			"url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "google-talkplugin",
+					"apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+					"apt-sources": ["deb http://dl.google.com/linux/talkplugin/deb/ stable main"]
+				}
+			},
 			"working": true
 		},
 		"google-musicmanager": {
@@ -1370,6 +1686,14 @@
 			"url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "google-musicmanager",
+					"apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+					"apt-sources": ["deb http://dl.google.com/linux/musicmanager/deb/ stable main"]
+				}
+			},
 			"working": true
 		},
 		"icedtea": {
@@ -1392,6 +1716,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"insync": {
@@ -1419,7 +1748,15 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs",
 			"url-ios": "https://itunes.apple.com/gb/app/google-drive-free-online-storage/id507874739",
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "insync",
+					"apt-key-url": "https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key",
+					"apt-sources": ["deb http://apt.insynchq.com/ubuntu CODENAME non-free contrib"]
+				}
+			},
 			"working": true
 		},
 		"liferea": {
@@ -1451,6 +1788,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"mumble": {
@@ -1480,6 +1822,21 @@
 			"url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"precise": {
+					"method": "ppa",
+					"enable-ppa": "ppa:mumble/release",
+					"source-file": "mumble-ubuntu-release-CODENAME"
+				},
+				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:mumble/release",
+					"source-file": "mumble-ubuntu-release-CODENAME"
+				},
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"opera-browser": {
@@ -1503,6 +1860,17 @@
 			"url-ios": "https://itunes.apple.com/gb/app/opera-mini-web-browser/id363729560",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "opera-stable",
+					"apt-key-url": "https://deb.opera.com/archive.key",
+					"apt-sources": ["# This file makes sure that Opera Browser is kept up-to-date",
+													"# as part of regular system upgrades",
+													"",
+													"deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)"]
+				}
+			},
 			"working": true
 		},
 		"owncloud-client": {
@@ -1523,7 +1891,15 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.owncloud.android",
 			"url-ios": "https://itunes.apple.com/gb/app/owncloud/id543672169",
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "owncloud-client",
+					"apt-key-url": "http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_OSVERSION/Release.key",
+					"apt-sources": ["deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_OSVERSION/ /"]
+				}
+			},
 			"working": true
 		},
 		"remmina": {
@@ -1548,6 +1924,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"skype": {
@@ -1573,6 +1954,11 @@
 			"url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "partner-repo"
+				}
+			},
 			"working": true
 		},
 		"spideroakone": {
@@ -1599,6 +1985,15 @@
 			"url-ios": "https://itunes.apple.com/gb/app/spideroak/id360584371",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "spideroakone",
+					"apt-key-url": "https://spideroak.com/dist/spideroak-apt-2013.asc",
+					"apt-sources": ["deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted",
+													" "]
+				}
+			},
 			"working": true
 		},
 		"syncthing": {
@@ -1623,6 +2018,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"telegram": {
@@ -1652,6 +2052,13 @@
 			"url-ios": "https://itunes.apple.com/gb/app/telegram-messenger/id686449807",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:atareao/telegram",
+					"source-file": "atareao-ubuntu-telegram-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"tor-browser": {
@@ -1680,6 +2087,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:webupd8team/tor-browser",
+					"source-file": "webupd8team-ubuntu-tor-browser-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"uget": {
@@ -1704,6 +2118,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:plushuang-tw/uget-stable",
+					"source-file": "plushuang-tw-ubuntu-uget-stable-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"x2goclient": {
@@ -1727,6 +2148,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:x2go/stable",
+					"source-file": "x2go-ubuntu-stable-CODENAME"
+				}
+			},
 			"working": true
 		}
 	},
@@ -1762,6 +2190,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"evolution": {
@@ -1785,6 +2218,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"focuswriter": {
@@ -1813,6 +2251,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"glabels": {
@@ -1838,6 +2281,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"gnucash": {
@@ -1868,6 +2316,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"gramps": {
@@ -1894,6 +2347,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"libreoffice": {
@@ -1918,6 +2376,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:libreoffice/ppa",
+					"source-file": "libreoffice-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"libreoffice-base": {
@@ -1941,6 +2406,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"planner": {
@@ -1967,6 +2437,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"rednotebook": {
@@ -1990,6 +2465,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:rednotebook/stable",
+					"source-file": "rednotebook-ubuntu-stable-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"retext": {
@@ -2014,6 +2496,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	},
@@ -2039,6 +2526,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"geany": {
@@ -2066,6 +2558,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"git-cola": {
@@ -2090,6 +2587,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:git-core/ppa",
+					"source-file": "git-core-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"glade": {
@@ -2113,6 +2617,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"meld": {
@@ -2138,6 +2647,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"mysql-workbench": {
@@ -2161,6 +2675,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"pgadmin3": {
@@ -2189,6 +2708,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"poedit": {
@@ -2215,6 +2739,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"ubuntu-make": {
@@ -2240,6 +2769,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"ubuntu-sdk": {
@@ -2264,6 +2798,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:ubuntu-sdk-team/ppa",
+					"source-file": "ubuntu-sdk-team-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		}
 	},
@@ -2293,6 +2834,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:costales/anoise",
+					"source-file": "costales-ubuntu-anoise-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"asunder": {
@@ -2318,6 +2866,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"audacity": {
@@ -2342,6 +2895,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"audio-recorder": {
@@ -2370,6 +2928,18 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:osmoma/audio-recorder",
+					"source-file": "audio-recorder-ubuntu-ppa-CODENAME"
+				},
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:audio-recorder/ppa",
+					"source-file": "audio-recorder-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"codecs": {
@@ -2394,6 +2964,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"dvdstyler": {
@@ -2421,6 +2996,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"easytag": {
@@ -2446,6 +3026,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"handbrake": {
@@ -2468,7 +3053,13 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:stebbins/handbrake-releases"
+				}
+			},
 			"working": true
 		},
 		"libdvdcss2": {
@@ -2491,6 +3082,15 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "libdvdcss2",
+					"apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
+					"apt-sources": ["deb http://download.videolan.org/pub/debian/stable/ /",
+													"deb-src http://download.videolan.org/pub/debian/stable/ /"]
+				}
+			},
 			"working": true
 		},
 		"makemkv": {
@@ -2524,6 +3124,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:heyarje/makemkv-beta",
+					"source-file": "heyarje-ubuntu-makemkv-beta-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"pithos": {
@@ -2549,6 +3156,21 @@
 			"url-ios": "https://itunes.apple.com/en/app/pandora-radio/id284035177",
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"precise": {
+					"method": "ppa",
+					"enable-ppa": "ppa:pithos/ppa",
+					"source-file": "pithos-ubuntu-ppa-CODENAME"
+				},
+				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:pithos/ppa",
+					"source-file": "pithos-ubuntu-ppa-CODENAME"
+				},
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"pitivi": {
@@ -2575,6 +3197,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"pauvcontrol": {
@@ -2599,6 +3226,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"simplescreenrecorder": {
@@ -2623,6 +3255,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
+					"source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"spotify": {
@@ -2643,7 +3282,15 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.spotify.music",
 			"url-ios": "https://itunes.apple.com/gb/app/spotify-music/id324684580",
 			"arch": "i386,amd64",
-			"releases": "wily,xenial",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "spotify",
+					"apt-key-server": ["keyserver.ubuntu.com", "D2C19886"],
+					"apt-sources": ["deb http://repository.spotify.com testing non-free"]
+				}
+			},
 			"working": true
 		}
 	},
@@ -2671,6 +3318,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "teejee2008/ppa",
+					"source-file": "teejee2008-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"bleachbit": {
@@ -2698,6 +3352,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"hardinfo": {
@@ -2721,6 +3380,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"kdeconnect": {
@@ -2744,6 +3408,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:vikoadi/ppa",
+					"source-file": "vikoadi-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"gnome-schedule": {
@@ -2772,6 +3443,12 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"notes": "package not avaliable in xenial",
 			"working": false
 		},
 		"terminator": {
@@ -2795,6 +3472,16 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+			  "xenial": {
+					"method": "ppa",
+					"enable-ppa": "ppa:gnome-terminator/ppa",
+					"source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
+			  },
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"virt-manager": {
@@ -2822,6 +3509,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"virtualbox": {
@@ -2847,7 +3539,15 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "virtualbox",
+					"apt-key-url": "https://www.virtualbox.org/download/oracle_vbox.asc",
+					"apt-sources": ["deb http://download.virtualbox.org/virtualbox/debian CODENAME contrib"]
+				}
+			},
 			"working": true
 		}
 	},
@@ -2874,6 +3574,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:cesar-crea-si/eviacam",
+					"source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"workrave": {
@@ -2897,6 +3604,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	},
@@ -2921,6 +3633,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"emby": {
@@ -2947,7 +3664,15 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.mb.android",
 			"url-ios": "https://itunes.apple.com/gb/app/emby/id992180193",
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "manual",
+					"source-file": "emby-server",
+					"apt-key-url": "http://download.opensuse.org/repositories/home:emby/xUbuntu_OSVERSION/Release.key",
+					"apt-sources": ["deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_OSVERSION/ /"]
+				}
+			},
 			"working": true
 		},
 		"minecraft-server": {
@@ -2971,6 +3696,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/minecraft",
+					"source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"openssh-server": {
@@ -2995,6 +3727,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"x2go-server": {
@@ -3018,6 +3755,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:x2go/stable",
+					"source-file": "x2go-ubuntu-stable-CODENAME"
+				}
+			},
 			"working": true
 		}
 	},
@@ -3046,6 +3790,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "partner-repo+ppa",
+					"enable-ppa": "ppa:appgrid/stable",
+					"source-file": "appgrid-ubuntu-stable-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"2-usc": {
@@ -3070,6 +3821,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"3-synaptic": {
@@ -3096,6 +3852,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	},
@@ -3116,6 +3877,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:ubuntu-mate-dev/welcome",
+					"source-file": "ubuntu-mate-dev-ubuntu-welcome-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"boot-repair": {
@@ -3134,6 +3902,13 @@
 			"url-ios": null,
 			"arch": "i386,amd64",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:yannubuntu/boot-repair",
+					"source-file": "yannubuntu-ubuntu-boot-repair-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"firmware": {
@@ -3152,6 +3927,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"hp-printer": {
@@ -3170,6 +3950,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"keyboard-chinese": {
@@ -3188,6 +3973,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"keyboard-japanese": {
@@ -3206,6 +3996,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
 		"keyboard-korean": {
@@ -3224,6 +4019,36 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},
+		"nvidia-settings": {
+			"name": "NVIDIA Proprietary Drivers",
+			"img": "null",
+			"main-package": "nvidia-settings",
+			"launch-command": null,
+			"upgradable": true,
+			"upgrade-packages": "nvidia-settings",
+			"description": "null",
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": false,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64",
+			"releases": "wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:graphics-drivers/ppa",
+					"source-file": "graphics-drivers-ubuntu-ppa-CODENAME"
+				}
+			},
 			"working": true
 		},
 		"ubuntu-mate-wallpapers-complete": {

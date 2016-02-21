@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
+# Copyright (C) 2016 Luke Horwell <lukehorwell37+code@gmail.com>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,12 +18,7 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-import glob
-import os
-import platform
-import subprocess
-import sys
-import urllib.request
+import os, sys, platform, subprocess, json, glob, urllib.request
 
 def del_apt_sources(listname):
     for filename in glob.glob(os.path.join('/','etc','apt','sources.list.d','*'+listname+'*.list*')):
@@ -57,180 +53,81 @@ def enable_ppa(ppa):
 def enable_partner_repository():
     subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
-if __name__ == "__main__":
-    if len(sys.argv) >= 3:
-        repository = sys.argv[1]
-        action = sys.argv[2]
-        print('Repository: ' + repository)
-    else:
-        print('No repository supplied')
-        sys.exit(1)
 
+def finish(err=0):
+    ''' Close the application '''
+    print('--------------------------------------------------------------')
+    sys.exit(err)
+
+if __name__ == "__main__":
+    '''
+        This script requires the following variables:
+            [0] = Path to the Application Index JSON
+            [1] = Function to perform
+            [2] = Program's category
+            [3] = Program ID
+            [4] = "Target" instructions to read. Contains a codename or "all"
+
+        This script will directly read the Application Index JSON.
+    '''
+    print('--- Repository Installer -------------------------------------')
+
+    # Set important variables.
     os_version = platform.dist()[1]
     codename = platform.dist()[2]
 
-    if action == 'install' or action == 'upgrade':
-        if repository ==  '0ad':
-            enable_ppa('ppa:wfg/0ad')
-        elif repository ==  'anoise':
-            enable_ppa('ppa:costales/anoise')
-        elif repository ==  'appgrid':
-            enable_partner_repository()
-            enable_ppa('ppa:appgrid/stable')
-        elif repository ==  'audio-recorder':
-            if codename == 'trusty':
-                enable_ppa('ppa:osmoma/audio-recorder')
-            else:
-                enable_ppa('ppa:audio-recorder/ppa')
-        elif repository ==  'boot-repair':
-            enable_ppa('ppa:yannubuntu/boot-repair')
-        elif repository ==  'btsync':
-            add_apt_key_from_url('http://debian.yeasoft.net/btsync.key')
-            add_apt_sources(["# YeaSoft's BitTorrent Sync Packaging Repositoy",
-                             'deb http://debian.yeasoft.net/btsync unstable main',
-                             'deb-src http://debian.yeasoft.net/btsync unstable main'], repository)
-        elif repository ==  'emby-server':
-            if os_version == '16.04':
-                os_version = '15.10'
-            add_apt_key_from_url('http://download.opensuse.org/repositories/home:emby/xUbuntu_'+os_version+'/Release.key')
-            add_apt_sources(['deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_'+os_version+'/ /'], repository)
-        elif repository ==  'enpass':
-            add_apt_key_from_url('http://repo.sinew.in/keys/enpass-linux.key')
-            add_apt_sources(['deb http://repo.sinew.in/ stable main'], repository)
-        elif repository ==  'eviacam':
-            enable_ppa('ppa:cesar-crea-si/eviacam')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/cesar-crea-si/eviacam/ubuntu wily main'],
-                                 'cesar-crea-si-ubuntu-eviacam-' + codename)
-        elif repository ==  'hal-flash':
-            enable_ppa('ppa:flexiondotorg/hal-flash')
-        elif repository ==  'git-core':
-            enable_ppa('ppa:git-core/ppa')
-        elif repository ==  'gobby':
-            if codename == 'trusty':
-                enable_ppa('ppa:flexiondotorg/gobby')
-        elif repository ==  'google-chrome':
-            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
-            add_apt_sources(['deb http://dl.google.com/linux/chrome/deb/ stable main'], repository)
-        elif repository ==  'google-talkplugin':
-            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
-            add_apt_sources(['deb http://dl.google.com/linux/talkplugin/deb/ stable main'], repository)
-        elif repository ==  'google-musicmanager':
-            add_apt_key_from_url('http://dl.google.com/linux/linux_signing_key.pub')
-            add_apt_sources(['deb http://dl.google.com/linux/musicmanager/deb/ stable main'], repository)
-        elif repository ==  'graphics-drivers':
-            enable_ppa('ppa:graphics-drivers/ppa')
-        elif repository ==  'handbrake':
-            if codename != 'wily':
-                enable_ppa('ppa:stebbins/handbrake-releases')
-        elif repository == 'vikoadi':
-            enable_ppa('ppa:vikoadi/ppa')
-        elif repository ==  'insync':
-            if codename == 'xenial':
-                codename = 'wily'
-            add_apt_key_from_url('https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key')
-            add_apt_sources(['deb http://apt.insynchq.com/ubuntu ' + codename + ' non-free contrib'], repository)
-        elif repository == 'keypassx':
-            enable_ppa('ppa:flexiondotorg/keeypassx')            
-        elif repository ==  'libdvdcss2':
-            add_apt_key_from_url('http://download.videolan.org/pub/debian/videolan-apt.asc')
-            add_apt_sources(['deb http://download.videolan.org/pub/debian/stable/ /',
-                             'deb-src http://download.videolan.org/pub/debian/stable/ /'], repository)
-        elif repository == 'libreoffice':
-            enable_ppa('ppa:libreoffice/ppa')
-        elif repository == 'makemkv':
-            enable_ppa('ppa:heyarje/makemkv-beta')
-        elif repository ==  'minecraft':
-            enable_ppa('ppa:flexiondotorg/minecraft')
-        elif repository ==  'mumble':
-            if codename == 'precise' or codename == 'trusty' or codename == 'wily':
-                enable_ppa('ppa:mumble/release')
-        elif repository ==  'rednotebook':
-            enable_ppa('ppa:rednotebook/stable')
-        elif repository ==  'opera-stable':
-            add_apt_key_from_url('https://deb.opera.com/archive.key')
-            add_apt_sources(['# This file makes sure that Opera Browser is kept up-to-date',
-                             '# as part of regular system upgrades',
-                             '',
-                             'deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)'], repository)
-        elif repository ==  'owncloud-client':
-            if os_version == '16.04':
-                os_version = '15.10'
-            add_apt_key_from_url('http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_'+os_version+'/Release.key')
-            add_apt_sources(['deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_'+os_version+'/ /'], repository)
-        elif repository ==  'pithos':
-            if codename == 'precise' or codename == 'trusty':
-                enable_ppa('ppa:pithos/ppa')
-        elif repository == 'playonlinux':
-            add_apt_key_from_url('http://deb.playonlinux.com/public.gpg')
-            if codename == 'precise' or codename == 'trusty':
-                add_apt_sources(['deb http://deb.playonlinux.com/ '+codename+' main'],
-                                 'playonlinux_'+codename+'.list')
-            else:
-                add_apt_sources(['deb http://deb.playonlinux.com/ trusty main'],
-                                 'playonlinux_trusty.list')
-            enable_ppa('ppa:ubuntu-wine/ppa')
-        elif repository ==  'recent-notifications':
-            enable_ppa('ppa:jconti/recent-notifications')
-        elif repository ==  'skype':
-            enable_partner_repository()
-        elif repository ==  'simplescreenrecorder':
-            enable_ppa('ppa:maarten-baert/simplescreenrecorder')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/maarten-baert/simplescreenrecorder/ubuntu wily main'],
-                                 'maarten-baert-ubuntu-simplescreenrecorder-' + codename)
-        elif repository == 'spideroakone':
-            add_apt_key_from_url('https://spideroak.com/dist/spideroak-apt-2013.asc')
-            add_apt_sources(['deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted',
-                             ' '], repository)
-        elif repository ==  'spotify':
-            add_apt_key_from_keyserver('keyserver.ubuntu.com', 'D2C19886')
-            add_apt_sources(['deb http://repository.spotify.com testing non-free'], repository)
-        elif repository ==  'steam':
-            add_apt_key_from_url('http://repo.steampowered.com/steam/signature.gpg')
-            add_apt_sources(['deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                             'deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam',
-                             ''], repository)
-        elif repository ==  'stellarium':
-            enable_ppa('ppa:stellarium/stellarium-releases')
-        elif repository ==  'synapse':
-            enable_ppa('ppa:synapse-core/testing')
-        elif repository ==  'syncthing':
-            add_apt_key_from_url('https://syncthing.net/release-key.txt')
-            add_apt_sources(['deb http://apt.syncthing.net/ syncthing release'], repository)
-        elif repository ==  'teejee2008':
-            # Aptik
-            enable_ppa('ppa:teejee2008/ppa')
-        elif repository ==  'telegram':
-            enable_ppa('ppa:atareao/telegram')
-        elif repository ==  'terminator':
-            enable_ppa('ppa:gnome-terminator/ppa')
-        elif repository ==  'tor-browser':
-            enable_ppa('ppa:webupd8team/tor-browser')
-        elif repository ==  'ubuntu-sdk':
-            enable_ppa('ppa:ubuntu-sdk-team/ppa')
-        elif repository ==  'uget':
-            enable_ppa('ppa:plushuang-tw/uget-stable')
-        elif repository ==  'peterlevi':
-            enable_ppa('ppa:peterlevi/ppa')
-        elif repository ==  'encryption':
-            enable_ppa('ppa:unit193/encryption')
-            if codename == 'xenial':
-                add_apt_sources(['deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main',
-                                 'deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main'],
-                                 'unit193-ubuntu-encryption-' + codename)
-        elif repository == 'virtualbox-5.0':
-            if codename == 'xenial':
-                codename = 'wily'
-            add_apt_key_from_url('https://www.virtualbox.org/download/oracle_vbox.asc')
-            add_apt_sources(['deb http://download.virtualbox.org/virtualbox/debian ' + codename + ' contrib'], repository)
-        elif repository ==  'x2go':
-            enable_ppa('ppa:x2go/stable')
-        elif repository ==  'ubuntu-mate-welcome':
-            enable_ppa('ppa:ubuntu-mate-dev/welcome')
-        else:
-            print('Repository ' + repository + ' is unknown.')
-    elif action == 'remove':
-        del_apt_sources(repository)
+    try:
+        json_path = sys.argv[1]
+        function = sys.argv[2]
+        category = sys.argv[3]
+        program_id = sys.argv[4]
+        target = sys.argv[5]
+    except:
+        print('This script requires parameters that are retrieved via ubuntu-mate-welcome.')
+        finish(1)
+
+    # Load the Application Index
+    if os.path.exists(json_path):
+        with open(json_path) as data_file:
+            index = json.load(data_file)
+    else:
+        print('The application index does not exist: "' + json_file + '".')
+        finish(1)
+
+    # Perform functions based on the parameters.
+    if function == 'add_apt_key_from_keyserver':
+        keyserver = index[category][program_id]['pre-install'][target]['apt-key-server'][0]
+        key = index[category][program_id]['pre-install'][target]['apt-key-server'][1]
+        add_apt_key_from_keyserver(keyserver, key)
+
+    elif function == 'add_apt_key_from_url':
+        url = index[category][program_id]['pre-install'][target]['apt-key-url']
+        add_apt_key_from_url(url)
+
+    elif function == 'add_apt_sources':
+        source_raw = index[category][program_id]['pre-install'][target]['apt-sources']
+        source_data = []
+        for line in source_raw:
+            source_data.append(line.replace('OSVERSION',os_version).replace('CODENAME',codename))
+        list_name = index[category][program_id]['pre-install'][target]['source-file']
+        list_name = list_name.replace('OSVERSION',os_version).replace('CODENAME',codename)
+        add_apt_sources(source_data, list_name)
+
+    elif function == 'del_apt_sources':
+        list_name = index[category][program_id]['pre-install'][target]['source-file']
+        list_name = list_name.replace('OSVERSION',os_version).replace('CODENAME',codename)
+        del_apt_sources(list_name)
+
+    elif function == 'enable_partner_repository':
+        enable_partner_repository()
+
+    elif function == 'enable_ppa':
+        ppa = index[category][program_id]['pre-install'][target]['enable-ppa']
+        enable_ppa(ppa)
+
+    else:
+        print('Invalid function specified: ' + function)
+        finish(1)
+
+    print('Successfully performed function: "' + function + '" for "' + program_id + '".')
+    finish(0)

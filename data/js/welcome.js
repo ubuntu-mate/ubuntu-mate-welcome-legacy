@@ -40,7 +40,7 @@ $(document).ready(function() {
   $('#footer-right').append(global_footer_right);
   $('#footer').append(global_scrollToTop);
 
-  // Initalize scroll to the top
+  // Initialize scroll to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scrollTop').fadeIn();
@@ -89,6 +89,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
   // Animate elements of the page
   $('#mainLogo').jAnimateOnce('rotateIn');
+  $('.menuMainText').fadeIn('slow');
   $('#open-at-start').jAnimateOnce('fadeIn');
   setTimeout(function(){
     $('#mate-blur').jAnimateOnce('zoomIn');
@@ -119,11 +120,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     });
   }
 
-  // When Welcome first runs, thank the user.
-  $('.menuMainText').fadeIn('slow');
-  if ( document.cookie == '') {
-    document.cookie="greeted=yes";
-  }
+  // Enable tooltips
+  $(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+  });
 
   // Sssh... You found the little secrets! ;)
   //// Logo starts to animate after a minute.
@@ -398,7 +398,10 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
       }, 1000);
     }
 
-    // Show the popover on hover
+    // Show the popover/tooltips on hover
+    $(document).ready(function() {
+      $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    });
     $('[rel=freedominfo]').popover({
         html : true,
         content: function() {
@@ -862,3 +865,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
   }
 
 }
+
+// Entering Software Only Mode
+if ( document.location.href.match(/[^\/]+$/)[0] == 'software-only.html' ) {
+    $('html').css('cursor','wait')
+}
+
