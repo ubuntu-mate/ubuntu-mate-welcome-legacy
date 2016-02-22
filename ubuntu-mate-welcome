@@ -438,20 +438,19 @@ class PreInstallation(object):
                     try:
                         source = preinstall[target]['apt-sources']
                         source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
-                        if arg.verbose_enabled:
-                            print('[Pre-Install] Writing source file: ' + source_file + '.list')
-                            print('              -------- Start of file ------')
-                            for line in source:
-                                print('              ' + line.replace('OSVERSION',self.os_version).replace('CODENAME',self.codename))
-                            print('              -------- End of file ------')
-                            try:
-                                print('[Pre-Install] Updating Apt Source: ' + source_file + '.list')
-                                if not simulating:
-                                    run_task('add_apt_sources')
-                                    transaction.source_to_update = source_file + '.list'
-                                    transaction.update_cache = True
-                            except:
-                                arg.print_verbose('Pre-Install','Failed to add apt sources!')
+                        print('[Pre-Install] Writing source file: ' + source_file + '.list')
+                        print('              -------- Start of file ------')
+                        for line in source:
+                            print('              ' + line.replace('OSVERSION',self.os_version).replace('CODENAME',self.codename))
+                        print('              -------- End of file ------')
+                        try:
+                            print('[Pre-Install] Updating Apt Source: ' + source_file + '.list')
+                            if not simulating:
+                                run_task('add_apt_sources')
+                                transaction.source_to_update = source_file + '.list'
+                                transaction.update_cache = True
+                        except:
+                            arg.print_verbose('Pre-Install','Failed to add apt sources!')
                     except:
                         arg.print_verbose('Pre-Install','No source data or source file to write.')
 
