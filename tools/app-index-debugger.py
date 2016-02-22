@@ -25,6 +25,7 @@ from prettytable import PrettyTable
 
 def load_index():
     global index
+    global current_folder
     current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
     json_path = os.path.join(current_folder, '../data/js/applications.json' )
 
@@ -64,8 +65,9 @@ def list_all_apps():
 
 def validate_apps():
     global index
+    global current_folder
     print('Scanning index for consistency...')
-    t = PrettyTable(["Category", 'Program ID', 'Variable', 'Fault'])
+    t = PrettyTable(["Category", 'Program ID', 'Severity', 'Variable', 'Fault'])
     categories = list(index.keys())
     categories.sort()
     for category in categories:
@@ -78,20 +80,20 @@ def validate_apps():
                 try:
                     app[variable]
                 except:
-                    t.add_row([category, program_id, variable, 'Missing, is required.'])
+                    t.add_row([category, program_id, 'High', variable, 'Missing, is required.'])
 
             # Check data types are consistent.
             for variable in ['name', 'img', 'main-package', 'install-packages', 'remove-packages', 'subcategory', 'arch', 'releases']:
                 try:
                     if not type(app[variable]) is str:
-                        t.add_row([category, program_id, variable, 'Must be a string.'])
+                        t.add_row([category, program_id, 'High', variable, 'Must be a string.'])
                 except:
                     pass
 
             for variable in ['upgradable', 'boolean']:
                 try:
                     if not type(app[variable]) is bool:
-                        t.add_row([category, program_id, variable, 'Must be a boolean.'])
+                        t.add_row([category, program_id, 'High', variable, 'Must be a boolean.'])
                 except:
                     pass
 
@@ -99,9 +101,21 @@ def validate_apps():
                 for variable in ['description']:
                     try:
                         if not type(app[variable]) is list:
-                            t.add_row([category, program_id, variable, 'Must be a list.'])
+                            t.add_row([category, program_id, 'High', variable, 'Must be a list.'])
                     except:
                         pass
+
+            if not category == 'Unlisted':
+                try:
+                    img = app['img']
+                except:
+                    img = 'null'
+
+                if not os.path.exists(os.path.join(current_folder, '../data/img/applications/', img + '.png' )):
+                    t.add_row([category, program_id, 'Optional', variable, 'Missing icon: "' + img + '.png"'])
+
+                if not os.path.exists(os.path.join(current_folder, '../data/img/applications/screenshots/', img + '-1.jpg' )):
+                    t.add_row([category, program_id, 'Optional', variable, 'No screenshot: "' + img + '-1.jpg"'])
 
             try:
                 app['pre-install']
