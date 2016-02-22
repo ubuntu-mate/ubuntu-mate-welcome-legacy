@@ -42,8 +42,9 @@ from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 from getpass import getuser
 
-# i18n
-gettext.install("ubuntu-mate-welcome", "/usr/share/locale")
+# i18n - if no translation is available will use the inline strings from the code
+t = gettext.translation("ubuntu-mate-welcome", "./locale", fallback=True)
+_ = t.gettext
 
 def goodbye(a=None, b=None):
     ''' Closing the program '''
