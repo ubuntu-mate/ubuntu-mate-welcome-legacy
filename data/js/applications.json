@@ -122,13 +122,13 @@
 			"releases": "trusty,wily,xenial",
 			"working": true
 		},
-		"keypassx": {
+		"keepassx": {
 			"name": "KeePassX",
 			"img": "keepassx",
-			"main-package": "keypassx",
-			"launch-command": "keypassx",
-			"install-packages": "keypassx",
-			"remove-packages": "keypassx",
+			"main-package": "keepassx",
+			"launch-command": "keepassx",
+			"install-packages": "keepassx",
+			"remove-packages": "keepassx",
 			"description": [
 				"A free/open-source password manager or safe which helps you",
                                 "to manage your passwords in a secure way. You can put all your",
@@ -148,8 +148,8 @@
 			"pre-install": {
 				"all": {
 					"method": "ppa",
-					"enable-ppa": "ppa:flexiondotorg/keypassx",
-					"source-file": "flexiondotorg-ubuntu-keypassx-CODENAME"
+					"enable-ppa": "ppa:flexiondotorg/keepassx",
+					"source-file": "flexiondotorg-ubuntu-keepassx-CODENAME"
 				}
 			},
 			"working": true
