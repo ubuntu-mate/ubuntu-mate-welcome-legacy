@@ -3382,6 +3382,34 @@
 			},
 			"working": true
 		},
+		"Kazam": {
+			"name": "kazam",
+			"img": "kazam",
+			"main-package": "kazam",
+			"launch-command": "kazam",
+			"install-packages": "kazam",
+			"remove-packages": "kazam",
+			"description": [
+				"A well designed and easy to use interface for capturing",
+				"screencasts and screenshots. It can record desktop video and multiple audio",
+				"streams simultaneously with control over audio levels and the screen region",
+				"being captured."
+			],
+			"alternate-to": null,
+			"subcategory": "Video Production",
+			"open-source": true,
+			"url-info": "https://launchpad.net/kazam",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},                
 		"simplescreenrecorder": {
 			"name": "SimpleScreenRecorder",
 			"img": "simplescreenrecorder",
