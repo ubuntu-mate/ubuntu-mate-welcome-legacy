@@ -2959,6 +2959,66 @@
 			},
 			"working": true
 		},
+		"ocenaudio32": {
+			"name": "Ocenaudio",
+			"img": "ocenaudio",
+			"main-package": "ocenaudio32",
+			"launch-command": "ocenaudio",
+			"install-packages": "ocenaudio32",
+			"remove-packages": "ocenaudio32",
+			"description": [
+				"A cross-platform, easy to use, fast and functional single track audio editor.",
+				"It is the ideal software for people who need to edit",
+				"and analyze audio files without complications. ocenaudio",
+				" also has powerful features that will please more advanced users."
+			],
+			"alternate-to": null,
+			"subcategory": "Audio Production",
+			"open-source": false,
+			"url-info": "https://www.ocenaudio.com/",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/audio",
+					"source-file": "flexiondotorg-ubuntu-audio-CODENAME"
+				}
+			},
+			"working": true
+		},
+		"ocenaudio64": {
+			"name": "Ocenaudio",
+			"img": "ocenaudio",
+			"main-package": "ocenaudio64",
+			"launch-command": "ocenaudio",
+			"install-packages": "ocenaudio64",
+			"remove-packages": "ocenaudio64",
+			"description": [
+				"A cross-platform, easy to use, fast and functional single track audio editor.",
+				"It is the ideal software for people who need to edit",
+				"and analyze audio files without complications. ocenaudio",
+				" also has powerful features that will please more advanced users."
+			],
+			"alternate-to": null,
+			"subcategory": "Audio Production",
+			"open-source": false,
+			"url-info": "https://www.ocenaudio.com/",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "amd64",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:flexiondotorg/audio",
+					"source-file": "flexiondotorg-ubuntu-audio-CODENAME"
+				}
+			},
+			"working": true
+		},                         
 		"audio-recorder": {
 			"name": "Audio Recorder",
 			"img": "audio-recorder",
@@ -3126,7 +3186,7 @@
 			"install-packages": "kodi",
 			"remove-packages": "kodi",
 			"description": [
-				"While Kodi functions very well as a standard media player application for",
+				"A media player application for",
 				"your computer, it has been designed to be the perfect companion for your",
 				"HTPC. Supporting an almost endless range of remote controls, and combined",
 				"with its beautiful interface and powerful skinning engine, Kodi feels very",
