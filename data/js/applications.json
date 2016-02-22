@@ -3118,6 +3118,39 @@
 			},
 			"working": true
 		},
+		"kodi": {
+			"name": "Kodi",
+			"img": "kodi",
+			"main-package": "kodi",
+			"launch-command": "kodi",
+			"install-packages": "kodi",
+			"remove-packages": "kodi",
+			"description": [
+				"While Kodi functions very well as a standard media player application for",
+				"your computer, it has been designed to be the perfect companion for your",
+				"HTPC. Supporting an almost endless range of remote controls, and combined",
+				"with its beautiful interface and powerful skinning engine, Kodi feels very",
+				"natural to use from the couch and is the ideal solution for your home",
+				"theater. Once installed, your computer will become a fully functional",
+				"multimedia jukebox."
+			],
+			"alternate-to": null,
+			"subcategory": "Media Playback",
+			"open-source": true,
+			"url-info": "https://kodi.tv/",
+			"url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
+			"url-ios": null,
+			"arch": "i386,amd64",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "ppa",
+					"enable-ppa": "ppa:team-xbmc/ppa",
+					"source-file": "team-xbmc-ubuntu-ppa-CODENAME"
+				}
+			},
+			"working": true
+		},
 		"libdvdcss2": {
 			"name": "libdvdcss2",
 			"img": "dvd",
