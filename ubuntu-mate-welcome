@@ -790,7 +790,7 @@ class AppView(WebKit.WebView):
             print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
             self.execute_script("$('#update-notification').hide()")
             self.execute_script("$('#update-subscribing').show()")
-            dynamicapps.modify_app(self, 'upgrade', 'ubuntu-mate-welcome')
+            dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
                 print('[Welcome] Success, PPA added! Application restarting...')
@@ -799,7 +799,13 @@ class AppView(WebKit.WebView):
                 print('[Welcome] Failed, PPA not detected!')
                 self.execute_script('$("#update-subscribing").hide()')
                 self.execute_script('$("#update-notification").show()')
-
+        elif uri == 'init-system-info':
+            if not systemstate.system_info_cached:
+                systemstate.get_system_info(self)
+            else:
+                self.execute_script('$("#system-specs").show()')
+                self.execute_script('$("#specs-not-ready").hide()')
+                self.execute_script('$("html").css("cursor","auto")')
         else:
             print('[Error] Unknown command: ', uri)
       except Exception as e:
@@ -999,17 +1005,8 @@ class SystemState(object):
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
         arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
 
-    def start_system_info_cache(self):
-        # Don't bother caching system specifications if the page cannot be visited by this session.
-        if arg.jump_software_page or self.session_type == 'guest':
-            print('[System Specs] Not applicable to this session. Skipping.')
-            return
-        else:
-            thread_cache = Thread(target=self.get_system_info)
-            thread_cache.start()
-
-    def get_system_info(self):
-        print('[System Specs] Caching system specifications in background... ')
+    def get_system_info(self, webkit):
+        print('[System Specs] Gathering system specifications... ')
         try:
             # Use 'inxi' to retrieve the system information.
             arg.print_verbose('System Specs','Caching: System')
@@ -1041,10 +1038,18 @@ class SystemState(object):
             # If commands were successfully executed.
             self.system_info_cached = True
             print("[System Specs] Successfully cached system specifications.")
+            webkit.execute_script('$("#specs-not-ready").hide()')
+            webkit.execute_script('$("#system-specs").fadeIn()')
+            webkit.execute_script('specs_cached = true')
+            webkit.execute_script('$("html").css("cursor","auto")')
+            self.append_system_info(webkit)
 
         except Exception as e:
             print("[System Specs] There was a problem running 'inxi'. Is this program no longer installed?")
             print("[System Specs] Exception: "+e)
+            webkit.execute_script('$("#specs-not-ready").hide()')
+            webkit.execute_script('$("#specs-error").show()')
+            webkit.execute_script('$("html").css("cursor","auto")')
             return
 
     def append_system_info(self, webkit, get_root_ram_details_only=False):
@@ -1829,5 +1834,4 @@ if __name__ == "__main__":
     arg.override_codename()
 
     print('[Welcome] Application Started.')
-    systemstate.start_system_info_cache()
     app.run()

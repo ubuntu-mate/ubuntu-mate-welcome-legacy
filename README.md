@@ -46,6 +46,9 @@ and testing purposes, the following can be specified:
   * gir1.2-notify-0.7
   * gir1.2-webkit-3.0
   * libgtk2-perl
+  * libnotify-bin
+  * parted
+  * pciutils
   * policykit-1
   * python3
   * python3-apt
@@ -53,3 +56,5 @@ and testing purposes, the following can be specified:
   * python3-aptdaemon.gtk3widgets
   * python3-gi
   * software-properties-common
+  * inxi
+  * humanity-icon-theme

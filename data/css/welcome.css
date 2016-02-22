@@ -647,6 +647,7 @@ blockquote.terminal {
   z-index: -1;
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
+  margin-top: -50px;
   width: 446px; height: 459px;
   pointer-events: none;
 }
@@ -658,6 +659,19 @@ blockquote.terminal {
   color: #fff;
   position: relative;
   top: 30%;
+}
+
+#splash-multilingual {
+  position: absolute;
+  top: 50%;
+  width: 640px;
+  height: 190px;
+  left: 0; right: 0;
+  margin: auto;
+  font-size: 20px;
+  color: #909090;
+  text-align: center;
+  line-height: 32px;
 }
 
 .bootCircle {
