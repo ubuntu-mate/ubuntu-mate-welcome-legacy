@@ -209,8 +209,7 @@
 					"source-file": "jconti-ubuntu-recent-notifications-CODENAME"
 				}
 			},
-			"notes": "package not avaliable in xenial",
-			"working": false
+			"working": true
 		},
 		"redshift": {
 			"name": "Redshift",
@@ -327,18 +326,11 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
 			"pre-install": {
-				"xenial": {
-					"method": "ppa+manual",
-					"enable-ppa":	"ppa:unit193/encryption",
-					"source-file": "unit193-ubuntu-encryption-CODENAME",
-					"apt-sources": ["deb http://ppa.launchpad.net/unit193/encryption/ubuntu wily main",
-													"deb-src http://ppa.launchpad.net/unit193/encryption/ubuntu wily main"]
-				},
 				"all": {
 					"method": "ppa",
-					"enable-ppa":	"ppa:unit193/encryption",
+					"enable-ppa": "ppa:unit193/encryption",
 					"source-file": "unit193-ubuntu-encryption-CODENAME"
 				}
 			},
@@ -577,7 +569,7 @@
 			"url-info": "http://sourceforge.net/projects/extremetuxracer/",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64,powerpc",
+			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -743,7 +735,7 @@
 			"url-info": "http://neverball.org/",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64,powerpc",
+			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -773,7 +765,7 @@
 			"url-info": "https://apps.ubuntu.com/cat/applications/neverputt/",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64,powerpc",
+			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -991,7 +983,7 @@
 			"url-info": "http://supertuxkart.sourceforge.net/",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64",
+			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -1475,8 +1467,8 @@
 					"source-file": "btsync",
 					"apt-key-url": "http://debian.yeasoft.net/btsync.key",
 					"apt-sources": ["# YeaSoft's BitTorrent Sync Packaging Repository",
-													"deb http://debian.yeasoft.net/btsync unstable main",
-													"deb-src http://debian.yeasoft.net/btsync unstable main"]
+                                                        "deb http://debian.yeasoft.net/btsync unstable main",
+							"deb-src http://debian.yeasoft.net/btsync unstable main"]
 				}
 			},
 			"working": true
@@ -1499,7 +1491,7 @@
 			"url-info": "https://www.chromium.org/Home",
 			"url-android": null,
 			"url-ios": null,
-			"arch": "i386,amd64,armhf,powerpc",
+			"arch": "i386,amd64,armhf",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
@@ -1508,7 +1500,7 @@
 			},
 			"working": true
 		},
-		"dropbox": {
+		"caja-dropbox": {
 			"name": "Dropbox",
 			"img": "dropbox",
 			"main-package": "caja-dropbox",
@@ -1528,8 +1520,43 @@
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
 			"releases": "xenial",
+                        "pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		},
+		"dropbox": {
+			"name": "Dropbox",
+			"img": "dropbox",
+			"main-package": "dropbox",
+			"launch-command": "dropbox",
+			"install-packages": "dropbox",
+			"remove-packages": "dropbox",
+			"description": [
+				"Lets you bring your photos, documents, and",
+				"videos anywhere into Dropbox&#8217;s cloud and",
+				"optionally share them with others easily."
+			],
+			"alternate-to": null,
+			"subcategory": "Cloud and Sync",
+			"open-source": false,
+			"url-info": "https://www.dropbox.com/",
+			"url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
+			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
+			"arch": "i386,amd64",
+			"releases": "trusty,wily",
+                        "pre-install": {
+                                "all": {
+					"method": "manual",
+					"source-file": "dropbox",					
+                                        "apt-key-server": ["pgp.mit.edu", "5044912E"],
+					"apt-sources": ["deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'"]
+				}
+			},
+			"working": true
+		},                
 		"filezilla": {
 			"name": "FileZilla",
 			"img": "filezilla",
@@ -1696,7 +1723,7 @@
 			},
 			"working": true
 		},
-		"icedtea": {
+                "icedtea-7-plugin": {
 			"name": "Iced Tea Plug-in",
 			"img": "icedtea",
 			"main-package": "icedtea-7-plugin",
@@ -1715,7 +1742,34 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},
+		"icedtea-8-plugin": {
+			"name": "Iced Tea Plug-in",
+			"img": "icedtea",
+			"main-package": "icedtea-8-plugin",
+			"launch-command": null,
+			"install-packages": "icedtea-8-plugin",
+			"remove-packages": "icedtea-8-plugin",
+			"description": [
+				"A web browser plug-in to execute",
+				"Java applets, supporting LiveConnect/JavaScript. It is",
+				"targeted for browsers that support the NPAPI, such as Mozilla Firefox."
+			],
+			"alternate-to": null,
+			"subcategory": "Plug-in",
+			"open-source": true,
+			"url-info": "http://icedtea.classpath.org/wiki/Main_Page",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "xenial",
 			"pre-install": {
 				"all": {
 					"method": "skip"
@@ -1748,13 +1802,13 @@
 			"url-android": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs",
 			"url-ios": "https://itunes.apple.com/gb/app/google-drive-free-online-storage/id507874739",
 			"arch": "i386,amd64",
-			"releases": "trusty,wily",
+			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
 					"method": "manual",
 					"source-file": "insync",
 					"apt-key-url": "https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key",
-					"apt-sources": ["deb http://apt.insynchq.com/ubuntu CODENAME non-free contrib"]
+					"apt-sources": ["deb http://apt.insynchq.com/ubuntu trusty non-free contrib"]
 				}
 			},
 			"working": true
@@ -1787,7 +1841,7 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,xenial",
 			"pre-install": {
 				"all": {
 					"method": "skip"
@@ -1866,9 +1920,9 @@
 					"source-file": "opera-stable",
 					"apt-key-url": "https://deb.opera.com/archive.key",
 					"apt-sources": ["# This file makes sure that Opera Browser is kept up-to-date",
-													"# as part of regular system upgrades",
-													"",
-													"deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)"]
+							"# as part of regular system upgrades",
+							"",
+							"deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)"]
 				}
 			},
 			"working": true
@@ -1991,7 +2045,7 @@
 					"source-file": "spideroakone",
 					"apt-key-url": "https://spideroak.com/dist/spideroak-apt-2013.asc",
 					"apt-sources": ["deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted",
-													" "]
+                                                        " "]
 				}
 			},
 			"working": true
@@ -2020,7 +2074,10 @@
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
-					"method": "skip"
+					"method": "manual",
+					"source-file": "syncthing",
+					"apt-key-url": "https://syncthing.net/release-key.txt",
+					"apt-sources": ["deb http://apt.syncthing.net/ syncthing release"]
 				}
 			},
 			"working": true
@@ -2573,7 +2630,7 @@
 			"install-packages": "git,git-cola",
 			"remove-packages": "git-cola",
 			"description": [
-				"A graphical interfaace to git,",
+				"A graphical interface to git,",
 				"optimized for working with the git index. Git-cola can",
 				"compare arbitrary commits using standard merge tools. With it",
 				"you can search commit messages, content, authors, paths, data",
@@ -2947,8 +3004,8 @@
 			"img": "codecs",
 			"main-package": "libavcodec-extra",
 			"launch-command": null,
-			"install-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
-			"remove-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer0.10-fluendo-mp3,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
+			"install-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
+			"remove-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
 			"description": [
 				"Includes a library that offers a complete,",
 				"cross-platform solution to decode, encode, record, convert and",
@@ -3053,11 +3110,10 @@
 			"url-android": null,
 			"url-ios": null,
 			"arch": "i386,amd64,powerpc",
-			"releases": "trusty,wily",
+			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
-					"method": "ppa",
-					"enable-ppa": "ppa:stebbins/handbrake-releases"
+					"method": "skip"
 				}
 			},
 			"working": true
@@ -3088,7 +3144,7 @@
 					"source-file": "libdvdcss2",
 					"apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
 					"apt-sources": ["deb http://download.videolan.org/pub/debian/stable/ /",
-													"deb-src http://download.videolan.org/pub/debian/stable/ /"]
+                                                        "deb-src http://download.videolan.org/pub/debian/stable/ /"]
 				}
 			},
 			"working": true
@@ -3321,7 +3377,7 @@
 			"pre-install": {
 				"all": {
 					"method": "ppa",
-					"enable-ppa": "teejee2008/ppa",
+					"enable-ppa": "ppa:teejee2008/ppa",
 					"source-file": "teejee2008-ubuntu-ppa-CODENAME"
 				}
 			},
@@ -3473,14 +3529,11 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-			  "xenial": {
+                                "all": {
 					"method": "ppa",
 					"enable-ppa": "ppa:gnome-terminator/ppa",
 					"source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
-			  },
-				"all": {
-					"method": "skip"
-				}
+                                }
 			},
 			"working": true
 		},
@@ -3529,8 +3582,7 @@
 				"your Linux system. This includes Windows, Linux, FreeBSD,",
 				"DOS, OpenBSD and others. VirtualBox comes with a broad",
 				"feature set and excellent performance, making it the premier",
-				"visualization software solution on the market.",
-				"<br><br><b>If desired, the open source version can be installed from the Ubuntu repositories.</b>"
+				"visualization software solution on the market."
 			],
 			"alternate-to": "VMware Workstation",
 			"subcategory": "Visualization",
@@ -3886,6 +3938,29 @@
 			},
 			"working": true
 		},
+                "mate-desktop": {
+			"name": "MATE Desktop Updates",
+			"img": "",
+			"main-package": "mate-desktop",
+			"launch-command": null,
+			"upgradable": true,
+			"upgrade-packages": "mate-desktop",
+			"description": [""],
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+                                "all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},                
 		"boot-repair": {
 			"name": "Boot-Repair",
 			"img": "null",
@@ -4067,6 +4142,11 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "wily,xenial",
+                        "pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},                        
 			"working": true
 		}
 	}
