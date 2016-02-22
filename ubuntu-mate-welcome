@@ -789,7 +789,7 @@ class AppView(WebKit.WebView):
             print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
             self.execute_script("$('#update-notification').hide()")
             self.execute_script("$('#update-subscribing').show()")
-            dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
+            dynamicapps.modify_app(self, 'upgrade', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
                 print('[Welcome] Success, PPA added! Application restarting...')
