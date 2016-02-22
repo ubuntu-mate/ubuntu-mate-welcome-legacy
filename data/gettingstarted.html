@@ -44,7 +44,7 @@
 
       <!-- Shown in either session -->
       <br><h5>Troubleshooting</h5>
-      <a class="btn btn-inverse index-btn"                   onclick="changePage('specs','System Specifications')">       <span class="fa fa-cube"></span>         System Specifications</a>
+      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','System Specifications'); init_system_info()"> <span class="fa fa-cube"></span>          System Specifications</a>
 
     </div>
     <div id="content" class="container-fluid entire-page-fade" hidden>
@@ -709,10 +709,10 @@
             <h2>Desktop Wallpaper</h2>
             <p>The Ubuntu MATE Community have contributed dozens of
             desktop wallpaper images over the years. Why not install them
-            and find something to suites your tastes?</p>            
+            and find something to suites your tastes?</p>
             <div class="center">
             <a class="btn btn-lg btn-inverse" href="cmd://install-appid?ubuntu-mate-wallpapers-complete"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; Wallpapers</a>
-            </div>              
+            </div>
 
             <div class="center">
               <hr class="soften-light">
@@ -828,7 +828,13 @@
         </div>
         <div class="row-fluid">
           <div class="span12">
-            <table id="system-specs" class="table table-striped">
+            <div hidden id="specs-not-ready" class="alert alert-warning">
+                <h5><span class="fa fa-clock-o"></span> Please wait while the information is being populated...</h5>
+            </div>
+            <div hidden id="specs-error" class="alert alert-danger">
+                <h5><span class="fa fa-warning"></span> Some information could not be retrieved.</h5>
+            </div>
+            <table hidden id="system-specs" class="table table-striped">
               <tbody>
                 <tr>
                   <th class="center">

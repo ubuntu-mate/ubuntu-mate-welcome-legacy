@@ -683,8 +683,20 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     }
   }
 
-}
+  // Fetch system specifications if not cached already.
+  // Wait a couple of seconds so it doesn't look like application had frozen.
+  var specs_cached = false;
+  function init_system_info() {
+    if ( specs_cached == false ) {
+      $('#specs-not-ready').fadeIn()
+      $('html').css('cursor','wait')
+    }
+    setTimeout(function() {
+      window.location.href = "cmd://init-system-info";
+    }, 1000);
+  }
 
+}
 
 // Donate Only = Links for donations and spendings per month.
 if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
