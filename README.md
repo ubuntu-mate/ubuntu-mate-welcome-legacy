@@ -36,9 +36,10 @@ and testing purposes, the following can be specified:
     * Eg. `trusty` or `wily` or `xenial`.
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
+  * `--locale` = specify a locale to use, otherwise the default locale will be used.  
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
-
+  
 
 ## Requirements
 
@@ -58,3 +59,17 @@ and testing purposes, the following can be specified:
   * software-properties-common
   * inxi
   * humanity-icon-theme
+
+# Translations
+
+  * `create_pots.py` - create .pot files for the slides and puts them in a `po/<slide name>` directory under `data/`
+  * `create_pos.py` - for each slide, create a `.po` files for translators for every supported locale on the system. These also go in `data/po/<slide name>/`
+  * `create_i18n_slides.py` - produces translated slides for everything. These end up in the `./i18n` directory
+  * `country_codes.py` - contains a single function which returns a list of supported locales. Used by both `create_pos.py` and `ubuntu-mate-welcome`
+  * `ubuntu-mate-welcome - now supports translated html, and has a fix for the &nbsp issue.  To serve up html, the translated files are copied out of i18n directory into another directory which has symlinks to the css, js etc. directories, and displayed from there.
+
+To create the translated slides from scratch run `create_pots`, followed
+by `create_pos`, followed by `create_i18n_slides`. If you want to check
+whether the files from the correct locale are being shown by `ubuntu-mate-welcome`,
+just edit the html in the `i18n/<locale of your choice>/` directory and
+run `ubuntu-mate-welcome --locale=<locale of your choice>`.
