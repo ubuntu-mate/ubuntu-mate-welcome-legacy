@@ -37,6 +37,7 @@ and testing purposes, the following can be specified:
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
+  * `--simulate-changes` = Simulate changes made to packages without modifying the system.
 
 
 ## Requirements
@@ -45,6 +46,9 @@ and testing purposes, the following can be specified:
   * gir1.2-notify-0.7
   * gir1.2-webkit-3.0
   * libgtk2-perl
+  * libnotify-bin
+  * parted
+  * pciutils
   * policykit-1
   * python3
   * python3-apt
@@ -52,3 +56,5 @@ and testing purposes, the following can be specified:
   * python3-aptdaemon.gtk3widgets
   * python3-gi
   * software-properties-common
+  * inxi
+  * humanity-icon-theme

@@ -547,6 +547,15 @@ blockquote.terminal {
   cursor: -webkit-zoom-in;
 }
 
+/* Software Only Mode Splash */
+#center-spinner {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  top: 0; bottom: 0; left: 0; right: 0;
+  position: absolute;
+}
+
 /************************
  * Main Menu
 *************************/
@@ -618,12 +627,14 @@ blockquote.terminal {
   background-color: #C6053D \9;
 }
 
-/* Welcome Updates Subscription Button */
-#update-notification {
+/* Shows a notification in the top-right corner */
+.heads-up {
   position: fixed;
   top: 8px;
   right: 8px;
   z-index: 11;
+  font-size: 16px;
+  text-align: right;
 }
 
 /************************
@@ -636,6 +647,7 @@ blockquote.terminal {
   z-index: -1;
   margin: auto;
   top: 0; left: 0; bottom: 0; right: 0;
+  margin-top: -50px;
   width: 446px; height: 459px;
   pointer-events: none;
 }
@@ -647,6 +659,19 @@ blockquote.terminal {
   color: #fff;
   position: relative;
   top: 30%;
+}
+
+#splash-multilingual {
+  position: absolute;
+  top: 50%;
+  width: 640px;
+  height: 190px;
+  left: 0; right: 0;
+  margin: auto;
+  font-size: 20px;
+  color: #909090;
+  text-align: center;
+  line-height: 32px;
 }
 
 .bootCircle {

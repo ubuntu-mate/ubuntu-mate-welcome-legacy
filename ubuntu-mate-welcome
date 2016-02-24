@@ -32,7 +32,7 @@ gi.require_version("WebKit", "3.0")
 import apt, gettext, inspect, random, socket
 import json, tempfile, logging
 import os, sys, platform, subprocess, signal
-import urllib.error, urllib.parse, urllib.request, webbrowser
+import urllib.error, urllib.parse, urllib.request, webbrowser, glob
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
 import aptdaemon.errors
@@ -79,8 +79,6 @@ class SimpleApt(object):
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
-        if self.packages:
-            print('Processing: ' + ', '.join(self.packages))
 
     def on_error(self, error):
         if isinstance(error, aptdaemon.errors.NotAuthorizedError):
@@ -304,225 +302,182 @@ def fix_broken_depends():
     transaction = SimpleApt('', 'fix-broken-depends')
     transaction.fix_broken_depends()
 
-def process_packages(packages, action):
-    if len(packages) and len(action):
-        packages = packages.split(',')
-    else:
-        print('No package(s) supplied')
-        return
 
-    codename = platform.dist()[2]
-    transaction = SimpleApt(packages, action)
+class PreInstallation(object):
+    #
+    #   See the JSON Structure in the `DynamicApps` class on
+    #    how to specify pre-configuration actions in `applications.json`
+    #
 
-    # Perform any pre-install configuration. Basically enabling repositories or
-    # adding PPAs.
-    if '0ad' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', '0ad', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'wfg-ubuntu-0ad-'+codename+'.list'
-    elif 'anoise' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'anoise', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'costales-ubuntu-anoise-'+codename+'.list'
-    elif 'appgrid' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'appgrid', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'appgrid-ubuntu-stable-'+codename+'.list'
-    elif 'aptik' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'teejee2008', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'teejee2008-ubuntu-ppa-'+codename+'.list'
-    elif 'audio-recorder' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'audio-recorder', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'audio-recorder-ubuntu-ppa-'+codename+'.list'
-    elif 'boot-repair' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'boot-repair', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'yannubuntu-ubuntu-boot-repair-'+codename+'.list'
-    elif 'btsync-gui' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'btsync', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'btsync.list'
-    elif 'emby-server' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'emby-server', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'emby-server.list'
-    elif 'enpass' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'enpass', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'enpass.list'
-    elif 'eviacam' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'eviacam', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'cesar-crea-si-ubuntu-eviacam-'+codename+'.list'
-    elif 'flashplugin-installer' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'hal-flash', action])
-        transaction.update_cache = True
-    elif 'git' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'git-core', action])
-        transaction.source_to_update = 'git-core-ubuntu-ppa-'+codename+'.list'
-        transaction.update_cache = True
-    elif 'gobby' in packages:
-        if codename == 'trusty':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'gobby', action])
-            transaction.source_to_update = 'flexiondotorg-ubuntu-gobby-'+codename+'.list'
-            transaction.update_cache = True
-    elif 'google-chrome-stable' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-chrome', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'google-chrome.list'
-    elif 'google-musicmanager-beta' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-musicmanager', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'google-musicmanager.list'
-    elif 'google-talkplugin' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'google-talkplugin', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'google-talkplugin.list'
-    elif 'nvidia-settings' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'graphics-drivers', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'graphics-drivers-ubuntu-ppa-'+codename+'.list'
-    elif 'insync' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'insync', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'insync.list'
-    elif 'libdvdcss2' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libdvdcss2', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'libdvdcss2.list'
-    elif 'libreoffice-core' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'libreoffice', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'libreoffice-ubuntu-ppa-'+codename+'.list'
-    elif 'indicator-kdeconnect' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'vikoadi', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'vikoadi-ubuntu-ppa-'+codename+'.list'
-    elif 'keypassx' in packages:
-        if codename == 'trusty' or codename == 'wily':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'keypassx', action])
-            transaction.source_to_update = 'flexiondotorg-ubuntu-keypassx-'+codename+'.list'
-            transaction.update_cache = True
-    elif 'makemkv-bin' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'makemkv', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'heyarje-ubuntu-makemkv-beta-'+codename+'.list'
-    elif ('minecraft-installer' in packages) or ('minecraft-server-installer' in packages):
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'minecraft', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'flexiondotorg-ubuntu-minecraft-'+codename+'.list'
-    elif 'mumble' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'mumble', action])
-        if codename == 'precise' or codename == 'trusty':
-            transaction.update_cache = True
-            transaction.source_to_update = 'mumble-ubuntu-release-'+codename+'.list'
-    elif 'opera-stable' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'opera-stable', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'opera-stable.list'
-    elif 'owncloud-client' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'owncloud-client', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'owncloud-client.list'
-    elif 'pithos' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'pithos', action])
-        if codename == 'precise' or codename == 'trusty':
-            transaction.update_cache = True
-            transaction.source_to_update = 'pithos-ubuntu-ppa-'+codename+'.list'
-    elif 'playonlinux' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'playonlinux', action])
-        transaction.update_cache = True
-    elif 'indicator-notifications-gtk2' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'recent-notifications', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'jconti-ubuntu-recent-notifications-'+codename+'.list'
-    elif 'rednotebook' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'rednotebook', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'rednotebook-ubuntu-stable-'+codename+'.list'
-    elif 'simplescreenrecorder' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'simplescreenrecorder', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'maarten-baert-ubuntu-simplescreenrecorder-'+codename+'.list'
-    elif 'skype' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'skype', action])
-        transaction.update_cache = True
-    elif 'spideroakone' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spideroakone', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'spideroakone.list'
-    elif 'spotify-client' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'spotify', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'spotify.list'
-    elif 'steam-launcher' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'steam', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'steam.list'
-    elif 'stellarium' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'stellarium', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'stellarium-ubuntu-stellarium-releases-'+codename+'.list'
-    elif 'synapse' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'synapse', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'synapse-core-ubuntu-testing-'+codename+'.list'
-    elif 'syncthing' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'syncthing', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'syncthing.list'
-    elif 'telegram' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'telegram', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'atareao-ubuntu-telegram-'+codename+'.list'
-    elif 'terminator' in packages:
-        if codename != 'xenial':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'terminator', action])
-            transaction.update_cache = True
-            transaction.source_to_update = 'gnome-terminator-ubuntu-ppa-'+codename+'.list'
-    elif 'tor-browser' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'tor-browser', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'webupd8team-ubuntu-tor-browser-'+codename+'.list'
-    elif 'ubuntu-sdk' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-sdk', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'ubuntu-sdk-team-ubuntu-ppa-'+codename+'.list'
-    elif 'uget' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'uget', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'plushuang-tw-ubuntu-uget-stable-'+codename+'.list'
-    elif 'variety' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'peterlevi', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'peterlevi-ubuntu-ppa-'+codename+'.list'
-    elif 'veracrypt' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'encryption', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'unit193-ubuntu-encryption-'+codename+'.list'
-    elif 'virtualbox-5.0' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'virtualbox-5.0', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'virtualbox.list'
-    elif ('x2goclient' in packages) or ('x2goserver' in packages):
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'x2go', action])
-        transaction.update_cache = True
-        transaction.source_to_update = 'x2go-ubuntu-stable-'+codename+'.list'
-    elif 'ubuntu-mate-welcome' in packages:
-        subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', 'ubuntu-mate-welcome', action])
-        transaction.update_cache = True
-        transaction.source_to_update =  'ubuntu-mate-dev-ubuntu-welcome-'+codename+'.list'
+    def __init__(self):
+        # Always ensure we have the correct variables.
+        self.os_version = platform.dist()[1]
+        self.codename = platform.dist()[2]
+        arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
 
-    if transaction.action == 'install':
-        transaction.install_packages()
-    elif transaction.action == 'remove':
-        transaction.remove_packages()
-    elif transaction.action == 'upgrade':
-        transaction.upgrade_packages()
-    else:
-        print('The requested action is unknown')
+    def process_packages(self, program_id, action):
+        simulating = arg.simulate_software_changes
+        print(' ')
+
+        # Get category for this program, which can be used to retrieve data later.
+        category = dynamicapps.get_attribute_for_app(program_id, 'category')
+
+        try:
+            preconfig = dynamicapps.index[category][program_id]['pre-install']
+        except:
+            print('[Pre-Install] Missing pre-configuration data for "' + program_id + '". Refusing to continue.')
+            return
+
+        try:
+            if action == 'install':
+                packages = dynamicapps.index[category][program_id]['install-packages']
+                print('[Apps] Packages to be installed:\n               ' + packages)
+            elif action == 'remove':
+                packages = dynamicapps.index[category][program_id]['remove-packages']
+                print('[Apps] Packages to be removed:\n               ' + packages)
+            elif action == 'upgrade':
+                packages = dynamicapps.index[category][program_id]['upgrade-packages']
+                print('[Apps] Packages to be upgraded:\n               ' + packages)
+            else:
+                print('[Apps] ERROR: Invalid action was requested.')
+                return
+        except:
+            print('[Apps] ERROR: No packages retrieved for requested action.')
+            return
+
+        # Validate that we have packages to work with.
+        if len(packages):
+            packages = packages.split(',')
+        else:
+            print('[Apps] ERROR: No package(s) supplied for "' + program_id + '".')
+            return
+        transaction = SimpleApt(packages, action)
+
+        # Function to run privileged commands.
+        def run_task(function):
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(app._data_path, 'js/applications.json')), function, category, program_id, target])
+
+        # Determine if any pre-configuration is specific to a codename.
+        try:
+            preinstall = dynamicapps.index[category][program_id]['pre-install']
+            codenames = list(preinstall.keys())
+        except:
+            print('[Pre-Install] No pre-install data specified for "' + program_id + '". This application entry is invalid.')
+            return
+        arg.print_verbose('Pre-Install','Available configurations: ' + str(codenames))
+        target = None
+
+        # Check for specific configurations for a version first.
+        for name in codenames:
+            if name == self.codename:
+                target = name
+                break
+        if not target:
+                target = 'all'
+                arg.print_verbose('Pre-Install','Using "all" pre-configuration.')
+        else:
+            arg.print_verbose('Pre-Install','Using configuration for: "' + target + '".')
+
+        methods = preinstall[target]['method'].split('+')
+        if not methods:
+            print('[Pre-Install] No pre-install method was specified. The index is invalid.')
+        else:
+            arg.print_verbose('Pre-Install','Configuration changes: ' + str(methods))
+
+        # Perform any pre-configuration, if necessary.
+        if action == 'install' or action == 'upgrade':
+            for method in methods:
+                if method == 'skip':
+                    arg.print_verbose('Pre-Install','No need! The package is already in the archives.')
+                    continue
+
+                elif method == 'partner-repo':
+                    print('[Pre-Install] Enabling the Ubuntu partner repository.')
+                    if not simulating:
+                        run_task('enable_partner_repository')
+                        transaction.update_cache = True
+
+                elif method == 'ppa':
+                    try:
+                        ppa = preinstall[target]['enable-ppa']
+                    except:
+                        print('[Pre-Install] Missing "enable-ppa" attribute. Cannot add PPA as requested.')
+                        return
+                    print('[Pre-Install] Adding PPA: "' + ppa + '" and updating cache.')
+                    if not simulating:
+                        run_task('enable_ppa')
+                        transaction.update_cache = True
+                    try:
+                        source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
+                        print('[Pre-Install] Updating Apt Source: "' + source_file + '.list"')
+                        if not simulating:
+                            transaction.source_to_update = source_file + '.list'
+                    except:
+                        arg.print_verbose('Pre-Install','Updating entire cache as no source file was specified.')
+
+                elif method == 'manual':
+                    # Do we get the apt key from a URL?
+                    try:
+                        apt_key_url = preinstall[target]['apt-key-url']
+                        print('[Pre-Install] Getting Apt key from URL: "' + apt_key_url + '"')
+                        if not simulating:
+                            run_task('add_apt_key_from_url')
+                    except:
+                        arg.print_verbose('Pre-Install', 'No apt key to retrieve from a URL.')
+
+                    # Do we get the apt key from the server?
+                    try:
+                        apt_key_server = preinstall[target]['apt-key-server'][0]
+                        apt_key_key =    preinstall[target]['apt-key-server'][1]
+                        print('[Pre-Install] Getting key "' + apt_key_key + '" from keyserver: "' + apt_key_server + '"')
+                        if not simulating:
+                            run_task('add_apt_key_from_keyserver')
+                    except:
+                        arg.print_verbose('Pre-Install', 'No apt key to retrieve from a key server.')
+
+                    # Do we need to add an apt source file?
+                    try:
+                        source = preinstall[target]['apt-sources']
+                        source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
+                        print('[Pre-Install] Writing source file: ' + source_file + '.list')
+                        print('              -------- Start of file ------')
+                        for line in source:
+                            print('              ' + line.replace('OSVERSION',self.os_version).replace('CODENAME',self.codename))
+                        print('              -------- End of file ------')
+                        try:
+                            print('[Pre-Install] Updating Apt Source: ' + source_file + '.list')
+                            if not simulating:
+                                run_task('add_apt_sources')
+                                transaction.source_to_update = source_file + '.list'
+                                transaction.update_cache = True
+                        except:
+                            arg.print_verbose('Pre-Install','Failed to add apt sources!')
+                    except:
+                        arg.print_verbose('Pre-Install','No source data or source file to write.')
+
+        elif action == 'remove':
+            try:
+                # The function uses wild cards, so we don't need to worry about being explict.
+                listname = preinstall[target]['source-file'].replace('CODENAME','').replace('OSVERSION','')
+                if simulating:
+                    print('[Simulation] Deleting Apt Source: ' + listname)
+                else:
+                    run_task('del_apt_sources')
+            except:
+                print('[Pre-Install]', 'No apt source specified, so none will be removed.')
+
+
+        # Pre-configuration complete. Now perform the operations, unless this was just a simulation.
+        if simulating:
+            print('[Pre-Install] Simulation flag active. No changes will be performed.')
+            return
+        else:
+            if transaction.action == 'install':
+                transaction.install_packages()
+            elif transaction.action == 'remove':
+                transaction.remove_packages()
+            elif transaction.action == 'upgrade':
+                transaction.upgrade_packages()
 
 
 class WelcomeConfig(object):
@@ -640,8 +595,12 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('#community').addClass('btn-success');")
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
+            self.execute_script('$("#update-subscribing").hide()')
             if not systemstate.updates_subscribed:
-                self.execute_script('$("#update-notification").fadeIn("slow")')
+                if systemstate.is_online:
+                    self.execute_script('$("#update-notification").fadeIn("slow")')
+            else:
+                self.execute_script('$("#update-notification").hide()')
 
         ### Splash ###
         if self.current_page == 'splash.html':
@@ -828,15 +787,25 @@ class AppView(WebKit.WebView):
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
         elif uri == 'subscribe-updates':
-            print('[Welcome] Adding Ubuntu MATE Welcome Updates PPA...')
-            dynamicapps.modify_app(self, 'upgrade', 'ubuntu-mate-welcome')
+            print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
+            self.execute_script("$('#update-notification').hide()")
+            self.execute_script("$('#update-subscribing').show()")
+            dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
-                print('[Welcome] Welcome Updates PPA successfully added. Application restarting...')
+                print('[Welcome] Success, PPA added! Application restarting...')
                 os.execv(__file__, sys.argv)
             else:
-                print('[Welcome] Welcome Updates PPA failed to add.')
-
+                print('[Welcome] Failed, PPA not detected!')
+                self.execute_script('$("#update-subscribing").hide()')
+                self.execute_script('$("#update-notification").show()')
+        elif uri == 'init-system-info':
+            if not systemstate.system_info_cached:
+                systemstate.get_system_info(self)
+            else:
+                self.execute_script('$("#system-specs").show()')
+                self.execute_script('$("#specs-not-ready").hide()')
+                self.execute_script('$("html").css("cursor","auto")')
         else:
             print('[Error] Unknown command: ', uri)
       except Exception as e:
@@ -869,7 +838,7 @@ class WelcomeApp(object):
             title = "Get More Software"
             width = 900
             height = 600
-            load_file = 'software.html'
+            load_file = 'software-only.html'
         else:
             title = "Welcome"
             width = 800
@@ -1036,17 +1005,8 @@ class SystemState(object):
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
         arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
 
-    def start_system_info_cache(self):
-        # Don't bother caching system specifications if the page cannot be visited by this session.
-        if arg.jump_software_page or self.session_type == 'guest':
-            print('[System Specs] Not applicable to this session. Skipping.')
-            return
-        else:
-            thread_cache = Thread(target=self.get_system_info)
-            thread_cache.start()
-
-    def get_system_info(self):
-        print('[System Specs] Caching system specifications in background... ')
+    def get_system_info(self, webkit):
+        print('[System Specs] Gathering system specifications... ')
         try:
             # Use 'inxi' to retrieve the system information.
             arg.print_verbose('System Specs','Caching: System')
@@ -1078,10 +1038,18 @@ class SystemState(object):
             # If commands were successfully executed.
             self.system_info_cached = True
             print("[System Specs] Successfully cached system specifications.")
+            webkit.execute_script('$("#specs-not-ready").hide()')
+            webkit.execute_script('$("#system-specs").fadeIn()')
+            webkit.execute_script('specs_cached = true')
+            webkit.execute_script('$("html").css("cursor","auto")')
+            self.append_system_info(webkit)
 
         except Exception as e:
             print("[System Specs] There was a problem running 'inxi'. Is this program no longer installed?")
             print("[System Specs] Exception: "+e)
+            webkit.execute_script('$("#specs-not-ready").hide()')
+            webkit.execute_script('$("#specs-error").show()')
+            webkit.execute_script('$("html").css("cursor","auto")')
             return
 
     def append_system_info(self, webkit, get_root_ram_details_only=False):
@@ -1224,36 +1192,74 @@ class DynamicApps(object):
 
     ###### JSON Index Structure
     #
-    # {
-    #   "Category Name" {
-    #       "myapp" {                                          - Unique simple identifier, apps are sorted A-Z by this. Hyphens preferred.
-    #           "name": "Template",                            - Name of application.
-    #           "img": "template",                             - Image name, excluding ".png" at end.
-    #           "main-package": "template",                    - Package named used to detect if installed.
-    #           "launch-command": "template",                  - Command to launch the installed program. If N/A, use null.
-    #           "install-packages": "template-1,template-2",   - Packages used to install/reinstall the application. Comma separated.
-    #           "remove-packages": "template-1,template-2",    - Packages used to be removed for this application. Comma separated.
-    #           "description": [
-    #             "Template text. Line 1.",                    - Multi-line description, use usual HTML tags for formatting.
-    #             "This is still the same line."
-    #           ],
-    #           "alternate-to": "This Other App",              - If the app is similar or has an alternate. If N/A, use null.
-    #           "subcategory": "Partitioning Tools",           - Sub-category of what this app is. Eg. "Partitioning", "Audio Production".
-    #           "open-source": true,                           - true/false indicating open source or proprietary.
-    #           "url-info": "http://example.com",              - URL to the web page for more information.
-    #           "url-android": null,                           - URL if there is an associated Android app. If N/A, use null.
-    #           "url-ios": null,                               - URL if there is an associated iOS app. If N/A, use null.
-    #           "arch": "i386,amd64,armhf",                    - Supported architectures for this app.
-    #           "releases": "trusty,wily,xenial",              - Supported versions of Ubuntu MATE to show this application.
-    #           "working": true                                - true/false indicating whether this app works and can be listed.
+    #   ===== Structure Overview =====
+    #   {
+    #     "Category" {                                  - Application category.
+    #       "application-id" {                          - Unique string identifier for application, apps sorted A-Z. Hyphens preferred.
+    #         "variable": "data",                       - Variable containing single data.
+    #         "list": ["This is a line.",
+    #                   "The same line."]               - Variable containing a 'list' of data.
+    #         "group": { "variable": "data" }           - Group containing data.
+    #        }
+    #      }
+    #   }
     #
-    #           "upgradable": true,                            - (Upgrade only) Set to true if this app is to be upgraded.
-    #           "upgrade-packages": "libreoffice"              - (Upgrade only) Packages to be upgraded.
-    #           }
+    #   ** Standard JSON rules apply. Watch out for the commas.
+    #   ** Important!! Use &#8217; instead of ' for an apostrophe character.
+
+    #   ===== Variable Index =====
+    #   Variable                Type        Required?   Description
+    #   ----------------------- ----------  ----------  ---------------------------------------------
+    #   name                    string      Yes         Name of the application as displayed to the user.
+    #   img                     string      Yes         Name of image. Excluding ".png" extension.
+    #   main-package            string      Yes         Package used to detect if it's installed.
+    #   launch-command          string      No          Command to launch the installed program. Can be ignored for no launch option.
+    #   install-packages        string      *           Packages to install/reinstall. Comma separated.
+    #   remove-packages         string      *           Packages to remove. Comma separated.
+    #   upgradable              boolean     *           This package is only for upgrading.
+    #   upgrade-packages        string      *           Packages to upgrade. Comma separated.
+    #   description             list        Yes         Description of the application. Use usual HTML tags for formatting. Can be left blank if unlisted.
+    #   alternate-to            string      No          If the app is similar or has an alternate. Can be ignored.
+    #   subcategory             string      Yes         Used for filtering applications within the category. Eg. "Partitioning", "Audio Production".
+    #   open-source             boolean     Yes         Proprietary or Open Source?
+    #   url-info                string      Yes         URL to the web page for more information.
+    #   url-android             string      No          URL if there is an associated Android app. Can be ignored.
+    #   url-ios                 string      No          URL if there is an associated Android app. Can be ignored.
+    #   arch                    string      Yes         Supported architectures for this app. Comma seperated.
+    #   releases                string      Yes         Supported versions of Ubuntu MATE to show this application. Comma seperated.
+    #   working                 boolean     Yes         Show/hide visibility of this application.
+    #   notes                   string      No          Optional developer notes for the application.
+    #
+    #### * Only if applicable to application.
+
+    #   ===== Pre-installation Index =====
+    #
+    #   "pre-install": {                                - Required group of data containing pre-installation procedures.
+    #       "trusty": {                                 - Different releases may have different operations.
+    #           "variable":  "data"                     - See table below for possible operations.
+    #       },
+    #       "all": {                                    - Use "all" to specify all other releases. This should be last.
+    #           "variable":  "data"                         If there is only one instruction,
     #       }
     #   }
     #
-    #     ## Important:  Use &#8217; instead of ' for an apostrophe character!
+    #   method                  string      Yes         Pre-configuration methods. Multiple can be specified with a plus '+'.
+    #                                                       "skip"          =   Package is already in archive.
+    #                                                       "ppa"           =   Add a PPA. Specify (2), optionally (1).
+    #                                                       "partner-repo"  =   Add the Ubuntu Partners Repo.
+    #                                                       "manual"        =   Get keys and write a sources.list file. (3)
+    #   source-file        (1)  string      No          Source file to update, excluding the ".list" extension.
+    #   enable-ppa         (2)  string      *           Name of PPA to add, eg. "ppa:somebody/someapp".
+    #   apt-key-url        (3)  string      *           Retrieve the key from URL.
+    #   apt-key-server     (3)  list        *           Retrieve the key from a server.
+    #                                                       "server-address"    = Eg. "keyserver.ubuntu.com"
+    #                                                       "key"               = Eg. "D2C19886"
+    #   apt-sources        (3)  list        *           Contents for the sources file. Each variable is a new line.
+    #
+    #### These keys words can be given as placeholders:
+    #
+    #   CODENAME        =   Current Ubuntu release, eg. "xenial".
+    #   OSVERSION       =   Current Ubuntu version, eg "16.04".
     #
 
     def reload_index(self):
@@ -1378,6 +1384,18 @@ class DynamicApps(object):
                 html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
                 html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
+                # Check any "Upgrade" packages if the PPA has already been added.
+                upgraded = False
+                if self.app_upgrade_only:
+                    try:
+                        listname = dynamicapps.index[category][program_id]['pre-install']['all']['source-file']
+                        listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                        if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
+                            upgraded = True
+                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> This application is set to receive the latest updates.</h5>'
+                    except:
+                        pass
+
                 if not self.app_alternate_to == None:
                     html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
@@ -1388,13 +1406,14 @@ class DynamicApps(object):
                 if not self.app_upgrade_only:
                     html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '"><span class="fa fa-trash"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Reinstall"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Remove"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
                     arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
-                    html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                    if not upgraded:
+                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
 
                 if not self.app_launch_command == None:
                     html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
@@ -1527,13 +1546,13 @@ class DynamicApps(object):
         # Asynchronous apt process
         if action == 'install':
             webkit.execute_script("$('." + css_class + "-applying-status').html('" + install_text + "');")
-            process_packages(self.get_attribute_for_app(program_id, 'install-packages'), 'install')
+            preinstallation.process_packages(program_id, 'install')
         elif action == 'remove':
             webkit.execute_script("$('." + css_class + "-applying-status').html('" + remove_text + "');")
-            process_packages(self.get_attribute_for_app(program_id, 'remove-packages'), 'remove')
+            preinstallation.process_packages(program_id, 'remove')
         elif action == 'upgrade':
             webkit.execute_script("$('." + css_class + "-applying-status').html('" + upgrade_text + "');")
-            process_packages(self.get_attribute_for_app(program_id, 'upgrade-packages'), 'upgrade')
+            preinstallation.process_packages(program_id, 'upgrade')
         else:
             print('[Apps] An unknown action was requested.')
 
@@ -1604,12 +1623,16 @@ class DynamicApps(object):
         arg.print_verbose('Apps', '----------------------------------------')
 
     def get_attribute_for_app(self, requested_id, attribute):
-        ''' Retrieves a specific attribute from a listed application, regardless of category. '''
+        ''' Retrieves a specific attribute from a listed application,
+            without specifying its category. '''
         for category in list(self.index.keys()):
             category_items = list(self.index[category].keys())
             for program_id in category_items:
                 if program_id == requested_id:
-                    return self.index[category][program_id][attribute]
+                    if not attribute == 'category':
+                        return self.index[category][program_id][attribute]
+                    else:
+                        return category
 
     def launch_app(self, appid):
         ''' Launch an application directly from Welcome '''
@@ -1708,6 +1731,7 @@ class Arguments(object):
         self.simulate_no_connection = False
         self.simulate_force_connection = False
         self.jump_software_page = False
+        self.simulate_software_changes = False
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1723,6 +1747,7 @@ class Arguments(object):
               print('  --force-no-net              Simulate no internet connection.')
               print('  --force-net                 Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
+              print('  --simulate-changes          Simulate software package changes without modifying the system.')
               print('')
               exit()
 
@@ -1770,6 +1795,10 @@ class Arguments(object):
               print('[Welcome] Starting in software selections only mode.')
               self.jump_software_page = True
 
+          if arg == '--simulate-changes':
+              print('[Debug] Any changes to software will be simulated without modifying the actual system.')
+              self.simulate_software_changes = True
+
     def print_verbose(self, feature, text):
         if self.verbose_enabled:
             print('[' + feature + '] ' + text)
@@ -1786,6 +1815,7 @@ class Arguments(object):
         if not self.simulate_codename == None:
             systemstate.codename = self.simulate_codename
 
+
 if __name__ == "__main__":
 
     # Process any parameters passed to the program.
@@ -1796,6 +1826,7 @@ if __name__ == "__main__":
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()
+    preinstallation = PreInstallation()
 
     # Argument Overrides
     arg.override_arch()
@@ -1803,5 +1834,4 @@ if __name__ == "__main__":
     arg.override_codename()
 
     print('[Welcome] Application Started.')
-    systemstate.start_system_info_cache()
     app.run()
