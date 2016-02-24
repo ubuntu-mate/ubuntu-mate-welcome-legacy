@@ -32,6 +32,7 @@ gi.require_version("WebKit", "3.0")
 import apt, gettext, inspect, random, socket
 import json, tempfile, logging
 import os, sys, platform, subprocess, signal
+import shutil, locale
 import urllib.error, urllib.parse, urllib.request, webbrowser, glob
 from aptdaemon.client import AptClient
 from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
@@ -41,6 +42,8 @@ from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 from getpass import getuser
+
+import country_codes
 
 # i18n - if no translation is available will use the inline strings from the code
 t = gettext.translation("ubuntu-mate-welcome", "./locale", fallback=True)
@@ -685,7 +688,10 @@ class AppView(WebKit.WebView):
         self.l_uri = uri
 
         page = urllib.request.urlopen(uri)
-        frame.load_string(page.read().decode(), "text/html", "iso-8859-15", page.geturl())
+
+        # use UTF-8 encoding as fix for &nbsp chars in translated html
+        frame.load_string(page.read().decode(), "text/html", "UTF-8", page.geturl())
+
         pol_dec.ignore()
         return True
 
@@ -829,7 +835,59 @@ class WelcomeApp(object):
             print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
 
+        self._get_translated_slides()
         self._build_app()
+
+    def _get_translated_slides(self):
+        """ If a locale has been specified on the command line, get translated slides
+            for that. If not, get translated slides for the current locale
+             
+            Place them in a directory called 'runtime' (with add symlinks to the 'js', 'css'
+            etc .dirs) and change the data path to point to this..
+         
+            If no translated slides are available use the ones in data/ or ./ 
+        """
+
+        codes = country_codes.get_country_codes()
+
+        if (arg.locale is not None) :
+            locale_to_use = arg.locale
+            # use translated html from this specified locale if is is valid
+            if not arg.locale in codes:
+                locale_to_use = locale.getlocale()[0]
+        else:
+            locale_to_use = locale.getlocale()[0]
+
+        # check we have translated html for the locale
+        locale_dir = os.path.join(os.path.join(self._location, "i18n"), locale_to_use)
+        if os.path.exists(locale_dir):
+
+            # we have translated html, so prepare to copy it to the runtime location
+            run_path = os.path.join(self._data_path,"runtime")
+            if not os.path.exists(run_path):
+                os.mkdir(run_path)
+            if not os.path.exists(os.path.join(run_path, "css")):
+                os.symlink(os.path.join(self._data_path,"css"),
+                           os.path.join(run_path,"css"))
+            if not os.path.exists(os.path.join(run_path, "js")):
+                os.symlink(os.path.join(self._data_path,"js"),
+                           os.path.join(run_path,"js"))
+            if not os.path.exists(os.path.join(run_path, "fonts")):
+                os.symlink(os.path.join(self._data_path,"fonts"),
+                           os.path.join(run_path,"fonts"))
+            if not os.path.exists(os.path.join(run_path, "img")):
+                os.symlink(os.path.join(self._data_path,"img"),
+                           os.path.join(run_path,"img"))
+
+            # copy the files
+            html_files = glob.glob(os.path.join(locale_dir, '*.html'))
+            for html in html_files:
+                shutil.copy(html, run_path)
+
+            # make sure we display the translated files
+            self._data_path=run_path
+        else:
+            print("[Debug]: No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
 
     def _build_app(self):
 
@@ -1732,6 +1790,7 @@ class Arguments(object):
         self.simulate_force_connection = False
         self.jump_software_page = False
         self.simulate_software_changes = False
+        self.locale = None
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1748,6 +1807,7 @@ class Arguments(object):
               print('  --force-net                 Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
               print('  --simulate-changes          Simulate software package changes without modifying the system.')
+              print('  --locale=<LOCALE>           LOCALE to use e.g. fr_FR.')
               print('')
               exit()
 
@@ -1798,6 +1858,10 @@ class Arguments(object):
           if arg == '--simulate-changes':
               print('[Debug] Any changes to software will be simulated without modifying the actual system.')
               self.simulate_software_changes = True
+
+          if arg.startswith('--locale='):
+              self.locale = arg.split('--locale=')[1]
+              print('[Debug] Setting locale to: ' + self.locale)
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:
