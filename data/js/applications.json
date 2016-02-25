@@ -2525,10 +2525,13 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-				"all": {
+				"trusty,wily": {
 					"method": "ppa",
 					"enable-ppa": "ppa:rednotebook/stable",
 					"source-file": "rednotebook-ubuntu-stable-CODENAME"
+				},
+                                "all": {
+					"method": "skip"
 				}
 			},
 			"working": true
@@ -2830,7 +2833,9 @@
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
-					"method": "skip"
+					"method": "ppa",
+                                        "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
+					"source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
 				}
 			},
 			"working": true
@@ -3384,8 +3389,8 @@
 			},
 			"working": true
 		},
-		"Kazam": {
-			"name": "kazam",
+		"kazam": {
+			"name": "Kazam",
 			"img": "kazam",
 			"main-package": "kazam",
 			"launch-command": "kazam",
