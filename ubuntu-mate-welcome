@@ -651,7 +651,7 @@ class AppView(WebKit.WebView):
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
                 self.execute_script('$("#footer-left").hide()')
-                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Our Picks</span>")')
+                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')                
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
             # Dynamically load application lists.
@@ -893,7 +893,7 @@ class WelcomeApp(object):
 
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
-            title = "Get More Software"
+            title = "Software Boutique"
             width = 900
             height = 600
             load_file = 'software-only.html'
