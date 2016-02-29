@@ -887,7 +887,7 @@ class WelcomeApp(object):
             # make sure we display the translated files
             self._data_path=run_path
         else:
-            print("[Debug]: No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
+            print("[Debug] No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
 
     def _build_app(self):
 
