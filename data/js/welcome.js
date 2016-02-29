@@ -4,11 +4,11 @@ function WelcomeCtrl($scope) {
 
 // Consistent on all pages.
 var global_footer_left = '<div id="social" class="pull-left">' +
-        '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>' +
-        '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>' +
-        '<a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>' +
-        '<a href="cmd://link?https://ubuntu-mate.org"><img src="img/humanity/website.svg"></a>' +
-        '<a href="cmd://link?https://ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
+        '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904" title="Google+"><img src="img/social/google+.svg"></a>' +
+        '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a>' +
+        '<a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a>' +
+        '<a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
       '</div>';
 
 var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">Close</a>';
