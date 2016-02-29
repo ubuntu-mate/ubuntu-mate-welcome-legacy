@@ -219,9 +219,9 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE celebrates its official flavour status in 4 days time.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE celebrates its official flavour status in 3 days time.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE celebrates its official flavour status in 2 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE celebrates its official flavour status tomorrow.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE become an official flavour " + age + " years ago today.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE celebrated its official flavour status yesterday.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE celebrates its official flavour status tomorrow.", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE become an official flavour " + age + " years ago today.", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE celebrated its official flavour status yesterday.", true, 'birthday-cake');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE celebrated its official flavour status 2 days ago.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE celebrated its official flavour status 3 days ago.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE celebrated its official flavour status 4 days ago.", false, 'calendar');
@@ -257,7 +257,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 will be released in 3 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 will be released in 2 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 is released today!", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
@@ -267,7 +267,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 will be released in 3 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 will be released in 2 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 is released today!", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
@@ -277,7 +277,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 will be released in 3 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 will be released in 2 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 is released today!", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", true, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
@@ -287,7 +287,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 will be released in 3 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 will be released in 2 days.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 is released today!", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
@@ -301,7 +301,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " will be released in 3 days.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " will be released in 2 days.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " will be released tomorrow.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " has been released!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " is released today!", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " was released yesterday.", true, 'bell');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " was released 2 days ago.", false, 'calendar');
       specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " was released 3 days ago.", false, 'calendar');
