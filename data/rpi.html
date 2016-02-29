@@ -14,7 +14,7 @@
         <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title" hidden>Raspberry Pi 2 Notes</div>
+        <div id="navigation-title" hidden>&zwnj;Raspberry Pi 2 Notes&zwnj;</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
@@ -22,38 +22,38 @@
         <div class="row-fluid">
           <div class="span12">
             <!--Body content-->
-            <h2>A few important notes.</h2>
-            <p>While the experience is visually similar to the desktop
+            <h2>&zwnj;A few important notes.&zwnj;</h2>
+            <p>&zwnj;While the experience is visually similar to the desktop
             edition of Ubuntu MATE, the underlying architecture is
             very different. This page will highlight a few of these
-            differences.</p>
+            differences.&zwnj;</p>
             <hr class="soften"/>
 
-            <h3>Resizing the file system</h3>
+            <h3>&zwnj;Resizing the file system&zwnj;</h3>
             <span id="rpi-resized" hidden>
               <p class="success-text"><span class="fa fa-check-circle"></span>
-              Your file system has already been resized.</p>
+              &zwnj;Your file system has already been resized.&zwnj;</p>
             </span>
             <span id="rpi-not-resized" hidden>
-              <p>After setting up Ubuntu MATE for the first time on your
+              <p>&zwnj;After setting up Ubuntu MATE for the first time on your
               Raspberry Pi 2, the file system will be restricted to the
               size of the original image, which is about 3.9 GB. Use
-              this button to resize to fill the entire Micro-SD card.</p>
-              <a href="cmd://resize-rpi" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; Resize Now</a>
+              this button to resize to fill the entire Micro-SD card.&zwnj;</p>
+              <a href="cmd://resize-rpi" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; &zwnj;Resize Now&zwnj;</a>
             </span>
             <hr class="soften"/>
 
-            <h3>Incompatible Software</h3>
-            <p>Some packages available for Ubuntu have only been written
-            and compiled for the <code>i386</code> or <code>amd64</code> architecture.
-            As the Raspberry Pi 2 is based on <code>armv7</code>, these packages will
+            <h3>&zwnj;Incompatible Software&zwnj;</h3>
+            <p>&zwnj;Some packages available for Ubuntu have only been written
+            and compiled for the&zwnj; <code>i386</code> &zwnj;or&zwnj; <code>amd64</code> &zwnj;architecture.
+            As the Raspberry Pi 2 is based on&zwnj; <code>armv7</code>&zwnj;, these packages will
             not be available to install. Depending on the package, it may be possible
-            to compile this yourself or use an existing port.</p>
+            to compile this yourself or use an existing port.&zwnj;</p>
           </div>
         </div>
         <div class="row-fluid">
           <div class="span6">
-            <h5>Incompatible:</h5>
+            <h5>&zwnj;Incompatible:&zwnj;</h5>
             <ul>
               <li><img src="img/applications/google-chrome.png" width="24px" height="24px"> Google Chrome</li>
               <li><img src="img/applications/minecraft.png" width="24px" height="24px"> Minecraft (Java Edition)</li>
@@ -75,63 +75,63 @@
         <div class="row-fluid">
           <div class="span12">
             <hr class="soften"/>
-            <h3>Upgrades</h3>
-            <p>Please <b><u>do not</u></b> attempt to <b>upgrade</b> your Raspberry Pi 2
+            <h3>&zwnj;Upgrades&zwnj;</h3>
+            <p>&zwnj;Please&zwnj; <b><u>&zwnj;do not&zwnj;</u></b> &zwnj;attempt to&zwnj; <b>&zwnj;upgrade&zwnj;</b> &zwnj;your Raspberry Pi 2
             to a newer version of the distribution (for instance, from 15.04 to 15.10),
-            as the underlying kernel is <b>not designed</b> to do this.
-            This process will take a very long time to complete while potentially filling up
-            your SD card to a point where there is no more free space.</p>
+            as the underlying kernel is&zwnj; <b>&zwnj;not designed&zwnj;</b> &zwnj;to do this.&zwnj;
+            &zwnj;This process will take a very long time to complete while potentially filling up
+            your SD card to a point where there is no more free space.&zwnj;</p>
 
-            <p>It is safer to back up all of your data you wish to keep and re-flash the
+            <p>&zwnj;It is safer to back up all of your data you wish to keep and re-flash the
             card with the new image. Attempting to upgrade may corrupt the SD card,
-            prevent your installation from booting, or cause serve glitches.</p>
+            prevent your installation from booting, or cause serve glitches.&zwnj;</p>
 
-            <p>You can, however, install <b>regular updates</b> via the
+            <p>&zwnj;You can, however, install&zwnj; <b>&zwnj;regular updates&zwnj;</b> &zwnj;via the&zwnj;
             <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
-            Software Updater</a> utility for your installed software.</p>
+            &zwnj;Software Updater&zwnj;</a> &zwnj;utility for your installed software.&zwnj;</p>
 
             <hr class="soften"/>
-            <h3>Kernel Updates</h3>
-            <p>The same kernel provided by the
-            <a href="cmd://link?https://www.raspberrypi.org/documentation/linux/kernel/">Raspberry Pi foundation</a>
-            is used in this edition of Ubuntu MATE. As this kernel is delivered
-            like a "firmware" blob, updates are not distributed via the
+            <h3>&zwnj;Kernel Updates&zwnj;</h3>
+            <p>&zwnj;The same kernel provided by the&zwnj;
+            <a href="cmd://link?https://www.raspberrypi.org/documentation/linux/kernel/">&zwnj;Raspberry Pi foundation&zwnj;</a>
+            &zwnj;is used in this edition of Ubuntu MATE. As this kernel is delivered
+            like a "firmware" blob, updates are not distributed via the&zwnj;
             <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
-            Software Updater</a> or <b>apt-get</b>.</p>
+            &zwnj;Software Updater&zwnj;</a> &zwnj;or&zwnj; <b>apt-get</b>.</p>
 
-            <p><b>Instead, to update the kernel, open a terminal and run:</b></p>
+            <p><b>&zwnj;Instead, to update the kernel, open a terminal and run:&zwnj;</b></p>
             <blockquote><code>sudo rpi-update</code></blockquote>
 
             <hr class="soften"/>
-            <h3>Hardware Acceleration</h3>
-            <p>Currently, hardware accelerated applications are <b>not supported</b>
-            as they are with <a href="cmd://link?https://www.raspbian.org/">Raspbian</a>.
-            Applications that rely on OpenGL ES libraries or require the GPU
-            chip will fail to start.</p>
+            <h3>&zwnj;Hardware Acceleration&zwnj;</h3>
+            <p>&zwnj;Currently, hardware accelerated applications are&zwnj; <b>&zwnj;not supported&zwnj;</b>
+            &zwnj;as they are with&zwnj; <a href="cmd://link?https://www.raspbian.org/">Raspbian</a>.
+            &zwnj;Applications that rely on OpenGL ES libraries or require the GPU
+            chip will fail to start.&zwnj;</p>
 
-            <p>For playing videos, the application <code>omxplayer</code> will be able to
+            <p>&zwnj;For playing videos, the application&zwnj; <code>omxplayer</code> &zwnj;will be able to
             do this and is pre-installed. If you are looking to play MPEG-2 or VC-1 video files
-            then <b>you will need MPEG-2 and/or VC-1 licenses from the
-            <a href="cmd://link?http://www.raspberrypi.com/license-keys/">Raspberry Pi Store.</a></b></p>
+            then&zwnj; <b>&zwnj;you will need MPEG-2 and/or VC-1 licenses from the&zwnj;
+            <a href="cmd://link?http://www.raspberrypi.com/license-keys/">&zwnj;Raspberry Pi Store.&zwnj;</a></b></p>
 
             <hr class="soften"/>
-            <h3>Enable/Disable X11</h3>
-            <p>For users who are looking to create their own headless <i>"server"</i> using
-            Ubuntu MATE, there is a utility for toggling the graphical environment.</p>
+            <h3>&zwnj;Enable/Disable X11&zwnj;</h3>
+            <p>&zwnj;For users who are looking to create their own headless&zwnj; <i>&zwnj;"server"&zwnj;</i> &zwnj;using
+            Ubuntu MATE, there is a utility for toggling the graphical environment.&zwnj;</p>
 
-            <p><b>To disable X11 and login via the console:</b>
+            <p><b>&zwnj;To disable X11 and login via the console:&zwnj;</b>
             <blockquote><code>sudo graphical disable</code></blockquote>
             </p>
 
-            <p><b>To enable X11 to restore the Ubuntu MATE desktop:</b>
+            <p><b>&zwnj;To enable X11 to restore the Ubuntu MATE desktop:&zwnj;</b>
             <blockquote><code>sudo graphical enable</code></blockquote>
 
-            Changes take effect after a reboot.
+            &zwnj;Changes take effect after a reboot.&zwnj;
             </p>
 
             <hr class="soften"/>
-            <h3>Release Notes</h3>
-            <p>To read up on release notes and changes by version, visit the Ubuntu MATE website.</p>
+            <h3>&zwnj;Release Notes&zwnj;</h3>
+            <p>&zwnj;To read up on release notes and changes by version, visit the Ubuntu MATE website.&zwnj;</p>
             <div align="center">
               <a class="btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.org/raspberry-pi/"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.org/raspberry-pi</a>
             </div>
