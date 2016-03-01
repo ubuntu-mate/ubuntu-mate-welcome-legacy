@@ -11,7 +11,7 @@ var global_footer_left = '<div id="social" class="pull-left">' +
         '<a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
       '</div>';
 
-var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">Close</a>';
+var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">&zwnj;Close&zwnj;</a>';
 var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>';
 
 // Global across all pages
@@ -213,102 +213,102 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       // Official Flavour Status - 26/Feb/2015
       var age = today.getFullYear() - 2015;
       dd = 26; mm = 02; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE celebrates its official flavour status in 7 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE celebrates its official flavour status in 6 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE celebrates its official flavour status in 5 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE celebrates its official flavour status in 4 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE celebrates its official flavour status in 3 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE celebrates its official flavour status in 2 days time.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE celebrates its official flavour status tomorrow.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE become an official flavour " + age + " years ago today.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE celebrated its official flavour status yesterday.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE celebrated its official flavour status 2 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE celebrated its official flavour status 3 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE celebrated its official flavour status 4 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE celebrated its official flavour status 5 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE celebrated its official flavour status 6 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE celebrated its official flavour status 7 days ago.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 7 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 6 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 5 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 4 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 3 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 2 &zwnj;days time&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;tomorrow&zwnj;.", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "&zwnj;Ubuntu MATE become an official flavour&zwnj; " + age + " &zwnj;years ago today&zwnj;.", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; &zwnj;yesterday&zwnj;.", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 7 &zwnj;days ago&zwnj;.", false, 'calendar');
 
       // Project Birthday - 21/Jun/2014
       var age = today.getFullYear() - 2014;
       dd = 21; mm = 06; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "The project will be " + age + " years old a week today!", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "The project will be " + age + " years old in 6 days time!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "The project will be " + age + " years old in 5 days time!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "The project will be " + age + " years old in 4 days time!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "The project will be " + age + " years old in 3 days time!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "The project will be " + age + " years old in 2 days time!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "The project will be " + age + " years old tomorrow. Happy Birthday!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "The project is " + age + " years old today. Happy Birthday!", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "The project turned " + age + " years old yesterday. Happy Birthday!", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "The project turned " + age + " years old 2 days ago.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "The project turned " + age + " years old 3 days ago.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "The project turned " + age + " years old 4 days ago.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "The project turned " + age + " years old 5 days ago.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "The project turned " + age + " years old 6 days ago.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "The project turned " + age + " years old last week.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;a week today!", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 6 &zwnj;days time&zwnj;!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 5 &zwnj;days time&zwnj;!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 4 &zwnj;days time&zwnj;!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 3 &zwnj;days time&zwnj;!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 2 &zwnj;days time&zwnj;!", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;tomorrow. Happy Birthday!&zwnj;", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "&zwnj;The project is&zwnj; " + age + " &zwnj;years old today. Happy Birthday!&zwnj;", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;yesterday. Happy Birthday!&zwnj;", true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;last week&zwnj;.", false, 'calendar');
 
       // Holiday Celebrations
-      specialEventCheck(dateAsNumber(31,12,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
-      specialEventCheck(dateAsNumber(01,01,null), "Happy New Year from Ubuntu MATE!", true, 'calendar');
+      specialEventCheck(dateAsNumber(31,12,null), "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;", true, 'calendar');
+      specialEventCheck(dateAsNumber(01,01,null), "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;", true, 'calendar');
 
       // 16.04 Alpha 1
       dd = 04; mm = 01; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 will be released in 3 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 will be released in 2 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 is released today!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 &zwnj;is released today&zwnj;!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
 
       // 16.04 Alpha 2
       dd = 28; mm = 01; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 will be released in 3 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 will be released in 2 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 is released today!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 &zwnj;is released today&zwnj;!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
 
       // 16.04 Beta 1
       dd = 25; mm = 02; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 will be released in 3 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 will be released in 2 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 is released today!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", true, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 &zwnj;is released today&zwnj;!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", true, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", false, 'bug');
 
       // 16.04 Beta 2
       dd = 24; mm = 03; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 will be released in 3 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 will be released in 2 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 will be released tomorrow.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 is released today!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Thank you for testing Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released in&zwnj; 3 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released in&zwnj; 2 days.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 &zwnj;is released today&zwnj;!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
 
       // 16.04 Final Release
       dd = 21; mm = 04; yyyy = 2016; var build = '16.04 LTS'
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE " + build + " will be released a week today.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE " + build + " will be released in 6 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE " + build + " will be released in 5 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE " + build + " will be released in 4 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " will be released in 3 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " will be released in 2 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " will be released tomorrow.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " is released today!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " was released yesterday.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " was released 2 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " was released 3 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE " + build + " was released 4 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE " + build + " was released 5 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE " + build + " was released 6 days ago.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE " + build + " was released last week.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE " + build + " &zwnj;will be released a week today&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 6 days.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 5 &zwnj;days&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 4 &zwnj;days&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " &zwnj;will be released tomorrow.&zwnj;", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " &zwnj;is released today&zwnj;!", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " &zwnj;was released yesterday&zwnj;.", true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE " + build + " &zwnj;was released last week&zwnj;.", false, 'calendar');
 
     // To-do as possible improvement: Retrieve events as a list from server.
 }
@@ -383,7 +383,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     }
 
     function jumpOneClickServers(appno) {
-      changeCategoryTab('#Servers','Servers');
+      changeCategoryTab('#Servers','&zwnj;Servers&zwnj;');
       $('#ServersBtn').tab('show');
       $('html, body').animate({ scrollTop: 0 }, 100)
 
@@ -512,7 +512,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   $(document).ready(function()
   {
     // Override the footer to only display "Skip".
-    $('#footer').html('<div class="footer-content"><div class="form"><a onclick="continueToPage(true)" class="btn btn-inverse">Skip</a></div></div>');
+    $('#footer').html("<div class='footer-content'><div class='form'><a onclick='continueToPage(true)' class='btn btn-inverse'>&zwnj;Skip&zwnj;</a></div></div>");
 
     $('#sceneA').show();
     $('#sceneA').jAnimateOnce('fadeIn');
@@ -640,36 +640,36 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
     if ( graphicsVendor == 'NVIDIA' ) {
       $('#graphics-detected').removeClass('alert-danger');
       $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html('NVIDIA Graphics Card Detected.');
-      $('#graphics-describe').html("NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-brand').html("&zwnj;NVIDIA Graphics Card Detected.&zwnj;");
+      $('#graphics-describe').html("&zwnj;NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;");
       $('#graphics-proprietary').show();
-      $('#graphics-open-source').html("<code>nouveau</code> is the open source driver for NVIDIA cards.");
+      $('#graphics-open-source').html("<code>nouveau</code> &zwnj;is the open source driver for NVIDIA cards.&zwnj;");
       $('#graphics-nvidia-only').show();
 
     } else if ( graphicsVendor == "AMD" ) {
       $('#graphics-detected').removeClass('alert-danger');
       $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html('AMD Graphics Card Detected.');
-      $('#graphics-describe').html("AMD may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.");
+      $('#graphics-brand').html("&zwnj;AMD Graphics Card Detected.&zwnj;");
+      $('#graphics-describe').html("&zwnj;AMD may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;");
       $('#graphics-proprietary').show();
-      $('#graphics-open-source').html("<code>radeon</code> is the open source driver for AMD cards.");
+      $('#graphics-open-source').html("<code>radeon</code> &zwnj;is the open source driver for AMD cards.&zwnj;");
 
     } else if ( graphicsVendor == "Intel" ) {
       $('#graphics-detected').removeClass('alert-danger');
       $('#graphics-detected').addClass('alert-success');
-      $('#graphics-brand').html("You're already good to go!");
-      $('#graphics-describe').html("Intel's drivers are open source and are maintained in the kernel.");
+      $('#graphics-brand').html("&zwnj;You're already good to go!&zwnj;");
+      $('#graphics-describe').html("&zwnj;Intel's drivers are open source and are maintained in the kernel.&zwnj;");
 
     } else if ( graphicsVendor == "VirtualBox" ) {
       $('#graphics-detected').removeClass('alert-danger');
       $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html("VirtualBox Guest Additions");
-      $('#graphics-describe').html("To accelerate graphics performance inside the virtual machine, please install Guest Additions.");
+      $('#graphics-brand').html("&zwnj;VirtualBox Guest Additions&zwnj;");
+      $('#graphics-describe').html("&zwnj;To accelerate graphics performance inside the virtual machine, please install Guest Additions.&zwnj;");
 
     } else {
       // Obscure graphics chip or something we can't tell.
       $('#graphics-proprietary').show();
-      $('.graphics-vendor').html('the manufacturer');
+      $('.graphics-vendor').html("&zwnj;the manufacturer&zwnj;");
     }
   }, 1000);
 
@@ -731,6 +731,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
   }
 
   // Convert month number to long/short string.
+  // These are used for determining the URL.
   function numToMonth(m) {
     switch (m) {
       case 0:
@@ -775,40 +776,40 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
   function numToShortMonth(m) {
     switch (m) {
       case 0:
-        return 'Jan';
+        return '&zwnj;Jan&zwnj;';
         break;
       case 1:
-        return 'Feb';
+        return '&zwnj;Feb&zwnj;';
         break;
       case 2:
-        return 'Mar';
+        return '&zwnj;Mar&zwnj;';
         break;
       case 3:
-        return 'Apr';
+        return '&zwnj;Apr&zwnj;';
         break;
       case 4:
-        return 'May';
+        return '&zwnj;May&zwnj;';
         break;
       case 5:
-        return 'Jun';
+        return '&zwnj;Jun&zwnj;';
         break;
       case 6:
-        return 'Jul';
+        return '&zwnj;Jul&zwnj;';
         break;
       case 7:
-        return 'Aug';
+        return '&zwnj;Aug&zwnj;';
         break;
       case 8:
-        return 'Sep';
+        return '&zwnj;Sep&zwnj;';
         break;
       case 9:
-        return 'Oct';
+        return '&zwnj;Oct&zwnj;';
         break;
       case 10:
-        return 'Nov';
+        return '&zwnj;Nov&zwnj;';
         break;
       case 11:
-        return 'Dec';
+        return '&zwnj;Dec&zwnj;';
         break;
     }
   }
