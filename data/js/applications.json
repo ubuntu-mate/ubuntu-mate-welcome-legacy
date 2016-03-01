@@ -192,7 +192,9 @@
 				"An indicator that collects recent notification messages",
 				"and stores them in a history so you can review",
 				"any notifications you may have missed while",
-				"away from your computer."
+				"away from your computer.",
+                                "<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
+				"<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
 			],
 			"alternate-to": null,
 			"subcategory": "Desktop Management",
@@ -2523,10 +2525,13 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-				"all": {
+				"trusty,wily": {
 					"method": "ppa",
 					"enable-ppa": "ppa:rednotebook/stable",
 					"source-file": "rednotebook-ubuntu-stable-CODENAME"
+				},
+                                "all": {
+					"method": "skip"
 				}
 			},
 			"working": true
@@ -2828,7 +2833,9 @@
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
 				"all": {
-					"method": "skip"
+					"method": "ppa",
+                                        "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
+					"source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
 				}
 			},
 			"working": true
@@ -3201,7 +3208,7 @@
 			"url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
 			"url-ios": null,
 			"arch": "i386,amd64",
-			"releases": "trusty,wily,xenial",
+			"releases": "trusty,wily",
 			"pre-install": {
 				"all": {
 					"method": "ppa",
@@ -3382,8 +3389,8 @@
 			},
 			"working": true
 		},
-		"Kazam": {
-			"name": "kazam",
+		"kazam": {
+			"name": "Kazam",
 			"img": "kazam",
 			"main-package": "kazam",
 			"launch-command": "kazam",
@@ -3626,7 +3633,7 @@
 				}
 			},
 			"notes": "package not avaliable in xenial",
-			"working": false
+			"working": true
 		},
 		"terminator": {
 			"name": "Terminator",
@@ -3890,7 +3897,8 @@
 				"<code>ssh</code> protocol to securely connect to another",
 				"computer. The protocol uses encryption and multiple",
 				"authentication methods to provide secure tunneling as",
-				"well as support for SFTP and X11 forwarding."
+				"well as support for SFTP and X11 forwarding.",
+                                "<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
 			],
 			"alternate-to": null,
 			"subcategory": "Server",
