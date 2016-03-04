@@ -1503,7 +1503,7 @@
 			"working": true
 		},
 		"caja-dropbox": {
-			"name": "Dropbox",
+			"name": "Caja Dropbox",
 			"img": "dropbox",
 			"main-package": "caja-dropbox",
 			"launch-command": "caja-dropbox",
@@ -1522,7 +1522,7 @@
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
 			"releases": "xenial",
-                        "pre-install": {
+            "pre-install": {
 				"all": {
 					"method": "skip"
 				}
@@ -1549,16 +1549,16 @@
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily",
-                        "pre-install": {
-                                "all": {
+            "pre-install": {
+                "all": {
 					"method": "manual",
-					"source-file": "dropbox",					
-                                        "apt-key-server": ["pgp.mit.edu", "5044912E"],
+					"source-file": "dropbox",
+                    "apt-key-server": ["pgp.mit.edu", "5044912E"],
 					"apt-sources": ["deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'"]
 				}
 			},
 			"working": true
-		},                
+		},
 		"filezilla": {
 			"name": "FileZilla",
 			"img": "filezilla",
@@ -1725,7 +1725,7 @@
 			},
 			"working": true
 		},
-                "icedtea-7-plugin": {
+        "icedtea-7-plugin": {
 			"name": "Iced Tea Plug-in",
 			"img": "icedtea",
 			"main-package": "icedtea-7-plugin",
@@ -1867,11 +1867,11 @@
 				"compatible with most open-source and commercial 3D",
 				"applications. Mumble is just a client and uses a non-standard",
 				"protocol. You will need a dedicated server to talk to other",
-				"users. Server functionality is provided by the package",
-				"<code>mumble-server</code>."
+				"users.",
+				"<ul><li>Install Murmur, the Mumble server, with a <a onclick=jumpOneClickServers(2)>one-click installation.</a></li></ul>"
 			],
 			"alternate-to": null,
-			"subcategory": "Instant Messaging",
+			"subcategory": "VoIP",
 			"open-source": true,
 			"url-info": "http://wiki.mumble.info/wiki/Main_Page",
 			"url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
@@ -1885,6 +1885,11 @@
 					"source-file": "mumble-ubuntu-release-CODENAME"
 				},
 				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:mumble/release",
+					"source-file": "mumble-ubuntu-release-CODENAME"
+				},
+				"wily": {
 					"method": "ppa",
 					"enable-ppa": "ppa:mumble/release",
 					"source-file": "mumble-ubuntu-release-CODENAME"
@@ -3025,7 +3030,7 @@
 				}
 			},
 			"working": true
-		},                         
+		},
 		"audio-recorder": {
 			"name": "Audio Recorder",
 			"img": "audio-recorder",
@@ -3416,7 +3421,7 @@
 				}
 			},
 			"working": true
-		},                
+		},
 		"simplescreenrecorder": {
 			"name": "SimpleScreenRecorder",
 			"img": "simplescreenrecorder",
@@ -4088,7 +4093,7 @@
 				}
 			},
 			"working": true
-		},                
+		},
 		"boot-repair": {
 			"name": "Boot-Repair",
 			"img": "null",
@@ -4274,7 +4279,7 @@
 				"all": {
 					"method": "skip"
 				}
-			},                        
+			},
 			"working": true
 		}
 	}

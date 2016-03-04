@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python3
 
 # Copyright 2016 Luke Horwell <lukehorwell37+code@gmail.com>
 #
@@ -20,8 +20,11 @@
     about the application.json index used by Welcome.         """
 
 import os, sys, signal, inspect, json
-from prettytable import PrettyTable
-""" Requires package: python3-prettytable if not already installed. """
+try:
+    from prettytable import PrettyTable
+except:
+    print("Requires python3-prettytable")
+    sys.exit(1)
 
 def load_index():
     global index
