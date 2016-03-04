@@ -14,7 +14,7 @@
         <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <div id="navigation-title" hidden>Raspberry Pi 2 Notes</div>
+        <div id="navigation-title" hidden>Raspberry Pi Notes</div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
@@ -36,7 +36,7 @@
             </span>
             <span id="rpi-not-resized" hidden>
               <p>After setting up Ubuntu MATE for the first time on your
-              Raspberry Pi 2, the file system will be restricted to the
+              Raspberry Pi, the file system will be restricted to the
               size of the original image, which is about 3.9 GB. Use
               this button to resize to fill the entire Micro-SD card.</p>
               <a href="cmd://resize-rpi" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; Resize Now</a>
@@ -44,11 +44,13 @@
             <hr class="soften"/>
 
             <h3>Incompatible Software</h3>
-            <p>Some packages available for Ubuntu have only been written
-            and compiled for the <code>i386</code> or <code>amd64</code> architecture.
-            As the Raspberry Pi 2 is based on <code>armv7</code>, these packages will
-            not be available to install. Depending on the package, it may be possible
-            to compile this yourself or use an existing port.</p>
+            <p>Some packages available for Ubuntu have only been
+            written and compiled for the <code>i386</code> or
+            <code>amd64</code> architecture. As the Raspberry Pi is
+            based on <code>armv7</code>, these packages will not be
+            available to install. Depending on the package, it may be
+            possible to compile this yourself or use an existing
+            port.</p>
           </div>
         </div>
         <div class="row-fluid">
@@ -76,11 +78,13 @@
           <div class="span12">
             <hr class="soften"/>
             <h3>Upgrades</h3>
-            <p>Please <b><u>do not</u></b> attempt to <b>upgrade</b> your Raspberry Pi 2
-            to a newer version of the distribution (for instance, from 15.04 to 15.10),
-            as the underlying kernel is <b>not designed</b> to do this.
-            This process will take a very long time to complete while potentially filling up
-            your SD card to a point where there is no more free space.</p>
+            <p>Please <b><u>do not</u></b> attempt to <b>upgrade</b>
+            your Raspberry Pi to a newer version of the distribution
+            (for instance, from 15.04 to 15.10), as the underlying
+            kernel is <b>not designed</b> to do this. This process will
+            take a very long time to complete while potentially filling
+            up your SD card to a point where there is no more free
+            space.</p>
 
             <p>It is safer to back up all of your data you wish to keep and re-flash the
             card with the new image. Attempting to upgrade may corrupt the SD card,
