@@ -3987,7 +3987,32 @@
 			},
 			"working": true
 		},
-		"2-usc": {
+		"2-software": {
+			"name": "Software",
+			"img": "gnome-software",
+			"main-package": "gnome-software",
+			"launch-command": "gnome-software",
+			"install-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
+			"remove-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
+			"description": [
+				"Software lets you install and update applications and system extensions."
+			],
+			"alternate-to": "Ubuntu Software Center",
+			"subcategory": "Software Center",
+			"open-source": true,
+			"url-info": "https://wiki.gnome.org/Apps/Software",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},		
+		"3-usc": {
 			"name": "Ubuntu Software Center",
 			"img": "ubuntu-software-center",
 			"main-package": "software-center",
@@ -4016,7 +4041,7 @@
 			},
 			"working": true
 		},
-		"3-synaptic": {
+		"4-synaptic": {
 			"name": "Synaptic Package Manager",
 			"img": "synaptic",
 			"main-package": "synaptic",
