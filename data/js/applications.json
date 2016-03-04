@@ -3905,7 +3905,7 @@
 				"computer. The protocol uses encryption and multiple",
 				"authentication methods to provide secure tunneling as",
 				"well as support for SFTP and X11 forwarding.",
-                                "<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
+				"<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
 			],
 			"alternate-to": null,
 			"subcategory": "Server",
@@ -4098,7 +4098,7 @@
 			},
 			"working": true
 		},
-                "mate-desktop": {
+			"mate-desktop": {
 			"name": "MATE Desktop Updates",
 			"img": "",
 			"main-package": "mate-desktop",
@@ -4115,7 +4115,7 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-                                "all": {
+				"all": {
 					"method": "skip"
 				}
 			},
@@ -4302,7 +4302,7 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "wily,xenial",
-                        "pre-install": {
+				"pre-install": {
 				"all": {
 					"method": "skip"
 				}

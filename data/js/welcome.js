@@ -32,8 +32,8 @@ function smoothOut(target_href) {
 
 $(document).ready(function() {
   // Animate navigation elements on page load
-    $('#menu-button').jAnimateOnce('fadeInLeft');
-    $('#navigation-title').jAnimateOnce('fadeInDown');
+  $('#menu-button').jAnimateOnce('fadeInLeft');
+  $('#navigation-title').jAnimateOnce('fadeInDown');
 
   // Write shared elements
   $('#footer-left').append(global_footer_left);
