@@ -1037,7 +1037,7 @@ class SystemState(object):
             return
 
         # TODO: Support dual graphic cards.
-        arg.print_verbose('[Graphics]','Detecting graphics vendor... ')
+        arg.print_verbose('Graphics','Detecting graphics vendor... ')
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')

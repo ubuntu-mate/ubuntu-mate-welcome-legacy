@@ -560,6 +560,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
       $('body').addClass('fadeToMenu');
       $('#sceneA').fadeOut('medium');
       $('#sceneB').fadeOut('medium');
+      $('#splash-multilingual').fadeOut('medium');
       setTimeout(function(){
           smoothOut(splashNextPage + '.html');
       }, 500);
