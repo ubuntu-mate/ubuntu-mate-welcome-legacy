@@ -1552,13 +1552,13 @@
                         "pre-install": {
                                 "all": {
 					"method": "manual",
-					"source-file": "dropbox",					
+					"source-file": "dropbox",
                                         "apt-key-server": ["pgp.mit.edu", "5044912E"],
 					"apt-sources": ["deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'"]
 				}
 			},
 			"working": true
-		},                
+		},
 		"filezilla": {
 			"name": "FileZilla",
 			"img": "filezilla",
@@ -3025,7 +3025,7 @@
 				}
 			},
 			"working": true
-		},                         
+		},
 		"audio-recorder": {
 			"name": "Audio Recorder",
 			"img": "audio-recorder",
@@ -3416,7 +3416,7 @@
 				}
 			},
 			"working": true
-		},                
+		},
 		"simplescreenrecorder": {
 			"name": "SimpleScreenRecorder",
 			"img": "simplescreenrecorder",
@@ -4088,7 +4088,7 @@
 				}
 			},
 			"working": true
-		},                
+		},
 		"boot-repair": {
 			"name": "Boot-Repair",
 			"img": "null",
@@ -4274,7 +4274,9 @@
 				"all": {
 					"method": "skip"
 				}
-			},                        
+			},
+			"working": true
+		},
 		"gnome-disk-utility": {
 			"name": "GNOME Disks",
 			"img": "null",

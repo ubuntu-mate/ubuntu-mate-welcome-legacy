@@ -650,7 +650,7 @@ class AppView(WebKit.WebView):
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
                 self.execute_script('$("#footer-left").hide()')
-                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')                
+                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
             # Dynamically load application lists.
@@ -831,11 +831,11 @@ class WelcomeApp(object):
     def _get_translated_slides(self):
         """ If a locale has been specified on the command line, get translated slides
             for that. If not, get translated slides for the current locale
-             
+
             Place them in a directory called 'runtime' (with add symlinks to the 'js', 'css'
             etc .dirs) and change the data path to point to this..
-         
-            If no translated slides are available use the ones in data/ or ./ 
+
+            If no translated slides are available use the ones in data/ or ./
         """
 
         codes = country_codes.get_country_codes()
@@ -1032,7 +1032,7 @@ class SystemState(object):
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            arg.print_verbose("[Graphics]","Couldn't detect a VGA Controller on this system.")
+            arg.print_verbose("Graphics","Couldn't detect a VGA Controller on this system.")
             output = 'Unknown'
 
         # Scan for and set known brand name.
