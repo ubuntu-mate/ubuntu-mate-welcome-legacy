@@ -4275,6 +4275,50 @@
 					"method": "skip"
 				}
 			},                        
+		"gnome-disk-utility": {
+			"name": "GNOME Disks",
+			"img": "null",
+			"main-package": "gnome-disk-utility",
+			"launch-command": "gnome-disks",
+			"install-packages": "gnome-disk-utility",
+			"remove-packages": "gnome-disk-utility",
+			"description": "Shown in the System Specifications page.",
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "wily,xenial",
+                        "pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},
+		"mate-system-monitor": {
+			"name": "MATE System Monitor",
+			"img": "null",
+			"main-package": "mate-system-monitor",
+			"launch-command": "mate-system-monitor",
+			"install-packages": "mate-system-monitor",
+			"remove-packages": "mate-system-monitor",
+			"description": "Shown in the System Specifications page.",
+			"alternate-to": null,
+			"subcategory": "null",
+			"open-source": true,
+			"url-info": "",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "wily,xenial",
+                        "pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
 			"working": true
 		}
 	}

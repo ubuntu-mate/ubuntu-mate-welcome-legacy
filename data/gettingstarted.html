@@ -44,7 +44,7 @@
 
       <!-- Shown in either session -->
       <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); init_system_info()"> <span class="fa fa-cube"></span>          &zwnj;System Specifications&zwnj;</a>
+      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); init_system_info()"> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
 
     </div>
     <div id="content" class="container-fluid entire-page-fade" hidden>
@@ -817,115 +817,157 @@
       <div id="specs" class="topicContents" hidden>
         <div class="row-fluid">
           <div class="span12">
-            <h2>What's inside my computer?</h2>
-            <p>Your machine is made up of various components that
+            <h2>&zwnj;What's inside my computer?&zwnj;</h2>
+            <p>&zwnj;Your machine is made up of various components that
             interact with one another. This information is useful
             when providing support to ensure hardware and software
-            works on your machine and Ubuntu MATE.</p>
+            works on your machine and Ubuntu MATE.&zwnj;</p>
           </div>
         </div>
-        <div class="row-fluid">
-          <div class="span12">
-            <div hidden id="specs-not-ready" class="alert alert-warning">
-                <h5><span class="fa fa-clock-o"></span> Please wait while the information is being populated...</h5>
+        <div id="specs-loading"><p>&zwnj;Please wait while the information is being populated...&zwnj;</p></div>
+        <ul id="specs-tabs" class="nav nav-pills" data-tabs="tabs" hidden>
+          <li class="active"><a onclick="smoothFade('.tab-contents','#specs-basic')" data-toggle="tab">&zwnj;Basic&zwnj;</a></li>
+          <li><a onclick="smoothFade('.tab-contents','#specs-detailed')" data-toggle="tab">&zwnj;Detailed&zwnj;</a></li>
+          <li><a onclick="smoothFade('.tab-contents','#specs-more')" data-toggle="tab">&zwnj;Utilities&zwnj;</a></li>
+        </ul>
+
+        <div class="tab-contents" id="specs-basic" hidden>
+          <img class="specs-icon" hidden id="specs-device-normal" src="img/welcome/ubuntu-mate-laptop.png"/>
+          <img class="specs-icon" hidden id="specs-device-rpi" src="img/logos/raspberry-pi.png"/>
+          <img class="specs-icon" hidden id="specs-device-vbox" src="img/logos/virtualbox-vbox.png"/>
+          <img class="specs-icon" hidden id="specs-device-powerpc" src="img/logos/powerpc.png"/>
+          <div class="specs-box specs-1">
+            <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>
+            <p>
+              <b>&zwnj;Distribution:&zwnj;</b>&nbsp; <span id="spec-distro"> </span><br>
+              <b>&zwnj;Kernel:&zwnj;</b>&nbsp;  <span id="spec-kernel">  </span>
+              <b class="specs-hideable"><br>&zwnj;Motherboard:&zwnj;</b>&nbsp; <span id="spec-motherboard" class="specs-hide-vbox"> </span>
+              <b class="specs-hideable"><br>&zwnj;Boot Mode:&zwnj;</b>&nbsp; <span id="spec-boot-mode" class="specs-hide-vbox">  </span>
+            </p>
+          </div>
+          <div class="specs-box specs-2">
+            <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
+            <p>
+              <b>&zwnj;Model:&zwnj;</b>&nbsp; <span id="spec-cpu-model"> </span><br>
+              <b>&zwnj;Speed:&zwnj;</b>&nbsp; <span id="spec-cpu-speed"> </span><br>
+              <b>&zwnj;Architecture in use:&zwnj;</b>&nbsp; <span id="spec-arch-use"> </span><br>
+              <b>&zwnj;Architecture(s) supported:&zwnj;</b>&nbsp; <span id="spec-arch-supported"> </span>
+            </p>
+          </div>
+          <div class="specs-box specs-3">
+            <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
+            <p>
+              <b>&zwnj;Memory (RAM):&zwnj;</b>&nbsp; <span id="spec-memory"> </span>
+              <b class="specs-hideable"><br>&zwnj;Graphics:&zwnj;</b>&nbsp; <span id="spec-graphics" class="specs-hide-vbox"> </span><br>
+              <b>&zwnj;Internet Access:&zwnj;</b>&nbsp;
+                <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
+                <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
+            </p>
+          </div>
+          <div class="specs-box specs-4">
+            <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
+            <p>
+              <b>&zwnj;Root File System:&zwnj;</b>&nbsp; <span id="spec-filesystem"> </span><br>
+              <b>-- &zwnj;Entire Disk Capacity:&zwnj;</b>&nbsp; <span id="spec-capacity"> </span><br>
+              <b>-- &zwnj;Allocated:&zwnj;</b>&nbsp; <span id="spec-allocated-space"> </span><br>
+              <b>-- &zwnj;Free Space:&zwnj;</b>&nbsp; <span id="spec-free-space"> </span><br>
+              <a data-trigger="hover" rel="unitsinfo" data-placement="top">
+                <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;</a>
+            </p>
+          </div>
+          <div id="popover_units" style="display: none;">
+            <h4>&zwnj;SI or IEC Units?&zwnj;</h4>
+            <p>
+              <b>&zwnj;Decimal (SI Standard)&zwnj;</b>
+              <ul>
+                <li><b>&zwnj;1 KB = 1000 bytes&zwnj;</b></li>
+                <li>&zwnj;Pronounced as "ga" - like "Mega", "Giga".&zwnj;</li>
+                <li>&zwnj;Common in every day applications and file storage.&zwnj;</li>
+              </ul>
+            </p>
+            <p>
+              <b>&zwnj;Binary (IEC Standard)&zwnj;</b>
+              <ul>
+                <li><b>&zwnj;1 KiB = 1024 bytes&zwnj;</b></li>
+                <li>&zwnj;Pronounced as "bi" - like "Mebi", "Gibi".&zwnj;</li>
+                <li>&zwnj;Common in RAM, drives and partitions, including tools like GParted.&zwnj;</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-contents" id="specs-detailed" hidden>
+          <div class="row-fluid">
+            <div class="span12">
+              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly by the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
+              <pre id="specs-inxi">&zwnj;Could not gather data.&zwnj;</pre>
             </div>
-            <div hidden id="specs-error" class="alert alert-danger">
-                <h5><span class="fa fa-warning"></span> Some information could not be retrieved.</h5>
+          </div>
+        </div>
+
+        <div class="tab-contents" id="specs-more" hidden>
+          <div class="row-fluid">
+            <div class="span2 center-inside">
+              <img src="img/applications/hardinfo.png"/>
+              <span class="fa fa-check-circle fa-2x installed-check hardinfo-remove"></span>
             </div>
-            <table hidden id="system-specs" class="table table-striped">
-              <tbody>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/actions/48/system-run.svg"/><br>
-                    System
-                  </th>
-                  <td><span id="spec-system">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/devices/64/system.svg"/><br>
-                    Machine
-                  </th>
-                  <td><span id="spec-machine">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/apps/48/gnome-system-monitor.svg"/><br>
-                    CPU
-                  </th>
-                  <td><span id="spec-cpu">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/devices/48/gnome-dev-memory.svg"/><br>
-                    Memory
-                  </th>
-                  <td>
-                    <span id="spec-ram">No information to display.</span>
-                    <br><br>
-                    <span id="spec-ram-advanced">
-                      <b>
-                        <a href="cmd://get-spec-ram">Show more information (Authentication Required)</a>
-                      </b>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/devices/48/drive-harddisk.svg"/><br>
-                    Storage
-                  </th>
-                  <td><span id="spec-storage">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/devices/48/media-optical.svg"/><br>
-                    Optical Drive
-                  </th>
-                  <td><span id="spec-optical">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/categories/48/applications-graphics.svg"/><br>
-                    Graphics
-                  </th>
-                  <td><span id="spec-graphics">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/apps/48/gnome-audio.svg"/><br>
-                    Audio
-                  </th>
-                  <td><span id="spec-audio">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/categories/48/preferences-system-network.svg"/><br>
-                    Network
-                  </th>
-                  <td><span id="spec-network">No information to display.</span></td>
-                </tr>
-                <tr>
-                  <th class="center">
-                    <img src="/usr/share/icons/Humanity/emblems/48/emblem-plan.svg"/><br>
-                    Sensors
-                  </th>
-                  <td><span id="spec-sensors">No information to display.</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <hr class="soften-light"/>
-            <div class="hardinfo-install">
-              <p><img src="img/applications/hardinfo.png" width="20px" height="20px"/>
-                <b>HardInfo</b> is avaliable to install if you would like further
-              system information, such as CPU benchmarks, USB and PCI devices.</p>
-              <p><a class="btn btn-success" href="cmd://install-appid?hardinfo"><span class="fa fa-download"></span>&nbsp; Install</a></p>
+            <div class="span10">
+              <p><b>&zwnj;System Profiler and Benchmark&zwnj;</b></p>
+              <p>&zwnj;See more specific system information in a graphical window,
+              including connected USBs, PCI devices and a simple CPU benchmark.&zwnj;</p>
+              <p class="text-right">
+                <a class="btn btn-inverse hardinfo-remove" href="cmd://launch-appid?hardinfo"><img src="img/applications/hardinfo.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success hardinfo-install" href="cmd://install-appid?hardinfo"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+              </p>
             </div>
-            <div class="hardinfo-remove">
-              <p><img src="img/applications/hardinfo.png" width="20px" height="20px"/>
-              <b>HardInfo</b> is installed, which provides more information,
-              such as CPU benchmarks as well as USB and PCI devices.</p>
-              <p><a class="btn btn-inverse" href="cmd://hardinfo"><img src="img/applications/hardinfo.png" width="20px" height="20px"/>&nbsp; Open</a></p>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span2 center-inside">
+              <img src="img/applications/gnome-disk-utility.png"/>
+              <span class="fa fa-check-circle fa-2x installed-check gnome-disk-utility-remove"></span>
+            </div>
+            <div class="span10">
+              <p><b>&zwnj;Disks&zwnj;</b></p>
+              <p>&zwnj;A pre-installed utility that allows basic configuration to your disks and partitions,
+              including formatting, partitioning, mounting, viewing S.M.A.R.T data and writing
+              images to SD cards/USB drives.&zwnj;</p>
+              <p class="text-right">
+                <a class="btn btn-inverse gnome-disk-utility-remove" href="cmd://launch-appid?gnome-disk-utility"><img src="img/applications/gnome-disk-utility.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success gnome-disk-utility-install" href="cmd://install-appid?gnome-disk-utility"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span2 center-inside">
+              <img src="img/applications/gparted.png"/>
+              <span class="fa fa-check-circle fa-2x installed-check gparted-remove"></span>
+            </div>
+            <div class="span10">
+              <p><b>&zwnj;GParted&zwnj;</b></p>
+              <p>&zwnj;An advanced tool for viewing, creating, modifying and deleting partitions.
+              It also has features to expand/shrink file systems and supports a wide range of formats.&zwnj;</p>
+              <p class="text-right">
+                <a class="btn btn-inverse gparted-remove" href="cmd://launch-appid?gparted"><img src="img/applications/gparted.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success gparted-install" href="cmd://install-appid?gparted"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span2 center-inside">
+              <img src="img/applications/mate-system-monitor.png"/>
+              <span class="fa fa-check-circle fa-2x installed-check mate-system-monitor-remove"></span>
+            </div>
+            <div class="span10">
+              <p><b>&zwnj;System Monitor&zwnj;</b></p>
+              <p>&zwnj;Views currently running processes, resource usage, and the amount of space used
+              and free for currently mounted file systems.&zwnj;</p>
+              <p class="text-right">
+                <a class="btn btn-inverse mate-system-monitor-remove" href="cmd://launch-appid?mate-system-monitor"><img src="img/applications/mate-system-monitor.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success mate-system-monitor-install" href="cmd://install-appid?mate-system-monitor"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+              </p>
             </div>
           </div>
         </div>
