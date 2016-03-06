@@ -193,7 +193,7 @@
 				"and stores them in a history so you can review",
 				"any notifications you may have missed while",
 				"away from your computer.",
-                                "<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
+				"<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
 				"<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
 			],
 			"alternate-to": null,
@@ -242,38 +242,6 @@
 			},
 			"releases": "trusty,wily,xenial",
 			"working": true
-		},
-		"synapse": {
-			"name": "Synapse",
-			"img": "synapse",
-			"main-package": "synapse",
-			"launch-command": "synapse",
-			"install-packages": "synapse",
-			"remove-packages": "synapse",
-			"description": [
-				"A semantic launcher enabling you to start",
-				"applications as well as quickly find and access relevant files",
-				"and documents by making use of the Zeitgeist engine. Synapse",
-				"can also be used to initiate web searches and perform system",
-				"and power actions such as Log Out and Power Off."
-			],
-			"alternate-to": "Apple Spotlight",
-			"subcategory": "Launcher",
-			"open-source": true,
-			"url-info": "http://synapse.zeitgeist-project.com/wiki/index.php?title=Main_Page",
-			"url-android": null,
-			"url-ios": null,
-			"arch": "i386,amd64,armhf,powerpc",
-			"releases": "trusty,wily,xenial",
-			"pre-install": {
-				"all": {
-					"method": "ppa",
-					"enable-ppa": "ppa:synapse-core/testing",
-					"source-file": "synapse-core-ubuntu-testing-CODENAME"
-				}
-			},
-			"notes": "broken in xenial. segfaults.",
-			"working": false
 		},
 		"variety": {
 			"name": "Variety",
@@ -915,8 +883,8 @@
 					"source-file": "steam",
 					"apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
 					"apt-sources": ["deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-													"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-													""]
+									"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+									""]
 				}
 			},
 			"working": true
@@ -951,8 +919,8 @@
 					"source-file": "steam",
 					"apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
 					"apt-sources": ["deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-													"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-													""]
+									"deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+									""]
 				}
 			},
 			"working": true
@@ -1405,8 +1373,7 @@
 					"method": "skip"
 				}
 			},
-			"notes": "package not avaliable in xenial",
-			"working": false
+			"working": true
 		}
 	},
 	"Internet": {
@@ -1469,8 +1436,8 @@
 					"source-file": "btsync",
 					"apt-key-url": "http://debian.yeasoft.net/btsync.key",
 					"apt-sources": ["# YeaSoft's BitTorrent Sync Packaging Repository",
-                                                        "deb http://debian.yeasoft.net/btsync unstable main",
-							"deb-src http://debian.yeasoft.net/btsync unstable main"]
+									"deb http://debian.yeasoft.net/btsync unstable main",
+									"deb-src http://debian.yeasoft.net/btsync unstable main"]
 				}
 			},
 			"working": true
@@ -1503,7 +1470,7 @@
 			"working": true
 		},
 		"caja-dropbox": {
-			"name": "Dropbox",
+			"name": "Caja Dropbox",
 			"img": "dropbox",
 			"main-package": "caja-dropbox",
 			"launch-command": "caja-dropbox",
@@ -1522,7 +1489,7 @@
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
 			"releases": "xenial",
-                        "pre-install": {
+			"pre-install": {
 				"all": {
 					"method": "skip"
 				}
@@ -1549,12 +1516,12 @@
 			"url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
 			"arch": "i386,amd64",
 			"releases": "trusty,wily",
-                        "pre-install": {
-                                "all": {
+			"pre-install": {
+				"all": {
 					"method": "manual",
 					"source-file": "dropbox",
-                                        "apt-key-server": ["pgp.mit.edu", "5044912E"],
-					"apt-sources": ["deb http://linux.dropbox.com/ubuntu/ ' + codename + ' main'"]
+					"apt-key-server": ["pgp.mit.edu", "5044912E"],
+					"apt-sources": ["deb http://linux.dropbox.com/ubuntu/CODENAME main"]
 				}
 			},
 			"working": true
@@ -1725,7 +1692,7 @@
 			},
 			"working": true
 		},
-                "icedtea-7-plugin": {
+		"icedtea-7-plugin": {
 			"name": "Iced Tea Plug-in",
 			"img": "icedtea",
 			"main-package": "icedtea-7-plugin",
@@ -1867,11 +1834,11 @@
 				"compatible with most open-source and commercial 3D",
 				"applications. Mumble is just a client and uses a non-standard",
 				"protocol. You will need a dedicated server to talk to other",
-				"users. Server functionality is provided by the package",
-				"<code>mumble-server</code>."
+				"users.",
+				"<ul><li>Install Murmur, the Mumble server, with a <a onclick=jumpOneClickServers(2)>one-click installation.</a></li></ul>"
 			],
 			"alternate-to": null,
-			"subcategory": "Instant Messaging",
+			"subcategory": "VoIP",
 			"open-source": true,
 			"url-info": "http://wiki.mumble.info/wiki/Main_Page",
 			"url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
@@ -1885,6 +1852,11 @@
 					"source-file": "mumble-ubuntu-release-CODENAME"
 				},
 				"trusty": {
+					"method": "ppa",
+					"enable-ppa": "ppa:mumble/release",
+					"source-file": "mumble-ubuntu-release-CODENAME"
+				},
+				"wily": {
 					"method": "ppa",
 					"enable-ppa": "ppa:mumble/release",
 					"source-file": "mumble-ubuntu-release-CODENAME"
@@ -2094,13 +2066,13 @@
 			"description": [
 				"A messaging app with a focus on speed",
 				"and security, it&#8217;s super fast, simple and free. You can use",
-				"Telegram on all your devices at the same time — your messages",
+				"Telegram on all your devices at the same time - your messages",
 				"sync seamlessly across any of your phones, tablets or",
 				"computers. With Telegram, you can send messages, photos,",
 				"videos and files of any type (doc, zip, mp3, etc), as well as",
 				"create groups for up to 200 people. You can write to your",
 				"phone contacts and find people by their usernames. As a",
-				"result, Telegram is like SMS and email combined — and can",
+				"result, Telegram is like SMS and email combined - and can",
 				"take care of all your personal or business messaging needs."
 			],
 			"alternate-to": "WhatsApp",
@@ -2834,7 +2806,7 @@
 			"pre-install": {
 				"all": {
 					"method": "ppa",
-                                        "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
+					"enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
 					"source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
 				}
 			},
@@ -2903,6 +2875,41 @@
 					"method": "ppa",
 					"enable-ppa": "ppa:costales/anoise",
 					"source-file": "costales-ubuntu-anoise-CODENAME"
+				}
+			},
+			"working": true
+		},
+		"ardour": {
+			"name": "Ardour",
+			"img": "ardour",
+			"main-package": "ardour",
+			"launch-command": "ardour",
+			"install-packages": "ardour",
+			"remove-packages": "ardour",
+			"description": [
+				"A multichannel hard disk recorder (HDR) and digital audio",
+				"workstation (DAW). It can be used to control, record, edit and run",
+				"complex audio setups. Ardour supports pro-audio interfaces,",
+				"This includes the all-digital 26 channel RME Hammerfall, the ",
+				"Midiman Delta 1010 and many others.  Ardour has support for 24 bit",
+				"samples, using floating point internally, non-linear editing with unlimited undo,",
+				"a user-configurable mixer, MTC master/slave capabilities, MIDI hardware,",
+				"control surface compatibility. Ardour contains a",
+				"powerful multitrack audio editor/arranger that is completely",
+				"non-destructive and capable of all standard non-linear editing",
+				"operations. Ardour&#8217;s editor supports the community-developed LADSPA plugin standard."
+			],
+			"alternate-to": null,
+			"subcategory": "Audio Production",
+			"open-source": true,
+			"url-info": "https://ardour.org/",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "trusty,wily,xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
 				}
 			},
 			"working": true
@@ -3244,7 +3251,7 @@
 					"source-file": "libdvdcss2",
 					"apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
 					"apt-sources": ["deb http://download.videolan.org/pub/debian/stable/ /",
-                                                        "deb-src http://download.videolan.org/pub/debian/stable/ /"]
+					"deb-src http://download.videolan.org/pub/debian/stable/ /"]
 				}
 			},
 			"working": true
@@ -3657,11 +3664,11 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-                                "all": {
+				"all": {
 					"method": "ppa",
 					"enable-ppa": "ppa:gnome-terminator/ppa",
 					"source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
-                                }
+				}
 			},
 			"working": true
 		},
@@ -3898,7 +3905,7 @@
 				"computer. The protocol uses encryption and multiple",
 				"authentication methods to provide secure tunneling as",
 				"well as support for SFTP and X11 forwarding.",
-                                "<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
+				"<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
 			],
 			"alternate-to": null,
 			"subcategory": "Server",
@@ -3980,7 +3987,32 @@
 			},
 			"working": true
 		},
-		"2-usc": {
+		"2-software": {
+			"name": "Software",
+			"img": "gnome-software",
+			"main-package": "gnome-software",
+			"launch-command": "gnome-software",
+			"install-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
+			"remove-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
+			"description": [
+				"Software lets you install and update applications and system extensions."
+			],
+			"alternate-to": "Ubuntu Software Center",
+			"subcategory": "Software Center",
+			"open-source": true,
+			"url-info": "https://wiki.gnome.org/Apps/Software",
+			"url-android": null,
+			"url-ios": null,
+			"arch": "i386,amd64,armhf,powerpc",
+			"releases": "xenial",
+			"pre-install": {
+				"all": {
+					"method": "skip"
+				}
+			},
+			"working": true
+		},		
+		"3-usc": {
 			"name": "Ubuntu Software Center",
 			"img": "ubuntu-software-center",
 			"main-package": "software-center",
@@ -4009,7 +4041,7 @@
 			},
 			"working": true
 		},
-		"3-synaptic": {
+		"4-synaptic": {
 			"name": "Synaptic Package Manager",
 			"img": "synaptic",
 			"main-package": "synaptic",
@@ -4066,7 +4098,7 @@
 			},
 			"working": true
 		},
-                "mate-desktop": {
+			"mate-desktop": {
 			"name": "MATE Desktop Updates",
 			"img": "",
 			"main-package": "mate-desktop",
@@ -4083,7 +4115,7 @@
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "trusty,wily,xenial",
 			"pre-install": {
-                                "all": {
+				"all": {
 					"method": "skip"
 				}
 			},
@@ -4270,7 +4302,7 @@
 			"url-ios": null,
 			"arch": "i386,amd64,armhf,powerpc",
 			"releases": "wily,xenial",
-                        "pre-install": {
+				"pre-install": {
 				"all": {
 					"method": "skip"
 				}
