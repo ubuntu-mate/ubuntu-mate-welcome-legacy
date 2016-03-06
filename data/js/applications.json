@@ -4,7 +4,7 @@
             "name": "Enpass",
             "img": "enpass",
             "main-package": "enpass",
-            "launch-command": "\/opt\/Enpass\/bin\/runenpass.sh",
+            "launch-command": "/opt/Enpass/bin/runenpass.sh",
             "install-packages": "enpass",
             "remove-packages": "enpass",
             "description": [
@@ -15,23 +15,23 @@
                 "saved locally on user\u2019s device and optionally he can sync",
                 "through other devices using his accounts of Dropbox, Box,",
                 "Google Drive, OneDrive and ownCloud.",
-                "<ul><li><b>Browser Extensions Available: <\/b><i>Enpass <a href=\"cmd:\/\/link?https:\/\/enpass.io\/enpass-browser-extension\/\">browser extensions for Firefox and Google Chrome<\/a> are also available.<\/i><\/li><\/ul>"
+                "<ul><li><b>Browser Extensions Available: </b><i>Enpass <a href=\"cmd://link?https://enpass.io/enpass-browser-extension/\">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Password Management",
             "open-source": false,
-            "url-info": "https:\/\/enpass.io\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=io.enpass.app&hl=en",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/enpass-password-manager\/id455566716",
+            "url-info": "https://enpass.io/",
+            "url-android": "https://play.google.com/store/apps/details?id=io.enpass.app&hl=en",
+            "url-ios": "https://itunes.apple.com/gb/app/enpass-password-manager/id455566716",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "enpass",
-                    "apt-key-url": "http:\/\/repo.sinew.in\/keys\/enpass-linux.key",
+                    "apt-key-url": "http://repo.sinew.in/keys/enpass-linux.key",
                     "apt-sources": [
-                        "deb http:\/\/repo.sinew.in\/ stable main"
+                        "deb http://repo.sinew.in/ stable main"
                     ]
                 }
             },
@@ -57,7 +57,7 @@
             "alternate-to": null,
             "subcategory": "Calculator",
             "open-source": true,
-            "url-info": "https:\/\/code.google.com\/archive\/p\/gip\/",
+            "url-info": "https://code.google.com/archive/p/gip/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -84,7 +84,7 @@
             "alternate-to": "Post-it &reg; notes",
             "subcategory": "Note Taking",
             "open-source": true,
-            "url-info": "https:\/\/wiki.gnome.org\/Apps\/Gnote",
+            "url-info": "https://wiki.gnome.org/Apps/Gnote",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -112,7 +112,7 @@
             "alternate-to": null,
             "subcategory": "Partitioning Tools",
             "open-source": true,
-            "url-info": "http:\/\/gparted.org\/",
+            "url-info": "http://gparted.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -132,7 +132,7 @@
             "install-packages": "keepassx",
             "remove-packages": "keepassx",
             "description": [
-                "A free\/open-source password manager or safe which helps you",
+                "A free/open-source password manager or safe which helps you",
                 "to manage your passwords in a secure way. You can put all your",
                 "passwords in one database, which is locked with one master key or a",
                 "key-disk. So you only have to remember one single master password or,",
@@ -142,7 +142,7 @@
             "alternate-to": "Enpass and LastPass",
             "subcategory": "Password Management",
             "open-source": true,
-            "url-info": "https:\/\/www.keepassx.org\/",
+            "url-info": "https://www.keepassx.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -150,7 +150,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/keepassx",
+                    "enable-ppa": "ppa:flexiondotorg/keepassx",
                     "source-file": "flexiondotorg-ubuntu-keepassx-CODENAME"
                 }
             },
@@ -171,7 +171,7 @@
             "alternate-to": null,
             "subcategory": "Desktop Management",
             "open-source": true,
-            "url-info": "http:\/\/parcellite.sourceforge.net\/",
+            "url-info": "http://parcellite.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -195,13 +195,13 @@
                 "and stores them in a history so you can review",
                 "any notifications you may have missed while",
                 "away from your computer.",
-                "<ul><li><b>Note: <\/b><i>Recent Notifications works best with <u>Indicators enabled<\/u> via",
-                "<a href=cmd:\/\/run?mate-tweak> MATE Tweak<\/a>.<\/i><\/li><\/ul>"
+                "<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
+                "<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Desktop Management",
             "open-source": true,
-            "url-info": "https:\/\/launchpad.net\/recent-notifications",
+            "url-info": "https://launchpad.net/recent-notifications",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -209,7 +209,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:jconti\/recent-notifications",
+                    "enable-ppa": "ppa:jconti/recent-notifications",
                     "source-file": "jconti-ubuntu-recent-notifications-CODENAME"
                 }
             },
@@ -233,7 +233,7 @@
             "alternate-to": "f.lux &reg",
             "subcategory": "Cosmetic",
             "open-source": true,
-            "url-info": "http:\/\/jonls.dk\/redshift\/",
+            "url-info": "http://jonls.dk/redshift/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -263,7 +263,7 @@
             "alternate-to": null,
             "subcategory": "Cosmetic",
             "open-source": true,
-            "url-info": "http:\/\/peterlevi.com\/variety\/",
+            "url-info": "http://peterlevi.com/variety/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -271,7 +271,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:peterlevi\/ppa",
+                    "enable-ppa": "ppa:peterlevi/ppa",
                     "source-file": "peterlevi-ubuntu-ppa-CODENAME"
                 }
             },
@@ -289,12 +289,12 @@
                 "and maintaining an on-the-fly-encrypted volume. The encrpyted",
                 "volume can be a virtual encrypted disk within a file, a",
                 "partition or complete device such as a USB stick or disk drive.",
-                "<ul><li><b>Successor to: <\/b><i>TrueCrypt<\/i><\/li><\/ul>"
+                "<ul><li><b>Successor to: </b><i>TrueCrypt</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Encryption",
             "open-source": true,
-            "url-info": "https:\/\/veracrypt.codeplex.com\/",
+            "url-info": "https://veracrypt.codeplex.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -302,7 +302,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:unit193\/encryption",
+                    "enable-ppa": "ppa:unit193/encryption",
                     "source-file": "unit193-ubuntu-encryption-CODENAME"
                 }
             },
@@ -332,7 +332,7 @@
             "alternate-to": null,
             "subcategory": "Note Taking",
             "open-source": true,
-            "url-info": "http:\/\/zim-wiki.org\/",
+            "url-info": "http://zim-wiki.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -366,7 +366,7 @@
             "alternate-to": null,
             "subcategory": "Children",
             "open-source": true,
-            "url-info": "http:\/\/gcompris.net\/",
+            "url-info": "http://gcompris.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -398,7 +398,7 @@
             "alternate-to": null,
             "subcategory": "Mathematics",
             "open-source": true,
-            "url-info": "https:\/\/www.libreoffice.org\/discover\/math\/",
+            "url-info": "https://www.libreoffice.org/discover/math/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -440,7 +440,7 @@
             "alternate-to": null,
             "subcategory": "Science",
             "open-source": true,
-            "url-info": "http:\/\/www.stellarium.org\/",
+            "url-info": "http://www.stellarium.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -448,7 +448,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:stellarium\/stellarium-releases",
+                    "enable-ppa": "ppa:stellarium/stellarium-releases",
                     "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
                 }
             },
@@ -466,7 +466,7 @@
             "description": [
                 "A free, open-source, cross-platform",
                 "real-time strategy (RTS) game of ancient warfare. In short,",
-                "it is a historically-based war\/economy game that allows",
+                "it is a historically-based war/economy game that allows",
                 "players to relive or rewrite the history of Western",
                 "civilisations, focusing on the years between 500 B.C. and 500",
                 "A.D. The project is highly ambitious, involving",
@@ -476,7 +476,7 @@
             "alternate-to": null,
             "subcategory": "Real-time Strategy",
             "open-source": true,
-            "url-info": "http:\/\/play0ad.com\/",
+            "url-info": "http://play0ad.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -484,7 +484,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:wfg\/0ad",
+                    "enable-ppa": "ppa:wfg/0ad",
                     "source-file": "wfg-ubuntu-0ad-CODENAME"
                 }
             },
@@ -508,7 +508,7 @@
             "alternate-to": null,
             "subcategory": "Shooter",
             "open-source": true,
-            "url-info": "http:\/\/chromium-bsu.sourceforge.net\/",
+            "url-info": "http://chromium-bsu.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -538,7 +538,7 @@
             "alternate-to": null,
             "subcategory": "Racing",
             "open-source": true,
-            "url-info": "http:\/\/sourceforge.net\/projects\/extremetuxracer\/",
+            "url-info": "http://sourceforge.net/projects/extremetuxracer/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -568,7 +568,7 @@
             "alternate-to": null,
             "subcategory": "Simulation",
             "open-source": true,
-            "url-info": "http:\/\/www.flightgear.org\/",
+            "url-info": "http://www.flightgear.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -589,7 +589,7 @@
             "remove-packages": "frozen-bubble,frozen-bubble-data",
             "description": [
                 "A clone of the popular <i>Puzzle",
-                "Bobble<\/i> game, in which you attempt to shoot bubbles into",
+                "Bobble</i> game, in which you attempt to shoot bubbles into",
                 "groups of the same color to cause them to pop. Players",
                 "compete as penguins and must use the arrow keys to aim a",
                 "colored bubble at groups of bubbles. The objective is to",
@@ -602,7 +602,7 @@
             "alternate-to": null,
             "subcategory": "Puzzle",
             "open-source": true,
-            "url-info": "http:\/\/frozen-bubble.org\/",
+            "url-info": "http://frozen-bubble.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -637,7 +637,7 @@
             "alternate-to": null,
             "subcategory": "Puzzle",
             "open-source": true,
-            "url-info": "http:\/\/www.hedgewars.org",
+            "url-info": "http://www.hedgewars.org",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,powerpc",
@@ -666,12 +666,12 @@
                 "terrible things in The Nether, which is more scary than",
                 "pretty. You can also visit a land of mushrooms if it sounds",
                 "more like your cup of tea.",
-                "<ul><li>Install the Official Minecraft Server as a <a onclick=jumpOneClickServers(1)>one-click installation.<\/a><\/li><\/ul>"
+                "<ul><li>Install the Official Minecraft Server as a <a onclick=jumpOneClickServers(1)>one-click installation.</a></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Open World",
             "open-source": false,
-            "url-info": "https:\/\/minecraft.net",
+            "url-info": "https://minecraft.net",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -679,7 +679,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/minecraft",
+                    "enable-ppa": "ppa:flexiondotorg/minecraft",
                     "source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
                 }
             },
@@ -703,7 +703,7 @@
             "alternate-to": null,
             "subcategory": "Puzzle",
             "open-source": true,
-            "url-info": "http:\/\/neverball.org\/",
+            "url-info": "http://neverball.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -733,7 +733,7 @@
             "alternate-to": null,
             "subcategory": "Sports",
             "open-source": true,
-            "url-info": "https:\/\/apps.ubuntu.com\/cat\/applications\/neverputt\/",
+            "url-info": "https://apps.ubuntu.com/cat/applications/neverputt/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -766,7 +766,7 @@
             "alternate-to": null,
             "subcategory": "Shooter",
             "open-source": true,
-            "url-info": "http:\/\/www.alientrap.org\/games\/nexuiz",
+            "url-info": "http://www.alientrap.org/games/nexuiz",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -793,7 +793,7 @@
             "alternate-to": null,
             "subcategory": "Game Management",
             "open-source": true,
-            "url-info": "https:\/\/www.playonlinux.com\/",
+            "url-info": "https://www.playonlinux.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -801,26 +801,26 @@
             "pre-install": {
                 "precise": {
                     "method": "ppa+manual",
-                    "enable-ppa": "ppa:ubuntu-wine\/ppa",
-                    "apt-key-url": "http:\/\/deb.playonlinux.com\/public.gpg",
+                    "enable-ppa": "ppa:ubuntu-wine/ppa",
+                    "apt-key-url": "http://deb.playonlinux.com/public.gpg",
                     "apt-sources": [
-                        "deb http:\/\/deb.playonlinux.com\/ CODENAME main"
+                        "deb http://deb.playonlinux.com/ CODENAME main"
                     ]
                 },
                 "trusty": {
                     "method": "ppa+manual",
-                    "enable-ppa": "ppa:ubuntu-wine\/ppa",
-                    "apt-key-url": "http:\/\/deb.playonlinux.com\/public.gpg",
+                    "enable-ppa": "ppa:ubuntu-wine/ppa",
+                    "apt-key-url": "http://deb.playonlinux.com/public.gpg",
                     "apt-sources": [
-                        "deb http:\/\/deb.playonlinux.com\/ CODENAME main"
+                        "deb http://deb.playonlinux.com/ CODENAME main"
                     ]
                 },
                 "all": {
                     "method": "ppa+manual",
-                    "enable-ppa": "ppa:ubuntu-wine\/ppa",
-                    "apt-key-url": "http:\/\/deb.playonlinux.com\/public.gpg",
+                    "enable-ppa": "ppa:ubuntu-wine/ppa",
+                    "apt-key-url": "http://deb.playonlinux.com/public.gpg",
                     "apt-sources": [
-                        "deb http:\/\/deb.playonlinux.com\/ trusty main"
+                        "deb http://deb.playonlinux.com/ trusty main"
                     ]
                 }
             },
@@ -848,7 +848,7 @@
             "alternate-to": null,
             "subcategory": "Card and Board Games",
             "open-source": true,
-            "url-info": "http:\/\/pysolfc.sourceforge.net\/",
+            "url-info": "http://pysolfc.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -879,19 +879,19 @@
             "alternate-to": null,
             "subcategory": "Game Management",
             "open-source": false,
-            "url-info": "http:\/\/store.steampowered.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.valvesoftware.android.steam.community&hl=en",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/steam-mobile\/id495369748",
+            "url-info": "http://store.steampowered.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
+            "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "i386",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "steam",
-                    "apt-key-url": "http:\/\/repo.steampowered.com\/steam\/signature.gpg",
+                    "apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
                     "apt-sources": [
-                        "deb [arch=amd64,i386] http:\/\/repo.steampowered.com\/steam\/ precise steam",
-                        "deb-src [arch=amd64,i386] http:\/\/repo.steampowered.com\/steam\/ precise steam",
+                        "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+                        "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
                         ""
                     ]
                 }
@@ -917,19 +917,19 @@
             "alternate-to": null,
             "subcategory": "Game Management",
             "open-source": false,
-            "url-info": "http:\/\/store.steampowered.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.valvesoftware.android.steam.community&hl=en",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/steam-mobile\/id495369748",
+            "url-info": "http://store.steampowered.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
+            "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "steam",
-                    "apt-key-url": "http:\/\/repo.steampowered.com\/steam\/signature.gpg",
+                    "apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
                     "apt-sources": [
-                        "deb [arch=amd64,i386] http:\/\/repo.steampowered.com\/steam\/ precise steam",
-                        "deb-src [arch=amd64,i386] http:\/\/repo.steampowered.com\/steam\/ precise steam",
+                        "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
+                        "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
                         ""
                     ]
                 }
@@ -961,7 +961,7 @@
             "alternate-to": null,
             "subcategory": "Racing",
             "open-source": true,
-            "url-info": "http:\/\/supertuxkart.sourceforge.net\/",
+            "url-info": "http://supertuxkart.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -991,7 +991,7 @@
             "alternate-to": null,
             "subcategory": "Shooter",
             "open-source": true,
-            "url-info": "https:\/\/www.teeworlds.com",
+            "url-info": "https://www.teeworlds.com",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1019,12 +1019,12 @@
                 "different technologies, combined with the unit design system,",
                 "allows for a wide variety of possible units and tactics.",
                 "<u>The campaign video sequences are not yet distributed here, please",
-                "see the Warzone 2100 website for details on downloading and installing them.<\/u>"
+                "see the Warzone 2100 website for details on downloading and installing them.</u>"
             ],
             "alternate-to": null,
             "subcategory": "Strategy",
             "open-source": true,
-            "url-info": "https:\/\/wz2100.net\/",
+            "url-info": "https://wz2100.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -1056,7 +1056,7 @@
             "alternate-to": null,
             "subcategory": "Strategy",
             "open-source": true,
-            "url-info": "http:\/\/wesnoth.org\/",
+            "url-info": "http://wesnoth.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -1083,7 +1083,7 @@
                 "and playback (games). Blender has its own particular user",
                 "interface, which is implemented entirely in OpenGL and",
                 "designed with speed in mind. Python bindings are available",
-                "for scripting; import\/export features for popular file",
+                "for scripting; import/export features for popular file",
                 "formats like 3D Studio and Wavefront Obj are implemented as",
                 "scripts by the community. Stills, animations, models for",
                 "games or other third party engines and interactive content in",
@@ -1093,7 +1093,7 @@
             "alternate-to": "Adobe&reg; After Effects",
             "subcategory": "3D Modelling",
             "open-source": true,
-            "url-info": "https:\/\/www.blender.org\/",
+            "url-info": "https://www.blender.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -1122,7 +1122,7 @@
             "alternate-to": "Microsoft&reg; Office Visio&reg;",
             "subcategory": "Drawing",
             "open-source": true,
-            "url-info": "https:\/\/wiki.gnome.org\/action\/show\/Apps\/Dia",
+            "url-info": "https://wiki.gnome.org/action/show/Apps/Dia",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1164,7 +1164,7 @@
             "alternate-to": "Adobe&reg; Lightroom",
             "subcategory": "Photo Management",
             "open-source": true,
-            "url-info": "http:\/\/www.darktable.org\/",
+            "url-info": "http://www.darktable.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1194,12 +1194,12 @@
                 "file formats are supported, including JPEG, Photoshop (.psd),",
                 "and Paint Shop Pro (.psp) files. It can also be used to scan",
                 "and print photos. <u>The CMYK plug-ins are also",
-                "included.<\/u>"
+                "included.</u>"
             ],
             "alternate-to": "Adobe&reg; Photoshop",
             "subcategory": "Graphics Editor",
             "open-source": true,
-            "url-info": "http:\/\/www.gimp.org\/",
+            "url-info": "http://www.gimp.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1235,7 +1235,7 @@
             "alternate-to": "Adobe&reg; Illustrator",
             "subcategory": "Graphics Editor",
             "open-source": true,
-            "url-info": "https:\/\/inkscape.org\/",
+            "url-info": "https://inkscape.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1265,7 +1265,7 @@
             "alternate-to": null,
             "subcategory": "Graphics Editor",
             "open-source": true,
-            "url-info": "http:\/\/mypaint.org\/",
+            "url-info": "http://mypaint.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1294,7 +1294,7 @@
             "alternate-to": null,
             "subcategory": "Photo Management",
             "open-source": true,
-            "url-info": "http:\/\/www.damonlynch.net\/rapid\/",
+            "url-info": "http://www.damonlynch.net/rapid/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1320,7 +1320,7 @@
                 "brochure design to newspapers, magazines, newsletters and",
                 "posters to technical documentation. It has sophisticated page",
                 "layout features like precision placing and rotating of text",
-                "and\/or images on a page, manual kerning of type, bezier",
+                "and/or images on a page, manual kerning of type, bezier",
                 "curves polygons, precision placement of objects, layering",
                 "with RGB and CMYK custom colors. The Scribus document file",
                 "format is XML-based. Unlike proprietary binary file formats,",
@@ -1328,8 +1328,8 @@
                 "editor.  Scribus supports professional DTP features, such as",
                 "CMYK color and a color management system to soft proof images",
                 "for high quality color printing, flexible PDF creation",
-                "options, Encapsulated PostScript import\/export and creation",
-                "of 4 color separations, import of EPS\/PS and SVG as native",
+                "options, Encapsulated PostScript import/export and creation",
+                "of 4 color separations, import of EPS/PS and SVG as native",
                 "vector graphics, Unicode text including right to left scripts",
                 "such as Arabic and Hebrew via freetype. Graphic formats which",
                 "can be placed in Scribus as images include PDF, Encapsulated",
@@ -1339,7 +1339,7 @@
                 "inventive features: the abilities to include presentation",
                 "effects with PDF output, fully scriptable interactive PDF",
                 "forms, SVG vector file output. The internal printer drivers",
-                "fully support Level 2 and Level 3\/PDF 1.4 postscript features",
+                "fully support Level 2 and Level 3/PDF 1.4 postscript features",
                 "including transparency and font embedding.  There is easy to",
                 "use drag and drop scrapbook for frequently used items such as",
                 "text blocks, pictures and custom shaped frames."
@@ -1347,7 +1347,7 @@
             "alternate-to": "Adobe&reg; InDesign",
             "subcategory": "Design",
             "open-source": true,
-            "url-info": "http:\/\/www.scribus.net\/",
+            "url-info": "http://www.scribus.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1374,7 +1374,7 @@
             "alternate-to": null,
             "subcategory": "3D Modelling",
             "open-source": true,
-            "url-info": "http:\/\/www.sweethome3d.com\/",
+            "url-info": "http://www.sweethome3d.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1401,15 +1401,15 @@
                 "across browsers and operating systems. This package provides",
                 "plugins compatible with both the Chromium and Firefox web",
                 "browsers. Ubuntu MATE Welcome will also install",
-                "<code>libhal1-flash<\/code> required by",
-                "<code>libadobecp<\/code> (which <code>libflashplayer.so<\/code>",
+                "<code>libhal1-flash</code> required by",
+                "<code>libadobecp</code> (which <code>libflashplayer.so</code>",
                 "retrieves from the Internet) for playing back DRM content",
                 "from streaming services such as Amazon Prime Instant Video."
             ],
             "alternate-to": null,
             "subcategory": "Plug-in",
             "open-source": false,
-            "url-info": "http:\/\/www.adobe.com\/products\/flashplayer.html",
+            "url-info": "http://www.adobe.com/products/flashplayer.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -1417,7 +1417,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/hal-flash",
+                    "enable-ppa": "ppa:flexiondotorg/hal-flash",
                     "source-file": "flexiondotorg-ubuntu-hal-flash-CODENAME"
                 }
             },
@@ -1437,20 +1437,20 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/www.getsync.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.bittorrent.sync",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/bittorrent-sync\/id665156116",
+            "url-info": "https://www.getsync.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.bittorrent.sync",
+            "url-ios": "https://itunes.apple.com/gb/app/bittorrent-sync/id665156116",
             "arch": "i386,amd64,armhf",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "btsync",
-                    "apt-key-url": "http:\/\/debian.yeasoft.net\/btsync.key",
+                    "apt-key-url": "http://debian.yeasoft.net/btsync.key",
                     "apt-sources": [
                         "# YeaSoft's BitTorrent Sync Packaging Repository",
-                        "deb http:\/\/debian.yeasoft.net\/btsync unstable main",
-                        "deb-src http:\/\/debian.yeasoft.net\/btsync unstable main"
+                        "deb http://debian.yeasoft.net/btsync unstable main",
+                        "deb-src http://debian.yeasoft.net/btsync unstable main"
                     ]
                 }
             },
@@ -1471,7 +1471,7 @@
             "alternate-to": null,
             "subcategory": "Web Browser",
             "open-source": true,
-            "url-info": "https:\/\/www.chromium.org\/Home",
+            "url-info": "https://www.chromium.org/Home",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
@@ -1500,19 +1500,19 @@
             "subcategory": "Instant Messaging",
             "open-source": true,
             "url-info": "http://corebird.baedert.org/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.twitter.android",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/twitter\/id333903271",
+            "url-android": "https://play.google.com/store/apps/details?id=com.twitter.android",
+            "url-ios": "https://itunes.apple.com/gb/app/twitter/id333903271",
             "arch": "i386,amd64",
             "releases": "wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:ubuntuhandbook1\/corebird",
+                    "enable-ppa": "ppa:ubuntuhandbook1/corebird",
                     "source-file": "ubuntuhandbook1-ubuntu-corebird-CODENAME"
                 }
             },
             "working": true
-        },        
+        },
         "caja-dropbox": {
             "name": "Caja Dropbox",
             "img": "dropbox",
@@ -1528,9 +1528,9 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/www.dropbox.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.dropbox.android",
-            "url-ios": "https:\/\/itunes.apple.com\/us\/app\/dropbox\/id327630330",
+            "url-info": "https://www.dropbox.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
+            "url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
             "arch": "i386,amd64",
             "releases": "xenial",
             "pre-install": {
@@ -1555,9 +1555,9 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/www.dropbox.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.dropbox.android",
-            "url-ios": "https:\/\/itunes.apple.com\/us\/app\/dropbox\/id327630330",
+            "url-info": "https://www.dropbox.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
+            "url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
             "arch": "i386,amd64",
             "releases": "trusty,wily",
             "pre-install": {
@@ -1569,7 +1569,7 @@
                         "5044912E"
                     ],
                     "apt-sources": [
-                        "deb http:\/\/linux.dropbox.com\/ubuntu\/CODENAME main"
+                        "deb http://linux.dropbox.com/ubuntu/CODENAME main"
                     ]
                 }
             },
@@ -1584,13 +1584,13 @@
             "remove-packages": "filezilla",
             "description": [
                 "A full-featured FTP client with an",
-                "easy-to-use GUI. Supports FTP, FTP over SSL\/TLS (FTPS) and",
+                "easy-to-use GUI. Supports FTP, FTP over SSL/TLS (FTPS) and",
                 "SSH File Transfer Protocol (SFTP). IPv6 support. Available in",
                 "more than 40 languages. Supports resume and transfer of large",
                 "files >4GB. Easy to use Site Manager and transfer queue.",
                 "Bookmarks. Drag & drop support. Speed limits. Filename filters.",
                 "Directory comparison. Network configuration wizard. Remote",
-                "file editing. Keep-alive. HTTP\/1.1, SOCKS5 and FTP",
+                "file editing. Keep-alive. HTTP/1.1, SOCKS5 and FTP",
                 "Proxy support. Logging to file. Synchronized directory",
                 "browsing. Remote file search. Tabbed interface to connect",
                 "to multiple servers."
@@ -1598,7 +1598,7 @@
             "alternate-to": null,
             "subcategory": "Download Manager",
             "open-source": true,
-            "url-info": "https:\/\/filezilla-project.org\/",
+            "url-info": "https://filezilla-project.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1628,7 +1628,7 @@
             "alternate-to": null,
             "subcategory": "Collaboration",
             "open-source": true,
-            "url-info": "https:\/\/gobby.github.io",
+            "url-info": "https://gobby.github.io",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -1636,7 +1636,7 @@
             "pre-install": {
                 "trusty": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/gobby",
+                    "enable-ppa": "ppa:flexiondotorg/gobby",
                     "source-file": "flexiondotorg-ubuntu-gobby-CODENAME"
                 },
                 "all": {
@@ -1655,25 +1655,25 @@
             "description": [
                 "The web browser from Google that combines a minimal",
                 "design with sophisticated technology to make the web faster,",
-                "safer, and easier. If you are a <b>Netflix<\/b> subscriber then",
+                "safer, and easier. If you are a <b>Netflix</b> subscriber then",
                 "Google Chrome is currently the only browser available for",
                 "Ubuntu MATE that fully supports Netflix."
             ],
             "alternate-to": null,
             "subcategory": "Web Browser",
             "open-source": false,
-            "url-info": "http:\/\/www.google.com\/chrome\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.android.chrome",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/chrome-web-browser-by-google\/id535886823",
+            "url-info": "http://www.google.com/chrome/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.android.chrome",
+            "url-ios": "https://itunes.apple.com/gb/app/chrome-web-browser-by-google/id535886823",
             "arch": "amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "google-chrome",
-                    "apt-key-url": "http:\/\/dl.google.com\/linux\/linux_signing_key.pub",
+                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb [arch=amd64] http:\/\/dl.google.com\/linux\/chrome\/deb\/ stable main"
+                        "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
                     ]
                 }
             },
@@ -1694,18 +1694,18 @@
             "alternate-to": null,
             "subcategory": "Plug-in",
             "open-source": false,
-            "url-info": "https:\/\/www.google.com\/tools\/dlpage\/hangoutplugin",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.google.android.talk",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/hangouts\/id643496868",
+            "url-info": "https://www.google.com/tools/dlpage/hangoutplugin",
+            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.talk",
+            "url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "google-talkplugin",
-                    "apt-key-url": "http:\/\/dl.google.com\/linux\/linux_signing_key.pub",
+                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb http:\/\/dl.google.com\/linux\/talkplugin\/deb\/ stable main"
+                        "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
                     ]
                 }
             },
@@ -1721,7 +1721,7 @@
             "description": [
                 "A simple application for",
                 "adding the music files on your computer to ",
-                "<a href=cmd:\/\/link?http:\/\/music.google.com>Google Play Music<\/a>.",
+                "<a href=cmd://link?http://music.google.com>Google Play Music</a>.",
                 "Use Music Manager to upload your favorite songs from your",
                 "computer to your Google Play library. You can upload up to",
                 "50,000 songs and listen on your mobile device, computer, or",
@@ -1730,18 +1730,18 @@
             "alternate-to": "Apple iTunes",
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/music.google.com",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.google.android.music",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/google-play-music\/id691797987",
+            "url-info": "https://music.google.com",
+            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
+            "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "google-musicmanager",
-                    "apt-key-url": "http:\/\/dl.google.com\/linux\/linux_signing_key.pub",
+                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb http:\/\/dl.google.com\/linux\/musicmanager\/deb\/ stable main"
+                        "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
                     ]
                 }
             },
@@ -1756,13 +1756,13 @@
             "remove-packages": "icedtea-7-plugin",
             "description": [
                 "A web browser plug-in to execute",
-                "Java applets, supporting LiveConnect\/JavaScript. It is",
+                "Java applets, supporting LiveConnect/JavaScript. It is",
                 "targeted for browsers that support the NPAPI, such as Mozilla Firefox."
             ],
             "alternate-to": null,
             "subcategory": "Plug-in",
             "open-source": true,
-            "url-info": "http:\/\/icedtea.classpath.org\/wiki\/Main_Page",
+            "url-info": "http://icedtea.classpath.org/wiki/Main_Page",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1783,13 +1783,13 @@
             "remove-packages": "icedtea-8-plugin",
             "description": [
                 "A web browser plug-in to execute",
-                "Java applets, supporting LiveConnect\/JavaScript. It is",
+                "Java applets, supporting LiveConnect/JavaScript. It is",
                 "targeted for browsers that support the NPAPI, such as Mozilla Firefox."
             ],
             "alternate-to": null,
             "subcategory": "Plug-in",
             "open-source": true,
-            "url-info": "http:\/\/icedtea.classpath.org\/wiki\/Main_Page",
+            "url-info": "http://icedtea.classpath.org/wiki/Main_Page",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1813,27 +1813,27 @@
                 "Drive files to your computer. It has more advanced features",
                 "than Google&#8217;s official client such as multiple account",
                 "support, Google Docs conversion, symlink support, and built in",
-                "sharing. <u>Insync is a commercial application<\/u>, if you",
+                "sharing. <u>Insync is a commercial application</u>, if you",
                 "wish to continue using it after the evaluation period",
-                "<a href=cmd:\/\/link?https:\/\/www.insynchq.com\/pricing>",
-                "you will have to pay for it.<\/a>",
-                "<ul><li><b>Equivalent to: <\/b><i>Google Drive Client<\/i><\/li><\/ul>"
+                "<a href=cmd://link?https://www.insynchq.com/pricing>",
+                "you will have to pay for it.</a>",
+                "<ul><li><b>Equivalent to: </b><i>Google Drive Client</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/www.insynchq.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.google.android.apps.docs",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/google-drive-free-online-storage\/id507874739",
+            "url-info": "https://www.insynchq.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs",
+            "url-ios": "https://itunes.apple.com/gb/app/google-drive-free-online-storage/id507874739",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "insync",
-                    "apt-key-url": "https:\/\/d2t3ff60b2tol4.cloudfront.net\/services@insynchq.com.gpg.key",
+                    "apt-key-url": "https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key",
                     "apt-sources": [
-                        "deb http:\/\/apt.insynchq.com\/ubuntu trusty non-free contrib"
+                        "deb http://apt.insynchq.com/ubuntu trusty non-free contrib"
                     ]
                 }
             },
@@ -1855,7 +1855,7 @@
                 "syndication formats, synchronizing feeds across devices, with",
                 "TinyTinyRSS and TheOldReader support. Liferea can download",
                 "articles for offline reading, play podcasts directly in",
-                "Liferea&#8217;s browser interface and has social networking \/ web",
+                "Liferea&#8217;s browser interface and has social networking / web",
                 "integration so you can share your favorite news articles to",
                 "Facebook, Google+, Reddit, Twitter, Slashdot, Digg, Yahoo and",
                 "many more."
@@ -1863,7 +1863,7 @@
             "alternate-to": null,
             "subcategory": "Feed Reader",
             "open-source": true,
-            "url-info": "https:\/\/lzone.de\/liferea\/",
+            "url-info": "https://lzone.de/liferea/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -1892,30 +1892,30 @@
                 "applications. Mumble is just a client and uses a non-standard",
                 "protocol. You will need a dedicated server to talk to other",
                 "users.",
-                "<ul><li>Install Murmur, your own private Mumble server, with a <a onclick=jumpOneClickServers(3)>one-click installation.<\/a><\/li><\/ul>"
+                "<ul><li>Install Murmur, your own private Mumble server, with a <a onclick=jumpOneClickServers(3)>one-click installation.</a></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Instant Messaging",
             "open-source": true,
-            "url-info": "http:\/\/wiki.mumble.info\/wiki\/Main_Page",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.morlunk.mumbleclient.free",
-            "url-ios": "http:\/\/itunes.apple.com\/us\/app\/mumble\/id443472808",
+            "url-info": "http://wiki.mumble.info/wiki/Main_Page",
+            "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
+            "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "precise": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "trusty": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "wily": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "all": {
@@ -1940,21 +1940,21 @@
             "alternate-to": null,
             "subcategory": "Web Browser",
             "open-source": false,
-            "url-info": "http:\/\/www.opera.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.opera.browser",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/opera-mini-web-browser\/id363729560",
+            "url-info": "http://www.opera.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.opera.browser",
+            "url-ios": "https://itunes.apple.com/gb/app/opera-mini-web-browser/id363729560",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "opera-stable",
-                    "apt-key-url": "https:\/\/deb.opera.com\/archive.key",
+                    "apt-key-url": "https://deb.opera.com/archive.key",
                     "apt-sources": [
                         "# This file makes sure that Opera Browser is kept up-to-date",
                         "# as part of regular system upgrades",
                         "",
-                        "deb http:\/\/deb.opera.com\/opera-stable\/ stable non-free #Opera Browser (final releases)"
+                        "deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)"
                     ]
                 }
             },
@@ -1974,18 +1974,18 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": true,
-            "url-info": "https:\/\/owncloud.org\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.owncloud.android",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/owncloud\/id543672169",
+            "url-info": "https://owncloud.org/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.owncloud.android",
+            "url-ios": "https://itunes.apple.com/gb/app/owncloud/id543672169",
             "arch": "i386,amd64",
             "releases": "trusty,wily",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "owncloud-client",
-                    "apt-key-url": "http:\/\/download.opensuse.org\/repositories\/isv:ownCloud:desktop\/xUbuntu_OSVERSION\/Release.key",
+                    "apt-key-url": "http://download.opensuse.org/repositories/isv:ownCloud:desktop/xUbuntu_OSVERSION/Release.key",
                     "apt-sources": [
-                        "deb http:\/\/download.opensuse.org\/repositories\/isv:\/ownCloud:\/desktop\/xUbuntu_OSVERSION\/ \/"
+                        "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_OSVERSION/ /"
                     ]
                 }
             },
@@ -2008,7 +2008,7 @@
             "alternate-to": "Microsoft&reg; Remote Desktop",
             "subcategory": "Remote Access",
             "open-source": true,
-            "url-info": "http:\/\/remmina.sourceforge.net\/",
+            "url-info": "http://remmina.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2038,9 +2038,9 @@
             "alternate-to": null,
             "subcategory": "Instant Messaging",
             "open-source": false,
-            "url-info": "http:\/\/www.skype.com",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.skype.raider",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/skype-for-iphone\/id304878510",
+            "url-info": "http://www.skype.com",
+            "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
+            "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
@@ -2069,18 +2069,18 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https:\/\/spideroak.com\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.spideroak.android",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/spideroak\/id360584371",
+            "url-info": "https://spideroak.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.spideroak.android",
+            "url-ios": "https://itunes.apple.com/gb/app/spideroak/id360584371",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "spideroakone",
-                    "apt-key-url": "https:\/\/spideroak.com\/dist\/spideroak-apt-2013.asc",
+                    "apt-key-url": "https://spideroak.com/dist/spideroak-apt-2013.asc",
                     "apt-sources": [
-                        "deb http:\/\/APT.spideroak.com\/ubuntu-spideroak-hardy\/ release restricted",
+                        "deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted",
                         " "
                     ]
                 }
@@ -2104,8 +2104,8 @@
             "alternate-to": null,
             "subcategory": "Cloud and Sync",
             "open-source": true,
-            "url-info": "https:\/\/syncthing.net\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.nutomic.syncthingandroid",
+            "url-info": "https://syncthing.net/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid",
             "url-ios": null,
             "arch": "i386,amd64,armhf",
             "releases": "trusty,wily,xenial",
@@ -2113,9 +2113,9 @@
                 "all": {
                     "method": "manual",
                     "source-file": "syncthing",
-                    "apt-key-url": "https:\/\/syncthing.net\/release-key.txt",
+                    "apt-key-url": "https://syncthing.net/release-key.txt",
                     "apt-sources": [
-                        "deb http:\/\/apt.syncthing.net\/ syncthing release"
+                        "deb http://apt.syncthing.net/ syncthing release"
                     ]
                 }
             },
@@ -2125,7 +2125,7 @@
             "name": "Telegram",
             "img": "telegram",
             "main-package": "telegram",
-            "launch-command": "\/opt\/telegram\/Telegram",
+            "launch-command": "/opt/telegram/Telegram",
             "install-packages": "telegram",
             "remove-packages": "telegram",
             "description": [
@@ -2143,15 +2143,15 @@
             "alternate-to": "WhatsApp",
             "subcategory": "Instant Messaging",
             "open-source": true,
-            "url-info": "https:\/\/telegram.org\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=org.telegram.messenger",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/telegram-messenger\/id686449807",
+            "url-info": "https://telegram.org/",
+            "url-android": "https://play.google.com/store/apps/details?id=org.telegram.messenger",
+            "url-ios": "https://itunes.apple.com/gb/app/telegram-messenger/id686449807",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:atareao\/telegram",
+                    "enable-ppa": "ppa:atareao/telegram",
                     "source-file": "atareao-ubuntu-telegram-CODENAME"
                 }
             },
@@ -2161,7 +2161,7 @@
             "name": "Tor Browser",
             "img": "tor-browser",
             "main-package": "tor-browser",
-            "launch-command": "\/usr\/bin\/tor-browser-en.sh",
+            "launch-command": "/usr/bin/tor-browser-en.sh",
             "install-packages": "tor-browser",
             "remove-packages": "tor-browser",
             "description": [
@@ -2178,7 +2178,7 @@
             "alternate-to": null,
             "subcategory": "Web Browser",
             "open-source": true,
-            "url-info": "https:\/\/www.torproject.org\/projects\/torbrowser.html",
+            "url-info": "https://www.torproject.org/projects/torbrowser.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -2186,7 +2186,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:webupd8team\/tor-browser",
+                    "enable-ppa": "ppa:webupd8team/tor-browser",
                     "source-file": "webupd8team-ubuntu-tor-browser-CODENAME"
                 }
             },
@@ -2209,7 +2209,7 @@
             "alternate-to": null,
             "subcategory": "Download Manager",
             "open-source": true,
-            "url-info": "http:\/\/ugetdm.com\/",
+            "url-info": "http://ugetdm.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2217,7 +2217,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:plushuang-tw\/uget-stable",
+                    "enable-ppa": "ppa:plushuang-tw/uget-stable",
                     "source-file": "plushuang-tw-ubuntu-uget-stable-CODENAME"
                 }
             },
@@ -2234,12 +2234,12 @@
                 "A graphical client for the X2Go",
                 "Server. You can use it to start new X2Go remote sessions or",
                 "reconnect to running sessions.",
-                "<ul><li><a onclick=jumpOneClickServers(2)>One-click server install available<\/a><\/li><\/ul>"
+                "<ul><li><a onclick=jumpOneClickServers(2)>One-click server install available</a></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Remote Access",
             "open-source": true,
-            "url-info": "http:\/\/wiki.x2go.org\/doku.php",
+            "url-info": "http://wiki.x2go.org/doku.php",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2247,7 +2247,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:x2go\/stable",
+                    "enable-ppa": "ppa:x2go/stable",
                     "source-file": "x2go-ubuntu-stable-CODENAME"
                 }
             },
@@ -2281,7 +2281,7 @@
             "alternate-to": null,
             "subcategory": "Specialized",
             "open-source": true,
-            "url-info": "http:\/\/calibre-ebook.com\/",
+            "url-info": "http://calibre-ebook.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2309,7 +2309,7 @@
             "alternate-to": "Microsoft&reg; Outlook",
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "https:\/\/wiki.gnome.org\/Apps\/Evolution",
+            "url-info": "https://wiki.gnome.org/Apps/Evolution",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2342,7 +2342,7 @@
             "alternate-to": null,
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "http:\/\/gottcode.org\/focuswriter\/",
+            "url-info": "http://gottcode.org/focuswriter/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2364,7 +2364,7 @@
             "description": [
                 "A lightweight program for creating",
                 "labels, barcodes, business cards and media covers. It is",
-                "designed to work with various laser\/ink-jet peel-off label",
+                "designed to work with various laser/ink-jet peel-off label",
                 "and business card sheets that you&#8217;ll find at most office",
                 "supply stores. gLabels also supports mail merge from sources",
                 "such as CSV files and vCards."
@@ -2372,7 +2372,7 @@
             "alternate-to": null,
             "subcategory": "Printing",
             "open-source": true,
-            "url-info": "http:\/\/glabels.org",
+            "url-info": "http://glabels.org",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2402,12 +2402,12 @@
                 "keeping running and reconciled balances. There is support for",
                 "customer, vendor and employee processing. It has double-entry",
                 "accounting, reports, graphs, transaction matching, scheduled",
-                "transactions, financial calculations and QIF\/OFX\/HBCI import."
+                "transactions, financial calculations and QIF/OFX/HBCI import."
             ],
             "alternate-to": "Intuit&reg; Quicken&reg;",
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "http:\/\/www.gnucash.org\/",
+            "url-info": "http://www.gnucash.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2438,7 +2438,7 @@
             "alternate-to": null,
             "subcategory": "Specialized",
             "open-source": true,
-            "url-info": "https:\/\/gramps-project.org\/",
+            "url-info": "https://gramps-project.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2460,14 +2460,14 @@
             "description": [
                 "The full-featured office productivity suite",
                 "that provides a near drop-in replacement for",
-                "Microsoft&reg; Office <b>pre-installed<\/b> as standard in Ubuntu MATE.",
+                "Microsoft&reg; Office <b>pre-installed</b> as standard in Ubuntu MATE.",
                 "<br><br>Clicking &#8217;Upgrade&#8217; will ensure LibreOffice always stays up-to-date",
                 "with the latest stable release."
             ],
             "alternate-to": null,
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "https:\/\/www.libreoffice.org\/",
+            "url-info": "https://www.libreoffice.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -2475,7 +2475,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:libreoffice\/ppa",
+                    "enable-ppa": "ppa:libreoffice/ppa",
                     "source-file": "libreoffice-ubuntu-ppa-CODENAME"
                 }
             },
@@ -2497,7 +2497,7 @@
             "alternate-to": "Microsoft&reg; Access",
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "https:\/\/www.libreoffice.org\/discover\/base\/",
+            "url-info": "https://www.libreoffice.org/discover/base/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2519,7 +2519,7 @@
             "description": [
                 "A Project Management application that",
                 "supports Gantt charts and resource allocation. Among its",
-                "important features are the definition of tasks with start\/end",
+                "important features are the definition of tasks with start/end",
                 "dates and durations, dependancies between tasks, sub-tasks",
                 "can also be defined, project calendars with holidays,",
                 "definition of resources, assignment of resources to tasks,",
@@ -2528,7 +2528,7 @@
             "alternate-to": null,
             "subcategory": "Specialized",
             "open-source": true,
-            "url-info": "http:\/\/www.simpleprojectmanagement.com\/planner\/home.html",
+            "url-info": "http://www.simpleprojectmanagement.com/planner/home.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2556,7 +2556,7 @@
             "alternate-to": null,
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "http:\/\/rednotebook.sourceforge.net\/",
+            "url-info": "http://rednotebook.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2564,7 +2564,7 @@
             "pre-install": {
                 "trusty,wily": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:rednotebook\/stable",
+                    "enable-ppa": "ppa:rednotebook/stable",
                     "source-file": "rednotebook-ubuntu-stable-CODENAME"
                 },
                 "all": {
@@ -2590,7 +2590,7 @@
             "alternate-to": null,
             "subcategory": "Office Applications",
             "open-source": true,
-            "url-info": "https:\/\/github.com\/retext-project\/retext",
+            "url-info": "https://github.com/retext-project/retext",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2620,7 +2620,7 @@
             "alternate-to": null,
             "subcategory": "Version Control",
             "open-source": true,
-            "url-info": "http:\/\/doc.bazaar.canonical.com\/explorer\/en\/",
+            "url-info": "http://doc.bazaar.canonical.com/explorer/en/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2646,13 +2646,13 @@
                 "packages. The basic features of Geany are: syntax",
                 "highlighting, code completion, auto completion,call tips,",
                 "folding, symbol lists, embedded terminal emulation and many",
-                "supported languages C\/C++, HTML\/CSS, Java. Markdown, Pascal,",
+                "supported languages C/C++, HTML/CSS, Java. Markdown, Pascal,",
                 "PHP, Python, Perl, Pascal."
             ],
             "alternate-to": null,
             "subcategory": "IDEs",
             "open-source": true,
-            "url-info": "http:\/\/www.geany.org\/",
+            "url-info": "http://www.geany.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2681,7 +2681,7 @@
             "alternate-to": null,
             "subcategory": "Version Control",
             "open-source": true,
-            "url-info": "https:\/\/git-scm.com\/",
+            "url-info": "https://git-scm.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2689,7 +2689,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:git-core\/ppa",
+                    "enable-ppa": "ppa:git-core/ppa",
                     "source-file": "git-core-ubuntu-ppa-CODENAME"
                 }
             },
@@ -2711,7 +2711,7 @@
             "alternate-to": null,
             "subcategory": "Design and Tools",
             "open-source": true,
-            "url-info": "https:\/\/glade.gnome.org\/",
+            "url-info": "https://glade.gnome.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2741,7 +2741,7 @@
             "alternate-to": null,
             "subcategory": "Design and Tools",
             "open-source": true,
-            "url-info": "http:\/\/meldmerge.org\/",
+            "url-info": "http://meldmerge.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2769,7 +2769,7 @@
             "alternate-to": null,
             "subcategory": "Database",
             "open-source": true,
-            "url-info": "https:\/\/www.mysql.com\/products\/workbench\/",
+            "url-info": "https://www.mysql.com/products/workbench/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2796,13 +2796,13 @@
                 "interface supports all PostgreSQL features and makes",
                 "administration easy. The application also includes a syntax",
                 "highlighting SQL editor, a server-side code editor, an",
-                "SQL\/batch\/shell job scheduling agent, support for the Slony-I",
+                "SQL/batch/shell job scheduling agent, support for the Slony-I",
                 "replication engine and much more."
             ],
             "alternate-to": null,
             "subcategory": "Database",
             "open-source": true,
-            "url-info": "http:\/\/www.pgadmin.org\/",
+            "url-info": "http://www.pgadmin.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2833,7 +2833,7 @@
             "alternate-to": null,
             "subcategory": "Translation",
             "open-source": true,
-            "url-info": "https:\/\/poedit.net\/",
+            "url-info": "https://poedit.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2863,7 +2863,7 @@
             "alternate-to": null,
             "subcategory": "Design and Tools",
             "open-source": true,
-            "url-info": "https:\/\/wiki.ubuntu.com\/ubuntu-make",
+            "url-info": "https://wiki.ubuntu.com/ubuntu-make",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2871,7 +2871,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:ubuntu-desktop\/ubuntu-make",
+                    "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
                     "source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
                 }
             },
@@ -2881,7 +2881,7 @@
             "name": "Ubuntu SDK",
             "img": "ubuntu-sdk",
             "main-package": "ubuntu-sdk",
-            "launch-command": "\/usr\/bin\/ubuntu-sdk-ide",
+            "launch-command": "/usr/bin/ubuntu-sdk-ide",
             "install-packages": "ubuntu-sdk",
             "remove-packages": "ubuntu-sdk",
             "description": [
@@ -2894,7 +2894,7 @@
             "alternate-to": null,
             "subcategory": "IDEs",
             "open-source": true,
-            "url-info": "https:\/\/developer.ubuntu.com\/en\/start\/ubuntu-sdk\/",
+            "url-info": "https://developer.ubuntu.com/en/start/ubuntu-sdk/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
@@ -2902,7 +2902,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:ubuntu-sdk-team\/ppa",
+                    "enable-ppa": "ppa:ubuntu-sdk-team/ppa",
                     "source-file": "ubuntu-sdk-team-ubuntu-ppa-CODENAME"
                 }
             },
@@ -2924,13 +2924,13 @@
                 "that can be integrated into the Sound Indicator, where you",
                 "can choose one of the following sound tracks; Coffee Shop,",
                 "Fire, Forest, Night, Rain, Sea, Storm and Wind.",
-                "<ul><li><b>Note: <\/b><i>Ambient Noise works best with <u>Indicators enabled<\/u> via",
-                "<a href=cmd:\/\/run?mate-tweak> MATE Tweak<\/a>.<\/i><\/li><\/ul>"
+                "<ul><li><b>Note: </b><i>Ambient Noise works best with <u>Indicators enabled</u> via",
+                "<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Media Playback",
             "open-source": true,
-            "url-info": "http:\/\/anoise.tuxfamily.org\/",
+            "url-info": "http://anoise.tuxfamily.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -2938,7 +2938,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:costales\/anoise",
+                    "enable-ppa": "ppa:costales/anoise",
                     "source-file": "costales-ubuntu-anoise-CODENAME"
                 }
             },
@@ -2958,16 +2958,16 @@
                 "This includes the all-digital 26 channel RME Hammerfall, the ",
                 "Midiman Delta 1010 and many others.  Ardour has support for 24 bit",
                 "samples, using floating point internally, non-linear editing with unlimited undo,",
-                "a user-configurable mixer, MTC master\/slave capabilities, MIDI hardware,",
+                "a user-configurable mixer, MTC master/slave capabilities, MIDI hardware,",
                 "control surface compatibility. Ardour contains a",
-                "powerful multitrack audio editor\/arranger that is completely",
+                "powerful multitrack audio editor/arranger that is completely",
                 "non-destructive and capable of all standard non-linear editing",
                 "operations. Ardour&#8217;s editor supports the community-developed LADSPA plugin standard."
             ],
             "alternate-to": null,
             "subcategory": "Audio Production",
             "open-source": true,
-            "url-info": "https:\/\/ardour.org\/",
+            "url-info": "https://ardour.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -2997,7 +2997,7 @@
             "alternate-to": null,
             "subcategory": "Media Conversion",
             "open-source": true,
-            "url-info": "http:\/\/www.littlesvr.ca\/asunder\/",
+            "url-info": "http://www.littlesvr.ca/asunder/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3021,12 +3021,12 @@
                 "designed for easy recording, playing and editing of digital",
                 "audio. Audacity features digital effects and spectrum",
                 "analysis tools. Editing is very fast and provides unlimited",
-                "undo\/redo."
+                "undo/redo."
             ],
             "alternate-to": null,
             "subcategory": "Audio Production",
             "open-source": true,
-            "url-info": "http:\/\/audacityteam.org\/",
+            "url-info": "http://audacityteam.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3054,7 +3054,7 @@
             "alternate-to": null,
             "subcategory": "Audio Production",
             "open-source": false,
-            "url-info": "https:\/\/www.ocenaudio.com\/",
+            "url-info": "https://www.ocenaudio.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386",
@@ -3062,7 +3062,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/audio",
+                    "enable-ppa": "ppa:flexiondotorg/audio",
                     "source-file": "flexiondotorg-ubuntu-audio-CODENAME"
                 }
             },
@@ -3084,7 +3084,7 @@
             "alternate-to": null,
             "subcategory": "Audio Production",
             "open-source": false,
-            "url-info": "https:\/\/www.ocenaudio.com\/",
+            "url-info": "https://www.ocenaudio.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
@@ -3092,7 +3092,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/audio",
+                    "enable-ppa": "ppa:flexiondotorg/audio",
                     "source-file": "flexiondotorg-ubuntu-audio-CODENAME"
                 }
             },
@@ -3119,7 +3119,7 @@
             "alternate-to": null,
             "subcategory": "Audio Production",
             "open-source": true,
-            "url-info": "https:\/\/launchpad.net\/~audio-recorder",
+            "url-info": "https://launchpad.net/~audio-recorder",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3127,12 +3127,12 @@
             "pre-install": {
                 "trusty": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:osmoma\/audio-recorder",
+                    "enable-ppa": "ppa:osmoma/audio-recorder",
                     "source-file": "audio-recorder-ubuntu-ppa-CODENAME"
                 },
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:audio-recorder\/ppa",
+                    "enable-ppa": "ppa:audio-recorder/ppa",
                     "source-file": "audio-recorder-ubuntu-ppa-CODENAME"
                 }
             },
@@ -3153,7 +3153,7 @@
                 "streams in Rhythmbox."
             ],
             "alternate-to": null,
-            "subcategory": "Codecs \/ Libraries",
+            "subcategory": "Codecs / Libraries",
             "open-source": true,
             "url-info": null,
             "url-android": null,
@@ -3187,7 +3187,7 @@
             "alternate-to": null,
             "subcategory": "Video Production",
             "open-source": true,
-            "url-info": "https:\/\/apps.ubuntu.com\/cat\/applications\/precise\/dvdstyler\/",
+            "url-info": "https://apps.ubuntu.com/cat/applications/precise/dvdstyler/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3211,13 +3211,13 @@
                 "writing the tags of different audio files. Currently EasyTAG",
                 "supports viewing, editing and writing tags of MP3, MP2 files",
                 "(ID3 tag), FLAC files (FLAC Vorbis tag), Ogg Opus, Ogg Speex",
-                "and Ogg Vorbis files (Ogg Vorbis tag), MP4\/M4A\/AAC files",
+                "and Ogg Vorbis files (Ogg Vorbis tag), MP4/M4A/AAC files",
                 "(MPEG-4 Part 10 tag), and MusePack, Monkey&#8217;s Audio files (APE tag)."
             ],
             "alternate-to": null,
             "subcategory": "Audio Manipulation",
             "open-source": true,
-            "url-info": "https:\/\/wiki.gnome.org\/Apps\/EasyTAG",
+            "url-info": "https://wiki.gnome.org/Apps/EasyTAG",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3245,7 +3245,7 @@
             "alternate-to": null,
             "subcategory": "Media Conversion",
             "open-source": true,
-            "url-info": "https:\/\/handbrake.fr",
+            "url-info": "https://handbrake.fr",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,powerpc",
@@ -3276,15 +3276,15 @@
             "alternate-to": null,
             "subcategory": "Media Playback",
             "open-source": true,
-            "url-info": "https:\/\/kodi.tv\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=org.xbmc.kodi",
+            "url-info": "https://kodi.tv/",
+            "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
             "arch": "i386,amd64",
             "releases": "trusty,wily",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:team-xbmc\/ppa",
+                    "enable-ppa": "ppa:team-xbmc/ppa",
                     "source-file": "team-xbmc-ubuntu-ppa-CODENAME"
                 }
             },
@@ -3303,9 +3303,9 @@
                 "about the decryption. It will enable playback of DVD video in VLC."
             ],
             "alternate-to": null,
-            "subcategory": "Codecs \/ Libraries",
+            "subcategory": "Codecs / Libraries",
             "open-source": true,
-            "url-info": "http:\/\/www.videolan.org\/developers\/libdvdcss.html",
+            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3314,10 +3314,10 @@
                 "all": {
                     "method": "manual",
                     "source-file": "libdvdcss2",
-                    "apt-key-url": "http:\/\/download.videolan.org\/pub\/debian\/videolan-apt.asc",
+                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
                     "apt-sources": [
-                        "deb http:\/\/download.videolan.org\/pub\/debian\/stable\/ \/",
-                        "deb-src http:\/\/download.videolan.org\/pub\/debian\/stable\/ \/"
+                        "deb http://download.videolan.org/pub/debian/stable/ /",
+                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
                     ]
                 }
             },
@@ -3337,19 +3337,19 @@
                 "otherwise called &#8217;transcoder&#8217;. It converts the video clips",
                 "from proprietary (and usually encrypted) disc into a set of",
                 "MKV files, preserving most information but not changing it in",
-                "any way. The MKV format can store multiple video\/audio tracks",
+                "any way. The MKV format can store multiple video/audio tracks",
                 "with all meta-information and preserve chapters. There are",
                 "many players that can play MKV files nearly on all platforms,",
                 "and there are tools to convert MKV files to many formats,",
                 "including DVD and Blu-ray discs. <u>MakeMKV for Linux is in",
-                "perpetual beta<\/u> and does require an activation key, which",
-                "<a href=cmd:\/\/link?http:\/\/www.makemkv.com\/forum2\/viewtopic.php?f=5&t=1053>is",
-                "always updated and on the MakeMKV forum<\/a>."
+                "perpetual beta</u> and does require an activation key, which",
+                "<a href=cmd://link?http://www.makemkv.com/forum2/viewtopic.php?f=5&t=1053>is",
+                "always updated and on the MakeMKV forum</a>."
             ],
             "alternate-to": "Slysoft AnyDVD HD",
             "subcategory": "Media Conversion",
             "open-source": false,
-            "url-info": "http:\/\/www.makemkv.com\/",
+            "url-info": "http://www.makemkv.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3357,7 +3357,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:heyarje\/makemkv-beta",
+                    "enable-ppa": "ppa:heyarje/makemkv-beta",
                     "source-file": "heyarje-ubuntu-makemkv-beta-CODENAME"
                 }
             },
@@ -3371,30 +3371,30 @@
             "install-packages": "pithos",
             "remove-packages": "pithos",
             "description": [
-                "A native <a href=cmd:\/\/link?http:\/\/http:\/\/www.pandora.com>Pandora",
-                "Radio<\/a> client for Linux. It&#8217;s more lightweight than the",
+                "A native <a href=cmd://link?http://http://www.pandora.com>Pandora",
+                "Radio</a> client for Linux. It&#8217;s more lightweight than the",
                 "Pandora.com web client, and integrates with desktop features",
                 "such as media keys, notifications, and the sound menu.",
                 "<u>Currently Pandora Radio is only available in U.S.,",
-                "Australia and New Zealand.<\/u>"
+                "Australia and New Zealand.</u>"
             ],
             "alternate-to": null,
             "subcategory": "Media Playback",
             "open-source": true,
-            "url-info": "http:\/\/pithos.github.io\/",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.pandora.android",
-            "url-ios": "https:\/\/itunes.apple.com\/en\/app\/pandora-radio\/id284035177",
+            "url-info": "http://pithos.github.io/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.pandora.android",
+            "url-ios": "https://itunes.apple.com/en/app/pandora-radio/id284035177",
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "precise": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:pithos\/ppa",
+                    "enable-ppa": "ppa:pithos/ppa",
                     "source-file": "pithos-ubuntu-ppa-CODENAME"
                 },
                 "trusty": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:pithos\/ppa",
+                    "enable-ppa": "ppa:pithos/ppa",
                     "source-file": "pithos-ubuntu-ppa-CODENAME"
                 },
                 "all": {
@@ -3411,9 +3411,9 @@
             "install-packages": "pitivi",
             "remove-packages": "pitivi",
             "description": [
-                "Non-linear audio\/video editor based on",
+                "Non-linear audio/video editor based on",
                 "graphs of filters which operate on media data. Pitivi allows",
-                "users to easily edit audio\/video projects and provides",
+                "users to easily edit audio/video projects and provides",
                 "several ways of creating and modifying a timeline.  Ranging",
                 "from a simple synopsis view (a-la iMovie) to the full-blown",
                 "editing view (aka Complex View) which puts you in complete",
@@ -3422,7 +3422,7 @@
             "alternate-to": "Adobe&reg; Premiere Elements",
             "subcategory": "Video Production",
             "open-source": true,
-            "url-info": "http:\/\/www.pitivi.org\/",
+            "url-info": "http://www.pitivi.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3451,7 +3451,7 @@
             "alternate-to": null,
             "subcategory": "Media Playback",
             "open-source": true,
-            "url-info": "http:\/\/freedesktop.org\/software\/pulseaudio\/pavucontrol\/",
+            "url-info": "http://freedesktop.org/software/pulseaudio/pavucontrol/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3479,7 +3479,7 @@
             "alternate-to": null,
             "subcategory": "Video Production",
             "open-source": true,
-            "url-info": "https:\/\/launchpad.net\/kazam",
+            "url-info": "https://launchpad.net/kazam",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3508,7 +3508,7 @@
             "alternate-to": null,
             "subcategory": "Video Production",
             "open-source": true,
-            "url-info": "http:\/\/www.maartenbaert.be\/simplescreenrecorder\/",
+            "url-info": "http://www.maartenbaert.be/simplescreenrecorder/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3516,7 +3516,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:maarten-baert\/simplescreenrecorder",
+                    "enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
                     "source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME"
                 }
             },
@@ -3536,9 +3536,9 @@
             "alternate-to": null,
             "subcategory": "Media Playback",
             "open-source": false,
-            "url-info": "https:\/\/www.spotify.com",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.spotify.music",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/spotify-music\/id324684580",
+            "url-info": "https://www.spotify.com",
+            "url-android": "https://play.google.com/store/apps/details?id=com.spotify.music",
+            "url-ios": "https://itunes.apple.com/gb/app/spotify-music/id324684580",
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
@@ -3550,7 +3550,7 @@
                         "D2C19886"
                     ],
                     "apt-sources": [
-                        "deb http:\/\/repository.spotify.com stable non-free"
+                        "deb http://repository.spotify.com stable non-free"
                     ]
                 }
             },
@@ -3567,7 +3567,7 @@
             "remove-packages": "aptik",
             "description": [
                 "A utility to simplify re-installation of",
-                "software packages after upgrading\/re-installing Ubuntu-based",
+                "software packages after upgrading/re-installing Ubuntu-based",
                 "distributions. Provides options to backup and re-install",
                 "extra applications installed by user; backup and re-add",
                 "third-party PPAs; backup and restore downloaded packages in",
@@ -3576,7 +3576,7 @@
             "alternate-to": null,
             "subcategory": "Maintenance",
             "open-source": true,
-            "url-info": "http:\/\/www.teejeetech.in\/search\/label\/aptik",
+            "url-info": "http://www.teejeetech.in/search/label/aptik",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
@@ -3584,7 +3584,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:teejee2008\/ppa",
+                    "enable-ppa": "ppa:teejee2008/ppa",
                     "source-file": "teejee2008-ubuntu-ppa-CODENAME"
                 }
             },
@@ -3610,7 +3610,7 @@
             "alternate-to": "Piriform CCleaner",
             "subcategory": "Maintenance",
             "open-source": true,
-            "url-info": "http:\/\/bleachbit.sourceforge.net",
+            "url-info": "http://bleachbit.sourceforge.net",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3630,7 +3630,7 @@
             "install-packages": "hardinfo",
             "remove-packages": "hardinfo",
             "description": [
-                "<b>Known as HardInfo<\/b>. A small application that displays",
+                "<b>Known as HardInfo</b>. A small application that displays",
                 "information about your hardware and operating system.",
                 "Currently it knows about PCI, ISA PnP, USB, IDE, SCSI, Serial",
                 "and parallel port devices."
@@ -3638,7 +3638,7 @@
             "alternate-to": null,
             "subcategory": "System Information",
             "open-source": true,
-            "url-info": "http:\/\/hardinfo.org\/",
+            "url-info": "http://hardinfo.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3661,20 +3661,20 @@
                 "Connects smartphones to your",
                 "desktop to integrate with your smartphones and similar",
                 "devices. At the moment it only supports Android based devices.",
-                "<ul><li><b>Requires: <\/b><i>KDEConnect installed on your smartphone and <u>Indicators enabled<\/u> via <a href=cmd:\/\/run?mate-tweak>MATE Tweak<\/a>.<\/i><\/li><\/ul>"
+                "<ul><li><b>Requires: </b><i>KDEConnect installed on your smartphone and <u>Indicators enabled</u> via <a href=cmd://run?mate-tweak>MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Connectivity",
             "open-source": true,
-            "url-info": "https:\/\/github.com\/vikoadi\/indicator-kdeconnect",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=org.kde.kdeconnect_tp",
+            "url-info": "https://github.com/vikoadi/indicator-kdeconnect",
+            "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:vikoadi\/ppa",
+                    "enable-ppa": "ppa:vikoadi/ppa",
                     "source-file": "vikoadi-ubuntu-ppa-CODENAME"
                 }
             },
@@ -3689,19 +3689,19 @@
             "remove-packages": "gnome-schedule",
             "description": [
                 "A UI for configuring a users&#8217;",
-                "<code>crontab<\/code> so that tasks run at set intervals. It",
+                "<code>crontab</code> so that tasks run at set intervals. It",
                 "has templates support so that you won&#8217;t have to create the",
                 "same task again and again. If run as root, you can edit any",
-                "user&#8217;s <code>crontab<\/code> and <code>at<\/code> tasks.",
+                "user&#8217;s <code>crontab</code> and <code>at</code> tasks.",
                 "Intervals are human readable strings like <i>Every hour",
-                "instead<\/i> of <code>0 * * * *<\/code>. There is an Advanced",
-                "mode for <code>crontab<\/code> experts. A calendar allows you",
+                "instead</i> of <code>0 * * * *</code>. There is an Advanced",
+                "mode for <code>crontab</code> experts. A calendar allows you",
                 "to choose the day you want a task executed."
             ],
             "alternate-to": null,
             "subcategory": "Automation",
             "open-source": true,
-            "url-info": "http:\/\/gnome-schedule.sourceforge.net\/",
+            "url-info": "http://gnome-schedule.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3730,7 +3730,7 @@
             "alternate-to": null,
             "subcategory": "Automation",
             "open-source": true,
-            "url-info": "http:\/\/gnometerminator.blogspot.co.uk\/p\/introduction.html",
+            "url-info": "http://gnometerminator.blogspot.co.uk/p/introduction.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3738,7 +3738,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:gnome-terminator\/ppa",
+                    "enable-ppa": "ppa:gnome-terminator/ppa",
                     "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
                 }
             },
@@ -3752,7 +3752,7 @@
             "install-packages": "qemu,qemu-kvm,qemu-system,virt-manager,virt-viewer,libvirt-bin",
             "remove-packages": "qemu,qemu-kvm,qemu-system,virt-manager,virt-viewer,libvirt-bin",
             "description": [
-                "A desktop application for managing virtual machines through <code>libvirt<\/code>.",
+                "A desktop application for managing virtual machines through <code>libvirt</code>.",
                 "It primarily targets KVM VMs, but also manages Xen and LXC",
                 "(linux containers). It presents a summary view of running",
                 "domains, their live performance and resource utilization",
@@ -3764,7 +3764,7 @@
             "alternate-to": "Oracle&reg; VirtualBox",
             "subcategory": "Visualization",
             "open-source": true,
-            "url-info": "https:\/\/virt-manager.org\/",
+            "url-info": "https://virt-manager.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3794,7 +3794,7 @@
             "alternate-to": "VMware Workstation",
             "subcategory": "Visualization",
             "open-source": false,
-            "url-info": "https:\/\/www.virtualbox.org\/",
+            "url-info": "https://www.virtualbox.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3803,9 +3803,9 @@
                 "all": {
                     "method": "manual",
                     "source-file": "virtualbox",
-                    "apt-key-url": "https:\/\/www.virtualbox.org\/download\/oracle_vbox.asc",
+                    "apt-key-url": "https://www.virtualbox.org/download/oracle_vbox.asc",
                     "apt-sources": [
-                        "deb http:\/\/download.virtualbox.org\/virtualbox\/debian CODENAME contrib"
+                        "deb http://download.virtualbox.org/virtualbox/debian CODENAME contrib"
                     ]
                 }
             },
@@ -3830,7 +3830,7 @@
             "alternate-to": null,
             "subcategory": "Accessibility",
             "open-source": true,
-            "url-info": "http:\/\/eviacam.sourceforge.net\/index.php",
+            "url-info": "http://eviacam.sourceforge.net/index.php",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3838,7 +3838,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:cesar-crea-si\/eviacam",
+                    "enable-ppa": "ppa:cesar-crea-si/eviacam",
                     "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
                 }
             },
@@ -3860,7 +3860,7 @@
             "alternate-to": null,
             "subcategory": "Accessibility",
             "open-source": true,
-            "url-info": "http:\/\/www.workrave.org\/",
+            "url-info": "http://www.workrave.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3889,7 +3889,7 @@
             "alternate-to": "Windows&reg; Simple File Sharing",
             "subcategory": "Server",
             "open-source": true,
-            "url-info": "https:\/\/www.samba.org\/",
+            "url-info": "https://www.samba.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -3914,25 +3914,25 @@
                 "automatically converts and streams your media on-the-fly to",
                 "play on any device.",
                 "<br><br>When installed run <code>sudo service emby-server",
-                "start<\/code> from a terminal to start Emby and then point a",
-                "browser to <a href=cmd:\/\/link?http:\/\/localhost:8096>http:\/\/localhost:8096<\/a>",
+                "start</code> from a terminal to start Emby and then point a",
+                "browser to <a href=cmd://link?http://localhost:8096>http://localhost:8096</a>",
                 "to configure Emby."
             ],
             "alternate-to": "Windows&reg; Media Center",
             "subcategory": "Server",
             "open-source": true,
-            "url-info": "http:\/\/emby.io",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.mb.android",
-            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/emby\/id992180193",
+            "url-info": "http://emby.io",
+            "url-android": "https://play.google.com/store/apps/details?id=com.mb.android",
+            "url-ios": "https://itunes.apple.com/gb/app/emby/id992180193",
             "arch": "i386,amd64",
             "releases": "trusty,wily",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "emby-server",
-                    "apt-key-url": "http:\/\/download.opensuse.org\/repositories\/home:emby\/xUbuntu_OSVERSION\/Release.key",
+                    "apt-key-url": "http://download.opensuse.org/repositories/home:emby/xUbuntu_OSVERSION/Release.key",
                     "apt-sources": [
-                        "deb http:\/\/download.opensuse.org\/repositories\/home:\/emby\/xUbuntu_OSVERSION\/ \/"
+                        "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_OSVERSION/ /"
                     ]
                 }
             },
@@ -3948,13 +3948,13 @@
             "description": [
                 "Installs the official server so you can create your own multi-player world",
                 "to play with family and friends.",
-                "<br><br>When installed, run <code>minecraft-server<\/code> in the folder used for the server",
-                "<br>To learn more on setting up, see the <a href=cmd:\/\/link?http:\/\/minecraft.gamepedia.com\/Setting_up_a_server> Minecraft Wiki <\/A>."
+                "<br><br>When installed, run <code>minecraft-server</code> in the folder used for the server",
+                "<br>To learn more on setting up, see the <a href=cmd://link?http://minecraft.gamepedia.com/Setting_up_a_server> Minecraft Wiki </A>."
             ],
             "alternate-to": null,
             "subcategory": "Server",
             "open-source": false,
-            "url-info": "http:\/\/minecraft.gamepedia.com\/Setting_up_a_server",
+            "url-info": "http://minecraft.gamepedia.com/Setting_up_a_server",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -3962,7 +3962,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg\/minecraft",
+                    "enable-ppa": "ppa:flexiondotorg/minecraft",
                     "source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
                 }
             },
@@ -3984,25 +3984,25 @@
             "alternate-to": null,
             "subcategory": "Instant Messaging",
             "open-source": true,
-            "url-info": "http:\/\/wiki.mumble.info\/wiki\/Main_Page",
-            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.morlunk.mumbleclient.free",
-            "url-ios": "http:\/\/itunes.apple.com\/us\/app\/mumble\/id443472808",
+            "url-info": "http://wiki.mumble.info/wiki/Main_Page",
+            "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
+            "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "precise": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "trusty": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "wily": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:mumble\/release",
+                    "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
                 },
                 "all": {
@@ -4010,7 +4010,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "openssh-server": {
             "name": "OpenSSH",
             "img": "openssh",
@@ -4020,16 +4020,16 @@
             "remove-packages": "ssh,sshguard",
             "description": [
                 "A suite of software utilising the",
-                "<code>ssh<\/code> protocol to securely connect to another",
+                "<code>ssh</code> protocol to securely connect to another",
                 "computer. The protocol uses encryption and multiple",
                 "authentication methods to provide secure tunneling as",
                 "well as support for SFTP and X11 forwarding.",
-                "<ul><li><b>Note: <\/b><i>This will also install <code>sshguard<\/code> to protect your computer from network attacks.<\/i><\/li><\/ul>"
+                "<ul><li><b>Note: </b><i>This will also install <code>sshguard</code> to protect your computer from network attacks.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Server",
             "open-source": true,
-            "url-info": "https:\/\/www.openssh.com\/",
+            "url-info": "https://www.openssh.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -4057,7 +4057,7 @@
             "alternate-to": "Citrix Workspace Cloud",
             "subcategory": "Server",
             "open-source": true,
-            "url-info": "http:\/\/wiki.x2go.org\/doku.php",
+            "url-info": "http://wiki.x2go.org/doku.php",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -4065,7 +4065,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:x2go\/stable",
+                    "enable-ppa": "ppa:x2go/stable",
                     "source-file": "x2go-ubuntu-stable-CODENAME"
                 }
             },
@@ -4092,7 +4092,7 @@
             "alternate-to": "Ubuntu Software Center",
             "subcategory": "Software Center",
             "open-source": false,
-            "url-info": "http:\/\/www.appgrid.org\/",
+            "url-info": "http://www.appgrid.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
@@ -4100,7 +4100,7 @@
             "pre-install": {
                 "all": {
                     "method": "partner-repo+ppa",
-                    "enable-ppa": "ppa:appgrid\/stable",
+                    "enable-ppa": "ppa:appgrid/stable",
                     "source-file": "appgrid-ubuntu-stable-CODENAME"
                 }
             },
@@ -4119,7 +4119,7 @@
             "alternate-to": "Ubuntu Software Center",
             "subcategory": "Software Center",
             "open-source": true,
-            "url-info": "https:\/\/wiki.gnome.org\/Apps\/Software",
+            "url-info": "https://wiki.gnome.org/Apps/Software",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -4148,7 +4148,7 @@
             "alternate-to": null,
             "subcategory": "Software Center",
             "open-source": true,
-            "url-info": "https:\/\/apps.ubuntu.com\/",
+            "url-info": "https://apps.ubuntu.com/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -4169,17 +4169,17 @@
             "remove-packages": "synaptic",
             "description": [
                 "A graphical package management program",
-                "for <code>apt<\/code>. It provides the same features as the",
-                "<code>apt-get<\/code> command line utility, allowing you to",
+                "for <code>apt</code>. It provides the same features as the",
+                "<code>apt-get</code> command line utility, allowing you to",
                 "install, upgrade, remove or purge individual packages; modify",
                 "repository settings; view change logs and even lock a package",
                 "to a specific version.",
-                "<br><br><span class=&#8217;fa fa-warning&#8217;><\/span> <b>This tool is primarily for advanced users, use with caution.<\/b>"
+                "<br><br><span class=&#8217;fa fa-warning&#8217;></span> <b>This tool is primarily for advanced users, use with caution.</b>"
             ],
             "alternate-to": null,
             "subcategory": "Package Manager",
             "open-source": true,
-            "url-info": "http:\/\/www.nongnu.org\/synaptic\/index.html",
+            "url-info": "http://www.nongnu.org/synaptic/index.html",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
@@ -4213,7 +4213,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:ubuntu-mate-dev\/welcome",
+                    "enable-ppa": "ppa:ubuntu-mate-dev/welcome",
                     "source-file": "ubuntu-mate-dev-ubuntu-welcome-CODENAME"
                 }
             },
@@ -4263,7 +4263,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:yannubuntu\/boot-repair",
+                    "enable-ppa": "ppa:yannubuntu/boot-repair",
                     "source-file": "yannubuntu-ubuntu-boot-repair-CODENAME"
                 }
             },
@@ -4403,7 +4403,7 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:graphics-drivers\/ppa",
+                    "enable-ppa": "ppa:graphics-drivers/ppa",
                     "source-file": "graphics-drivers-ubuntu-ppa-CODENAME"
                 }
             },
