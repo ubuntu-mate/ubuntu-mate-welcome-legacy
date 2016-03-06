@@ -1482,6 +1482,36 @@
             },
             "working": true
         },
+        "corebird": {
+            "name": "Corebird",
+            "img": "corebird",
+            "main-package": "corebird",
+            "launch-command": "corebird",
+            "install-packages": "corebird",
+            "remove-packages": "corebird",
+            "description": [
+                "A modern and lightweight Twitter client. It features",
+                "inline image and video preview, creation of lists and favorites,",
+                "filtering of tweets and full text search. Corebird is able to manage multiple",
+                "Twitter accounts."
+            ],
+            "alternate-to": null,
+            "subcategory": "Instant Messaging",
+            "open-source": true,
+            "url-info": "http://corebird.baedert.org/",
+            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.twitter.android",
+            "url-ios": "https:\/\/itunes.apple.com\/gb\/app\/twitter\/id333903271",
+            "arch": "i386,amd64",
+            "releases": "wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntuhandbook1\/corebird",
+                    "source-file": "ubuntuhandbook1-ubuntu-corebird-CODENAME"
+                }
+            },
+            "working": true
+        },        
         "caja-dropbox": {
             "name": "Caja Dropbox",
             "img": "dropbox",
