@@ -212,20 +212,6 @@ div .center-inside {
   text-align: center;
 }
 
-/* System Specifications Table */
-#system-specs table {
-  width: 100%;
-}
-
-#system-specs th {
-  width: 100px;
-  text-align: center;
-}
-
-#system-specs td {
-  font-family: 'Ubuntu Mono';
-}
-
 
 /* Prevent accidental dragging on images and links */
 img, a {
@@ -754,6 +740,68 @@ blockquote.terminal {
   height: 100%;
   cursor: default;
   z-index: 8;
+}
+
+/************************
+ * Getting Started - System Specifications
+*************************/
+.specs-icon {
+  top: 100px; bottom: 0;
+  left: 4%;
+  width: 20%;
+  height: auto;
+  margin: auto;
+  position: absolute;
+}
+
+#specs-loading {
+  width: 80%;
+  height: 25px;
+  top: 100px; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  text-align: center;
+}
+
+.specs-box {
+  padding: 4px;
+  position: absolute;
+}
+
+.specs-box h4 {
+  color: #758A53;
+}
+
+.specs-1 {
+  top: 200px;
+  left: 26%;
+  height: 20%;
+  width: 35%;
+}
+
+.specs-2 {
+  top: 58%;
+  left: 26%;
+  height: 20%;
+  width: 35%;
+}
+
+.specs-3 {
+  top: 200px;
+  right: 2%;
+  height: 20%;
+  width: 35%;
+}
+
+.specs-4 {
+  top: 58%;
+  right: 2%;
+  height: 20%;
+  width: 35%;
+}
+
+.specs-error {
+  color: #FF0000;
 }
 
 /************************
