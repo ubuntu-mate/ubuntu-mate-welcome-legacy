@@ -1642,7 +1642,7 @@
                     "source-file": "google-chrome",
                     "apt-key-url": "http:\/\/dl.google.com\/linux\/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb http:\/\/dl.google.com\/linux\/chrome\/deb\/ stable main"
+                        "deb [arch=amd64] http:\/\/dl.google.com\/linux\/chrome\/deb\/ stable main"
                     ]
                 }
             },
