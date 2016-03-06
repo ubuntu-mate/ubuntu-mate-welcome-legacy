@@ -1,14 +1,21 @@
-ubuntu-mate-welcome (16.04.4) UNRELEASED; urgency=medium
+ubuntu-mate-welcome (16.04.4) xenial; urgency=medium
 
-  * Fixed subscription updating.
-  * Fixed RedNoteBook.
-  * Fixed Dropbox.
-  * Fixed Upgrade System, so it is compatible with Ubuntu MATE Base.
-  * Added framework for accepting translations.
-  * Added Ardour, GNOME Software.
-  * Added ubuntu-make PPA.
-  * Updated Software to consistenly use the name Software Boutique.
-  * Updated splash screen.
+  * Fix subscription updates.
+  * Fix Abobe Flash.
+  * Fix Dropbox.
+  * Fix Google Chrome, i386 repository is no longer available.
+  * Fix LibreOffice upgrades.
+  * Fix Murmur, which was refenreced but missing.
+  * Fix RedNoteBook.
+  * Fix Upgrade System, so it is compatible with Ubuntu MATE Base.
+  * Add framework for accepting translations.
+  * Add Ardour, Corebird, GNOME Software.
+  * Add ubuntu-make PPA.
+  * Update Software to consistenly use the name Software Boutique.
+  * Update splash screen.
+  * Update copyright attributions.
+  * Whitespace cleanup.
+  * Closes (LP: #)  
 
  -- Martin Wimpress <code@flexion.org>  Tue, 23 Feb 2016 21:35:07 +0000
 
