@@ -3937,6 +3937,49 @@
             },
             "working": true
         },
+        "murmur": {
+            "name": "Murmur",
+            "img": "mumble",
+            "main-package": "mumble-server",
+            "launch-command": null,
+            "install-packages": "mumble-server",
+            "remove-packages": "mumble-server",
+            "description": [
+                "Murmur is the VoIP server component for Mumble. Murmur is installed",
+                "in a system-wide fashion, but can also be run by individual users.",
+                "Each murmur process supports multiple virtual servers, each with their",
+                "own user base and channel list."
+            ],
+            "alternate-to": null,
+            "subcategory": "VoIP",
+            "open-source": true,
+            "url-info": "http:\/\/wiki.mumble.info\/wiki\/Main_Page",
+            "url-android": "https:\/\/play.google.com\/store\/apps\/details?id=com.morlunk.mumbleclient.free",
+            "url-ios": "http:\/\/itunes.apple.com\/us\/app\/mumble\/id443472808",
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "precise": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:mumble\/release",
+                    "source-file": "mumble-ubuntu-release-CODENAME"
+                },
+                "trusty": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:mumble\/release",
+                    "source-file": "mumble-ubuntu-release-CODENAME"
+                },
+                "wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:mumble\/release",
+                    "source-file": "mumble-ubuntu-release-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },        
         "openssh-server": {
             "name": "OpenSSH",
             "img": "openssh",
