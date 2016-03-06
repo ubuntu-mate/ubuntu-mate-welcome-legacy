@@ -390,6 +390,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
       // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
       if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
       if ( appno == 2 ) {  targetDiv = 'x2go-server';  }
+      if ( appno == 3 ) {  targetDiv = 'murmur';  }
 
       setTimeout(function(){
           $('html, body').animate({
