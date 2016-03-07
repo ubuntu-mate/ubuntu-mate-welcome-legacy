@@ -836,8 +836,6 @@ class WelcomeApp(object):
             If no translated slides are available use the ones in data/ or ./
         """
 
-        codes = country_codes.get_country_codes()
-
         if (arg.locale is not None) :
             locale_to_use = arg.locale
             # use translated html from this specified locale if is is valid
