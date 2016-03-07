@@ -64,8 +64,7 @@ and testing purposes, the following can be specified:
 
 ## edgar-allan
 
-Sstupid name, feel free to change it, which supports the following
-arguments:
+Stupid name, but we like it, which supports the following arguments:
 
   * `create-all-pots` - will create a `.pot` file for every slide (using
   `@zwnj;` chars to denote translatable string) and place it in `data/po/<slide name>`
