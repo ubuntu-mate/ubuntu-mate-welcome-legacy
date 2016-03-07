@@ -631,12 +631,11 @@ class AppView(WebKit.WebView):
             self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
             self.execute_script('$("#boot-mode").html("' + systemstate.boot_mode + '")')
 
-            # Display system information if successfully cached.
-            if systemstate.system_info_cached:
-                systemstate.append_system_info(self)
-
             # Update any applications featured on these pages.
             dynamicapps.update_app_status(self, 'hardinfo')
+            dynamicapps.update_app_status(self, 'gparted')
+            dynamicapps.update_app_status(self, 'gnome-disk-utility')
+            dynamicapps.update_app_status(self, 'mate-system-monitor')
             dynamicapps.update_app_status(self, 'boot-repair')
             dynamicapps.update_app_status(self, 'codecs')
             dynamicapps.update_app_status(self, 'firmware')
@@ -651,7 +650,7 @@ class AppView(WebKit.WebView):
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
                 self.execute_script('$("#footer-left").hide()')
-                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')                
+                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
             # Dynamically load application lists.
@@ -774,8 +773,6 @@ class AppView(WebKit.WebView):
             subprocess.Popen(['gparted-pkexec'])
         elif uri == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
-        elif uri == 'hardinfo':
-            subprocess.Popen(['hardinfo'])
         elif uri.startswith('run?'):
             subprocess.Popen([uri[4:]])
         elif uri.startswith('link?'):
@@ -788,8 +785,6 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
-        elif uri == 'get-spec-ram':
-            systemstate.append_system_info(self, True)
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
         elif uri == 'subscribe-updates':
@@ -806,12 +801,7 @@ class AppView(WebKit.WebView):
                 self.execute_script('$("#update-subscribing").hide()')
                 self.execute_script('$("#update-notification").show()')
         elif uri == 'init-system-info':
-            if not systemstate.system_info_cached:
-                systemstate.get_system_info(self)
-            else:
-                self.execute_script('$("#system-specs").show()')
-                self.execute_script('$("#specs-not-ready").hide()')
-                self.execute_script('$("html").css("cursor","auto")')
+            systemstate.get_system_info(self)
         else:
             print('[Error] Unknown command: ', uri)
       except Exception as e:
@@ -841,11 +831,11 @@ class WelcomeApp(object):
     def _get_translated_slides(self):
         """ If a locale has been specified on the command line, get translated slides
             for that. If not, get translated slides for the current locale
-             
+
             Place them in a directory called 'runtime' (with add symlinks to the 'js', 'css'
             etc .dirs) and change the data path to point to this..
-         
-            If no translated slides are available use the ones in data/ or ./ 
+
+            If no translated slides are available use the ones in data/ or ./
         """
 
         codes = country_codes.get_country_codes()
@@ -887,7 +877,7 @@ class WelcomeApp(object):
             # make sure we display the translated files
             self._data_path=run_path
         else:
-            print("[Debug]: No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
+            print("[Debug] No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
 
     def _build_app(self):
 
@@ -956,7 +946,6 @@ class WelcomeApp(object):
 class SystemState(object):
     def __init__(self):
         # Set initial variables
-        self.system_info_cached = False
         self.is_online = False
         self.user_name = getuser()
         self.updates_subscribed = False
@@ -1037,13 +1026,13 @@ class SystemState(object):
             return
 
         # TODO: Support dual graphic cards.
-        arg.print_verbose('[Graphics]','Detecting graphics vendor... ')
+        arg.print_verbose('Graphics','Detecting graphics vendor... ')
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            arg.print_verbose("[Graphics]","Couldn't detect a VGA Controller on this system.")
+            arg.print_verbose("Graphics","Couldn't detect a VGA Controller on this system.")
             output = 'Unknown'
 
         # Scan for and set known brand name.
@@ -1064,158 +1053,152 @@ class SystemState(object):
         arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
 
     def get_system_info(self, webkit):
-        print('[System Specs] Gathering system specifications... ')
+        print('[System Specs] Gathering system specifications...')
+
+        # Start collecting advanced system information in the background.
+        # (Python can do other things while this command completes)
+        arg.print_verbose('System Specs', 'Running "inxi" for advanced system information...')
         try:
-            # Use 'inxi' to retrieve the system information.
-            arg.print_verbose('System Specs','Caching: System')
-            self.specs_raw_system = str(subprocess.Popen('inxi -S', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Machine')
-            self.specs_raw_machine = str(subprocess.Popen('inxi -M', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: CPU')
-            self.specs_raw_cpu = str(subprocess.Popen('inxi -C', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Memory (RAM)')
-            self.specs_raw_memory = str(subprocess.Popen('free | grep \'Mem:\' | awk \'{print $2}\'', stdout=subprocess.PIPE, shell='True').communicate()[0]).strip("b'\\n")
-            arg.print_verbose('System Specs','Caching: Drive List')
-            self.specs_raw_drivelist = str(subprocess.Popen('inxi -D', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Partition')
-            self.specs_raw_partitions = str(subprocess.Popen('inxi -p', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: RAID')
-            self.specs_raw_raid = str(subprocess.Popen('inxi -R', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Optical Drive')
-            self.specs_raw_optical = str(subprocess.Popen('inxi -d', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            self.specs_raw_optical = 'Optical:  ' + '<b>dev:</b> ' + self.specs_raw_optical.split('Optical:')[1]
-            arg.print_verbose('System Specs','Caching: Graphics')
-            self.specs_raw_graphics = str(subprocess.Popen('inxi -G', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Audio')
-            self.specs_raw_audio = str(subprocess.Popen('inxi -A', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Network')
-            self.specs_raw_network = str(subprocess.Popen('inxi -i', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            arg.print_verbose('System Specs','Caching: Sensors')
-            self.specs_raw_sensors = str(subprocess.Popen('inxi -s', stdout=subprocess.PIPE, shell='True').communicate()[0])
+            inxi_raw = subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE)
+        except:
+            print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
 
-            # If commands were successfully executed.
-            self.system_info_cached = True
-            print("[System Specs] Successfully cached system specifications.")
-            webkit.execute_script('$("#specs-not-ready").hide()')
-            webkit.execute_script('$("#system-specs").fadeIn()')
-            webkit.execute_script('specs_cached = true')
-            webkit.execute_script('$("html").css("cursor","auto")')
-            self.append_system_info(webkit)
+        # Append a failure symbol beforehand in event something goes horribly wrong.
+        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'&zwnj;Could not gather data.&zwnj;\'><span class=\'fa fa-warning specs-error\'></span></a>'
+        for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
+                        'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
+            webkit.execute_script('$("#spec-' + element + '").html("' + html_tag + '")')
 
-        except Exception as e:
-            print("[System Specs] There was a problem running 'inxi'. Is this program no longer installed?")
-            print("[System Specs] Exception: "+e)
-            webkit.execute_script('$("#specs-not-ready").hide()')
-            webkit.execute_script('$("#specs-error").show()')
-            webkit.execute_script('$("html").css("cursor","auto")')
-            return
-
-    def append_system_info(self, webkit, get_root_ram_details_only=False):
-
-        # Cleans up raw data from the command.
-        def append_raw(data, label, target_element, existing=False):
-
-          try:
-            ## Only show the string after the "System:", "Network:" bit.
-            output = data.split(label+':')[1]
-
-            ## Clear out terminal colour codes.
-            output = output.replace(' \\x1b[1;34m','<b>')
-            output = output.replace('\\x1b[0;37m','</b>')
-            output = output.replace(' </b>','')
-            output = output.replace(' \\x1b','<br>')
-            output = output.replace('[0;37m','')
-            output = output.replace('[1;34m','')
-            output = output.replace('\\x1b','')
-            output = output.replace('[0m\'','')
-            output = output.replace('\\n','\n')
-            output = output.replace('<b>','<br><b>')
-            output = output.split('<br>', 1)[1]
-            output = output.strip('          ')
-
-            ## Replace some strings that inxi outputs with something tidier.
-            output = output.replace('<br><b>Desktop:</b> N/A','')
-            output = output.replace('Mobo:','Motherboard:')
-            output = output.replace('model:','Model:')
-            output = output.replace('<b>v:','<b>Version:')
-            output = output.replace('Bios:','BIOS Vendor:')
-            output = output.replace('date:','Date:')
-            output = output.replace('cache:','Cache:')
-            output = output.replace('clock speeds:','<br><u>Current Clock Speeds:</u>')
-            output = output.replace('max:','Max:')
-            output = output.replace('<br><b>ID-','<br><br><b>ID-')
-            output = output.replace('<br><b>Card-','<br><br><b>Card-')
-            output = output.replace('<br><b>Device-','<br><br><b>Device-')
-            output = output.replace('size:','Size:')
-            output = output.replace('used:','Used:')
-            output = output.replace('fs:','File System:')
-            output = output.replace('dev:','Device Block:')
-            output = output.replace('Features:','<br><b><u>Features:</u></b><br>')
-            output = output.replace('features:','Features:')
-            output = output.replace('driver:','Drivers:')
-            output = output.replace('drivers:','Drivers:')
-            output = output.replace('state:','State:')
-            output = output.replace('speed:','Speed:')
-            output = output.replace('dev-links:','Device Block Links:')
-            output = output.replace('multissession:','Multi-Session Support:')
-            output = output.replace('audio:','Audio Support:')
-            output = output.replace('dvd:','DVD Support:')
-            output = output.replace('rw:','Read/Write Support:')
-            output = output.replace('duplex:','Duplex:')
-            output = output.replace('mac:','MAC Address:')
-            output = output.replace('ip:','LAN IP Address:')
-            output = output.replace('IF:','Interface:')
-            output = output.replace('WAN IP:','Public IP Address:')
-            output = output.replace('mobo:','Motherboard:')
-            output = output.replace('gpu:','GPU:')
-            output = output.replace('cpu:','<br>CPU:')
-            output = output.replace('(in rpm)','(in RPM)')
-            output = output.replace('devices:','Devices:')
-            output = output.replace('<b>Device Block:</b> No optical drives detected.','No optical drives detected.')
-
-            # Write to target element, but only clear if no data is appended here yet.
-            if not existing:
-                # No information exists in this element yet.
-                webkit.execute_script('$("#spec-' + target_element + '").html("")')
+        # Collect basic system information
+        def run_external_command(command, with_shell=False):
+            if with_shell:
+                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
             else:
-                # Additional commands provide more data for here, add a gap.
-                webkit.execute_script('$("#spec-' + target_element + '").append("<br><br>")')
+                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
+            output = raw.replace("b'","").replace("\\n'","").replace("\\n","")
+            return output
 
-            for line in output.split('\n'):
-                webkit.execute_script('$("#spec-' + target_element + '").append("' + line + '")')
+        ## Distro
+        try:
+            arg.print_verbose('System Specs', 'Gathering data: Distribution')
+            distro_description = run_external_command(['lsb_release','-d','-s'])
+            distro_codename = run_external_command(['lsb_release','-c','-s'])
+            webkit.execute_script('$("#spec-distro").html("' + distro_description + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: Distribution')
 
-          except:
-              print('[System Specs] No suitable data to process for "' + label + '".')
-              if not existing:
-                  webkit.execute_script('$("#spec-' + target_element + '").html("No information available.")')
+        ## Kernel
+        try:
+            arg.print_verbose('System Specs', 'Gathering data: Kernel')
+            kernel = run_external_command(['uname','-r'])
+            webkit.execute_script('$("#spec-kernel").html("' + kernel + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: Kernel')
 
-        # If authenticating to retrieve root privileged information about the RAM.
-        if get_root_ram_details_only:
-            print('[System Specs] Authenticating to retrieve RAM details...')
-            ram_output = str(subprocess.Popen('pkexec inxi -m', stdout=subprocess.PIPE, shell='True').communicate()[0])
-            append_raw(ram_output, 'Memory', 'ram-advanced')
-            return
+        ## Motherboard
+        try:
+            arg.print_verbose('System Specs', 'Gathering data: Motherboard')
+            motherboard_name = run_external_command(['cat','/sys/devices/virtual/dmi/id/board_name'])
+            webkit.execute_script('$("#spec-motherboard").html("' + motherboard_name + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: Motherboard')
 
-        # Process each category of system information.
-        append_raw(self.specs_raw_system, 'System', 'system')
-        append_raw(self.specs_raw_machine, 'Machine', 'machine')
-        append_raw(self.specs_raw_cpu, 'CPU', 'cpu')
-        append_raw(self.specs_raw_drivelist, 'Drives', 'storage')
-        append_raw(self.specs_raw_partitions, 'Partition', 'storage', True)
-        append_raw(self.specs_raw_raid, 'RAID', 'storage', True)
-        append_raw(self.specs_raw_optical, 'Optical', 'optical')
-        append_raw(self.specs_raw_graphics, 'Graphics', 'graphics')
-        append_raw(self.specs_raw_audio, 'Audio', 'audio')
-        append_raw(self.specs_raw_network, 'Network', 'network')
-        append_raw(self.specs_raw_sensors, 'Sensors', 'sensors')
+        ## CPU Details
+        try:
+            arg.print_verbose('System Specs', 'Gathering data: CPU')
+            cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
+            cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
+            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
+            if self.arch == 'i386':
+                cpu_arch_used = '32-bit'
+            elif self.arch == 'amd64':
+                cpu_arch_used = '64-bit'
+            else:
+                cpu_arch_used = self.arch
+            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
+            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
+            webkit.execute_script('$("#spec-arch-use").html("' + cpu_arch_used + '")')
+            webkit.execute_script('$("#spec-arch-supported").html("' + cpu_arch_supported + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU')
 
-        # Add details about UEFI/BIOS boot mode.
-        webkit.execute_script('$("#spec-system").append("<br><b>Boot Mode:</b> ' + self.boot_mode + '")')
+        ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
+        try:
+            if self.session_type == 'live':
+                webkit.execute_script('$(".specs-4").hide()')
+            else:
+                arg.print_verbose('System Specs', 'Gathering data: Storage')
+                root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
+                root_device = root_partition[:-1]
+                rootfs = os.statvfs('/')
+                root_size = rootfs.f_blocks * rootfs.f_frsize
+                root_free = rootfs.f_bavail * rootfs.f_frsize
+                entire_disk = run_external_command(['lsblk -b | grep "sda" | grep "disk"'], True)
+                entire_disk = int(entire_disk.split()[3])
+                webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
+                webkit.execute_script('$("#spec-capacity").html("' + str(int(entire_disk/1000/1000/1000)) + ' GB (' + str(int(entire_disk/1024/1024/1024)) + ' GiB)")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(root_size/1000/1000/1000)) + ' GB (' + str(int(root_size/1024/1024/1024)) + ' GiB)")')
+                webkit.execute_script('$("#spec-free-space").html("' + str(int(root_free/1000/1000/1000)) + ' GB (' + str(int(root_free/1024/1024/1024)) + ' GiB)")')
+        except:
+            print('[System Specs] Failed to retrieve data: Storage')
 
-        # Details for RAM require root privilages, show total capacity instead.
-        webkit.execute_script('$("#spec-ram").html("")')
-        webkit.execute_script('$("#spec-ram").append("<b>Total:</b> ' + str(round(int(self.specs_raw_memory)/1024/1024,1)) + ' GiB (' + str(round(int(self.specs_raw_memory)/1024)) + ' MiB)")')
-        webkit.execute_script('$("#spec-ram").append("<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + str(round(int(self.specs_raw_memory)/1000/1000,1)) + ' GB &nbsp;(' + str(round(int(self.specs_raw_memory)/1000)) + ' MB)")')
+        ## RAM
+        try:
+            arg.print_verbose('System Specs', 'Gathering Data: RAM')
+            ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
+            ram_bytes = float(ram_bytes.split()[1])
+            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB (' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)'
+            webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: RAM (Memory)')
+
+        ## Graphics
+        webkit.execute_script('$("#spec-graphics").html("' + self.graphics_grep + '")')
+
+        # Append advanced system information
+        try:
+            arg.print_verbose('System Specs', 'Waiting for inxi process to finish...')
+            inxi_output = str(inxi_raw.communicate()[0])
+            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
+            webkit.execute_script("$('#specs-inxi').html('')")
+            for line in inxi_output.split('\n'):
+                webkit.execute_script("$('#specs-inxi').append('" + line.strip('"').strip("'") + "<br>')")
+            print('[System Specs] Successfully appended advanced system information.')
+        except:
+            print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
+
+        # Check internet connectivity status.
+        if self.is_online:
+            webkit.execute_script('$("#specs-has-net").show()')
+            webkit.execute_script('$("#specs-has-no-net").hide()')
+        else:
+            webkit.execute_script('$("#specs-has-net").hide()')
+            webkit.execute_script('$("#specs-has-no-net").show()')
+
+        # Change icon depending on what type of device we are using.
+        if self.session_type == 'pi':
+            webkit.execute_script('$("#specs-device-rpi").show()')
+            webkit.execute_script('$(".specs-hideable").hide()')
+        elif self.arch == 'powerpc':
+            webkit.execute_script('$("#specs-device-powerpc").show()')
+        elif self.graphics_vendor == 'VirtualBox':
+            webkit.execute_script('$("#specs-device-vbox").show()')
+            webkit.execute_script('$(".specs-hideable").hide()')
+        else:
+            webkit.execute_script('$("#specs-device-normal").show()')
+
+        # Display UEFI/BIOS boot mode.
+        webkit.execute_script('$("#spec-boot-mode").html("' + self.boot_mode + '")')
+
+        # Hide root storage info if in a live session.
+        if self.session_type == 'live':
+            webkit.execute_script('$(".spec-3").hide()')
+
+        # Data cached, ready to display.
+        webkit.execute_script('$("#specs-loading").fadeOut("fast")')
+        webkit.execute_script('$("#specs-tabs").fadeIn("fast")')
+        webkit.execute_script('$("#specs-basic").fadeIn("medium")')
+        webkit.execute_script('$("html").css("cursor","default")')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':

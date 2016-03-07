@@ -21,14 +21,17 @@ Files: country_codes.py
        create_pos.py
        create_pots.py
        welcome-po.py
+       tools/app-index-debugger.py
+       test.po
 Copyright: 2016 Robin Thompson
            2016 Luke Horwell <lukehorwell37+code@gmail.com>
            2016 Martin Wimpress <code@flexion.org>           
 License: GPL-3+
 
 Files: data/css/welcome.css
-       data/img/welcome/*.png
+       data/img/welcome/*.gif
        data/img/welcome/*.jpg
+       data/img/welcome/*.png
        data/img/welcome/*.svg
        data/js/welcome.js
 Copyright: 2012-2013 Korora Project <dev@kororaproject.org>
@@ -41,13 +44,16 @@ License: GPL-2+
 Files: README.md
        data/img/logos/*
        data/img/shop/*
+       data/js/applications.json
        mate-settings-welcome.menu
        org.ubuntu-mate.welcome.policy
        ubuntu-mate-welcome-repository-installer
        ubuntu-mate-welcome.1
+       ubuntu-mate-software.desktop
        ubuntu-mate-welcome.desktop
        update-mate-menu-welcome
 Copyright: 2015-2016, Martin Wimpress <code@flexion.org>
+           2015-2016 Luke Horwell <lukehorwell37+code@gmail.com>
 License: GPL-2+
 
 Files: ubuntu-mate-welcome-rpi2-partition-resize
@@ -74,6 +80,7 @@ License: CC-BY-SA-3.0
 
 Files: data/img/applications/*.png
        data/img/applications/*.svg
+       data/img/applications/screenshots/*.jpg
        sources/img/*.xcf
 Copyright: 2004-2012, Canonical Ltd.
            2014-2015, Martin Wimpress <code@flexion.org>
