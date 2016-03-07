@@ -1,7 +1,17 @@
 #! /usr/bin/python3
 # -*- coding:utf-8 -*-
 
-import re,polib,os,sys,glob,shutil
+import glob
+import os
+import re
+import shutil
+import sys
+
+try:
+    import polib
+except:
+    print("Requires polib. apt-get install python3-polib.")
+    sys.exit(1)
 
 def get_translatables_from_file(input_file, trim_strs = True):
     """ Get all translatable strings (enclosed by '&zwnj;' characters) 
