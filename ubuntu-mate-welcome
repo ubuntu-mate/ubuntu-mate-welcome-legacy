@@ -29,13 +29,30 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
 gi.require_version("WebKit", "3.0")
 
-import apt, gettext, inspect, random, socket
-import json, tempfile, logging
-import os, sys, platform, subprocess, signal
-import shutil, locale
-import urllib.error, urllib.parse, urllib.request, webbrowser, glob
+import apt
+import gettext
+import glob
+import inspect
+import json
+import locale
+import logging
+import os
+import platform
+import random
+import shutil
+import signal
+import socket
+import subprocess
+import sys
+import tempfile
+import webbrowser
+
+import urllib.error
+import urllib.parse
+import urllib.request
 from aptdaemon.client import AptClient
-from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, AptProgressDialog
+from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
+                                  AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
@@ -43,11 +60,10 @@ from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 from getpass import getuser
 
-import country_codes
-
-# i18n - if no translation is available will use the inline strings from the code
+# i18n - if no translation is available use the inline strings
 t = gettext.translation("ubuntu-mate-welcome", "./locale", fallback=True)
 _ = t.gettext
+
 
 def goodbye(a=None, b=None):
     ''' Closing the program '''
@@ -56,6 +72,7 @@ def goodbye(a=None, b=None):
     # FIXME: Dirty way to kill the program, Gtk is no longer gracefully closed
     #        since child 'screenshot preview' windows may still running.
     exit()
+
 
 def set_proc_title(name=None):
     '''Set the process title'''
@@ -73,9 +90,10 @@ def set_proc_title(name=None):
 
     return ret
 
+
 class SimpleApt(object):
     def __init__(self, packages, action):
-        self._timeout=100
+        self._timeout = 100
         self.packages = packages
         self.action = action
         self.source_to_update = None
@@ -89,7 +107,8 @@ class SimpleApt(object):
             return
         elif not isinstance(error, aptdaemon.errors.TransactionFailed):
             # Catch internal errors of the client
-            error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,str(error))
+            error = aptdaemon.errors.TransactionFailed(ERROR_UNKNOWN,
+                                                       str(error))
         error_dialog = AptErrorDialog(error)
         error_dialog.run()
         error_dialog.hide()
@@ -837,8 +856,6 @@ class WelcomeApp(object):
 
             If no translated slides are available use the ones in data/ or ./
         """
-
-        codes = country_codes.get_country_codes()
 
         if (arg.locale is not None) :
             locale_to_use = arg.locale
