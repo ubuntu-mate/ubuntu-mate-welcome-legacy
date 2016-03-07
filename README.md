@@ -62,6 +62,57 @@ and testing purposes, the following can be specified:
 
 # Translations
 
+## edgar-allan
+
+Sstupid name, feel free to change it, which supports the following
+arguments:
+
+  * `create-all-pots` - will create a `.pot` file for every slide (using
+  `@zwnj;` chars to denote translatable string) and place it in `data/po/<slide name>`
+  * `translate-all` - for each slide, will produce translated html for
+  each `.po` found in `data/po/slidename`. The `.po` should according to
+  locale e.g. `en_GB.po`. The output will be written to the
+  `i18n/<locale>/` directory as `slide_name.html`
+  * `create-pot` - create a single `.pot` file (mainly for testing purposes)
+  * `translate` - translate a single slide (mainly for testing purposes)
+  * `po` - for each translatable string in a po file, set the
+  translation to be the original string reversed (only for use when
+  testing...)
+
+Addtional arguments:
+
+  * `--input=<filename>` used with `create-pot` and translate and
+  specifies the source html. Also used with `po` to specified `.po` file
+  containing strings to be reversed `--po-file=<filename>` used with
+  `translate` and specified `.po` file to use
+  * `--output=<filename>` used with `create-pot`, `translate` and `po`
+  and specifies the output file
+
+Normal usage would be to:
+
+  * run `create-pot` to create an initial set of `.pot` files or to
+  update them when new strings are added to slides.
+  * check the .pots in `poedit` or a text editor in case missing or
+  misaligned `&zwnj;`'s in the html
+  * copy `.po` files translations from Transiflex into the
+  `data/po/<slide_name>/` directories
+  * run `translate-all` to build a set of translated slides
+
+## create-test-pos.sh
+
+For testing purposes only. After `edgar-allan create-all-pots` has been
+run, this can be used to generate test `en_GB` and `fr_FR` .po files for
+each slide. The `en_GB` version contains no translations whilst the
+French version has every translation set as the reverse of the original
+string. Translated html can be produced from these .po files by running
+`edgar-allan translate-all`, and viewed in the `i18n/en_GB` and `fr_FR`
+directories.
+
+
+# Old translation documentation
+
+**THESE ARE OBSOLETE AND WILL BE REMOVED SOON.**
+
 Ubuntu MATE Welcome now supports translated html. To serve up html, the
 translated files are copied out of i18n directory into another
 directory which has symlinks to the css, js etc. directories, and
