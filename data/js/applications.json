@@ -2279,6 +2279,45 @@
                 }
             },
             "working": true
+        },
+        "wireshark": {
+            "name": "Wireshark",
+            "img": "wireshark",
+            "main-package": "wireshark-gtk",
+            "launch-command": "wireshark-gtk",
+            "install-packages": "wireshark-gtk",
+            "remove-packages": "wireshark-gtk",
+            "description": [
+                "The world&#8217;s foremost network protocol analyzer. It",
+                "lets you see what&#8217;s happening on your network at a",
+                "microscopic level. It is the de facto (and often de",
+                "jure) standard across many industries and educational",
+                "institutions."
+            ],
+            "alternate-to": null,
+            "subcategory": "Network Analyzer",
+            "open-source": true,
+            "url-info": "https://www.wireshark.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "trusty": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:wireshark-dev/stable",
+                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
+                },
+                "wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:wireshark-dev/stable",
+                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
         },        
         "x2goclient": {
             "name": "X2Go Client",
