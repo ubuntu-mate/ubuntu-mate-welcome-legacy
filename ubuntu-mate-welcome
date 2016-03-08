@@ -561,21 +561,14 @@ class WelcomeConfig(object):
 
 
 class AppView(WebKit.WebView):
-    def __init__(self, slide_list = None):
-        """
-            Args:
-            slide_list : A list of tuples containing the filenames of translated html files
-                         or, if no translation is available, the filename of the original 
-                         untranslated slide
-        """
-
+    def __init__(self):
         WebKit.WebView.__init__(self)
+
         self._config = WelcomeConfig()
         self._apt_cache = apt.Cache()
         self.connect('load-finished', self._load_finished_cb)
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
-        self._slide_list = slide_list
 
         # Disable right-click context menu as it isn't needed.
         self.props.settings.props.enable_default_context_menu = False
@@ -712,33 +705,10 @@ class AppView(WebKit.WebView):
 
         self.l_uri = uri
 
-        if self._slide_list is None:
-            # no translations have to been specified, so we can just load the specified page..
-            page = urllib.request.urlopen(uri)
-        else:
-            # find the slide in slide_list
-            head, slide_name = os.path.split(uri)
-            found = False
-            for slide in self._slide_list:
-                head, trans_slide_name = os.path.split(slide)
-                if slide_name == trans_slide_name:
-                    found = True
-                    # load the translated html
-                    trans_uri = urllib.parse.urljoin('file:', urllib.request.pathname2url(slide))
-                    page = urllib.request.urlopen(trans_uri)
-                    break
-
-            if not found:
-                # this should never happen, but if it does, recover by loading the originally specified page
-                print ('[Debug]: Couldn''t find slide %s when getting tranlsation' %uri)
-                page = urllib.request.urlopen(uri)
+        page = urllib.request.urlopen(uri)
 
         # use UTF-8 encoding as fix for &nbsp chars in translated html
-        # 
-        # When loading the html, for the base_uri, use the uri of the originally specified 
-        # page (which will be in _data_path) rather than the uri of any translated html we may be using instead.
-        # Doing this allows the js, css, fonts etc. directories to be located by the translated page,
-        frame.load_string(page.read().decode(), "text/html", "UTF-8", uri);
+        frame.load_string(page.read().decode(), "text/html", "UTF-8", page.geturl())
 
         pol_dec.ignore()
         return True
@@ -876,43 +846,6 @@ class WelcomeApp(object):
 
         self._build_app()
 
-    def _get_translated_slides(self):
-        """ If a locale has been specified on the command line, get translated slides
-            for that. If not, get translated slides for the current locale
-
-        Do not assume that every slide has a translation, check each file individually
-
-        Returns:
-            a list of filenames of translated slides - if there is no translated version
-            of a slide, the filename of the untranslated version from the _data_path directory
-            is used instead
-            
-        """
-
-        if (arg.locale is not None) :
-            locale_to_use = arg.locale
-        else:
-            locale_to_use = locale.getlocale()[0]
-
-        locale_dir = os.path.join(os.path.join(self._location, "i18n"), locale_to_use)
-        
-        results = []
-
-        slides = glob.glob(os.path.join(self._data_path, '*.html'))
-        for slide in slides:
-            # get the slide name and see if a translated version exists
-            head, slide_name = os.path.split(slide)
-            
-            trans_slide = os.path.join(locale_dir, slide_name)
-            if os.path.exists(trans_slide):
-                results.append(trans_slide)
-                print ("[Debug]: Will use %s translation of %s" %(locale_to_use, slide_name))
-            else:
-                results.append(slide)
-                print ("[Debug: No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
-       
-        return results
-
     def _build_app(self):
 
         # Slightly different attributes if "--software-only" is activated.
@@ -943,10 +876,8 @@ class WelcomeApp(object):
         icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
-        #get the translated slide list
-        trans_slides = self._get_translated_slides()
         # build webkit container
-        mv = AppView(trans_slides)
+        mv = AppView()
 
         # load our index file
         file = os.path.abspath(os.path.join(self._data_path, load_file))
