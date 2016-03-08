@@ -31,12 +31,6 @@ def show_usage():
     print("  --create-pot                Create a ubuntu-mate-welcome.pot in the po directory")
     print("                              (can also be used when whenever new translatable strings")
     print("                               are added to ubuntu-mate-welcome.\n")
-    print("  --create-po=<locale>        Create a .po file using the specfied locale and")
-    print("                              place it in the po directory. If the .po file")
-    print("                              already exists, it will not be overwritten as it")
-    print("                              may already contain translations.")
-    print("                              if ALL is specified for the locale, .po files for all")
-    print("                              locales supported by the system will be produced.\n")
     print("  --update-pos                Update all .po files in the .po directory with new")
     print("                              translateable strings from the .pot file\n")
     print("  --install                   Compile all of the .po files in the po directory")        
@@ -77,89 +71,6 @@ def create_pot(po_dir):
 
     print ("%s created.\n" %pot_file)
 
-
-###########################################################
-def get_country_codes():
-
-    """ Read country codes /usr/share/i18n/SUPPORTED
-
-    Returns:
-        a list containing the country codes, or None if an error occured reading the codes
-    """
-
-    codes = []
-    codefile = open("/usr/share/i18n/SUPPORTED")
-    for code in codefile:
-
-        thiscode = None
-
-        iscomment = code.startswith('#')
-        if not iscomment:
-
-            # check for a two character country code
-            if (code[2] == " ") or (code[2] == "."):
-                thiscode = code[0:]
-            elif code[2] == "_":
-                thiscode = code[0:5]
-            elif code[3] == "_":
-                thiscode = code[0:6]
-
-            if thiscode is not None:
-                thiscode = thiscode.split()[0]
-                thiscode = thiscode.split(".")[0]
-
-            if not thiscode in codes:
-                codes.append(thiscode)
-
-    return codes
-
-###########################################################
-def create_po (po_dir, locale):
-    """ Create a .po file for the specified locale
-
-    Display an error if locale is not valid
-    If locale is 'ALL' create .po files for all supported locales
-    Do not overwrite any existing .po files
-    """
-
-    def pot_2_po (pot_file, po_file):
-        """ Copy a pot file to a po file
-        
-        Use the pot2po command to ensure correct character encoding
-        """
-
-        if os.path.exists(po_file):
-            print("%s already exists. Not overwriting..." %po_file)
-        else:
-            subprocess.call(["pot2po",
-	                     pot_file, po_file])        
-            print("%s created" %locale_file)
-
-
-    pot_file = os.path.join(po_dir,"ubuntu-mate-welcome.pot")
-    if not os.path.exists(pot_file):
-        print("Error: ubuntu-mate-welcome.pot does not exist")
-
-    codes = get_country_codes()
-    if codes is None:
-        print("Error: could not read country codes")
-        exit()
-
-    if locale != "ALL":
-        if not locale in codes:
-            print("Error: %s is not a valid locale" %locale)
-            exit()
-
-        locale_file = os.path.join(po_dir, locale + ".po")
-        pot_2_po(pot_file, locale_file)
-    else:
-        for code in codes:
-            locale_file = os.path.join(po_dir, code + ".po")
-            pot_2_po(pot_file, locale_file)
-
-        print ("All files created.....")
-
-    exit()
 
 ###########################################################
 def update_pos(po_dir):
@@ -241,11 +152,6 @@ locale_dir = os.path.join(source_dir, "locale")
 arg = sys.argv[1]
 if (arg == "--create-pot") or (len(sys.argv)==1):
     create_pot(po_dir)
-    exit()
-
-if arg.startswith('--create-po='):
-    locale = arg.split('--create-po=')[1]
-    create_po(po_dir, locale)
     exit()
 
 if arg=="--update-pos":
