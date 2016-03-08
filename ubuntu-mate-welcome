@@ -843,7 +843,7 @@ class WelcomeApp(object):
         else:
             print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
-        
+
         self._build_app()
 
     def _build_app(self):
