@@ -843,58 +843,8 @@ class WelcomeApp(object):
         else:
             print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
-
-        self._get_translated_slides()
+        
         self._build_app()
-
-    def _get_translated_slides(self):
-        """ If a locale has been specified on the command line, get translated slides
-            for that. If not, get translated slides for the current locale
-
-            Place them in a directory called 'runtime' (with add symlinks to the 'js', 'css'
-            etc .dirs) and change the data path to point to this..
-
-            If no translated slides are available use the ones in data/ or ./
-        """
-
-        if (arg.locale is not None) :
-            locale_to_use = arg.locale
-            # use translated html from this specified locale if is is valid
-            if not arg.locale in codes:
-                locale_to_use = locale.getlocale()[0]
-        else:
-            locale_to_use = locale.getlocale()[0]
-
-        # check we have translated html for the locale
-        locale_dir = os.path.join(os.path.join(self._location, "i18n"), locale_to_use)
-        if os.path.exists(locale_dir):
-
-            # we have translated html, so prepare to copy it to the runtime location
-            run_path = os.path.join(self._data_path,"runtime")
-            if not os.path.exists(run_path):
-                os.mkdir(run_path)
-            if not os.path.exists(os.path.join(run_path, "css")):
-                os.symlink(os.path.join(self._data_path,"css"),
-                           os.path.join(run_path,"css"))
-            if not os.path.exists(os.path.join(run_path, "js")):
-                os.symlink(os.path.join(self._data_path,"js"),
-                           os.path.join(run_path,"js"))
-            if not os.path.exists(os.path.join(run_path, "fonts")):
-                os.symlink(os.path.join(self._data_path,"fonts"),
-                           os.path.join(run_path,"fonts"))
-            if not os.path.exists(os.path.join(run_path, "img")):
-                os.symlink(os.path.join(self._data_path,"img"),
-                           os.path.join(run_path,"img"))
-
-            # copy the files
-            html_files = glob.glob(os.path.join(locale_dir, '*.html'))
-            for html in html_files:
-                shutil.copy(html, run_path)
-
-            # make sure we display the translated files
-            self._data_path=run_path
-        else:
-            print("[Debug] No translated HTML found for locale %s. Falling back to default language" %locale_to_use)
 
     def _build_app(self):
 
