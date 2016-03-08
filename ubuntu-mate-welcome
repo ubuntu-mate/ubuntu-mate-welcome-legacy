@@ -568,14 +568,19 @@ class AppView(WebKit.WebView):
                          or, if no translation is available, the filename of the original 
                          untranslated slide
         """
+<<<<<<< HEAD
 
         WebKit.WebView.__init__(self)
+=======
+>>>>>>> parent of 17da0ba... merged changes from upstream
 
+        WebKit.WebView.__init__(self)
         self._config = WelcomeConfig()
         self._apt_cache = apt.Cache()
         self.connect('load-finished', self._load_finished_cb)
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
+        self._slide_list = slide_list
 
         self._slide_list = slide_list
         # Disable right-click context menu as it isn't needed.
