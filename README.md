@@ -36,10 +36,10 @@ and testing purposes, the following can be specified:
     * Eg. `trusty` or `wily` or `xenial`.
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
-  * `--locale` = specify a locale to use, otherwise the default locale will be used.  
+  * `--locale` = specify a locale to use, otherwise the default locale will be used.
   * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
-  
+
 
 ## Requirements
 
@@ -61,6 +61,22 @@ and testing purposes, the following can be specified:
   * humanity-icon-theme
 
 # Translations
+
+## Translators
+
+If you are looking to translate the software, look in
+the folders `po/` and `data/po` for PO and POT files.
+
+ 1. Fork the repository.
+ 2. Find an existing `.po` file to edit that language's translation
+ or a `.pot` file to create a new one.
+ 3. Translate the strings. `poedit` is recommended.
+ 4. Push your changes and initiate a pull request here.
+
+A complete guide has been written at the Ubuntu MATE Community:
+
+ * https://ubuntu-mate.community/t/guide-how-to-translate-ubuntu-mate-welcome/4234
+
 
 ## edgar-allan
 
