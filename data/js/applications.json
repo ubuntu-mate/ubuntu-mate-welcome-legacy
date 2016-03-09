@@ -2078,6 +2078,50 @@
             },
             "working": true
         },
+        "sparkleshare": {
+            "name": "SparkleShare",
+            "img": "sparkleshare",
+            "main-package": "sparkleshare",
+            "launch-command": "sparkleshare open",
+            "install-packages": "sparkleshare",
+            "remove-packages": "sparkleshare",
+            "description": [
+                "Creates a special folder on your computer that you",
+                "can add remotely hosted folders (or \"projects\")",
+                "to this folder. These projects will be automatically",
+                "kept in sync with both the host and all of your peers",
+                "when someone adds, removes or edits a file.",
+                "SparkleShare uses the version control system Git under",
+                "the hood, so setting up a host yourself is relatively easy.",
+                "SparkleShare was made to cover certain use cases, but",
+                "does not handle every scenario well. SparkleShare is good",
+                "for frequently changing project files like text,",
+                "office documents, and images, tracking and syncing files",
+                "edited by multiple people, reverting a file to any point",
+                "in its history. SpakleShare is not good for full computer",
+                "backups, storing your photo or music collection, or large",
+                "binary files that change often, like video editing projects."
+            ],
+            "alternate-to": null,
+            "subcategory": "Cloud and Sync",
+            "open-source": true,
+            "url-info": "http://sparkleshare.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "trusty": {
+                    "method": "skip"
+                },
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:flexiondotorg/sparkleshare",
+                    "source-file": "flexiondotorg-ubuntu-sparkleshare-CODENAME"
+                }
+            },
+            "working": true
+        },        
         "spideroakone": {
             "name": "SpiderOakONE",
             "img": "spideroak",
