@@ -889,12 +889,20 @@ class WelcomeApp(object):
             
         """
 
-        if (arg.locale is not None) :
+        if (arg.locale is not None):
             locale_to_use = arg.locale
         else:
             locale_to_use = locale.getlocale()[0]
 
-        locale_dir = os.path.join(os.path.join(self._location, "i18n"), locale_to_use)
+        # check for relative path
+        if (os.path.exists(os.path.join(self._location, 'i18n', locale_to_use))):            
+            locale_dir = os.path.join(self._location, 'i18n', locale_to_use)
+            print('[Debug] Using ' + locale_dir + '. Non-production testing.')
+        elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use))):            
+            locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use)
+            print('[Debug] Using ' + locale_dir)
+        else:
+            locale_dir = ''
         
         results = []
 
