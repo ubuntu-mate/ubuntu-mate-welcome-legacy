@@ -529,20 +529,24 @@
               printing&zwnj;</a>.</p>
 
               <hr class="soften"/>
-              <div class="hp-printer-install">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is
-                recommended if you have an HP printer because it provides
-                full support for printing on most HP SFP (single function
-                peripheral) inkjets and many LaserJets, and for scanning,
-                sending faxes and for photo-card access on most HP MFP
-                (multi-function peripheral) printers.&zwnj;</p>
-                <p><a class="btn btn-success" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a></p>
-              </div>
-              <div class="hp-printer-remove">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is installed, which provides full support for a wide variety of HP printers.&zwnj;</p>
-                <p><a class="btn btn-inverse" href="cmd://run?hp-toolbox"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a></p>
+
+              <div class="row-fluid">
+                <div class="span2 center-inside">
+                  <img src="img/applications/hplip.png" width="20px" height="20px"/>
+                  <span class="fa fa-check-circle fa-2x installed-check gparted-remove"></span>
+                </div>
+                <div class="span10">
+                  <p><b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b></p>
+                  <p>&zwnj;Recommended if you have an HP printer as it provides
+                  full support for printing on most HP SFP (single function
+                  peripheral) inkjets and many LaserJets, and for scanning,
+                  sending faxes and for photo-card access on most HP MFP
+                  (multi-function peripheral) printers.&zwnj;</p>
+                  <p class="text-right">
+                    <a class="btn btn-inverse hp-printer-remove" href="cmd://launch-appid?hp-printer"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                    <a class="btn btn-success hp-printer-install" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  </p>
+                </div>
               </div>
             </div>
 
