@@ -1,6 +1,3 @@
-function WelcomeCtrl($scope) {
-
-}
 
 // Global across all pages
 $(window).load(function() {
