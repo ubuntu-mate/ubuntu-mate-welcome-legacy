@@ -1236,23 +1236,35 @@ class SystemState(object):
             print('[System Specs] Failed to retrieve data: Motherboard')
 
         ## CPU Details
+        arg.print_verbose('System Specs', 'Gathering data: CPU')
         try:
-            arg.print_verbose('System Specs', 'Gathering data: CPU')
             cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
+            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Model')
+
+        try:
             cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
-            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
+            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Speed')
+
+        try:
             if self.arch == 'i386':
                 cpu_arch_used = '32-bit'
             elif self.arch == 'amd64':
                 cpu_arch_used = '64-bit'
             else:
                 cpu_arch_used = self.arch
-            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
-            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
             webkit.execute_script('$("#spec-arch-use").html("' + cpu_arch_used + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Arch in Use')
+
+        try:
+            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
             webkit.execute_script('$("#spec-arch-supported").html("' + cpu_arch_supported + '")')
         except:
-            print('[System Specs] Failed to retrieve data: CPU')
+            print('[System Specs] Failed to retrieve data: CPU Supported Arch')
 
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
