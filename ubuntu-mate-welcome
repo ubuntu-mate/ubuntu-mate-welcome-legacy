@@ -1244,7 +1244,13 @@ class SystemState(object):
             print('[System Specs] Failed to retrieve data: CPU Model')
 
         try:
-            cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
+            try:
+                # Try obtaining the maximum speed first.
+                cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
+            except:
+                # Otherwise, fetch the CPU's MHz.
+                cpu_speed = int(run_external_command(['lscpu | grep "CPU MHz"'], True).split(': ')[1].strip(' ').split('.')[0])
+
             webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
         except:
             print('[System Specs] Failed to retrieve data: CPU Speed')
