@@ -998,7 +998,7 @@ class WelcomeApp(object):
             trans_slide = os.path.join(locale_dir, slide_name)
             if os.path.exists(trans_slide):
                 results.append(trans_slide)
-                arg.print_verbose("Translation','Will use %s translation of %s" %(locale_to_use, slide_name))
+                arg.print_verbose("Translation","Will use %s translation of %s" %(locale_to_use, slide_name))
             else:
                 results.append(slide)
                 arg.print_verbose("Translation","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
