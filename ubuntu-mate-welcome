@@ -565,7 +565,7 @@ class AppView(WebKit.WebView):
         """
             Args:
             slide_list : A list of tuples containing the filenames of translated html files
-                         or, if no translation is available, the filename of the original 
+                         or, if no translation is available, the filename of the original
                          untranslated slide
         """
         WebKit.WebView.__init__(self)
@@ -614,6 +614,35 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.offline').show();")
             self.execute_script("$('.online').hide();")
 
+        ## Scroll To Top ##
+        scroll_to_top = '<a href="#" id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>'
+        self.execute_script("$('#footer').append('" + scroll_to_top + "');")
+
+        ## Social Links ##
+        footer_left = '<div id="social" class="pull-left"> \
+        <a href="cmd://link?https://plus.google.com/communities/108331279007926658904" title="Google+"><img src="img/social/google+.svg"></a> \
+        <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a> \
+        <a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a> \
+        <a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
+        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a></div>'
+
+        # Do not show footer links on the software page.
+        if not arg.jump_software_page:
+            if not self.current_page == 'splash.html':
+                self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
+
+        # Show the button depending on context.
+        footer_close = '<a href="cmd://quit" class="btn btn-inverse">&zwnj;Close&zwnj;</a>'
+        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">&zwnj;Skip&zwnj;</a>'
+
+        if self.current_page == 'splash.html':
+            self.execute_script("$('#footer-global-right').html('" + footer_skip + "');")
+        elif arg.jump_software_page:
+            # Do not show a "Close" button for the Boutique.
+            pass
+        else:
+            self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
+
         ### Main Menu ###
         if self.current_page == 'index.html':
             if systemstate.session_type == 'guest':
@@ -630,6 +659,42 @@ class AppView(WebKit.WebView):
                     self.execute_script('$("#update-notification").fadeIn("slow")')
             else:
                 self.execute_script('$("#update-notification").hide()')
+
+            # Disable confetti on machines that may suffer performance issues.
+            if systemstate.arch == 'armhf':
+                self.execute_script('var disable_confetti = true;')
+            elif systemstate.arch == 'powerpc':
+                self.execute_script('var disable_confetti = true;')
+            else:
+                self.execute_script('var disable_confetti = false;')
+
+            # Special event strings.
+            self.execute_script('var days_in = "&zwnj;in&zwnj;"')
+            self.execute_script('var future_days = "&zwnj;days.&zwnj;"')
+            self.execute_script('var days_ago = "&zwnj;days ago.&zwnj;"')
+            self.execute_script('var yesterday = "&zwnj;yesterday.&zwnj;"')
+            self.execute_script('var tomorrow = "&zwnj;tomorrow.&zwnj;"')
+            self.execute_script('var years_ago = "&zwnj;years ago today.&zwnj;"')
+            self.execute_script('var today_string = "&zwnj;today.&zwnj;"')
+            self.execute_script('var years_old = "&zwnj;years old&zwnj;"')
+
+            self.execute_script('var flavour_anniversary_future  = "&zwnj;Ubuntu MATE\'s official flavour anniversary&zwnj;"')
+            self.execute_script('var flavour_anniversary_present = "&zwnj;Ubuntu MATE become an official flavour&zwnj;"')
+            self.execute_script('var flavour_anniversary_past    = "&zwnj;Ubuntu MATE\'s official flavour anniversary was&zwnj;"')
+
+            self.execute_script('var project_birthday_future  = "&zwnj;Ubuntu MATE will be&zwnj;"')
+            self.execute_script('var project_birthday_present = "&zwnj;Ubuntu MATE is&zwnj;"')
+            self.execute_script('var project_birthday_past    = "&zwnj;Ubuntu MATE turned&zwnj;"')
+
+            self.execute_script('var project_birthday         = "&zwnj;Happy Birthday!&zwnj;"')
+            self.execute_script('var celebrate_new_year       = "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;"')
+
+            self.execute_script('var project_release_future   = "&zwnj;will be released&zwnj;"')
+            self.execute_script('var project_release_present  = "&zwnj;is released today!&zwnj;"')
+            self.execute_script('var project_release_past     = "&zwnj;was released&zwnj;"')
+            self.execute_script('var project_release_thanks   = "&zwnj;Thank you for testing&zwnj;"')
+
+            self.execute_script('checkDates();')
 
         ### Splash ###
         if self.current_page == 'splash.html':
@@ -679,6 +744,9 @@ class AppView(WebKit.WebView):
                 self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
+            # Pass 'Servers' variable used for one-click server links.
+            self.execute_script('var server_string = "&zwnj;Servers&zwnj;"')
+
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
@@ -688,6 +756,22 @@ class AppView(WebKit.WebView):
         if self.current_page == 'rpi.html':
             # Check file system resize flag.
             systemstate.rpi_resize('check', self)
+
+        ### Donate ###
+        if self.current_page == 'donate.html':
+            # Pass translatable short-hand month strings for the supporters grid.
+            self.execute_script('short_jan = "&zwnj;Jan&zwnj;"')
+            self.execute_script('short_feb = "&zwnj;Feb&zwnj;"')
+            self.execute_script('short_mar = "&zwnj;Mar&zwnj;"')
+            self.execute_script('short_apr = "&zwnj;Apr&zwnj;"')
+            self.execute_script('short_may = "&zwnj;May&zwnj;"')
+            self.execute_script('short_jun = "&zwnj;Jun&zwnj;"')
+            self.execute_script('short_jul = "&zwnj;Jul&zwnj;"')
+            self.execute_script('short_aug = "&zwnj;Aug&zwnj;"')
+            self.execute_script('short_sep = "&zwnj;Sep&zwnj;"')
+            self.execute_script('short_oct = "&zwnj;Oct&zwnj;"')
+            self.execute_script('short_nov = "&zwnj;Nov&zwnj;"')
+            self.execute_script('short_dec = "&zwnj;Dec&zwnj;"')
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -730,12 +814,12 @@ class AppView(WebKit.WebView):
 
             if not found:
                 # this should never happen, but if it does, recover by loading the originally specified page
-                print ('[Debug]: Couldn''t find slide %s when getting tranlsation' %uri)
+                arg.print_verbose('Translation','Couldn''t find slide %s when getting translation' %uri)
                 page = urllib.request.urlopen(uri)
 
         # use UTF-8 encoding as fix for &nbsp chars in translated html
-        # 
-        # When loading the html, for the base_uri, use the uri of the originally specified 
+        #
+        # When loading the html, for the base_uri, use the uri of the originally specified
         # page (which will be in _data_path) rather than the uri of any translated html we may be using instead.
         # Doing this allows the js, css, fonts etc. directories to be located by the translated page,
         frame.load_string(page.read().decode(), "text/html", "UTF-8", uri);
@@ -886,7 +970,7 @@ class WelcomeApp(object):
             a list of filenames of translated slides - if there is no translated version
             of a slide, the filename of the untranslated version from the _data_path directory
             is used instead
-            
+
         """
 
         if (arg.locale is not None):
@@ -895,30 +979,30 @@ class WelcomeApp(object):
             locale_to_use = locale.getlocale()[0]
 
         # check for relative path
-        if (os.path.exists(os.path.join(self._location, 'i18n', locale_to_use))):            
+        if (os.path.exists(os.path.join(self._location, 'i18n', locale_to_use))):
             locale_dir = os.path.join(self._location, 'i18n', locale_to_use)
             print('[Debug] Using ' + locale_dir + '. Non-production testing.')
-        elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use))):            
+        elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use))):
             locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use)
             print('[Debug] Using ' + locale_dir)
         else:
             locale_dir = ''
-        
+
         results = []
 
         slides = glob.glob(os.path.join(self._data_path, '*.html'))
         for slide in slides:
             # get the slide name and see if a translated version exists
             head, slide_name = os.path.split(slide)
-            
+
             trans_slide = os.path.join(locale_dir, slide_name)
             if os.path.exists(trans_slide):
                 results.append(trans_slide)
-                print ("[Debug]: Will use %s translation of %s" %(locale_to_use, slide_name))
+                arg.print_verbose("Translation','Will use %s translation of %s" %(locale_to_use, slide_name))
             else:
                 results.append(slide)
-                print ("[Debug: No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
-       
+                arg.print_verbose("Translation","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
+
         return results
 
     def _build_app(self):
@@ -934,6 +1018,10 @@ class WelcomeApp(object):
             width = 800
             height = 552
             load_file = 'splash.html'
+
+        # Jump to a specific page for testing purposes.
+        if arg.jump_to:
+            load_file = arg.jump_to + '.html'
 
         # build window
         w = Gtk.Window()
@@ -1148,23 +1236,41 @@ class SystemState(object):
             print('[System Specs] Failed to retrieve data: Motherboard')
 
         ## CPU Details
+        arg.print_verbose('System Specs', 'Gathering data: CPU')
         try:
-            arg.print_verbose('System Specs', 'Gathering data: CPU')
             cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
-            cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
-            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
+            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Model')
+
+        try:
+            try:
+                # Try obtaining the maximum speed first.
+                cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
+            except:
+                # Otherwise, fetch the CPU's MHz.
+                cpu_speed = int(run_external_command(['lscpu | grep "CPU MHz"'], True).split(': ')[1].strip(' ').split('.')[0])
+
+            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Speed')
+
+        try:
             if self.arch == 'i386':
                 cpu_arch_used = '32-bit'
             elif self.arch == 'amd64':
                 cpu_arch_used = '64-bit'
             else:
                 cpu_arch_used = self.arch
-            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
-            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
             webkit.execute_script('$("#spec-arch-use").html("' + cpu_arch_used + '")')
+        except:
+            print('[System Specs] Failed to retrieve data: CPU Arch in Use')
+
+        try:
+            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
             webkit.execute_script('$("#spec-arch-supported").html("' + cpu_arch_supported + '")')
         except:
-            print('[System Specs] Failed to retrieve data: CPU')
+            print('[System Specs] Failed to retrieve data: CPU Supported Arch')
 
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
@@ -1818,6 +1924,7 @@ class Arguments(object):
         self.jump_software_page = False
         self.simulate_software_changes = False
         self.locale = None
+        self.jump_to = None
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1834,7 +1941,8 @@ class Arguments(object):
               print('  --force-net                 Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
               print('  --simulate-changes          Simulate software package changes without modifying the system.')
-              print('  --locale=<LOCALE>           LOCALE to use e.g. fr_FR.')
+              print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
+              print('  --jump-to=<page>            Open a specific page, excluding html extension.')
               print('')
               exit()
 
@@ -1889,6 +1997,10 @@ class Arguments(object):
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
               print('[Debug] Setting locale to: ' + self.locale)
+
+          if arg.startswith('--jump-to='):
+              self.jump_to = arg.split('--jump-to=')[1]
+              print('[Debug] Opening page: ' + self.jump_to + '.html')
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:

@@ -28,7 +28,7 @@
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('sysreq','&zwnj;System Requirements&zwnj;')">        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')"> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('dualboot','&zwnj;Dual Booting&zwnj;')">             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
-      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                     <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
+      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                                 <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
@@ -67,7 +67,7 @@
             <h5>&zwnj;Minimum&zwnj;</h5>
             <ul>
               <li>&zwnj;Pentium III 750 megahertz (MHz)&zwnj;</li>
-              <li>&zwnj;512 megabytes (MB) of RAM<&zwnj;/li>
+              <li>&zwnj;512 megabytes (MB) of RAM&zwnj;</li>
               <li>&zwnj;8 gigabytes (GB) of disk space&zwnj;</li>
             </ul>
 
@@ -164,6 +164,7 @@
           </div>
         </div>
       </div>
+
       <!-- Advise on Dual Booting (shown in guest session only) -->
       <div id="dualboot" class="topicContents" hidden>
         <div class="row-fluid">
@@ -411,16 +412,34 @@
             <!-- Advice about graphics -->
             <a onclick="toggleSub('graphics-section','graphics-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="graphics-arrow"></span> Graphics</h3></a>
             <div id="graphics-section" hidden>
-              <div id="graphics-detected" class="alert alert-danger">
-                <h5 id="graphics-brand">&zwnj;Sorry, Welcome was unable to automatically identify the graphics vendor on this system.&zwnj;</h5>
-                <p id="graphics-describe"></p>
-                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i id="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+
+              <div class="graphics-unknown alert alert-danger">
+                <h5>&zwnj;Sorry, Welcome was unable to automatically identify the graphics vendor on this system.&zwnj;</h5>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
               </div>
+
+              <div class="graphics-amd-or-nvidia alert alert-info" hidden>
+                <h5><span class="graphics-brand">---</span> &zwnj;Graphics Card Detected.&zwnj;</h5>
+                <p><span class="graphics-brand">---</span> &zwnj;may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-intel alert alert-success" hidden>
+                <h5>&zwnj;You're already good to go.&zwnj;</h5>
+                <p>&zwnj;Intel's drivers are open source and are maintained/updated in the kernel.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-vbox alert alert-info" hidden>
+                <h5>&zwnj;VirtualBox Guest Additions&zwnj;</h5>
+                <p>&zwnj;To accelerate graphics performance inside the virtual machine, please install Guest Additions.&zwnj;</p>
+              </div>
+
               <div id="graphics-proprietary" hidden>
                 <h4>&zwnj;Proprietary or Open Source Drivers?&zwnj;</h4>
-                <p>&zwnj;Proprietary drivers come directly from&zwnj; <span class="graphics-vendor">&zwnj;the manufacturer&zwnj;</span>.
+                <p>&zwnj;Proprietary drivers come directly from the manufacturer.&zwnj;
                 &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to;&zwnj;
-                &zwnj;rely on&zwnj; <span class="graphics-vendor">&zwnj;the manufacturer&zwnj;</span> &zwnj;for support.&zwnj;</p>
+                &zwnj;rely on the manufacturer for support.&zwnj;</p>
 
                 <p>&zwnj;In addition, proprietary drivers can&zwnj; <b>&zwnj;significantly improve graphics performance&zwnj;</b> &zwnj;and as a result,&zwnj;
                 &zwnj;the entire system. Users may wish to install these drivers to:&zwnj;</p>
@@ -441,7 +460,10 @@
                   <li>&zwnj;Problems with applications/games requiring hardware acceleration.&zwnj;</li>
                 </ul>
 
-                <p id="graphics-open-source"></p>
+                <p class="graphics-amd-or-nvidia">
+                  <code id="graphics-open-driver-name"></code> &zwnj;is the open source driver for your card.&zwnj;
+                </p>
+
                 <p id="graphics-nvidia-only" hidden>
                   <hr class="soften"/>
                   <h4>&zwnj;What about the latest NVIDIA drivers?&zwnj;</h4>
@@ -454,7 +476,7 @@
                     and not older cards using the legacy driver.&zwnj;
                   </div>
                   <a class="btn btn-warning" href="cmd://upgrade-appid?nvidia-settings"><span class="fa fa-level-up"></span>&nbsp; &zwnj;Add Repository&zwnj;</a>
-                  <br>
+                  <br><br>
                   <!-- <a class="btn btn-danger" href="#"><span class="fa fa-trash"></span>&nbsp; Remove Repository</a> -->
                   <p>&zwnj;To add the repository to the system, open a terminal and type the following:&zwnj;</p>
                   <blockquote class="terminal miscCmd">
@@ -507,20 +529,24 @@
               printing&zwnj;</a>.</p>
 
               <hr class="soften"/>
-              <div class="hp-printer-install">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is
-                recommended if you have an HP printer because it provides
-                full support for printing on most HP SFP (single function
-                peripheral) inkjets and many LaserJets, and for scanning,
-                sending faxes and for photo-card access on most HP MFP
-                (multi-function peripheral) printers.&zwnj;</p>
-                <p><a class="btn btn-success" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a></p>
-              </div>
-              <div class="hp-printer-remove">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is installed, which provides full support for a wide variety of HP printers.&zwnj;</p>
-                <p><a class="btn btn-inverse" href="cmd://run?hp-toolbox"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a></p>
+
+              <div class="row-fluid">
+                <div class="span2 center-inside">
+                  <img src="img/applications/hplip.png" width="20px" height="20px"/>
+                  <span class="fa fa-check-circle fa-2x installed-check gparted-remove"></span>
+                </div>
+                <div class="span10">
+                  <p><b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b></p>
+                  <p>&zwnj;Recommended if you have an HP printer as it provides
+                  full support for printing on most HP SFP (single function
+                  peripheral) inkjets and many LaserJets, and for scanning,
+                  sending faxes and for photo-card access on most HP MFP
+                  (multi-function peripheral) printers.&zwnj;</p>
+                  <p class="text-right">
+                    <a class="btn btn-inverse hp-printer-remove" href="cmd://launch-appid?hp-printer"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                    <a class="btn btn-success hp-printer-install" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -977,10 +1003,10 @@
     <div id="footer" class="bottom">
       <div class="footer-content">
         <div id="footer-left">
-        <!-- Via welcome.js -->
+          <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <!-- Global buttons appended via welcome.js -->
+          <span id="footer-global-right"></span>
         </div>
       </div>
     </div>

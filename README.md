@@ -37,8 +37,9 @@ and testing purposes, the following can be specified:
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
   * `--locale` = specify a locale to use, otherwise the default locale will be used.
-  * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
+  * `--software-only` = Software Boutique mode. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
+  * `--jump-to=<PAGE>` = Jump to a specific page, excluding the `.html` extension.
 
 
 ## Requirements
