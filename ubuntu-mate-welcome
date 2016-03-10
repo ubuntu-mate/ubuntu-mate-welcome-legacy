@@ -1019,6 +1019,10 @@ class WelcomeApp(object):
             height = 552
             load_file = 'splash.html'
 
+        # Jump to a specific page for testing purposes.
+        if arg.jump_to:
+            load_file = arg.jump_to + '.html'
+
         # build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
@@ -1902,6 +1906,7 @@ class Arguments(object):
         self.jump_software_page = False
         self.simulate_software_changes = False
         self.locale = None
+        self.jump_to = None
 
         for arg in sys.argv:
           if arg == '--help':
@@ -1918,7 +1923,8 @@ class Arguments(object):
               print('  --force-net                 Simulate a working internet connection.')
               print('  --software-only             Open Welcome only for the software selections.')
               print('  --simulate-changes          Simulate software package changes without modifying the system.')
-              print('  --locale=<LOCALE>           LOCALE to use e.g. fr_FR.')
+              print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
+              print('  --jump-to=<page>            Open a specific page, excluding html extension.')
               print('')
               exit()
 
@@ -1973,6 +1979,10 @@ class Arguments(object):
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
               print('[Debug] Setting locale to: ' + self.locale)
+
+          if arg.startswith('--jump-to='):
+              self.jump_to = arg.split('--jump-to=')[1]
+              print('[Debug] Opening page: ' + self.jump_to + '.html')
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:
