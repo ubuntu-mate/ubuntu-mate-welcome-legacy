@@ -660,6 +660,14 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script('$("#update-notification").hide()')
 
+            # Disable confetti on machines that may suffer performance issues.
+            if systemstate.arch == 'armhf':
+                self.execute_script('var disable_confetti = true;')
+            elif systemstate.arch == 'powerpc':
+                self.execute_script('var disable_confetti = true;')
+            else:
+                self.execute_script('var disable_confetti = false;')
+
             # Special event strings.
             self.execute_script('var days_in = "&zwnj;in&zwnj;"')
             self.execute_script('var future_days = "&zwnj;days.&zwnj;"')

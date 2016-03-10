@@ -164,9 +164,12 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
     // Activate Confetti
     function activateConfetti() {
-      if ( allow_confetti = true ) {
+      if ( disable_confetti == false ) {
         $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
         startConfetti();
+        return
+      } else {
+        return
       }
     }
 
