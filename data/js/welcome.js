@@ -2,18 +2,6 @@ function WelcomeCtrl($scope) {
 
 }
 
-// Consistent on all pages.
-var global_footer_left = '<div id="social" class="pull-left">' +
-        '<a href="cmd://link?https://plus.google.com/communities/108331279007926658904" title="Google+"><img src="img/social/google+.svg"></a>' +
-        '<a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a>' +
-        '<a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a>' +
-        '<a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a>' +
-        '<a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a>' +
-      '</div>';
-
-var global_footer_right = '<a href="cmd://quit" class="btn btn-inverse">&zwnj;Close&zwnj;</a>';
-var global_scrollToTop = '<a href="#" id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>';
-
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
@@ -34,11 +22,6 @@ $(document).ready(function() {
   // Animate navigation elements on page load
   $('#menu-button').jAnimateOnce('fadeInLeft');
   $('#navigation-title').jAnimateOnce('fadeInDown');
-
-  // Write shared elements
-  $('#footer-left').append(global_footer_left);
-  $('#footer-right').append(global_footer_right);
-  $('#footer').append(global_scrollToTop);
 
   // Initialize scroll to the top
   $(window).scroll(function () {
@@ -120,6 +103,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
     });
   }
 
+  document.cookie = 'greeted=yes';
+
   // Enable tooltips
   $(document).ready(function() {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
@@ -159,12 +144,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       $('#mainLogo').jAnimateOnce('zoomIn');
     }, 91000);
 
-    function create_canvas() {
-      $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
-      $('#mainLogo').jAnimateOnce('pulse');
-      startConfetti();
-    }
-
     // Internally work with days, months and years as a number.
     function dateAsNumber(day, month, year) {
       // Assumes 'month' parameter is in base 0.
@@ -183,6 +162,18 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       return finalNumber;
     }
 
+    // Activate Confetti
+    function activateConfetti() {
+      if ( allow_confetti = true ) {
+        $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
+        startConfetti();
+      }
+    }
+
+    // Use 'dd', 'mm' and 'yyyy' variables to re-use code.
+    var today = new Date();
+    var dd = 0;  var mm = 0;  var yyyy = 0; var release = '';
+
     // What is today?
     var today = new Date();
     var todayAsNumber = dateAsNumber(today.getDate(), today.getMonth()+1, null)
@@ -192,125 +183,100 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
       // dateNo        = dateAsNumber(dd, mm, yyyy) function.
       // title_text    = Text to display when date matches.
       // show_confetti = True / False = Celebrate when date matches.
-      // fa_icon       = FontAwesome icon to display. Usually 'bell' or 'calendar'.
+      // fa_icon       = FontAwesome icon to display. Usually 'bell' or 'calendar' or 'bug'.
       var do_show_this = false;
       if ( dateNo == todayAsNumber) {
         // Today is the day!
         var do_show_this = true;
       }
       if ( do_show_this == true ) {
+        $('.menuMainText').hide();
+        $('.menuMainText').fadeIn();
         $('.menuMainText').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
         if ( show_confetti == true ) {
-          create_canvas();
+          activateConfetti();
         }
       }
     }
 
     // Dates to be checking for.
-      // Use 'dd', 'mm' and 'yyyy' variables to re-use code.
-      var dd = 0;  var mm = 0;  var yyyy = 0;
+    function checkDates() {
+      // String variables are passed via Python. See _push_config for "Special Event Strings".
 
       // Official Flavour Status - 26/Feb/2015
       var age = today.getFullYear() - 2015;
       dd = 26; mm = 02; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 7 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 6 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 5 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 4 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 3 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;in&zwnj; 2 &zwnj;days time&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "&zwnj;Ubuntu MATE celebrates its official flavour status&zwnj; &zwnj;tomorrow&zwnj;.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "&zwnj;Ubuntu MATE become an official flavour&zwnj; " + age + " &zwnj;years ago today&zwnj;.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; &zwnj;yesterday&zwnj;.", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "&zwnj;Ubuntu MATE celebrated its official flavour status&zwnj; 7 &zwnj;days ago&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, flavour_anniversary_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, flavour_anniversary_future + ' ' + days_in + ' 6 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, flavour_anniversary_future + ' ' + days_in + ' 5 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, flavour_anniversary_future + ' ' + days_in + ' 4 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, flavour_anniversary_future + ' ' + days_in + ' 3 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, flavour_anniversary_future + ' ' + days_in + ' 2 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, flavour_anniversary_future + ' ' + tomorrow, true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , flavour_anniversary_present + ' ' + age + ' ' + years_ago, true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, flavour_anniversary_past + ' ' + yesterday, true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, flavour_anniversary_past + ' 2 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, flavour_anniversary_past + ' 3 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, flavour_anniversary_past + ' 4 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, flavour_anniversary_past + ' 5 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, flavour_anniversary_past + ' 6 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, flavour_anniversary_past + ' 7 ' + days_ago, false, 'calendar');
 
       // Project Birthday - 21/Jun/2014
       var age = today.getFullYear() - 2014;
       dd = 21; mm = 06; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;a week today!", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 6 &zwnj;days time&zwnj;!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 5 &zwnj;days time&zwnj;!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 4 &zwnj;days time&zwnj;!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 3 &zwnj;days time&zwnj;!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old in&zwnj; 2 &zwnj;days time&zwnj;!", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "&zwnj;The project will be&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;tomorrow. Happy Birthday!&zwnj;", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "&zwnj;The project is&zwnj; " + age + " &zwnj;years old today. Happy Birthday!&zwnj;", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;yesterday. Happy Birthday!&zwnj;", true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "&zwnj;The project turned&zwnj; " + age + " &zwnj;years old&zwnj; &zwnj;last week&zwnj;.", false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 6 ' + future_days, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 5 ' + future_days, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 4 ' + future_days, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 3 ' + future_days, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 2 ' + future_days, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + tomorrow + ' ' + project_birthday, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , project_birthday_present + ' ' + age + ' ' + years_old + ' ' + today_string + ' ' + project_birthday, true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, project_birthday_past + ' ' + age + ' ' + years_old + ' ' + yesterday + ' ' + project_birthday, true, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, project_birthday_past + ' ' + age + ' ' + years_old + ', 2 ' + days_ago, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, project_birthday_past + ' ' + age + ' ' + years_old + ', 3 ' + days_ago, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, project_birthday_past + ' ' + age + ' ' + years_old + ', 4 ' + days_ago, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, project_birthday_past + ' ' + age + ' ' + years_old + ', 5 ' + days_ago, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, project_birthday_past + ' ' + age + ' ' + years_old + ', 6 ' + days_ago, false, 'birthday-cake');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, project_birthday_past + ' ' + age + ' ' + years_old + ', 7 ' + days_ago, false, 'calendar');
 
       // Holiday Celebrations
-      specialEventCheck(dateAsNumber(31,12,null), "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;", true, 'calendar');
-      specialEventCheck(dateAsNumber(01,01,null), "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;", true, 'calendar');
-
-      // 16.04 Alpha 1
-      dd = 04; mm = 01; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 1 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 1 &zwnj;is released today&zwnj;!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 1.", false, 'bug');
-
-      // 16.04 Alpha 2
-      dd = 28; mm = 01; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Alpha 2 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Alpha 2 &zwnj;is released today&zwnj;!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Alpha 2.", false, 'bug');
-
-      // 16.04 Beta 1
-      dd = 25; mm = 02; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 1 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 1 &zwnj;is released today&zwnj;!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", true, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 1.", false, 'bug');
+      specialEventCheck(dateAsNumber(31,12,null), celebrate_new_year, true, 'calendar');
+      specialEventCheck(dateAsNumber(01,01,null), celebrate_new_year, true, 'calendar');
 
       // 16.04 Beta 2
       dd = 24; mm = 03; yyyy = 2016;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released in&zwnj; 3 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released in&zwnj; 2 days.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE 16.04 Beta 2 &zwnj;will be released tomorrow&zwnj;.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE 16.04 Beta 2 &zwnj;is released today&zwnj;!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "&zwnj;Thank you for testing&zwnj; Ubuntu MATE 16.04 Beta 2.", false, 'bug');
+      release = 'Ubuntu MATE 16.04 Beta 2';
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, release + ' ' + project_release_future + ' ' + days_in + ' 3 ' + future_days, false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, release + ' ' + project_release_future + ' ' + days_in + ' 2 ' + future_days, false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, release + ' ' + project_release_future + ' ' + tomorrow, false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , release + ' ' + project_release_present, true, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, project_release_thanks + ' ' + release + '.', true, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, project_release_thanks + ' ' + release + '.', false, 'bug');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, project_release_thanks + ' ' + release + '.', false, 'bug');
 
       // 16.04 Final Release
-      dd = 21; mm = 04; yyyy = 2016; var build = '16.04 LTS'
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, "Ubuntu MATE " + build + " &zwnj;will be released a week today&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 6 days.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 5 &zwnj;days&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 4 &zwnj;days&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 3 &zwnj;days&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, "Ubuntu MATE " + build + " &zwnj;will be released in&zwnj; 2 &zwnj;days&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, "Ubuntu MATE " + build + " &zwnj;will be released tomorrow.&zwnj;", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , "Ubuntu MATE " + build + " &zwnj;is released today&zwnj;!", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, "Ubuntu MATE " + build + " &zwnj;was released yesterday&zwnj;.", true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 2 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 3 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 4 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 5 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, "Ubuntu MATE " + build + " &zwnj;was released&zwnj; 6 &zwnj;days ago&zwnj;.", false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, "Ubuntu MATE " + build + " &zwnj;was released last week&zwnj;.", false, 'calendar');
+      dd = 21; mm = 04; yyyy = 2016;
+      release = 'Ubuntu MATE 16.04 LTS';
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, release + ' ' + project_release_future + ' ' + tomorrow, true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , release + ' ' + project_release_present, true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, release + ' ' + project_release_past + ' ' + yesterday, true, 'bell');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, release + ' ' + project_release_past + ' 2 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, release + ' ' + project_release_past + ' 3 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, release + ' ' + project_release_past + ' 4 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, release + ' ' + project_release_past + ' 5 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, release + ' ' + project_release_past + ' 6 ' + days_ago, false, 'calendar');
+      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, release + ' ' + project_release_past + ' 7 ' + days_ago, false, 'calendar');
 
-    // To-do as possible improvement: Retrieve events as a list from server.
+      // To-do as possible improvement: Retrieve events as a list from server.
+    }
 }
 
 
@@ -383,7 +349,8 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
     }
 
     function jumpOneClickServers(appno) {
-      changeCategoryTab('#Servers','&zwnj;Servers&zwnj;');
+      // Python passes 'server_string' variable to allow translation.
+      changeCategoryTab('#Servers', server_string);
       $('#ServersBtn').tab('show');
       $('html, body').animate({ scrollTop: 0 }, 100)
 
@@ -512,9 +479,6 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
   // Scenes - Delayed elements to appear
   $(document).ready(function()
   {
-    // Override the footer to only display "Skip".
-    $('#footer').html("<div class='footer-content'><div class='form'><a onclick='continueToPage(true)' class='btn btn-inverse'>&zwnj;Skip&zwnj;</a></div></div>");
-
     $('#sceneA').show();
     $('#sceneA').jAnimateOnce('fadeIn');
     $('#splash-multilingual').show();
@@ -635,43 +599,35 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
   // Graphics Detection
   // Must be executed shortly after page fully loads in order for variables to exist.
   setTimeout(function() {
-    $('.graphics-vendor').html(graphicsVendor);
-    $('#graphics-pci').html(graphicsGrep);
+    $('.graphics-pci').html(graphicsGrep);
 
     // Auto detection alert initially displays "failed".
     if ( graphicsVendor == 'NVIDIA' ) {
-      $('#graphics-detected').removeClass('alert-danger');
-      $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html("&zwnj;NVIDIA Graphics Card Detected.&zwnj;");
-      $('#graphics-describe').html("&zwnj;NVIDIA may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;");
+      $('.graphics-amd-or-nvidia').show()
+      $('.graphics-unknown').hide()
+      $('.graphics-brand').html('NVIDIA')
+      $('#graphics-open-driver-name').html('nouveau');
       $('#graphics-proprietary').show();
-      $('#graphics-open-source').html("<code>nouveau</code> &zwnj;is the open source driver for NVIDIA cards.&zwnj;");
       $('#graphics-nvidia-only').show();
 
     } else if ( graphicsVendor == "AMD" ) {
-      $('#graphics-detected').removeClass('alert-danger');
-      $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html("&zwnj;AMD Graphics Card Detected.&zwnj;");
-      $('#graphics-describe').html("&zwnj;AMD may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;");
+      $('.graphics-amd-or-nvidia').show()
+      $('.graphics-unknown').hide()
+      $('.graphics-brand').html('AMD')
+      $('#graphics-open-driver-name').html('radeon');
       $('#graphics-proprietary').show();
-      $('#graphics-open-source').html("<code>radeon</code> &zwnj;is the open source driver for AMD cards.&zwnj;");
 
     } else if ( graphicsVendor == "Intel" ) {
-      $('#graphics-detected').removeClass('alert-danger');
-      $('#graphics-detected').addClass('alert-success');
-      $('#graphics-brand').html("&zwnj;You're already good to go!&zwnj;");
-      $('#graphics-describe').html("&zwnj;Intel's drivers are open source and are maintained in the kernel.&zwnj;");
+      $('.graphics-intel').show()
+      $('.graphics-unknown').hide()
 
     } else if ( graphicsVendor == "VirtualBox" ) {
-      $('#graphics-detected').removeClass('alert-danger');
-      $('#graphics-detected').addClass('alert-info');
-      $('#graphics-brand').html("&zwnj;VirtualBox Guest Additions&zwnj;");
-      $('#graphics-describe').html("&zwnj;To accelerate graphics performance inside the virtual machine, please install Guest Additions.&zwnj;");
+      $('.graphics-vbox').show()
+      $('.graphics-unknown').hide()
 
     } else {
       // Obscure graphics chip or something we can't tell.
       $('#graphics-proprietary').show();
-      $('.graphics-vendor').html("&zwnj;the manufacturer&zwnj;");
     }
   }, 1000);
 
@@ -714,181 +670,186 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
 // Donate Only = Links for donations and spendings per month.
 if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
 
-  var today = new Date();
-  var cellID = '2014-0';
+  // Some translatable short hand strings are passed via Python.
+  // The slight delay allows these variables to be loaded to JS before building the supporters table.
+  setTimeout(function() {
+      var today = new Date();
+      var cellID = '2014-0';
 
-  // Add a Year = (New Row)
-  function addYear(year) {
-    $('#donationTable').append('<tr><th style="text-align:center" id="' + year + '">' + year + '</th>');
-  }
-
-  // Add a Month = (New Column)
-  function addMonth(m,y) {
-    cellID = y + '-' + m;
-    $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a href="cmd://link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/">' + numToShortMonth(m) + '</a></td>');
-  }
-
-  // Add a Blank Month = (New Column, Empty)
-  function addBlankMonth(m,y) {
-    cellID = y + '-' + m;
-    $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"></td>');
-  }
-
-  // Close the Row
-  function endYear() {
-    $('#donationTable tr:last').append("</tr>");
-  }
-
-  // Convert month number to long/short string.
-  // These are used for determining the URL.
-  function numToMonth(m) {
-    switch (m) {
-      case 0:
-        return 'january';
-        break;
-      case 1:
-        return 'february';
-        break;
-      case 2:
-        return 'march';
-        break;
-      case 3:
-        return 'april';
-        break;
-      case 4:
-        return 'may';
-        break;
-      case 5:
-        return 'june';
-        break;
-      case 6:
-        return 'july';
-        break;
-      case 7:
-        return 'august';
-        break;
-      case 8:
-        return 'september';
-        break;
-      case 9:
-        return 'october';
-        break;
-      case 10:
-        return 'november';
-        break;
-      case 11:
-        return 'december';
-        break;
-    }
-  }
-
-  function numToShortMonth(m) {
-    switch (m) {
-      case 0:
-        return '&zwnj;Jan&zwnj;';
-        break;
-      case 1:
-        return '&zwnj;Feb&zwnj;';
-        break;
-      case 2:
-        return '&zwnj;Mar&zwnj;';
-        break;
-      case 3:
-        return '&zwnj;Apr&zwnj;';
-        break;
-      case 4:
-        return '&zwnj;May&zwnj;';
-        break;
-      case 5:
-        return '&zwnj;Jun&zwnj;';
-        break;
-      case 6:
-        return '&zwnj;Jul&zwnj;';
-        break;
-      case 7:
-        return '&zwnj;Aug&zwnj;';
-        break;
-      case 8:
-        return '&zwnj;Sep&zwnj;';
-        break;
-      case 9:
-        return '&zwnj;Oct&zwnj;';
-        break;
-      case 10:
-        return '&zwnj;Nov&zwnj;';
-        break;
-      case 11:
-        return '&zwnj;Dec&zwnj;';
-        break;
-    }
-  }
-
-  // Determine if the date is Jan and set to Dec last year.
-  function determineLastMonth() {
-    lastMonthID = '#' + today.getFullYear() + '-' + (today.getMonth() - 1);
-
-    // Before January?! Then we mean December last year.
-    if ( today.getMonth()-1 == -1 ) {
-      lastMonthID = '#' +  (today.getFullYear() - 1) + '-11';
-    }
-    return lastMonthID;
-  }
-
-  // Shade Recent Months
-  function shadeCells() {
-    // Determine current and last month
-    currentMonthID = '#' + today.getFullYear() + '-' + today.getMonth();
-    lastMonthID = determineLastMonth();
-
-    // Shade today's month, year and show text (as it's a blank cell).
-    $(currentMonthID).css('background-color','#87A556');
-    $(currentMonthID).css('color','#fff');
-    $(currentMonthID).css('font-weight','bold');
-    $(currentMonthID).html(numToShortMonth(today.getMonth()));
-
-    currentYearID = '#'+today.getFullYear();
-    $(currentYearID).css('background-color','#87A556');
-    $(currentYearID).css('color','#fff');
-    $(currentYearID).css('font-weight','bold');
-
-    // Lightly shade last month.
-    $(lastMonthID).css('background-color','#CBD6BA');
-    $(lastMonthID).css('color','#000');
-    $(lastMonthID).css('font-weight','bold');
-
-    // Start of new month? Give 3 days grace before showing the link, just to be sure it's unlikely to be a 404.
-    if ( today.getDate() <= 3 ) {
-      if ( ! today.getMonth()-1 == -1 ) {
-        $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(today.getMonth()-1));
-      } else {
-        $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(11));
+      // Add a Year = (New Row)
+      function addYear(year) {
+        $('#donationTable').append('<tr><th style="text-align:center" id="' + year + '">' + year + '</th>');
       }
-    }
-  }
 
-  ////////////////////////////////
-
-  // Donations started at the end of 2014.
-  addYear('2014');
-  for ( m = 0; m < 10; m++ ) { var y = 2014; addBlankMonth(m,y); }
-  addMonth(10,2014);
-  addMonth(11,2014);
-  endYear();
-
-  // Determine each year's blog posts since 2015
-  for (y = 2015; y < today.getFullYear()+1; y++) {
-    addYear(y);
-    // Determine each month in that year
-    for (m = 0; m < 12; m++) {
-      if ( today.getFullYear() == y && today.getMonth() < m ) {
-        addBlankMonth(m,y);
-      } else {
-        addMonth(m,y);
+      // Add a Month = (New Column)
+      function addMonth(m,y) {
+        cellID = y + '-' + m;
+        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a href="cmd://link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/">' + numToShortMonth(m) + '</a></td>');
       }
-    }
-    endYear();
-    shadeCells();
-  }
+
+      // Add a Blank Month = (New Column, Empty)
+      function addBlankMonth(m,y) {
+        cellID = y + '-' + m;
+        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"></td>');
+      }
+
+      // Close the Row
+      function endYear() {
+        $('#donationTable tr:last').append("</tr>");
+      }
+
+      // Convert month number to long/short string.
+      // These are used for determining the URL.
+      function numToMonth(m) {
+        switch (m) {
+          case 0:
+            return 'january';
+            break;
+          case 1:
+            return 'february';
+            break;
+          case 2:
+            return 'march';
+            break;
+          case 3:
+            return 'april';
+            break;
+          case 4:
+            return 'may';
+            break;
+          case 5:
+            return 'june';
+            break;
+          case 6:
+            return 'july';
+            break;
+          case 7:
+            return 'august';
+            break;
+          case 8:
+            return 'september';
+            break;
+          case 9:
+            return 'october';
+            break;
+          case 10:
+            return 'november';
+            break;
+          case 11:
+            return 'december';
+            break;
+        }
+      }
+
+      // These shorthand month names are seen to the user in the table.
+      function numToShortMonth(m) {
+        switch (m) {
+          case 0:
+            return short_jan;
+            break;
+          case 1:
+            return short_feb;
+            break;
+          case 2:
+            return short_mar;
+            break;
+          case 3:
+            return short_apr;
+            break;
+          case 4:
+            return short_may;
+            break;
+          case 5:
+            return short_jun;
+            break;
+          case 6:
+            return short_jul;
+            break;
+          case 7:
+            return short_aug;
+            break;
+          case 8:
+            return short_sep;
+            break;
+          case 9:
+            return short_oct;
+            break;
+          case 10:
+            return short_nov;
+            break;
+          case 11:
+            return short_dec;
+            break;
+        }
+      }
+
+      // Determine if the date is Jan and set to Dec last year.
+      function determineLastMonth() {
+        lastMonthID = '#' + today.getFullYear() + '-' + (today.getMonth() - 1);
+
+        // Before January?! Then we mean December last year.
+        if ( today.getMonth()-1 == -1 ) {
+          lastMonthID = '#' +  (today.getFullYear() - 1) + '-11';
+        }
+        return lastMonthID;
+      }
+
+      // Shade Recent Months
+      function shadeCells() {
+        // Determine current and last month
+        currentMonthID = '#' + today.getFullYear() + '-' + today.getMonth();
+        lastMonthID = determineLastMonth();
+
+        // Shade today's month, year and show text (as it's a blank cell).
+        $(currentMonthID).css('background-color','#87A556');
+        $(currentMonthID).css('color','#fff');
+        $(currentMonthID).css('font-weight','bold');
+        $(currentMonthID).html(numToShortMonth(today.getMonth()));
+
+        currentYearID = '#'+today.getFullYear();
+        $(currentYearID).css('background-color','#87A556');
+        $(currentYearID).css('color','#fff');
+        $(currentYearID).css('font-weight','bold');
+
+        // Lightly shade last month.
+        $(lastMonthID).css('background-color','#CBD6BA');
+        $(lastMonthID).css('color','#000');
+        $(lastMonthID).css('font-weight','bold');
+
+        // Start of new month? Give 3 days grace before showing the link, just to be sure it's unlikely to be a 404.
+        if ( today.getDate() <= 3 ) {
+          if ( ! today.getMonth()-1 == -1 ) {
+            $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(today.getMonth()-1));
+          } else {
+            $(lastMonthID).html('<span class="fa fa-clock-o"></span> '+numToShortMonth(11));
+          }
+        }
+      }
+
+      ////////////////////////////////
+
+      // Donations started at the end of 2014.
+      addYear('2014');
+      for ( m = 0; m < 10; m++ ) { var y = 2014; addBlankMonth(m,y); }
+      addMonth(10,2014);
+      addMonth(11,2014);
+      endYear();
+
+      // Determine each year's blog posts since 2015
+      for (y = 2015; y < today.getFullYear()+1; y++) {
+        addYear(y);
+        // Determine each month in that year
+        for (m = 0; m < 12; m++) {
+          if ( today.getFullYear() == y && today.getMonth() < m ) {
+            addBlankMonth(m,y);
+          } else {
+            addMonth(m,y);
+          }
+        }
+        endYear();
+        shadeCells();
+      }
+  }, 1000);
 
 }
 
