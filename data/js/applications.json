@@ -274,7 +274,41 @@
                 }
             },
             "working": true
-        },        
+        },
+        "subsurface": {
+            "name": "Subsurface",
+            "img": "subsurface",
+            "main-package": "subsurface",
+            "launch-command": "subsurface",
+            "install-packages": "subsurface",
+            "remove-packages": "subsurface",
+            "description": [
+                "Track single and multi-tank dives using air, Nitrox or",
+                "TriMix. It allows tracking of dive locations including",
+                "GPS coordinates (which can also conveniently be",
+                "entered using a map interface), logging of equipment",
+                "used and names of other divers, and lets users rate",
+                "dives and provide additional notes. Users can tag dives",
+                "and filter a dive list based on criteria including tags,",
+                "locations and people with whom you were diving."
+            ],
+            "alternate-to": null,
+            "subcategory": "Dive Log",
+            "open-source": true,
+            "url-info": "https://subsurface-divelog.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,wily",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:subsurface/subsurface",
+                    "source-file": "subsurface-ubuntu-subsurface-CODENAME"
+                }
+            },
+            "working": true
+        },
         "variety": {
             "name": "Variety",
             "img": "variety",
