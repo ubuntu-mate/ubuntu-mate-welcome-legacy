@@ -30,6 +30,7 @@ gi.require_version("Notify", "0.7")
 gi.require_version("WebKit", "3.0")
 
 import apt
+import errno
 import gettext
 import glob
 import inspect
@@ -45,6 +46,7 @@ import socket
 import subprocess
 import sys
 import tempfile
+import urllib.request
 import webbrowser
 
 import urllib.error
@@ -324,6 +326,35 @@ def fix_broken_depends():
     transaction = SimpleApt('', 'fix-broken-depends')
     transaction.fix_broken_depends()
 
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if exc.errno == errno.EEXIST and os.path.isdir(path):
+            pass
+        else:
+            raise
+
+def get_aacs_db():
+    home_dir = GLib.get_home_dir()    
+    key_url = 'http://www.labdv.com/aacs/KEYDB.cfg'
+    key_db = os.path.join(home_dir, '.config', 'aacs', 'KEYDB.cfg')
+    mkdir_p(os.path.join(home_dir, '.config', 'aacs'))    
+    print('[AACS] Getting ' + key_url + ' and saving as ' + key_db)
+    
+    # Download the file from `key_url` and save it locally under `file_name`:
+    try:
+        with urllib.request.urlopen(key_url) as response, open(key_db, 'wb') as out_file:
+            data = response.read() # a `bytes` object
+            out_file.write(data)
+            
+        Notify.init(_('Blu-ray AACS database install succeeded'))
+        aacs_notify=Notify.Notification.new(_('Successfully installed the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database was successful.'), 'dialog-information')
+        aacs_notify.show()
+    except:
+        Notify.init(_('Blu-ray AACS database install failed'))
+        aacs_notify=Notify.Notification.new(_('Failed to install the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database failed.'), 'dialog-error')        
+        aacs_notify.show()
 
 class PreInstallation(object):
     #
@@ -875,6 +906,8 @@ class AppView(WebKit.WebView):
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
+        elif uri == 'get-aacs-db':
+            get_aacs_db()
         elif uri == 'autostart':
             self._config.autostart ^= True
             self._push_config()
