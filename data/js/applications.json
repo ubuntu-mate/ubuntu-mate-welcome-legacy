@@ -3336,6 +3336,44 @@
             },
             "working": true
         },
+        "musescore": {
+            "name": "MuseScore",
+            "img": "musescore",
+            "main-package": "musescore",
+            "launch-command": "musescore",
+            "install-packages": "musescore",
+            "remove-packages": "musescore",
+            "description": [
+                "A WYSIWYG music score typesetter that features,",
+                "WYSIWYG, notes are entered on a \"virtual note sheet\",",
+                "nlimited score length, unlimited number of staves per",
+                "system, up to four independent voices per staff,",
+                "easy and fast note entry with mouse, keyboard or midi",
+                "integrated sequencer and FluidSynth software synthesizer,",
+                "import and export of MusicXml and standard midifiles (SMF)",
+                "automatic part extraction and transposition, chord",
+                "symbols, swing and shuffle playback, and much more..."
+            ],
+            "alternate-to": null,
+            "subcategory": "Music Composition",
+            "open-source": true,
+            "url-info": "https://musescore.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "trusty,wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:mscore-ubuntu/mscore-stable",
+                    "source-file": "mscore-ubuntu-mscore-stable-CODENAME"
+                },
+                "xenial": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },        
         "ocenaudio32": {
             "name": "Ocenaudio",
             "img": "ocenaudio",
