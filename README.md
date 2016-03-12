@@ -124,3 +124,14 @@ string. Translated html can be produced from these .po files by running
 `edgar-allan translate-all`, and viewed in the `i18n/en_GB` and `fr_FR`
 directories.
 
+# Building a local package
+
+If you want to build a local package for testing then do the following:
+
+  sudo apt-get install python3-polib
+	./welcome-po.py --update-pos
+	./welcome-po.py --install
+	./edgar-allan translate-all
+  debuild -b
+
+The resulting `.deb` can be installed with `sudo dpkg -i` or `gdebi`.
