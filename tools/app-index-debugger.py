@@ -122,8 +122,27 @@ def validate_apps():
 
             try:
                 app['pre-install']
+                try:
+                    app['pre-install']['all']
+                except:
+                    t.add_row([category, program_id, 'High', variable, 'Missing explicit pre-install configuration for "all".'])
             except:
-                t.add_row([category, program_id, variable, 'Missing pre-install configuration.'])
+                t.add_row([category, program_id, 'High', variable, 'Missing pre-install configuration.'])
+
+            # Check that there is a valid arch specified for applications.
+            arch_check = app['arch'].split(',')
+            arch_OK = False
+            for arch in arch_check:
+                if arch == 'i386':
+                    pass
+                elif arch == 'amd64':
+                    pass
+                elif arch == 'armhf':
+                    pass
+                elif arch == 'powerpc':
+                    pass
+                else:
+                    t.add_row([category, program_id, 'High', variable, 'Invalid architecture: ' + arch])
 
     print('\nIndex Validation Results\n')
     print(t)
