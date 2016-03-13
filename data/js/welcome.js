@@ -603,19 +603,16 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
 
     // Auto detection alert initially displays "failed".
     if ( graphicsVendor == 'NVIDIA' ) {
-      $('.graphics-amd-or-nvidia').show()
+      $('.graphics-nvidia').show()
       $('.graphics-unknown').hide()
-      $('.graphics-brand').html('NVIDIA')
       $('#graphics-open-driver-name').html('nouveau');
       $('#graphics-proprietary').show();
-      $('#graphics-nvidia-only').show();
 
     } else if ( graphicsVendor == "AMD" ) {
-      $('.graphics-amd-or-nvidia').show()
+      $('.graphics-amd').show()
       $('.graphics-unknown').hide()
-      $('.graphics-brand').html('AMD')
       $('#graphics-open-driver-name').html('radeon');
-      $('#graphics-proprietary').show();
+      //~ $('#graphics-proprietary').show();
 
     } else if ( graphicsVendor == "Intel" ) {
       $('.graphics-intel').show()

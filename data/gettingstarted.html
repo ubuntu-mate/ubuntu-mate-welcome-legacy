@@ -424,9 +424,17 @@
                 <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
               </div>
 
-              <div class="graphics-amd-or-nvidia alert alert-info" hidden>
-                <h5><span class="graphics-brand">---</span> &zwnj;Graphics Card Detected.&zwnj;</h5>
-                <p><span class="graphics-brand">---</span> &zwnj;may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;</p>
+              <div class="graphics-nvidia alert alert-info" hidden>
+                <h5>NVIDIA &zwnj;Graphics Card Detected.&zwnj;</h5>
+                <p>NVIDIA &zwnj;may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-amd alert alert-success" hidden>
+                <h5>AMD &zwnj;Graphics Card Detected.&zwnj;</h5>
+                <p>&zwnj;AMD's drivers are no longer supported on Ubuntu.
+                The open source drivers you are currently using will deliver the most
+                stable performance out of your card.&zwnj;</p>
                 <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
               </div>
 
@@ -466,11 +474,11 @@
                   <li>&zwnj;Problems with applications/games requiring hardware acceleration.&zwnj;</li>
                 </ul>
 
-                <p class="graphics-amd-or-nvidia">
+                <p class="graphics-nvidia graphics-amd">
                   <code id="graphics-open-driver-name"></code> &zwnj;is the open source driver for your card.&zwnj;
                 </p>
 
-                <p id="graphics-nvidia-only" hidden>
+                <p id="graphics-nvidia" hidden>
                   <hr class="soften"/>
                   <h4>&zwnj;What about the latest NVIDIA drivers?&zwnj;</h4>
                   <p><b>&zwnj;Additional Drivers&zwnj;</b> &zwnj;fetches the latest tested driver from the Ubuntu repositories.&zwnj;
