@@ -122,8 +122,12 @@ def validate_apps():
 
             try:
                 app['pre-install']
+                try:
+                    app['pre-install']['all']
+                except:
+                    t.add_row([category, program_id, 'High', variable, 'Missing explicit pre-install configuration for "all".'])
             except:
-                t.add_row([category, program_id, variable, 'Missing pre-install configuration.'])
+                t.add_row([category, program_id, 'High', variable, 'Missing pre-install configuration.'])
 
     print('\nIndex Validation Results\n')
     print(t)
