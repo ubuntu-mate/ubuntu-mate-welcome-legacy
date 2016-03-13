@@ -1,3 +1,5 @@
+// Which page?
+current_page = document.location.href.match(/[^\/]+$/)[0];
 
 // Global across all pages
 $(window).load(function() {
@@ -17,8 +19,10 @@ function smoothOut(target_href) {
 
 $(document).ready(function() {
   // Animate navigation elements on page load
-  $('#menu-button').jAnimateOnce('fadeInLeft');
-  $('#navigation-title').jAnimateOnce('fadeInDown');
+  if ( current_page != 'software-only.html' ) {
+    $('#menu-button').jAnimateOnce('fadeInLeft');
+    $('#navigation-title').jAnimateOnce('fadeInDown');
+  }
 
   // Initialize scroll to the top
   $(window).scroll(function () {
@@ -65,7 +69,7 @@ function reconnectTimeout() {
 
 
 // Main Menu Only = Animation
-if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
+if ( current_page == 'index.html' ) {
 
   // Animate elements of the page
   $('#mainLogo').jAnimateOnce('rotateIn');
@@ -281,13 +285,13 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'index.html' ) {
 
 
 // Introduction/Features = Animation
-if ( document.location.href.match(/[^\/]+$/)[0] == 'introduction.html' || document.location.href.match(/[^\/]+$/)[0] == 'features.html' ) {
+if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
   new WOW().init();
 }
 
 
 // Software Page Only = Categories for Apps
-if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
+if ( current_page == 'software.html' ) {
 
     // Initial variables.
     var currentCategory;
@@ -474,7 +478,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'software.html' ) {
 
 
 // Splash Only - Animation Sequence
-if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
+if ( current_page == 'splash.html' ) {
 
   // Scenes - Delayed elements to appear
   $(document).ready(function()
@@ -539,7 +543,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'splash.html' ) {
 
 
 // Getting Started Only - Index Pane for Selecting Topics
-if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
+if ( current_page == 'gettingstarted.html' ) {
 
   function indexOpen() {
     // Is the index already open?
@@ -665,7 +669,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'gettingstarted.html' ) {
 
 
 // Donate Only = Links for donations and spendings per month.
-if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
+if ( current_page == 'donate.html' ) {
 
   // Some translatable short hand strings are passed via Python.
   // The slight delay allows these variables to be loaded to JS before building the supporters table.
@@ -852,7 +856,7 @@ if ( document.location.href.match(/[^\/]+$/)[0] == 'donate.html' ) {
 
 
 // Entering Software Only Mode
-if ( document.location.href.match(/[^\/]+$/)[0] == 'software-only.html' ) {
+if ( current_page == 'software-only.html' ) {
     $('html').css('cursor','wait')
 }
 
