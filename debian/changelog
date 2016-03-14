@@ -1,5 +1,6 @@
 ubuntu-mate-welcome (16.04.4) xenial; urgency=medium
 
+  * Fix splash screen flicker. Closes (LP: #1549072)
   * Fix system information.
   * Fix subscription updates.
   * Fix Abobe Flash.
@@ -10,15 +11,14 @@ ubuntu-mate-welcome (16.04.4) xenial; urgency=medium
   * Fix RedNoteBook.
   * Fix Upgrade System, so it is compatible with Ubuntu MATE Base.
   * Add framework for accepting translations.
-  * Add Ardour, Corebird, Gajim, GNOME Software, Time Tracker,
-  Nuvola Player, OBS Studio, Pinta, SparkleShare, Vivaldi, Wireshark
-  and Zenmap.
-  * Add ubuntu-make PPA.
+  * Add Ardour, Corebird, Gajim, GNOME Software, Gpick, Time Tracker,
+  MuseScore, Nuvola Player, OBS Studio, Pinta, Subsurface, SparkleShare,
+  Vivaldi, Wireshark and Zenmap.
+  * Update ubuntu-make PPA.
   * Update Software to consistenly use the name Software Boutique.
-  * Update splash screen.
   * Update copyright attributions.
   * Whitespace cleanup.
-  * Closes (LP: #)  
+  * Closes (LP: #1556869)
 
  -- Martin Wimpress <code@flexion.org>  Tue, 23 Feb 2016 21:35:07 +0000
 

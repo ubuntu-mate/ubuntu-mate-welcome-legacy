@@ -16,7 +16,7 @@
 
 html {
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 html, body {
@@ -631,6 +631,7 @@ blockquote.terminal {
 /************************
  * Splash Screen
 *************************/
+/* Scene A */
 .splashCenter {
   text-align: center;
   vertical-align: middle;
@@ -681,8 +682,14 @@ blockquote.terminal {
   padding: 0;
 }
 
-.splashLogo {
-  top: 200px;
+/* Scene B */
+#sceneB {
+  position: absolute;
+  top: -50px; bottom: 0; left: 0; right: 0;
+  width: 400px;
+  height: 180px;
+  margin: auto;
+  text-align: center;
 }
 
 .splashVersion {
@@ -693,6 +700,7 @@ blockquote.terminal {
   pointer-events: none;
 }
 
+/* Background */
 @-webkit-keyframes fadeToMenu {
   from { background-color: #3B3A36; }
   to   { background-color: #f4f4f4; }

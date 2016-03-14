@@ -274,7 +274,41 @@
                 }
             },
             "working": true
-        },        
+        },
+        "subsurface": {
+            "name": "Subsurface",
+            "img": "subsurface",
+            "main-package": "subsurface",
+            "launch-command": "subsurface",
+            "install-packages": "subsurface",
+            "remove-packages": "subsurface",
+            "description": [
+                "Track single and multi-tank dives using air, Nitrox or",
+                "TriMix. It allows tracking of dive locations including",
+                "GPS coordinates (which can also conveniently be",
+                "entered using a map interface), logging of equipment",
+                "used and names of other divers, and lets users rate",
+                "dives and provide additional notes. Users can tag dives",
+                "and filter a dive list based on criteria including tags,",
+                "locations and people with whom you were diving."
+            ],
+            "alternate-to": null,
+            "subcategory": "Dive Log",
+            "open-source": true,
+            "url-info": "https://subsurface-divelog.org/",
+            "url-android": "https://play.google.com/store/apps/details?id=org.subsurfacedivelog.mobile",
+            "url-ios": "https://itunes.apple.com/gb/app/subsurface/id907870605?mt=8",
+            "arch": "i386,amd64",
+            "releases": "trusty,wily",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:subsurface/subsurface",
+                    "source-file": "subsurface-ubuntu-subsurface-CODENAME"
+                }
+            },
+            "working": true
+        },
         "variety": {
             "name": "Variety",
             "img": "variety",
@@ -1241,6 +1275,34 @@
             },
             "working": true
         },
+        "gpick": {
+            "name": "Gpick",
+            "img": "gpick",
+            "main-package": "gpick",
+            "launch-command": "gpick",
+            "install-packages": "gpick",
+            "remove-packages": "gpick",
+            "description": [
+                "An advanced color picker used to pick colors from anywhere",
+                "on the screen, mix them to  get new colors, generate",
+                "shades and tints, and export palettes to common file",
+                "formats or simply copy them to the clipboard."
+            ],
+            "alternate-to": null,
+            "subcategory": "Color Picker",
+            "open-source": true,
+            "url-info": "https://github.com/thezbyg/gpick",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "inkscape": {
             "name": "Inkscape",
             "img": "inkscape",
@@ -1334,7 +1396,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "rapid-photo-downloader": {
             "name": "Rapid Photo Downloader",
             "img": "rapid-photo-downloader",
@@ -1700,7 +1762,7 @@
                     "enable-ppa": "ppa:flexiondotorg/gajim",
                     "source-file": "flexiondotorg-ubuntu-gajim-CODENAME"
                 },
-                "xenial": {
+                "all": {
                     "method": "skip"
                 }
             },
@@ -2189,7 +2251,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "spideroakone": {
             "name": "SpiderOakONE",
             "img": "spideroak",
@@ -2469,7 +2531,7 @@
             "install-packages": "zenmap",
             "remove-packages": "zenmap",
             "description": [
-                "A frontend for `nmap`, a utility for network discovery",
+                "A frontend for Nmap, a utility for network discovery",
                 "and security auditing, that is meant to be useful for",
                 "advanced users and to make Nmap easy to use by",
                 "beginners."
@@ -2488,7 +2550,7 @@
                 }
             },
             "working": true
-        }        
+        }
     },
     "Office": {
         "calibre": {
@@ -3274,6 +3336,44 @@
             },
             "working": true
         },
+        "musescore": {
+            "name": "MuseScore",
+            "img": "musescore",
+            "main-package": "musescore",
+            "launch-command": "musescore",
+            "install-packages": "musescore",
+            "remove-packages": "musescore",
+            "description": [
+                "A WYSIWYG music score typesetter that features,",
+                "WYSIWYG, notes are entered on a \"virtual note sheet\",",
+                "nlimited score length, unlimited number of staves per",
+                "system, up to four independent voices per staff,",
+                "easy and fast note entry with mouse, keyboard or midi",
+                "integrated sequencer and FluidSynth software synthesizer,",
+                "import and export of MusicXml and standard midifiles (SMF)",
+                "automatic part extraction and transposition, chord",
+                "symbols, swing and shuffle playback, and much more..."
+            ],
+            "alternate-to": null,
+            "subcategory": "Music Composition",
+            "open-source": true,
+            "url-info": "https://musescore.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "trusty,wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:mscore-ubuntu/mscore-stable",
+                    "source-file": "mscore-ubuntu-mscore-stable-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "ocenaudio32": {
             "name": "Ocenaudio",
             "img": "ocenaudio",
@@ -3673,7 +3773,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "pithos": {
             "name": "Pithos",
             "img": "pithos",
