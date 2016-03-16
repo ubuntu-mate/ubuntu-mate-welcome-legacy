@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-03-16 08:23+0100\n"
-"PO-Revision-Date: 2016-03-16 10:42+0100\n"
+"PO-Revision-Date: 2016-03-16 11:11+0100\n"
 "Language-Team: : LANGUAGE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -354,7 +354,7 @@ msgstr ""
 
 #: software.html:285
 msgid "Outdated Package Lists?"
-msgstr "Listes de Paquets Obsolètes?"
+msgstr "Listes de Paquets obsolètes?"
 
 #: software.html:286
 msgid "Your repository lists may be out of date, which can cause"
@@ -384,27 +384,28 @@ msgstr ""
 
 #: software.html:290
 msgid "Update the repository lists:"
-msgstr ""
+msgstr "Mettre à jour les listes de dépôts:"
 
 #: software.html:294
 msgid "Update Sources List"
-msgstr ""
+msgstr "Mettre à jour les listes  des Sources"
 
 #: software.html:295
 msgid "Upgrade Installed Packages"
-msgstr ""
+msgstr "Mettre à jour les Paquets Installé"
 
 #: software.html:299
 msgid "Broken Packages?"
-msgstr ""
+msgstr "Paquet Cassé?"
 
 #: software.html:300
 msgid "When a previous installation or removal was interrupted"
-msgstr ""
+msgstr "Quand une installation ou désinstallation est intérrompue"
 
 #: software.html:301
 msgid "(for instance, due to power failure or loss of Internet connection)"
 msgstr ""
+" (par exemple à cause de coupure de courant ou perte de connection internet)"
 
 #: software.html:302
 msgid ""
@@ -413,66 +414,77 @@ msgid ""
 "dependencies and install any missing packages in order for the software to "
 "run properly."
 msgstr ""
+"aucun autre logiciel ne peut être ajouté ou retiré sans re-configurer "
+"proprement ces paquets cassés. Si nécessaire, il se peut que vous deviez "
+"aussi résoudre des problèmes de dépendances et installer tout paquet "
+"manquant pour que le ou les logiciels fonctionnent correctement."
 
 #: software.html:308
+#, fuzzy
 msgid "Configure packages that were unpacked but not configured:"
-msgstr ""
+msgstr "Configurer les paquets ouverts mais non-configurés :"
 
 #: software.html:312
 msgid "Download and install broken dependencies:"
-msgstr ""
+msgstr "Télécharger et installer les dépendances cassées :"
 
 #: software.html:316
 msgid "Configure Interrupted Packages"
-msgstr ""
+msgstr "Configurer les Paquets en Suspend"
 
 #: software.html:317
 msgid "Resolve Broken Packages"
-msgstr ""
+msgstr "Résoudre les Problèmes de Paquets Cassés"
 
 #: software.html:321
 msgid ""
 "In addition, listed below are terminal equivalent commands that otherwise "
 "appear in the"
 msgstr ""
+"Voici en plus et listées en dessous les équivalents en commandes pour le "
+"terminal qui en temps normal apparaissent dans "
 
 #: software.html:322
 msgid "Software Updater"
-msgstr ""
+msgstr "Mises à Jour Logiciels"
 
 #: software.html:324
 msgid "Upgrade all packages that have a new version available:"
-msgstr ""
+msgstr "Mettre à jour tout les paquets ayant une nouvelle version disponible :"
 
 #: software.html:328
 msgid "Upgrade to a new release of Ubuntu MATE:"
 msgstr ""
+"Mettre le système à jour vers une nouvelle publication de Ubuntu MATE :"
 
 #: software.html:342
 msgid "Filter by Software License"
-msgstr ""
+msgstr "Filtrer par License Logiciel"
 
 #: software.html:343
 msgid "Hide Proprietary Software"
-msgstr ""
+msgstr "Masquer les Logiciels Propriétaires"
 
 #: software.html:345
 msgid "Show Terminal Commands"
-msgstr ""
+msgstr "Afficher les Commandes Terminal"
 
 #: software.html:351
 msgid "Proprietary Software"
-msgstr ""
+msgstr "Les Logiciels Propriétaires"
 
 #: software.html:352
 msgid ""
 "is owned by an individual or company. There may be restrictions on its usage "
 "(like a license agreement), and no access to its source code."
 msgstr ""
+"sont des logiciels dont les droits sont possédés par un individu ou une "
+"société. leur utilisation peut être soumise à une restriction (par exemple "
+"un accord de license), et leur code source non-accessible."
 
 #: software.html:355
 msgid "Free and Open Source Software"
-msgstr ""
+msgstr "Les Gratuiciels et Logiciels Libres"
 
 #: software.html:356
 msgid ""
@@ -480,3 +492,6 @@ msgid ""
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
 msgstr ""
+"donnent à l'utilisateur la liberté de partager, étudier et modifier leur "
+"code sans restriction. Concrètement, la GPL est un example de license de "
+"\"Logiciel Libre\"."
