@@ -124,24 +124,24 @@
 
             <h3>&zwnj;Modern UEFI-based computers&zwnj;</h3>
             <p>&zwnj;If you have a modern PC that uses the Unifed Extended Firmware Interface (UEFI),
-            you may need to disable &zwnj;<b>&zwnj;Secure Boot&zwnj;</b>&zwnj; (or enable an &zwnj;<b>&zwnj;Unlock Bootloader&zwnj;</b>
+            you may need to disable &zwnj; <b>&zwnj;Secure Boot&zwnj;</b> &zwnj; (or enable an &zwnj; <b>&zwnj;Unlock Bootloader&zwnj;</b>
             &zwnj;option) prior to installation, particularly if an operating system was pre-installed.&zwnj;</p>
 
             <p>&zwnj;If you are using a legacy BIOS machine, you do not need to do this.&zwnj;</p>
 
             <p>
               &zwnj;Especially when dual booting, it is important that you boot your system
-              in the correct mode and use the &zwnj;<b>&zwnj;64-bit image&zwnj;</b>&zwnj;, as you cannot boot
+              in the correct mode and use the &zwnj; <b> &zwnj;64-bit image&zwnj;</b> &zwnj;, as you cannot boot
               an operating system installed in BIOS mode after installing a
               UEFI-enabled operating system or vice versa.&zwnj;
             </p>
 
             <p>&zwnj;Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also show a
-            "protection layer". &zwnj;<b>&zwnj;Do not worry,&zwnj;</b> &zwnj;your data is not lost or corrupt!&zwnj;
+            "protection layer". &zwnj; <b>&zwnj;Do not worry,&zwnj;</b> &zwnj;your data is not lost or corrupt!&zwnj;
             </p>
 
             <div class="alert alert-info">
-              &zwnj;Your system is currently running in &zwnj;<b><span id="boot-mode">???</span>&zwnj; mode&zwnj;</b>.
+              &zwnj;Your system is currently running in &zwnj;&nbsp;<b><span id="boot-mode">???</span>&nbsp;&zwnj; mode&zwnj;</b>.
             </div>
 
             <hr class="soften"/>
@@ -151,7 +151,7 @@
             start swapping to disk. Known as a "paging file" in Windows.
             Performance will decrease when running low on memory and could possibly freeze if
             you completely run out of memory without anywhere to swap.&zwnj;</p>
-            <p>&zwnj;By default, &zwnj;<b>&zwnj;a swap partition is created by the size of your RAM.&zwnj;</b> &zwnj;For example, if you have
+            <p>&zwnj;By default, &zwnj; <b>&zwnj;a swap partition is created by the size of your RAM.&zwnj;</b> &zwnj;For example, if you have
             2 GiB of RAM, then 2 GiB of hard disk space will be reserved for swap at the end of the drive.&zwnj;</p>
 
             <div class="center">
@@ -232,7 +232,7 @@
                 <p>
                   <img class="left" src="img/applications/gparted.png"/>
                   <b>&zwnj;GParted&zwnj;</b> &zwnj;is available during the live session only.&zwnj;
-                  &zwnj;It is located under the &zwnj;<b>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span>
+                  &zwnj;It is located under the &zwnj; <b>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span>
                   &zwnj;Administration&zwnj;</b> &zwnj;menu. GParted provides complete flexibility over your partitions,
                   primarily for power users who know how they'd like to layout their disks.
                   This method makes changes to partitions prior to installation.&zwnj;
@@ -256,7 +256,7 @@
                   <li><code>/boot</code> - &zwnj;Bootloader and kernels&zwnj;</li>
                   <li><code>/home</code> - &zwnj;Your personal files and folders&zwnj;</li>
                   <li><code>/tmp</code> - &zwnj;Temporary files&zwnj;</li>
-                  <li><code>/usr</code> - &zwnj;Contains most of the applications &zwnj;<i>&zwnj;(binaries, documentation, libraries, etc)&zwnj;</i></li>
+                  <li><code>/usr</code> - &zwnj;Contains most of the applications &zwnj; <i> &zwnj;(binaries, documentation, libraries, etc)&zwnj;</i></li>
                   <li><code>/var</code> - &zwnj;Variable data&zwnj; <i>&zwnj;(such as system logs)&zwnj;</i></li>
                   <li><code>/srv</code> - &zwnj;Data for System Services&zwnj; <i>&zwnj;(typically used for server configurations)&zwnj;</i></li>
                   <li><code>/opt</code> - &zwnj;Additional software unmanaged by the package manager&zwnj;
@@ -452,8 +452,8 @@
               <div id="graphics-proprietary" hidden>
                 <h4>&zwnj;Proprietary or Open Source Drivers?&zwnj;</h4>
                 <p>&zwnj;Proprietary drivers come directly from the manufacturer.&zwnj;
-                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to;&zwnj;
-                &zwnj;rely on the manufacturer for support.&zwnj;</p>
+                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to
+                rely on the manufacturer for support.&zwnj;</p>
 
                 <p>&zwnj;In addition, proprietary drivers can&zwnj; <b>&zwnj;significantly improve graphics performance&zwnj;</b> &zwnj;and as a result,&zwnj;
                 &zwnj;the entire system. Users may wish to install these drivers to:&zwnj;</p>
@@ -470,7 +470,7 @@
                 <ul>
                   <li>&zwnj;Failing to boot to the graphical desktop.&zwnj;</li>
                   <li>&zwnj;Broken drivers after an upgrade.&zwnj;</li>
-                  <li>&zwnj;Serve graphical glitches.&zwnj;</li>
+                  <li>&zwnj;Severe graphical glitches.&zwnj;</li>
                   <li>&zwnj;Problems with applications/games requiring hardware acceleration.&zwnj;</li>
                 </ul>
 
@@ -512,7 +512,7 @@
               need to research your device to find the appropriate driver.&zwnj;</p>
 
               <p>&zwnj;Unfortunately, this is due to the fact the manufacturer
-               for your hardware hasn't provided any open source code for
+               for your hardware hasn't provided any source code for
                developers to freely use, or there is insufficient
                documentation to create drivers for your
                particular brand and model.&zwnj;</p>
@@ -721,7 +721,7 @@
             interface. It can be used to quickly setup the user interface
             to broadly reflect how other popular operating systems look
             and feel. The&zwnj; <b>Redmond</b> &zwnj;layouts are most similar to
-            Microsoft Windows and&zwnj; <b>Cupertino</b> &zwnj;layouts are most
+            Microsoft Windows while&zwnj; <b>Cupertino</b> &zwnj;layouts are most
             similar to Apple Mac OS X.&zwnj;</p>
             <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak" onclick="smoothFade('','#tweak-hint')">
               <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; &zwnj;User Interface&zwnj;
@@ -747,7 +747,7 @@
             <h2>&zwnj;Desktop Wallpaper&zwnj;</h2>
             <p>&zwnj;The Ubuntu MATE Community have contributed dozens of
             desktop wallpaper images over the years. Why not install them
-            and find something to suites your tastes?&zwnj;</p>
+            and find something that suits your tastes?&zwnj;</p>
             <div class="center">
             <a class="btn btn-lg btn-inverse" href="cmd://install-appid?ubuntu-mate-wallpapers-complete"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; &zwnj;Wallpapers&zwnj;</a>
             </div>
