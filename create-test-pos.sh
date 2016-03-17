@@ -22,7 +22,6 @@ pot2po data/po/introduction/introduction.pot data/po/introduction/en_GB.po
 pot2po data/po/rpi/rpi.pot data/po/rpi/en_GB.po 
 pot2po data/po/shop/shop.pot data/po/shop/en_GB.po 
 pot2po data/po/software/software.pot data/po/software/en_GB.po 
-pot2po data/po/software-only/software-only.pot data/po/software-only/en_GB.po 
 pot2po data/po/splash/splash.pot data/po/splash/en_GB.po
 echo "Creating fr_FR.po files for each slide"
 ./edgar-allan po --input=data/po/chatroom/en_GB.po --output=data/po/chatroom/fr_FR.po
@@ -39,7 +38,6 @@ echo "Creating fr_FR.po files for each slide"
 ./edgar-allan po --input=data/po/rpi/en_GB.po --output=data/po/rpi/fr_FR.po
 ./edgar-allan po --input=data/po/shop/en_GB.po --output=data/po/shop/fr_FR.po
 ./edgar-allan po --input=data/po/software/en_GB.po --output=data/po/software/fr_FR.po
-./edgar-allan po --input=data/po/software-only/en_GB.po --output=data/po/software-only/fr_FR.po
 ./edgar-allan po --input=data/po/splash/en_GB.po --output=data/po/splash/fr_FR.po
 echo
 echo "Done."
