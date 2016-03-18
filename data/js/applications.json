@@ -1735,7 +1735,7 @@
             "img": "gajim",
             "main-package": "gajim",
             "launch-command": "gajim",
-            "install-packages": "gajim,python-appindicator,python-farstream,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad",
+            "install-packages": "gajim,python-appindicator,python-farstream,gstreamer1.0-plugins-bad",
             "remove-packages": "gajim",
             "description": [
                 "A Jabber client with a tabbed user interface for normal",
@@ -3479,8 +3479,8 @@
             "img": "codecs",
             "main-package": "libavcodec-extra",
             "launch-command": null,
-            "install-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
-            "remove-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer0.10-plugins-bad,gstreamer1.0-plugins-bad,gstreamer0.10-plugins-ugly,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
+            "install-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
+            "remove-packages": "libavcodec-extra,gstreamer0.10-plugins-good,gstreamer1.0-plugins-good,gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly,gstreamer1.0-fluendo-mp3,gstreamer1.0-libav",
             "description": [
                 "Includes a library that offers a complete,",
                 "cross-platform solution to decode, encode, record, convert and",
