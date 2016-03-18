@@ -1,5 +1,42 @@
 {
     "Accessories": {
+        "diodon": {
+            "name": "Diodon",
+            "img": "diodon",
+            "main-package": "diodon",
+            "launch-command": "diodon",
+            "install-packages": "diodon",
+            "remove-packages": "diodon",
+            "description": [
+                "A lightweight clipboard manager which aims to be the",
+                "best integrated clipboard manager for the Ubuntu",
+                "desktop. Diodon features include Ubuntu indicator,",
+                "clipboard sync (primary selection and Ctrl+C / Ctrl+V",
+                "clipboard) and a zeitgeist integration for an infinite",
+                "clipboard history.",
+                "<ul><li><b>Note: </b><i>Diodon works best with <u>Indicators enabled</u> via",
+                "<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"                
+            ],
+            "alternate-to": null,
+            "subcategory": "Desktop Management",
+            "open-source": true,
+            "url-info": "https://wiki.ubuntu.com/Diodon",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",            
+            "pre-install": {
+                "trusty,wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:diodon-team/stable",
+                    "source-file": "diodon-team-ubuntu-stable-CODENAME"                    
+                },
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },        
         "enpass": {
             "name": "Enpass",
             "img": "enpass",
