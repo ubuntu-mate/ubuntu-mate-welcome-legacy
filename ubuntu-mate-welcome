@@ -1013,15 +1013,25 @@ class WelcomeApp(object):
         else:
             locale_to_use = locale.getlocale()[0]
 
-        # check for relative path
-        if (os.path.exists(os.path.join(self._location, 'i18n', locale_to_use))):
-            locale_dir = os.path.join(self._location, 'i18n', locale_to_use)
-            print('[Debug] Using ' + locale_dir + '. Non-production testing.')
-        elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use))):
-            locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use)
-            print('[Debug] Using ' + locale_dir)
-        else:
-            locale_dir = ''
+        def set_locale_dir(this_locale):
+            # check for relative path
+            if (os.path.exists(os.path.join(self._location, 'i18n', this_locale))):
+                locale_dir = os.path.join(self._location, 'i18n', this_locale)
+                print('[i18n] Using ' + this_locale + '. Non-production testing.')
+            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale))):
+                locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale)
+                print('[i18n] Using ' + this_locale)
+            else:
+                locale_dir = ''
+                print('[i18n] Locale ' + this_locale + ' not available.')
+            return locale_dir
+
+        # if no locale exists, try a generic locale.
+        locale_dir = set_locale_dir(locale_to_use)
+        if locale_dir == '':
+            locale_generic = locale_to_use.split('_')[0]
+            print('[i18n] Trying ' + locale_generic + '...')
+            set_locale_dir(locale_generic)
 
         results = []
 
@@ -1033,10 +1043,10 @@ class WelcomeApp(object):
             trans_slide = os.path.join(locale_dir, slide_name)
             if os.path.exists(trans_slide):
                 results.append(trans_slide)
-                arg.print_verbose("Translation","Will use %s translation of %s" %(locale_to_use, slide_name))
+                arg.print_verbose("i18n","Will use %s translation of %s" %(locale_to_use, slide_name))
             else:
                 results.append(slide)
-                arg.print_verbose("Translation","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
+                arg.print_verbose("i18n","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
 
         return results
 
