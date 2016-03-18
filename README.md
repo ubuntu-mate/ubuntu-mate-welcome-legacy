@@ -32,13 +32,15 @@ and testing purposes, the following can be specified:
     * `i386` or `amd64` or `armvf` or `powerpc`
   * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
     * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
-  * `--force-codename=<NAME>` = Simulate a specific Ubuntu release.
+  * `--force-codename=<NAME>` = Simulate a specific Ubuntu release. For testing Software Boutique.
     * Eg. `trusty` or `wily` or `xenial`.
   * `--force-no-net` = Simulate no internet connection.
   * `--force-net` = Simulate an internet connection.
   * `--locale` = specify a locale to use, otherwise the default locale will be used.
-  * `--software-only` = Only show the Software page. (Hides social links, uses a larger window)
+    * If testing translations, run `./edgar-allan translate-all` first.
+  * `--software-only` = Software Boutique mode. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
+  * `--jump-to=<PAGE>` = Jump to a specific page, excluding the `.html` extension.
 
 
 ## Requirements
@@ -76,6 +78,23 @@ the folders `po/` and `data/po` for PO and POT files.
 A complete guide has been written at the Ubuntu MATE Community:
 
  * https://ubuntu-mate.community/t/guide-how-to-translate-ubuntu-mate-welcome/4234
+
+
+## Preview in another locale.
+
+Navigate to your repository folder.
+
+    ./edgar-allan translate-all
+    ./ubuntu-mate-welcome --locale=<CODE>
+
+Use the verbose flag (`-v`) for more detailed output on which
+pages will use the translated version.
+
+Currently, Welcome still uses English for:
+
+  * Software Boutique - Names and descriptions for applications.
+  * Terminal debug output.
+  * Screenshots.
 
 
 ## edgar-allan
@@ -123,3 +142,14 @@ string. Translated html can be produced from these .po files by running
 `edgar-allan translate-all`, and viewed in the `i18n/en_GB` and `fr_FR`
 directories.
 
+# Building a local package
+
+If you want to build a local package for testing then do the following:
+
+    sudo apt-get install python3-polib
+    ./welcome-po.py --update-pos
+    ./welcome-po.py --install
+    ./edgar-allan translate-all
+    debuild -b
+
+The resulting `.deb` can be installed with `sudo dpkg -i` or `gdebi`.

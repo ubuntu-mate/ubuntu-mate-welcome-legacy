@@ -28,7 +28,7 @@
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('sysreq','&zwnj;System Requirements&zwnj;')">        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')"> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('dualboot','&zwnj;Dual Booting&zwnj;')">             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
-      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                     <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
+      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                                 <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
@@ -67,7 +67,7 @@
             <h5>&zwnj;Minimum&zwnj;</h5>
             <ul>
               <li>&zwnj;Pentium III 750 megahertz (MHz)&zwnj;</li>
-              <li>&zwnj;512 megabytes (MB) of RAM<&zwnj;/li>
+              <li>&zwnj;512 megabytes (MB) of RAM&zwnj;</li>
               <li>&zwnj;8 gigabytes (GB) of disk space&zwnj;</li>
             </ul>
 
@@ -82,7 +82,7 @@
             computer meets or surpasses the recommended requirements.&zwnj;</p>
 
             <div class="center">
-              <a onclick="changePage('specs','&zwnj;System Specifications&zwnj;')" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
+              <a onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); init_system_info()" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
             </div>
 
             <div class="center">
@@ -124,24 +124,24 @@
 
             <h3>&zwnj;Modern UEFI-based computers&zwnj;</h3>
             <p>&zwnj;If you have a modern PC that uses the Unifed Extended Firmware Interface (UEFI),
-            you may need to disable &zwnj;<b>&zwnj;Secure Boot&zwnj;</b>&zwnj; (or enable an &zwnj;<b>&zwnj;Unlock Bootloader&zwnj;</b>
+            you may need to disable &zwnj; <b>&zwnj;Secure Boot&zwnj;</b> &zwnj; (or enable an &zwnj; <b>&zwnj;Unlock Bootloader&zwnj;</b>
             &zwnj;option) prior to installation, particularly if an operating system was pre-installed.&zwnj;</p>
 
             <p>&zwnj;If you are using a legacy BIOS machine, you do not need to do this.&zwnj;</p>
 
             <p>
               &zwnj;Especially when dual booting, it is important that you boot your system
-              in the correct mode and use the &zwnj;<b>&zwnj;64-bit image&zwnj;</b>&zwnj;, as you cannot boot
+              in the correct mode and use the &zwnj; <b> &zwnj;64-bit image&zwnj;</b> &zwnj;, as you cannot boot
               an operating system installed in BIOS mode after installing a
               UEFI-enabled operating system or vice versa.&zwnj;
             </p>
 
             <p>&zwnj;Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also show a
-            "protection layer". &zwnj;<b>&zwnj;Do not worry,&zwnj;</b> &zwnj;your data is not lost or corrupt!&zwnj;
+            "protection layer". &zwnj; <b>&zwnj;Do not worry,&zwnj;</b> &zwnj;your data is not lost or corrupt!&zwnj;
             </p>
 
             <div class="alert alert-info">
-              &zwnj;Your system is currently running in &zwnj;<b><span id="boot-mode">???</span>&zwnj; mode&zwnj;</b>.
+              &zwnj;Your system is currently running in &zwnj;&nbsp;<b><span id="boot-mode">???</span>&nbsp;&zwnj; mode&zwnj;</b>.
             </div>
 
             <hr class="soften"/>
@@ -151,7 +151,7 @@
             start swapping to disk. Known as a "paging file" in Windows.
             Performance will decrease when running low on memory and could possibly freeze if
             you completely run out of memory without anywhere to swap.&zwnj;</p>
-            <p>&zwnj;By default, &zwnj;<b>&zwnj;a swap partition is created by the size of your RAM.&zwnj;</b> &zwnj;For example, if you have
+            <p>&zwnj;By default, &zwnj; <b>&zwnj;a swap partition is created by the size of your RAM.&zwnj;</b> &zwnj;For example, if you have
             2 GiB of RAM, then 2 GiB of hard disk space will be reserved for swap at the end of the drive.&zwnj;</p>
 
             <div class="center">
@@ -164,6 +164,7 @@
           </div>
         </div>
       </div>
+
       <!-- Advise on Dual Booting (shown in guest session only) -->
       <div id="dualboot" class="topicContents" hidden>
         <div class="row-fluid">
@@ -231,7 +232,7 @@
                 <p>
                   <img class="left" src="img/applications/gparted.png"/>
                   <b>&zwnj;GParted&zwnj;</b> &zwnj;is available during the live session only.&zwnj;
-                  &zwnj;It is located under the &zwnj;<b>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span>
+                  &zwnj;It is located under the &zwnj; <b>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span>
                   &zwnj;Administration&zwnj;</b> &zwnj;menu. GParted provides complete flexibility over your partitions,
                   primarily for power users who know how they'd like to layout their disks.
                   This method makes changes to partitions prior to installation.&zwnj;
@@ -255,7 +256,7 @@
                   <li><code>/boot</code> - &zwnj;Bootloader and kernels&zwnj;</li>
                   <li><code>/home</code> - &zwnj;Your personal files and folders&zwnj;</li>
                   <li><code>/tmp</code> - &zwnj;Temporary files&zwnj;</li>
-                  <li><code>/usr</code> - &zwnj;Contains most of the applications &zwnj;<i>&zwnj;(binaries, documentation, libraries, etc)&zwnj;</i></li>
+                  <li><code>/usr</code> - &zwnj;Contains most of the applications &zwnj; <i> &zwnj;(binaries, documentation, libraries, etc)&zwnj;</i></li>
                   <li><code>/var</code> - &zwnj;Variable data&zwnj; <i>&zwnj;(such as system logs)&zwnj;</i></li>
                   <li><code>/srv</code> - &zwnj;Data for System Services&zwnj; <i>&zwnj;(typically used for server configurations)&zwnj;</i></li>
                   <li><code>/opt</code> - &zwnj;Additional software unmanaged by the package manager&zwnj;
@@ -366,10 +367,16 @@
             decode, encode, record, convert and stream audio and video.
             It also includes a MP3 audio decoder that permits the playback
             of MPEG 1 audio layer III (MP3).&zwnj;</p>
+            <!-- <p>&zwnj;You'll need the Blu-ray AACS database in order
+            to play AACS encrypted or BD+ protected discs.&zwnj;</p> -->
             <div align="center">
               <a class="btn btn-lg btn-inverse" href="cmd://install-appid?codecs">
                 <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Codecs Package&zwnj;
               </a>
+              <!-- <a class="btn btn-lg btn-inverse" href="cmd://get-aacs-db">
+                <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
+              </a> -->
+              <span class="codecs-applying bluray-applying"><br><br><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
             </div>
 
             <div class="center">
@@ -411,16 +418,42 @@
             <!-- Advice about graphics -->
             <a onclick="toggleSub('graphics-section','graphics-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="graphics-arrow"></span> Graphics</h3></a>
             <div id="graphics-section" hidden>
-              <div id="graphics-detected" class="alert alert-danger">
-                <h5 id="graphics-brand">&zwnj;Sorry, Welcome was unable to automatically identify the graphics vendor on this system.&zwnj;</h5>
-                <p id="graphics-describe"></p>
-                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i id="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+
+              <div class="graphics-unknown alert alert-danger">
+                <h5>&zwnj;Sorry, Welcome was unable to automatically identify the graphics vendor on this system.&zwnj;</h5>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
               </div>
+
+              <div class="graphics-nvidia alert alert-info" hidden>
+                <h5>NVIDIA &zwnj;Graphics Card Detected.&zwnj;</h5>
+                <p>NVIDIA &zwnj;may have drivers for your card that can boost performance for 3D applications and games as well as improved power management.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-amd alert alert-success" hidden>
+                <h5>AMD &zwnj;Graphics Card Detected.&zwnj;</h5>
+                <p>&zwnj;AMD's drivers are no longer supported on Ubuntu.
+                The open source drivers you are currently using will deliver the most
+                stable performance out of your card.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-intel alert alert-success" hidden>
+                <h5>&zwnj;You're already good to go.&zwnj;</h5>
+                <p>&zwnj;Intel's drivers are open source and are maintained/updated in the kernel.&zwnj;</p>
+                <p><span class="fa fa-plug"></span><b> &zwnj;Card/Chipset:&zwnj; </b><i class="graphics-pci">&zwnj;Unknown&zwnj;</i></p>
+              </div>
+
+              <div class="graphics-vbox alert alert-info" hidden>
+                <h5>&zwnj;VirtualBox Guest Additions&zwnj;</h5>
+                <p>&zwnj;To accelerate graphics performance inside the virtual machine, please install Guest Additions.&zwnj;</p>
+              </div>
+
               <div id="graphics-proprietary" hidden>
                 <h4>&zwnj;Proprietary or Open Source Drivers?&zwnj;</h4>
-                <p>&zwnj;Proprietary drivers come directly from&zwnj; <span class="graphics-vendor">&zwnj;the manufacturer&zwnj;</span>.
-                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to;&zwnj;
-                &zwnj;rely on&zwnj; <span class="graphics-vendor">&zwnj;the manufacturer&zwnj;</span> &zwnj;for support.&zwnj;</p>
+                <p>&zwnj;Proprietary drivers come directly from the manufacturer.&zwnj;
+                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to
+                rely on the manufacturer for support.&zwnj;</p>
 
                 <p>&zwnj;In addition, proprietary drivers can&zwnj; <b>&zwnj;significantly improve graphics performance&zwnj;</b> &zwnj;and as a result,&zwnj;
                 &zwnj;the entire system. Users may wish to install these drivers to:&zwnj;</p>
@@ -437,12 +470,15 @@
                 <ul>
                   <li>&zwnj;Failing to boot to the graphical desktop.&zwnj;</li>
                   <li>&zwnj;Broken drivers after an upgrade.&zwnj;</li>
-                  <li>&zwnj;Serve graphical glitches.&zwnj;</li>
+                  <li>&zwnj;Severe graphical glitches.&zwnj;</li>
                   <li>&zwnj;Problems with applications/games requiring hardware acceleration.&zwnj;</li>
                 </ul>
 
-                <p id="graphics-open-source"></p>
-                <p id="graphics-nvidia-only" hidden>
+                <p class="graphics-nvidia graphics-amd">
+                  <code id="graphics-open-driver-name"></code> &zwnj;is the open source driver for your card.&zwnj;
+                </p>
+
+                <p id="graphics-nvidia" hidden>
                   <hr class="soften"/>
                   <h4>&zwnj;What about the latest NVIDIA drivers?&zwnj;</h4>
                   <p><b>&zwnj;Additional Drivers&zwnj;</b> &zwnj;fetches the latest tested driver from the Ubuntu repositories.&zwnj;
@@ -454,7 +490,7 @@
                     and not older cards using the legacy driver.&zwnj;
                   </div>
                   <a class="btn btn-warning" href="cmd://upgrade-appid?nvidia-settings"><span class="fa fa-level-up"></span>&nbsp; &zwnj;Add Repository&zwnj;</a>
-                  <br>
+                  <br><br>
                   <!-- <a class="btn btn-danger" href="#"><span class="fa fa-trash"></span>&nbsp; Remove Repository</a> -->
                   <p>&zwnj;To add the repository to the system, open a terminal and type the following:&zwnj;</p>
                   <blockquote class="terminal miscCmd">
@@ -476,7 +512,7 @@
               need to research your device to find the appropriate driver.&zwnj;</p>
 
               <p>&zwnj;Unfortunately, this is due to the fact the manufacturer
-               for your hardware hasn't provided any open source code for
+               for your hardware hasn't provided any source code for
                developers to freely use, or there is insufficient
                documentation to create drivers for your
                particular brand and model.&zwnj;</p>
@@ -507,20 +543,24 @@
               printing&zwnj;</a>.</p>
 
               <hr class="soften"/>
-              <div class="hp-printer-install">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is
-                recommended if you have an HP printer because it provides
-                full support for printing on most HP SFP (single function
-                peripheral) inkjets and many LaserJets, and for scanning,
-                sending faxes and for photo-card access on most HP MFP
-                (multi-function peripheral) printers.&zwnj;</p>
-                <p><a class="btn btn-success" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a></p>
-              </div>
-              <div class="hp-printer-remove">
-                <p><img src="img/applications/hplip.png" width="20px" height="20px"/>
-                <b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b> &zwnj;is installed, which provides full support for a wide variety of HP printers.&zwnj;</p>
-                <p><a class="btn btn-inverse" href="cmd://run?hp-toolbox"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a></p>
+
+              <div class="row-fluid">
+                <div class="span2 center-inside">
+                  <img src="img/applications/hplip.png" width="64px" height="64px"/>
+                  <span class="fa fa-check-circle fa-2x installed-check gparted-remove"></span>
+                </div>
+                <div class="span10">
+                  <p><b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b></p>
+                  <p>&zwnj;Recommended if you have an HP printer as it provides
+                  full support for printing on most HP SFP (single function
+                  peripheral) inkjets and many LaserJets, and for scanning,
+                  sending faxes and for photo-card access on most HP MFP
+                  (multi-function peripheral) printers.&zwnj;</p>
+                  <p class="text-right">
+                    <a class="btn btn-inverse hp-printer-remove" href="cmd://launch-appid?hp-printer"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                    <a class="btn btn-success hp-printer-install" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -681,7 +721,7 @@
             interface. It can be used to quickly setup the user interface
             to broadly reflect how other popular operating systems look
             and feel. The&zwnj; <b>Redmond</b> &zwnj;layouts are most similar to
-            Microsoft Windows and&zwnj; <b>Cupertino</b> &zwnj;layouts are most
+            Microsoft Windows while&zwnj; <b>Cupertino</b> &zwnj;layouts are most
             similar to Apple Mac OS X.&zwnj;</p>
             <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak" onclick="smoothFade('','#tweak-hint')">
               <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; &zwnj;User Interface&zwnj;
@@ -707,7 +747,7 @@
             <h2>&zwnj;Desktop Wallpaper&zwnj;</h2>
             <p>&zwnj;The Ubuntu MATE Community have contributed dozens of
             desktop wallpaper images over the years. Why not install them
-            and find something to suites your tastes?&zwnj;</p>
+            and find something that suits your tastes?&zwnj;</p>
             <div class="center">
             <a class="btn btn-lg btn-inverse" href="cmd://install-appid?ubuntu-mate-wallpapers-complete"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; &zwnj;Wallpapers&zwnj;</a>
             </div>
@@ -977,10 +1017,10 @@
     <div id="footer" class="bottom">
       <div class="footer-content">
         <div id="footer-left">
-        <!-- Via welcome.js -->
+          <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <!-- Global buttons appended via welcome.js -->
+          <span id="footer-global-right"></span>
         </div>
       </div>
     </div>

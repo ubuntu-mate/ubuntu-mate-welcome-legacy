@@ -2,3 +2,8 @@
 
 %:
 	dh $@ 
+
+override_dh_prep:
+	./welcome-po.py --update-pos
+	./welcome-po.py --install
+	./edgar-allan translate-all

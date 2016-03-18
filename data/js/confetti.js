@@ -11,7 +11,7 @@ function startConfetti() {
   (function() {
     var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
-    NUM_CONFETTI = 100;
+    NUM_CONFETTI = 50;
 
     // Colours modified to fit Ubuntu MATE's colour theme.
     COLORS = [[135, 165, 86], [90, 105, 67], [135, 165, 86], [90, 105, 67], [135, 165, 86]];
@@ -124,6 +124,9 @@ function startConfetti() {
     };
 
     step();
+
+    // Workaround to properly fill page... always!
+    resizeWindow();
 
   }).call(this);
 //////////////////////////////////////////////////////////////////////////////////////////////
