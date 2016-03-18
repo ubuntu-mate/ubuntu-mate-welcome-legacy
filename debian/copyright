@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: optimus-applet
+Upstream-Name: ubuntu-mate-welcome
 Upstream-Contact: Martin Wimpress <code@flexion.org>
 Source: https://bitbucket.org/ubuntu-mate/ubuntu-mate-welcome
 
@@ -17,8 +17,11 @@ Copyright: 2012-2013 Korora Project <dev@kororaproject.org>
 License: GPL-3+
 
 Files: edgar-allan
-       create_test_pos.sh
+       clean.sh
+       create-test-pos.sh
        tools/app-index-debugger.py
+       regenerate-pots.sh
+       welcome-po.py
        test.po
 Copyright: 2016 Robin Thompson
            2016 Luke Horwell <lukehorwell37+code@gmail.com>
@@ -63,6 +66,14 @@ Copyright: 2015-2016, Martin Wimpress <code@flexion.org>
            2015, Larry Bushey
            2015-2016, Luke Horwell <lukehorwell37+code@gmail.com>
 License: GPL-2+
+
+Files: data/po/*
+       po/*
+Copyright: 2016, Martin Wimpress <code@flexion.org>
+           2016 Luke Horwell <lukehorwell37+code@gmail.com>
+           2016 Robin Thompson
+License: GPL-2+
+
 
 Files: hicolor/*
 Copyright: 2014 Sam Hewitt
