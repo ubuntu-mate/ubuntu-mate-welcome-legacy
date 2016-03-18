@@ -374,24 +374,24 @@ def mkdir_p(path):
             raise
 
 def get_aacs_db():
-    home_dir = GLib.get_home_dir()    
+    home_dir = GLib.get_home_dir()
     key_url = 'http://www.labdv.com/aacs/KEYDB.cfg'
     key_db = os.path.join(home_dir, '.config', 'aacs', 'KEYDB.cfg')
-    mkdir_p(os.path.join(home_dir, '.config', 'aacs'))    
+    mkdir_p(os.path.join(home_dir, '.config', 'aacs'))
     print('[AACS] Getting ' + key_url + ' and saving as ' + key_db)
-    
+
     # Download the file from `key_url` and save it locally under `file_name`:
     try:
         with urllib.request.urlopen(key_url) as response, open(key_db, 'wb') as out_file:
             data = response.read() # a `bytes` object
             out_file.write(data)
-            
+
         Notify.init(_('Blu-ray AACS database install succeeded'))
         aacs_notify=Notify.Notification.new(_('Successfully installed the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database was successful.'), 'dialog-information')
         aacs_notify.show()
     except:
         Notify.init(_('Blu-ray AACS database install failed'))
-        aacs_notify=Notify.Notification.new(_('Failed to install the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database failed.'), 'dialog-error')        
+        aacs_notify=Notify.Notification.new(_('Failed to install the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database failed.'), 'dialog-error')
         aacs_notify.show()
 
 class PreInstallation(object):
