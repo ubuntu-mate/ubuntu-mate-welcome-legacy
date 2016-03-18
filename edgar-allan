@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 # -*- coding:utf-8 -*-
 
+import codecs
 import glob
 import os
 import re
@@ -192,7 +193,7 @@ def translate_file(in_file, in_po, out_file, verbose):
             if verbose:
                 print ("WARNING: translatable string  %s not found" %translatable[1])
 
-    outfile = open (out_file, "w")
+    outfile = codecs.open(out_file, 'w', encoding='utf-8')    
     outfile.write(content)
     outfile.close()
 
