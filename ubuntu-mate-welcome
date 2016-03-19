@@ -68,12 +68,29 @@ _ = t.gettext
 
 
 def goodbye(a=None, b=None):
+    # NOTE: _a_ and _b_ are passed via the close window 'delete-event'.
     ''' Closing the program '''
-    print('[Welcome] Application Closed.')
 
-    # FIXME: Dirty way to kill the program, Gtk is no longer gracefully closed
-    #        since child 'screenshot preview' windows may still running.
-    exit()
+    # Refuse to quit if operations are in progress.
+    if dynamicapps.operations_busy:
+        print('[Welcome] WARNING: Software changes are in progress!')
+        title = _("Software Boutique")
+        text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
+        ok_label = _("OK")
+        messagebox = subprocess.Popen(['zenity',
+                                 '--error',
+                                 '--title=' + title,
+                                 "--text=" + text_busy,
+                                 "--ok-label=" + ok_label,
+                                 '--window-icon=error',
+                                 '--timeout=9'])
+        return 1
+
+    else:
+        print('[Welcome] Application Closed.')
+        Gtk.main_quit()
+        # Be quite forceful, particularly those child screenshot windows.
+        exit()
 
 
 def set_proc_title(name=None):
@@ -104,6 +121,7 @@ class SimpleApt(object):
         self.client = AptClient()
 
     def on_error(self, error):
+        dynamicapps.operations_busy = False
         if isinstance(error, aptdaemon.errors.NotAuthorizedError):
             # Silently ignore auth failures
             return
@@ -116,6 +134,7 @@ class SimpleApt(object):
         error_dialog.hide()
 
     def on_finished_fix_incomplete_install(self, transaction, status):
+        dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
             Notify.init(_('Fixing incomplete install succeeded'))
@@ -129,6 +148,7 @@ class SimpleApt(object):
             return False
 
     def on_finished_fix_broken_depends(self, transaction, status):
+        dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
             Notify.init(_('Fixing broken dependencies succeeded'))
@@ -142,6 +162,7 @@ class SimpleApt(object):
             return False
 
     def on_finished_update(self, transaction, status):
+        dynamicapps.operations_busy = False
         # If the action is only to update do not display notifcations
         if self.action == 'update':
             self.loop.quit()
@@ -167,6 +188,7 @@ class SimpleApt(object):
             return True
 
     def on_finished_install(self, transaction, status):
+        dynamicapps.operations_busy = False
         self.loop.quit()
         if status != 'exit-success':
             return False
@@ -174,6 +196,7 @@ class SimpleApt(object):
             self.do_notify(status)
 
     def on_finished_remove(self, transaction, status):
+        dynamicapps.operations_busy = False
         self.loop.quit()
         if status != 'exit-success':
             return False
@@ -181,6 +204,7 @@ class SimpleApt(object):
             self.do_notify(status)
 
     def on_finished_upgrade(self, transaction, status):
+        dynamicapps.operations_busy = False
         self.loop.quit()
         if status != 'exit-success':
             return False
@@ -217,6 +241,7 @@ class SimpleApt(object):
             apt_notify.show()
 
     def do_fix_incomplete_install(self):
+        dynamicapps.operations_busy = True
         # Corresponds to: dpkg --configure -a
         apt_fix_incomplete = self.client.fix_incomplete_install()
         apt_fix_incomplete.connect("finished",self.on_finished_fix_incomplete_install)
@@ -227,8 +252,10 @@ class SimpleApt(object):
                 error_handler=self.on_error,
                 )
         return False
+        dynamicapps.operations_busy = False
 
     def do_fix_broken_depends(self):
+        dynamicapps.operations_busy = True
         # Corresponds to: apt-get --fix-broken install
         apt_fix_broken = self.client.fix_broken_depends()
         apt_fix_broken.connect("finished",self.on_finished_fix_broken_depends)
@@ -239,6 +266,7 @@ class SimpleApt(object):
                 error_handler=self.on_error,
                 )
         return False
+        dynamicapps.operations_busy = False
 
     def do_update(self):
         if self.source_to_update:
@@ -288,30 +316,40 @@ class SimpleApt(object):
         return False
 
     def install_packages(self):
+        dynamicapps.operations_busy = True
         if self.update_cache:
             GLib.timeout_add(self._timeout,self.do_update)
         else:
             GLib.timeout_add(self._timeout,self.do_install)
         self.loop.run()
+        dynamicapps.operations_busy = False
 
     def remove_packages(self):
+        dynamicapps.operations_busy = True
         GLib.timeout_add(self._timeout,self.do_remove)
         self.loop.run()
+        dynamicapps.operations_busy = False
 
     def upgrade_packages(self):
+        dynamicapps.operations_busy = True
         if self.update_cache:
             GLib.timeout_add(self._timeout,self.do_update)
         else:
             GLib.timeout_add(self._timeout,self.do_upgrade)
         self.loop.run()
+        dynamicapps.operations_busy = False
 
     def fix_incomplete_install(self):
+        dynamicapps.operations_busy = True
         GLib.timeout_add(self._timeout,self.do_fix_incomplete_install)
         self.loop.run()
+        dynamicapps.operations_busy = False
 
     def fix_broken_depends(self):
+        dynamicapps.operations_busy = True
         GLib.timeout_add(self._timeout,self.do_fix_broken_depends)
         self.loop.run()
+        dynamicapps.operations_busy = False
 
 def update_repos():
     transaction = SimpleApt('', 'update')
@@ -336,24 +374,24 @@ def mkdir_p(path):
             raise
 
 def get_aacs_db():
-    home_dir = GLib.get_home_dir()    
+    home_dir = GLib.get_home_dir()
     key_url = 'http://www.labdv.com/aacs/KEYDB.cfg'
     key_db = os.path.join(home_dir, '.config', 'aacs', 'KEYDB.cfg')
-    mkdir_p(os.path.join(home_dir, '.config', 'aacs'))    
+    mkdir_p(os.path.join(home_dir, '.config', 'aacs'))
     print('[AACS] Getting ' + key_url + ' and saving as ' + key_db)
-    
+
     # Download the file from `key_url` and save it locally under `file_name`:
     try:
         with urllib.request.urlopen(key_url) as response, open(key_db, 'wb') as out_file:
             data = response.read() # a `bytes` object
             out_file.write(data)
-            
+
         Notify.init(_('Blu-ray AACS database install succeeded'))
         aacs_notify=Notify.Notification.new(_('Successfully installed the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database was successful.'), 'dialog-information')
         aacs_notify.show()
     except:
         Notify.init(_('Blu-ray AACS database install failed'))
-        aacs_notify=Notify.Notification.new(_('Failed to install the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database failed.'), 'dialog-error')        
+        aacs_notify=Notify.Notification.new(_('Failed to install the Blu-ray AACS database.'), _('Installation of the Blu-ray AACS database failed.'), 'dialog-error')
         aacs_notify.show()
 
 class PreInstallation(object):
@@ -1013,15 +1051,25 @@ class WelcomeApp(object):
         else:
             locale_to_use = locale.getlocale()[0]
 
-        # check for relative path
-        if (os.path.exists(os.path.join(self._location, 'i18n', locale_to_use))):
-            locale_dir = os.path.join(self._location, 'i18n', locale_to_use)
-            print('[Debug] Using ' + locale_dir + '. Non-production testing.')
-        elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use))):
-            locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', locale_to_use)
-            print('[Debug] Using ' + locale_dir)
-        else:
-            locale_dir = ''
+        def set_locale_dir(this_locale):
+            # check for relative path
+            if (os.path.exists(os.path.join(self._location, 'i18n', this_locale))):
+                locale_dir = os.path.join(self._location, 'i18n', this_locale)
+                print('[i18n] Using ' + this_locale + '. Non-production testing.')
+            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale))):
+                locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale)
+                print('[i18n] Using ' + this_locale)
+            else:
+                locale_dir = ''
+                print('[i18n] Locale ' + this_locale + ' not available.')
+            return locale_dir
+
+        # if no locale exists, try a generic locale.
+        locale_dir = set_locale_dir(locale_to_use)
+        if locale_dir == '':
+            locale_generic = locale_to_use.split('_')[0]
+            print('[i18n] Trying ' + locale_generic + '...')
+            set_locale_dir(locale_generic)
 
         results = []
 
@@ -1033,10 +1081,10 @@ class WelcomeApp(object):
             trans_slide = os.path.join(locale_dir, slide_name)
             if os.path.exists(trans_slide):
                 results.append(trans_slide)
-                arg.print_verbose("Translation","Will use %s translation of %s" %(locale_to_use, slide_name))
+                arg.print_verbose("i18n","Will use %s translation of %s" %(locale_to_use, slide_name))
             else:
                 results.append(slide)
-                arg.print_verbose("Translation","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
+                arg.print_verbose("i18n","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
 
         return results
 
@@ -1414,6 +1462,9 @@ class DynamicApps(object):
 
         # Reading the apt cache later.
         self._apt_cache = apt.Cache()
+
+        # Indicate that operations are in progress.
+        self.operations_busy = False
 
 
     ###### JSON Index Structure
