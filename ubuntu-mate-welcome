@@ -74,16 +74,16 @@ def goodbye(a=None, b=None):
     # Refuse to quit if operations are in progress.
     if dynamicapps.operations_busy:
         print('[Welcome] WARNING: Software changes are in progress!')
-        title = "&zwnj;Software Boutique&zwnj;"
-        string = '&zwnj;Software changes are in progress. Please allow them to complete before quitting Welcome.&zwnj;'
-        ok_label = "&zwnj;OK&zwnj;"
+        title = _("Software Boutique")
+        text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
+        ok_label = _("OK")
         messagebox = subprocess.Popen(['zenity',
                                  '--error',
-                                 '--title=' + title.replace('&zwnj;',''),
-                                 "--text=" + string.replace('&zwnj;',''),
-                                 "--ok-label=" + ok_label.replace('&zwnj;',''),
+                                 '--title=' + title,
+                                 "--text=" + text_busy,
+                                 "--ok-label=" + ok_label,
                                  '--window-icon=error',
-                                 '--timeout=15']).communicate()
+                                 '--timeout=9']).communicate()
         return 1
 
     else:
