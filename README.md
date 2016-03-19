@@ -22,10 +22,12 @@ Originally based on:
   * https://github.com/Antergos/antergos-welcome
   * http://blog.schlomo.schapiro.org/2014/01/apt-install.html
 
-## Optional Arguments
+## Testing Arguments
 
 Welcome does not require arguments for general usage, but for debugging
 and testing purposes, the following can be specified:
+
+#### ubuntu-mate-welcome
 
   * `--verbose` = Show more details to stdout.
   * `--force-arch=<ARCH>` = Simulate an architecture.
@@ -41,6 +43,17 @@ and testing purposes, the following can be specified:
   * `--software-only` = Software Boutique mode. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
   * `--jump-to=<PAGE>` = Jump to a specific page, excluding the `.html` extension.
+
+
+#### tools/app-index-debugger.py
+
+  * `--validate`  =  Check index for consistent data types and required values.
+  * `--list-index`  =  List applications in the index.')
+  * `--list-broken`  =  List applications that are not working.')
+  * `--list-missing-codename=<RELEASE>`  =  List applications not present in a release.')
+  * `--list-missing-arch=<ARCH>`  =  List applications not present for an architecture.')
+  * `--list-special`  =  List applications that pre-install differently on releases.')
+  * `--list-sources`  =  List each application\'s source (eg. PPA, Ubuntu Archives)')
 
 
 ## Requirements
