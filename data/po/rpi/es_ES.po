@@ -1,0 +1,302 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ubuntu MATE Welcome\n"
+"Report-Msgid-Bugs-To: you@example.com\n"
+"POT-Creation-Date: 2016-03-18 10:37+0100\n"
+"PO-Revision-Date: 2016-03-18 10:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: : LANGUAGE\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: rpi.html:17
+msgid "Raspberry Pi Information"
+msgstr "Información sobre Raspberry Pi"
+
+#: rpi.html:25
+msgid "A few important notes."
+msgstr "Unas pocas notas importantes."
+
+# unas pocas o algunas?
+#: rpi.html:26
+msgid ""
+"While the experience is visually similar to the desktop edition of Ubuntu "
+"MATE, the underlying architecture is very different. This page will "
+"highlight a few of these differences."
+msgstr ""
+"Mientras que la experiencia es visualmente similar a la edición de "
+"escritorio de Ubuntu MATE, la arquitectura subyacente es muy diferente. Esta "
+"página destacará unas pocas de esas diferencias."
+
+#: rpi.html:32
+msgid "Resizing the file system"
+msgstr "Redimensionando el sistema de ficheros"
+
+#: rpi.html:35
+msgid "Your file system has already been resized."
+msgstr "Tu sistema de ficheros ya ha sido redimensionado."
+
+#: rpi.html:38
+msgid ""
+"After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
+"file system will be restricted to the size of the original image, which is "
+"about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
+msgstr ""
+
+#: rpi.html:42
+msgid "Resize Now"
+msgstr "Redimensionar Ahora"
+
+#: rpi.html:46
+msgid "Incompatible Software"
+msgstr "Software Incompatible"
+
+#: rpi.html:47
+msgid ""
+"Some packages available for Ubuntu have only been written and compiled for "
+"the"
+msgstr ""
+"Algunos paquetes disponibles para Ubuntu han sido únicamente escritos y "
+"compilados para la"
+
+#: rpi.html48, 103
+msgid "or"
+msgstr "o"
+
+#: rpi.html:49
+msgid "architecture. As the Raspberry Pi is based on"
+msgstr "arquitectura. Como la Raspberry Pi está basada en"
+
+#: rpi.html:50
+msgid ""
+"these packages will not be available to install. Depending on the package, "
+"it may be possible to compile these yourself or use an existing port."
+msgstr ""
+
+#: rpi.html:57
+msgid "Incompatible:"
+msgstr "Incompatibles:"
+
+#: rpi.html:79
+msgid "Upgrades"
+msgstr "Actualizaciones"
+
+#: rpi.html:80
+msgid "Please"
+msgstr "Por favor"
+
+#: rpi.html:80
+msgid "do not"
+msgstr "no"
+
+#: rpi.html:80
+msgid "attempt to"
+msgstr "intentes"
+
+#: rpi.html:80
+msgid "upgrade"
+msgstr "actualizar"
+
+#: rpi.html:81
+msgid ""
+"your Raspberry Pi to a newer version of the distribution (for instance, from "
+"15.04 to 15.10), as the underlying kernel is"
+msgstr ""
+"tu Raspberry Pi a una versión más reciente de la distribución (por ejemplo, "
+"desde 15.04 a 15.10), ya que el núcleo subyacente será"
+
+#: rpi.html:83
+msgid ""
+"to do this. This process will take a very long time to complete while "
+"potentially filling up your SD card to a point where there is no more free "
+"space."
+msgstr "el que lo haga. Este proceso "
+
+#: rpi.html:88
+msgid ""
+"It is safer to back up all of your data you wish to keep and re-flash the "
+"card with the new image. Attempting to upgrade may corrupt the SD card, "
+"prevent your installation from booting, or cause severe glitches."
+msgstr ""
+
+#: rpi.html:92
+msgid "You can, however, install"
+msgstr "Puedes, sin embargo, instalar"
+
+#: rpi.html:92
+msgid "regular updates"
+msgstr "actualizaciones normales"
+
+#: rpi.html:92
+msgid "via the"
+msgstr "a través de la"
+
+#: rpi.html94, 103
+msgid "Software Updater"
+msgstr "Actualización de software"
+
+#: rpi.html:94
+msgid "utility for your installed software."
+msgstr "herramienta para tu software instalado."
+
+#: rpi.html:97
+msgid "Kernel Updates"
+msgstr "Actualizaciones del Núcleo"
+
+#: rpi.html:98
+msgid "The same kernel provided by the"
+msgstr "El mismo núcleo proporcionado por la"
+
+#: rpi.html:99
+msgid "Raspberry Pi foundation"
+msgstr "fundación Raspberry Pi"
+
+# via the?
+#: rpi.html:100
+msgid ""
+"is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
+"\"firmware\" blob, updates are not distributed via the"
+msgstr ""
+"se usa en esta edición de Ubuntu MATE. Como este núcleo es distribuido como "
+"un blob \"firmware\", sus actualizaciones no son distruidas a través del"
+
+#: rpi.html:105
+msgid "Instead, to update the kernel, open a terminal and run:"
+msgstr "En su lugar, para actualizar el núcleo, abre una terminal y ejecuta:"
+
+#: rpi.html:109
+msgid "Hardware Acceleration"
+msgstr "Aceleración por Hardware"
+
+#: rpi.html:110
+msgid "Currently, hardware accelerated applications are"
+msgstr "Actualmente, las aplicaciones aceleradas por hardware no"
+
+#: rpi.html:110
+msgid "not supported"
+msgstr "están soportadas"
+
+#: rpi.html:111
+msgid "unlike"
+msgstr ""
+
+#: rpi.html:112
+msgid ""
+"Applications that depend on OpenGL ES libraries or require the GPU will fail "
+"to start."
+msgstr ""
+
+#: rpi.html:115
+msgid "For playing videos, the application"
+msgstr "Para reproducir vídeos, la aplicación"
+
+#: rpi.html:115
+msgid ""
+"will be able to do this and is pre-installed. If you are looking to play "
+"MPEG-2 or VC-1 video files then"
+msgstr ""
+"será capaz de hacerlo y viene preinstalada. Si buscas reproducir archivos de "
+"vídeo MPEG-2 o VC-1 entonces"
+
+#: rpi.html:117
+msgid "you will need MPEG-2 and/or VC-1 licenses from the"
+msgstr "necesitarás las licencias MPEG-2 y/o VC-1 de la"
+
+#: rpi.html:118
+msgid "Raspberry Pi Store."
+msgstr "Tienda Raspberry Pi"
+
+#: rpi.html:121
+msgid "Enable/Disable X11"
+msgstr "Habilita/Deshabilita X11"
+
+#: rpi.html:122
+msgid "For users who are looking to create their own headless"
+msgstr "Para usuarios que estén buscando crear sus propios \"servidores\""
+
+#: rpi.html:122
+msgid "\"server\""
+msgstr "sin interfaz gráfica"
+
+#: rpi.html:122
+msgid ""
+"using Ubuntu MATE, there is a utility for toggling the graphical environment."
+msgstr ""
+"usando Ubuntu MATE, hay una herramienta para alternar con el entorno gráfico."
+
+#: rpi.html:125
+msgid "To disable X11 and login via the console:"
+msgstr "Para deshabilitar X11 e iniciar sesión a través de la consola:"
+
+#: rpi.html:129
+msgid "To enable X11 to restore the Ubuntu MATE desktop:"
+msgstr "Para habilitar X11 y volver al escritorio de Ubuntu MATE:"
+
+#: rpi.html:132
+msgid "Changes take effect after a reboot."
+msgstr "Los cambios tienen efecto después de un reinicio."
+
+#: rpi.html:136
+msgid "Release Notes"
+msgstr "Notas de Lanzamiento"
+
+#: rpi.html:137
+msgid ""
+"To read up on release notes and changes by version, visit the Ubuntu MATE "
+"website."
+msgstr ""
+"Para informarse sobre las notas de lanzamiento y los cambios por version, "
+"visitar el sitio web de Ubuntu MATE."
+
+#: rpi.html:144
+msgid "Raspberry Pi is a trademark of the"
+msgstr "Raspberry Pi es una marca registrada de la"
+
+# ocupar, rellenar o llenar?
+#~ msgid ""
+#~ "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
+#~ "file system will be restricted to the size of the original image, which "
+#~ "is about 3.9 GB. Use this button to resize to fill the entire Micro-SD "
+#~ "card."
+#~ msgstr ""
+#~ "Después de instalar Ubuntu MATE por primera vez en tu Raspberry Pi, el "
+#~ "sistema de ficheros estará limitado al tamaño de la imagen original, que "
+#~ "es 3,9 GB, aproximadamente. Utiliza este botón para redimensionar con el "
+#~ "fin de ocupar toda la tarjeta Micro-SD."
+
+# port = puerto?
+#~ msgid ""
+#~ "these packages will not be available to install. Depending on the "
+#~ "package, it may be possible to compile this yourself or use an existing "
+#~ "port."
+#~ msgstr ""
+#~ "estos paquetes no estarán disponibles para instalar. Dependiendo del "
+#~ "paquete, es posible que tú mismo puedas compilarlo o usar un puerto "
+#~ "existente."
+
+# re-flash?
+# serve?
+#~ msgid ""
+#~ "It is safer to back up all of your data you wish to keep and re-flash the "
+#~ "card with the new image. Attempting to upgrade may corrupt the SD card, "
+#~ "prevent your installation from booting, or cause serve glitches."
+#~ msgstr ""
+#~ "Es más seguro realizar una copia de seguridad de todos los datos que "
+#~ "desees conservar y volver a flashear la tarjeta con la nueva imagen. "
+#~ "Tratar de actualizar puede corromper la tarjeta SD, impedir que tu "
+#~ "instalación inicie, o causar varios fallos"
+
+#~ msgid "as they are with"
+#~ msgstr "ya que están con"
+
+#~ msgid ""
+#~ "Applications that rely on OpenGL ES libraries or require the GPU chip "
+#~ "will fail to start."
+#~ msgstr ""
+#~ "Aplicaciones que dependen de las librerías OpenGL ES o requieren de un "
+#~ "chip GPU fallarán al iniciarse."
