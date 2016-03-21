@@ -1,22 +1,19 @@
-#
-# , 2016.
+# 
+# Translators:
+# , 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-18 22:33+0300\n"
-"Last-Translator: \n"
-"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2016-03-21 22:18+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Belarusian (Belarus) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/be_BY/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: you@example.com\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
-"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Language: be_BY\n"
-"X-Source-Language: C\n"
-"Language: en_US\n"
-"X-Generator: Lokalize 1.5\n"
+"Language: be_BY\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Report-Msgid-Bugs-To : you@example.com\n"
 
 #: gettingstarted.html:18
 msgid "Getting Started"
@@ -179,7 +176,8 @@ msgstr ""
 
 #: gettingstarted.html:111
 msgid ""
-"Connect to the Internet to install all available updates during installation."
+"Connect to the Internet to install all available updates during "
+"installation."
 msgstr ""
 
 #: gettingstarted.html:112
@@ -223,8 +221,8 @@ msgstr ""
 
 #: gettingstarted.html:128
 msgid ""
-"option) prior to installation, particularly if an operating system was "
-"pre-installed."
+"option) prior to installation, particularly if an operating system was pre-"
+"installed."
 msgstr ""
 
 #: gettingstarted.html:130
@@ -291,8 +289,8 @@ msgstr ""
 
 #: gettingstarted.html:154
 msgid ""
-"For example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
-"reserved for swap at the end of the drive."
+"For example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be"
+" reserved for swap at the end of the drive."
 msgstr ""
 
 #: gettingstarted.html160, 338, 570, 616, 709, 758, 850
@@ -348,8 +346,8 @@ msgstr ""
 
 #: gettingstarted.html:202
 msgid ""
-"The installer scans your disks for existing operating systems and provides a "
-"choice on what you'd like to do."
+"The installer scans your disks for existing operating systems and provides a"
+" choice on what you'd like to do."
 msgstr ""
 
 #: gettingstarted.html:205
@@ -515,7 +513,7 @@ msgstr ""
 
 #: gettingstarted.html:267
 msgid "and"
-msgstr ""
+msgstr "і"
 
 #: gettingstarted.html:267
 msgid "These mount points can also be set across different"
@@ -624,8 +622,8 @@ msgstr ""
 
 #: gettingstarted.html:316
 msgid ""
-"which looks for and bootstraps the operating system. However, some operating "
-"systems (such as Windows) do not integrate with existing boot loaders and "
+"which looks for and bootstraps the operating system. However, some operating"
+" systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
 msgstr ""
@@ -652,11 +650,11 @@ msgstr ""
 
 #: gettingstarted.html:328
 msgid "Sorry, Welcome was unable to establish a connection."
-msgstr ""
+msgstr "Выбачайце, Welcome не здолеў усталяваць злучэнне."
 
 #: gettingstarted.html:329
 msgid "Retry"
-msgstr ""
+msgstr "Паўтарыць"
 
 #: gettingstarted.html:332
 msgid "Download Boot Repair"
@@ -683,7 +681,7 @@ msgstr ""
 
 #: gettingstarted.html358, 361
 msgid "Software Updater"
-msgstr ""
+msgstr "Абнаўленне праграм"
 
 #: gettingstarted.html361, 414, 590, 649, 674, 699, 730
 msgid "can be found later in"
@@ -698,8 +696,8 @@ msgstr ""
 
 #: gettingstarted.html:370
 msgid ""
-"You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+ "
-"protected discs."
+"You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
+" protected discs."
 msgstr ""
 
 #: gettingstarted.html:374
@@ -717,8 +715,8 @@ msgstr ""
 #: gettingstarted.html:396
 msgid ""
 "While a wide range of hardware is compatible with Ubuntu MATE, there are "
-"some components and peripherals that require proprietary drivers to function "
-"properly. Installing the firmware package is often required to get some "
+"some components and peripherals that require proprietary drivers to function"
+" properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
 msgstr ""
 
@@ -728,7 +726,7 @@ msgstr ""
 
 #: gettingstarted.html406, 414, 484
 msgid "Additional Drivers"
-msgstr ""
+msgstr "Дадатковыя драйверы"
 
 #: gettingstarted.html:409
 msgid "Install Firmware Package"
@@ -760,8 +758,8 @@ msgstr ""
 
 #: gettingstarted.html:435
 msgid ""
-"AMD's drivers are no longer supported on Ubuntu. The open source drivers you "
-"are currently using will deliver the most stable performance out of your "
+"AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
+" are currently using will deliver the most stable performance out of your "
 "card."
 msgstr ""
 
@@ -882,8 +880,8 @@ msgstr ""
 
 #: gettingstarted.html:485
 msgid ""
-"Advanced users and gamers who would like newer versions may wish to consider "
-"adding the"
+"Advanced users and gamers who would like newer versions may wish to consider"
+" adding the"
 msgstr ""
 
 #: gettingstarted.html:486
@@ -926,8 +924,8 @@ msgstr ""
 #: gettingstarted.html:510
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
-"after installing the firmware packages, you may need to research your device "
-"to find the appropriate driver."
+"after installing the firmware packages, you may need to research your device"
+" to find the appropriate driver."
 msgstr ""
 
 #: gettingstarted.html:514
@@ -970,13 +968,14 @@ msgstr ""
 
 #: gettingstarted.html:536
 msgid ""
-"you will be presented with a list of drivers available to use, if applicable."
+"you will be presented with a list of drivers available to use, if "
+"applicable."
 msgstr ""
 
 #: gettingstarted.html:539
 msgid ""
-"Some manufacturers may provide their own drivers and require you to download "
-"them from their website."
+"Some manufacturers may provide their own drivers and require you to download"
+" them from their website."
 msgstr ""
 
 #: gettingstarted.html:542
@@ -991,13 +990,13 @@ msgstr ""
 msgid ""
 "Recommended if you have an HP printer as it provides full support for "
 "printing on most HP SFP (single function peripheral) inkjets and many "
-"LaserJets, and for scanning, sending faxes and for photo-card access on most "
-"HP MFP (multi-function peripheral) printers."
+"LaserJets, and for scanning, sending faxes and for photo-card access on most"
+" HP MFP (multi-function peripheral) printers."
 msgstr ""
 
 #: gettingstarted.html561, 960, 977, 993, 1009
 msgid "Install"
-msgstr ""
+msgstr "Усталяваць"
 
 #: gettingstarted.html571, 572, 708, 709
 msgid "Language Input"
@@ -1009,8 +1008,8 @@ msgstr "Падтрымка мовы"
 
 #: gettingstarted.html:583
 msgid ""
-"You computer may require updates to your language and localization settings, "
-"or you may want to install additional language support."
+"You computer may require updates to your language and localization settings,"
+" or you may want to install additional language support."
 msgstr ""
 
 #: gettingstarted.html591, 650, 675, 731
@@ -1047,8 +1046,8 @@ msgstr "Рэзервавовае капіяванне, фаервол і кір�
 
 #: gettingstarted.html:627
 msgid ""
-"Ubuntu MATE provides tools to backup your files, comes with a firewall "
-"pre-installed and supports multiple user accounts."
+"Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
+"installed and supports multiple user accounts."
 msgstr ""
 
 #: gettingstarted.html638, 649
@@ -1178,8 +1177,8 @@ msgstr "Цэнтр кіравання"
 #: gettingstarted.html:736
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
-"that Ubuntu MATE provides. You can configure just about every aspect of your "
-"computer from the Control Center."
+"that Ubuntu MATE provides. You can configure just about every aspect of your"
+" computer from the Control Center."
 msgstr ""
 
 #: gettingstarted.html:743
@@ -1406,8 +1405,8 @@ msgstr ""
 
 #: gettingstarted.html:818
 msgid ""
-"Displays the window menu with options such as 'Always on Top' and 'Minimize' "
-"and 'Maximize' and above commands."
+"Displays the window menu with options such as 'Always on Top' and 'Minimize'"
+" and 'Maximize' and above commands."
 msgstr ""
 
 #: gettingstarted.html819, 820, 821, 822, 823, 824, 825
@@ -1709,8 +1708,8 @@ msgstr ""
 #: gettingstarted.html:989
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
-"It also has features to expand/shrink file systems and supports a wide range "
-"of formats."
+"It also has features to expand/shrink file systems and supports a wide range"
+" of formats."
 msgstr ""
 
 #: gettingstarted.html:1004
@@ -1723,4 +1722,14 @@ msgid ""
 "used and free for currently mounted file systems."
 msgstr ""
 
+#: gettingstarted.html:803
+msgid "Screen reader enable/disable."
+msgstr ""
 
+#: gettingstarted.html:809
+msgid "Switch to the previous workspace."
+msgstr ""
+
+#: gettingstarted.html:819
+msgid "Pulldown Terminal."
+msgstr ""

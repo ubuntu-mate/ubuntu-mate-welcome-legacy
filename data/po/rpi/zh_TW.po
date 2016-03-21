@@ -1,17 +1,18 @@
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: rpi_Chinese\n"
+"Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-14 15:40+0800\n"
-"Last-Translator: Sonic Chu <s585448@yahoo.com.tw>\n"
-"Language-Team: ubuntu_mate\n"
+"PO-Revision-Date: 2016-03-19 15:09+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: you@example.com\n"
-"X-Generator: Poedit 1.5.4\n"
-"Language: Chinese\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Report-Msgid-Bugs-To : you@example.com\n"
 
 #: rpi.html:17
 msgid "Raspberry Pi Information"
@@ -26,9 +27,7 @@ msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
-msgstr ""
-"雖然可能跟桌面版的Ubuntu MATE經驗很類似，但裡面的微架構非常的不同。此頁面將會"
-"指出這些不同點。"
+msgstr "雖然可能跟桌面版的Ubuntu MATE經驗很類似，但裡面的微架構非常的不同。此頁面將會指出這些不同點。"
 
 #: rpi.html:32
 msgid "Resizing the file system"
@@ -42,10 +41,8 @@ msgstr "您的檔案系統已經被重新調整"
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
-"about 3.9 GB. Use this button to resize to fill the entire Micro-SD card."
+"about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
 msgstr ""
-"第一次在Raspberry Pi上設定完Ubuntu MATE之後，檔案系統將會被原本的映像限制大小"
-"(3.9GB)，使用這個按鈕以重新調整至整張Micro SD卡"
 
 #: rpi.html:42
 msgid "Resize Now"
@@ -72,8 +69,8 @@ msgstr "微架構。 Raspberry Pi是基於"
 #: rpi.html:50
 msgid ""
 "these packages will not be available to install. Depending on the package, "
-"it may be possible to compile this yourself or use an existing port."
-msgstr "這些套件將不可再被安裝。根據套件的不同，有可能您可以自行編譯"
+"it may be possible to compile these yourself or use an existing port."
+msgstr ""
 
 #: rpi.html:57
 msgid "Incompatible:"
@@ -101,10 +98,9 @@ msgstr "升級"
 
 #: rpi.html:81
 msgid ""
-"your Raspberry Pi to a newer version of the distribution (for instance, from "
-"15.04 to 15.10), as the underlying kernel is"
-msgstr ""
-"您的Raspberry Pi升級至更新的發行版本(例如，從15.04到15.10)，當目前的內核是"
+"your Raspberry Pi to a newer version of the distribution (for instance, from"
+" 15.04 to 15.10), as the underlying kernel is"
+msgstr "您的Raspberry Pi升級至更新的發行版本(例如，從15.04到15.10)，當目前的內核是"
 
 #: rpi.html:83
 msgid ""
@@ -117,10 +113,8 @@ msgstr "繼續。這個過程需要很長的時間來完成並且有可能塞爆
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
-"prevent your installation from booting, or cause serve glitches."
+"prevent your installation from booting, or cause severe glitches."
 msgstr ""
-"重灌新的映像到卡片前請備份您所有想要保留的資料比較安全。更新的過程中有可能損"
-"毀SD卡，造成服務故障"
 
 #: rpi.html:92
 msgid "You can, however, install"
@@ -158,9 +152,7 @@ msgstr "Raspberry Pi基金會"
 msgid ""
 "is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
 "\"firmware\" blob, updates are not distributed via the"
-msgstr ""
-"被用在這個版本的Ubuntu MATE。只要這個內核像是\"軔體\"blob，更新檔就不會經由以"
-"下發佈"
+msgstr "被用在這個版本的Ubuntu MATE。只要這個內核像是\"軔體\"blob，更新檔就不會經由以下發佈"
 
 #: rpi.html:105
 msgid "Instead, to update the kernel, open a terminal and run:"
@@ -179,14 +171,14 @@ msgid "not supported"
 msgstr "不支援"
 
 #: rpi.html:111
-msgid "as they are with"
+msgid "unlike"
 msgstr ""
 
 #: rpi.html:112
 msgid ""
-"Applications that rely on OpenGL ES libraries or require the GPU chip will "
-"fail to start."
-msgstr "無法開啟需要OpenGL ES函式庫或需GPU晶片支援的應用程式"
+"Applications that depend on OpenGL ES libraries or require the GPU will fail"
+" to start."
+msgstr ""
 
 #: rpi.html:115
 msgid "For playing videos, the application"
@@ -220,7 +212,8 @@ msgstr "伺服器"
 
 #: rpi.html:122
 msgid ""
-"using Ubuntu MATE, there is a utility for toggling the graphical environment."
+"using Ubuntu MATE, there is a utility for toggling the graphical "
+"environment."
 msgstr "Ubuntu MATE提供開關圖形環境的小工具"
 
 #: rpi.html:125

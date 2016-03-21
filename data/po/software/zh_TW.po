@@ -1,17 +1,18 @@
-#
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: software_Chinese\n"
+"Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-16 17:35+0800\n"
-"Last-Translator: Sonic Chu <s585448@yahoo.com.tw>\n"
-"Language-Team: ubuntu-mate\n"
+"PO-Revision-Date: 2016-03-19 15:09+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: you@example.com\n"
-"X-Generator: Poedit 1.5.4\n"
-"Language: Chinese\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Report-Msgid-Bugs-To : you@example.com\n"
 
 #: software.html:17
 msgid "Software"
@@ -28,13 +29,11 @@ msgstr "軟體商店"
 #: software.html:47
 msgid ""
 "There is an abundance of software available for Ubuntu MATE and some people "
-"find that choice overwhelming. This is carefully curated selection of best-"
-"in-class applications have been chosen because they integrate well, "
+"find that choice overwhelming. The Boutique is a carefully curated selection"
+" of the best-in-class applications chosen because they integrate well, "
 "complement Ubuntu MATE and enable you to self style your computing "
 "experience."
 msgstr ""
-"Ubuntu MATE上面可取得許多優質軟體，這些軟體都是由同級中被精心挑選出來的。因為"
-"完美的整合，Ubuntu MATE能使您可以展現個人化且完整的使用體驗。"
 
 #: software.html:54
 msgid "If you can't find what you're looking for, install one of the"
@@ -60,20 +59,16 @@ msgstr "連接您的電腦至網際網路以探索更多Ubuntu MATE應用程式"
 
 #: software.html:64
 msgid ""
-"Once online, you'll be able to download and install that have been tried & "
-"tested for your desktop right here in Welcome. Our picks ensure that this "
-"software integrates well the Ubuntu MATE desktop."
+"Once online, you'll be able to download and install tried & tested software "
+"right here in Welcome. Our picks ensure that the software featured "
+"integrates well the Ubuntu MATE desktop."
 msgstr ""
-"一旦連線，您可以使用\"歡迎\"來下載和安裝經試過或者測試過的。我們確保這些軟體"
-"和Ubuntu MATE desktop整合的很好。"
 
 #: software.html:70
 msgid ""
 "Sorry, Welcome could not establish a connection to the Ubuntu repository "
 "server. Please check your connection and try again."
-msgstr ""
-"抱歉，\"歡迎\"無法建立至Ubuntu軟體庫伺服器的連線。請檢查您的網路連線並且再試"
-"一次"
+msgstr "抱歉，\"歡迎\"無法建立至Ubuntu軟體庫伺服器的連線。請檢查您的網路連線並且再試一次"
 
 #: software.html:75
 msgid "Retry Connection"
@@ -171,9 +166,7 @@ msgstr "tab may have them available for your system."
 msgid ""
 "Otherwise, you will need to manually install third party drivers for your "
 "hardware, or a download specific package containing the firmware. See"
-msgstr ""
-"此外，您需要為您的硬體手動安裝第3方的驅動程式，或者為軔體下載特定的套件。請參"
-"見"
+msgstr "此外，您需要為您的硬體手動安裝第3方的驅動程式，或者為軔體下載特定的套件。請參見"
 
 #: software.html:112
 msgid "Drivers"
@@ -317,8 +310,7 @@ msgstr "雜項修復"
 msgid ""
 "This section contains operations that can fix common problems should you "
 "encounter an error while upgrading or installing new software."
-msgstr ""
-"這個章節包含可修復一般問題的操作，當您升級或者安裝新軟體時您是否遭遇到問題?"
+msgstr "這個章節包含可修復一般問題的操作，當您升級或者安裝新軟體時您是否遭遇到問題?"
 
 #: software.html:285
 msgid "Outdated Package Lists?"
@@ -343,8 +335,8 @@ msgstr "過期的版本"
 #: software.html:287
 msgid ""
 "information when trying to install new or newer versions of software. This "
-"is particularly the case when Ubuntu MATE connects online for the first time "
-"after installation."
+"is particularly the case when Ubuntu MATE connects online for the first time"
+" after installation."
 msgstr "在首次安裝完成之後，當Ubuntu MATE連上線時會試圖安裝新版軟體或者更新"
 
 #: software.html:290
@@ -377,9 +369,7 @@ msgid ""
 "these broken packages. If necessary, you may need to also resolve "
 "dependencies and install any missing packages in order for the software to "
 "run properly."
-msgstr ""
-"沒有適當的調整設定這些損毀的套件，許多軟體將不能被新增或者移除。為了使軟體可"
-"以正常的運作，您也需要解決相依性及安裝所有缺少的套件。"
+msgstr "沒有適當的調整設定這些損毀的套件，許多軟體將不能被新增或者移除。為了使軟體可以正常的運作，您也需要解決相依性及安裝所有缺少的套件。"
 
 #: software.html:308
 msgid "Configure packages that were unpacked but not configured:"
@@ -433,9 +423,9 @@ msgstr "專利軟體"
 
 #: software.html:352
 msgid ""
-"is owned by an individual or company. There may be restrictions on its usage "
-"(like a license agreement), and no access to its source code."
-msgstr "由個人或公司所有。"
+"is owned by an individual or company. There may be restrictions on its usage"
+" (like a license agreement), and provides no access to the source code."
+msgstr ""
 
 #: software.html:355
 msgid "Free and Open Source Software"
@@ -446,6 +436,4 @@ msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
-msgstr ""
-"授予使用者自由地分享、學習和修改軟體而不受限。例如GPL就是一個\"自由軟體\"的授"
-"權"
+msgstr "授予使用者自由地分享、學習和修改軟體而不受限。例如GPL就是一個\"自由軟體\"的授權"
