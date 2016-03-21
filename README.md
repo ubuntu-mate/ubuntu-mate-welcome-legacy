@@ -29,7 +29,7 @@ and testing purposes, the following can be specified:
 
 #### ubuntu-mate-welcome
 
-  * `--verbose` = Show more details to stdout.
+  * `-v` `--verbose` = Show more details to stdout.
   * `--force-arch=<ARCH>` = Simulate an architecture.
     * `i386` or `amd64` or `armvf` or `powerpc`
   * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
