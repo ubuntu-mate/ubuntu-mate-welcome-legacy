@@ -1069,7 +1069,7 @@ class WelcomeApp(object):
         if locale_dir == '':
             locale_generic = locale_to_use.split('_')[0]
             print('[i18n] Trying ' + locale_generic + '...')
-            set_locale_dir(locale_generic)
+            locale_dir = set_locale_dir(locale_generic)
 
         results = []
 
