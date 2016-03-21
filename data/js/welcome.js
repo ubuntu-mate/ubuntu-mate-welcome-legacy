@@ -33,6 +33,7 @@ $(document).ready(function() {
       }
   });
 
+  $('#footer').append('<a id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>')
   $('#scrollTop').click(function () {
       $("html, body").animate({
           scrollTop: 0
