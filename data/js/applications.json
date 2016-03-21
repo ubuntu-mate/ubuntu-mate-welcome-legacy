@@ -358,7 +358,7 @@
             "remove-packages": "veracrypt",
             "description": [
                 "Software for establishing",
-                "and maintaining an on-the-fly-encrypted volume. The encrpyted",
+                "and maintaining an on-the-fly-encrypted volume. The encrypted",
                 "volume can be a virtual encrypted disk within a file, a",
                 "partition or complete device such as a USB stick or disk drive.",
                 "<ul><li><b>Successor to: </b><i>TrueCrypt</i></li></ul>"
@@ -644,6 +644,34 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "freeviv": {
+            "name": "Freeciv",
+            "img": "freeciv",
+            "main-package": "freeciv",
+            "launch-command": "freeciv",
+            "install-packages": "freeciv,freeciv-client-extras,freeciv-client-gtk,freeciv-data,freeciv-sound-standard",
+            "remove-packages": "freeciv,freeciv-client-extras,freeciv-client-gtk,freeciv-data,freeciv-sound-standard",
+            "description": [
+                "A free clone of the turn based strategy game",
+                "Civilization. In this game, each player becomes leader",
+                "of a civilisation, fighting to obtain the ultimate",
+                "goal: the extinction of all other civilisations."
+            ],
+            "alternate-to": "Sid Meier\u2019s Civilization",
+            "subcategory": "Strategy",
+            "open-source": true,
+            "url-info": "http://www.freeciv.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
