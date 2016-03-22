@@ -1045,7 +1045,7 @@ class WelcomeApp(object):
         if (arg.locale is not None):
             locale_to_use = arg.locale
         else:
-            locale_to_use = locale.getlocale()[0]
+            locale_to_use = str(locale.getlocale()[0])
 
         def set_locale_dir(this_locale):
             # check for relative path
@@ -1058,6 +1058,7 @@ class WelcomeApp(object):
             else:
                 locale_dir = ''
                 print('[i18n] Locale ' + this_locale + ' not available.')
+
             return locale_dir
 
         # if no locale exists, try a generic locale.
