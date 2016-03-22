@@ -1,5 +1,7 @@
-ubuntu-mate-welcome (16.04.6~xenial1.6) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.6~xenial1.7) xenial; urgency=medium
 
+  * Fix crash, that takes Ubiquity with it, when a suitable locale can't
+  be determined. Closes (LP: #1560493)
   * Fix Ubuntu MATE being closed while busy installing software.
   Closes (LP: #1553336)
   * Document keyboard shortcuts for enabling/disabling the screen reader
