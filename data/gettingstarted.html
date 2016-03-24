@@ -1075,63 +1075,122 @@
           </div>
           <div id="specs-box">
             <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>
-            <p>
-              <b>&zwnj;Distribution:&zwnj;</b>&nbsp; <span id="spec-distro"> </span><br>
-              <b>&zwnj;Kernel:&zwnj;</b>&nbsp;  <span id="spec-kernel">  </span>
-              <a data-toggle="tooltip" data-placement="right" title="&zwnj;The Linux kernel is the heart of Ubuntu.&zwnj;">
-                <span class="fa fa-info-circle"></span>
-              </a>
-              <b class="specs-hideable"><br>&zwnj;Motherboard:&zwnj;</b>&nbsp; <span id="spec-motherboard" class="specs-hide-vbox specs-hideable"> </span>
-              <b class="specs-hideable"><br>&zwnj;Boot Mode:&zwnj;</b>&nbsp; <span id="spec-boot-mode" class="specs-hide-vbox specs-hideable">  </span>
-              <a data-toggle="tooltip" data-placement="right" title="&zwnj;Displays the mode that Ubuntu MATE is communicating with the firmware.&zwnj;">
-                <span class="fa fa-info-circle"></span>
-              </a>
-            </p>
+            <table class="table">
+              <tr>
+                <th>&zwnj;Distribution:&zwnj;</th>
+                <td><span id="spec-distro"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Kernel:&zwnj;</th>
+                <td>
+                  <span id="spec-kernel"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;The Linux kernel is the heart of Ubuntu.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="specs-hideable">
+                <th>&zwnj;Motherboard:&zwnj;</th>
+                <td><span id="spec-motherboard" class="specs-hide-vbox specs-hideable"></span></td>
+              </tr>
+              <tr class="specs-hideable">
+                <th>&zwnj;Boot Mode:&zwnj;</th>
+                <td>
+                  <span id="spec-boot-mode" class="specs-hide-vbox specs-hideable"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;Displays the mode that Ubuntu MATE is communicating with the firmware.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
             <hr>
 
             <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
-            <p>
-              <b>&zwnj;Model:&zwnj;</b>&nbsp; <span id="spec-cpu-model"> </span><br>
-              <b>&zwnj;Speed:&zwnj;</b>&nbsp; <span id="spec-cpu-speed"> </span><br>
-              <b>&zwnj;Architecture in use:&zwnj;</b>&nbsp; <span id="spec-arch-use"> </span>
-              <a data-toggle="tooltip" data-placement="right" title="&zwnj;The operating system's architecture in use. For instance, i386 = 32-bit.&zwnj;">
-                <span class="fa fa-info-circle"></span>
-              </a><br>
-              <b>&zwnj;Architecture(s) supported:&zwnj;</b>&nbsp; <span id="spec-arch-supported"> </span>
-              <a data-toggle="tooltip" data-placement="right" title="&zwnj;Architectures that are supported by this processor.&zwnj;">
-                <span class="fa fa-info-circle"></span>
-              </a>
-            </p>
+            <table class="table">
+              <tr>
+                <th>&zwnj;Model:&zwnj;</th>
+                <td><span id="spec-cpu-model"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Speed:&zwnj;</th>
+                <td><span id="spec-cpu-speed"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Architecture in use:&zwnj;</th>
+                <td>
+                  <span id="spec-arch-use"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;The operating system's architecture in use. For instance, i386 = 32-bit.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>&zwnj;Architecture(s) supported:&zwnj;</th>
+                <td>
+                  <span id="spec-arch-supported"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;Architectures that are supported by this processor.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
             <hr>
 
             <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
-            <p>
-              <b>&zwnj;Memory (RAM):&zwnj;</b>&nbsp; <span id="spec-memory"> </span>
-              <a data-toggle="tooltip" data-placement="right" title="&zwnj;Determines how many applications can be kept open at once.&zwnj;">
-                <span class="fa fa-info-circle"></span>
-              </a>
-              <b class="specs-hideable"><br>&zwnj;Graphics:&zwnj;</b>&nbsp; <span id="spec-graphics" class="specs-hide-vbox specs-hideable"> </span><br>
-              <b>&zwnj;Internet Access:&zwnj;</b>&nbsp;
-                <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
-                <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
-            </p>
+            <table class="table">
+              <tr>
+                <th>&zwnj;Memory (RAM):&zwnj;</th>
+                <td>
+                  <span id="spec-memory"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;More RAM allows more applications to run simultaneously.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="specs-hideable specs-hide-vbox">
+                <th>&zwnj;Graphics:&zwnj;</th>
+                <td><span id="spec-graphics" class=" specs-hideable"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Internet Access:&zwnj;</th>
+                <td>
+                  <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
+                  <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
+                </td>
+              </tr>
+            </table>
             <hr>
 
             <div class="specs-hide-live">
               <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
-              <p>
-                <b>&zwnj;Root File System:&zwnj;</b>&nbsp; <span id="spec-filesystem"> </span>
-                <a data-toggle="tooltip" data-placement="right" title="&zwnj;The file system where Ubuntu MATE is installed.&zwnj;">
-                  <span class="fa fa-info-circle"></span>
-                </a><br>
-                <b>-- &zwnj;Entire Disk Capacity:&zwnj;</b>&nbsp; <span id="spec-capacity"> </span><br>
-                <b>-- &zwnj;Allocated:&zwnj;</b>&nbsp; <span id="spec-allocated-space"> </span><br>
-                <b>-- &zwnj;Free Space:&zwnj;</b>&nbsp; <span id="spec-free-space"> </span><br>
-                <br>
-                <a data-trigger="hover" rel="unitsinfo" data-placement="top">
-                  <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;
-                </a>
-              </p>
+
+              <table class="table">
+                <tr>
+                  <th>&zwnj;Root File System:&zwnj;</th>
+                  <td>
+                    <span id="spec-filesystem"></span>
+                    <a data-toggle="tooltip" data-placement="right" title="&zwnj;The file system where Ubuntu MATE is installed.&zwnj;">
+                      <span class="fa fa-info-circle"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>-- &zwnj;Entire Disk Capacity:&zwnj;</th>
+                  <td><span id="spec-capacity"></span></td>
+                </tr>
+                <tr>
+                  <th>-- &zwnj;Allocated:&zwnj;</th>
+                  <td><span id="spec-allocated-space"></span></td>
+                </tr>
+                <tr>
+                  <th>&zwnj;Free Space:&zwnj;</th>
+                  <td><span id="spec-free-space"></span></td>
+                </tr>
+              </table>
+
+              <a data-trigger="hover" rel="unitsinfo" data-placement="top">
+                <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;
+              </a>
             </div>
 
           </div>
