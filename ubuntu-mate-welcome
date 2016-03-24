@@ -1355,7 +1355,7 @@ class SystemState(object):
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
             if self.session_type == 'live':
-                webkit.execute_script('$(".specs-4").hide()')
+                webkit.execute_script('$(".specs-hide-live-session").hide()')
             else:
                 arg.print_verbose('System Specs', 'Gathering data: Storage')
                 root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
@@ -1414,6 +1414,8 @@ class SystemState(object):
         elif self.graphics_vendor == 'VirtualBox':
             webkit.execute_script('$("#specs-device-vbox").show()')
             webkit.execute_script('$(".specs-hideable").hide()')
+        elif self.session_type == 'live':
+            webkit.execute_script('$(".specs-hide-live").hide()')
         else:
             webkit.execute_script('$("#specs-device-normal").show()')
 
