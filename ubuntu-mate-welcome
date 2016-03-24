@@ -1415,6 +1415,7 @@ class SystemState(object):
             webkit.execute_script('$("#specs-device-vbox").show()')
             webkit.execute_script('$(".specs-hideable").hide()')
         elif self.session_type == 'live':
+            webkit.execute_script('$("#specs-live-session").show()')
             webkit.execute_script('$(".specs-hide-live").hide()')
         else:
             webkit.execute_script('$("#specs-device-normal").show()')
