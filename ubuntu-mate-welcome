@@ -2020,7 +2020,7 @@ class Arguments(object):
               print('  --force-arch=<ARCH>         Simulate a specific architecture.')
               print('                                 "i386", "amd64" or "armhf" or "powerpc"')
               print('  --force-session=<TYPE>      Simulate a specific architecture.')
-              print('                                 "guest", "live" or "pi"')
+              print('                                 "guest", "live" or "pi" or "vbox"')
               print('  --force-codename=<NAME>     Simulate a specific Ubuntu MATE codename release.')
               print('                                 Examples: "trusty", "wily" or "xenial"')
               print('  --force-no-net              Simulate no internet connection.')
@@ -2051,7 +2051,7 @@ class Arguments(object):
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
-                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi':
+                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi' and not self.simulate_session == 'vbox':
                       print('[Debug] Unrecognised session type: ' + self.simulate_session)
                       exit()
                   else:
@@ -2098,7 +2098,11 @@ class Arguments(object):
 
     def override_session(self):
         if not self.simulate_session == None:
-            systemstate.session_type = self.simulate_session
+            if self.simulate_session == 'vbox':
+                systemstate.graphics_vendor = 'VirtualBox'
+                systemstate.graphics_grep = 'VirtualBox'
+            else:
+                systemstate.session_type = self.simulate_session
 
     def override_codename(self):
         if not self.simulate_codename == None:

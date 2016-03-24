@@ -33,7 +33,7 @@ and testing purposes, the following can be specified:
   * `--force-arch=<ARCH>` = Simulate an architecture.
     * `i386` or `amd64` or `armvf` or `powerpc`
   * `--force-session=<TYPE>` = Simulate a specific type of session where Welcome is accessed.
-    * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2)
+    * `live` (Live Session) or `guest` (Guest User) or `pi` (Raspberry Pi 2) or `vbox` (VirtualBox)
   * `--force-codename=<NAME>` = Simulate a specific Ubuntu release. For testing Software Boutique.
     * Eg. `trusty` or `wily` or `xenial`.
   * `--force-no-net` = Simulate no internet connection.
