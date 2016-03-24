@@ -1,20 +1,23 @@
 ubuntu-mate-welcome (16.04.7~xenial1.0) xenial; urgency=medium
 
-  * Add Korean (ko_KR) translation.
+  * Fix "Install Now" button in Getting Started during live session.
   * Fix missing launch entries for Variety, Veracrypt and Zim.
+  * Correct I-beam cursor, behaves more like a native application.
+  * Improve readability of Keyboard Shortcuts and System Specifications.
   * Update translations.
+  * Add Korean (ko_KR) translation.
+  * Add ConvertAll, FreeCiv and Tux Paint to Software Boutique.
+  + Add MATE Disk Analyser to System Specifications Utilities.
   * Replace DVD-Styler with Bombono DVD.
 
  -- Martin Wimpress <code@flexion.org>  Thu, 24 Mar 2016 09:21:44 +0000
 
 ubuntu-mate-welcome (16.04.6) xenial; urgency=medium
 
-  * Hide I-beam cursor, behaves more like a native application.
   * Fix crash, that takes Ubiquity with it, when a suitable locale can't
   be determined. Closes (LP: #1560493)
   * Fix Ubuntu MATE being closed while busy installing software.
   Closes (LP: #1553336)
-  * Fix "Install Now" button on Getting Started page during live session.
   * Document keyboard shortcuts for enabling/disabling the screen reader
   and pull-down terminal. Closes (LP: #1560208)
   * Correct workspace switching description.
@@ -23,11 +26,7 @@ ubuntu-mate-welcome (16.04.6) xenial; urgency=medium
   * Add French (fr_FR) translation.
   * Add German (de) translation.
   * Add Spanish (es_ES) translation.
-  * Visual improvements to Keyboard Shortcuts and
-  System Specifications page.
-  * Prevent text overlapping in System Specifications.
-  * Add ConvertAll, FreeCiv and Tux Paint to Software Boutique.
-  + Add MATE Disk Analyser to System Specifications Utilities.
+  * Add ConvertAll and FreeCiv to Software Boutique.
   * Enable Kodi for Xenial.
   * Replace Parcellite with Diodon.
 
