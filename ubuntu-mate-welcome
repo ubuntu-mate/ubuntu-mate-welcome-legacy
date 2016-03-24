@@ -1366,9 +1366,9 @@ class SystemState(object):
                 entire_disk = run_external_command(['lsblk -b | grep "sda" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + str(int(entire_disk/1000/1000/1000)) + ' GB (' + str(int(entire_disk/1024/1024/1024)) + ' GiB)")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(root_size/1000/1000/1000)) + ' GB (' + str(int(root_size/1024/1024/1024)) + ' GiB)")')
-                webkit.execute_script('$("#spec-free-space").html("' + str(int(root_free/1000/1000/1000)) + ' GB (' + str(int(root_free/1024/1024/1024)) + ' GiB)")')
+                webkit.execute_script('$("#spec-capacity").html("' + str(int(entire_disk/1000/1000/1000)) + ' GB <span class=\'secondary-value\'>(' + str(int(entire_disk/1024/1024/1024)) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(root_size/1000/1000/1000)) + ' GB <span class=\'secondary-value\'>(' + str(int(root_size/1024/1024/1024)) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-free-space").html("' + str(int(root_free/1000/1000/1000)) + ' GB <span class=\'secondary-value\'>(' + str(int(root_free/1024/1024/1024)) + ' GiB)</span>")')
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
@@ -1377,7 +1377,7 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering Data: RAM')
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
-            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB (' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)'
+            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)</span>'
             webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
