@@ -819,6 +819,25 @@ blockquote.terminal {
   opacity: 1;
 }
 
+#disk-usage {
+  width: 100%;
+  height: 8px;
+  background-color: #C8C8C8;
+  border: 1px solid #8C8C8C;
+}
+
+#disk-used {
+  float: left;
+  background-color: #87A556;
+  height: 100%;
+}
+
+#disk-other {
+  float: right;
+  background-color: #484848;
+  height: 100%;
+}
+
 /************************
  * Hello Page
 *************************/

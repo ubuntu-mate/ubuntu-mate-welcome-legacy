@@ -1175,15 +1175,22 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>-- &zwnj;Entire Disk Capacity:&zwnj;</th>
-                  <td><span id="spec-capacity"></span></td>
+                  <th>&zwnj;Entire Disk Capacity:&zwnj;</th>
+                  <td>
+                    <span id="spec-capacity"></span>
+                    <br>
+                    <div id="disk-usage">
+                      <a id="disk-used" style="width:0%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Used in Ubuntu MATE&zwnj;"></a>
+                      <a id="disk-other" style="width:100%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, including swap&zwnj;"></a>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
-                  <th>-- &zwnj;Allocated:&zwnj;</th>
+                  <th>-- &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
                   <td><span id="spec-allocated-space"></span></td>
                 </tr>
                 <tr>
-                  <th>&zwnj;Free Space:&zwnj;</th>
+                  <th>-- &zwnj;Free Space:&zwnj;</th>
                   <td><span id="spec-free-space"></span></td>
                 </tr>
               </table>
