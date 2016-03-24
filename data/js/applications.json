@@ -554,6 +554,34 @@
                 }
             },
             "working": true
+        },
+        "tuxpaint": {
+            "name": "Tux Paint",
+            "img": "tuxpaint",
+            "main-package": "tuxpaint",
+            "launch-command": "tuxpaint",
+            "install-packages": "tuxpaint",
+            "remove-packages": "tuxpaint,tuxpaint-data,tuxpaint-config,tuxpaint-plugins-default,tuxpaint-stamps-default",
+            "description": [
+                "An award-winning drawing program designed for children",
+                "aged 3 to 12. It provides an easy to use interface, fun",
+                "sound effects and Tux as the cartoon mascot to guide the",
+                "children throughout the program."
+            ],
+            "alternate-to": null,
+            "subcategory": "Children",
+            "open-source": true,
+            "url-info": "http://www.tuxpaint.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
         }
     },
     "Games": {
