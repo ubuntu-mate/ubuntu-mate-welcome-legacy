@@ -773,13 +773,18 @@ blockquote.terminal {
 /************************
  * Getting Started - System Specifications
 *************************/
-.specs-icon {
-  top: 100px; bottom: 0;
+#specs-icon {
+  top: 250px;
   left: 4%;
   width: 20%;
   height: auto;
   margin: auto;
   position: absolute;
+}
+
+#specs-icon img {
+  width: 180px;
+  height: auto;
 }
 
 #specs-loading {
@@ -796,14 +801,6 @@ blockquote.terminal {
   width: 74%;
   padding: 4px;
   position: relative;
-}
-
-#specs-box tr {
-  width: 50%;
-}
-
-#specs-box td {
-  text-align: top;
 }
 
 .specs-box h4 {
