@@ -26,6 +26,7 @@ html, body {
   /* Behave more like an application by
    * preventing text highlighting / dragging. */
   -webkit-user-select: none;
+  cursor: default;
 }
 
 body, button {
@@ -49,6 +50,10 @@ p.no-space {
 
 .backdrop-simple {
   background-color: #f4f4f4;
+}
+
+.cursor-wait {
+  cursor: wait;
 }
 
 /************************
@@ -225,8 +230,13 @@ img, a {
 }
 
 /* Collapsible Sub-Sections */
-.sub-collapse { cursor: pointer; }
-.sub-collapse:hover { text-decoration: none; }
+.sub-collapse {
+  cursor: pointer;
+}
+
+.sub-collapse:hover {
+  text-decoration: none;
+}
 
 /* Any link (href / onclick) shows the pointing cursor */
 a {
@@ -483,8 +493,13 @@ hr.soften-light {
 }
 
 /* Show cursor over check boxes */
-#nonFreeToggle { cursor: pointer; }
-#MiscCmd { cursor: pointer; }
+#nonFreeToggle {
+  cursor: pointer;
+}
+
+#MiscCmd {
+  cursor: pointer;
+}
 
 /* Terminal Commands Blockquote */
 blockquote.terminal {
