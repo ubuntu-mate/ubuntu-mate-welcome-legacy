@@ -791,6 +791,7 @@ class AppView(WebKit.WebView):
             dynamicapps.update_app_status(self, 'hardinfo')
             dynamicapps.update_app_status(self, 'gparted')
             dynamicapps.update_app_status(self, 'gnome-disk-utility')
+            dynamicapps.update_app_status(self, 'mate-utils')
             dynamicapps.update_app_status(self, 'mate-system-monitor')
             dynamicapps.update_app_status(self, 'boot-repair')
             dynamicapps.update_app_status(self, 'codecs')
@@ -1355,9 +1356,10 @@ class SystemState(object):
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
             if self.session_type == 'live':
-                webkit.execute_script('$(".specs-4").hide()')
+                webkit.execute_script('$(".specs-hide-live-session").hide()')
             else:
                 arg.print_verbose('System Specs', 'Gathering data: Storage')
+                ## Gather data
                 root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
                 root_device = root_partition[:-1]
                 rootfs = os.statvfs('/')
@@ -1365,10 +1367,20 @@ class SystemState(object):
                 root_free = rootfs.f_bavail * rootfs.f_frsize
                 entire_disk = run_external_command(['lsblk -b | grep "sda" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
+
+                ## Append data to HTML.
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + str(int(entire_disk/1000/1000/1000)) + ' GB (' + str(int(entire_disk/1024/1024/1024)) + ' GiB)")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(root_size/1000/1000/1000)) + ' GB (' + str(int(root_size/1024/1024/1024)) + ' GiB)")')
-                webkit.execute_script('$("#spec-free-space").html("' + str(int(root_free/1000/1000/1000)) + ' GB (' + str(int(root_free/1024/1024/1024)) + ' GiB)")')
+                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' GiB)</span>")')
+
+                ## Calculate representation across physical disk
+                disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
+                disk_percent_other   = int(round((root_size - root_free) / entire_disk) * 100)
+                arg.print_verbose('System Specs', ' ---- Disk: ' + root_device + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
+                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
+                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
+
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
@@ -1377,7 +1389,7 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering Data: RAM')
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
-            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB (' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)'
+            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)</span>'
             webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
@@ -1414,6 +1426,9 @@ class SystemState(object):
         elif self.graphics_vendor == 'VirtualBox':
             webkit.execute_script('$("#specs-device-vbox").show()')
             webkit.execute_script('$(".specs-hideable").hide()')
+        elif self.session_type == 'live':
+            webkit.execute_script('$("#specs-live-session").show()')
+            webkit.execute_script('$(".specs-hide-live").hide()')
         else:
             webkit.execute_script('$("#specs-device-normal").show()')
 
@@ -1428,7 +1443,7 @@ class SystemState(object):
         webkit.execute_script('$("#specs-loading").fadeOut("fast")')
         webkit.execute_script('$("#specs-tabs").fadeIn("fast")')
         webkit.execute_script('$("#specs-basic").fadeIn("medium")')
-        webkit.execute_script('$("html").css("cursor","default")')
+        webkit.execute_script('set_cursor_normal()')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
@@ -2017,7 +2032,7 @@ class Arguments(object):
               print('  --force-arch=<ARCH>         Simulate a specific architecture.')
               print('                                 "i386", "amd64" or "armhf" or "powerpc"')
               print('  --force-session=<TYPE>      Simulate a specific architecture.')
-              print('                                 "guest", "live" or "pi"')
+              print('                                 "guest", "live" or "pi" or "vbox"')
               print('  --force-codename=<NAME>     Simulate a specific Ubuntu MATE codename release.')
               print('                                 Examples: "trusty", "wily" or "xenial"')
               print('  --force-no-net              Simulate no internet connection.')
@@ -2048,7 +2063,7 @@ class Arguments(object):
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
-                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi':
+                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi' and not self.simulate_session == 'vbox':
                       print('[Debug] Unrecognised session type: ' + self.simulate_session)
                       exit()
                   else:
@@ -2095,7 +2110,11 @@ class Arguments(object):
 
     def override_session(self):
         if not self.simulate_session == None:
-            systemstate.session_type = self.simulate_session
+            if self.simulate_session == 'vbox':
+                systemstate.graphics_vendor = 'VirtualBox'
+                systemstate.graphics_grep = 'VirtualBox'
+            else:
+                systemstate.session_type = self.simulate_session
 
     def override_codename(self):
         if not self.simulate_codename == None:

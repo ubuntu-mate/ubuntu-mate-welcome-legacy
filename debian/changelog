@@ -9,18 +9,25 @@ ubuntu-mate-welcome (16.04.7~xenial1.0) xenial; urgency=medium
 
 ubuntu-mate-welcome (16.04.6) xenial; urgency=medium
 
+  * Hide I-beam cursor, behaves more like a native application.
   * Fix crash, that takes Ubiquity with it, when a suitable locale can't
   be determined. Closes (LP: #1560493)
   * Fix Ubuntu MATE being closed while busy installing software.
   Closes (LP: #1553336)
+  * Fix "Install Now" button on Getting Started page during live session.
   * Document keyboard shortcuts for enabling/disabling the screen reader
   and pull-down terminal. Closes (LP: #1560208)
   * Correct workspace switching description.
+  * Correct grammar in various places.
   * Add Belarusian (be_BY) translation.
   * Add French (fr_FR) translation.
   * Add German (de) translation.
   * Add Spanish (es_ES) translation.
-  * Add ConvertAll and FreeCiv to Software Boutique.
+  * Visual improvements to Keyboard Shortcuts and
+  System Specifications page.
+  * Prevent text overlapping in System Specifications.
+  * Add ConvertAll, FreeCiv and Tux Paint to Software Boutique.
+  + Add MATE Disk Analyser to System Specifications Utilities.
   * Enable Kodi for Xenial.
   * Replace Parcellite with Diodon.
 

@@ -28,7 +28,7 @@
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('sysreq','&zwnj;System Requirements&zwnj;')">        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')"> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('dualboot','&zwnj;Dual Booting&zwnj;')">             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
-      <a class="btn btn-success index-btn live-session-only" onclick="cmd://install">                                                 <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
+      <a class="btn btn-success index-btn live-session-only" href="cmd://install">                                                    <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
@@ -124,7 +124,7 @@
 
             <h3>&zwnj;Modern UEFI-based computers&zwnj;</h3>
             <p>&zwnj;If you have a modern PC that uses the Unifed Extended Firmware Interface (UEFI),
-            you may need to disable &zwnj; <b>&zwnj;Secure Boot&zwnj;</b> &zwnj; (or enable an &zwnj; <b>&zwnj;Unlock Bootloader&zwnj;</b>
+            you may need to disable &zwnj; <b>&zwnj;Secure Boot&zwnj;</b> &zwnj;(or enable the&zwnj; <b>&zwnj;Unlock Bootloader&zwnj;</b>
             &zwnj;option) prior to installation, particularly if an operating system was pre-installed.&zwnj;</p>
 
             <p>&zwnj;If you are using a legacy BIOS machine, you do not need to do this.&zwnj;</p>
@@ -141,7 +141,7 @@
             </p>
 
             <div class="alert alert-info">
-              &zwnj;Your system is currently running in &zwnj;&nbsp;<b><span id="boot-mode">???</span>&nbsp;&zwnj; mode&zwnj;</b>.
+              &zwnj;Your system is currently running in &zwnj; <b><span id="boot-mode">???</span> &zwnj;mode&zwnj;</b>.
             </div>
 
             <hr class="soften"/>
@@ -151,7 +151,7 @@
             start swapping to disk. Known as a "paging file" in Windows.
             Performance will decrease when running low on memory and could possibly freeze if
             you completely run out of memory without anywhere to swap.&zwnj;</p>
-            <p>&zwnj;By default, &zwnj; <b>&zwnj;a swap partition is created by the size of your RAM.&zwnj;</b> &zwnj;For example, if you have
+            <p>&zwnj;By default, a swap partition is created based on the size of your RAM. For example, if you have
             2 GiB of RAM, then 2 GiB of hard disk space will be reserved for swap at the end of the drive.&zwnj;</p>
 
             <div class="center">
@@ -176,7 +176,7 @@
 
             <label class="checkbox">
               <input type="checkbox" value="" id="showDualBootWin">
-                &nbsp;I'm dual booting with &nbsp;<span class="fa fa-windows"></span> Microsoft Windows.
+                &nbsp;&zwnj;I'm dual booting with&zwnj; &nbsp;<span class="fa fa-windows"></span> Microsoft Windows.
             </label>
 
             <h5>&zwnj;To minimize the risk of data loss or failure, ensure that:&zwnj;</h5>
@@ -452,7 +452,7 @@
               <div id="graphics-proprietary" hidden>
                 <h4>&zwnj;Proprietary or Open Source Drivers?&zwnj;</h4>
                 <p>&zwnj;Proprietary drivers come directly from the manufacturer.&zwnj;
-                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b>&zwnj; meaning you'll have to
+                &zwnj;As they are not open source, Ubuntu developers are&zwnj; <b>&zwnj;unable review and improve code&zwnj;</b> &zwnj;meaning you'll have to
                 rely on the manufacturer for support.&zwnj;</p>
 
                 <p>&zwnj;In addition, proprietary drivers can&zwnj; <b>&zwnj;significantly improve graphics performance&zwnj;</b> &zwnj;and as a result,&zwnj;
@@ -772,79 +772,271 @@
             your computer more efficient.&zwnj;</p>
             <h3>&zwnj;Common application shortcuts&zwnj;</h3>
             <p>&zwnj;These shortcuts apply in most applications.&zwnj;</p>
-            <ul>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">C</b> &zwnj;Copy the selected text/object&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">X</b> &zwnj;Cut the selected text/object&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">V</b> &zwnj;Paste/insert the selected text/object&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">A</b> &zwnj;Select all text&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">F</b> &zwnj;Find and replace words&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">B</b> &zwnj;Make the selected text bold&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">I</b> &zwnj;Make the selected text italic&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">U</b> &zwnj;Underline the selected text&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">N</b> &zwnj;Open a new document or window&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">S</b> &zwnj;Save the current document&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">O</b> &zwnj;Open another document&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">P</b> &zwnj;Print the current document&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Z</b> &zwnj;Undo the last change you made&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Shift</b> + <b class="btn btn-xs disabled">Z</b> &zwnj;Redo a change that you just undid&zwnj;</li>
-              <li><b class="btn btn-xs disabled">F11</b> &zwnj;Toggle the current application between full-screen and windowed&zwnj;</li>
-            </ul>
+
+            <table class="table">
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">C</b></td>
+                <td>&zwnj;Copy the selected text/object&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">X</b></td>
+                <td>&zwnj;Cut the selected text/object&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">X</b></td>
+                <td>&zwnj;Cut the selected text/object&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">V</b></td>
+                <td>&zwnj;Paste/insert the selected text/object&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">A</b></td>
+                <td>&zwnj;Select all text&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F</b></td>
+                <td>&zwnj;Find and replace words&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">B</b></td>
+                <td>&zwnj;Make the selected text bold&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">I</b></td>
+                <td>&zwnj;Make the selected text italic&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">U</b></td>
+                <td>&zwnj;Underline the selected text&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">N</b></td>
+                <td>&zwnj;Open a new document or window&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">S</b></td>
+                <td>&zwnj;Save the current document&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">O</b></td>
+                <td>&zwnj;Open another document&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">P</b></td>
+                <td>&zwnj;Print the current document&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Z</b></td>
+                <td>&zwnj;Undo the last change you made&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Shift</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Z</b></td>
+                <td>&zwnj;Redo a change that you just undid&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">F11</b></td>
+                <td>&zwnj;Toggle the current application between full-screen and windowed&zwnj;</td>
+              </tr>
+            </table>
+
             <h3>&zwnj;Desktop shortcuts&zwnj;</h3>
             <p>&zwnj;This section lists common keyboard shortcuts which you can
             use to operate parts of the desktop.&zwnj;</p>
-            <ul>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F1</b> &zwnj;Open the Applications menu&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F2</b> &zwnj;Run an application by typing its name in the box which appears&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Prt Sc&zwnj;</b> &zwnj;Take a screenshot of the whole screen&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Prt Sc</b> &zwnj;Take a screenshot of the current window&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Delete&zwnj;</b> &zwnj;Prompt is you want to Suspend, Restart or Shutdown the computer&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">L</b> &zwnj;Lock your screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">T</b> &zwnj;Open a terminal.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Super</b> + <b class="btn btn-xs disabled">S</b> &zwnj;Screen reader enable/disable.&zwnj;</li>
-            </ul>
+
+            <table class="table">
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F1</b></td>
+                <td>&zwnj;Open the Applications menu&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F2</b></td>
+                <td>&zwnj;Run an application by typing its name in the box which appears&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Prt Sc&zwnj;</b></td>
+                <td>&zwnj;Take a screenshot of the whole screen&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Prt Sc</b></td>
+                <td>&zwnj;Take a screenshot of the current window&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Delete&zwnj;</b></td>
+                <td>&zwnj;Open the dialog box to shutdown, restart or suspend.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">L</b></td>
+                <td>&zwnj;Lock your screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">T</b></td>
+                <td>&zwnj;Open a terminal.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Super</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">S</b></td>
+                <td>&zwnj;Screen reader enable/disable.&zwnj;</td>
+              </tr>
+            </table>
+
             <h3>&zwnj;Window shortcuts&zwnj;</h3>
-            <ul>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Tab&zwnj;</b> &zwnj;Switch between currently-open windows. Press Alt + Tab and then release Tab (but continue to hold Alt). Press Tab repeatedly to cycle through the list of available windows which appears on the screen. Release the Alt key to switch to the selected window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Tab</b> &zwnj;Switch between currently-open windows in all Workspaces. Press Tab repeatedly to cycle through the list of available windows which appears on the screen. Release the Ctrl and Alt keys to switch to the selected window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Left&zwnj;</b> &zwnj;Switch to the previous workspace.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Right&zwnj;</b> &zwnj;Switch to the next workspace.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> + <b class="btn btn-xs disabled">Left</b> &zwnj;Move the current window to the previous workspace.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> + <b class="btn btn-xs disabled">Right</b> &zwnj;Move the current window to the next workspace.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F4</b> &zwnj;Closes window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F5</b> &zwnj;&zwnj;Returns window to 'normal' or previous size.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F7</b> &zwnj;Moves the current window (can be moved with mouse or keyboard).&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F8</b> &zwnj;Resizes current window (again, can be moved with mouse or keyboard).&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F9</b> &zwnj;Minimizes current window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F10</b> &zwnj;Maximizes current window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">F12</b> &zwnj;Pulldown Terminal.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Space&zwnj;</b> &zwnj;Displays the window menu with options such as 'Always on Top' and 'Minimize' and 'Maximize' and above commands.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 7</b> &zwnj;Place window in top left corner of screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 8</b> &zwnj;Place window in top half of screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 9</b> &zwnj;Place window in top right corner of screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 5</b> &zwnj;Center/Maximize the window in the middle of the screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 1</b> &zwnj;Place window in the bottom left corner of the screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 2</b> &zwnj;Place window in the bottom half of the screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 3</b> &zwnj;Place window in the bottom right corner of the screen.&zwnj;</li>              
-            </ul>
+            <table class="table">
+              <tr>
+                <td style="width:270px;"><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Tab&zwnj;</b></td>
+                <td>
+                  &zwnj;Switch between currently-open windows.&zwnj;
+                  <ul>
+                    <li>&zwnj;Press Alt + Tab and then release Tab (but continue to hold Alt).&zwnj;</li>
+                    <li>&zwnj;Press Tab repeatedly to cycle through the list of available windows which appears on the screen.&zwnj;</li>
+                    <li>&zwnj;Release the Alt key to switch to the selected window.&zwnj;</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Tab</b></td>
+                <td>
+                  &zwnj;Switch between currently-open windows in all Workspaces.&zwnj;
+                  <ul>
+                    <li>&zwnj;Press Tab repeatedly to cycle through the list of available windows which appears on the screen.&zwnj;</li>
+                    <li>&zwnj;Release the Ctrl and Alt keys to switch to the selected window.&zwnj;</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Left&zwnj;</b></td>
+                <td>&zwnj;Switch to the previous workspace.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Right&zwnj;</b></td>
+                <td>&zwnj;Switch to the next workspace.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Left</b></td>
+                <td>&zwnj;Move the current window to the previous workspace.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Right</b></td>
+                <td>&zwnj;Move the current window to the next workspace.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F4</b></td>
+                <td>&zwnj;Closes window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F5</b></td>
+                <td>&zwnj;Returns window to 'normal' or previous size.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F7</b></td>
+                <td>&zwnj;Moves the current window (can be moved with mouse or keyboard).&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F8</b></td>
+                <td>&zwnj;Resizes current window (again, can be moved with mouse or keyboard).&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F9</b></td>
+                <td>&zwnj;Minimizes current window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F10</b></td>
+                <td>&zwnj;Maximizes current window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">F12</b></td>
+                <td>&zwnj;Pulldown Terminal.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Space&zwnj;</b></td>
+                <td>&zwnj;Displays the window menu with options such as 'Always on Top' and 'Minimize' and 'Maximize' and above commands.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 7</b></td>
+                <td>&zwnj;Place window in top left corner of screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 8</b></td>
+                <td>&zwnj;Place window in top half of screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 9</b></td>
+                <td>&zwnj;Place window in top right corner of screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 5</b></td>
+                <td>&zwnj;Center/Maximize the window in the middle of the screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 1</b></td>
+                <td>&zwnj;Place window in the bottom left corner of the screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 2</b></td>
+                <td>&zwnj;Place window in the bottom half of the screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Numpad&zwnj; 3</b></td>
+                <td>&zwnj;Place window in the bottom right corner of the screen.&zwnj;</td>
+              </tr>
+            </table>
+
             <h3>&zwnj;Compiz Effects Shortcuts&zwnj;</h3>
             <p>&zwnj;All of the shortcuts listed in this section require Compiz to be enabled.&zwnj;</p>
-            <ul>
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">D</b> &zwnj;Toggles 'Show Desktop'.&zwnj;</li>
+            <table class="table">
+              <tr>
+                <td style="width: 280px"><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">D</b></td>
+                <td>&zwnj;Toggles 'Show Desktop'.&zwnj;</td>
+              </tr>
               <!--
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Up</b> &zwnj;Enables an 'expose' like feature that presents you with all the windows you currently have open, allowing you to select the one you wish to give focus to.&zwnj;
-              <li><b class="btn btn-xs disabled">Ctrl</b> + <b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">Down</b> &zwnj;Unfolds your workspace cube allowing you to see more than one of your workspaces at once, using the left and right cursor keys with this active will allow you to select the workspace you wish to use.&zwnj;</li>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Up</b></td>
+                <td>&zwnj;Enables an 'expose' like feature that presents you with all the windows you currently have open, allowing you to select the one you wish to give focus to.&zwnj;</td>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Ctrl&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">Down</b></td>
+                <td>&zwnj;Unfolds your workspace cube allowing you to see more than one of your workspaces at once, using the left and right cursor keys with this active will allow you to select the workspace you wish to use.&zwnj;</td>
+              </tr>
               -->
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">A</b> &zwnj;Zoom out, show workspace switcher.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">W</b> &zwnj;Enables the 'scale' effect, it shows all windows from the current workspace.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> + <b class="btn btn-xs disabled">W</b> &zwnj;Enables the 'scale' effect, it shows all windows from all workspaces.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">N</b> &zwnj;Invert colors of the focused window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">M</b> &zwnj;Invert colors for the whole screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">&zwnj;Mouse Scroll&zwnj;</b> &zwnj;Zooms in on the screen.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> + <b class="btn btn-xs disabled">&zwnj;Middle Mouse Button&zwnj;</b> &zwnj;Select a region to zoom into, using a rectangle.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Left Mouse Button&zwnj;</b> &zwnj;Move focused window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Middle Mouse Button&zwnj;</b> &zwnj;Resize focused window.&zwnj;</li>
-              <li><b class="btn btn-xs disabled">Alt</b> + <b class="btn btn-xs disabled">&zwnj;Right Mouse Button&zwnj;</b> &zwnj;Show window menu.&zwnj;</li>
-            </ul>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">A</b></td>
+                <td>&zwnj;Zoom out, show workspace switcher.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">W</b></td>
+                <td>&zwnj;Enables the 'scale' effect, it shows all windows from the current workspace.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Shift&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">W</b></td>
+                <td>&zwnj;Enables the 'scale' effect, it shows all windows from all workspaces.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">N</b></td>
+                <td>&zwnj;Invert colors of the focused window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">M</b></td>
+                <td>&zwnj;Invert colors for the whole screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Mouse Scroll&zwnj;</b></td>
+                <td>&zwnj;Zooms in on the screen.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">&zwnj;Super&zwnj;</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Middle Mouse Button&zwnj;</b></td>
+                <td>&zwnj;Select a region to zoom into, using a rectangle.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Left Mouse Button&zwnj;</b></td>
+                <td>&zwnj;Move focused window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Middle Mouse Button&zwnj;</b></td>
+                <td>&zwnj;Resize focused window.&zwnj;</td>
+              </tr>
+              <tr>
+                <td><b class="btn btn-xs disabled">Alt</b> <b class="fa fa-plus"></b> <b class="btn btn-xs disabled">&zwnj;Right Mouse Button&zwnj;</b></td>
+                <td>&zwnj;Show window menu.&zwnj;</td>
+              </tr>
+            </table>
 
             <div class="center">
               <hr class="soften-light">
@@ -863,7 +1055,7 @@
             <p>&zwnj;Your machine is made up of various components that
             interact with one another. This information is useful
             when providing support to ensure hardware and software
-            works on your machine and Ubuntu MATE.&zwnj;</p>
+            works on your machine.&zwnj;</p>
           </div>
         </div>
         <div id="specs-loading"><p>&zwnj;Please wait while the information is being populated...&zwnj;</p></div>
@@ -874,48 +1066,140 @@
         </ul>
 
         <div class="tab-contents" id="specs-basic" hidden>
-          <img class="specs-icon" hidden id="specs-device-normal" src="img/welcome/ubuntu-mate-laptop.png"/>
-          <img class="specs-icon" hidden id="specs-device-rpi" src="img/logos/raspberry-pi.png"/>
-          <img class="specs-icon" hidden id="specs-device-vbox" src="img/logos/virtualbox-vbox.png"/>
-          <img class="specs-icon" hidden id="specs-device-powerpc" src="img/logos/powerpc.png"/>
-          <div class="specs-box specs-1">
+          <div id="specs-icon">
+            <img class="specs-icon" hidden id="specs-device-normal" src="img/welcome/ubuntu-mate-laptop.png"/>
+            <img class="specs-icon" hidden id="specs-device-rpi" src="img/logos/raspberry-pi.png"/>
+            <img class="specs-icon" hidden id="specs-device-vbox" src="img/logos/virtualbox-vbox.png"/>
+            <img class="specs-icon" hidden id="specs-device-powerpc" src="img/logos/powerpc.png"/>
+            <img class="specs-icon" hidden id="specs-live-session" src="img/welcome/live-session-image.png"/>
+          </div>
+          <div id="specs-box">
             <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>
-            <p>
-              <b>&zwnj;Distribution:&zwnj;</b>&nbsp; <span id="spec-distro"> </span><br>
-              <b>&zwnj;Kernel:&zwnj;</b>&nbsp;  <span id="spec-kernel">  </span>
-              <b class="specs-hideable"><br>&zwnj;Motherboard:&zwnj;</b>&nbsp; <span id="spec-motherboard" class="specs-hide-vbox"> </span>
-              <b class="specs-hideable"><br>&zwnj;Boot Mode:&zwnj;</b>&nbsp; <span id="spec-boot-mode" class="specs-hide-vbox">  </span>
-            </p>
-          </div>
-          <div class="specs-box specs-2">
+            <table class="table">
+              <tr>
+                <th>&zwnj;Distribution:&zwnj;</th>
+                <td><span id="spec-distro"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Kernel:&zwnj;</th>
+                <td>
+                  <span id="spec-kernel"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;The Linux kernel is the heart of Ubuntu.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="specs-hideable">
+                <th>&zwnj;Motherboard:&zwnj;</th>
+                <td><span id="spec-motherboard" class="specs-hide-vbox specs-hideable"></span></td>
+              </tr>
+              <tr class="specs-hideable">
+                <th>&zwnj;Boot Mode:&zwnj;</th>
+                <td>
+                  <span id="spec-boot-mode" class="specs-hide-vbox specs-hideable"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;Displays the mode that Ubuntu MATE is communicating with the firmware.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <hr>
+
             <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
-            <p>
-              <b>&zwnj;Model:&zwnj;</b>&nbsp; <span id="spec-cpu-model"> </span><br>
-              <b>&zwnj;Speed:&zwnj;</b>&nbsp; <span id="spec-cpu-speed"> </span><br>
-              <b>&zwnj;Architecture in use:&zwnj;</b>&nbsp; <span id="spec-arch-use"> </span><br>
-              <b>&zwnj;Architecture(s) supported:&zwnj;</b>&nbsp; <span id="spec-arch-supported"> </span>
-            </p>
-          </div>
-          <div class="specs-box specs-3">
+            <table class="table">
+              <tr>
+                <th>&zwnj;Model:&zwnj;</th>
+                <td><span id="spec-cpu-model"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Speed:&zwnj;</th>
+                <td><span id="spec-cpu-speed"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Architecture in use:&zwnj;</th>
+                <td>
+                  <span id="spec-arch-use"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;The operating system's architecture in use. For instance, i386 = 32-bit.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>&zwnj;Architecture(s) supported:&zwnj;</th>
+                <td>
+                  <span id="spec-arch-supported"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;Architectures that are supported by this processor.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <hr>
+
             <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
-            <p>
-              <b>&zwnj;Memory (RAM):&zwnj;</b>&nbsp; <span id="spec-memory"> </span>
-              <b class="specs-hideable"><br>&zwnj;Graphics:&zwnj;</b>&nbsp; <span id="spec-graphics" class="specs-hide-vbox"> </span><br>
-              <b>&zwnj;Internet Access:&zwnj;</b>&nbsp;
-                <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
-                <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
-            </p>
-          </div>
-          <div class="specs-box specs-4">
-            <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
-            <p>
-              <b>&zwnj;Root File System:&zwnj;</b>&nbsp; <span id="spec-filesystem"> </span><br>
-              <b>-- &zwnj;Entire Disk Capacity:&zwnj;</b>&nbsp; <span id="spec-capacity"> </span><br>
-              <b>-- &zwnj;Allocated:&zwnj;</b>&nbsp; <span id="spec-allocated-space"> </span><br>
-              <b>-- &zwnj;Free Space:&zwnj;</b>&nbsp; <span id="spec-free-space"> </span><br>
+            <table class="table">
+              <tr>
+                <th>&zwnj;Memory (RAM):&zwnj;</th>
+                <td>
+                  <span id="spec-memory"></span>
+                  <a data-toggle="tooltip" data-placement="right" title="&zwnj;More RAM allows more applications to run simultaneously.&zwnj;">
+                    <span class="fa fa-info-circle"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="specs-hideable specs-hide-vbox">
+                <th>&zwnj;Graphics:&zwnj;</th>
+                <td><span id="spec-graphics" class=" specs-hideable"></span></td>
+              </tr>
+              <tr>
+                <th>&zwnj;Internet Access:&zwnj;</th>
+                <td>
+                  <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
+                  <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
+                </td>
+              </tr>
+            </table>
+            <hr>
+
+            <div class="specs-hide-live">
+              <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
+
+              <table class="table">
+                <tr>
+                  <th>&zwnj;Root File System:&zwnj;</th>
+                  <td>
+                    <span id="spec-filesystem"></span>
+                    <a data-toggle="tooltip" data-placement="right" title="&zwnj;The file system where Ubuntu MATE is installed.&zwnj;">
+                      <span class="fa fa-info-circle"></span>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>&zwnj;Entire Disk Capacity:&zwnj;</th>
+                  <td>
+                    <span id="spec-capacity"></span>
+                    <br>
+                    <div id="disk-usage">
+                      <a id="disk-used" style="width:0%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Used in Ubuntu MATE&zwnj;"></a>
+                      <a id="disk-other" style="width:100%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, including swap&zwnj;"></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>-- &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
+                  <td><span id="spec-allocated-space"></span></td>
+                </tr>
+                <tr>
+                  <th>-- &zwnj;Free Space:&zwnj;</th>
+                  <td><span id="spec-free-space"></span></td>
+                </tr>
+              </table>
+
               <a data-trigger="hover" rel="unitsinfo" data-placement="top">
-                <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;</a>
-            </p>
+                <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;
+              </a>
+            </div>
+
           </div>
           <div id="popover_units" style="display: none;">
             <h4>&zwnj;SI or IEC Units?&zwnj;</h4>
@@ -941,7 +1225,7 @@
         <div class="tab-contents" id="specs-detailed" hidden>
           <div class="row-fluid">
             <div class="span12">
-              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly by the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
+              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly from the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
               <pre id="specs-inxi">&zwnj;Could not gather data.&zwnj;</pre>
             </div>
           </div>
@@ -993,6 +1277,22 @@
               <p class="text-right">
                 <a class="btn btn-inverse gparted-remove" href="cmd://launch-appid?gparted"><img src="img/applications/gparted.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
                 <a class="btn btn-success gparted-install" href="cmd://install-appid?gparted"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span2 center-inside">
+              <img src="img/applications/mate-disk-usage-analyzer.png"/>
+              <span class="fa fa-check-circle fa-2x installed-check mate-disk-usage-analyzer-remove"></span>
+            </div>
+            <div class="span10">
+              <p><b>&zwnj;Disk Usage Analyser&zwnj;</b></p>
+              <p>&zwnj;A graphical tool for exploring your file system or individual folders
+              to determine how much space is being used.&zwnj;</p>
+              <p class="text-right">
+                <a class="btn btn-inverse mate-disk-usage-analyzer-remove" href="cmd://launch-appid?mate-disk-usage-analyzer"><img src="img/applications/mate-disk-usage-analyzer.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success mate-disk-usage-analyzer-install" href="cmd://install-appid?mate-disk-usage-analyzer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>

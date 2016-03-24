@@ -17,6 +17,7 @@ function smoothOut(target_href) {
     }, 400);
 }
 
+// When page first opens
 $(document).ready(function() {
   // Animate navigation elements on page load
   if ( current_page != 'software-only.html' ) {
@@ -68,6 +69,20 @@ function reconnectTimeout() {
   }
 }
 
+// Dynamically set the cursor,
+function set_cursor_busy() {
+  $('html').addClass('cursor-wait');
+  $('body').addClass('cursor-wait');
+  $('a').addClass('cursor-wait');
+}
+
+function set_cursor_normal() {
+  $('html').removeClass('cursor-wait');
+  $('body').removeClass('cursor-wait');
+  $('a').removeClass('cursor-wait');
+}
+
+///////////////////////////////////////////////////////////////
 
 // Main Menu Only = Animation
 if ( current_page == 'index.html' ) {
@@ -84,8 +99,7 @@ if ( current_page == 'index.html' ) {
   function exitMenu(target) {
       // Show a "wait" cursor for the Software page, as there is a slight delay.
       if ( target == 'software.html' ) {
-          $('html').css('cursor','wait')
-          $('a').css('cursor','wait')
+          set_cursor_busy()
       }
 
       $('#mate-blur').jAnimateOnce('zoomOut');
@@ -649,7 +663,7 @@ if ( current_page == 'gettingstarted.html' ) {
   // Fetch system specifications if not cached already.
   // Wait a couple of seconds so it doesn't look like application had frozen.
   function init_system_info() {
-    $('html').css('cursor','wait')
+    set_cursor_busy()
     setTimeout(function() {
       window.location.href = "cmd://init-system-info";
     }, 1000);
@@ -858,6 +872,6 @@ if ( current_page == 'donate.html' ) {
 
 // Entering Software Only Mode
 if ( current_page == 'software-only.html' ) {
-    $('html').css('cursor','wait')
+    set_cursor_busy()
 }
 
