@@ -791,6 +791,7 @@ class AppView(WebKit.WebView):
             dynamicapps.update_app_status(self, 'hardinfo')
             dynamicapps.update_app_status(self, 'gparted')
             dynamicapps.update_app_status(self, 'gnome-disk-utility')
+            dynamicapps.update_app_status(self, 'mate-utils')
             dynamicapps.update_app_status(self, 'mate-system-monitor')
             dynamicapps.update_app_status(self, 'boot-repair')
             dynamicapps.update_app_status(self, 'codecs')
