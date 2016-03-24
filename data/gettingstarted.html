@@ -1070,44 +1070,52 @@
           <img class="specs-icon" hidden id="specs-device-rpi" src="img/logos/raspberry-pi.png"/>
           <img class="specs-icon" hidden id="specs-device-vbox" src="img/logos/virtualbox-vbox.png"/>
           <img class="specs-icon" hidden id="specs-device-powerpc" src="img/logos/powerpc.png"/>
-          <div class="specs-box specs-1">
-            <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>
-            <p>
-              <b>&zwnj;Distribution:&zwnj;</b>&nbsp; <span id="spec-distro"> </span><br>
-              <b>&zwnj;Kernel:&zwnj;</b>&nbsp;  <span id="spec-kernel">  </span>
-              <b class="specs-hideable"><br>&zwnj;Motherboard:&zwnj;</b>&nbsp; <span id="spec-motherboard" class="specs-hide-vbox"> </span>
-              <b class="specs-hideable"><br>&zwnj;Boot Mode:&zwnj;</b>&nbsp; <span id="spec-boot-mode" class="specs-hide-vbox">  </span>
-            </p>
-          </div>
-          <div class="specs-box specs-2">
-            <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
-            <p>
-              <b>&zwnj;Model:&zwnj;</b>&nbsp; <span id="spec-cpu-model"> </span><br>
-              <b>&zwnj;Speed:&zwnj;</b>&nbsp; <span id="spec-cpu-speed"> </span><br>
-              <b>&zwnj;Architecture in use:&zwnj;</b>&nbsp; <span id="spec-arch-use"> </span><br>
-              <b>&zwnj;Architecture(s) supported:&zwnj;</b>&nbsp; <span id="spec-arch-supported"> </span>
-            </p>
-          </div>
-          <div class="specs-box specs-3">
-            <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
-            <p>
-              <b>&zwnj;Memory (RAM):&zwnj;</b>&nbsp; <span id="spec-memory"> </span>
-              <b class="specs-hideable"><br>&zwnj;Graphics:&zwnj;</b>&nbsp; <span id="spec-graphics" class="specs-hide-vbox"> </span><br>
-              <b>&zwnj;Internet Access:&zwnj;</b>&nbsp;
-                <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
-                <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
-            </p>
-          </div>
-          <div class="specs-box specs-4">
-            <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
-            <p>
-              <b>&zwnj;Root File System:&zwnj;</b>&nbsp; <span id="spec-filesystem"> </span><br>
-              <b>-- &zwnj;Entire Disk Capacity:&zwnj;</b>&nbsp; <span id="spec-capacity"> </span><br>
-              <b>-- &zwnj;Allocated:&zwnj;</b>&nbsp; <span id="spec-allocated-space"> </span><br>
-              <b>-- &zwnj;Free Space:&zwnj;</b>&nbsp; <span id="spec-free-space"> </span><br>
-              <a data-trigger="hover" rel="unitsinfo" data-placement="top">
-                <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;</a>
-            </p>
+          <div id="specs-box">
+            <table>
+              <tr>
+                <td>
+                  <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>
+                  <p>
+                    <b>&zwnj;Distribution:&zwnj;</b>&nbsp; <span id="spec-distro"> </span><br>
+                    <b>&zwnj;Kernel:&zwnj;</b>&nbsp;  <span id="spec-kernel">  </span>
+                    <b class="specs-hideable"><br>&zwnj;Motherboard:&zwnj;</b>&nbsp; <span id="spec-motherboard" class="specs-hide-vbox"> </span>
+                    <b class="specs-hideable"><br>&zwnj;Boot Mode:&zwnj;</b>&nbsp; <span id="spec-boot-mode" class="specs-hide-vbox">  </span>
+                  </p>
+                </td>
+                <td>
+                  <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
+                  <p>
+                    <b>&zwnj;Model:&zwnj;</b>&nbsp; <span id="spec-cpu-model"> </span><br>
+                    <b>&zwnj;Speed:&zwnj;</b>&nbsp; <span id="spec-cpu-speed"> </span><br>
+                    <b>&zwnj;Architecture in use:&zwnj;</b>&nbsp; <span id="spec-arch-use"> </span><br>
+                    <b>&zwnj;Architecture(s) supported:&zwnj;</b>&nbsp; <span id="spec-arch-supported"> </span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
+                  <p>
+                    <b>&zwnj;Memory (RAM):&zwnj;</b>&nbsp; <span id="spec-memory"> </span>
+                    <b class="specs-hideable"><br>&zwnj;Graphics:&zwnj;</b>&nbsp; <span id="spec-graphics" class="specs-hide-vbox"> </span><br>
+                    <b>&zwnj;Internet Access:&zwnj;</b>&nbsp;
+                      <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
+                      <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
+                  </p>
+                </td>
+                <td>
+                  <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
+                  <p>
+                    <b>&zwnj;Root File System:&zwnj;</b>&nbsp; <span id="spec-filesystem"> </span><br>
+                    <b>-- &zwnj;Entire Disk Capacity:&zwnj;</b>&nbsp; <span id="spec-capacity"> </span><br>
+                    <b>-- &zwnj;Allocated:&zwnj;</b>&nbsp; <span id="spec-allocated-space"> </span><br>
+                    <b>-- &zwnj;Free Space:&zwnj;</b>&nbsp; <span id="spec-free-space"> </span><br>
+                    <a data-trigger="hover" rel="unitsinfo" data-placement="top">
+                      <span class="fa fa-info-circle"></span> &zwnj;Why do I see two units?&zwnj;</a>
+                  </p>
+                </td>
+              </tr>
+            </table>
           </div>
           <div id="popover_units" style="display: none;">
             <h4>&zwnj;SI or IEC Units?&zwnj;</h4>
@@ -1133,7 +1141,7 @@
         <div class="tab-contents" id="specs-detailed" hidden>
           <div class="row-fluid">
             <div class="span12">
-              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly by the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
+              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly from the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
               <pre id="specs-inxi">&zwnj;Could not gather data.&zwnj;</pre>
             </div>
           </div>

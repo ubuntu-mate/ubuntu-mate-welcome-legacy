@@ -791,41 +791,23 @@ blockquote.terminal {
   text-align: center;
 }
 
-.specs-box {
+#specs-box {
+  left: 25%;
+  width: 74%;
   padding: 4px;
-  position: absolute;
+  position: relative;
+}
+
+#specs-box tr {
+  width: 50%;
+}
+
+#specs-box td {
+  text-align: top;
 }
 
 .specs-box h4 {
   color: #758A53;
-}
-
-.specs-1 {
-  top: 200px;
-  left: 26%;
-  height: 20%;
-  width: 35%;
-}
-
-.specs-2 {
-  top: 58%;
-  left: 26%;
-  height: 20%;
-  width: 35%;
-}
-
-.specs-3 {
-  top: 200px;
-  right: 2%;
-  height: 20%;
-  width: 35%;
-}
-
-.specs-4 {
-  top: 58%;
-  right: 2%;
-  height: 20%;
-  width: 35%;
 }
 
 .specs-error {
