@@ -1288,7 +1288,7 @@ class SystemState(object):
                 raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
             else:
                 raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
-            output = raw.replace("b'","").replace("\\n'","").replace("\\n","")
+            output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","")
             return output
 
         ## Distro
