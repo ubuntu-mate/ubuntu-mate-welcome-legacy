@@ -1090,12 +1090,12 @@ class WelcomeApp(object):
 
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
-            title = "Software Boutique"
+            title = ("Software Boutique")
             width = 900
             height = 600
             load_file = 'software-only.html'
         else:
-            title = "Welcome"
+            title = ("Welcome")
             width = 800
             height = 552
             load_file = 'splash.html'
@@ -1268,6 +1268,12 @@ class SystemState(object):
     def get_system_info(self, webkit):
         print('[System Specs] Gathering system specifications...')
 
+        # Prefixes for translation
+        mb_prefix = ("MB")
+        mib_prefix = ("MiB")
+        gb_prefix = ("GB")
+        gib_prefix = ("GiB")
+
         # Start collecting advanced system information in the background.
         # (Python can do other things while this command completes)
         arg.print_verbose('System Specs', 'Running "inxi" for advanced system information...')
@@ -1277,7 +1283,8 @@ class SystemState(object):
             print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
-        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'&zwnj;Could not gather data.&zwnj;\'><span class=\'fa fa-warning specs-error\'></span></a>'
+        stat_error_msg = ("Could not gather data.")
+        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></a>'
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
             webkit.execute_script('$("#spec-' + element + '").html("' + html_tag + '")')
@@ -1370,9 +1377,9 @@ class SystemState(object):
 
                 ## Append data to HTML.
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' GiB)</span>")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' GiB)</span>")')
-                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
+                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
 
                 ## Calculate representation across physical disk
                 disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
@@ -1380,7 +1387,6 @@ class SystemState(object):
                 arg.print_verbose('System Specs', ' ---- Disk: ' + root_device + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
                 webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
                 webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
-
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
@@ -1389,7 +1395,7 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering Data: RAM')
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
-            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)</span>'
+            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix + ' <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix + ')</span>'
             webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
@@ -1606,6 +1612,23 @@ class DynamicApps(object):
             print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
             return
 
+        # Strings
+        str_nothing_here = ("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
+        str_upgraded = ("This application is set to receive the latest updates.")
+        str_alternate_to = ('Alternative to:')
+        str_hide = ("Hide")
+        str_show = ("Show")
+        str_install = ("Install")
+        str_reinstall = ("Reinstall")
+        str_remove = ("Remove")
+        str_upgrade = ("Upgrade")
+        str_launch = ("Launch")
+        str_license = ("License")
+        str_platform = ("Platform")
+        str_category = ("Category")
+        str_website = ("Website")
+        str_screenshot = ("Screenshot")
+
         # Get the app data from each category and list them.
         for category in self.all_categories:
             arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
@@ -1681,40 +1704,40 @@ class DynamicApps(object):
                         listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
                         if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
                             upgraded = True
-                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> This application is set to receive the latest updates.</h5>'
+                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
                     except:
                         pass
 
                 if not self.app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
+                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
-                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> More</a>&nbsp;'
-                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> Hide</a>&nbsp;'
+                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
                     html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Reinstall"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Remove"><span class="fa fa-trash"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
                     arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
                     if not upgraded:
-                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
                 # More details section.
                 html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
 
                 ## Determine string for license
                 if self.app_open_source:
-                    license_string = 'Open Source'
+                    license_string = ('Open Source')
                 else:
-                    license_string = 'Proprietary'
+                    license_string = ('Proprietary')
 
                 ## Determine supported platforms
                 platform_string = ''
@@ -1737,13 +1760,13 @@ class DynamicApps(object):
 
                 ## Write contents of the table.
                 html_buffer = html_buffer + '<table class="more-details table table-striped">'
-                html_buffer = html_buffer + '<tr><th>License</th><td>' + license_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>Platform</th><td>' + platform_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>Category</th><td>' + self.app_subcategory + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
 
                 ## Add a website URL if there is one.
                 if self.app_url_info:
-                    html_buffer = html_buffer + '<tr><th>Website</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+                    html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
 
                 ## Add a screenshot if there is any.
                 ## Images should be labelled the same as 'img' and increment starting at 1.
@@ -1759,7 +1782,7 @@ class DynamicApps(object):
                         screenshots_end = True
 
                 if not screenshots == 1:
-                    html_buffer = html_buffer + '<tr><th>Screenshot</th><td>' + screenshot_buffer + '</td></tr>'
+                    html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
 
                 html_buffer = html_buffer + '</table>'
 
@@ -1776,7 +1799,7 @@ class DynamicApps(object):
 
             # Display a message if there is nothing for this category.
             if apps_here == 0:
-                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; Sorry, Welcome could not feature any software for this category that is compatible on this system.</p>")')
+                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; ' + str_nothing_here + '</p>")')
 
             # Post actions to page
             ## Colour the architecture currently in use.
@@ -1828,9 +1851,9 @@ class DynamicApps(object):
         webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
 
         # Text to display when applying changes.
-        install_text = "Installing..."
-        remove_text = "Removing..."
-        upgrade_text = "Upgrading..."
+        install_text = ("Installing...")
+        remove_text = ("Removing...")
+        upgrade_text = ("Upgrading...")
 
         # Asynchronous apt process
         if action == 'install':
