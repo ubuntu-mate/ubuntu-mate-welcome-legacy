@@ -793,6 +793,7 @@ class AppView(WebKit.WebView):
             dynamicapps.update_app_status(self, 'gnome-disk-utility')
             dynamicapps.update_app_status(self, 'mate-disk-usage-analyzer')
             dynamicapps.update_app_status(self, 'mate-system-monitor')
+            dynamicapps.update_app_status(self, 'psensor')
             dynamicapps.update_app_status(self, 'boot-repair')
             dynamicapps.update_app_status(self, 'codecs')
             dynamicapps.update_app_status(self, 'firmware')
