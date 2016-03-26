@@ -57,7 +57,7 @@ from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
                                   AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
-from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
+from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 from getpass import getuser
@@ -645,6 +645,42 @@ class AppView(WebKit.WebView):
         self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
         self.l_uri = None
         self._slide_list = slide_list
+
+        # Determine zoom level according to the font resolution set by the user.
+        if arg.font_dpi_override:
+            font_dpi = arg.font_dpi_override
+        else:
+            try:
+                font_gsettings = Gio.Settings.new('org.mate.font-rendering')
+                font_value = font_gsettings.get_value('dpi')
+                font_dpi = int(float(str(font_value)))
+                arg.print_verbose('Welcome', 'Font DPI is: ' + str(font_dpi))
+            except:
+                font_dpi = 96
+                arg.print_verbose('Welcome', 'Couldn\'t retrieve font DPI. Using default value of ' + str(font_dpi))
+
+        zoom_level = 1.0
+        if font_dpi <= 80:
+            zoom_level = 0.75
+        elif font_dpi <= 87:
+            zoom_level = 0.85
+        elif font_dpi <= 94:
+            zoom_level = 0.9
+        elif font_dpi <= 101:
+            zoom_level = 1.0    # Default DPI is usually 96
+        elif font_dpi <= 108:
+            zoom_level = 1.1
+        elif font_dpi <= 115:
+            zoom_level = 1.2
+        elif font_dpi <= 122:
+            zoom_level = 1.3
+        elif font_dpi <= 129:
+            zoom_level = 1.4
+        elif font_dpi >= 130:
+            zoom_level = 1.5
+
+        self.set_zoom_level(zoom_level)
+        print('[Welcome] Setting zoom level to: ' + str(zoom_level))
 
         # Disable right-click context menu as it isn't needed.
         self.props.settings.props.enable_default_context_menu = False
@@ -1264,7 +1300,7 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
+        arg.print_verbose("Graphics","Detected: {0}".format(self.graphics_grep))
 
     def get_system_info(self, webkit):
         print('[System Specs] Gathering system specifications...')
@@ -2047,6 +2083,7 @@ class Arguments(object):
         self.simulate_software_changes = False
         self.locale = None
         self.jump_to = None
+        self.font_dpi_override = None
 
         for arg in sys.argv:
           if arg == '--help':
@@ -2065,6 +2102,7 @@ class Arguments(object):
               print('  --simulate-changes          Simulate software package changes without modifying the system.')
               print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
               print('  --jump-to=<page>            Open a specific page, excluding html extension.')
+              print('  --font-dpi=<number>         Override the font size by specifying a font DPI.')
               print('')
               exit()
 
@@ -2123,6 +2161,10 @@ class Arguments(object):
           if arg.startswith('--jump-to='):
               self.jump_to = arg.split('--jump-to=')[1]
               print('[Debug] Opening page: ' + self.jump_to + '.html')
+
+          if arg.startswith('--font-dpi='):
+              self.font_dpi_override = int(arg.split('--font-dpi=')[1])
+              print('[Debug] Overriding font DPI to ' + str(self.font_dpi_override) + '.')
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:
