@@ -1090,12 +1090,12 @@ class WelcomeApp(object):
 
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
-            title = ("Software Boutique")
+            title = _("Software Boutique")
             width = 900
             height = 600
             load_file = 'software-only.html'
         else:
-            title = ("Welcome")
+            title = _("Welcome")
             width = 800
             height = 552
             load_file = 'splash.html'
@@ -1269,10 +1269,10 @@ class SystemState(object):
         print('[System Specs] Gathering system specifications...')
 
         # Prefixes for translation
-        mb_prefix = ("MB")
-        mib_prefix = ("MiB")
-        gb_prefix = ("GB")
-        gib_prefix = ("GiB")
+        mb_prefix = _("MB")
+        mib_prefix = _("MiB")
+        gb_prefix = _("GB")
+        gib_prefix = _("GiB")
 
         # Start collecting advanced system information in the background.
         # (Python can do other things while this command completes)
@@ -1283,7 +1283,7 @@ class SystemState(object):
             print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
-        stat_error_msg = ("Could not gather data.")
+        stat_error_msg = _("Could not gather data.")
         html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></a>'
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
@@ -1613,21 +1613,21 @@ class DynamicApps(object):
             return
 
         # Strings
-        str_nothing_here = ("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
-        str_upgraded = ("This application is set to receive the latest updates.")
-        str_alternate_to = ('Alternative to:')
-        str_hide = ("Hide")
-        str_show = ("Show")
-        str_install = ("Install")
-        str_reinstall = ("Reinstall")
-        str_remove = ("Remove")
-        str_upgrade = ("Upgrade")
-        str_launch = ("Launch")
-        str_license = ("License")
-        str_platform = ("Platform")
-        str_category = ("Category")
-        str_website = ("Website")
-        str_screenshot = ("Screenshot")
+        str_nothing_here = _("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
+        str_upgraded = _("This application is set to receive the latest updates.")
+        str_alternate_to = _('Alternative to:')
+        str_hide = _("Hide")
+        str_show = _("Show")
+        str_install = _("Install")
+        str_reinstall = _("Reinstall")
+        str_remove = _("Remove")
+        str_upgrade = _("Upgrade")
+        str_launch = _("Launch")
+        str_license = _("License")
+        str_platform = _("Platform")
+        str_category = _("Category")
+        str_website = _("Website")
+        str_screenshot = _("Screenshot")
 
         # Get the app data from each category and list them.
         for category in self.all_categories:
@@ -1735,9 +1735,9 @@ class DynamicApps(object):
 
                 ## Determine string for license
                 if self.app_open_source:
-                    license_string = ('Open Source')
+                    license_string = _('Open Source')
                 else:
-                    license_string = ('Proprietary')
+                    license_string = _('Proprietary')
 
                 ## Determine supported platforms
                 platform_string = ''
@@ -1851,9 +1851,9 @@ class DynamicApps(object):
         webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
 
         # Text to display when applying changes.
-        install_text = ("Installing...")
-        remove_text = ("Removing...")
-        upgrade_text = ("Upgrading...")
+        install_text = _("Installing...")
+        remove_text = _("Removing...")
+        upgrade_text = _("Upgrading...")
 
         # Asynchronous apt process
         if action == 'install':
