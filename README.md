@@ -43,6 +43,7 @@ and testing purposes, the following can be specified:
   * `--software-only` = Software Boutique mode. (Hides social links, uses a larger window)
   * `--simulate-changes` = Simulate changes made to packages without modifying the system.
   * `--jump-to=<PAGE>` = Jump to a specific page, excluding the `.html` extension.
+  * `--font-dpi=<NUMBER>` = Override the font size by specifying a font DPI.
 
 
 #### tools/app-index-debugger.py

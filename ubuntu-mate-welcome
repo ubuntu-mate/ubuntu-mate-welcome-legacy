@@ -57,7 +57,7 @@ from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
                                   AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
-from gi.repository import GLib, GObject, Gdk, Gtk, Notify, WebKit
+from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 from getpass import getuser
@@ -457,8 +457,6 @@ class PreInstallation(object):
             return
         arg.print_verbose('Pre-Install','Available configurations: ' + str(codenames))
         target = None
-
-        # Check for specific configurations for a version first.
         for name in codenames:
             if name == self.codename:
                 target = name
@@ -646,8 +644,14 @@ class AppView(WebKit.WebView):
         self.l_uri = None
         self._slide_list = slide_list
 
+        self.set_zoom_level(systemstate.zoom_level)
+        print('[Welcome] Setting zoom level to: ' + str(systemstate.zoom_level))
+
         # Disable right-click context menu as it isn't needed.
         self.props.settings.props.enable_default_context_menu = False
+
+        # Perform a smooth transition for footer icons.
+        self.do_smooth_footer = False
 
     def _push_config(self):
         ### Global - On all pages ###
@@ -689,16 +693,30 @@ class AppView(WebKit.WebView):
         <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a> \
         <a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a> \
         <a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
-        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a></div>'
+        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a> \
+        </div>'
 
-        # Do not show footer links on the software page.
+        ## Boutique Footer ##
+        str_subscribed = _("Set to retrieve the latest software listings.")
+        str_subscribe_link = _("Retrieve the latest software listings.")
+        str_subscribing = _("Please wait while the application is being updated...")
+        str_listing_version = _("Version:")
+
+        boutique_footer = '<div id="boutique-footer" class="pull-left"> \
+        <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
+        <p hidden id="update-notification"><a href="cmd://subscribe-updates"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
+        <p hidden id="update-subscribing"><img src="img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
+        <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
+        </div>'
+
+        # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
-            if not self.current_page == 'splash.html':
+            if not self.current_page == 'splash.html' and not self.current_page == 'software.html':
                 self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
 
         # Show the button depending on context.
-        footer_close = '<a href="cmd://quit" class="btn btn-inverse">&zwnj;Close&zwnj;</a>'
-        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">&zwnj;Skip&zwnj;</a>'
+        footer_close = '<a href="cmd://quit" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
+        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">' + _("Skip") + '</a>'
 
         if self.current_page == 'splash.html':
             self.execute_script("$('#footer-global-right').html('" + footer_skip + "');")
@@ -708,6 +726,15 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
 
+        # Smoothly fade in the footer links between pages.
+        #   splash → index
+        #   index ← → software
+        if self.do_smooth_footer or self.current_page == 'software.html':
+            self.do_smooth_footer = False
+            self.execute_script("$('#footer-left').hide();")
+            self.execute_script("$('#footer-left').fadeIn();")
+
+        # Individual Page Actions
         ### Main Menu ###
         if self.current_page == 'index.html':
             if systemstate.session_type == 'guest':
@@ -763,6 +790,7 @@ class AppView(WebKit.WebView):
 
         ### Splash ###
         if self.current_page == 'splash.html':
+            self.do_smooth_footer = True
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
                 self.execute_script('var splashNextPage = "hellolive"')
@@ -770,6 +798,9 @@ class AppView(WebKit.WebView):
                 self.execute_script('var splashNextPage = "helloguest"')
             else:
                 self.execute_script('var splashNextPage = "index"')
+
+            # Smoothly fade footer when entering main menu.
+            self.splash_finished = True
 
         ### Chat Page ###
         if self.current_page == 'chatroom.html':
@@ -793,6 +824,7 @@ class AppView(WebKit.WebView):
             dynamicapps.update_app_status(self, 'gnome-disk-utility')
             dynamicapps.update_app_status(self, 'mate-disk-usage-analyzer')
             dynamicapps.update_app_status(self, 'mate-system-monitor')
+            dynamicapps.update_app_status(self, 'psensor')
             dynamicapps.update_app_status(self, 'boot-repair')
             dynamicapps.update_app_status(self, 'codecs')
             dynamicapps.update_app_status(self, 'firmware')
@@ -803,20 +835,32 @@ class AppView(WebKit.WebView):
 
         ### Software Page ###
         if self.current_page == 'software.html':
+            dynamicapps.hide_non_free = False
+            self.do_smooth_footer = True
+
             # If loading a minimal "Get More Software" only page.
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
-                self.execute_script('$("#footer-left").hide()')
                 self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
             # Pass 'Servers' variable used for one-click server links.
-            self.execute_script('var server_string = "&zwnj;Servers&zwnj;"')
+            self.execute_script('var server_string = "' + _("Servers") + '"')
 
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
+
+            # Show a different footer in the Boutique.
+            self.execute_script("$('#footer-global-left').html('" + boutique_footer + "');")
+
+            # Set version and subscription details.
+            self.execute_script('$("#boutique-version").html("' + systemstate.welcome_version + '")')
+            if systemstate.updates_subscribed:
+                self.execute_script('$("#update-subscribed").show()')
+            else:
+                self.execute_script('$("#update-notification").show()')
 
         ### Raspberry Pi 2 Page ###
         if self.current_page == 'rpi.html':
@@ -1090,15 +1134,32 @@ class WelcomeApp(object):
 
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
-            title = "Software Boutique"
+            title = _("Software Boutique")
             width = 900
             height = 600
             load_file = 'software-only.html'
         else:
-            title = "Welcome"
+            title = _("Welcome")
             width = 800
             height = 552
             load_file = 'splash.html'
+
+        # Enlarge the window should the text be any larger.
+        if systemstate.zoom_level == 1.1:
+            width = width + 20
+            height = height + 20
+        elif systemstate.zoom_level == 1.2:
+            width = width + 60
+            height = height + 40
+        elif systemstate.zoom_level == 1.3:
+            width = width + 100
+            height = height + 60
+        elif systemstate.zoom_level == 1.4:
+            width = width + 130
+            height = height + 100
+        elif systemstate.zoom_level == 1.5:
+            width = width + 160
+            height = height + 120
 
         # Jump to a specific page for testing purposes.
         if arg.jump_to:
@@ -1202,6 +1263,46 @@ class SystemState(object):
         if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'):
             self.updates_subscribed = True
 
+        # Discover the version of Welcome in use.
+        self.welcome_version = apt.Cache()['ubuntu-mate-welcome'].versions[0].version
+        print('[Welcome] Version: ' + self.welcome_version)
+
+        # Accessibility - Enlarge/shrink text based on Font DPI set by the user.
+        if arg.font_dpi_override:
+            font_dpi = arg.font_dpi_override
+        else:
+            try:
+                font_gsettings = Gio.Settings.new('org.mate.font-rendering')
+                font_value = font_gsettings.get_value('dpi')
+                font_dpi = int(float(str(font_value)))
+                arg.print_verbose('Welcome', 'Font DPI is: ' + str(font_dpi))
+            except:
+                font_dpi = 96
+                arg.print_verbose('Welcome', 'Couldn\'t retrieve font DPI. Using default value of ' + str(font_dpi))
+
+        zoom_level = 1.0
+        if font_dpi <= 80:
+            zoom_level = 0.75
+        elif font_dpi <= 87:
+            zoom_level = 0.85
+        elif font_dpi <= 94:
+            zoom_level = 0.9
+        elif font_dpi <= 101:
+            zoom_level = 1.0    # Default DPI is usually 96.
+        elif font_dpi <= 108:
+            zoom_level = 1.1
+        elif font_dpi <= 115:
+            zoom_level = 1.2
+        elif font_dpi <= 122:
+            zoom_level = 1.3
+        elif font_dpi <= 129:
+            zoom_level = 1.4
+        elif font_dpi >= 130:
+            zoom_level = 1.5
+
+        self.dpi = font_dpi
+        self.zoom_level = zoom_level
+
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
@@ -1263,10 +1364,16 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        arg.print_verbose("[Graphics]","Detected: {0}".format(self.graphics_grep))
+        arg.print_verbose("Graphics","Detected: {0}".format(self.graphics_grep))
 
     def get_system_info(self, webkit):
         print('[System Specs] Gathering system specifications...')
+
+        # Prefixes for translation
+        mb_prefix = _("MB")
+        mib_prefix = _("MiB")
+        gb_prefix = _("GB")
+        gib_prefix = _("GiB")
 
         # Start collecting advanced system information in the background.
         # (Python can do other things while this command completes)
@@ -1277,7 +1384,8 @@ class SystemState(object):
             print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
-        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'&zwnj;Could not gather data.&zwnj;\'><span class=\'fa fa-warning specs-error\'></span></a>'
+        stat_error_msg = _("Could not gather data.")
+        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></a>'
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
             webkit.execute_script('$("#spec-' + element + '").html("' + html_tag + '")')
@@ -1288,7 +1396,7 @@ class SystemState(object):
                 raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
             else:
                 raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
-            output = raw.replace("b'","").replace("\\n'","").replace("\\n","")
+            output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","")
             return output
 
         ## Distro
@@ -1370,9 +1478,9 @@ class SystemState(object):
 
                 ## Append data to HTML.
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' GiB)</span>")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' GiB)</span>")')
-                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' GB <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' GiB)</span>")')
+                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
+                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
 
                 ## Calculate representation across physical disk
                 disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
@@ -1380,7 +1488,6 @@ class SystemState(object):
                 arg.print_verbose('System Specs', ' ---- Disk: ' + root_device + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
                 webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
                 webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
-
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
@@ -1389,7 +1496,7 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering Data: RAM')
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
-            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' GiB <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' GB)</span>'
+            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix + ' <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix + ')</span>'
             webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
@@ -1606,6 +1713,29 @@ class DynamicApps(object):
             print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
             return
 
+        # Strings
+        str_nothing_here = _("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
+        str_upgraded = _("This application is set to receive the latest updates.")
+        str_alternate_to = _('Alternative to:')
+        str_hide = _("Hide")
+        str_show = _("Show")
+        str_install = _("Install")
+        str_reinstall = _("Reinstall")
+        str_remove = _("Remove")
+        str_upgrade = _("Upgrade")
+        str_launch = _("Launch")
+        str_license = _("License")
+        str_platform = _("Platform")
+        str_category = _("Category")
+        str_website = _("Website")
+        str_screenshot = _("Screenshot")
+        str_source = _("Source")
+        str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
+        str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
+        str_source_partner = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_skip = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
+        str_unknown = _('Unknown')
+
         # Get the app data from each category and list them.
         for category in self.all_categories:
             arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
@@ -1681,40 +1811,40 @@ class DynamicApps(object):
                         listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
                         if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
                             upgraded = True
-                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> This application is set to receive the latest updates.</h5>'
+                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
                     except:
                         pass
 
                 if not self.app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>Alternative to: </b><i>' + self.app_alternate_to + '</i></li></ul>'
+                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
-                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> More</a>&nbsp;'
-                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> Hide</a>&nbsp;'
+                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
                     html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; Install</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Reinstall"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="Remove"><span class="fa fa-trash"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
                     arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
                     if not upgraded:
-                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; Upgrade</a>&nbsp;'
+                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; Launch</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
                 # More details section.
                 html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
 
                 ## Determine string for license
                 if self.app_open_source:
-                    license_string = 'Open Source'
+                    license_string = _('Open Source')
                 else:
-                    license_string = 'Proprietary'
+                    license_string = _('Proprietary')
 
                 ## Determine supported platforms
                 platform_string = ''
@@ -1735,15 +1865,70 @@ class DynamicApps(object):
                 if not self.app_url_ios == None:
                     platform_string = platform_string + '<a href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
 
+                ## Add details about the source of this file.
+                try:
+                    preinstall = dynamicapps.index[category][program_id]['pre-install']
+                    codenames = list(preinstall.keys())
+                    target = None
+                    for name in codenames:
+                        if name == systemstate.codename:
+                            target = name
+                            break
+                    if not target:
+                            target = 'all'
+
+                    methods = preinstall[target]['method'].split('+')
+                    self.source_info = []
+                    if len(methods) > 1:
+                        multiple_sources = True
+                    else:
+                        multiple_sources = False
+
+                    for method in methods:
+                        if method == 'skip':
+                            self.source_info.insert(0, str_source_skip)
+
+                        elif method == 'partner-repo':
+                            self.source_info.insert(0, str_source_partner)
+
+                        elif method == 'ppa':
+                            ppa = preinstall[target]['enable-ppa']
+                            ppa_author = ppa.split(':')[1].split('/')[0]
+                            ppa_archive = ppa.split(':')[1].split('/')[1]
+                            self.source_info.insert(0, str_source_ppa + ' <a href="cmd://link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '">' + ppa + '</a>')
+
+                        elif method == 'manual':
+                            apt_source = ''.join(preinstall[target]['apt-sources'])
+                            manual_text = str_source_manual + ' ' + str_unknown
+                            for substring in apt_source.split(' '):
+                                if substring[:4] == 'http':
+                                    apt_source = substring.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                                    manual_text = str_source_manual + ' ' + apt_source
+                                    break
+                            self.source_info.insert(0, manual_text)
+
+                except:
+                    print('[Apps] WARNING: Error occurred while processing pre-configuration! Skipped Source: ' + program_id)
+                    self.source_info = [str_unknown]
+
                 ## Write contents of the table.
                 html_buffer = html_buffer + '<table class="more-details table table-striped">'
-                html_buffer = html_buffer + '<tr><th>License</th><td>' + license_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>Platform</th><td>' + platform_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>Category</th><td>' + self.app_subcategory + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
+                html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
 
                 ## Add a website URL if there is one.
                 if self.app_url_info:
-                    html_buffer = html_buffer + '<tr><th>Website</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+                    html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+
+                ## Add the source for this application.
+                if multiple_sources:
+                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
+                    for item in self.source_info:
+                        html_buffer = html_buffer + '<li>' + item + '</li>'
+                    html_buffer = html_buffer + '</td></tr></ul>'
+                else:
+                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
 
                 ## Add a screenshot if there is any.
                 ## Images should be labelled the same as 'img' and increment starting at 1.
@@ -1759,7 +1944,7 @@ class DynamicApps(object):
                         screenshots_end = True
 
                 if not screenshots == 1:
-                    html_buffer = html_buffer + '<tr><th>Screenshot</th><td>' + screenshot_buffer + '</td></tr>'
+                    html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
 
                 html_buffer = html_buffer + '</table>'
 
@@ -1776,7 +1961,7 @@ class DynamicApps(object):
 
             # Display a message if there is nothing for this category.
             if apps_here == 0:
-                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; Sorry, Welcome could not feature any software for this category that is compatible on this system.</p>")')
+                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; ' + str_nothing_here + '</p>")')
 
             # Post actions to page
             ## Colour the architecture currently in use.
@@ -1828,9 +2013,9 @@ class DynamicApps(object):
         webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
 
         # Text to display when applying changes.
-        install_text = "Installing..."
-        remove_text = "Removing..."
-        upgrade_text = "Upgrading..."
+        install_text = _("Installing...")
+        remove_text = _("Removing...")
+        upgrade_text = _("Upgrading...")
 
         # Asynchronous apt process
         if action == 'install':
@@ -2023,6 +2208,7 @@ class Arguments(object):
         self.simulate_software_changes = False
         self.locale = None
         self.jump_to = None
+        self.font_dpi_override = None
 
         for arg in sys.argv:
           if arg == '--help':
@@ -2041,6 +2227,7 @@ class Arguments(object):
               print('  --simulate-changes          Simulate software package changes without modifying the system.')
               print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
               print('  --jump-to=<page>            Open a specific page, excluding html extension.')
+              print('  --font-dpi=<number>         Override the font size by specifying a font DPI.')
               print('')
               exit()
 
@@ -2099,6 +2286,14 @@ class Arguments(object):
           if arg.startswith('--jump-to='):
               self.jump_to = arg.split('--jump-to=')[1]
               print('[Debug] Opening page: ' + self.jump_to + '.html')
+
+          if arg.startswith('--font-dpi='):
+              try:
+                  self.font_dpi_override = int(arg.split('--font-dpi=')[1])
+              except:
+                  print('[Debug] Invalid Override Font DPI specified. Ignoring.')
+                  return
+              print('[Debug] Overriding font DPI to ' + str(self.font_dpi_override) + '.')
 
     def print_verbose(self, feature, text):
         if self.verbose_enabled:

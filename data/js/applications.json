@@ -214,8 +214,8 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/keepassx",
-                    "source-file": "flexiondotorg-ubuntu-keepassx-CODENAME"
+                    "enable-ppa": "ppa:flexiondotorg/keeypassx",
+                    "source-file": "flexiondotorg-ubuntu-keeypassx-CODENAME"
                 }
             },
             "working": true
@@ -4213,7 +4213,33 @@
                     "method": "skip"
                 }
             },
-            "notes": "package not avaliable in xenial",
+            "notes": "package not available in xenial",
+            "working": true
+        },
+        "psensor": {
+            "name": "Psensor",
+            "img": "psensor",
+            "main-package": "psensor",
+            "launch-command": "psensor",
+            "install-packages": "psensor",
+            "remove-packages": "psensor,psensor-common",
+            "description": [
+                "Views and graphs the current temperature of components attached to the",
+                "system. Including: Motherboard, CPU, GPU and hard disks."
+            ],
+            "alternate-to": null,
+            "subcategory": "System Information",
+            "open-source": true,
+            "url-info": "http://wpitchoune.net/blog/psensor/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
             "working": true
         },
         "terminator": {
