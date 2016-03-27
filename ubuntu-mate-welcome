@@ -650,6 +650,9 @@ class AppView(WebKit.WebView):
         # Disable right-click context menu as it isn't needed.
         self.props.settings.props.enable_default_context_menu = False
 
+        # Perform a smooth transition for footer icons.
+        self.do_smooth_footer = False
+
     def _push_config(self):
         ### Global - On all pages ###
         self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
@@ -723,6 +726,14 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
 
+        # Smoothly fade in the footer links between pages.
+        #   splash → index
+        #   index ← → software
+        if self.do_smooth_footer or self.current_page == 'software.html':
+            self.do_smooth_footer = False
+            self.execute_script("$('#footer-left').hide();")
+            self.execute_script("$('#footer-left').fadeIn();")
+
         # Individual Page Actions
         ### Main Menu ###
         if self.current_page == 'index.html':
@@ -779,6 +790,7 @@ class AppView(WebKit.WebView):
 
         ### Splash ###
         if self.current_page == 'splash.html':
+            self.do_smooth_footer = True
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
                 self.execute_script('var splashNextPage = "hellolive"')
@@ -786,6 +798,9 @@ class AppView(WebKit.WebView):
                 self.execute_script('var splashNextPage = "helloguest"')
             else:
                 self.execute_script('var splashNextPage = "index"')
+
+            # Smoothly fade footer when entering main menu.
+            self.splash_finished = True
 
         ### Chat Page ###
         if self.current_page == 'chatroom.html':
@@ -820,6 +835,8 @@ class AppView(WebKit.WebView):
 
         ### Software Page ###
         if self.current_page == 'software.html':
+            self.do_smooth_footer = True
+
             # If loading a minimal "Get More Software" only page.
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
