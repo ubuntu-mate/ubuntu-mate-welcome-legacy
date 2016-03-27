@@ -457,8 +457,6 @@ class PreInstallation(object):
             return
         arg.print_verbose('Pre-Install','Available configurations: ' + str(codenames))
         target = None
-
-        # Check for specific configurations for a version first.
         for name in codenames:
             if name == self.codename:
                 target = name
@@ -692,11 +690,25 @@ class AppView(WebKit.WebView):
         <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a> \
         <a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a> \
         <a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
-        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a></div>'
+        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a> \
+        </div>'
 
-        # Do not show footer links on the software page.
+        ## Boutique Footer ##
+        str_subscribed = _("Set to retrieve the latest software listings.")
+        str_subscribe_link = _("Retrieve the latest software listings.")
+        str_subscribing = _("Please wait while the application is being updated...")
+        str_listing_version = _("Version:")
+
+        boutique_footer = '<div id="boutique-footer" class="pull-left"> \
+        <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
+        <p hidden id="update-notification"><a href="cmd://subscribe-updates"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
+        <p hidden id="update-subscribing"><img src="img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
+        <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
+        </div>'
+
+        # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
-            if not self.current_page == 'splash.html':
+            if not self.current_page == 'splash.html' and not self.current_page == 'software.html':
                 self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
 
         # Show the button depending on context.
@@ -711,6 +723,7 @@ class AppView(WebKit.WebView):
         else:
             self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
 
+        # Individual Page Actions
         ### Main Menu ###
         if self.current_page == 'index.html':
             if systemstate.session_type == 'guest':
@@ -810,7 +823,6 @@ class AppView(WebKit.WebView):
             # If loading a minimal "Get More Software" only page.
             if arg.jump_software_page:
                 self.execute_script('$("#menu-button").hide()')
-                self.execute_script('$("#footer-left").hide()')
                 self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
@@ -821,6 +833,16 @@ class AppView(WebKit.WebView):
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
+
+            # Show a different footer in the Boutique.
+            self.execute_script("$('#footer-global-left').html('" + boutique_footer + "');")
+
+            # Set version and subscription details.
+            self.execute_script('$("#boutique-version").html("' + systemstate.welcome_version + '")')
+            if systemstate.updates_subscribed:
+                self.execute_script('$("#update-subscribed").show()')
+            else:
+                self.execute_script('$("#update-notification").show()')
 
         ### Raspberry Pi 2 Page ###
         if self.current_page == 'rpi.html':
@@ -1222,6 +1244,10 @@ class SystemState(object):
         # Check whether Welcome is subscribed for updates.
         if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'):
             self.updates_subscribed = True
+
+        # Discover the version of Welcome in use.
+        self.welcome_version = apt.Cache()['ubuntu-mate-welcome'].versions[0].version
+        print('[Welcome] Version: ' + self.welcome_version)
 
         # Accessibility - Enlarge/shrink text based on Font DPI set by the user.
         if arg.font_dpi_override:
