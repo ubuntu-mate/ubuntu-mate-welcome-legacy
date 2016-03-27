@@ -715,8 +715,8 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
 
         # Show the button depending on context.
-        footer_close = '<a href="cmd://quit" class="btn btn-inverse">&zwnj;Close&zwnj;</a>'
-        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">&zwnj;Skip&zwnj;</a>'
+        footer_close = '<a href="cmd://quit" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
+        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">' + _("Skip") + '</a>'
 
         if self.current_page == 'splash.html':
             self.execute_script("$('#footer-global-right').html('" + footer_skip + "');")
@@ -844,7 +844,7 @@ class AppView(WebKit.WebView):
                 self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
 
             # Pass 'Servers' variable used for one-click server links.
-            self.execute_script('var server_string = "&zwnj;Servers&zwnj;"')
+            self.execute_script('var server_string = "' + _("Servers") + '"')
 
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
