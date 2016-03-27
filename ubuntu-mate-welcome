@@ -1685,6 +1685,12 @@ class DynamicApps(object):
         str_category = _("Category")
         str_website = _("Website")
         str_screenshot = _("Screenshot")
+        str_source = _("Source")
+        str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
+        str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
+        str_source_partner = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_skip = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
+        str_unknown = _('Unknown')
 
         # Get the app data from each category and list them.
         for category in self.all_categories:
@@ -1815,6 +1821,52 @@ class DynamicApps(object):
                 if not self.app_url_ios == None:
                     platform_string = platform_string + '<a href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
 
+                ## Add details about the source of this file.
+                try:
+                    preinstall = dynamicapps.index[category][program_id]['pre-install']
+                    codenames = list(preinstall.keys())
+                    target = None
+                    for name in codenames:
+                        if name == systemstate.codename:
+                            target = name
+                            break
+                    if not target:
+                            target = 'all'
+
+                    methods = preinstall[target]['method'].split('+')
+                    self.source_info = []
+                    if len(methods) > 1:
+                        multiple_sources = True
+                    else:
+                        multiple_sources = False
+
+                    for method in methods:
+                        if method == 'skip':
+                            self.source_info.insert(0, str_source_skip)
+
+                        elif method == 'partner-repo':
+                            self.source_info.insert(0, str_source_partner)
+
+                        elif method == 'ppa':
+                            ppa = preinstall[target]['enable-ppa']
+                            ppa_author = ppa.split(':')[1].split('/')[0]
+                            ppa_archive = ppa.split(':')[1].split('/')[1]
+                            self.source_info.insert(0, str_source_ppa + ' <a href="cmd://link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '">' + ppa + '</a>')
+
+                        elif method == 'manual':
+                            apt_source = ''.join(preinstall[target]['apt-sources'])
+                            manual_text = str_source_manual + ' ' + str_unknown
+                            for substring in apt_source.split(' '):
+                                if substring[:4] == 'http':
+                                    apt_source = substring.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                                    manual_text = str_source_manual + ' ' + apt_source
+                                    break
+                            self.source_info.insert(0, manual_text)
+
+                except:
+                    print('[Apps] WARNING: Error occurred while processing pre-configuration! Skipped Source: ' + program_id)
+                    self.source_info = [str_unknown]
+
                 ## Write contents of the table.
                 html_buffer = html_buffer + '<table class="more-details table table-striped">'
                 html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
@@ -1824,6 +1876,15 @@ class DynamicApps(object):
                 ## Add a website URL if there is one.
                 if self.app_url_info:
                     html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+
+                ## Add the source for this application.
+                if multiple_sources:
+                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
+                    for item in self.source_info:
+                        html_buffer = html_buffer + '<li>' + item + '</li>'
+                    html_buffer = html_buffer + '</td></tr></ul>'
+                else:
+                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
 
                 ## Add a screenshot if there is any.
                 ## Images should be labelled the same as 'img' and increment starting at 1.
