@@ -835,6 +835,7 @@ class AppView(WebKit.WebView):
 
         ### Software Page ###
         if self.current_page == 'software.html':
+            dynamicapps.hide_non_free = False
             self.do_smooth_footer = True
 
             # If loading a minimal "Get More Software" only page.
