@@ -355,6 +355,19 @@ hr.soften-light {
   vertical-align: middle;
 }
 
+#boutique-footer {
+  color: #7F7F7F;
+  line-height: 9px;
+}
+
+#boutique-footer > #update-subscribed {
+  color: #646464;
+}
+
+#boutique-footer > #update-notification a, #update-subscribing  {
+  color: white !important;
+}
+
 /************************
 ** Global
 *************************/
@@ -774,7 +787,7 @@ blockquote.terminal {
  * Getting Started - System Specifications
 *************************/
 #specs-icon {
-  top: 250px;
+  top: 20%;
   left: 4%;
   width: 20%;
   height: auto;

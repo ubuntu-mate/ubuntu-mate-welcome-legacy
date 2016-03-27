@@ -489,6 +489,10 @@ if ( current_page == 'software.html' ) {
         $("#MiscCheckbox").removeClass("fa-check-square");
       }
     });
+
+    // Smooth transition for footer.
+    $('#footer-left').hide();
+    $('#footer-left').fadeIn();
 }
 
 

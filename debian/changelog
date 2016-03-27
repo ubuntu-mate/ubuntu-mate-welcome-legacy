@@ -1,14 +1,20 @@
 ubuntu-mate-welcome (16.04.7~xenial1.0) xenial; urgency=medium
 
-  * Fix "Install Now" button in Getting Started during live session.
-  * Fix missing launch entries for Variety, Veracrypt and Zim.
-  * Correct I-beam cursor, behaves more like a native application.
-  * Improve readability of Keyboard Shortcuts and System Specifications.
-  * Update translations.
-  * Add Korean (ko_KR) translation.
-  * Add ConvertAll, FreeCiv and Tux Paint to Software Boutique.
-  + Add MATE Disk Analyser to System Specifications Utilities.
-  * Replace DVD-Styler with Bombono DVD.
+  [ Martin Wimpress ]
+    * Fix missing launch entries for Variety, Veracrypt and Zim.
+    * Update translations.
+    * Add Korean (ko_KR) translation.
+    * Add ConvertAll, FreeCiv, Psensor and Tux Paint to Software Boutique.
+    * Replace DVD-Styler with Bombono DVD.
+
+  [ Luke Horwell ]
+    * Fix "Install Now" button in Getting Started during live session.
+    * Correct I-beam cursor, behaves more like a native application.
+    * Improve readability of Keyboard Shortcuts and System Specifications.
+    + Add MATE Disk Analyser and Psensor to System Specifications Utilities.
+    * Scale text based on user's font DPI.
+    * Add Source field for each Boutique application.
+    * Update footer in Boutique to show Welcome version and subscription opt-in status.
 
  -- Martin Wimpress <code@flexion.org>  Thu, 24 Mar 2016 09:21:44 +0000
 
@@ -63,7 +69,7 @@ ubuntu-mate-welcome (16.04.4) xenial; urgency=medium
   MuseScore, Nuvola Player, OBS Studio, Pinta, Subsurface, SparkleShare,
   Vivaldi, Wireshark and Zenmap.
   * Update ubuntu-make PPA.
-  * Update Software to consistenly use the name Software Boutique.
+  * Update Software to consistently use the name Software Boutique.
   * Update copyright attributions.
   * Whitespace cleanup.
   * Closes (LP: #1556869)
@@ -72,7 +78,7 @@ ubuntu-mate-welcome (16.04.4) xenial; urgency=medium
 
 ubuntu-mate-welcome (16.04.3) xenial; urgency=medium
 
-  [ Luke Horwell ]  
+  [ Luke Horwell ]
     * Friendlier "not connected" messages.
     * Title bar is simply "Welcome".
     * Many minor tweaks and code consistency.
@@ -94,7 +100,7 @@ ubuntu-mate-welcome (16.04.3) xenial; urgency=medium
     * Always show software categories at top of page.
     * Show a 'busy' cursor when entering Software/Getting Started.
     * Handle apt operations via DynamicApps class.
-    * Optimisations updating installed state of applications.    
+    * Optimisations updating installed state of applications.
     * Fixed Proprietary software toggle.
 
   [ Martin Wimpress ]
