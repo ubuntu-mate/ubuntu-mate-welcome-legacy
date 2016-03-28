@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-20 07:41+0000\n"
+"PO-Revision-Date: 2016-03-26 08:43+0000\n"
 "Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr "Après le premier paramétrage d'Ubuntu MATE sur votre Raspberry Pi, la taille du système de fichiers sera restreinte à celle de l'image disque originale, qui est d'environ 3,9 Go. Utilisez ce bouton afin de modifier la taille allouée au système et remplir la carte Micro-SD."
+msgstr "Après le premier paramétrage d'Ubuntu MATE sur votre Raspberry Pi, la taille du système de fichiers sera restreinte à celle de l'image disque originale, qui est d'environ 3,9 GB. Utilisez ce bouton afin de modifier la taille allouée au système et remplir la carte Micro-SD."
 
 #: rpi.html:42
 msgid "Resize Now"
@@ -75,7 +75,7 @@ msgstr "ces paquets ne sont pas disponibles à l'installation. Selon le paquet, 
 
 #: rpi.html:57
 msgid "Incompatible:"
-msgstr "Incompatible(s):"
+msgstr "Incompatible :"
 
 #: rpi.html:79
 msgid "Upgrades"
@@ -101,21 +101,21 @@ msgstr "mettre à jour"
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
-msgstr "votre Raspberry Pi vers une nouvelle version de la distribution (par exemple de 15.04 à 15.10), le noyau n'étant pas fait"
+msgstr "votre Raspberry Pi vers une nouvelle version de la distribution (par exemple de 15.04 à 15.10), le noyau n'étant pas conçu"
 
 #: rpi.html:83
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
-msgstr "pour faire ceci. Ce processus prendra un temps très long à finir, et peut remplir votre carte SD jusqu'à-ce-qu'il n'y ait plus d'espace libre."
+msgstr "pour faire cela. Ce processus prendra beaucoup de temps, et peut remplir votre carte SD jusqu'à-ce-qu'il n'y ait plus d'espace libre."
 
 #: rpi.html:88
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
-msgstr "Il est plus sûr de sauvegarder toutes les données que vous souhaitez garder et de re-flasher la carte avec la nouvelle image disque. Vous risquez de corrompre la carte SD en continuant la mise à jour, de ne plus arriver à démarrer votre ordinateur, ou de causer des bugs sévères."
+msgstr "Il est plus sûr de sauvegarder toutes les données que vous souhaitez garder et de re-flasher la carte avec la nouvelle image disque. Vous risquez de corrompre la carte SD en continuant la mise à jour, de ne plus arriver à démarrer votre ordinateur, ou de causer des problèmes sévères."
 
 #: rpi.html:92
 msgid "You can, however, install"
@@ -157,7 +157,7 @@ msgstr "est utilisé dans cette édition de Ubuntu MATE. Ce noyau étant livré 
 
 #: rpi.html:105
 msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr "Au lieu de cela, pour mettre à jour le noyau, ouvrez un terminal et lancez ceci :"
+msgstr "Au lieu de cela, pour mettre à jour le noyau, ouvrez un terminal et lancez cette commande :"
 
 #: rpi.html:109
 msgid "Hardware Acceleration"

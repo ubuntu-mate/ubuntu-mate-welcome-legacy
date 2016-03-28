@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-21 22:18+0000\n"
+"PO-Revision-Date: 2016-03-24 23:25+0000\n"
 "Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "選擇性任務"
 msgid "Familiarity"
 msgstr "熟悉"
 
-#: gettingstarted.html42, 42, 710, 711, 849, 850
+#: gettingstarted.html42, 42, 710, 711, 1043, 1044
 msgid "Customization"
 msgstr "自訂"
 
@@ -134,7 +134,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "如果您的電腦符合或是超越推薦的系統需求，作業系統將會運作的更有效率。"
 
-#: gettingstarted.html85, 860
+#: gettingstarted.html85, 1054
 msgid "What's inside my computer?"
 msgstr "我的電腦裡面有什麼?"
 
@@ -211,8 +211,8 @@ msgid "Secure Boot"
 msgstr "安全開機"
 
 #: gettingstarted.html:127
-msgid "(or enable an"
-msgstr "(或者打開一個"
+msgid "(or enable the"
+msgstr ""
 
 #: gettingstarted.html:127
 msgid "Unlock Bootloader"
@@ -279,20 +279,13 @@ msgid ""
 msgstr "對於那些只有少許記憶體(RAM)的電腦，作業系統會在磁碟上切出swapping區，如同Windows的分頁檔一樣，效能會降低。並且有可能在您完全用盡記憶體及swap時當機。"
 
 #: gettingstarted.html:154
-msgid "By default,"
-msgstr "預設值是"
-
-#: gettingstarted.html:154
-msgid "a swap partition is created by the size of your RAM."
-msgstr "swap分區的大小是根據您的RAM大小來決定"
-
-#: gettingstarted.html:154
 msgid ""
-"For example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be"
-" reserved for swap at the end of the drive."
-msgstr "例如，如果您有2GB的RAM，那麼在硬碟的最後面，2GB的空間將會被保留給swap使用"
+"By default, a swap partition is created based on the size of your RAM. For "
+"example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
+"reserved for swap at the end of the drive."
+msgstr ""
 
-#: gettingstarted.html160, 338, 570, 616, 709, 758, 850
+#: gettingstarted.html160, 338, 570, 616, 709, 758, 1044
 msgid "Previous:"
 msgstr "前一步:"
 
@@ -302,6 +295,10 @@ msgid ""
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
 msgstr "如果您安裝Ubuntu MATE並希望和現有的作業系統並存，您的分區應該縮小以騰出空間給不同的作業系統"
+
+#: gettingstarted.html:179
+msgid "I'm dual booting with"
+msgstr ""
 
 #: gettingstarted.html:182
 msgid "To minimize the risk of data loss or failure, ensure that:"
@@ -391,7 +388,7 @@ msgstr "命令列會提示檢查檔案系統錯誤。Windows有可能自動排�
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "使用GParted或者安裝精靈的\"自訂\"選項"
 
-#: gettingstarted.html234, 988
+#: gettingstarted.html234, 1274
 msgid "GParted"
 msgstr "GParted"
 
@@ -403,7 +400,7 @@ msgstr "只在live階段才有"
 msgid "It is located under the"
 msgstr "位於之下"
 
-#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 880
+#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 1077
 msgid "System"
 msgstr "系統"
 
@@ -561,7 +558,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "在Windows系統裡面，新版本的Windows提供縮小NTFS體積的工具。這能讓您安全地同時體驗Windows和Ubuntu MATE。"
 
-#: gettingstarted.html284, 560, 959, 976, 992, 1008
+#: gettingstarted.html284, 560, 1245, 1262, 1278, 1294, 1310
 msgid "Open"
 msgstr "打開"
 
@@ -752,8 +749,8 @@ msgstr "偵測到繪圖卡"
 #: gettingstarted.html:429
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
-"applications and games as well as improved power management."
-msgstr "也許有您的顯示卡驅動程式可以提升3D遊戲和應用程式的效能以及改善電源管理。"
+"applications and games as well as deliver improvements to power management."
+msgstr ""
 
 #: gettingstarted.html:435
 msgid ""
@@ -827,9 +824,9 @@ msgstr "使用Compiz的視窗效果"
 
 #: gettingstarted.html:463
 msgid ""
-"Improve power management, especially if the device overheats then usual "
-"under open source drivers."
-msgstr "改善電源管理，特別是當使用開源驅動程式裝置比平常還熱時。"
+"Improve power management, particularly if the device experiences overheating"
+" problems under open source drivers."
+msgstr ""
 
 #: gettingstarted.html:464
 msgid "Improve support for high resolutions and multiple monitors."
@@ -993,7 +990,7 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr "如果您有一台支援HP SFP(single function peripheral)的噴墨或雷射印表機"
 
-#: gettingstarted.html561, 960, 977, 993, 1009
+#: gettingstarted.html561, 1246, 1263, 1279, 1295, 1311
 msgid "Install"
 msgstr "安裝"
 
@@ -1217,518 +1214,574 @@ msgstr "一般程式捷徑"
 msgid "These shortcuts apply in most applications."
 msgstr "這些捷徑適用於大部分的應用程式。"
 
-#: gettingstarted.html:776
+#: gettingstarted.html778, 782, 786, 790, 794, 798, 802, 806, 810, 814, 818,
+#: 822, 826, 830, 834, 865, 869, 873, 896, 906, 910, 914, 918, 954, 958, 962,
+#: 966, 970, 974, 978, 987, 992, 995
+msgid "Ctrl"
+msgstr ""
+
+#: gettingstarted.html:779
 msgid "Copy the selected text/object"
 msgstr "複製所選的文字/物件"
 
-#: gettingstarted.html:777
+#: gettingstarted.html783, 787
 msgid "Cut the selected text/object"
 msgstr "剪下所選的文字/物件"
 
-#: gettingstarted.html:778
+#: gettingstarted.html:791
 msgid "Paste/insert the selected text/object"
 msgstr "貼上/插入所選的文字/物件"
 
-#: gettingstarted.html:779
+#: gettingstarted.html:795
 msgid "Select all text"
 msgstr "全選"
 
-#: gettingstarted.html:780
+#: gettingstarted.html:799
 msgid "Find and replace words"
 msgstr "尋找和取代文字"
 
-#: gettingstarted.html:781
+#: gettingstarted.html:803
 msgid "Make the selected text bold"
 msgstr "所選文字粗體"
 
-#: gettingstarted.html:782
+#: gettingstarted.html:807
 msgid "Make the selected text italic"
 msgstr "所選文字斜體"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:811
 msgid "Underline the selected text"
 msgstr "所選文字加入底線"
 
-#: gettingstarted.html:784
+#: gettingstarted.html:815
 msgid "Open a new document or window"
 msgstr "打開新文件或視窗"
 
-#: gettingstarted.html:785
+#: gettingstarted.html:819
 msgid "Save the current document"
 msgstr "儲存當前文件"
 
-#: gettingstarted.html:786
+#: gettingstarted.html:823
 msgid "Open another document"
 msgstr "打開令一個文件"
 
-#: gettingstarted.html:787
+#: gettingstarted.html:827
 msgid "Print the current document"
 msgstr "列印當前文件"
 
-#: gettingstarted.html:788
+#: gettingstarted.html:831
 msgid "Undo the last change you made"
 msgstr "復原上一動作"
 
-#: gettingstarted.html:789
+#: gettingstarted.html:835
 msgid "Redo a change that you just undid"
 msgstr "取消復原上一動作"
 
-#: gettingstarted.html:790
+#: gettingstarted.html:839
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "當前應用程式全螢幕或是往下還原"
 
-#: gettingstarted.html:792
+#: gettingstarted.html:843
 msgid "Desktop shortcuts"
 msgstr "桌面捷徑"
 
-#: gettingstarted.html:793
+#: gettingstarted.html:844
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "這個部份列出一般您可以用來操作桌面的快捷鍵。"
 
-#: gettingstarted.html:796
+#: gettingstarted.html:850
 msgid "Open the Applications menu"
 msgstr "開啟應用程式選單"
 
-#: gettingstarted.html:797
+#: gettingstarted.html:854
 msgid "Run an application by typing its name in the box which appears"
 msgstr "藉由輸入名稱來執行程式"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:857
 msgid "Prt Sc"
 msgstr "Prt Sc"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:858
 msgid "Take a screenshot of the whole screen"
 msgstr "擷取整個畫面"
 
-#: gettingstarted.html:799
+#: gettingstarted.html:862
 msgid "Take a screenshot of the current window"
 msgstr "擷取當前視窗"
 
-#: gettingstarted.html:800
+#: gettingstarted.html:865
 msgid "Delete"
 msgstr "Delete"
 
-#: gettingstarted.html:800
-msgid "Prompt is you want to Suspend, Restart or Shutdown the computer"
-msgstr "提示您暫停，重啟或是關閉這台電腦"
+#: gettingstarted.html:866
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr ""
 
-#: gettingstarted.html:801
+#: gettingstarted.html:870
 msgid "Lock your screen."
 msgstr "鎖定螢幕"
 
-#: gettingstarted.html:802
+#: gettingstarted.html:874
 msgid "Open a terminal."
 msgstr "打開終端機"
 
-#: gettingstarted.html:804
+#: gettingstarted.html:878
+msgid "Screen reader enable/disable."
+msgstr ""
+
+#: gettingstarted.html:882
 msgid "Window shortcuts"
 msgstr "視窗捷徑"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:885
 msgid "Tab"
 msgstr "Tab"
 
-#: gettingstarted.html:806
-msgid ""
-"Switch between currently-open windows. Press Alt + Tab and then release Tab "
-"(but continue to hold Alt). Press Tab repeatedly to cycle through the list "
-"of available windows which appears on the screen. Release the Alt key to "
-"switch to the selected window."
-msgstr "於當前開啟視窗中切換。按下Alt+Tab並且放開Tab(但繼續按住Alt)。重複按Tab來循環切換顯示在螢幕中的視窗。放開Alt鍵切換至所選視窗。"
+#: gettingstarted.html:887
+msgid "Switch between currently-open windows."
+msgstr ""
 
-#: gettingstarted.html:807
-msgid ""
-"Switch between currently-open windows in all Workspaces. Press Tab "
-"repeatedly to cycle through the list of available windows which appears on "
-"the screen. Release the Ctrl and Alt keys to switch to the selected window."
-msgstr "於當前所有工作區開啟的視窗中切換。重複按Tab來循環切換顯示在螢幕中的視窗。放開Alt鍵切換至所選視窗。"
+#: gettingstarted.html:889
+msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
+msgstr ""
 
-#: gettingstarted.html:808
+#: gettingstarted.html890, 900
+msgid ""
+"Press Tab repeatedly to cycle through the list of available windows which "
+"appears on the screen."
+msgstr ""
+
+#: gettingstarted.html:891
+msgid "Release the Alt key to switch to the selected window."
+msgstr ""
+
+#: gettingstarted.html:898
+msgid "Switch between currently-open windows in all Workspaces."
+msgstr ""
+
+#: gettingstarted.html:901
+msgid "Release the Ctrl and Alt keys to switch to the selected window."
+msgstr ""
+
+#: gettingstarted.html:906
 msgid "Left"
 msgstr "左"
 
-#: gettingstarted.html:808
-msgid "Switch to the next workspace."
-msgstr "切換至下一個工作區"
+#: gettingstarted.html:907
+msgid "Switch to the previous workspace."
+msgstr ""
 
-#: gettingstarted.html:809
+#: gettingstarted.html:910
 msgid "Right"
 msgstr "右"
 
-#: gettingstarted.html:809
-msgid "Switch to the previous workspaces."
-msgstr "切換至前一個工作區"
+#: gettingstarted.html:911
+msgid "Switch to the next workspace."
+msgstr "切換至下一個工作區"
 
-#: gettingstarted.html810, 811, 837
+#: gettingstarted.html914, 918, 1008
 msgid "Shift"
 msgstr "Shift"
 
-#: gettingstarted.html:810
-msgid "Move the current window to the next workspace."
-msgstr "移動當前視窗至下一個工作區"
-
-#: gettingstarted.html:811
+#: gettingstarted.html:915
 msgid "Move the current window to the previous workspace."
 msgstr "移動當前視窗至前一個工作區"
 
-#: gettingstarted.html:812
+#: gettingstarted.html:919
+msgid "Move the current window to the next workspace."
+msgstr "移動當前視窗至下一個工作區"
+
+#: gettingstarted.html:923
 msgid "Closes window."
 msgstr "關閉視窗"
 
-#: gettingstarted.html:813
+#: gettingstarted.html:927
 msgid "Returns window to 'normal' or previous size."
 msgstr "調整視窗回正常或前一個大小。"
 
-#: gettingstarted.html:814
+#: gettingstarted.html:931
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "移動當前視窗(可以由滑鼠或鍵盤來移動)。"
 
-#: gettingstarted.html:815
+#: gettingstarted.html:935
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "重新調整當前視窗大小(可被滑鼠或鍵盤移動)。"
 
-#: gettingstarted.html:816
+#: gettingstarted.html:939
 msgid "Minimizes current window."
 msgstr "最小化當前視窗。"
 
-#: gettingstarted.html:817
+#: gettingstarted.html:943
 msgid "Maximizes current window."
 msgstr "最大化當前視窗。"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:947
+msgid "Pulldown Terminal."
+msgstr ""
+
+#: gettingstarted.html:950
 msgid "Space"
 msgstr "空白鍵"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:951
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "顯示視窗選單如:'永遠置於頂端'、'最小化'和'最大化'以及上述指令。"
 
-#: gettingstarted.html819, 820, 821, 822, 823, 824, 825
+#: gettingstarted.html954, 958, 962, 966, 970, 974, 978
 msgid "Numpad"
 msgstr "Numpad"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:955
 msgid "Place window in top left corner of screen."
 msgstr "置視窗於左上角"
 
-#: gettingstarted.html:820
+#: gettingstarted.html:959
 msgid "Place window in top half of screen."
 msgstr "置視窗於上半部份"
 
-#: gettingstarted.html:821
+#: gettingstarted.html:963
 msgid "Place window in top right corner of screen."
 msgstr "置視窗於右上角"
 
-#: gettingstarted.html:822
+#: gettingstarted.html:967
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "中心/最大化視窗於螢幕中間"
 
-#: gettingstarted.html:823
+#: gettingstarted.html:971
 msgid "Place window in the bottom left corner of the screen."
 msgstr "置視窗於左下角。"
 
-#: gettingstarted.html:824
+#: gettingstarted.html:975
 msgid "Place window in the bottom half of the screen."
 msgstr "置視窗於下半部。"
 
-#: gettingstarted.html:825
+#: gettingstarted.html:979
 msgid "Place window in the bottom right corner of the screen."
 msgstr "置視窗於右下角。"
 
-#: gettingstarted.html:827
+#: gettingstarted.html:983
 msgid "Compiz Effects Shortcuts"
 msgstr "Compiz特效捷徑"
 
-#: gettingstarted.html:828
+#: gettingstarted.html:984
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "所有下列捷徑都需要開啟Compiz特效。"
 
-#: gettingstarted.html:830
+#: gettingstarted.html:988
 msgid "Toggles 'Show Desktop'."
 msgstr "開關'桌面'。"
 
-#: gettingstarted.html:832
+#: gettingstarted.html:993
 msgid ""
 "Enables an 'expose' like feature that presents you with all the windows you "
 "currently have open, allowing you to select the one you wish to give focus "
 "to."
 msgstr "開啟'expose'之類的功能來呈現所有當前您開啟的視窗，允許您選擇其中之一並將焦點至於上面。"
 
-#: gettingstarted.html:833
+#: gettingstarted.html:996
 msgid ""
 "Unfolds your workspace cube allowing you to see more than one of your "
 "workspaces at once, using the left and right cursor keys with this active "
 "will allow you to select the workspace you wish to use."
 msgstr "展開您的工作區方塊允許您一次看到多個工作區域，當您打開這個選項，使用左鍵和右鍵可以選擇您想要使用的工作區。"
 
-#: gettingstarted.html835, 836, 837, 838, 839, 840, 841
+#: gettingstarted.html1000, 1004, 1008, 1012, 1016, 1020, 1024
 msgid "Super"
 msgstr "超級"
 
-#: gettingstarted.html:835
+#: gettingstarted.html:1001
 msgid "Zoom out, show workspace switcher."
 msgstr "拉遠，顯示工作區切換器"
 
-#: gettingstarted.html:836
+#: gettingstarted.html:1005
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "開啟'scale'效果，呈現當前工作區中所有的視窗。"
 
-#: gettingstarted.html:837
+#: gettingstarted.html:1009
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "開啟'scale'效果，呈現所有工作區中的所有視窗。"
 
-#: gettingstarted.html:838
+#: gettingstarted.html:1013
 msgid "Invert colors of the focused window."
 msgstr "反轉焦點視窗的顏色。"
 
-#: gettingstarted.html:839
+#: gettingstarted.html:1017
 msgid "Invert colors for the whole screen."
 msgstr "反轉整個畫面顏色。"
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1020
 msgid "Mouse Scroll"
 msgstr "滑鼠滾輪"
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1021
 msgid "Zooms in on the screen."
 msgstr "拉近螢幕"
 
-#: gettingstarted.html841, 843
+#: gettingstarted.html1024, 1032
 msgid "Middle Mouse Button"
 msgstr "滑鼠中鍵"
 
-#: gettingstarted.html:841
+#: gettingstarted.html:1025
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "使用方形來選擇一個區域放大"
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1028
 msgid "Left Mouse Button"
 msgstr "滑鼠左鍵"
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1029
 msgid "Move focused window."
 msgstr "移動焦點視窗。"
 
-#: gettingstarted.html:843
+#: gettingstarted.html:1033
 msgid "Resize focused window."
 msgstr "重新調整焦點視窗。"
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1036
 msgid "Right Mouse Button"
 msgstr "滑鼠右鍵"
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1037
 msgid "Show window menu."
 msgstr "顯示視窗選單"
 
-#: gettingstarted.html:861
+#: gettingstarted.html:1055
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
-"hardware and software works on your machine and Ubuntu MATE."
-msgstr "您的機器由許多零件所組成。這裡提供有用的資訊來確保硬體和軟體相互搭配來運行Ubuntu MATE。"
+"hardware and software works on your machine."
+msgstr ""
 
-#: gettingstarted.html:867
+#: gettingstarted.html:1061
 msgid "Please wait while the information is being populated..."
 msgstr "產生資訊時請耐心等待..."
 
-#: gettingstarted.html:869
+#: gettingstarted.html:1063
 msgid "Basic"
 msgstr "基礎"
 
-#: gettingstarted.html:870
+#: gettingstarted.html:1064
 msgid "Detailed"
 msgstr "細節"
 
-#: gettingstarted.html:871
+#: gettingstarted.html:1065
 msgid "Utilities"
 msgstr "常用工具"
 
-#: gettingstarted.html:882
+#: gettingstarted.html:1080
 msgid "Distribution:"
 msgstr "發行版:"
 
-#: gettingstarted.html:883
+#: gettingstarted.html:1084
 msgid "Kernel:"
 msgstr "內核:"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:1087
+msgid "The Linux kernel is the heart of Ubuntu."
+msgstr ""
+
+#: gettingstarted.html:1093
 msgid "Motherboard:"
 msgstr "主機板:"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:1097
 msgid "Boot Mode:"
 msgstr "開機模式:"
 
-#: gettingstarted.html:889
+#: gettingstarted.html:1100
+msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
+msgstr ""
+
+#: gettingstarted.html:1108
 msgid "Processor"
 msgstr "處理器"
 
-#: gettingstarted.html:891
+#: gettingstarted.html:1111
 msgid "Model:"
 msgstr "型號:"
 
-#: gettingstarted.html:892
+#: gettingstarted.html:1115
 msgid "Speed:"
 msgstr "速度:"
 
-#: gettingstarted.html:893
+#: gettingstarted.html:1119
 msgid "Architecture in use:"
 msgstr "使用的架構:"
 
-#: gettingstarted.html:894
+#: gettingstarted.html:1122
+msgid ""
+"The operating system's architecture in use. For instance, i386 = 32-bit."
+msgstr ""
+
+#: gettingstarted.html:1128
 msgid "Architecture(s) supported:"
 msgstr "支援的架構:"
 
-#: gettingstarted.html:898
+#: gettingstarted.html:1131
+msgid "Architectures that are supported by this processor."
+msgstr ""
+
+#: gettingstarted.html:1139
 msgid "Components"
 msgstr "零件"
 
-#: gettingstarted.html:900
+#: gettingstarted.html:1142
 msgid "Memory (RAM):"
 msgstr "記憶體(RAM):"
 
-#: gettingstarted.html:901
+#: gettingstarted.html:1145
+msgid "More RAM allows more applications to run simultaneously."
+msgstr ""
+
+#: gettingstarted.html:1151
 msgid "Graphics:"
 msgstr "繪圖晶片:"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:1155
 msgid "Internet Access:"
 msgstr "網路存取:"
 
-#: gettingstarted.html:903
+#: gettingstarted.html:1157
 msgid "Connected"
 msgstr "已連線"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:1158
 msgid "Not Connected"
 msgstr "未連線"
 
-#: gettingstarted.html:908
+#: gettingstarted.html:1165
 msgid "Storage"
 msgstr "儲存體"
 
-#: gettingstarted.html:910
+#: gettingstarted.html:1169
 msgid "Root File System:"
 msgstr "Root檔案系統:"
 
-#: gettingstarted.html:911
+#: gettingstarted.html:1172
+msgid "The file system where Ubuntu MATE is installed."
+msgstr ""
+
+#: gettingstarted.html:1178
 msgid "Entire Disk Capacity:"
 msgstr "總計磁碟容量:"
 
-#: gettingstarted.html:912
-msgid "Allocated:"
-msgstr "分配:"
+#: gettingstarted.html:1183
+msgid "Used in Ubuntu MATE"
+msgstr ""
 
-#: gettingstarted.html:913
+#: gettingstarted.html:1184
+msgid "Other partitions, including swap"
+msgstr ""
+
+#: gettingstarted.html:1189
+msgid "Allocated for Ubuntu MATE:"
+msgstr ""
+
+#: gettingstarted.html:1193
 msgid "Free Space:"
 msgstr "剩餘空間:"
 
-#: gettingstarted.html:915
+#: gettingstarted.html:1199
 msgid "Why do I see two units?"
 msgstr "為什麼我會看到兩個?"
 
-#: gettingstarted.html:919
+#: gettingstarted.html:1205
 msgid "SI or IEC Units?"
 msgstr "SI or IEC Units?"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:1207
 msgid "Decimal (SI Standard)"
 msgstr "十進位(SI Standard)"
 
-#: gettingstarted.html:923
+#: gettingstarted.html:1209
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:924
+#: gettingstarted.html:1210
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "發音如\"ga\" - like \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:925
+#: gettingstarted.html:1211
 msgid "Common in every day applications and file storage."
 msgstr "常見於日常應用程式及檔案儲存體。"
 
-#: gettingstarted.html:929
+#: gettingstarted.html:1215
 msgid "Binary (IEC Standard)"
 msgstr "Binary (IEC Standard)"
 
-#: gettingstarted.html:931
+#: gettingstarted.html:1217
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:932
+#: gettingstarted.html:1218
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "發音如\"bi\" - like \"Mebi\", \"Gibi\"."
 
-#: gettingstarted.html:933
+#: gettingstarted.html:1219
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr ""
 
-#: gettingstarted.html:942
-msgid "The following information is retrieved directly by the"
-msgstr "接下來的資訊是關於直接取得自"
+#: gettingstarted.html:1228
+msgid "The following information is retrieved directly from the"
+msgstr ""
 
-#: gettingstarted.html:942
+#: gettingstarted.html:1228
 msgid "command line program."
 msgstr "命令列程式"
 
-#: gettingstarted.html:943
+#: gettingstarted.html:1229
 msgid "Could not gather data."
 msgstr "無法收集資料"
 
-#: gettingstarted.html:955
+#: gettingstarted.html:1241
 msgid "System Profiler and Benchmark"
 msgstr "系統剖析和效能評定"
 
-#: gettingstarted.html:956
+#: gettingstarted.html:1242
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "檢視更多特定的系統資訊，包含已連接的USB, PCI裝置和簡單的CPU效能評分。"
 
-#: gettingstarted.html:971
+#: gettingstarted.html:1257
 msgid "Disks"
 msgstr "磁碟"
 
-#: gettingstarted.html:972
+#: gettingstarted.html:1258
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
 msgstr "一個預載的工具讓您可以基本的設定磁碟和分區，包含格式化，切割分區，mounting，檢視S.M.A.R.T資訊和寫入映像檔至SD卡/USB隨身碟。"
 
-#: gettingstarted.html:989
+#: gettingstarted.html:1275
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "一個進階的工具提供檢視，建立，修改和刪除分區。同時它也支援各式格式和擴大/縮小檔案系統的功能。"
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:1290
+msgid "Disk Usage Analyser"
+msgstr ""
+
+#: gettingstarted.html:1291
+msgid ""
+"A graphical tool for exploring your file system or individual folders to "
+"determine how much space is being used."
+msgstr ""
+
+#: gettingstarted.html:1306
 msgid "System Monitor"
 msgstr "系統監控"
 
-#: gettingstarted.html:1005
+#: gettingstarted.html:1307
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "檢視目前mounted的檔案系統中執行中的程序，資源使用量以及使用空間。"
-
-#: gettingstarted.html:803
-msgid "Screen reader enable/disable."
-msgstr ""
-
-#: gettingstarted.html:809
-msgid "Switch to the previous workspace."
-msgstr ""
-
-#: gettingstarted.html:819
-msgid "Pulldown Terminal."
-msgstr ""

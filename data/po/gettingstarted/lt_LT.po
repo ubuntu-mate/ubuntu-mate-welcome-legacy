@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-24 23:19+0000\n"
+"PO-Revision-Date: 2016-03-28 16:57+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -61,19 +61,19 @@ msgstr ""
 
 #: gettingstarted.html39, 39, 617, 618, 757, 758
 msgid "Optional Tasks"
-msgstr ""
+msgstr "Pasirinktinės užduotys"
 
 #: gettingstarted.html:41
 msgid "Familiarity"
 msgstr "Pažinimas"
 
-#: gettingstarted.html42, 42, 710, 711, 849, 850
+#: gettingstarted.html42, 42, 710, 711, 1043, 1044
 msgid "Customization"
 msgstr "Tinkinimas"
 
 #: gettingstarted.html43, 43, 759, 760, 770
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Klavišų kombinacijos"
 
 #: gettingstarted.html:46
 msgid "Troubleshooting"
@@ -95,7 +95,7 @@ msgstr "Vidutiniai sistemos reikalavimai"
 msgid ""
 "Ubuntu MATE works well on both high-end to slow computers, optimized to be "
 "functional, while light on system resources."
-msgstr ""
+msgstr "Ubuntu MATE sistema gerai veikia tiek aukštos klasės, tiek ir lėtuose kompiuteriuose, ir yra optimizuota, kad būtų funkcionali, bei naudotų mažai sistemos išteklių."
 
 #: gettingstarted.html:67
 msgid "Minimum"
@@ -133,9 +133,9 @@ msgstr "16 gigabaitų (GB) vietos diske"
 msgid ""
 "The operating system will run much more efficiently if your computer meets "
 "or surpasses the recommended requirements."
-msgstr ""
+msgstr "Operacinė sistema veiks daug efektyviau, jeigu jūsų kompiuteris atititks arba viršys rekomenduojamus reikalavimus."
 
-#: gettingstarted.html85, 860
+#: gettingstarted.html85, 1054
 msgid "What's inside my computer?"
 msgstr "Kas yra mano kompiuterio viduje?"
 
@@ -152,41 +152,41 @@ msgid ""
 "Ubuntu MATE is relatively simple to set up, whether you're looking to "
 "replace your existing operating system or install Ubuntu MATE alongside an "
 "existing one - such as"
-msgstr ""
+msgstr "Ubuntu MATE sistema yra santykinai lengvai nustatoma, nepriklausomai nuo to, ar norite pakeisti savo esamą operacinę sistemą, ar įdiegti Ubuntu MATE šalia esamos sistemos - tokios kaip"
 
 #: gettingstarted.html:105
 msgid "Microsoft Windows or another"
-msgstr ""
+msgstr "Microsoft Windows ar kita"
 
 #: gettingstarted.html:106
 msgid "GNU/Linux distribution."
-msgstr ""
+msgstr "GNU/Linux distribucija."
 
 #: gettingstarted.html:108
 msgid "For the best results:"
-msgstr ""
+msgstr "Geriausiems rezultatams:"
 
 #: gettingstarted.html110, 185
 msgid "Back up"
-msgstr ""
+msgstr "Padarykite atsarginę kopiją"
 
 #: gettingstarted.html:110
 msgid "any important data to another storage device."
-msgstr ""
+msgstr "ir perkelkite visus savo svarbius duomenis į kitą atminties įtaisą."
 
 #: gettingstarted.html:111
 msgid ""
 "Connect to the Internet to install all available updates during "
 "installation."
-msgstr ""
+msgstr "Prisijunkite prie interneto, kad įdiegimo metu įdiegtumėte visus prieinamus atnaujinimus."
 
 #: gettingstarted.html:112
 msgid "Stay connected to the Internet to install all available updates."
-msgstr ""
+msgstr "Likite prisijungę prie interneto, kad įdiegtumėte visus prieinamus atnaujinimus."
 
 #: gettingstarted.html:113
 msgid "Plug in your device to the mains if it is running on battery power."
-msgstr ""
+msgstr "Jeigu jūsų įrenginys veikia, naudodamas baterijos energiją, įjunkite jį į elektros maitinimo lizdą."
 
 #: gettingstarted.html:118
 msgid ""
@@ -199,7 +199,7 @@ msgstr ""
 
 #: gettingstarted.html:125
 msgid "Modern UEFI-based computers"
-msgstr ""
+msgstr "Šiuolaikiniai UEFI pagrįsti kompiuteriai"
 
 #: gettingstarted.html:126
 msgid ""
@@ -212,7 +212,7 @@ msgid "Secure Boot"
 msgstr ""
 
 #: gettingstarted.html:127
-msgid "(or enable an"
+msgid "(or enable the"
 msgstr ""
 
 #: gettingstarted.html:127
@@ -261,15 +261,15 @@ msgstr ""
 
 #: gettingstarted.html:144
 msgid "Your system is currently running in"
-msgstr ""
+msgstr "Jūsų sistema šiuo metu veikia"
 
 #: gettingstarted.html:144
 msgid "mode"
-msgstr ""
+msgstr "veiksenoje"
 
 #: gettingstarted.html:149
 msgid "Swap"
-msgstr ""
+msgstr "Sukeitimų skaidinys"
 
 #: gettingstarted.html:150
 msgid ""
@@ -280,33 +280,30 @@ msgid ""
 msgstr ""
 
 #: gettingstarted.html:154
-msgid "By default,"
-msgstr ""
-
-#: gettingstarted.html:154
-msgid "a swap partition is created by the size of your RAM."
-msgstr ""
-
-#: gettingstarted.html:154
 msgid ""
-"For example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be"
-" reserved for swap at the end of the drive."
+"By default, a swap partition is created based on the size of your RAM. For "
+"example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
+"reserved for swap at the end of the drive."
 msgstr ""
 
-#: gettingstarted.html160, 338, 570, 616, 709, 758, 850
+#: gettingstarted.html160, 338, 570, 616, 709, 758, 1044
 msgid "Previous:"
-msgstr ""
+msgstr "Ankstesnė:"
 
 #: gettingstarted.html:173
 msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr ""
+msgstr "Jeigu jums tektų įdiegti Ubuntu MATE šalia jūsų esamos operacinės sistemos, tuomet jūsų skaidiniai turėtų būti sumažinti. Tai sąlygoja, kad jūsų standžiojo disko sekcijos bus padalintos tarp kelių operacinių sistemų. "
+
+#: gettingstarted.html:179
+msgid "I'm dual booting with"
+msgstr "Aš naudoju dvejopą paleidimą su"
 
 #: gettingstarted.html:182
 msgid "To minimize the risk of data loss or failure, ensure that:"
-msgstr ""
+msgstr "Tam, kad sumažintumėte duomenų praradimo ar nesėkmės riziką, užtikrinkite, kad:"
 
 #: gettingstarted.html:184
 msgid "There is enough free space. 10 GB minimum is recommended."
@@ -314,7 +311,7 @@ msgstr "Yra pakankamai laisvos vietos. Rekomenduojama mažiausiai 10 GB."
 
 #: gettingstarted.html:185
 msgid "important data to another drive."
-msgstr ""
+msgstr "ir perkelkite svarbius duomenis į kitą diską."
 
 #: gettingstarted.html:186
 msgid "Defragment the hard drive."
@@ -342,44 +339,44 @@ msgstr "Saugiausiam"
 
 #: gettingstarted.html:200
 msgid "The simplest method is to use the installer."
-msgstr ""
+msgstr "Pats papraščiausias metodas yra naudoti įdiegimo programą."
 
 #: gettingstarted.html:202
 msgid ""
 "The installer scans your disks for existing operating systems and provides a"
 " choice on what you'd like to do."
-msgstr ""
+msgstr "Įdiegimo programa peržiūri jūsų diskus, aptikdama esamas operacines sistemas ir pateikia pasirinkimą, ką norėtumėte daryti toliau."
 
 #: gettingstarted.html:205
 msgid "You will see an option similar to this:"
-msgstr ""
+msgstr "Jūs matysite parinktį, kuri yra panaši į šią:"
 
 #: gettingstarted.html:209
 msgid "Followed by:"
-msgstr ""
+msgstr "Po kurios seks:"
 
 #: gettingstarted.html:215
 msgid "Do not interrupt or power off the computer during a resize operation."
-msgstr ""
+msgstr "Dydžio keitimo operacijos metu, nepertraukite ir neišjunkite kompiuterio."
 
 #: gettingstarted.html:217
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr ""
+msgstr "Jei tai padarysite, galite prarasti duomenis arba gali būti pažeista skaidinių lentelė. Prieš tęsdami, pakartotinai patikrinkite savo pakeitimus."
 
 #: gettingstarted.html:219
 msgid "The installer may show a"
-msgstr ""
+msgstr "Įdiegimo programa gali rodyti"
 
 #: gettingstarted.html:219
 msgid ""
 "spinner cursor for a long period of time, depending on the size of your disk"
-msgstr ""
+msgstr "suktuko žymeklį gana ilgą laiką, priklausomai nuo jūsų disko dydžio"
 
 #: gettingstarted.html:223
 msgid "When you next boot Windows, run"
-msgstr ""
+msgstr "Kai kitą kartą paleisite Windows, vykdykite"
 
 #: gettingstarted.html:224
 msgid ""
@@ -390,11 +387,11 @@ msgstr ""
 
 #: gettingstarted.html:231
 msgid "Use GParted or the installer's \"Custom\" option."
-msgstr ""
+msgstr "Naudojant GParted ar įdiegimo programos \"Pasirinktinę\" parinktį."
 
-#: gettingstarted.html234, 988
+#: gettingstarted.html234, 1274
 msgid "GParted"
-msgstr ""
+msgstr "GParted"
 
 #: gettingstarted.html:234
 msgid "is available during the live session only."
@@ -402,38 +399,38 @@ msgstr ""
 
 #: gettingstarted.html:235
 msgid "It is located under the"
-msgstr ""
+msgstr "Ją galima rasti meniu punkte"
 
-#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 880
+#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 1077
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: gettingstarted.html236, 362, 415, 536, 700
 msgid "Administration"
-msgstr ""
+msgstr "Administravimas"
 
 #: gettingstarted.html:236
 msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr ""
+msgstr ". GParted pateikia pilną lankstumą darbe su skaidiniais, visų pirma, patyrusiems naudotojams, kurie žino, kaip jie norėtų išdėstyti savo diskus. Šis metodas atlieka pakeitimus prieš įdiegimą."
 
 #: gettingstarted.html:244
 msgid ""
 "After completing operations to your disk, you can leave the remaining space "
 "unallocated,"
-msgstr ""
+msgstr "Po to, kai užbaigsite operacijas su savo diskais, galite palikti likusią vietą nepanaudotą,"
 
 #: gettingstarted.html:245
 msgid ""
 "whereby the installer will detect this unused space to install Ubuntu MATE "
 "to."
-msgstr ""
+msgstr "tuo tarpu įdiegimo programa aptiks šią nepanaudotą vietą, kad įdiegtų į ją Ubuntu MATE."
 
 #: gettingstarted.html:247
 msgid "Using the Installer's \"Custom\" option."
-msgstr ""
+msgstr "Naudojant įdiegimo programos \"Pasirinktinę\" parinktį."
 
 #: gettingstarted.html:248
 msgid "Instead or in addition to GParted, the"
@@ -452,64 +449,64 @@ msgstr ""
 
 #: gettingstarted.html:253
 msgid "You can specify these mount points:"
-msgstr ""
+msgstr "Jūs galite nurodyti šiuos prijungimo taškus:"
 
 #: gettingstarted.html:255
 msgid "The base for Ubuntu MATE"
-msgstr ""
+msgstr "Ubuntu MATE pagrindas"
 
 #: gettingstarted.html:256
 msgid "Bootloader and kernels"
-msgstr ""
+msgstr "Pradinis įkėliklis ir branduoliai"
 
 #: gettingstarted.html:257
 msgid "Your personal files and folders"
-msgstr ""
+msgstr "Jūsų asmeniniai failai ir aplankai"
 
 #: gettingstarted.html:258
 msgid "Temporary files"
-msgstr ""
+msgstr "Laikinieji failai"
 
 #: gettingstarted.html:259
 msgid "Contains most of the applications"
-msgstr ""
+msgstr "Didžioji programų dalis"
 
 #: gettingstarted.html:259
 msgid "(binaries, documentation, libraries, etc)"
-msgstr ""
+msgstr "(dvejetainės, dokumentacija, bibliotekos ir t. t.)"
 
 #: gettingstarted.html:260
 msgid "Variable data"
-msgstr ""
+msgstr "Kintamieji duomenys"
 
 #: gettingstarted.html:260
 msgid "(such as system logs)"
-msgstr ""
+msgstr "(tokie kaip sistemos žurnalai)"
 
 #: gettingstarted.html:261
 msgid "Data for System Services"
-msgstr ""
+msgstr "Sistemos tarnybų duomenys"
 
 #: gettingstarted.html:261
 msgid "(typically used for server configurations)"
-msgstr ""
+msgstr "(dažniausiai, naudojama serverio konfigūracijoms)"
 
 #: gettingstarted.html:262
 msgid "Additional software unmanaged by the package manager"
-msgstr ""
+msgstr "Papildoma programinė įranga, kuri nėra tvarkoma paketų tvarkytuvės"
 
 #: gettingstarted.html:263
 msgid "such as"
-msgstr ""
+msgstr "tokia kaip"
 
 #: gettingstarted.html:265
 msgid ""
 "Creating separate partitions for all above mount points is not necessary."
-msgstr ""
+msgstr "Visų aukščiau paminėtų prijungimo taškų kūrimas nėra būtinas."
 
 #: gettingstarted.html:266
 msgid "The commonly partitioned directories being"
-msgstr ""
+msgstr "Dažniausiai skaidomi katalogai yra"
 
 #: gettingstarted.html:267
 msgid "and"
@@ -517,27 +514,27 @@ msgstr "ir"
 
 #: gettingstarted.html:267
 msgid "These mount points can also be set across different"
-msgstr ""
+msgstr "Šie prijungimo taškai taip pat gali būti nustatyti tarp skirtingų"
 
 #: gettingstarted.html:268
 msgid "physical disks, for instance, if you'd like the OS"
-msgstr ""
+msgstr "fizinių diskų, pavyzdžiui, jei norėtumėte, kad operacinė sistema"
 
 #: gettingstarted.html:268
 msgid "on an SSD,"
-msgstr ""
+msgstr "būtų SSD diske,"
 
 #: gettingstarted.html:269
 msgid "but your personal files"
-msgstr ""
+msgstr "o jūsų asmeniniai failai"
 
 #: gettingstarted.html:269
 msgid "on a mechanical hard drive."
-msgstr ""
+msgstr "mechaniniame standžiajame diske."
 
 #: gettingstarted.html:273
 msgid "Shrink your system disk within Windows."
-msgstr ""
+msgstr "Sumažinkite savo sistemos diską Windows sistemoje."
 
 #: gettingstarted.html:275
 msgid "Applies to Windows Vista and later."
@@ -549,7 +546,7 @@ msgstr ""
 
 #: gettingstarted.html:277
 msgid "or"
-msgstr ""
+msgstr "ar"
 
 #: gettingstarted.html:277
 msgid "method to shrink your disk."
@@ -560,9 +557,9 @@ msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "Naujesnės Windows versijos pateikia įrankį, skirtą sumažinti NTFS tomą Windows sistemoje. Tai yra saugesnis sprendimas, jeigu yra būtina, kad besinaudojant Ubuntu MATE, vis dar būtų paleidžiama ir Windows sistema."
 
-#: gettingstarted.html284, 560, 959, 976, 992, 1008
+#: gettingstarted.html284, 560, 1245, 1262, 1278, 1294, 1310
 msgid "Open"
 msgstr "Atverti"
 
@@ -614,11 +611,11 @@ msgstr ""
 
 #: gettingstarted.html:313
 msgid "Repairing Boot Problems"
-msgstr ""
+msgstr "Paleidimo problemų sprendimas"
 
 #: gettingstarted.html:315
 msgid "Linux distributions use a boot loader known as"
-msgstr ""
+msgstr "Linux distribucijos naudoja pradinį įkėliklį, žinomą kaip"
 
 #: gettingstarted.html:316
 msgid ""
@@ -630,15 +627,15 @@ msgstr ""
 
 #: gettingstarted.html:321
 msgid "Fortunately, you can use the"
-msgstr ""
+msgstr "Laimei, jūs galite naudoti"
 
 #: gettingstarted.html:321
 msgid "Boot Repair"
-msgstr ""
+msgstr "Paleidimo pataisymą,"
 
 #: gettingstarted.html:321
 msgid "tool to repair common problems caused by other operating systems."
-msgstr ""
+msgstr "įrankį, skirtą pataisyti dažniausias, kitų operacinių sistemų sukeliamas, problemas."
 
 #: gettingstarted.html:326
 msgid "Requires downloading a package."
@@ -658,11 +655,11 @@ msgstr "Bandyti dar kartą"
 
 #: gettingstarted.html:332
 msgid "Download Boot Repair"
-msgstr ""
+msgstr "Atsisiųsti paleidimo pataisymą"
 
 #: gettingstarted.html:333
 msgid "Open Boot-Repair"
-msgstr ""
+msgstr "Atverti paleidimo pataisymą"
 
 #: gettingstarted.html:338
 msgid "Install Preparations"
@@ -685,7 +682,7 @@ msgstr ""
 
 #: gettingstarted.html361, 414, 590, 649, 674, 699, 730
 msgid "can be found later in"
-msgstr ""
+msgstr "vėliau galima rasti"
 
 #: gettingstarted.html:366
 msgid ""
@@ -698,7 +695,7 @@ msgstr "Kodekų pakete yra pilnas, daugiaplatformis garso ir vaizdo dekodavimo, 
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Norėdami atkurti AACS užšifruotus ar BD+ apsaugotus diskus, turėsite įdiegti Blu-ray AACS duomenų bazę."
 
 #: gettingstarted.html:374
 msgid "Install Codecs Package"
@@ -706,7 +703,7 @@ msgstr "Įdiegti kodekų paketą"
 
 #: gettingstarted.html:377
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "Įdiegti Blu-ray AACS duomenų bazę"
 
 #: gettingstarted.html:379
 msgid "Installing..."
@@ -722,7 +719,7 @@ msgstr "Nors didelė aparatinės įrangos dalis yra suderinama su Ubuntu MATE, t
 
 #: gettingstarted.html:402
 msgid "An Internet connection is required to download and install drivers."
-msgstr ""
+msgstr "Norint atsisiųsti ir įdiegti tvarkykles, reikalingas interneto ryšys."
 
 #: gettingstarted.html406, 414, 484
 msgid "Additional Drivers"
@@ -730,17 +727,17 @@ msgstr "Papildomos tvarkyklės"
 
 #: gettingstarted.html:409
 msgid "Install Firmware Package"
-msgstr ""
+msgstr "Įdiegti programinės aparatinės įrangos paketą"
 
 #: gettingstarted.html:423
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr ""
+msgstr "Atleiskite, programai Sveiki nepavyko automatiškai nustatyti grafikos tiekėjo šioje sistemoje."
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Plokštė/Lustynas:"
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Unknown"
@@ -748,12 +745,12 @@ msgstr "Nežinoma"
 
 #: gettingstarted.html428, 434
 msgid "Graphics Card Detected."
-msgstr ""
+msgstr "grafikos plokštė aptikta."
 
 #: gettingstarted.html:429
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
-"applications and games as well as improved power management."
+"applications and games as well as deliver improvements to power management."
 msgstr ""
 
 #: gettingstarted.html:435
@@ -761,7 +758,7 @@ msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "AMD tvarkyklės sistemoje Ubuntu yra daugiau nebepalaikomos. Atviro kodo tvarkyklės, kurias šiuo metu naudojate, suteiks stabiliausią jūsų plokštės našumą."
 
 #: gettingstarted.html:442
 msgid "You're already good to go."
@@ -770,7 +767,7 @@ msgstr ""
 #: gettingstarted.html:443
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "Intel tvarkyklės yra atviro kodo ir yra prižiūrimos/atnaujinamos branduolyje."
 
 #: gettingstarted.html:448
 msgid "VirtualBox Guest Additions"
@@ -784,39 +781,39 @@ msgstr ""
 
 #: gettingstarted.html:453
 msgid "Proprietary or Open Source Drivers?"
-msgstr ""
+msgstr "Nuosavybinės ar atviro kodo tvarkyklės?"
 
 #: gettingstarted.html:454
 msgid "Proprietary drivers come directly from the manufacturer."
-msgstr ""
+msgstr "Nuosavybinės tvarkyklės atvyksta tiesiai iš gamintojo."
 
 #: gettingstarted.html:455
 msgid "As they are not open source, Ubuntu developers are"
-msgstr ""
+msgstr "Kadangi jos nėra atviro kodo, Ubuntu kūrėjai"
 
 #: gettingstarted.html:455
 msgid "unable review and improve code"
-msgstr ""
+msgstr "negali jų peržiūrėti ir patobulinti kodą,"
 
 #: gettingstarted.html:455
 msgid "meaning you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "o tai reiškia, kad jums teks pasikliauti gamintojo palaikymu."
 
 #: gettingstarted.html:458
 msgid "In addition, proprietary drivers can"
-msgstr ""
+msgstr "Be viso to, nuosavybinės tvarkyklės gali"
 
 #: gettingstarted.html:458
 msgid "significantly improve graphics performance"
-msgstr ""
+msgstr "žymiai pagerinti grafikos našumą"
 
 #: gettingstarted.html:458
 msgid "and as a result,"
-msgstr ""
+msgstr "ir tuo pačiu,"
 
 #: gettingstarted.html:459
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr ""
+msgstr "visos sistemos našumą. Naudotojai gali norėti įdiegti šias tvarkykles tam, kad:"
 
 #: gettingstarted.html:461
 msgid "Run 3D applications and games."
@@ -828,8 +825,8 @@ msgstr ""
 
 #: gettingstarted.html:463
 msgid ""
-"Improve power management, especially if the device overheats then usual "
-"under open source drivers."
+"Improve power management, particularly if the device experiences overheating"
+" problems under open source drivers."
 msgstr ""
 
 #: gettingstarted.html:464
@@ -919,14 +916,14 @@ msgstr ""
 
 #: gettingstarted.html:508
 msgid "Wireless, Bluetooth and Other Devices"
-msgstr ""
+msgstr "Belaidžiai, Bluetooth ir kiti įrenginiai"
 
 #: gettingstarted.html:510
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr ""
+msgstr "Jeigu jūsų aparatinei įrangai nebuvo rasta papildomų tvarkyklių ir jį nepradėjo veikti po programinės aparatinės įrangos įdiegimo, jums gali tekti ištyrinėti savo įrenginį, kad rastumėte tinkamą tvarkyklę."
 
 #: gettingstarted.html:514
 msgid ""
@@ -934,53 +931,53 @@ msgid ""
 "hasn't provided any source code for developers to freely use, or there is "
 "insufficient documentation to create drivers for your particular brand and "
 "model."
-msgstr ""
+msgstr "Deja, taip yra dėl to, kad jūsų aparatinės įrangos gamintojas nepateikė kūrėjams jokio laisvai naudojamo šaltinio kodo arba nėra pakankamai dokumentacijos, kad galima būtų sukurti tvarkyklę tam tikram jūsų prekės ženklui ir modeliui."
 
 #: gettingstarted.html:520
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr ""
+msgstr "Kai kurie gamintojai, galbūt, patys tiesiogiai tiekia uždaro kodo tvarkykles. Jeigu jums reikia pagalbos, nesivaržykite"
 
 #: gettingstarted.html:522
 msgid "ask the community"
-msgstr ""
+msgstr "klausti bendruomenės"
 
 #: gettingstarted.html:525
 msgid "Read more on troubleshooting wireless hardware."
-msgstr ""
+msgstr "Skaityti daugiau apie belaidės aparatinės įrangos nesklandumų šalinimą."
 
 #: gettingstarted.html529, 534
 msgid "Printers"
-msgstr ""
+msgstr "Spausdintuvai"
 
 #: gettingstarted.html:531
 msgid "When you set up a printer in the"
-msgstr ""
+msgstr "Kai nustatote spausdintuvus"
 
 #: gettingstarted.html:535
 msgid "utility"
-msgstr ""
+msgstr "paslaugų programoje"
 
 #: gettingstarted.html:535
 msgid "under"
-msgstr ""
+msgstr "meniu"
 
 #: gettingstarted.html:536
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr ""
+msgstr "jei pritaikoma, jums bus pateiktas prieinamų naudoti tvarkyklių sąrašas."
 
 #: gettingstarted.html:539
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
-msgstr ""
+msgstr "Kai kurie gamintojai, gali pateikti savo pačių tvarkykles ir reikalauti, kad jūs atsisiųstumėte jas iš gamintojų internetinės svetainės."
 
 #: gettingstarted.html:542
 msgid "Read more on printing"
-msgstr ""
+msgstr "Skaityti daugiau apie spausdinimą"
 
 #: gettingstarted.html:553
 msgid "HP Linux Printing and Imaging System"
@@ -994,7 +991,7 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr ""
 
-#: gettingstarted.html561, 960, 977, 993, 1009
+#: gettingstarted.html561, 1246, 1263, 1279, 1295, 1311
 msgid "Install"
 msgstr "Įdiegimas"
 
@@ -1014,19 +1011,19 @@ msgstr ""
 
 #: gettingstarted.html591, 650, 675, 731
 msgid "Preferences"
-msgstr ""
+msgstr "Nuostatos"
 
 #: gettingstarted.html592, 651
 msgid "Personal"
-msgstr ""
+msgstr "Asmeninės"
 
 #: gettingstarted.html:598
 msgid "Complex Input"
-msgstr ""
+msgstr "Sudėtinė įvestis"
 
 #: gettingstarted.html:599
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Kai kurie pasaulio regionai reikalauja sudėtinių įvesčių."
 
 #: gettingstarted.html:604
 msgid "Chinese"
@@ -1042,33 +1039,33 @@ msgstr "Korėjiečių"
 
 #: gettingstarted.html:626
 msgid "Backup, Firewall and User Management"
-msgstr ""
+msgstr "Atsarginė kopija, užkarda bei naudotojų tvarkymas"
 
 #: gettingstarted.html:627
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
-msgstr ""
+msgstr "Ubuntu MATE suteikia jums įrankius, skirtus kurti atsargines failų kopijas, o pati sistema yra pateikiama su užkarda bei palaiko kelių naudotojų paskyras."
 
 #: gettingstarted.html638, 649
 msgid "Backups"
-msgstr ""
+msgstr "Atsarginės kopijos"
 
 #: gettingstarted.html:639
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
-msgstr ""
+msgstr "Nėra nieko svarbiau nei turėti atsarginę savo asmeninių failų kopiją tam atvejui, jeigu su jūsų kompiuteriu įvyks kažkas pražūtingo."
 
 #: gettingstarted.html:643
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
-msgstr ""
+msgstr "yra iš anksto įdiegta ir palaiko atsargines kopijas į vietinius įrenginius, o taip pat į internetines debesijos pagrindo paslaugas."
 
 #: gettingstarted.html:646
 msgid "Configure Backup"
-msgstr ""
+msgstr "Konfigūruoti atsarginę kopiją"
 
 #: gettingstarted.html:662
 msgid "Firewall"
@@ -1078,7 +1075,7 @@ msgstr "Užkarda"
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
-msgstr ""
+msgstr "Užkardos neleidžia kenkėjiškiems ryšiams įeiti į jūsų kompiuterį ir iš jo išeiti. Pagal numatymą užkarda yra išjungta,"
 
 #: gettingstarted.html:665
 msgid "learn more about firewalls"
@@ -1086,7 +1083,7 @@ msgstr "sužinokite daugiau apie užkardas"
 
 #: gettingstarted.html:667
 msgid "provides a graphical frontend to"
-msgstr ""
+msgstr "pateikia grafinę naudotojo sąsają, skirtą"
 
 #: gettingstarted.html:668
 msgid "Uncomplicated Firewall"
@@ -1110,18 +1107,18 @@ msgstr "Užkardos konfigūravimas"
 
 #: gettingstarted.html:676
 msgid "Internet and Network"
-msgstr ""
+msgstr "Internetas ir tinklas"
 
 #: gettingstarted.html:687
 msgid "Users"
-msgstr ""
+msgstr "Naudotojai"
 
 #: gettingstarted.html:689
 msgid ""
 "Share your computer with others? Set up each user with their own unique "
 "profile that they can use to login and isolate their personal data with "
 "yours."
-msgstr ""
+msgstr "Dalinatės savo kompiuteriu su kitais? Nustatykite kiekvienam naudotojui asmeninį unikalų profilį, kurį jis galės naudoti, kad prisijungtų ir atskirtų savo asmeninius duomenis nuo jūsų duomenų."
 
 #: gettingstarted.html:693
 msgid "You can also log in to a"
@@ -1133,7 +1130,7 @@ msgstr "svečio seansą"
 
 #: gettingstarted.html:693
 msgid "if someone is using your computer as a one-off."
-msgstr ""
+msgstr "tuo atveju, jei kas nors naudoja jūsų kompiuterį tik vienam kartui."
 
 #: gettingstarted.html:696
 msgid "Configure Users"
@@ -1145,591 +1142,647 @@ msgstr "Naudotojai ir grupės"
 
 #: gettingstarted.html719, 727
 msgid "User Interface"
-msgstr ""
+msgstr "Naudotojo sąsaja"
 
 #: gettingstarted.html:720
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr ""
+msgstr "Ubuntu MATE pateikia unikalų įrankį, skirtą transformuoti naudotojo sąsają. Jis gali būti naudojamas, norint greitai nustatyti naudotojo sąsają, kuri atspindėtų kitos operacinės sistemos išvaizdą ir turinį."
 
 #: gettingstarted.html:723
 msgid "layouts are most similar to Microsoft Windows while"
-msgstr ""
+msgstr "išdėstymai yra labiausiai panašūs į Microsoft Windows, tuo tarpu"
 
 #: gettingstarted.html:724
 msgid "layouts are most similar to Apple Mac OS X."
-msgstr ""
+msgstr "išdėstymai yra labiausiai panašūs į Apple Mac OS X."
 
 #: gettingstarted.html:730
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE papildomi nustatymai"
 
 #: gettingstarted.html:732
 msgid "Look and Feel"
-msgstr ""
+msgstr "Išvaizda ir turinys"
 
 #: gettingstarted.html735, 740, 743
 msgid "Control Center"
-msgstr "Valdymo centrą"
+msgstr "Valdymo centras"
 
 #: gettingstarted.html:736
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
-msgstr ""
+msgstr "Aukščiau paminėtos paslaugų programos yra Ubuntu MATE sistemoje pateikiamo išplėstinio Valdymo centro dalis. Jūs galite konfigūruoti beveik kiekvieną savo kompiuterio aspektą per Valdymo centrą."
 
 #: gettingstarted.html:743
 msgid "can be found later in the"
-msgstr ""
+msgstr "vėliau galima rasti meniu punkte"
 
 #: gettingstarted.html:744
 msgid "menu."
-msgstr ""
+msgstr "."
 
 #: gettingstarted.html:747
 msgid "Desktop Wallpaper"
-msgstr ""
+msgstr "Darbalaukio fonas"
 
 #: gettingstarted.html:748
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr ""
+msgstr "Ubuntu MATE bendruomenė per metus pateikė dešimtis darbalaukio fono paveikslų. Kodėl gi jų neįdiegus ir nepasirinkus kažko pagal savo skonį?"
 
 #: gettingstarted.html:752
 msgid "Wallpapers"
-msgstr ""
+msgstr "Darbalaukio fonai"
 
 #: gettingstarted.html:771
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
-msgstr ""
+msgstr "Ubuntu MATE turi daug klaviatūros kombinacijų, kurios padeda padaryti jūsų naudojimąsi kompiuteriu efektyvesnį."
 
 #: gettingstarted.html:773
 msgid "Common application shortcuts"
-msgstr ""
+msgstr "Bendri programų trumpiniai"
 
 #: gettingstarted.html:774
 msgid "These shortcuts apply in most applications."
-msgstr ""
+msgstr "Šie trumpiniai yra pritaikomi daugumoje programų."
 
-#: gettingstarted.html:776
-msgid "Copy the selected text/object"
-msgstr ""
-
-#: gettingstarted.html:777
-msgid "Cut the selected text/object"
-msgstr ""
-
-#: gettingstarted.html:778
-msgid "Paste/insert the selected text/object"
-msgstr ""
+#: gettingstarted.html778, 782, 786, 790, 794, 798, 802, 806, 810, 814, 818,
+#: 822, 826, 830, 834, 865, 869, 873, 896, 906, 910, 914, 918, 954, 958, 962,
+#: 966, 970, 974, 978, 987, 992, 995
+msgid "Ctrl"
+msgstr "Ctrl"
 
 #: gettingstarted.html:779
+msgid "Copy the selected text/object"
+msgstr "Kopijuoti pažymėtą tekstą/objektą"
+
+#: gettingstarted.html783, 787
+msgid "Cut the selected text/object"
+msgstr "Iškirpti pažymėtą tekstą/objektą"
+
+#: gettingstarted.html:791
+msgid "Paste/insert the selected text/object"
+msgstr "Įdėti/įterpti pažymėtą tekstą/objektą"
+
+#: gettingstarted.html:795
 msgid "Select all text"
-msgstr ""
+msgstr "Pažymėti visą tekstą"
 
-#: gettingstarted.html:780
+#: gettingstarted.html:799
 msgid "Find and replace words"
-msgstr ""
+msgstr "Rasti ir pakeisti žodžius"
 
-#: gettingstarted.html:781
+#: gettingstarted.html:803
 msgid "Make the selected text bold"
-msgstr ""
+msgstr "Padaryti pažymėtą tekstą pusjuodžiu"
 
-#: gettingstarted.html:782
+#: gettingstarted.html:807
 msgid "Make the selected text italic"
-msgstr ""
+msgstr "Padaryti pažymėtą tekstą kursyviniu"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:811
 msgid "Underline the selected text"
-msgstr ""
+msgstr "Pabraukti pažymėtą tekstą"
 
-#: gettingstarted.html:784
+#: gettingstarted.html:815
 msgid "Open a new document or window"
-msgstr ""
+msgstr "Atverti naują dokumentą ar langą"
 
-#: gettingstarted.html:785
+#: gettingstarted.html:819
 msgid "Save the current document"
-msgstr ""
+msgstr "Įrašyti esamą dokumentą"
 
-#: gettingstarted.html:786
+#: gettingstarted.html:823
 msgid "Open another document"
-msgstr ""
+msgstr "Atverti kitą dokumentą"
 
-#: gettingstarted.html:787
+#: gettingstarted.html:827
 msgid "Print the current document"
-msgstr ""
+msgstr "Spausdinti esamą dokumentą"
 
-#: gettingstarted.html:788
+#: gettingstarted.html:831
 msgid "Undo the last change you made"
-msgstr ""
+msgstr "Atšaukti paskiausiai atliktą pakeitimą"
 
-#: gettingstarted.html:789
+#: gettingstarted.html:835
 msgid "Redo a change that you just undid"
 msgstr ""
 
-#: gettingstarted.html:790
+#: gettingstarted.html:839
 msgid "Toggle the current application between full-screen and windowed"
-msgstr ""
+msgstr "Perjungti esamos programos rodinį tarp viso ekrano ir lango rodinio"
 
-#: gettingstarted.html:792
+#: gettingstarted.html:843
 msgid "Desktop shortcuts"
-msgstr ""
+msgstr "Darbalaukio trumpiniai"
 
-#: gettingstarted.html:793
+#: gettingstarted.html:844
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
-msgstr ""
+msgstr "Šioje sekcijoje išvardintos bendros klavišų kombinacijos, kurias galite naudoti, kad paveiktumėte darbalaukio dalis."
 
-#: gettingstarted.html:796
+#: gettingstarted.html:850
 msgid "Open the Applications menu"
-msgstr ""
+msgstr "Atverti programų meniu"
 
-#: gettingstarted.html:797
+#: gettingstarted.html:854
 msgid "Run an application by typing its name in the box which appears"
-msgstr ""
+msgstr "Vykdyti programą, įrašant jos pavadinimą atsiradusiame langelyje"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:857
 msgid "Prt Sc"
-msgstr ""
+msgstr "Prt Sc"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:858
 msgid "Take a screenshot of the whole screen"
-msgstr ""
+msgstr "Padaryti viso ekrano kopiją"
 
-#: gettingstarted.html:799
+#: gettingstarted.html:862
 msgid "Take a screenshot of the current window"
-msgstr ""
+msgstr "Padaryti esamo lango ekrano kopiją"
 
-#: gettingstarted.html:800
+#: gettingstarted.html:865
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
-#: gettingstarted.html:800
-msgid "Prompt is you want to Suspend, Restart or Shutdown the computer"
-msgstr ""
+#: gettingstarted.html:866
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "Atverti dialogo langelį, skirtą išjungti, paleisti iš naujo ar pristabdyti kompiuterį."
 
-#: gettingstarted.html:801
+#: gettingstarted.html:870
 msgid "Lock your screen."
-msgstr ""
+msgstr "Užrakinti jūsų ekraną."
 
-#: gettingstarted.html:802
+#: gettingstarted.html:874
 msgid "Open a terminal."
-msgstr ""
+msgstr "Atverti terminalą."
 
-#: gettingstarted.html:804
+#: gettingstarted.html:878
+msgid "Screen reader enable/disable."
+msgstr "Įjungti/išjungti ekrano skaityklę."
+
+#: gettingstarted.html:882
 msgid "Window shortcuts"
-msgstr ""
+msgstr "Langų trumpiniai"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:885
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:887
+msgid "Switch between currently-open windows."
+msgstr "Perjungti tarp šiuo metu atvertų langų."
+
+#: gettingstarted.html:889
+msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
+msgstr "Spustelėkite Alt + Tab, o tuomet atleiskite Tab klavišą (tačiau ir toliau laikykite nuspaudę Alt)."
+
+#: gettingstarted.html890, 900
 msgid ""
-"Switch between currently-open windows. Press Alt + Tab and then release Tab "
-"(but continue to hold Alt). Press Tab repeatedly to cycle through the list "
-"of available windows which appears on the screen. Release the Alt key to "
-"switch to the selected window."
-msgstr ""
+"Press Tab repeatedly to cycle through the list of available windows which "
+"appears on the screen."
+msgstr "Pakartotinai spustelėkite Tab, kad perjunginėtumėte prieinamų langų sąraše, kuris atsiranda ekrane."
 
-#: gettingstarted.html:807
-msgid ""
-"Switch between currently-open windows in all Workspaces. Press Tab "
-"repeatedly to cycle through the list of available windows which appears on "
-"the screen. Release the Ctrl and Alt keys to switch to the selected window."
-msgstr ""
+#: gettingstarted.html:891
+msgid "Release the Alt key to switch to the selected window."
+msgstr "Atleiskite Alt klavišą, kad perjungtumėte į pasirinktą langą."
 
-#: gettingstarted.html:808
+#: gettingstarted.html:898
+msgid "Switch between currently-open windows in all Workspaces."
+msgstr "Perjungti tarp šiuo metu visose darbo srityse atvertų langų."
+
+#: gettingstarted.html:901
+msgid "Release the Ctrl and Alt keys to switch to the selected window."
+msgstr "Atleiskite Ctrl ir Alt klavišus, kad perjungtumėte į pasirinktą langą."
+
+#: gettingstarted.html:906
 msgid "Left"
-msgstr ""
+msgstr "Kairėn"
 
-#: gettingstarted.html:808
-msgid "Switch to the next workspace."
-msgstr ""
+#: gettingstarted.html:907
+msgid "Switch to the previous workspace."
+msgstr "Perjungti į ankstesnę darbo sritį."
 
-#: gettingstarted.html:809
+#: gettingstarted.html:910
 msgid "Right"
-msgstr ""
+msgstr "Dešinėn"
 
-#: gettingstarted.html:809
-msgid "Switch to the previous workspaces."
-msgstr ""
+#: gettingstarted.html:911
+msgid "Switch to the next workspace."
+msgstr "Perjungti į kitą darbo sritį."
 
-#: gettingstarted.html810, 811, 837
+#: gettingstarted.html914, 918, 1008
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
-#: gettingstarted.html:810
-msgid "Move the current window to the next workspace."
-msgstr ""
-
-#: gettingstarted.html:811
+#: gettingstarted.html:915
 msgid "Move the current window to the previous workspace."
-msgstr ""
+msgstr "Perkelti esamą langą į ankstesnę darbo sritį."
 
-#: gettingstarted.html:812
+#: gettingstarted.html:919
+msgid "Move the current window to the next workspace."
+msgstr "Perkelti esamą langą į kitą darbo sritį."
+
+#: gettingstarted.html:923
 msgid "Closes window."
-msgstr ""
+msgstr "Užveria langą."
 
-#: gettingstarted.html:813
+#: gettingstarted.html:927
 msgid "Returns window to 'normal' or previous size."
-msgstr ""
+msgstr "Grąžina langą į \"normalų\" ar ankstesnį dydį."
 
-#: gettingstarted.html:814
+#: gettingstarted.html:931
 msgid "Moves the current window (can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Perkelia esamą langą (gali būti perkeliamas pelės ar klaviatūros pagalba)."
 
-#: gettingstarted.html:815
+#: gettingstarted.html:935
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Keičia esamo lango dydį (vėlgi, gali būti perkeliamas pelės ar klaviatūros pagalba)."
 
-#: gettingstarted.html:816
+#: gettingstarted.html:939
 msgid "Minimizes current window."
-msgstr ""
+msgstr "Suskleidžia esamą langą."
 
-#: gettingstarted.html:817
+#: gettingstarted.html:943
 msgid "Maximizes current window."
+msgstr "Išskleidžia esamą langą."
+
+#: gettingstarted.html:947
+msgid "Pulldown Terminal."
 msgstr ""
 
-#: gettingstarted.html:818
+#: gettingstarted.html:950
 msgid "Space"
-msgstr ""
+msgstr "Tarpas"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:951
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
-msgstr ""
+msgstr "Rodo lango meniu su tokiomis parinktimis kaip \"Visada viršuje\" ir \"Suskleisti\" bei \"Išskleisti\", o taip pat su viršuje esančiomis komandomis."
 
-#: gettingstarted.html819, 820, 821, 822, 823, 824, 825
+#: gettingstarted.html954, 958, 962, 966, 970, 974, 978
 msgid "Numpad"
 msgstr ""
 
-#: gettingstarted.html:819
+#: gettingstarted.html:955
 msgid "Place window in top left corner of screen."
-msgstr ""
+msgstr "Padėti langą į viršutinį kairįjį ekrano kampą."
 
-#: gettingstarted.html:820
+#: gettingstarted.html:959
 msgid "Place window in top half of screen."
-msgstr ""
+msgstr "Padėti langą į viršutinę ekrano pusę."
 
-#: gettingstarted.html:821
+#: gettingstarted.html:963
 msgid "Place window in top right corner of screen."
-msgstr ""
+msgstr "Padėti langą į viršutinį dešinįjį ekrano kampą."
 
-#: gettingstarted.html:822
+#: gettingstarted.html:967
 msgid "Center/Maximize the window in the middle of the screen."
-msgstr ""
+msgstr "Centruoti/Išskleisti langą ekrano centre."
 
-#: gettingstarted.html:823
+#: gettingstarted.html:971
 msgid "Place window in the bottom left corner of the screen."
-msgstr ""
+msgstr "Padėti langą į apatinį kairįjį ekrano kampą."
 
-#: gettingstarted.html:824
+#: gettingstarted.html:975
 msgid "Place window in the bottom half of the screen."
-msgstr ""
+msgstr "Padėti langą į apatinę ekrano pusę."
 
-#: gettingstarted.html:825
+#: gettingstarted.html:979
 msgid "Place window in the bottom right corner of the screen."
-msgstr ""
+msgstr "Padėti langą į apatinį dešinįjį ekrano kampą."
 
-#: gettingstarted.html:827
+#: gettingstarted.html:983
 msgid "Compiz Effects Shortcuts"
-msgstr ""
+msgstr "Compiz efektų trumpiniai"
 
-#: gettingstarted.html:828
+#: gettingstarted.html:984
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "Visi šioje sekcijoje išvardinti trumpiniai reikalauja, kad būtų įjungta Compiz."
 
-#: gettingstarted.html:830
+#: gettingstarted.html:988
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "Perjungia \"Rodyti darbalaukį\""
 
-#: gettingstarted.html:832
+#: gettingstarted.html:993
 msgid ""
 "Enables an 'expose' like feature that presents you with all the windows you "
 "currently have open, allowing you to select the one you wish to give focus "
 "to."
-msgstr ""
+msgstr "Įjungia į \"ekspoziciją\" panašią ypatybę, kuri pateikia jums visus šiuo metu atvertus langus, leisdama jums pasirinkti tą, kurį norite sufokusuoti."
 
-#: gettingstarted.html:833
+#: gettingstarted.html:996
 msgid ""
 "Unfolds your workspace cube allowing you to see more than one of your "
 "workspaces at once, using the left and right cursor keys with this active "
 "will allow you to select the workspace you wish to use."
 msgstr ""
 
-#: gettingstarted.html835, 836, 837, 838, 839, 840, 841
+#: gettingstarted.html1000, 1004, 1008, 1012, 1016, 1020, 1024
 msgid "Super"
-msgstr ""
+msgstr "Super"
 
-#: gettingstarted.html:835
+#: gettingstarted.html:1001
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "Mažinti, rodyti darbo sričių perjungiklį."
 
-#: gettingstarted.html:836
+#: gettingstarted.html:1005
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Įjungia \"skalės\" efektą, jis rodo visus esamos darbo srities langus."
 
-#: gettingstarted.html:837
+#: gettingstarted.html:1009
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Įjungia \"skalės\" efektą, jis rodo visus langus iš visų darbo sričių."
 
-#: gettingstarted.html:838
+#: gettingstarted.html:1013
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Invertuoti sufokusuoto lango spalvas."
 
-#: gettingstarted.html:839
+#: gettingstarted.html:1017
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "Invertuoti viso ekrano spalvas."
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1020
 msgid "Mouse Scroll"
-msgstr ""
+msgstr "Pelės slinktis"
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1021
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "Didina ekraną."
 
-#: gettingstarted.html841, 843
+#: gettingstarted.html1024, 1032
 msgid "Middle Mouse Button"
-msgstr ""
+msgstr "Vidurinysis pelės mygtukas"
 
-#: gettingstarted.html:841
+#: gettingstarted.html:1025
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "Pasirinkti didinamą sritį, naudojant stačiakampį."
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1028
 msgid "Left Mouse Button"
-msgstr ""
+msgstr "Kairysis pelės mygtukas"
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1029
 msgid "Move focused window."
-msgstr ""
+msgstr "Perkelti sufokusuotą langą."
 
-#: gettingstarted.html:843
+#: gettingstarted.html:1033
 msgid "Resize focused window."
-msgstr ""
+msgstr "Keisti sufokusuoto lango dydį."
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1036
 msgid "Right Mouse Button"
-msgstr ""
+msgstr "Dešinysis pelės mygtukas"
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1037
 msgid "Show window menu."
-msgstr ""
+msgstr "Rodyti lango meniu."
 
-#: gettingstarted.html:861
+#: gettingstarted.html:1055
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
-"hardware and software works on your machine and Ubuntu MATE."
-msgstr ""
+"hardware and software works on your machine."
+msgstr "Jūsų kompiuteris yra sudarytas iš įvairių tarpusavyje sąveikaujančių komponentų. Ši informacija yra naudinga, teikiant palaikymą, kad būtų užtikrinta, jog aparatinė ir programinė įranga veikia jūsų kompiuteryje."
 
-#: gettingstarted.html:867
+#: gettingstarted.html:1061
 msgid "Please wait while the information is being populated..."
 msgstr "Prašome palaukti, kol informacija yra renkama..."
 
-#: gettingstarted.html:869
+#: gettingstarted.html:1063
 msgid "Basic"
 msgstr "Pagrindiniai"
 
-#: gettingstarted.html:870
+#: gettingstarted.html:1064
 msgid "Detailed"
 msgstr "Išsamūs"
 
-#: gettingstarted.html:871
+#: gettingstarted.html:1065
 msgid "Utilities"
 msgstr "Paslaugų programos"
 
-#: gettingstarted.html:882
+#: gettingstarted.html:1080
 msgid "Distribution:"
 msgstr "Distribucija:"
 
-#: gettingstarted.html:883
+#: gettingstarted.html:1084
 msgid "Kernel:"
 msgstr "Branduolys:"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:1087
+msgid "The Linux kernel is the heart of Ubuntu."
+msgstr "Linux branduolys yra Ubuntu širdis."
+
+#: gettingstarted.html:1093
 msgid "Motherboard:"
 msgstr "Pagrindinė plokštė:"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:1097
 msgid "Boot Mode:"
 msgstr "Paleidimo veiksena:"
 
-#: gettingstarted.html:889
+#: gettingstarted.html:1100
+msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
+msgstr "Rodo veikseną, kurioje Ubuntu MATE susisiekia su programine aparatine įranga."
+
+#: gettingstarted.html:1108
 msgid "Processor"
 msgstr "Procesorius"
 
-#: gettingstarted.html:891
+#: gettingstarted.html:1111
 msgid "Model:"
 msgstr "Modelis:"
 
-#: gettingstarted.html:892
+#: gettingstarted.html:1115
 msgid "Speed:"
 msgstr "Greitis:"
 
-#: gettingstarted.html:893
+#: gettingstarted.html:1119
 msgid "Architecture in use:"
 msgstr "Naudojama architektūra:"
 
-#: gettingstarted.html:894
+#: gettingstarted.html:1122
+msgid ""
+"The operating system's architecture in use. For instance, i386 = 32-bit."
+msgstr "Naudojama operacinės sistemos architektūra. Pavyzdžiui, i386 = 32-bitų."
+
+#: gettingstarted.html:1128
 msgid "Architecture(s) supported:"
 msgstr "Palaikoma architektūra(-os):"
 
-#: gettingstarted.html:898
+#: gettingstarted.html:1131
+msgid "Architectures that are supported by this processor."
+msgstr "Architektūros, kurias šis procesorius palaiko."
+
+#: gettingstarted.html:1139
 msgid "Components"
 msgstr "Komponentai"
 
-#: gettingstarted.html:900
+#: gettingstarted.html:1142
 msgid "Memory (RAM):"
 msgstr "Atmintis (RAM):"
 
-#: gettingstarted.html:901
+#: gettingstarted.html:1145
+msgid "More RAM allows more applications to run simultaneously."
+msgstr "Daugiau RAM leidžia didesniam programų skaičiui veikti vienu metu."
+
+#: gettingstarted.html:1151
 msgid "Graphics:"
 msgstr "Grafika:"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:1155
 msgid "Internet Access:"
 msgstr "Interneto prieiga:"
 
-#: gettingstarted.html:903
+#: gettingstarted.html:1157
 msgid "Connected"
 msgstr ""
 
-#: gettingstarted.html:904
+#: gettingstarted.html:1158
 msgid "Not Connected"
 msgstr ""
 
-#: gettingstarted.html:908
+#: gettingstarted.html:1165
 msgid "Storage"
 msgstr ""
 
-#: gettingstarted.html:910
+#: gettingstarted.html:1169
 msgid "Root File System:"
 msgstr ""
 
-#: gettingstarted.html:911
+#: gettingstarted.html:1172
+msgid "The file system where Ubuntu MATE is installed."
+msgstr ""
+
+#: gettingstarted.html:1178
 msgid "Entire Disk Capacity:"
 msgstr ""
 
-#: gettingstarted.html:912
-msgid "Allocated:"
+#: gettingstarted.html:1183
+msgid "Used in Ubuntu MATE"
 msgstr ""
 
-#: gettingstarted.html:913
+#: gettingstarted.html:1184
+msgid "Other partitions, including swap"
+msgstr ""
+
+#: gettingstarted.html:1189
+msgid "Allocated for Ubuntu MATE:"
+msgstr ""
+
+#: gettingstarted.html:1193
 msgid "Free Space:"
 msgstr ""
 
-#: gettingstarted.html:915
+#: gettingstarted.html:1199
 msgid "Why do I see two units?"
 msgstr ""
 
-#: gettingstarted.html:919
+#: gettingstarted.html:1205
 msgid "SI or IEC Units?"
 msgstr ""
 
-#: gettingstarted.html:921
+#: gettingstarted.html:1207
 msgid "Decimal (SI Standard)"
 msgstr ""
 
-#: gettingstarted.html:923
+#: gettingstarted.html:1209
 msgid "1 KB = 1000 bytes"
-msgstr ""
+msgstr "1 KB = 1000 baitų"
 
-#: gettingstarted.html:924
+#: gettingstarted.html:1210
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr ""
 
-#: gettingstarted.html:925
+#: gettingstarted.html:1211
 msgid "Common in every day applications and file storage."
 msgstr ""
 
-#: gettingstarted.html:929
+#: gettingstarted.html:1215
 msgid "Binary (IEC Standard)"
 msgstr ""
 
-#: gettingstarted.html:931
+#: gettingstarted.html:1217
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 baitai"
 
-#: gettingstarted.html:932
+#: gettingstarted.html:1218
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr ""
 
-#: gettingstarted.html:933
+#: gettingstarted.html:1219
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr ""
 
-#: gettingstarted.html:942
-msgid "The following information is retrieved directly by the"
+#: gettingstarted.html:1228
+msgid "The following information is retrieved directly from the"
 msgstr ""
 
-#: gettingstarted.html:942
+#: gettingstarted.html:1228
 msgid "command line program."
 msgstr ""
 
-#: gettingstarted.html:943
+#: gettingstarted.html:1229
 msgid "Could not gather data."
 msgstr ""
 
-#: gettingstarted.html:955
+#: gettingstarted.html:1241
 msgid "System Profiler and Benchmark"
 msgstr ""
 
-#: gettingstarted.html:956
+#: gettingstarted.html:1242
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr ""
 
-#: gettingstarted.html:971
+#: gettingstarted.html:1257
 msgid "Disks"
 msgstr ""
 
-#: gettingstarted.html:972
+#: gettingstarted.html:1258
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
 msgstr ""
 
-#: gettingstarted.html:989
+#: gettingstarted.html:1275
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr ""
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:1290
+msgid "Disk Usage Analyser"
+msgstr ""
+
+#: gettingstarted.html:1291
+msgid ""
+"A graphical tool for exploring your file system or individual folders to "
+"determine how much space is being used."
+msgstr ""
+
+#: gettingstarted.html:1306
 msgid "System Monitor"
 msgstr "Sistemos monitorius"
 
-#: gettingstarted.html:1005
+#: gettingstarted.html:1307
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
-msgstr ""
-
-#: gettingstarted.html:803
-msgid "Screen reader enable/disable."
-msgstr ""
-
-#: gettingstarted.html:809
-msgid "Switch to the previous workspace."
-msgstr ""
-
-#: gettingstarted.html:819
-msgid "Pulldown Terminal."
 msgstr ""

@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Agustín Alcaraz <alcaraz.agustin@gmail.com>, 2016
+# Edgar Payes <espayesgt@gmail.com>, 2016
 # Leo Arias <yo@elopio.net>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-22 18:30+0000\n"
-"Last-Translator: Agustín Alcaraz <alcaraz.agustin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-27 23:44+0000\n"
+"Last-Translator: Edgar Payes <espayesgt@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +69,7 @@ msgstr "Tareas Opcionales"
 msgid "Familiarity"
 msgstr "Familiaridad"
 
-#: gettingstarted.html42, 42, 710, 711, 849, 850
+#: gettingstarted.html42, 42, 710, 711, 1043, 1044
 msgid "Customization"
 msgstr "Personalización"
 
@@ -136,7 +137,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "El sistema operativo se ejecutará de una forma mucho más eficiente si tu ordenador reúne o sobrepasa los requisitos recomendados."
 
-#: gettingstarted.html85, 860
+#: gettingstarted.html85, 1054
 msgid "What's inside my computer?"
 msgstr "¿Qué hay dentro de mi ordenador?"
 
@@ -213,7 +214,7 @@ msgid "Secure Boot"
 msgstr "Inicio Seguro (Secure Boot)"
 
 #: gettingstarted.html:127
-msgid "(or enable an"
+msgid "(or enable the"
 msgstr "(o habilitar una opción"
 
 #: gettingstarted.html:127
@@ -281,20 +282,13 @@ msgid ""
 msgstr "Para ordenadores que empiecen a funcionar con poca memoria (RAM), el sistema operativo empezará a intercambiar a disco. Conocido como \"archivo de paginación\" en Windows. El rendimiento se reducirá mientras se trabaje con memoria baja y podría dejar de responder si agota toda la memoria sin ningún sitio donde intercambiar."
 
 #: gettingstarted.html:154
-msgid "By default,"
-msgstr "De forma predeterminada,"
-
-#: gettingstarted.html:154
-msgid "a swap partition is created by the size of your RAM."
-msgstr "una partición de intercambio es creada según el tamaño de la RAM."
-
-#: gettingstarted.html:154
 msgid ""
-"For example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be"
-" reserved for swap at the end of the drive."
-msgstr ""
+"By default, a swap partition is created based on the size of your RAM. For "
+"example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
+"reserved for swap at the end of the drive."
+msgstr "De forma predeterminada, se crea una partición de intercambio basado en el tamaño de la memoria RAM. Por ejemplo, si usted tiene 2 GB de memoria RAM, de 2 GB de espacio en disco duro se reservará para intercambio al final de la unidad."
 
-#: gettingstarted.html160, 338, 570, 616, 709, 758, 850
+#: gettingstarted.html160, 338, 570, 616, 709, 758, 1044
 msgid "Previous:"
 msgstr "Anterior:"
 
@@ -303,7 +297,11 @@ msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr ""
+msgstr "En caso de que desees instalar Ubuntu MATE junto con un sistema operativo existente, sus particiones que necesitan ser reducidas. Esto da lugar a que secciones de tu disco duro se dividan entre varios sistemas operativos."
+
+#: gettingstarted.html:179
+msgid "I'm dual booting with"
+msgstr "Tengo un arranque dual con"
 
 #: gettingstarted.html:182
 msgid "To minimize the risk of data loss or failure, ensure that:"
@@ -311,11 +309,11 @@ msgstr "Para minimizar el reisgo de perdida de datos o error, asegúrese de:"
 
 #: gettingstarted.html:184
 msgid "There is enough free space. 10 GB minimum is recommended."
-msgstr ""
+msgstr "Hay suficiente espacio disponible. 10 GB es el mínimo recomendado."
 
 #: gettingstarted.html:185
 msgid "important data to another drive."
-msgstr ""
+msgstr "Datos importantes a otro disco"
 
 #: gettingstarted.html:186
 msgid "Defragment the hard drive."
@@ -323,11 +321,11 @@ msgstr "Desfragmentar el disco duro."
 
 #: gettingstarted.html:187
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
-msgstr ""
+msgstr "Asegúrese que Windows fue completamente apagado (no en Hibernación)."
 
 #: gettingstarted.html:191
 msgid "Which approach would you prefer?"
-msgstr ""
+msgstr "¿Qué método prefiere?"
 
 #: gettingstarted.html193, 277
 msgid "Simple"
@@ -349,168 +347,168 @@ msgstr "El método más simple es usar el instalador."
 msgid ""
 "The installer scans your disks for existing operating systems and provides a"
 " choice on what you'd like to do."
-msgstr ""
+msgstr "El instalador escanea tus discos en busca de sistemas operativos en ellos, y te da opciones en cuanto qué te gustaría hacer."
 
 #: gettingstarted.html:205
 msgid "You will see an option similar to this:"
-msgstr ""
+msgstr "Verás una opción similar a ésta:"
 
 #: gettingstarted.html:209
 msgid "Followed by:"
-msgstr ""
+msgstr "Seguida de:"
 
 #: gettingstarted.html:215
 msgid "Do not interrupt or power off the computer during a resize operation."
-msgstr ""
+msgstr "No interrumpas o apagues el ordenador durante una operación de cambio de tamaño."
 
 #: gettingstarted.html:217
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr ""
+msgstr "Si lo haces, puedes perder datos o corromper la tabla de partición de datos. Por favor revisa dos veces los cambios antes de proceder."
 
 #: gettingstarted.html:219
 msgid "The installer may show a"
-msgstr ""
+msgstr "El instalador puede mostrar un"
 
 #: gettingstarted.html:219
 msgid ""
 "spinner cursor for a long period of time, depending on the size of your disk"
-msgstr ""
+msgstr "cursor rotando por un largo período de tiempo, dependiendo del tamaño de tu disco."
 
 #: gettingstarted.html:223
 msgid "When you next boot Windows, run"
-msgstr ""
+msgstr "Cuando inicies Windows otra vez, corre"
 
 #: gettingstarted.html:224
 msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr ""
+msgstr "desde el símbolo del sistema para revisar si hay errores en los datos del sistema. Windows puede realizar esto automáticamente. Esto asegura consistencia en el sistema de archivos NTFS."
 
 #: gettingstarted.html:231
 msgid "Use GParted or the installer's \"Custom\" option."
-msgstr ""
+msgstr "Usa GParted o la opción \"Personalizada\" en el instalador"
 
-#: gettingstarted.html234, 988
+#: gettingstarted.html234, 1274
 msgid "GParted"
-msgstr ""
+msgstr "Gparted"
 
 #: gettingstarted.html:234
 msgid "is available during the live session only."
-msgstr ""
+msgstr "está disponible sólo en la sesión en vivo."
 
 #: gettingstarted.html:235
 msgid "It is located under the"
-msgstr ""
+msgstr "Está localizada bajo el"
 
-#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 880
+#: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 700, 731, 744, 1077
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: gettingstarted.html236, 362, 415, 536, 700
 msgid "Administration"
-msgstr ""
+msgstr "Administración"
 
 #: gettingstarted.html:236
 msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr ""
+msgstr "menú. GParted proporciona flexibilidad total sobre sus particiones, sobre todo para los usuarios avanzados que saben cómo les gustaría a la disposición de sus discos. Este método hace cambios a las particiones antes de la instalación."
 
 #: gettingstarted.html:244
 msgid ""
 "After completing operations to your disk, you can leave the remaining space "
 "unallocated,"
-msgstr ""
+msgstr "Tras completar operaciones a tu disco, puedes dejar el espacio restante sin asignar"
 
 #: gettingstarted.html:245
 msgid ""
 "whereby the installer will detect this unused space to install Ubuntu MATE "
 "to."
-msgstr ""
+msgstr "en donde el instalador detectará éste espacio sin uso para instalar Ubuntu MATE en eĺ."
 
 #: gettingstarted.html:247
 msgid "Using the Installer's \"Custom\" option."
-msgstr ""
+msgstr "Usando la opción \"Personalizada\" del instalador."
 
 #: gettingstarted.html:248
 msgid "Instead or in addition to GParted, the"
-msgstr ""
+msgstr "En su lugar o adicional a Gparted, la"
 
 #: gettingstarted.html:248
 msgid "Custom"
-msgstr ""
+msgstr "opción"
 
 #: gettingstarted.html:248
 msgid ""
 "option during the installation wizard can also configure and resize your "
 "partitions as well as choose mount points. Dividing your disks can make it "
 "somewhat easier to re-install the operating system later if desired."
-msgstr ""
+msgstr "\"Personalizada\" durante el asistente de instalación también puede configurar y cambiar el tamaño de las particiones, así como elegir los puntos de montaje. La división de los discos puede hacer que sea un poco más fácil volver a instalar el sistema operativo posterior si así lo desea."
 
 #: gettingstarted.html:253
 msgid "You can specify these mount points:"
-msgstr ""
+msgstr "Puedes especificar éstos puntos de montaje:"
 
 #: gettingstarted.html:255
 msgid "The base for Ubuntu MATE"
-msgstr ""
+msgstr "La base para Ubuntu MATE"
 
 #: gettingstarted.html:256
 msgid "Bootloader and kernels"
-msgstr ""
+msgstr "Gestor de arranque y los kernels"
 
 #: gettingstarted.html:257
 msgid "Your personal files and folders"
-msgstr ""
+msgstr "Tus archivos y carpetas personales"
 
 #: gettingstarted.html:258
 msgid "Temporary files"
-msgstr ""
+msgstr "Archivos temporales"
 
 #: gettingstarted.html:259
 msgid "Contains most of the applications"
-msgstr ""
+msgstr "Contiene la mayoría de las aplicaciones"
 
 #: gettingstarted.html:259
 msgid "(binaries, documentation, libraries, etc)"
-msgstr ""
+msgstr "(binarios, documentación, bibliotecas, etc.)"
 
 #: gettingstarted.html:260
 msgid "Variable data"
-msgstr ""
+msgstr "Datos variables"
 
 #: gettingstarted.html:260
 msgid "(such as system logs)"
-msgstr ""
+msgstr "(Tales como los registros del sistema)"
 
 #: gettingstarted.html:261
 msgid "Data for System Services"
-msgstr ""
+msgstr "Datos para Servicios del Sistema"
 
 #: gettingstarted.html:261
 msgid "(typically used for server configurations)"
-msgstr ""
+msgstr "(usualmente usado para configuraciones de servidor)"
 
 #: gettingstarted.html:262
 msgid "Additional software unmanaged by the package manager"
-msgstr ""
+msgstr "Software adicional no administrado por el administrador de paquetes"
 
 #: gettingstarted.html:263
 msgid "such as"
-msgstr ""
+msgstr "así como"
 
 #: gettingstarted.html:265
 msgid ""
 "Creating separate partitions for all above mount points is not necessary."
-msgstr ""
+msgstr "La creación de particiones separadas para todos los puntos de montaje de arriba no es necesario."
 
 #: gettingstarted.html:266
 msgid "The commonly partitioned directories being"
-msgstr ""
+msgstr "Los directorios comúnmente con particiones son"
 
 #: gettingstarted.html:267
 msgid "and"
@@ -518,35 +516,35 @@ msgstr "y"
 
 #: gettingstarted.html:267
 msgid "These mount points can also be set across different"
-msgstr ""
+msgstr "Estos puntos de montaje también pueden ser configurados a través de diferentes"
 
 #: gettingstarted.html:268
 msgid "physical disks, for instance, if you'd like the OS"
-msgstr ""
+msgstr "discos físicos, por ejemplo, si prefieres el Sistema Operativo"
 
 #: gettingstarted.html:268
 msgid "on an SSD,"
-msgstr ""
+msgstr "en una Unidad de estado sólido"
 
 #: gettingstarted.html:269
 msgid "but your personal files"
-msgstr ""
+msgstr "pero tus archivos personales"
 
 #: gettingstarted.html:269
 msgid "on a mechanical hard drive."
-msgstr ""
+msgstr "en un Disco duro mecánico"
 
 #: gettingstarted.html:273
 msgid "Shrink your system disk within Windows."
-msgstr ""
+msgstr "Reducir el tamaño de su disco de sistema dentro de Windows."
 
 #: gettingstarted.html:275
 msgid "Applies to Windows Vista and later."
-msgstr ""
+msgstr "Aplica a Windows Vista y posterior"
 
 #: gettingstarted.html:276
 msgid "If you are using Windows XP or earlier, you will need to use the"
-msgstr ""
+msgstr "Si estás usando WIndows XP o anteriores, necesitarás usar el"
 
 #: gettingstarted.html:277
 msgid "or"
@@ -554,72 +552,72 @@ msgstr "o"
 
 #: gettingstarted.html:277
 msgid "method to shrink your disk."
-msgstr ""
+msgstr "método para reducir el tamaño de su disco."
 
 #: gettingstarted.html:280
 msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "Las versiones más recientes de Windows proporcionan una herramienta para reducir el volumen NTFS desde Windows. Esta es una apuesta más segura si es esencial que Windows todavía inicie en tu equipo, mientras que experimentas Ubuntu MATE."
 
-#: gettingstarted.html284, 560, 959, 976, 992, 1008
+#: gettingstarted.html284, 560, 1245, 1262, 1278, 1294, 1310
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: gettingstarted.html:284
 msgid "Disk Management"
-msgstr ""
+msgstr "Administración de Disco"
 
 #: gettingstarted.html:284
 msgid "from the start menu."
-msgstr ""
+msgstr "desde el menú inicio"
 
 #: gettingstarted.html:289
 msgid "Right click your desired drive and choose"
-msgstr ""
+msgstr "Haga clic derecho en la unidad que desee y seleccione"
 
 #: gettingstarted.html:289
 msgid "Shrink Partition"
-msgstr ""
+msgstr "reducir el tamaño de partición"
 
 #: gettingstarted.html:289
 msgid "from the context menu."
-msgstr ""
+msgstr "desde el menú contextual."
 
 #: gettingstarted.html:294
 msgid "Enter the amount to shrink your system partition by."
-msgstr ""
+msgstr "Introduce la cantidad para reducir el tamaño de tu partición del sistema."
 
 #: gettingstarted.html:300
 msgid "Remember, Ubuntu MATE needs at minimum 8 GB of disk space."
-msgstr ""
+msgstr "Recuerda, Ubuntu MATE necesita un mínimo de 8 GB de espacio en disco."
 
 #: gettingstarted.html:305
 msgid "Further Reading"
-msgstr ""
+msgstr "Más lecturas"
 
 #: gettingstarted.html:306
 msgid ""
 "For further information on the best practices to modify partitions "
 "containing Windows, see the following"
-msgstr ""
+msgstr "Para más información sobre las mejores prácticas para modificar las particiones que contiene Windows, consulte el siguiente"
 
 #: gettingstarted.html:309
 msgid "help article"
-msgstr ""
+msgstr "artículo de ayuda"
 
 #: gettingstarted.html:309
 msgid "online"
-msgstr ""
+msgstr "en internet"
 
 #: gettingstarted.html:313
 msgid "Repairing Boot Problems"
-msgstr ""
+msgstr "Reparación de problemas de arranque"
 
 #: gettingstarted.html:315
 msgid "Linux distributions use a boot loader known as"
-msgstr ""
+msgstr "distribuciones de Linux utilizan un cargador de arranque conocido como"
 
 #: gettingstarted.html:316
 msgid ""
@@ -627,27 +625,27 @@ msgid ""
 " systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
-msgstr ""
+msgstr "que busca y bootstraps el sistema operativo. Sin embargo, algunos sistemas operativos (como Windows) no se integran con los gestores de arranque existentes y se sobreponen a ellos, con la posibilidad de perder el acceso a Ubuntu MATE temporalmente."
 
 #: gettingstarted.html:321
 msgid "Fortunately, you can use the"
-msgstr ""
+msgstr "Afortunadamente, puedes utilizar la"
 
 #: gettingstarted.html:321
 msgid "Boot Repair"
-msgstr ""
+msgstr "Herramienta \"Boot Repair\""
 
 #: gettingstarted.html:321
 msgid "tool to repair common problems caused by other operating systems."
-msgstr ""
+msgstr "para reparar problemas comunes causados por otros sistemas operativos"
 
 #: gettingstarted.html:326
 msgid "Requires downloading a package."
-msgstr ""
+msgstr "Requiere descargar un paquete"
 
 #: gettingstarted.html:327
 msgid "Please connect to the Internet to download and use this utility."
-msgstr ""
+msgstr "Por favor conéctate a Internet para descargar y usar esta función."
 
 #: gettingstarted.html:328
 msgid "Sorry, Welcome was unable to establish a connection."
@@ -659,26 +657,26 @@ msgstr "Reintentar"
 
 #: gettingstarted.html:332
 msgid "Download Boot Repair"
-msgstr ""
+msgstr "Descargar Boot Repair"
 
 #: gettingstarted.html:333
 msgid "Open Boot-Repair"
-msgstr ""
+msgstr "Abrir Boot Repair"
 
 #: gettingstarted.html:338
 msgid "Install Preparations"
-msgstr ""
+msgstr "Preparaciones para instalar"
 
 #: gettingstarted.html:351
 msgid "An Internet connection is required to download and install updates."
-msgstr ""
+msgstr "Una conexión a Internet es requerida para descargar e instalar las actualizaciones."
 
 #: gettingstarted.html:353
 msgid ""
 "Ubuntu MATE periodically will check to see if new software and security "
 "updates are available for your computer. If you have just installed Ubuntu "
 "MATE, you might want to do this now."
-msgstr ""
+msgstr "Ubuntu MATE revisará períodicamente para ver si hay nuevo software y actualizaciones de seguridad disponibles para tu ordenador. Si acabas de instalar Ubuntu MATE, puede que prefieras hacerlo ahora."
 
 #: gettingstarted.html358, 361
 msgid "Software Updater"
@@ -686,32 +684,32 @@ msgstr "Actualización de software"
 
 #: gettingstarted.html361, 414, 590, 649, 674, 699, 730
 msgid "can be found later in"
-msgstr ""
+msgstr "puede ser encontrado después en"
 
 #: gettingstarted.html:366
 msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "El paquete de códecs incluye una solución completa, multi-plataforma para decodificar, codificar, grabar, convertir y transmitir audio y vídeo. También incluye un decodificador de audio MP3 que permite la reproducción de MPEG 1 Audio Layer III (MP3)."
 
 #: gettingstarted.html:370
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Necesitarás la base de datos de AACS Blu-ray para poder reproducir AACS cifrados o discos con protección BD +."
 
 #: gettingstarted.html:374
 msgid "Install Codecs Package"
-msgstr ""
+msgstr "Instalar Paquete de Códecs"
 
 #: gettingstarted.html:377
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "Instalar la base de datos de ACCS Blu-ray"
 
 #: gettingstarted.html:379
 msgid "Installing..."
-msgstr ""
+msgstr "Instalando..."
 
 #: gettingstarted.html:396
 msgid ""
@@ -719,11 +717,11 @@ msgid ""
 "some components and peripherals that require proprietary drivers to function"
 " properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
-msgstr ""
+msgstr "Mientras que una amplia gama de hardware es compatible con Ubuntu MATE, hay algunos componentes y periféricos que requieren controladores propietarios para que funcione correctamente. La instalación del paquete de firmware se requiere a menudo para obtener algunos dispositivos, normalmente Bluetooth y Wi-Fi, para que funcione correctamente."
 
 #: gettingstarted.html:402
 msgid "An Internet connection is required to download and install drivers."
-msgstr ""
+msgstr "Se requiere una conexión a Internet para descargar e instalar los controladores."
 
 #: gettingstarted.html406, 414, 484
 msgid "Additional Drivers"
@@ -731,203 +729,203 @@ msgstr "pestaña de Controladores Adicionales"
 
 #: gettingstarted.html:409
 msgid "Install Firmware Package"
-msgstr ""
+msgstr "Instalar el paquete de firmware"
 
 #: gettingstarted.html:423
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr ""
+msgstr "Lo sentimos, Bienvenido fue incapaz de identificar automáticamente el proveedor gráfico en este sistema."
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Tarjeta / chipset:"
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: gettingstarted.html428, 434
 msgid "Graphics Card Detected."
-msgstr ""
+msgstr "Tarjeta gráfica detectada."
 
 #: gettingstarted.html:429
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
-"applications and games as well as improved power management."
-msgstr ""
+"applications and games as well as deliver improvements to power management."
+msgstr "puede tener controladores de la tarjeta que pueden aumentar el rendimiento de las aplicaciones y los juegos en 3D, así como mejoras a la administración de energía."
 
 #: gettingstarted.html:435
 msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "controladores de AMD ya no están soportados en Ubuntu. Los controladores de código abierto que se están utilizando actualmente ofrecen el rendimiento más estable posible de la tarjeta."
 
 #: gettingstarted.html:442
 msgid "You're already good to go."
-msgstr ""
+msgstr "Ya estás listo."
 
 #: gettingstarted.html:443
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "controladores de Intel son de código abierto y se mantienen/actualizan en el kernel."
 
 #: gettingstarted.html:448
 msgid "VirtualBox Guest Additions"
-msgstr ""
+msgstr "VirtualBox Guest Additions"
 
 #: gettingstarted.html:449
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "Para acelerar el rendimiento de los gráficos en la máquina virtual, instale \"Guest Additions\"."
 
 #: gettingstarted.html:453
 msgid "Proprietary or Open Source Drivers?"
-msgstr ""
+msgstr "¿Controladores propietarios o de código abierto?"
 
 #: gettingstarted.html:454
 msgid "Proprietary drivers come directly from the manufacturer."
-msgstr ""
+msgstr "los controladores propietarios vienen directamente del fabricante."
 
 #: gettingstarted.html:455
 msgid "As they are not open source, Ubuntu developers are"
-msgstr ""
+msgstr "Como no son de código abierto, los desarrolladores de Ubuntu"
 
 #: gettingstarted.html:455
 msgid "unable review and improve code"
-msgstr ""
+msgstr "son incapaces de revisar y mejorar el código"
 
 #: gettingstarted.html:455
 msgid "meaning you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "Lo que significa que debes confiar en el fabricante para soporte técnico."
 
 #: gettingstarted.html:458
 msgid "In addition, proprietary drivers can"
-msgstr ""
+msgstr "Además, los controladores propietarios pueden"
 
 #: gettingstarted.html:458
 msgid "significantly improve graphics performance"
-msgstr ""
+msgstr "mejorar el rendimiento gráfico significativamente"
 
 #: gettingstarted.html:458
 msgid "and as a result,"
-msgstr ""
+msgstr "y consecuentemente,"
 
 #: gettingstarted.html:459
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr ""
+msgstr "el sistema entero. Los usuarios pueden preferir instalar estos controladores para:"
 
 #: gettingstarted.html:461
 msgid "Run 3D applications and games."
-msgstr ""
+msgstr "Correr aplicaciones y juegos en 3D."
 
 #: gettingstarted.html:462
 msgid "Use Compiz's window effects."
-msgstr ""
+msgstr "Usar efectos de ventana a través de Compiz."
 
 #: gettingstarted.html:463
 msgid ""
-"Improve power management, especially if the device overheats then usual "
-"under open source drivers."
-msgstr ""
+"Improve power management, particularly if the device experiences overheating"
+" problems under open source drivers."
+msgstr "Mejorar la administración de energía, sobre todo si el dispositivo experimenta problemas de sobrecalentamiento con controladores de código abierto."
 
 #: gettingstarted.html:464
 msgid "Improve support for high resolutions and multiple monitors."
-msgstr ""
+msgstr "Mejorar el apoyo a altas resoluciones y varios monitores."
 
 #: gettingstarted.html:465
 msgid "Fix blank screen issues."
-msgstr ""
+msgstr "Solucionar problemas de pantalla en blanco."
 
 #: gettingstarted.html:468
 msgid ""
 "Proprietary drivers are known as \"binary blobs\". Certain hardware may "
 "experience worse behavior,"
-msgstr ""
+msgstr "Los controladores propietarios son conocidos como \"blob binario\". Determinado hardware puede experimentar peor comportamiento,"
 
 #: gettingstarted.html:469
 msgid "causing more issues then the open source drivers, such as:"
-msgstr ""
+msgstr "causando más problemas que los controladores de código abierto, tales como:"
 
 #: gettingstarted.html:471
 msgid "Failing to boot to the graphical desktop."
-msgstr ""
+msgstr "El no poder arrancar en el escritorio gráfico."
 
 #: gettingstarted.html:472
 msgid "Broken drivers after an upgrade."
-msgstr ""
+msgstr "Controladores rotos tras una actualización."
 
 #: gettingstarted.html:473
 msgid "Severe graphical glitches."
-msgstr ""
+msgstr "Fallos gráficos graves."
 
 #: gettingstarted.html:474
 msgid "Problems with applications/games requiring hardware acceleration."
-msgstr ""
+msgstr "Problemas con aplicaciones y/o juegos que requieren la aceleración de hardware."
 
 #: gettingstarted.html:478
 msgid "is the open source driver for your card."
-msgstr ""
+msgstr "es el controlador de código abierto para tu tarjeta."
 
 #: gettingstarted.html:483
 msgid "What about the latest NVIDIA drivers?"
-msgstr ""
+msgstr "¿Qué pasa con los últimos controladores NVIDIA?"
 
 #: gettingstarted.html:484
 msgid "fetches the latest tested driver from the Ubuntu repositories."
-msgstr ""
+msgstr "Obtiene la última versión del controlador probado desde los repositorios de Ubuntu."
 
 #: gettingstarted.html:485
 msgid ""
 "Advanced users and gamers who would like newer versions may wish to consider"
 " adding the"
-msgstr ""
+msgstr "Los usuarios avanzados y los jugadores que deseen versiones más recientes pueden desear considerar la adición de la"
 
 #: gettingstarted.html:486
 msgid "Ubuntu Graphics Driver PPA"
-msgstr ""
+msgstr "PPA de Controladores Gráficos Ubuntu "
 
 #: gettingstarted.html:487
 msgid ""
 "which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
 "not as thoroughly tested."
-msgstr ""
+msgstr "que contiene paquetes hasta los últimos controladores NVIDIA para Ubuntu. Estos paquetes no se tienen pruebas a fondo."
 
 #: gettingstarted.html:489
 msgid ""
 "This only applies for actively supported cards, and not older cards using "
 "the legacy driver."
-msgstr ""
+msgstr "Esto sólo se aplica a las tarjetas soportadas de forma activa, y no para las tarjetas de más edad que usen el controlador heredado."
 
 #: gettingstarted.html:492
 msgid "Add Repository"
-msgstr ""
+msgstr "Añadir un Repositorio"
 
 #: gettingstarted.html:495
 msgid ""
 "To add the repository to the system, open a terminal and type the following:"
-msgstr ""
+msgstr "Para añadir el repositorio para el sistema, abre una terminal y escribe lo siguiente:"
 
 #: gettingstarted.html:500
 msgid "After the PPA is added, newer versions are presented to install in"
-msgstr ""
+msgstr "Después de añadir el PPA, las versiones más recientes se presentan para instalar en"
 
 #: gettingstarted.html:501
 msgid "Additional Drivers:"
-msgstr ""
+msgstr "Controladores Adicionales:"
 
 #: gettingstarted.html:508
 msgid "Wireless, Bluetooth and Other Devices"
-msgstr ""
+msgstr "Inalámbrico, Bluetooth y Otros Dispositivos "
 
 #: gettingstarted.html:510
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr ""
+msgstr "Si no había controladores adicionales encontrados para el hardware ni tampoco funcionan después de instalar los paquetes de firmware, puede que tengas que buscar tu dispositivo para encontrar el controlador apropiado."
 
 #: gettingstarted.html:514
 msgid ""
@@ -935,13 +933,13 @@ msgid ""
 "hasn't provided any source code for developers to freely use, or there is "
 "insufficient documentation to create drivers for your particular brand and "
 "model."
-msgstr ""
+msgstr "Por desgracia, esto es debido al hecho que el fabricante de tu hardware no ha proporcionado ningún código fuente para que los desarrolladores utilizen libremente, o no existe documentación suficiente para crear controladores para su marca y modelo en particular."
 
 #: gettingstarted.html:520
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr ""
+msgstr "Algunos fabricantes pueden proporcionar controladores de código cerrado proporcionadas por sí mismos directamente. Si necesitas ayuda, no dudes en"
 
 #: gettingstarted.html:522
 msgid "ask the community"
@@ -949,43 +947,43 @@ msgstr "preguntar a la comunidad"
 
 #: gettingstarted.html:525
 msgid "Read more on troubleshooting wireless hardware."
-msgstr ""
+msgstr "Lea más acerca de la solución de problemas de hardware inalámbrico."
 
 #: gettingstarted.html529, 534
 msgid "Printers"
-msgstr ""
+msgstr "Impresoras"
 
 #: gettingstarted.html:531
 msgid "When you set up a printer in the"
-msgstr ""
+msgstr "Cuando configuras una impresora en la"
 
 #: gettingstarted.html:535
 msgid "utility"
-msgstr ""
+msgstr "función"
 
 #: gettingstarted.html:535
 msgid "under"
-msgstr ""
+msgstr "abajo"
 
 #: gettingstarted.html:536
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr ""
+msgstr "se te presentará una lista de controladores disponibles para su uso, si aplica."
 
 #: gettingstarted.html:539
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
-msgstr ""
+msgstr "Algunos fabricantes pueden proporcionar sus propios controladores y requieren ser descargados desde su página web."
 
 #: gettingstarted.html:542
 msgid "Read more on printing"
-msgstr ""
+msgstr "Más información sobre impresiones"
 
 #: gettingstarted.html:553
 msgid "HP Linux Printing and Imaging System"
-msgstr ""
+msgstr "Impresión Linux HP e Imaging System"
 
 #: gettingstarted.html:554
 msgid ""
@@ -993,183 +991,183 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "Se recomienda si tienes una impresora HP, ya que proporciona soporte completo para imprimir en la mayoría de impresoras de inyección de tinta HP SFP (función única periférica) y muchos LaserJets, y para escanear, enviar faxes y para el acceso de foto-tarjeta en la mayor parte de las impresoras HP MFP (multifuncional periférica)."
 
-#: gettingstarted.html561, 960, 977, 993, 1009
+#: gettingstarted.html561, 1246, 1263, 1279, 1295, 1311
 msgid "Install"
 msgstr "Instalar"
 
 #: gettingstarted.html571, 572, 708, 709
 msgid "Language Input"
-msgstr ""
+msgstr "Entrada de idioma"
 
 #: gettingstarted.html582, 587, 590
 msgid "Language Support"
-msgstr ""
+msgstr "Ayuda de idioma"
 
 #: gettingstarted.html:583
 msgid ""
 "You computer may require updates to your language and localization settings,"
 " or you may want to install additional language support."
-msgstr ""
+msgstr "Tu equipo puede requerir cambios a la configuración de idioma y localización, o es posible que desees instalar un soporte de idioma adicional."
 
 #: gettingstarted.html591, 650, 675, 731
 msgid "Preferences"
-msgstr ""
+msgstr "Preferencias"
 
 #: gettingstarted.html592, 651
 msgid "Personal"
-msgstr ""
+msgstr "Personal"
 
 #: gettingstarted.html:598
 msgid "Complex Input"
-msgstr ""
+msgstr "Método de Escritura Compleja"
 
 #: gettingstarted.html:599
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Algunas regiones del mundo requieren métodos de escritura complejas"
 
 #: gettingstarted.html:604
 msgid "Chinese"
-msgstr ""
+msgstr "Chino"
 
 #: gettingstarted.html:607
 msgid "Japanese"
-msgstr ""
+msgstr "Japonés"
 
 #: gettingstarted.html:610
 msgid "Korean"
-msgstr ""
+msgstr "Coreano"
 
 #: gettingstarted.html:626
 msgid "Backup, Firewall and User Management"
-msgstr ""
+msgstr "Copia de seguridad, Cortafuegos (Firewall) y de Destión de Usuarios"
 
 #: gettingstarted.html:627
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
-msgstr ""
+msgstr "Ubuntu MATE te proporciona herramientas para copia de seguridad de tus archivos, viene con un cortafuegos (Firewall) pre-instalado y soporta múltiples cuentas de usuario."
 
 #: gettingstarted.html638, 649
 msgid "Backups"
-msgstr ""
+msgstr "Copias de Seguridad"
 
 #: gettingstarted.html:639
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
-msgstr ""
+msgstr "Nada es más importante que tener una copia de seguridad de tus archivos personales, por si acaso algo desastroso sucede a su computadora."
 
 #: gettingstarted.html:643
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
-msgstr ""
+msgstr "viene pre-instalado y es compatible con las copias de seguridad a dispositivos locales, así como los servicios en línea basados en la nube."
 
 #: gettingstarted.html:646
 msgid "Configure Backup"
-msgstr ""
+msgstr "Configurar copia de seguridad"
 
 #: gettingstarted.html:662
 msgid "Firewall"
-msgstr ""
+msgstr "Cortafuegos (Firewall)"
 
 #: gettingstarted.html:663
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
-msgstr ""
+msgstr "Los cortafuegos impiden conexiones maliciosos entran y salen de su ordenador. De manera predeterminada, el cortafuegos está desactivado,"
 
 #: gettingstarted.html:665
 msgid "learn more about firewalls"
-msgstr ""
+msgstr "Aprender más acerca de los cortafuegos"
 
 #: gettingstarted.html:667
 msgid "provides a graphical frontend to"
-msgstr ""
+msgstr "proporciona una interfaz gráfica de"
 
 #: gettingstarted.html:668
 msgid "Uncomplicated Firewall"
-msgstr ""
+msgstr "Cortafuegos sin complicaciones"
 
 #: gettingstarted.html:668
 msgid "If security is important to you, there are"
-msgstr ""
+msgstr "Si la seguridad es importante para tí, hay"
 
 #: gettingstarted.html:669
 msgid "more ways to stay secure too"
-msgstr ""
+msgstr "más formas de permanecer seguro"
 
 #: gettingstarted.html:671
 msgid "Configure Firewall"
-msgstr ""
+msgstr "Configurar Cortafuegos"
 
 #: gettingstarted.html:674
 msgid "Firewall Configuration"
-msgstr ""
+msgstr "Configuración del cortafuegos"
 
 #: gettingstarted.html:676
 msgid "Internet and Network"
-msgstr ""
+msgstr "Internet y Red"
 
 #: gettingstarted.html:687
 msgid "Users"
-msgstr ""
+msgstr "Usuarios"
 
 #: gettingstarted.html:689
 msgid ""
 "Share your computer with others? Set up each user with their own unique "
 "profile that they can use to login and isolate their personal data with "
 "yours."
-msgstr ""
+msgstr "¿Compartes el equipo con otros? Configura cada usuario con su propio perfil, que se puede utilizar para ingresar y aislar sus datos personales con los tuyos."
 
 #: gettingstarted.html:693
 msgid "You can also log in to a"
-msgstr ""
+msgstr "También puedes conectarte a una"
 
 #: gettingstarted.html:693
 msgid "Guest Session"
-msgstr ""
+msgstr "Sesión de Invitado"
 
 #: gettingstarted.html:693
 msgid "if someone is using your computer as a one-off."
-msgstr ""
+msgstr "si alguien está usando tu ordenador por sólo una vez."
 
 #: gettingstarted.html:696
 msgid "Configure Users"
-msgstr ""
+msgstr "Configurar Usuarios"
 
 #: gettingstarted.html699, 701
 msgid "Users and Groups"
-msgstr ""
+msgstr "Usuarios y Grupos"
 
 #: gettingstarted.html719, 727
 msgid "User Interface"
-msgstr ""
+msgstr "Intrefaz de Usuario"
 
 #: gettingstarted.html:720
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr ""
+msgstr "Ubuntu MATE proporciona una herramienta única para transformar la interfaz de usuario. Se puede utilizar para configurar rápidamente la interfaz de usuario para reflejar en líneas generales cómo otros sistemas operativos populares se ven y se sienten. El"
 
 #: gettingstarted.html:723
 msgid "layouts are most similar to Microsoft Windows while"
-msgstr ""
+msgstr "diseño es más similar a Microsoft Windows mientras que el diseño"
 
 #: gettingstarted.html:724
 msgid "layouts are most similar to Apple Mac OS X."
-msgstr ""
+msgstr " es más similar a Apple Mac OS X."
 
 #: gettingstarted.html:730
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: gettingstarted.html:732
 msgid "Look and Feel"
-msgstr ""
+msgstr "Visualisación y COmportamiento"
 
 #: gettingstarted.html735, 740, 743
 msgid "Control Center"
@@ -1180,557 +1178,613 @@ msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
-msgstr ""
+msgstr "Las utilidades mencionadas anteriormente son parte del extenso Centro de Control que Ubuntu MATE ofrece. Puedes configurar casi todos los aspectos de tu equipo desde el Centro de Control."
 
 #: gettingstarted.html:743
 msgid "can be found later in the"
-msgstr ""
+msgstr "se puede encontrar más adelante en el"
 
 #: gettingstarted.html:744
 msgid "menu."
-msgstr ""
+msgstr "menú."
 
 #: gettingstarted.html:747
 msgid "Desktop Wallpaper"
-msgstr ""
+msgstr "Fondo de pantalla"
 
 #: gettingstarted.html:748
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr ""
+msgstr "La Comunidad Ubuntu MATE ha contribuido docenas de imágenes de fondo de pantalla en los últimos años. ¿Por qué no los instalas y encuentras algo que se adapte a sus gustos?"
 
 #: gettingstarted.html:752
 msgid "Wallpapers"
-msgstr ""
+msgstr "Fondos de Pantalla"
 
 #: gettingstarted.html:771
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
-msgstr ""
+msgstr "Ubuntu MATE tiene muchos atajos de teclado que ayudan a que hacer uso de su equipo sea más eficiente."
 
 #: gettingstarted.html:773
 msgid "Common application shortcuts"
-msgstr ""
+msgstr "Atajos a aplicaciones comunes"
 
 #: gettingstarted.html:774
 msgid "These shortcuts apply in most applications."
-msgstr ""
+msgstr "Estos atajos se aplican en la mayoría de las aplicaciones."
 
-#: gettingstarted.html:776
-msgid "Copy the selected text/object"
-msgstr ""
-
-#: gettingstarted.html:777
-msgid "Cut the selected text/object"
-msgstr ""
-
-#: gettingstarted.html:778
-msgid "Paste/insert the selected text/object"
-msgstr ""
+#: gettingstarted.html778, 782, 786, 790, 794, 798, 802, 806, 810, 814, 818,
+#: 822, 826, 830, 834, 865, 869, 873, 896, 906, 910, 914, 918, 954, 958, 962,
+#: 966, 970, 974, 978, 987, 992, 995
+msgid "Ctrl"
+msgstr "Ctrl"
 
 #: gettingstarted.html:779
+msgid "Copy the selected text/object"
+msgstr "Copiar el texto/objeto seleccionado"
+
+#: gettingstarted.html783, 787
+msgid "Cut the selected text/object"
+msgstr "Cortar el texto/objeto seleccionado"
+
+#: gettingstarted.html:791
+msgid "Paste/insert the selected text/object"
+msgstr "Pegar/insertar el texto/objeto seleccionado"
+
+#: gettingstarted.html:795
 msgid "Select all text"
-msgstr ""
+msgstr "Seleccionar todo el texto"
 
-#: gettingstarted.html:780
+#: gettingstarted.html:799
 msgid "Find and replace words"
-msgstr ""
+msgstr "Encontrar y reemplazar palabras"
 
-#: gettingstarted.html:781
+#: gettingstarted.html:803
 msgid "Make the selected text bold"
-msgstr ""
+msgstr "Pner el texto seleccionado en negrita"
 
-#: gettingstarted.html:782
+#: gettingstarted.html:807
 msgid "Make the selected text italic"
-msgstr ""
+msgstr "Poner el texto seleccionado en cursiva"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:811
 msgid "Underline the selected text"
-msgstr ""
+msgstr "Subrayar el texto seleccionado"
 
-#: gettingstarted.html:784
+#: gettingstarted.html:815
 msgid "Open a new document or window"
-msgstr ""
+msgstr "Abrir un nuevo documento o ventana"
 
-#: gettingstarted.html:785
+#: gettingstarted.html:819
 msgid "Save the current document"
-msgstr ""
+msgstr "Guardar el documento actual"
 
-#: gettingstarted.html:786
+#: gettingstarted.html:823
 msgid "Open another document"
-msgstr ""
+msgstr "Abrir otro documento"
 
-#: gettingstarted.html:787
+#: gettingstarted.html:827
 msgid "Print the current document"
-msgstr ""
+msgstr "Imprimir el documento actual"
 
-#: gettingstarted.html:788
+#: gettingstarted.html:831
 msgid "Undo the last change you made"
-msgstr ""
+msgstr "Deshacer el último cambio"
 
-#: gettingstarted.html:789
+#: gettingstarted.html:835
 msgid "Redo a change that you just undid"
-msgstr ""
+msgstr "Rehacer el último cambio deshecho"
 
-#: gettingstarted.html:790
+#: gettingstarted.html:839
 msgid "Toggle the current application between full-screen and windowed"
-msgstr ""
+msgstr "Alternar la aplicación actual entre pantalla completa y ventana"
 
-#: gettingstarted.html:792
+#: gettingstarted.html:843
 msgid "Desktop shortcuts"
-msgstr ""
+msgstr "Atajos del Escritorio"
 
-#: gettingstarted.html:793
+#: gettingstarted.html:844
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
-msgstr ""
+msgstr "Esta sección muestra los atajos de teclado comunes que se pueden utilizar para operar partes del escritorio."
 
-#: gettingstarted.html:796
+#: gettingstarted.html:850
 msgid "Open the Applications menu"
-msgstr ""
+msgstr "Abre el menú de Aplicaciones"
 
-#: gettingstarted.html:797
+#: gettingstarted.html:854
 msgid "Run an application by typing its name in the box which appears"
-msgstr ""
+msgstr "Ejecuta una aplicación escribiendo su nombre en el cuadro que aparece"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:857
 msgid "Prt Sc"
-msgstr ""
+msgstr "Prt Sc"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:858
 msgid "Take a screenshot of the whole screen"
-msgstr ""
+msgstr "Toma una captura de toda la pantalla"
 
-#: gettingstarted.html:799
+#: gettingstarted.html:862
 msgid "Take a screenshot of the current window"
-msgstr ""
+msgstr "Toma una captura de la ventana actual"
 
-#: gettingstarted.html:800
+#: gettingstarted.html:865
 msgid "Delete"
-msgstr ""
+msgstr "Suprimir"
 
-#: gettingstarted.html:800
-msgid "Prompt is you want to Suspend, Restart or Shutdown the computer"
-msgstr ""
+#: gettingstarted.html:866
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "Abre el cuadro de diálogo para apagar, reiniciar o suspender el equipo."
 
-#: gettingstarted.html:801
+#: gettingstarted.html:870
 msgid "Lock your screen."
-msgstr ""
+msgstr "Bloquea la pantalla."
 
-#: gettingstarted.html:802
+#: gettingstarted.html:874
 msgid "Open a terminal."
-msgstr ""
+msgstr "Abre un Terminal."
 
-#: gettingstarted.html:804
+#: gettingstarted.html:878
+msgid "Screen reader enable/disable."
+msgstr "Habilita/Deshabilita el lector de pantalla"
+
+#: gettingstarted.html:882
 msgid "Window shortcuts"
-msgstr ""
+msgstr "Atajos de Ventana"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:885
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:887
+msgid "Switch between currently-open windows."
+msgstr "Cambia entre las pestañas actualmente abiertas."
+
+#: gettingstarted.html:889
+msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
+msgstr "Presiona Alt+Tab y después suelta Tab (pero sigue pulsando Alt)"
+
+#: gettingstarted.html890, 900
 msgid ""
-"Switch between currently-open windows. Press Alt + Tab and then release Tab "
-"(but continue to hold Alt). Press Tab repeatedly to cycle through the list "
-"of available windows which appears on the screen. Release the Alt key to "
-"switch to the selected window."
-msgstr ""
+"Press Tab repeatedly to cycle through the list of available windows which "
+"appears on the screen."
+msgstr "Pulse la tecla Tab varias veces para recorrer la lista de ventanas disponibles que aparecen en la pantalla."
 
-#: gettingstarted.html:807
-msgid ""
-"Switch between currently-open windows in all Workspaces. Press Tab "
-"repeatedly to cycle through the list of available windows which appears on "
-"the screen. Release the Ctrl and Alt keys to switch to the selected window."
-msgstr ""
+#: gettingstarted.html:891
+msgid "Release the Alt key to switch to the selected window."
+msgstr "Suelta la tecla Alt para cambiar a la ventana seleccionada."
 
-#: gettingstarted.html:808
+#: gettingstarted.html:898
+msgid "Switch between currently-open windows in all Workspaces."
+msgstr "Cambia entre las ventanas abiertas en todas las Áreas de Trabajo."
+
+#: gettingstarted.html:901
+msgid "Release the Ctrl and Alt keys to switch to the selected window."
+msgstr "Suelta las teclas Ctrl y Alt para cambiar a la ventana seleccionada"
+
+#: gettingstarted.html:906
 msgid "Left"
-msgstr ""
+msgstr "Izquierda"
 
-#: gettingstarted.html:808
-msgid "Switch to the next workspace."
-msgstr ""
+#: gettingstarted.html:907
+msgid "Switch to the previous workspace."
+msgstr "Cambia a la Área de Trabajo anterior."
 
-#: gettingstarted.html:809
+#: gettingstarted.html:910
 msgid "Right"
-msgstr ""
+msgstr "Derecha"
 
-#: gettingstarted.html:809
-msgid "Switch to the previous workspaces."
-msgstr ""
+#: gettingstarted.html:911
+msgid "Switch to the next workspace."
+msgstr "Cambia a la siguiente Área de Trabajo"
 
-#: gettingstarted.html810, 811, 837
+#: gettingstarted.html914, 918, 1008
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
-#: gettingstarted.html:810
-msgid "Move the current window to the next workspace."
-msgstr ""
-
-#: gettingstarted.html:811
+#: gettingstarted.html:915
 msgid "Move the current window to the previous workspace."
-msgstr ""
+msgstr "Mueve la ventana actual a el Área de trabajo anterior."
 
-#: gettingstarted.html:812
+#: gettingstarted.html:919
+msgid "Move the current window to the next workspace."
+msgstr "Mueve la ventana actual a el Área de Trabajo anterior."
+
+#: gettingstarted.html:923
 msgid "Closes window."
-msgstr ""
+msgstr "Cierra la ventana."
 
-#: gettingstarted.html:813
+#: gettingstarted.html:927
 msgid "Returns window to 'normal' or previous size."
-msgstr ""
+msgstr "Regresa la ventana a el tamaño \"normal\" o al tamaño anterior."
 
-#: gettingstarted.html:814
+#: gettingstarted.html:931
 msgid "Moves the current window (can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Mueve la ventana actual (puede ser movida con el ratón o el teclado)"
 
-#: gettingstarted.html:815
+#: gettingstarted.html:935
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Cambia el tamaño de la ventana actual (de nuevo, se puede mover con el ratón o el teclado)."
 
-#: gettingstarted.html:816
+#: gettingstarted.html:939
 msgid "Minimizes current window."
-msgstr ""
+msgstr "Minimizar la ventana actual."
 
-#: gettingstarted.html:817
+#: gettingstarted.html:943
 msgid "Maximizes current window."
-msgstr ""
+msgstr "Maximizar la ventana actual."
 
-#: gettingstarted.html:818
+#: gettingstarted.html:947
+msgid "Pulldown Terminal."
+msgstr "Tira hacia abajo la Terminal."
+
+#: gettingstarted.html:950
 msgid "Space"
-msgstr ""
+msgstr "Barra Espaciadora"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:951
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
-msgstr ""
+msgstr "Muestra el menú de la ventana con opciones como 'Siempre visible' y 'Minimizar' y 'Maximizar' y por encima de los comandos."
 
-#: gettingstarted.html819, 820, 821, 822, 823, 824, 825
+#: gettingstarted.html954, 958, 962, 966, 970, 974, 978
 msgid "Numpad"
-msgstr ""
+msgstr "Pad Numérico"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:955
 msgid "Place window in top left corner of screen."
-msgstr ""
+msgstr "Coloca la ventana en la esquina superior izquierda de la pantalla."
 
-#: gettingstarted.html:820
+#: gettingstarted.html:959
 msgid "Place window in top half of screen."
-msgstr ""
+msgstr "Coloca la ventana en la mitad superior de la pantalla."
 
-#: gettingstarted.html:821
+#: gettingstarted.html:963
 msgid "Place window in top right corner of screen."
-msgstr ""
+msgstr "Coloca la ventana en la esquina superior derecha de la pantalla."
 
-#: gettingstarted.html:822
+#: gettingstarted.html:967
 msgid "Center/Maximize the window in the middle of the screen."
-msgstr ""
+msgstr "Centra/maximiza la ventana en el centro de la pantalla."
 
-#: gettingstarted.html:823
+#: gettingstarted.html:971
 msgid "Place window in the bottom left corner of the screen."
-msgstr ""
+msgstr "Coloca la ventana en la esquina inferior izquierda de la pantalla."
 
-#: gettingstarted.html:824
+#: gettingstarted.html:975
 msgid "Place window in the bottom half of the screen."
-msgstr ""
+msgstr "Coloca la ventana en la mitad inferior de la pantalla."
 
-#: gettingstarted.html:825
+#: gettingstarted.html:979
 msgid "Place window in the bottom right corner of the screen."
-msgstr ""
+msgstr "Coloca la ventana en la esquina inferior derecha de la pantalla."
 
-#: gettingstarted.html:827
+#: gettingstarted.html:983
 msgid "Compiz Effects Shortcuts"
-msgstr ""
+msgstr "Atajos de Compiz Effects"
 
-#: gettingstarted.html:828
+#: gettingstarted.html:984
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "Todos los atajos mencionados en esta sección requieren Compiz esté habilitado."
 
-#: gettingstarted.html:830
+#: gettingstarted.html:988
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "Alterna 'Mostrar Escritorio'."
 
-#: gettingstarted.html:832
+#: gettingstarted.html:993
 msgid ""
 "Enables an 'expose' like feature that presents you with all the windows you "
 "currently have open, allowing you to select the one you wish to give focus "
 "to."
-msgstr ""
+msgstr "Permite a un 'exponer' como característica que se presenta con todas las ventanas que tenga abiertas actualmente, lo que le permite seleccionar al que desea dirigir el foco."
 
-#: gettingstarted.html:833
+#: gettingstarted.html:996
 msgid ""
 "Unfolds your workspace cube allowing you to see more than one of your "
 "workspaces at once, using the left and right cursor keys with this active "
 "will allow you to select the workspace you wish to use."
-msgstr ""
+msgstr "Despliega su cubo de áreas de trabajo que le permite ver más de una de las áreas de trabajo a la vez, utilizando las teclas de cursor izquierda y derecha con este activo le permitirá seleccionar el espacio de trabajo que desea utilizar."
 
-#: gettingstarted.html835, 836, 837, 838, 839, 840, 841
+#: gettingstarted.html1000, 1004, 1008, 1012, 1016, 1020, 1024
 msgid "Super"
-msgstr ""
+msgstr "Super"
 
-#: gettingstarted.html:835
+#: gettingstarted.html:1001
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "Alejar la imagen, mostrar conmutador de espacio de trabajo."
 
-#: gettingstarted.html:836
+#: gettingstarted.html:1005
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Activa el efecto de \"escala\", que muestra todas las ventanas del espacio de trabajo actual."
 
-#: gettingstarted.html:837
+#: gettingstarted.html:1009
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Activa el efecto de \"escala\", que muestra todas las ventanas de todos los espacios de trabajo."
 
-#: gettingstarted.html:838
+#: gettingstarted.html:1013
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Invertir colores de la ventana enfocada."
 
-#: gettingstarted.html:839
+#: gettingstarted.html:1017
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "Invertir colores para toda la pantalla."
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1020
 msgid "Mouse Scroll"
-msgstr ""
+msgstr "Desplazamiento del ratón"
 
-#: gettingstarted.html:840
+#: gettingstarted.html:1021
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "Acerca la pantalla."
 
-#: gettingstarted.html841, 843
+#: gettingstarted.html1024, 1032
 msgid "Middle Mouse Button"
-msgstr ""
+msgstr "Botón central del ratón"
 
-#: gettingstarted.html:841
+#: gettingstarted.html:1025
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "Seleccione una región para hacer zoom en, utilizando un rectángulo."
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1028
 msgid "Left Mouse Button"
-msgstr ""
+msgstr "Boton izquierdo del raton"
 
-#: gettingstarted.html:842
+#: gettingstarted.html:1029
 msgid "Move focused window."
-msgstr ""
+msgstr "Mueve la ventana seleccionada."
 
-#: gettingstarted.html:843
+#: gettingstarted.html:1033
 msgid "Resize focused window."
-msgstr ""
+msgstr "Cambia el tamaño de la ventana seleccionada."
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1036
 msgid "Right Mouse Button"
-msgstr ""
+msgstr "Botón derecho del ratón"
 
-#: gettingstarted.html:844
+#: gettingstarted.html:1037
 msgid "Show window menu."
-msgstr ""
+msgstr "Mostrar el menú de la ventana"
 
-#: gettingstarted.html:861
+#: gettingstarted.html:1055
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
-"hardware and software works on your machine and Ubuntu MATE."
-msgstr ""
+"hardware and software works on your machine."
+msgstr "El equipo está formado por varios componentes que interactúan entre sí. Esta información es útil en la prestación de apoyo para asegurar las obras de hardware y software en su máquina."
 
-#: gettingstarted.html:867
+#: gettingstarted.html:1061
 msgid "Please wait while the information is being populated..."
-msgstr ""
+msgstr "Por favor, espere mientras que la información está siendo poblada ..."
 
-#: gettingstarted.html:869
+#: gettingstarted.html:1063
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
-#: gettingstarted.html:870
+#: gettingstarted.html:1064
 msgid "Detailed"
-msgstr ""
+msgstr "Detallado"
 
-#: gettingstarted.html:871
+#: gettingstarted.html:1065
 msgid "Utilities"
-msgstr ""
+msgstr "Funciones"
 
-#: gettingstarted.html:882
+#: gettingstarted.html:1080
 msgid "Distribution:"
-msgstr ""
+msgstr "Distribución:"
 
-#: gettingstarted.html:883
+#: gettingstarted.html:1084
 msgid "Kernel:"
-msgstr ""
+msgstr "Kernel:"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:1087
+msgid "The Linux kernel is the heart of Ubuntu."
+msgstr "El kernel de Linux es el corazón de Ubuntu."
+
+#: gettingstarted.html:1093
 msgid "Motherboard:"
-msgstr ""
+msgstr "Tarjeta Madre:"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:1097
 msgid "Boot Mode:"
-msgstr ""
+msgstr "Modo de Arranque:"
 
-#: gettingstarted.html:889
+#: gettingstarted.html:1100
+msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
+msgstr "Muestra el modo por el que Ubuntu MATE se está comunicando con el firmware."
+
+#: gettingstarted.html:1108
 msgid "Processor"
-msgstr ""
+msgstr "Prosesador "
 
-#: gettingstarted.html:891
+#: gettingstarted.html:1111
 msgid "Model:"
-msgstr ""
+msgstr "Modelo:"
 
-#: gettingstarted.html:892
+#: gettingstarted.html:1115
 msgid "Speed:"
-msgstr ""
+msgstr "Velocidad:"
 
-#: gettingstarted.html:893
+#: gettingstarted.html:1119
 msgid "Architecture in use:"
-msgstr ""
+msgstr "Arquitectura en uso:"
 
-#: gettingstarted.html:894
+#: gettingstarted.html:1122
+msgid ""
+"The operating system's architecture in use. For instance, i386 = 32-bit."
+msgstr "La arquitectura del sistema operativo en uso. Por ejemplo, i386 = 32 bits."
+
+#: gettingstarted.html:1128
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "Arquitectura(s) soportadas:"
 
-#: gettingstarted.html:898
+#: gettingstarted.html:1131
+msgid "Architectures that are supported by this processor."
+msgstr "Arquitecturas que son compatibles con este procesador."
+
+#: gettingstarted.html:1139
 msgid "Components"
-msgstr ""
+msgstr "Componentes"
 
-#: gettingstarted.html:900
+#: gettingstarted.html:1142
 msgid "Memory (RAM):"
-msgstr ""
+msgstr "Memoria (RAM):"
 
-#: gettingstarted.html:901
+#: gettingstarted.html:1145
+msgid "More RAM allows more applications to run simultaneously."
+msgstr "Más RAM permite más aplicaciones ejecutándose al mismo tiempo."
+
+#: gettingstarted.html:1151
 msgid "Graphics:"
-msgstr ""
+msgstr "Gráficos:"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:1155
 msgid "Internet Access:"
-msgstr ""
+msgstr "Acceso al Internet:"
 
-#: gettingstarted.html:903
+#: gettingstarted.html:1157
 msgid "Connected"
-msgstr ""
+msgstr "Conectado"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:1158
 msgid "Not Connected"
-msgstr ""
+msgstr "No Conectado"
 
-#: gettingstarted.html:908
+#: gettingstarted.html:1165
 msgid "Storage"
-msgstr ""
+msgstr "Almacenamiento"
 
-#: gettingstarted.html:910
+#: gettingstarted.html:1169
 msgid "Root File System:"
-msgstr ""
+msgstr "Sistema de Archivos Raíz"
 
-#: gettingstarted.html:911
+#: gettingstarted.html:1172
+msgid "The file system where Ubuntu MATE is installed."
+msgstr "El sistema de archivos donde está instalado Ubuntu MATE."
+
+#: gettingstarted.html:1178
 msgid "Entire Disk Capacity:"
-msgstr ""
+msgstr "Capacidad Total del Disco:"
 
-#: gettingstarted.html:912
-msgid "Allocated:"
-msgstr ""
+#: gettingstarted.html:1183
+msgid "Used in Ubuntu MATE"
+msgstr "Usado en Ubuntu MATE"
 
-#: gettingstarted.html:913
+#: gettingstarted.html:1184
+msgid "Other partitions, including swap"
+msgstr "Otras particiones, incluyendo swap"
+
+#: gettingstarted.html:1189
+msgid "Allocated for Ubuntu MATE:"
+msgstr "Asignado para Ubuntu MATE:"
+
+#: gettingstarted.html:1193
 msgid "Free Space:"
-msgstr ""
+msgstr "Espacio Libre:"
 
-#: gettingstarted.html:915
+#: gettingstarted.html:1199
 msgid "Why do I see two units?"
-msgstr ""
+msgstr "¿Por qué veo dos unidades?"
 
-#: gettingstarted.html:919
+#: gettingstarted.html:1205
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "¿Unidades SI o IEC?"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:1207
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "Decimal (Estántar SI)"
 
-#: gettingstarted.html:923
+#: gettingstarted.html:1209
 msgid "1 KB = 1000 bytes"
-msgstr ""
+msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:924
+#: gettingstarted.html:1210
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
+msgstr "Pronunciado como \"ga\" - como \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:925
+#: gettingstarted.html:1211
 msgid "Common in every day applications and file storage."
-msgstr ""
+msgstr "Común en aplicaciones de uso diario y almacenamiento de archivos."
 
-#: gettingstarted.html:929
+#: gettingstarted.html:1215
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "Binario (Estándar IEC)"
 
-#: gettingstarted.html:931
+#: gettingstarted.html:1217
 msgid "1 KiB = 1024 bytes"
-msgstr ""
+msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:932
+#: gettingstarted.html:1218
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
+msgstr "Pronunciado como \"bi\" - como \"Mebi\", \"Gibi\"."
 
-#: gettingstarted.html:933
+#: gettingstarted.html:1219
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr ""
+msgstr "Común en la memoria RAM, las unidades y particiones, incluyendo herramientas como GParted."
 
-#: gettingstarted.html:942
-msgid "The following information is retrieved directly by the"
-msgstr ""
+#: gettingstarted.html:1228
+msgid "The following information is retrieved directly from the"
+msgstr "La siguiente información se obtiene directamente del"
 
-#: gettingstarted.html:942
+#: gettingstarted.html:1228
 msgid "command line program."
-msgstr ""
+msgstr "programa de línea de comandos."
 
-#: gettingstarted.html:943
+#: gettingstarted.html:1229
 msgid "Could not gather data."
-msgstr ""
+msgstr "No se ha podido reunir los datos."
 
-#: gettingstarted.html:955
+#: gettingstarted.html:1241
 msgid "System Profiler and Benchmark"
-msgstr ""
+msgstr "Perfil del Sistema y Punto de Referencia "
 
-#: gettingstarted.html:956
+#: gettingstarted.html:1242
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
-msgstr ""
+msgstr "Ver más información específica del sistema en una ventana gráfica, incluyendo memorias USB conectados, dispositivos PCI y un simple punto de referencia de la CPU."
 
-#: gettingstarted.html:971
+#: gettingstarted.html:1257
 msgid "Disks"
-msgstr ""
+msgstr "Discos"
 
-#: gettingstarted.html:972
+#: gettingstarted.html:1258
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
-msgstr ""
+msgstr "Una utilidad preinstalada que permite la configuración básica de los discos y particiones, incluyendo el formato, partición, el montaje, la visualización de los datos S.M.A.R.T y escribir imágenes en tarjetas SD / unidades USB."
 
-#: gettingstarted.html:989
+#: gettingstarted.html:1275
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
-msgstr ""
+msgstr "Una herramienta avanzada para visualizar, crear, modificar y borrar particiones. También tiene características de ampliar / reducir el tamaño de los sistemas de archivos y es compatible con una amplia gama de formatos."
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:1290
+msgid "Disk Usage Analyser"
+msgstr "Analizador de uso de disco"
+
+#: gettingstarted.html:1291
+msgid ""
+"A graphical tool for exploring your file system or individual folders to "
+"determine how much space is being used."
+msgstr "Una herramienta gráfica para explorar el sistema de archivos o carpetas individuales para determinar la cantidad de espacio que ocupan."
+
+#: gettingstarted.html:1306
 msgid "System Monitor"
 msgstr "Monitor del Sistema"
 
-#: gettingstarted.html:1005
+#: gettingstarted.html:1307
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
-msgstr ""
-
-#: gettingstarted.html:803
-msgid "Screen reader enable/disable."
-msgstr ""
-
-#: gettingstarted.html:809
-msgid "Switch to the previous workspace."
-msgstr ""
-
-#: gettingstarted.html:819
-msgid "Pulldown Terminal."
-msgstr ""
+msgstr "Visualiza procesos, el uso de recursos actualmente en ejecución, y la cantidad de espacio utilizado y libre para los sistemas de archivos montados actualmente."
