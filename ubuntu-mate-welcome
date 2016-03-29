@@ -1223,6 +1223,7 @@ class SystemState(object):
         self.is_online = False
         self.user_name = getuser()
         self.updates_subscribed = False
+        self.welcome_version = 'Unknown'
 
         # These variables are determined:
         # self.arch;  self.session_type;  self.boot_mode
@@ -1263,9 +1264,6 @@ class SystemState(object):
         if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'):
             self.updates_subscribed = True
 
-        # Discover the version of Welcome in use.
-        self.welcome_version = apt.Cache()['ubuntu-mate-welcome'].versions[0].version
-        print('[Welcome] Version: ' + self.welcome_version)
 
         # Accessibility - Enlarge/shrink text based on Font DPI set by the user.
         if arg.font_dpi_override:
@@ -1584,6 +1582,13 @@ class DynamicApps(object):
 
         # Indicate that operations are in progress.
         self.operations_busy = False
+
+        # Get the version of Welcome in use.
+        for pkgname in self._apt_cache.keys():
+            if 'ubuntu-mate-welcome' in pkgname:
+                systemstate.welcome_version = self._apt_cache['ubuntu-mate-welcome'].installed.version
+                break
+        print('[Welcome] Version: ' + systemstate.welcome_version)
 
 
     ###### JSON Index Structure
