@@ -1040,9 +1040,10 @@ class AppView(WebKit.WebView):
             self.execute_script("$('#update-subscribing').show()")
             dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
-            if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + systemstate.codename + '.list'):
-                print('[Welcome] Success, PPA added! Application restarting...')
-                os.execv(__file__, sys.argv)
+            if os.path.exists(systemstate.welcome_ppa_file):
+                if os.path.getsize(systemstate.welcome_ppa_file) > 0:
+                    print('[Welcome] Success, PPA added! Application restarting...')
+                    os.execv(__file__, sys.argv)
             else:
                 print('[Welcome] Failed, PPA not detected!')
                 self.execute_script('$("#update-subscribing").hide()')
@@ -1261,9 +1262,10 @@ class SystemState(object):
         thread2.start()
 
         # Check whether Welcome is subscribed for updates.
-        if os.path.exists('/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'):
-            self.updates_subscribed = True
-
+        self.welcome_ppa_file = '/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'
+        if os.path.exists(self.welcome_ppa_file):
+            if os.path.getsize(self.welcome_ppa_file) > 0:
+                self.updates_subscribed = True
 
         # Accessibility - Enlarge/shrink text based on Font DPI set by the user.
         if arg.font_dpi_override:
