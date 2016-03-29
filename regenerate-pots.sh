@@ -9,6 +9,7 @@ for pot in $(ls $workingdir/data/po/)
 do
   rm $workingdir/data/po/$pot/$pot.pot -v
 done
-./welcome-po.py --update-pos
+rm po/ubuntu-mate-welcome.pot
+./welcome-po.py --create-pot
 ./edgar-allan create-all-pots
 
