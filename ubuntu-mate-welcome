@@ -1573,12 +1573,13 @@ class SystemState(object):
         # Change icon depending on what type of device we are using.
         if self.session_type == 'pi':
             webkit.execute_script('$("#specs-device-rpi").show()')
-            webkit.execute_script('$(".specs-hideable").hide()')
+            webkit.execute_script('$(".specs-hide-pi").hide()')
         elif self.arch == 'powerpc':
             webkit.execute_script('$("#specs-device-powerpc").show()')
+            webkit.execute_script('$(".specs-hide-ppc").hide()')
         elif self.graphics_vendor == 'VirtualBox':
             webkit.execute_script('$("#specs-device-vbox").show()')
-            webkit.execute_script('$(".specs-hideable").hide()')
+            webkit.execute_script('$(".specs-hide-vbox").hide()')
         elif self.session_type == 'live':
             webkit.execute_script('$("#specs-live-session").show()')
             webkit.execute_script('$(".specs-hide-live").hide()')
