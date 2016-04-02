@@ -38,11 +38,6 @@ body, button {
   position: relative;
 }
 
-p.no-space {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
 .center {
   text-align: center;
   vertical-align: middle;
@@ -91,24 +86,6 @@ p.no-space {
 
   font-size: 16px;
   font-weight: normal;
-}
-
-#header .system-information {
-  margin: 12px 8px 8px 8px;
-}
-
-#header .system-information p {
-  margin: 0px;
-  text-align: right;
-}
-
-#header .summary p {
-  margin: 0 16px 8px 16px;
-}
-
-#header .summary {
-  margin-top: 8px;
-  margin-bottom: 8px;
 }
 
 /************************
@@ -316,27 +293,20 @@ a {
 
 
 /* No margin for social icon in navbar */
-.no-margin {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
 img.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img.left {
-    margin-right: 10px;
-    float: left;
+  margin-right: 10px;
+  float: left;
 }
 
 img.right {
-    margin-right: 10px;
-    float: right;
+  margin-right: 10px;
+  float: right;
 }
 
 hr.soften {
@@ -761,7 +731,9 @@ blockquote.terminal {
   color: #fff;
 }
 
-.topicContents { margin-bottom: 16px; }
+.topicContents {
+  margin-bottom: 16px;
+}
 
 #index-overlay {
   background-color: rgba(0,0,0,0.5);
