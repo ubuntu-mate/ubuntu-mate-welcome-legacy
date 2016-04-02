@@ -78,6 +78,7 @@ n
 p
 $PART_NUM
 $PART_START
+
 p
 w
 EOF
@@ -94,7 +95,9 @@ cat <<EOF > /etc/init.d/resize2fs_once &&
 # Short-Description: Resize the root filesystem to fill partition
 # Description:
 ### END INIT INFO
+
 . /lib/lsb/init-functions
+
 case "\$1" in
   start)
     log_daemon_msg "Starting resize2fs_once" &&
@@ -115,3 +118,19 @@ EOF
 }
 
 do_expand_rootfs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
