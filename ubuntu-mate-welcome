@@ -1278,7 +1278,14 @@ class SystemState(object):
                 arg.print_verbose('Welcome', 'Font DPI is: ' + str(font_dpi))
             except:
                 font_dpi = 96
-                arg.print_verbose('Welcome', 'Couldn\'t retrieve font DPI. Using default value of ' + str(font_dpi))
+                print('[Welcome] Couldn\'t retrieve font DPI. Using default value of ' + str(font_dpi))
+
+        if font_dpi < 50:
+            print('[Welcome] DPI below 50. Out of range..')
+            font_dpi = 96
+        elif font_dpi > 500:
+            print('[Welcome] DPI over 500. Out of range.')
+            font_dpi = 96
 
         zoom_level = 1.0
         if font_dpi <= 80:
