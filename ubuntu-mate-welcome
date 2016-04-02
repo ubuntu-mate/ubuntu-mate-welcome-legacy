@@ -1252,6 +1252,8 @@ class SystemState(object):
             self.boot_mode = 'UEFI'
         elif self.session_type == 'pi':
             self.boot_mode = 'Raspberry Pi'
+        elif self.arch == 'powerpc':
+            self.boot_mode = 'Yaboot'
         else:
             self.boot_mode = 'BIOS'
 
@@ -1511,6 +1513,43 @@ class SystemState(object):
         ## Graphics
         webkit.execute_script('$("#spec-graphics").html("' + self.graphics_grep + '")')
 
+        ## Collect missing data differently for some architectures.
+        if systemstate.arch == 'powerpc':
+            ## Motherboard & Revision
+            try:
+                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Motherboard')
+                mb_model = run_external_command(['grep','motherboard','/proc/cpuinfo']).split(': ')[1]
+                mb_rev = run_external_command(['grep','revision','/proc/cpuinfo']).split(': ')[1]
+                webkit.execute_script('$("#spec-motherboard").html("' + mb_model + ' ' + mb_rev + '")')
+            except:
+                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Motherboard')
+
+            ## CPU and Clock Speed
+            try:
+                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC CPU')
+                cpu_model = run_external_command(['grep','cpu','/proc/cpuinfo']).split(': ')[1]
+                cpu_speed = run_external_command(['grep','clock','/proc/cpuinfo']).split(': ')[1]
+                webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
+                webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + '")')
+            except:
+                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC CPU')
+
+            ## Device Name
+            try:
+                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Model Name')
+                mb_name = run_external_command(['grep','detected','/proc/cpuinfo']).split(': ')[1]
+                webkit.execute_script('$("#spec-motherboard").append(" / ' + mb_name + '")')
+            except:
+                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Model Name')
+
+            ## Boot Mode / PowerMac Generation
+            try:
+                arg.print_verbose('System Specs', 'Gathering alternate data: PowerMac Generation')
+                mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
+                webkit.execute_script('$("#spec-boot-mode").html("Yaboot on ' + mac_generation + '")')
+            except:
+                arg.print_verbose('System Specs', 'Failed to gather data: PowerMac Generation')
+
         # Append advanced system information
         try:
             arg.print_verbose('System Specs', 'Waiting for inxi process to finish...')
@@ -1547,7 +1586,8 @@ class SystemState(object):
             webkit.execute_script('$("#specs-device-normal").show()')
 
         # Display UEFI/BIOS boot mode.
-        webkit.execute_script('$("#spec-boot-mode").html("' + self.boot_mode + '")')
+        if systemstate.arch == 'i386' or systemstate.arch == 'amd64':
+            webkit.execute_script('$("#spec-boot-mode").html("' + self.boot_mode + '")')
 
         # Hide root storage info if in a live session.
         if self.session_type == 'live':
