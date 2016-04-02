@@ -1476,13 +1476,22 @@ class SystemState(object):
                 webkit.execute_script('$(".specs-hide-live-session").hide()')
             else:
                 arg.print_verbose('System Specs', 'Gathering data: Storage')
-                ## Gather data
+                ## Gather entire disk data
                 root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
-                root_device = root_partition[:-1]
+                if root_partition[:-2] == "/dev/sd":            # /dev/sdXY
+                    root_dev = root_partition[:-1]
+                if root_partition[:-2] == "/dev/hd":            # /dev/hdXY
+                    root_dev = root_partition[:-1]
+                if root_partition[:-3] == "/dev/mmcblk":        # /dev/mmcblkXpY
+                    root_dev = root_partition[:-2]
+                else:
+                    root_dev = root_partition[:-1]              # Generic
+                disk_dev_name = root_dev.split('/')[2]
+                arg.print_verbose('System Specs', 'Ubuntu MATE is installed on disk: ' + root_dev)
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
-                entire_disk = run_external_command(['lsblk -b | grep "sda" | grep "disk"'], True)
+                entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
 
                 ## Append data to HTML.
@@ -1494,7 +1503,7 @@ class SystemState(object):
                 ## Calculate representation across physical disk
                 disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
                 disk_percent_other   = int(round((root_size - root_free) / entire_disk) * 100)
-                arg.print_verbose('System Specs', ' ---- Disk: ' + root_device + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
+                arg.print_verbose('System Specs', ' ---- Disk: ' + root_dev + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
                 webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
                 webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
         except:
