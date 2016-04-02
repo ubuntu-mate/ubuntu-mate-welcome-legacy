@@ -1494,11 +1494,42 @@ class SystemState(object):
                 entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
 
+                ## Perform calculations across units
+                capacity_GB =   int(round(entire_disk/1000/1000/1000))
+                capacity_GiB =  int(round(entire_disk/1024/1024/1024))
+                allocated_GB =  int(round(root_size/1000/1000/1000))
+                allocated_GiB = int(round(root_size/1024/1024/1024))
+                free_GB =       int(round(root_free/1000/1000/1000))
+                free_GiB =      int(round(root_free/1024/1024/1024))
+
+                # Show megabytes/mebibytes (in red) if gigabytes are too small.
+                if capacity_GB <= 1:
+                    capacity_GB = str(int(round(entire_disk/1000/1000))) + ' ' + mb_prefix
+                    capacity_GiB = str(int(round(entire_disk/1024/1024))) + ' ' + mib_prefix
+                else:
+                    capacity_GB = str(capacity_GB) + ' ' + gb_prefix
+                    capacity_GiB = str(capacity_GiB) + ' ' + gib_prefix
+
+                if allocated_GB <= 1:
+                    allocated_GB =  str(int(round(root_size/1000/1000))) + ' ' + mb_prefix
+                    allocated_GiB = str(int(round(root_size/1024/1024))) + ' ' + mib_prefix
+                else:
+                    allocated_GB = str(allocated_GB) + ' ' + gb_prefix
+                    allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
+
+                if free_GB <= 1:
+                    free_GB =  str(int(round(root_free/1000/1000))) + ' ' + mb_prefix
+                    free_GiB = str(int(round(root_free/1024/1024))) + ' ' + mib_prefix
+                    webkit.execute_script('$("#spec-free-space").addClass("specs-error")')
+                else:
+                    free_GB = str(free_GB) + ' ' + gb_prefix
+                    free_GiB = str(free_GiB) + ' ' + gib_prefix
+
                 ## Append data to HTML.
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + str(int(round(entire_disk/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(entire_disk/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + str(int(round(root_size/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_size/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
-                webkit.execute_script('$("#spec-free-space").html("' + str(int(round(root_free/1000/1000/1000))) + ' ' + gb_prefix + ' <span class=\'secondary-value\'>(' + str(int(round(root_free/1024/1024/1024))) + ' ' + gib_prefix + ')</span>")')
+                webkit.execute_script('$("#spec-capacity").html("' + capacity_GB + ' <span class=\'secondary-value\'>(' + capacity_GiB + ')</span>")')
+                webkit.execute_script('$("#spec-allocated-space").html("' + allocated_GB + ' <span class=\'secondary-value\'>(' + allocated_GiB + ')</span>")')
+                webkit.execute_script('$("#spec-free-space").html("' + free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>")')
 
                 ## Calculate representation across physical disk
                 disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
@@ -1514,7 +1545,13 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering Data: RAM')
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
-            ram_string = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix + ' <span class=\'secondary-value\'>(' + str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix + ')</span>'
+            if round(ram_bytes / 1024 / 1024) < 1024:
+                ram_xb = str(round(ram_bytes / 1000 / 1000, 1)) + ' ' + mb_prefix
+                ram_xib = str(round(ram_bytes / 1024 / 1024, 1)) + ' ' + mib_prefix
+            else:
+                ram_xb =  str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix
+                ram_xib = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix
+            ram_string = ram_xb + ' <span class=\'secondary-value\'>(' + ram_xib + ')</span>'
             webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
