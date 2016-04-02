@@ -1644,7 +1644,7 @@ class SystemState(object):
         webkit.execute_script('$("#specs-loading").fadeOut("fast")')
         webkit.execute_script('$("#specs-tabs").fadeIn("fast")')
         webkit.execute_script('$("#specs-basic").fadeIn("medium")')
-        webkit.execute_script('set_cursor_normal()')
+        webkit.execute_script('setCursorNormal()')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
