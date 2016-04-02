@@ -673,7 +673,7 @@ class AppView(WebKit.WebView):
             self.execute_script("$('.live-session').show();")
             self.execute_script("$('.live-session-only').hide();")
 
-        # If started from a Raspberry Pi 2
+        # If started from a Raspberry Pi.
         if systemstate.session_type == 'pi':
             self.execute_script("$('.rpi-only').show();")
         else:
@@ -862,7 +862,7 @@ class AppView(WebKit.WebView):
             else:
                 self.execute_script('$("#update-notification").show()')
 
-        ### Raspberry Pi 2 Page ###
+        ### Raspberry Pi Page ###
         if self.current_page == 'rpi.html':
             # Check file system resize flag.
             systemstate.rpi_resize('check', self)
@@ -1251,7 +1251,7 @@ class SystemState(object):
         if os.path.exists("/sys/firmware/efi"):
             self.boot_mode = 'UEFI'
         elif self.session_type == 'pi':
-            self.boot_mode = 'Raspberry Pi 2'
+            self.boot_mode = 'Raspberry Pi'
         else:
             self.boot_mode = 'BIOS'
 
@@ -1340,10 +1340,10 @@ class SystemState(object):
             self.is_online = True
 
     def detect_graphics(self):
-        # If we're the Raspberry Pi 2, there is nothing to output.
+        # If we're the Raspberry Pi, there is nothing to output.
         if self.session_type == 'pi':
-            self.graphics_grep = 'Raspberry Pi 2'
-            self.graphics_vendor = 'Raspberry Pi 2'
+            self.graphics_grep = 'Raspberry Pi'
+            self.graphics_vendor = 'Raspberry Pi'
             return
 
         # TODO: Support dual graphic cards.
