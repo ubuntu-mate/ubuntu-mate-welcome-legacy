@@ -1,7 +1,9 @@
-ubuntu-mate-welcome (16.04.7~xenial1.2) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.7~xenial1.4) xenial; urgency=medium
 
   [ Martin Wimpress ]
     * Fix missing launch entries for Variety, Veracrypt and Zim.
+    * Fix Extreme Tux Racer.
+    * Fix Raspberry Pi partition resizing.
     * Add Psensor and Tux Paint to Software Boutique.
     * Add Catalan (ca_ES) translation.
     * Add Greek (el) translation.
@@ -13,20 +15,19 @@ ubuntu-mate-welcome (16.04.7~xenial1.2) xenial; urgency=medium
     * Add Portuguese Brazilian (pt_BR) translation.
     * Add Sebbain (serbain@latin) translation.
     * Update translations.
-    * Replace DVD-Styler with Bombono DVD.
+    * Remove DVD-Styler.
 
   [ Luke Horwell ]
     * Fix "Install Now" button in Getting Started during live session.
     * Fix text scaling based on font DPI setting.
+    * Fix System Specifications.
     * Correct I-beam cursor, behaves more like a native application.
     * Improve readability of Keyboard Shortcuts and System Specifications.
+    * Improve appearance of tooltips.
     * Add MATE Disk Analyser and Psensor to System Specifications.
     * Add Source field for each Boutique application.
+    * Add error message for applications that fail to launch.
     * Update footer to display version and subscription opt-in status.
-    * Bug fixes for System Specifications.
-    * Show error message should an application fail to launch.
-    * Improve appearance of tooltips.
-    * Internal code clean-up.
 
  -- Martin Wimpress <code@flexion.org>  Thu, 24 Mar 2016 09:21:44 +0000
 
