@@ -1555,7 +1555,7 @@ class SystemState(object):
             try:
                 arg.print_verbose('System Specs', 'Gathering alternate data: PowerMac Generation')
                 mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
-                webkit.execute_script('$("#spec-boot-mode").html("Yaboot on ' + mac_generation + '")')
+                webkit.execute_script('$("#spec-boot-mode").html("Yaboot (' + mac_generation + ')")')
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerMac Generation')
 
