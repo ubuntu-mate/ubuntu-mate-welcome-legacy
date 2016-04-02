@@ -8,7 +8,7 @@ $(window).load(function() {
 });
 
 // Smoothly fade out of the page.
-function smoothOut(target_href) {
+function smoothPageFade(target_href) {
     $('.entire-page-fade').fadeOut('medium');
     $('#navigation-title').fadeOut('medium');
     $('.navigation-button').fadeOut('medium');
@@ -28,14 +28,14 @@ $(document).ready(function() {
   // Initialize scroll to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
-          $('#scrollTop').fadeIn();
+          $('#scroll-top').fadeIn();
       } else {
-          $('#scrollTop').fadeOut();
+          $('#scroll-top').fadeOut();
       }
   });
 
-  $('#footer').append('<a id="scrollTop" class="navigation-button"><span class="fa fa-chevron-up"></span></a>')
-  $('#scrollTop').click(function () {
+  $('#footer').append('<a id="scroll-top" class="navigation-button"><span class="fa fa-chevron-up"></span></a>')
+  $('#scroll-top').click(function () {
       $("html, body").animate({
           scrollTop: 0
       }, 600);
@@ -70,13 +70,13 @@ function reconnectTimeout() {
 }
 
 // Dynamically set the cursor,
-function set_cursor_busy() {
+function setCursorBusy() {
   $('html').addClass('cursor-wait');
   $('body').addClass('cursor-wait');
   $('a').addClass('cursor-wait');
 }
 
-function set_cursor_normal() {
+function setCursorNormal() {
   $('html').removeClass('cursor-wait');
   $('body').removeClass('cursor-wait');
   $('a').removeClass('cursor-wait');
@@ -88,8 +88,8 @@ function set_cursor_normal() {
 if ( current_page == 'index.html' ) {
 
   // Animate elements of the page
-  $('#mainLogo').jAnimateOnce('rotateIn');
-  $('.menuMainText').fadeIn('slow');
+  $('#main-menu-logo').jAnimateOnce('rotateIn');
+  $('.main-menu-text').fadeIn('slow');
   $('#open-at-start').jAnimateOnce('fadeIn');
   setTimeout(function(){
     $('#mate-blur').jAnimateOnce('zoomIn');
@@ -99,11 +99,11 @@ if ( current_page == 'index.html' ) {
   function exitMenu(target) {
       // Show a "wait" cursor for the Software page, as there is a slight delay.
       if ( target == 'software.html' ) {
-          set_cursor_busy()
+          setCursorBusy()
       }
 
       $('#mate-blur').jAnimateOnce('zoomOut');
-      smoothOut(target)
+      smoothPageFade(target)
   }
 
   // Have we greeted the user already?
@@ -129,35 +129,35 @@ if ( current_page == 'index.html' ) {
   // Sssh... You found the little secrets! ;)
   //// Logo starts to animate after a minute.
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('tada');
+      $('#main-menu-logo').jAnimateOnce('tada');
     }, 60000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('flip');
+      $('#main-menu-logo').jAnimateOnce('flip');
     }, 60000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('rotateOut');
+      $('#main-menu-logo').jAnimateOnce('rotateOut');
     }, 70000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('rotateIn');
+      $('#main-menu-logo').jAnimateOnce('rotateIn');
     }, 71000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('rollOut');
+      $('#main-menu-logo').jAnimateOnce('rollOut');
     }, 80000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('rollIn');
+      $('#main-menu-logo').jAnimateOnce('rollIn');
     }, 81000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('zoomOut');
+      $('#main-menu-logo').jAnimateOnce('zoomOut');
     }, 90000);
 
     setTimeout(function(){
-      $('#mainLogo').jAnimateOnce('zoomIn');
+      $('#main-menu-logo').jAnimateOnce('zoomIn');
     }, 91000);
 
     // Internally work with days, months and years as a number.
@@ -209,9 +209,9 @@ if ( current_page == 'index.html' ) {
         var do_show_this = true;
       }
       if ( do_show_this == true ) {
-        $('.menuMainText').hide();
-        $('.menuMainText').fadeIn();
-        $('.menuMainText').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
+        $('.main-menu-text').hide();
+        $('.main-menu-text').fadeIn();
+        $('.main-menu-text').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
         if ( show_confetti == true ) {
           activateConfetti();
         }
@@ -322,13 +322,14 @@ if ( current_page == 'software.html' ) {
     function switchCategory(now, next, subtitle) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
+        $('html, body').animate({ scrollTop: 0 }, 0)
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
-          smoothFade('#nonFreeToggle','#MiscCmd');
+          smoothFade('#non-free-toggle','#show-misc-cmds');
         } else {
-          smoothFade('#MiscCmd','#nonFreeToggle');
+          smoothFade('#show-misc-cmds','#non-free-toggle');
         }
 
         // Animate out, then animate in next category.
@@ -351,15 +352,8 @@ if ( current_page == 'software.html' ) {
         return currentCategory;
     }
 
-    // Show small label while hovering categories.
-    function hoverCategoryTab(text,menuItemID) {
-      $('#categoryHover').html(text);
-      $('#categoryHover').show();
-
-      var x = $(menuItemID).position();
-      var length = $('#categoryHover').width();
-      $('#categoryHover').css('left', (x.left+24) - (110/2) )
-    }
+    // Display Boutique tab tooltips properly on the page.
+    $('[data-toggle=tooltip]').tooltip({container: 'body'});
 
     // A category tab is clicked.
     function changeCategoryTab(id,humanText) {
@@ -404,7 +398,7 @@ if ( current_page == 'software.html' ) {
         applyFilter();
     });
 
-    $('#nonFreeToggle').on('click', function (e) {
+    $('#non-free-toggle').on('click', function (e) {
         toggleNonFree();
     });
 
@@ -416,65 +410,64 @@ if ( current_page == 'software.html' ) {
         window.location.href = 'cmd://filter-apps?' + selected_filter + '?toggle';
     }
 
-
     // Featured Grid - Randomly populate and add applications to the grid.
     var iconID = 0;
     function addToGrid(icon) {
       iconID++;
-      $('#featuredGrid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="gridHidden" />');
+      $('#featured-grid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="grid-hidden" />');
     }
 
     // Featured Grid - Set classes to create a semi-circle fade effect.
     function initGrid() {
-        $('#appIcon1').addClass('gridOuter');
-        $('#appIcon2').addClass('gridOuter');
-        $('#appIcon3').addClass('gridOuter');
-        $('#appIcon4').addClass('gridOuter');
-        $('#appIcon5').addClass('gridOuter');
-        $('#appIcon8').addClass('gridOuter');
-        $('#appIcon9').addClass('gridOuter');
-        $('#appIcon12').addClass('gridOuter');
-        $('#appIcon13').addClass('gridOuter');
-        $('#appIcon14').addClass('gridOuter');
-        $('#appIcon15').addClass('gridOuter');
-        $('#appIcon16').addClass('gridOuter');
+        $('#appIcon1').addClass('grid-outer');
+        $('#appIcon2').addClass('grid-outer');
+        $('#appIcon3').addClass('grid-outer');
+        $('#appIcon4').addClass('grid-outer');
+        $('#appIcon5').addClass('grid-outer');
+        $('#appIcon8').addClass('grid-outer');
+        $('#appIcon9').addClass('grid-outer');
+        $('#appIcon12').addClass('grid-outer');
+        $('#appIcon13').addClass('grid-outer');
+        $('#appIcon14').addClass('grid-outer');
+        $('#appIcon15').addClass('grid-outer');
+        $('#appIcon16').addClass('grid-outer');
 
-        $('#appIcon6').addClass('gridInner');
-        $('#appIcon7').addClass('gridInner');
-        $('#appIcon10').addClass('gridInner');
-        $('#appIcon11').addClass('gridInner');
+        $('#appIcon6').addClass('grid-inner');
+        $('#appIcon7').addClass('grid-inner');
+        $('#appIcon10').addClass('grid-inner');
+        $('#appIcon11').addClass('grid-inner');
 
         // Gently fade the icons into view.
-        setTimeout(function(){ $('#appIcon1').removeClass('gridHidden'); }, 800 );
+        setTimeout(function(){ $('#appIcon1').removeClass('grid-hidden'); }, 800 );
 
-        setTimeout(function(){ $('#appIcon2').removeClass('gridHidden'); }, 850 );
-        setTimeout(function(){ $('#appIcon5').removeClass('gridHidden'); }, 850 );
-        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon2').removeClass('grid-hidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon5').removeClass('grid-hidden'); }, 850 );
+        setTimeout(function(){ $('#appIcon6').removeClass('grid-hidden'); }, 850 );
 
-        setTimeout(function(){ $('#appIcon3').removeClass('gridHidden'); }, 900 );
-        setTimeout(function(){ $('#appIcon6').removeClass('gridHidden'); }, 900 );
-        setTimeout(function(){ $('#appIcon9').removeClass('gridHidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon3').removeClass('grid-hidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon6').removeClass('grid-hidden'); }, 900 );
+        setTimeout(function(){ $('#appIcon9').removeClass('grid-hidden'); }, 900 );
 
-        setTimeout(function(){ $('#appIcon4').removeClass('gridHidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon7').removeClass('gridHidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon10').removeClass('gridHidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon13').removeClass('gridHidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon4').removeClass('grid-hidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon7').removeClass('grid-hidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon10').removeClass('grid-hidden'); }, 950 );
+        setTimeout(function(){ $('#appIcon13').removeClass('grid-hidden'); }, 950 );
 
-        setTimeout(function(){ $('#appIcon8').removeClass('gridHidden'); }, 1000 );
-        setTimeout(function(){ $('#appIcon11').removeClass('gridHidden'); }, 1000 );
-        setTimeout(function(){ $('#appIcon14').removeClass('gridHidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon8').removeClass('grid-hidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon11').removeClass('grid-hidden'); }, 1000 );
+        setTimeout(function(){ $('#appIcon14').removeClass('grid-hidden'); }, 1000 );
 
-        setTimeout(function(){ $('#appIcon12').removeClass('gridHidden'); }, 1050 );
-        setTimeout(function(){ $('#appIcon15').removeClass('gridHidden'); }, 1050 );
+        setTimeout(function(){ $('#appIcon12').removeClass('grid-hidden'); }, 1050 );
+        setTimeout(function(){ $('#appIcon15').removeClass('grid-hidden'); }, 1050 );
 
-        setTimeout(function(){ $('#appIcon16').removeClass('gridHidden'); }, 1100 );
+        setTimeout(function(){ $('#appIcon16').removeClass('grid-hidden'); }, 1100 );
     }
 
     // Misc Tab - Show commands if user wishes to know them.
     var showMiscCommands = false;
     $('.miscCmd').hide();
 
-    $('#MiscCmd').click(function() {
+    $('#show-misc-cmds').click(function() {
       if ( showMiscCommands == false ) {
         // Show the terminal commands.
         showMiscCommands = true;
@@ -522,11 +515,11 @@ if ( current_page == 'splash.html' ) {
     setTimeout(function(){
       $('#sceneB').show();
       $('#sceneB').jAnimateOnce('zoomIn');
-      $('body').addClass('fadeToMenu');
+      $('body').addClass('fade-to-menu');
     }, 3000);
 
     setTimeout(function(){
-      $('body').removeClass('fadeToMenu');
+      $('body').removeClass('fade-to-menu');
       $('body').css('background-color','#f4f4f4');
     }, 4000);
 
@@ -545,15 +538,15 @@ if ( current_page == 'splash.html' ) {
 
   function continueToPage(skipped) {
     if ( skipped == true ) {
-      $('body').addClass('fadeToMenu');
+      $('body').addClass('fade-to-menu');
       $('#sceneA').fadeOut('medium');
       $('#sceneB').fadeOut('medium');
       $('#splash-multilingual').fadeOut('medium');
       setTimeout(function(){
-          smoothOut(splashNextPage + '.html');
+          smoothPageFade(splashNextPage + '.html');
       }, 500);
     } else {
-      smoothOut(splashNextPage + '.html');
+      smoothPageFade(splashNextPage + '.html');
     }
 
   }
@@ -666,8 +659,8 @@ if ( current_page == 'gettingstarted.html' ) {
 
   // Fetch system specifications if not cached already.
   // Wait a couple of seconds so it doesn't look like application had frozen.
-  function init_system_info() {
-    set_cursor_busy()
+  function InitSystemInfo() {
+    setCursorBusy()
     setTimeout(function() {
       window.location.href = "cmd://init-system-info";
     }, 1000);
@@ -876,6 +869,6 @@ if ( current_page == 'donate.html' ) {
 
 // Entering Software Only Mode
 if ( current_page == 'software-only.html' ) {
-    set_cursor_busy()
+    setCursorBusy()
 }
 

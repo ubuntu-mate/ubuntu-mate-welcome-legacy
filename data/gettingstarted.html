@@ -11,7 +11,7 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="indexClose(); smoothOut('index.html')">
+        <a id="menu-button" class="navigation-button" onclick="indexClose(); smoothPageFade('index.html')">
           <span class="fa fa-chevron-left"></span>
         </a>
         <a id="index-open" onclick="indexOpen()" class="navigation-button"><span class="fa fa-bars"></span></a>
@@ -44,7 +44,7 @@
 
       <!-- Shown in either session -->
       <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); init_system_info()"> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
+      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); InitSystemInfo()"> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
 
     </div>
     <div id="content" class="container-fluid entire-page-fade" hidden>
@@ -82,7 +82,7 @@
             computer meets or surpasses the recommended requirements.&zwnj;</p>
 
             <div class="center">
-              <a onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); init_system_info()" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
+              <a onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); InitSystemInfo()" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
             </div>
 
             <div class="center">
@@ -519,7 +519,7 @@
 
                <p>&zwnj;Some manufacturers may provide closed source drivers
                provided by themselves directly. If you require assistance,
-               feel free to&zwnj; <a onclick="smoothOut('community.html')">&zwnj;ask the community&zwnj;</a>.</p>
+               feel free to&zwnj; <a onclick="smoothPageFade('community.html')">&zwnj;ask the community&zwnj;</a>.</p>
 
                <p><a href="cmd://link?https://help.ubuntu.com/community/WifiDocs/WirelessTroubleShootingGuide/Drivers">
                <span class="fa fa-globe"></span> &zwnj;Read more on troubleshooting wireless hardware.&zwnj;</a></p>
@@ -1088,14 +1088,14 @@
                   </a>
                 </td>
               </tr>
-              <tr class="specs-hideable">
+              <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Motherboard:&zwnj;</th>
-                <td><span id="spec-motherboard" class="specs-hide-vbox specs-hideable"></span></td>
+                <td><span id="spec-motherboard"></span></td>
               </tr>
-              <tr class="specs-hideable">
+              <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Boot Mode:&zwnj;</th>
                 <td>
-                  <span id="spec-boot-mode" class="specs-hide-vbox specs-hideable"></span>
+                  <span id="spec-boot-mode"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;Displays the mode that Ubuntu MATE is communicating with the firmware.&zwnj;">
                     <span class="fa fa-info-circle"></span>
                   </a>
@@ -1123,7 +1123,7 @@
                   </a>
                 </td>
               </tr>
-              <tr>
+              <tr class="specs-hide-vbox specs-hide-pi specs-hide-ppc">
                 <th>&zwnj;Architecture(s) supported:&zwnj;</th>
                 <td>
                   <span id="spec-arch-supported"></span>
@@ -1146,9 +1146,9 @@
                   </a>
                 </td>
               </tr>
-              <tr class="specs-hideable specs-hide-vbox">
+              <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Graphics:&zwnj;</th>
-                <td><span id="spec-graphics" class=" specs-hideable"></span></td>
+                <td><span id="spec-graphics"></span></td>
               </tr>
               <tr>
                 <th>&zwnj;Internet Access:&zwnj;</th>
@@ -1179,18 +1179,28 @@
                     <span id="spec-capacity"></span>
                     <br>
                     <div id="disk-usage">
-                      <a id="disk-used" style="width:0%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Used in Ubuntu MATE&zwnj;"></a>
-                      <a id="disk-other" style="width:100%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, including swap&zwnj;"></a>
+                      <a id="disk-used" style="width:0%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ubuntu MATE's Partition&zwnj;"></a>
+                      <a id="disk-other" style="width:100%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, unallocated or swap space.&zwnj;"></a>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <th>-- &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
-                  <td><span id="spec-allocated-space"></span></td>
+                  <td>
+                    <span id="spec-allocated-space"></span>
+                    <a data-toggle="tooltip" data-placement="top" title="&zwnj;The size of your operating system partition.&zwnj;">
+                      <span class="fa fa-info-circle"></span>
+                    </a>
+                  </td>
                 </tr>
                 <tr>
                   <th>-- &zwnj;Free Space:&zwnj;</th>
-                  <td><span id="spec-free-space"></span></td>
+                  <td>
+                    <span id="spec-free-space"></span>
+                    <a data-toggle="tooltip" data-placement="top" title="&zwnj;How much space is available to use.&zwnj;">
+                      <span class="fa fa-info-circle"></span>
+                    </a>
+                  </td>
                 </tr>
               </table>
 
