@@ -372,6 +372,11 @@ hr.soften-light {
 ** Global
 *************************/
 
+/* All bootstrap tool-tips */
+.tooltip-inner {
+  font-size: 12px;
+}
+
 /** Fade elements on Main Menu **/
 .fade { opacity: 0 }
 .fade-1s { -webkit-animation: fadeIn 1000ms forwards 10ms;   animation: fadeIn 1000ms forwards 10ms; }   /** Header **/
@@ -435,7 +440,7 @@ hr.soften-light {
 }
 
 /************************
- * Software Page
+ * Software Page / Boutique
 *************************/
 
 /* Always keep category tabs visible */
@@ -449,20 +454,6 @@ hr.soften-light {
   padding-top: 8px;
   margin-bottom: 2px;
   padding-bottom: 28px;
-}
-
-/* Hover label for categories */
-#categoryHover {
-  position: fixed;
-  top: 100px;
-  margin: auto;
-  font-size: 14px;
-  width: 110px;
-  padding-top: 4px;
-  padding-left: 3px;
-  text-align: center;
-  color: #758A53;
-  z-index: 10;
 }
 
 /* Proprietary Software Tooltip */

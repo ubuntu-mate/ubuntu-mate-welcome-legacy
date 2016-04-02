@@ -351,15 +351,8 @@ if ( current_page == 'software.html' ) {
         return currentCategory;
     }
 
-    // Show small label while hovering categories.
-    function hoverCategoryTab(text,menuItemID) {
-      $('#categoryHover').html(text);
-      $('#categoryHover').show();
-
-      var x = $(menuItemID).position();
-      var length = $('#categoryHover').width();
-      $('#categoryHover').css('left', (x.left+24) - (110/2) )
-    }
+    // Display Boutique tab tooltips properly on the page.
+    $('[data-toggle=tooltip]').tooltip({container: 'body'});
 
     // A category tab is clicked.
     function changeCategoryTab(id,humanText) {
