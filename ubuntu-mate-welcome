@@ -2218,6 +2218,17 @@ class DynamicApps(object):
             subprocess.Popen(program_command.split(' '))
         except:
             print('[Apps] Failed to launch command: ' + program_command)
+            title = _("Software Boutique")
+            ok_label = _("OK")
+            text_error = _("An error occurred while launching PROGRAM_NAME. Please consider re-installing the application.").replace('PROGRAM_NAME', program_name) + \
+                            '\n\n' + _("Command:") + ' "' + program_command + '"'
+            messagebox = subprocess.Popen(['zenity',
+                         '--error',
+                         '--title=' + title,
+                         "--text=" + text_error,
+                         "--ok-label=" + ok_label,
+                         '--window-icon=error',
+                         '--timeout=15'])
 
     def apply_filter(self, webkit, filter_value, nonfree_toggle=False):
         sub_css_class = 'filter-' + filter_value
