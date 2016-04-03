@@ -11,5 +11,6 @@ do
 done
 rm po/ubuntu-mate-welcome.pot
 ./welcome-po.py --create-pot
+./welcome-po.py --update-pos
 ./edgar-allan create-all-pots
 

@@ -11,7 +11,7 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="smoothOut('index.html');$('#footer-left').fadeOut();$('#nonFreeToggle').fadeOut();$('#MiscCmd').fadeOut()">
+        <a id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html');$('#footer-left').fadeOut();$('#non-free-toggle').fadeOut();$('#show-misc-cmds').fadeOut()">
           <span class="fa fa-chevron-left"></span>
         </a>
         <div id="navigation-title" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"> &zwnj;Boutique&zwnj;</span></div>
@@ -19,27 +19,26 @@
       </div>
     </div>
     <div id="content" class="container-fluid entire-page-fade" style="margin-top: 50px" hidden>
-    <div class="online animated fadeInDown" id="categoryTabs">
+    <div class="online animated fadeInDown" id="category-tabs">
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
-        <li><a id="AccessoriesBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Accessories','#AccessoriesBtn')"      onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Accessories','Accessories');">    <span class="fa fa-2x fa-va fa-scissors"></span></a></li>
-        <li><a id="EducationBtn"   data-toggle="tab" onmouseover="hoverCategoryTab('Education','#EducationBtn')"          onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Education','Education');">        <span class="fa fa-2x fa-va fa-graduation-cap"></span></a></li>
-        <li><a id="GamesBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Games','#GamesBtn')"                  onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Games','Games');">                <span class="fa fa-2x fa-va fa-gamepad"> </span></a></li>
-        <li><a id="GraphicsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Graphics','#GraphicsBtn')"            onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Graphics','Graphics');">          <span class="fa fa-2x fa-va fa-picture-o"></span></a></li>
-        <li><a id="InternetBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('Internet','#InternetBtn')"            onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Internet','Internet');">          <span class="fa fa-2x fa-va fa-globe"></span></a></li>
-        <li><a id="OfficeBtn"      data-toggle="tab" onmouseover="hoverCategoryTab('Office','#OfficeBtn')"                onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Office','Office');">              <span class="fa fa-2x fa-va fa-bar-chart"></span></a></li>
-        <li><a id="ProgrammingBtn" data-toggle="tab" onmouseover="hoverCategoryTab('Programming','#ProgrammingBtn')"      onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Programming','Programming');">    <span class="fa fa-2x fa-va fa-code"></span></a></li>
-        <li><a id="MediaBtn"       data-toggle="tab" onmouseover="hoverCategoryTab('Sound & Video','#MediaBtn')"          onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Media','Sound & Video');">        <span class="fa fa-2x fa-va fa-film"></span></a></li>
-        <li><a id="SysToolsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('System Tools','#SysToolsBtn')"        onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#SysTools','System Tools');">      <span class="fa fa-2x fa-va fa-cog"></span></a></li>
-        <li><a id="UnivAccessBtn"  data-toggle="tab" onmouseover="hoverCategoryTab('Universal Access','#UnivAccessBtn')"  onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#UnivAccess','Universal Access');"><span class="fa fa-2x fa-va fa-wheelchair"></span></a></li>
-        <li><a id="ServersBtn"     data-toggle="tab" onmouseover="hoverCategoryTab('Servers','#ServersBtn')"              onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Servers','Servers');">            <span class="fa fa-2x fa-va fa-server"></span></a></li>
-        <li><a id="MoreAppsBtn"    data-toggle="tab" onmouseover="hoverCategoryTab('More Software','#MoreAppsBtn')"       onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#MoreApps','Get More Apps');">     <span class="fa fa-2x fa-va fa-download"></span></a></li>
-        <li><a id="MiscBtn"        data-toggle="tab" onmouseover="hoverCategoryTab('Fixes','#MiscBtn')"                   onmouseout="$('#categoryHover').hide();"   onclick="changeCategoryTab('#Misc','Miscellaneous Tasks');">   <span class="fa fa-2x fa-va fa-wrench"></span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Accessories&zwnj;">      <a id="AccessoriesBtn" data-toggle="tab" onclick="changeCategoryTab('#Accessories','&zwnj;Accessories&zwnj;');">      <span class="fa fa-2x fa-va fa-scissors">       </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Education&zwnj;">        <a id="EducationBtn"   data-toggle="tab" onclick="changeCategoryTab('#Education','&zwnj;Education&zwnj;');">          <span class="fa fa-2x fa-va fa-graduation-cap"> </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Games&zwnj;">            <a id="GamesBtn"       data-toggle="tab" onclick="changeCategoryTab('#Games','&zwnj;Games&zwnj;');">                  <span class="fa fa-2x fa-va fa-gamepad">        </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Graphics&zwnj;">         <a id="GraphicsBtn"    data-toggle="tab" onclick="changeCategoryTab('#Graphics','&zwnj;Graphics&zwnj;');">            <span class="fa fa-2x fa-va fa-picture-o">      </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Internet&zwnj;">         <a id="InternetBtn"    data-toggle="tab" onclick="changeCategoryTab('#Internet','&zwnj;Internet&zwnj;');">            <span class="fa fa-2x fa-va fa-globe">          </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Office&zwnj;">           <a id="OfficeBtn"      data-toggle="tab" onclick="changeCategoryTab('#Office','&zwnj;Office&zwnj;');">                <span class="fa fa-2x fa-va fa-bar-chart">      </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Programming&zwnj;">      <a id="ProgrammingBtn" data-toggle="tab" onclick="changeCategoryTab('#Programming','&zwnj;Programming&zwnj;');">      <span class="fa fa-2x fa-va fa-code">           </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Sound & Video&zwnj;" >   <a id="MediaBtn"       data-toggle="tab" onclick="changeCategoryTab('#Media','&zwnj;Sound & Video&zwnj;');">          <span class="fa fa-2x fa-va fa-film">           </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;System Tools&zwnj;">     <a id="SysToolsBtn"    data-toggle="tab" onclick="changeCategoryTab('#SysTools','&zwnj;System Tools&zwnj;');">        <span class="fa fa-2x fa-va fa-cog">            </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Universal Access&zwnj;"> <a id="UnivAccessBtn"  data-toggle="tab" onclick="changeCategoryTab('#UnivAccess','&zwnj;Universal Access&zwnj;');">  <span class="fa fa-2x fa-va fa-wheelchair">     </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Servers&zwnj;">          <a id="ServersBtn"     data-toggle="tab" onclick="changeCategoryTab('#Servers','&zwnj;Servers&zwnj;');">              <span class="fa fa-2x fa-va fa-server">         </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;More Software&zwnj;">    <a id="MoreAppsBtn"    data-toggle="tab" onclick="changeCategoryTab('#MoreApps','&zwnj;More Software&zwnj;');">       <span class="fa fa-2x fa-va fa-download">       </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <a id="MiscBtn"        data-toggle="tab" onclick="changeCategoryTab('#Misc','&zwnj;Fixes&zwnj;');">                   <span class="fa fa-2x fa-va fa-wrench">         </span></a></li>
       </ul>
     </div>
-    <div id="categoryHover" hidden>???</div>
-      <div class="row-fluid">
+    <div class="row-fluid">
         <div id="Intro">
-          <div id="featuredGrid">
+          <div id="featured-grid">
             <!-- Randomly generated by welcome.js -->
           </div>
           <div class="online">
@@ -75,7 +74,7 @@
                 <li><a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
               </ul>
               <ul class="unstyled" id="helpButton">
-                <li><a onclick="smoothFade('#offlineMessage','#helpMe'); changeSubtitle('Connection Troubleshooting'); smoothFade('#featuredGrid','');" class="btn btn-default">
+                <li><a onclick="smoothFade('#offlineMessage','#helpMe'); changeSubtitle('Connection Troubleshooting'); smoothFade('#featured-grid','');" class="btn btn-default">
                   <span class="fa fa-question-circle"></span> &zwnj;Connection Help&zwnj;</a>
                 </li>
               </ul>
@@ -109,13 +108,13 @@
               <ul>
                 <li>&zwnj;The&zwnj; <a href="cmd://drivers">&zwnj;Additional Drivers&zwnj;</a> &zwnj;tab may have them available for your system.&zwnj;</li>
                 <li>&zwnj;Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
-                package containing the firmware. See&zwnj; <b>&zwnj;Drivers&zwnj;</b> &zwnj;in the&zwnj; <a onclick="smoothOut('gettingstarted.html')">&zwnj;Getting Started&zwnj;</a>
+                package containing the firmware. See&zwnj; <b>&zwnj;Drivers&zwnj;</b> &zwnj;in the&zwnj; <a onclick="smoothPageFade('gettingstarted.html')">&zwnj;Getting Started&zwnj;</a>
                 &zwnj;section for more details.&zwnj;</li>
-                <li>&zwnj;Feel free to&zwnj; <a onclick="smoothOut('community.html')">&zwnj;ask the community&zwnj;</a> &zwnj;if you need assistance.&zwnj;</li>
+                <li>&zwnj;Feel free to&zwnj; <a onclick="smoothPageFade('community.html')">&zwnj;ask the community&zwnj;</a> &zwnj;if you need assistance.&zwnj;</li>
               </ul>
               <br>
               <ul class="unstyled" id="helpButtonBack">
-                <li><a onclick="smoothFade('#helpMe','#offlineMessage'); changeSubtitle('Our Picks'); smoothFade('','#featuredGrid');" class="btn btn-inverse">
+                <li><a onclick="smoothFade('#helpMe','#offlineMessage'); changeSubtitle('Our Picks'); smoothFade('','#featured-grid');" class="btn btn-inverse">
                   <span class="fa fa-check"></span> &zwnj;OK&zwnj;</a>
                 </li>
               </ul>
@@ -339,10 +338,10 @@
           <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <a id="nonFreeToggle" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
+          <a id="non-free-toggle" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
             <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> &zwnj;Hide Proprietary Software&zwnj;
           </a>
-          <a id="MiscCmd" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>
+          <a id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>
           <span id="footer-global-right"></span>
         </div>
       </div>

@@ -657,8 +657,8 @@
             "img": "extremetuxracer",
             "main-package": "extremetuxracer",
             "launch-command": "extremetuxracer",
-            "install-packages": "extremetuxracer,extremetuxracer-data,extremetuxracer-extras",
-            "remove-packages": "extremetuxracer,extremetuxracer-data,extremetuxracer-extras",
+            "install-packages": "extremetuxracer,extremetuxracer-data",
+            "remove-packages": "extremetuxracer,extremetuxracer-data",
             "description": [
                 "A simple OpenGL racing game",
                 "featuring Tux, the Linux mascot. The goal of the game is to",
@@ -712,7 +712,7 @@
             },
             "working": true
         },
-        "freeviv": {
+        "freeciv": {
             "name": "Freeciv",
             "img": "freeciv",
             "main-package": "freeciv",
@@ -3588,36 +3588,6 @@
             "subcategory": "Codecs / Libraries",
             "open-source": true,
             "url-info": null,
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
-        "bombono-dvd": {
-            "name": "Bombono DVD",
-            "img": "bombono",
-            "main-package": "bombono-dvd",
-            "launch-command": "bombono-dvd",
-            "install-packages": "bombono-dvd",
-            "remove-packages": "bombono-dvd,bombono-dvd-data",
-            "description": [
-                "An easy to use program for making DVD-Video. The main",
-                "features of Bombono DVD are, excellent MPEG viewer,",
-                "real WYSIWYG Menu Editor with live thumbnails,",
-                "comfortable Drag-N-Drop support, you can author to",
-                "folder, make an ISO or burn directly to DVD,",
-                "you can import video from existing DVD discs and re-author them."
-            ],
-            "alternate-to": null,
-            "subcategory": "Video Production",
-            "open-source": true,
-            "url-info": "http://www.bombono.org/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
