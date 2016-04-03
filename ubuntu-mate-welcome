@@ -1034,6 +1034,8 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.online').hide();")
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
+        elif uri == 'reboot-rpi':
+            systemstate.rpi_resize('reboot')
         elif uri == 'subscribe-updates':
             print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
             self.execute_script("$('#update-notification').hide()")
@@ -1225,9 +1227,7 @@ class SystemState(object):
         self.user_name = getuser()
         self.updates_subscribed = False
         self.welcome_version = 'Unknown'
-
-        # These variables are determined:
-        # self.arch;  self.session_type;  self.boot_mode
+        self.rpi_resize_pending = False
 
         # Get current architecture of system.
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
@@ -1663,6 +1663,7 @@ class SystemState(object):
 
             if status_code == 1:
                 notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot.") )
+                self.rpi_resize_pending = True
             elif status_code == 2:
                 notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand.") )
             elif status_code == 3:
@@ -1689,6 +1690,13 @@ class SystemState(object):
                 webkit.execute_script('$("#rpi-resized").hide()')
                 webkit.execute_script('$("#rpi-not-resized").show()')
 
+            if self.rpi_resize_pending:
+                webkit.execute_script('$("#rpi-resized").hide()')
+                webkit.execute_script('$("#rpi-not-resized").hide()')
+                webkit.execute_script('$("#rpi-restart-now").show()')
+
+        elif action == 'reboot':
+            print('fixme:restart_rpi')
 
 class DynamicApps(object):
     def __init__(self):
