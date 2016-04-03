@@ -809,6 +809,37 @@
             },
             "working": true
         },
+        "lutris": {
+            "name": "Lutris",
+            "img": "lutris",
+            "main-package": "lutris",
+            "launch-command": "lutris",
+            "install-packages": "lutris",
+            "remove-packages": "lutris",
+            "description": [
+                "Lutris is an open gaming platform for Linux. It helps you",
+                "install and manage your games in a unified interface."
+            ],
+            "alternate-to": null,
+            "subcategory": "Game Management",
+            "open-source": true,
+            "url-info": "http://lutris.net",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,utopic,wily",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "lutris",
+                    "apt-key-url": "http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/Release.key",
+                    "apt-sources": [
+                        "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/ ./"
+                    ]
+                }
+            },
+            "working": true
+        },
         "minecraft": {
             "name": "Minecraft",
             "img": "minecraft",
@@ -4434,37 +4465,6 @@
                     "apt-key-url": "http://download.opensuse.org/repositories/home:emby/xUbuntu_OSVERSION/Release.key",
                     "apt-sources": [
                         "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_OSVERSION/ /"
-                    ]
-                }
-            },
-            "working": true
-        },
-        "lutris": {
-            "name": "Lutris",
-            "img": "lutris",
-            "main-package": "lutris",
-            "launch-command": "lutris",
-            "install-packages": "lutris",
-            "remove-packages": "lutris",
-            "description": [
-                "Lutris is an open gaming platform for Linux. It helps you",
-                "install and manage your games in a unified interface."
-            ],
-            "alternate-to": null,
-            "subcategory": "Game Management",
-            "open-source": false,
-            "url-info": "http://lutris.net",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "trusty,utopic,wily",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "lutris",
-                    "apt-key-url": "http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/Release.key",
-                    "apt-sources": [
-                        "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/ ./"
                     ]
                 }
             },
