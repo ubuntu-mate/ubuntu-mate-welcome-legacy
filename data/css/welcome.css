@@ -38,11 +38,6 @@ body, button {
   position: relative;
 }
 
-p.no-space {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
 .center {
   text-align: center;
   vertical-align: middle;
@@ -91,24 +86,6 @@ p.no-space {
 
   font-size: 16px;
   font-weight: normal;
-}
-
-#header .system-information {
-  margin: 12px 8px 8px 8px;
-}
-
-#header .system-information p {
-  margin: 0px;
-  text-align: right;
-}
-
-#header .summary p {
-  margin: 0 16px 8px 16px;
-}
-
-#header .summary {
-  margin-top: 8px;
-  margin-bottom: 8px;
 }
 
 /************************
@@ -316,27 +293,20 @@ a {
 
 
 /* No margin for social icon in navbar */
-.no-margin {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
 img.centered {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img.left {
-    margin-right: 10px;
-    float: left;
+  margin-right: 10px;
+  float: left;
 }
 
 img.right {
-    margin-right: 10px;
-    float: right;
+  margin-right: 10px;
+  float: right;
 }
 
 hr.soften {
@@ -372,6 +342,11 @@ hr.soften-light {
 ** Global
 *************************/
 
+/* All bootstrap tool-tips */
+.tooltip-inner {
+  font-size: 12px;
+}
+
 /** Fade elements on Main Menu **/
 .fade { opacity: 0 }
 .fade-1s { -webkit-animation: fadeIn 1000ms forwards 10ms;   animation: fadeIn 1000ms forwards 10ms; }   /** Header **/
@@ -386,7 +361,7 @@ hr.soften-light {
 }
 
 /* Floating Back to Top */
-#scrollTop {
+#scroll-top {
   position: fixed;
   top: 8px;
   right: 8px;
@@ -435,11 +410,11 @@ hr.soften-light {
 }
 
 /************************
- * Software Page
+ * Software Page / Boutique
 *************************/
 
 /* Always keep category tabs visible */
-#categoryTabs {
+#category-tabs {
   position: fixed;
   background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
   width: 100%;
@@ -451,20 +426,6 @@ hr.soften-light {
   padding-bottom: 28px;
 }
 
-/* Hover label for categories */
-#categoryHover {
-  position: fixed;
-  top: 100px;
-  margin: auto;
-  font-size: 14px;
-  width: 110px;
-  padding-top: 4px;
-  padding-left: 3px;
-  text-align: center;
-  color: #758A53;
-  z-index: 10;
-}
-
 /* Proprietary Software Tooltip */
 .popover-title {
   background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
@@ -472,7 +433,7 @@ hr.soften-light {
 }
 
 /* Featured Apps Grid */
-#featuredGrid {
+#featured-grid {
   /* 4x4 Grid with 64px Icons */
   width: 300px;
   height: 271px;
@@ -480,37 +441,37 @@ hr.soften-light {
   margin: 8px;
 }
 
-#featuredGrid img {
+#featured-grid img {
   padding: 2.5px;
   min-width: 64px;
   min-height: 64px;
 }
 
-.gridHidden {
+.grid-hidden {
   opacity: 0 !important;
 }
 
-.gridOuter {
+.grid-outer {
   opacity: 0.3;
   -webkit-transition: opacity .5s ease-in-out;
 }
 
-.gridInner {
+.grid-inner {
   opacity: 0.7;
   -webkit-transition: opacity .5s ease-in-out;
 }
 
-#featuredGrid img:hover {
+#featured-grid img:hover {
   opacity: 1;
   -webkit-transition: opacity .5s ease-in-out;
 }
 
 /* Show cursor over check boxes */
-#nonFreeToggle {
+#non-free-toggle {
   cursor: pointer;
 }
 
-#MiscCmd {
+#show-misc-cmds {
   cursor: pointer;
 }
 
@@ -578,7 +539,7 @@ blockquote.terminal {
 /************************
  * Main Menu
 *************************/
-.menuLogo {
+.main-menu-logo {
   width: 200px;
   height: 200px;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -588,13 +549,13 @@ blockquote.terminal {
   pointer-events: none;
 }
 
-.menuMainTextBox {
+.main-menu-textbox {
   height: 40px;
   min-height: 40px;
   white-space: nowrap;
 }
 
-.menuMainText {
+.main-menu-text {
   margin: 6px;
   padding: 6px;
   text-align: center;
@@ -604,7 +565,7 @@ blockquote.terminal {
   color: #5A6943;
 }
 
-.menuBkgnd {
+.menu-bkgnd {
   height: 390px;
   width: 390px;
   margin: auto;
@@ -660,7 +621,7 @@ blockquote.terminal {
  * Splash Screen
 *************************/
 /* Scene A */
-.splashCenter {
+.splash-center {
   text-align: center;
   vertical-align: middle;
   position: absolute;
@@ -672,7 +633,7 @@ blockquote.terminal {
   pointer-events: none;
 }
 
-.splashText {
+.splash-text {
   font-family: "Ubuntu";
   font-weight: 100;
   font-size: 64px;
@@ -694,7 +655,7 @@ blockquote.terminal {
   line-height: 32px;
 }
 
-.bootCircle {
+.boot-circle {
   background: #8ba34f;
   width: 16px;
   height: 16px;
@@ -702,7 +663,7 @@ blockquote.terminal {
   display: inline-table;
 }
 
-.bootCircleBlock {
+.boot-circle-block {
   width: 16px;
   height: 16px;
   display: inline-table;
@@ -714,13 +675,13 @@ blockquote.terminal {
 #sceneB {
   position: absolute;
   top: -50px; bottom: 0; left: 0; right: 0;
-  width: 400px;
+  width: 450px;
   height: 180px;
   margin: auto;
   text-align: center;
 }
 
-.splashVersion {
+.splash-version {
   vertical-align: top;
   font-weight: bold;
   font-size: 20px;
@@ -729,14 +690,14 @@ blockquote.terminal {
 }
 
 /* Background */
-@-webkit-keyframes fadeToMenu {
+@-webkit-keyframes fade-to-menu {
   from { background-color: #3B3A36; }
   to   { background-color: #f4f4f4; }
 }
 
-.fadeToMenu {
+.fade-to-menu {
   -webkit-animation-fill-mode: forwards;
-  -webkit-animation: fadeToMenu 1s ease-in-out;
+  -webkit-animation: fade-to-menu 1s ease-in-out;
 }
 
 /************************
@@ -770,7 +731,9 @@ blockquote.terminal {
   color: #fff;
 }
 
-.topicContents { margin-bottom: 16px; }
+.topicContents {
+  margin-bottom: 16px;
+}
 
 #index-overlay {
   background-color: rgba(0,0,0,0.5);
@@ -787,7 +750,7 @@ blockquote.terminal {
  * Getting Started - System Specifications
 *************************/
 #specs-icon {
-  top: 20%;
+  top: 22%;
   left: 4%;
   width: 20%;
   height: auto;
