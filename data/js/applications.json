@@ -2998,6 +2998,33 @@
         }
     },
     "Programming": {
+        "atom": {
+            "name": "atom",
+            "img": "atom",
+            "main-package": "atom",
+            "launch-command": "atom",
+            "install-packages": "atom",
+            "remove-packages": "atom",
+            "description": [
+                "A hackable text editor for the 21st Century."
+            ],
+            "alternate-to": null,
+            "subcategory": "IDEs",
+            "open-source": true,
+            "url-info": "https://atom.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,vivid,wily",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:webupd8team/atom",
+                    "source-file": "webupd8team-atom-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": true
+        },
         "bzr": {
             "name": "Bazaar Explorer",
             "img": "bzr",
