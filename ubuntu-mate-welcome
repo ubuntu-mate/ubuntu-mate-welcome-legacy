@@ -1034,6 +1034,8 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.online').hide();")
         elif uri == 'resize-rpi':
             systemstate.rpi_resize('do-resize')
+        elif uri == 'reboot-rpi':
+            systemstate.rpi_resize('reboot')
         elif uri == 'subscribe-updates':
             print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
             self.execute_script("$('#update-notification').hide()")
@@ -1225,9 +1227,7 @@ class SystemState(object):
         self.user_name = getuser()
         self.updates_subscribed = False
         self.welcome_version = 'Unknown'
-
-        # These variables are determined:
-        # self.arch;  self.session_type;  self.boot_mode
+        self.rpi_resize_pending = False
 
         # Get current architecture of system.
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
@@ -1649,15 +1649,32 @@ class SystemState(object):
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
             subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
-            with open('/tmp/notify_subject') as subject_file:
-                subject = subject_file.read()
 
-            with open('/tmp/notify_body') as body_file:
-                body = body_file.read()
+            def notify(subject, body):
+                Notify.init(_('Raspberry Pi Partition Resize'))
+                resize_notify=Notify.Notification.new(subject, body, 'dialog-information')
+                resize_notify.show()
 
-            Notify.init(_('Raspberry Pi Partition Resize'))
-            resize_notify=Notify.Notification.new(subject, body, 'dialog-information')
-            resize_notify.show()
+            with open('/tmp/notify_rpi_status') as status_file:
+                status_code = int(status_file.read())
+
+            with open('/tmp/notify_rpi_text') as misc_file:
+                misc_text = misc_file.read()
+
+            if status_code == 1:
+                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot.") )
+                self.rpi_resize_pending = True
+            elif status_code == 2:
+                notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand.") )
+            elif status_code == 3:
+                notify( misc_text + ' ' + _("is not an SD card."), _("Don't know how to expand.") )
+            elif status_code == 4:
+                notify( _("Your partition layout is not currently supported by this tool."), _("Don't know how to expand.") )
+            elif status_code == 5:
+                notify( misc_text + ' ' + _("is not the last partition."), _("Don't know how to expand.") )
+            else:
+                print('[Welcome] Unrecognised return code for Raspberry Pi resize.')
+
             app._appView._push_config()
 
         elif action == 'check':
@@ -1673,6 +1690,13 @@ class SystemState(object):
                 webkit.execute_script('$("#rpi-resized").hide()')
                 webkit.execute_script('$("#rpi-not-resized").show()')
 
+            if self.rpi_resize_pending:
+                webkit.execute_script('$("#rpi-resized").hide()')
+                webkit.execute_script('$("#rpi-not-resized").hide()')
+                webkit.execute_script('$("#rpi-restart-now").show()')
+
+        elif action == 'reboot':
+            print('fixme:restart_rpi')
 
 class DynamicApps(object):
     def __init__(self):
