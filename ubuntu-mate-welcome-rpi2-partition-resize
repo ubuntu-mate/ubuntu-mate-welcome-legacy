@@ -23,8 +23,15 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 pass_notify() {
-  echo "${1}" > /tmp/notify_subject
-  echo "${2}" > /tmp/notify_body
+  # 1 = Success
+  # 2 = /dev/root non-existent or not a symlink
+  # 3 = Not an SD card.
+  # 4 = Unsupported layout.
+  # 5 = Not the last partition.
+  echo "${1}" > /tmp/notify_rpi_status
+
+  # Miscellaneous information to show in notification.
+  echo "${2}" > /tmp/notify_rpi_text
 }
 
 get_init_sys() {
@@ -43,8 +50,8 @@ do_expand_rootfs() {
   if [ $SYSTEMD -eq 1 ]; then
     ROOT_PART=$(mount | sed -n 's|^/dev/\(.*\) on / .*|\1|p')
   else
-    if ! [ -h /dev/root ]; then      
-      pass_notify "/dev/root does not exist or is not a symlink." "Don't know how to expand."
+    if ! [ -h /dev/root ]; then
+      pass_notify 2 '/dev/root'
       return 0
     fi
     ROOT_PART=$(readlink /dev/root)
@@ -52,20 +59,20 @@ do_expand_rootfs() {
 
   PART_NUM=${ROOT_PART#mmcblk0p}
   if [ "$PART_NUM" = "$ROOT_PART" ]; then
-    pass_notify "$ROOT_PART is not an SD card." "Don't know how to expand."
+    pass_notify 3 "$ROOT_PART"
     return 0
   fi
 
   # NOTE: the NOOBS partition layout confuses parted. For now, let's only 
   # agree to work with a sufficiently simple partition layout
   if [ "$PART_NUM" -ne 2 ]; then
-    pass_notify "Your partition layout is not currently supported by this tool." "Don't know how to expand."
+    pass_notify 4 ''
     return 0
   fi
 
   LAST_PART_NUM=$(parted /dev/mmcblk0 -ms unit s p | tail -n 1 | cut -f 1 -d:)
-  if [ $LAST_PART_NUM -ne $PART_NUM ]; then    
-    pass_notify "$ROOT_PART is not the last partition." "Don't know how to expand."
+  if [ $LAST_PART_NUM -ne $PART_NUM ]; then
+    pass_notify 5 "$ROOT_PART"
     return 0
   fi
 
@@ -119,7 +126,7 @@ EOF
   chmod +x /etc/init.d/resize2fs_once &&
   update-rc.d resize2fs_once defaults &&
   touch /.resized &&
-  pass_notify "Root partition has been resized." "The filesystem will be enlarged upon the next reboot."
+  pass_notify 1 ''
 }
 
 do_expand_rootfs
