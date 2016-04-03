@@ -1664,6 +1664,9 @@ class SystemState(object):
             if status_code == 1:
                 notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot.") )
                 self.rpi_resize_pending = True
+                webkit.execute_script('$("#rpi-resized").hide()')
+                webkit.execute_script('$("#rpi-not-resized").hide()')
+                webkit.execute_script('$("#rpi-restart-now").show()')
             elif status_code == 2:
                 notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand.") )
             elif status_code == 3:
