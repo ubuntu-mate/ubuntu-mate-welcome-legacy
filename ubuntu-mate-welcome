@@ -1696,7 +1696,7 @@ class SystemState(object):
                 webkit.execute_script('$("#rpi-restart-now").show()')
 
         elif action == 'reboot':
-            print('fixme:restart_rpi')
+            subprocess.call(['mate-session-save --shutdown-dialog'])
 
 class DynamicApps(object):
     def __init__(self):
