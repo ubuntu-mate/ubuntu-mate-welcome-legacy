@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Efstathios Iosifidis <iefstathios@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-02 22:42+0100\n"
-"PO-Revision-Date: 2016-03-26 16:13+0000\n"
-"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
-"Language-Team: Greek (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
-"welcome/language/el/)\n"
-"Language: el\n"
+"POT-Creation-Date: 2016-04-03 12:15+0100\n"
+"PO-Revision-Date: 2016-04-03 14:00+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Greek (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1138 ubuntu-mate-welcome:2221
+#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2255
 msgid "Software Boutique"
 msgstr ""
 
@@ -29,7 +28,7 @@ msgid ""
 "closing Welcome."
 msgstr ""
 
-#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2222
+#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2256
 msgid "OK"
 msgstr "OK"
 
@@ -81,7 +80,7 @@ msgstr ""
 msgid "Fixing the broken dependencies failed."
 msgstr ""
 
-#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1823
+#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1857
 msgid "Install"
 msgstr "Εγκατάσταση"
 
@@ -93,7 +92,7 @@ msgstr ""
 msgid "installed."
 msgstr ""
 
-#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1825
+#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1859
 msgid "Remove"
 msgstr "Αφαίρεση"
 
@@ -105,7 +104,7 @@ msgstr ""
 msgid "removed."
 msgstr "αφαιρέθηκε."
 
-#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1826
+#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1860
 msgid "Upgrade"
 msgstr "Αναβάθμιση"
 
@@ -191,11 +190,11 @@ msgstr ""
 
 #: ubuntu-mate-welcome:848
 msgid "Servers"
-msgstr ""
+msgstr "Διακομιστές"
 
-#: ubuntu-mate-welcome:1143
+#: ubuntu-mate-welcome:1145
 msgid "Welcome"
-msgstr ""
+msgstr "Καλώς ήλθατε"
 
 #: ubuntu-mate-welcome:1382
 msgid "MB"
@@ -217,101 +216,131 @@ msgstr ""
 msgid "Could not gather data."
 msgstr ""
 
-#: ubuntu-mate-welcome:1818
+#: ubuntu-mate-welcome:1654
+msgid "Raspberry Pi Partition Resize"
+msgstr ""
+
+#: ubuntu-mate-welcome:1665
+msgid "Root partition has been resized."
+msgstr ""
+
+#: ubuntu-mate-welcome:1665
+msgid "The filesystem will be enlarged upon the next reboot."
+msgstr ""
+
+#: ubuntu-mate-welcome:1668
+msgid "does not exist or is not a symlink."
+msgstr ""
+
+#: ubuntu-mate-welcome:1668 ubuntu-mate-welcome:1670 ubuntu-mate-welcome:1672
+#: ubuntu-mate-welcome:1674
+msgid "Don't know how to expand."
+msgstr ""
+
+#: ubuntu-mate-welcome:1670
+msgid "is not an SD card."
+msgstr ""
+
+#: ubuntu-mate-welcome:1672
+msgid "Your partition layout is not currently supported by this tool."
+msgstr ""
+
+#: ubuntu-mate-welcome:1674
+msgid "is not the last partition."
+msgstr ""
+
+#: ubuntu-mate-welcome:1852
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
 msgstr ""
 
-#: ubuntu-mate-welcome:1819
+#: ubuntu-mate-welcome:1853
 msgid "This application is set to receive the latest updates."
 msgstr ""
 
-#: ubuntu-mate-welcome:1820
+#: ubuntu-mate-welcome:1854
 msgid "Alternative to:"
 msgstr ""
 
-#: ubuntu-mate-welcome:1821
+#: ubuntu-mate-welcome:1855
 msgid "Hide"
 msgstr ""
 
-#: ubuntu-mate-welcome:1822
+#: ubuntu-mate-welcome:1856
 msgid "Show"
 msgstr ""
 
-#: ubuntu-mate-welcome:1824
-#, fuzzy
+#: ubuntu-mate-welcome:1858
 msgid "Reinstall"
-msgstr "Εγκατάσταση"
+msgstr ""
 
-#: ubuntu-mate-welcome:1827
+#: ubuntu-mate-welcome:1861
 msgid "Launch"
 msgstr ""
 
-#: ubuntu-mate-welcome:1828
+#: ubuntu-mate-welcome:1862
 msgid "License"
 msgstr ""
 
-#: ubuntu-mate-welcome:1829
+#: ubuntu-mate-welcome:1863
 msgid "Platform"
 msgstr ""
 
-#: ubuntu-mate-welcome:1830
+#: ubuntu-mate-welcome:1864
 msgid "Category"
 msgstr ""
 
-#: ubuntu-mate-welcome:1831
+#: ubuntu-mate-welcome:1865
 msgid "Website"
 msgstr ""
 
-#: ubuntu-mate-welcome:1832
+#: ubuntu-mate-welcome:1866
 msgid "Screenshot"
 msgstr ""
 
-#: ubuntu-mate-welcome:1833
+#: ubuntu-mate-welcome:1867
 msgid "Source"
 msgstr ""
 
-#: ubuntu-mate-welcome:1836
+#: ubuntu-mate-welcome:1870
 msgid "Canonical Partner Repository"
 msgstr ""
 
-#: ubuntu-mate-welcome:1837
+#: ubuntu-mate-welcome:1871
 msgid "Ubuntu Repository"
 msgstr ""
 
-#: ubuntu-mate-welcome:1838
+#: ubuntu-mate-welcome:1872
 msgid "Unknown"
 msgstr ""
 
-#: ubuntu-mate-welcome:1946
+#: ubuntu-mate-welcome:1980
 msgid "Open Source"
 msgstr ""
 
-#: ubuntu-mate-welcome:1948
+#: ubuntu-mate-welcome:1982
 msgid "Proprietary"
 msgstr ""
 
-#: ubuntu-mate-welcome:2117
-#, fuzzy
+#: ubuntu-mate-welcome:2151
 msgid "Installing..."
-msgstr "Εγκατάσταση"
+msgstr ""
 
-#: ubuntu-mate-welcome:2118
+#: ubuntu-mate-welcome:2152
 msgid "Removing..."
 msgstr ""
 
-#: ubuntu-mate-welcome:2119
-#, fuzzy
+#: ubuntu-mate-welcome:2153
 msgid "Upgrading..."
-msgstr "Αναβάθμιση"
+msgstr ""
 
-#: ubuntu-mate-welcome:2223
+#: ubuntu-mate-welcome:2257
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
 msgstr ""
 
-#: ubuntu-mate-welcome:2224
+#: ubuntu-mate-welcome:2258
 msgid "Command:"
 msgstr ""
