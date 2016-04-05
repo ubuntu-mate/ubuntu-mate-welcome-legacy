@@ -870,18 +870,18 @@ class AppView(WebKit.WebView):
         ### Donate ###
         if self.current_page == 'donate.html':
             # Pass translatable short-hand month strings for the supporters grid.
-            self.execute_script('short_jan = "&zwnj;Jan&zwnj;"')
-            self.execute_script('short_feb = "&zwnj;Feb&zwnj;"')
-            self.execute_script('short_mar = "&zwnj;Mar&zwnj;"')
-            self.execute_script('short_apr = "&zwnj;Apr&zwnj;"')
-            self.execute_script('short_may = "&zwnj;May&zwnj;"')
-            self.execute_script('short_jun = "&zwnj;Jun&zwnj;"')
-            self.execute_script('short_jul = "&zwnj;Jul&zwnj;"')
-            self.execute_script('short_aug = "&zwnj;Aug&zwnj;"')
-            self.execute_script('short_sep = "&zwnj;Sep&zwnj;"')
-            self.execute_script('short_oct = "&zwnj;Oct&zwnj;"')
-            self.execute_script('short_nov = "&zwnj;Nov&zwnj;"')
-            self.execute_script('short_dec = "&zwnj;Dec&zwnj;"')
+            self.execute_script('short_jan = "' + _("Jan") + '"')
+            self.execute_script('short_feb = "' + _("Feb") + '"')
+            self.execute_script('short_mar = "' + _("Mar") + '"')
+            self.execute_script('short_apr = "' + _("Apr") + '"')
+            self.execute_script('short_may = "' + _("May") + '"')
+            self.execute_script('short_jun = "' + _("Jun") + '"')
+            self.execute_script('short_jul = "' + _("Jul") + '"')
+            self.execute_script('short_aug = "' + _("Aug") + '"')
+            self.execute_script('short_sep = "' + _("Sep") + '"')
+            self.execute_script('short_oct = "' + _("Oct") + '"')
+            self.execute_script('short_nov = "' + _("Nov") + '"')
+            self.execute_script('short_dec = "' + _("Dec") + '"')
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
