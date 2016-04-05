@@ -1648,7 +1648,7 @@ class SystemState(object):
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize']).communicate()
 
             def notify(subject, body):
                 Notify.init(_('Raspberry Pi Partition Resize'))
