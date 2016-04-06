@@ -1496,31 +1496,31 @@ class SystemState(object):
                 entire_disk = int(entire_disk.split()[3])
 
                 ## Perform calculations across units
-                capacity_GB =   int(round(entire_disk/1000/1000/1000))
-                capacity_GiB =  int(round(entire_disk/1024/1024/1024))
-                allocated_GB =  int(round(root_size/1000/1000/1000))
-                allocated_GiB = int(round(root_size/1024/1024/1024))
-                free_GB =       int(round(root_free/1000/1000/1000))
-                free_GiB =      int(round(root_free/1024/1024/1024))
+                capacity_GB =   round(entire_disk/1000/1000/1000,1)
+                capacity_GiB =  round(entire_disk/1024/1024/1024,1)
+                allocated_GB =  round(root_size/1000/1000/1000,1)
+                allocated_GiB = round(root_size/1024/1024/1024,1)
+                free_GB =       round(root_free/1000/1000/1000,1)
+                free_GiB =      round(root_free/1024/1024/1024,1)
 
                 # Show megabytes/mebibytes (in red) if gigabytes are too small.
                 if capacity_GB <= 1:
-                    capacity_GB = str(int(round(entire_disk/1000/1000))) + ' ' + mb_prefix
-                    capacity_GiB = str(int(round(entire_disk/1024/1024))) + ' ' + mib_prefix
+                    capacity_GB = str(round(entire_disk/1000/1000,1)) + ' ' + mb_prefix
+                    capacity_GiB = str(round(entire_disk/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     capacity_GB = str(capacity_GB) + ' ' + gb_prefix
                     capacity_GiB = str(capacity_GiB) + ' ' + gib_prefix
 
                 if allocated_GB <= 1:
-                    allocated_GB =  str(int(round(root_size/1000/1000))) + ' ' + mb_prefix
-                    allocated_GiB = str(int(round(root_size/1024/1024))) + ' ' + mib_prefix
+                    allocated_GB =  str(round(root_size/1000/1000,1)) + ' ' + mb_prefix
+                    allocated_GiB = str(round(root_size/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     allocated_GB = str(allocated_GB) + ' ' + gb_prefix
                     allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
 
                 if free_GB <= 1:
-                    free_GB =  str(int(round(root_free/1000/1000))) + ' ' + mb_prefix
-                    free_GiB = str(int(round(root_free/1024/1024))) + ' ' + mib_prefix
+                    free_GB =  str(round(root_free/1000/1000,1)) + ' ' + mb_prefix
+                    free_GiB = str(round(root_free/1024/1024,1)) + ' ' + mib_prefix
                     webkit.execute_script('$("#spec-free-space").addClass("specs-error")')
                 else:
                     free_GB = str(free_GB) + ' ' + gb_prefix
