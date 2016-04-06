@@ -1491,35 +1491,36 @@ class SystemState(object):
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
+                root_used = root_size - root_free
                 entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
 
                 ## Perform calculations across units
-                capacity_GB =   int(round(entire_disk/1000/1000/1000))
-                capacity_GiB =  int(round(entire_disk/1024/1024/1024))
-                allocated_GB =  int(round(root_size/1000/1000/1000))
-                allocated_GiB = int(round(root_size/1024/1024/1024))
-                free_GB =       int(round(root_free/1000/1000/1000))
-                free_GiB =      int(round(root_free/1024/1024/1024))
+                capacity_GB =   round(entire_disk/1000/1000/1000,1)
+                capacity_GiB =  round(entire_disk/1024/1024/1024,1)
+                allocated_GB =  round(root_size/1000/1000/1000,1)
+                allocated_GiB = round(root_size/1024/1024/1024,1)
+                free_GB =       round(root_free/1000/1000/1000,1)
+                free_GiB =      round(root_free/1024/1024/1024,1)
 
                 # Show megabytes/mebibytes (in red) if gigabytes are too small.
                 if capacity_GB <= 1:
-                    capacity_GB = str(int(round(entire_disk/1000/1000))) + ' ' + mb_prefix
-                    capacity_GiB = str(int(round(entire_disk/1024/1024))) + ' ' + mib_prefix
+                    capacity_GB = str(round(entire_disk/1000/1000,1)) + ' ' + mb_prefix
+                    capacity_GiB = str(round(entire_disk/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     capacity_GB = str(capacity_GB) + ' ' + gb_prefix
                     capacity_GiB = str(capacity_GiB) + ' ' + gib_prefix
 
                 if allocated_GB <= 1:
-                    allocated_GB =  str(int(round(root_size/1000/1000))) + ' ' + mb_prefix
-                    allocated_GiB = str(int(round(root_size/1024/1024))) + ' ' + mib_prefix
+                    allocated_GB =  str(round(root_size/1000/1000,1)) + ' ' + mb_prefix
+                    allocated_GiB = str(round(root_size/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     allocated_GB = str(allocated_GB) + ' ' + gb_prefix
                     allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
 
                 if free_GB <= 1:
-                    free_GB =  str(int(round(root_free/1000/1000))) + ' ' + mb_prefix
-                    free_GiB = str(int(round(root_free/1024/1024))) + ' ' + mib_prefix
+                    free_GB =  str(round(root_free/1000/1000,1)) + ' ' + mb_prefix
+                    free_GiB = str(round(root_free/1024/1024,1)) + ' ' + mib_prefix
                     webkit.execute_script('$("#spec-free-space").addClass("specs-error")')
                 else:
                     free_GB = str(free_GB) + ' ' + gb_prefix
@@ -1532,11 +1533,16 @@ class SystemState(object):
                 webkit.execute_script('$("#spec-free-space").html("' + free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>")')
 
                 ## Calculate representation across physical disk
-                disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
-                disk_percent_other   = int(round((root_size - root_free) / entire_disk) * 100)
-                arg.print_verbose('System Specs', ' ---- Disk: ' + root_dev + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
-                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
-                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
+                disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
+                disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
+                disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
+                arg.print_verbose('System Specs', ' --- Disk: ' + root_dev)
+                arg.print_verbose('System Specs', ' --- * OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)')
+                arg.print_verbose('System Specs', ' --- * OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)')
+                arg.print_verbose('System Specs', ' --- = Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)')
+                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "px');")
+                webkit.execute_script("$('#disk-free').width('" + str(disk_percent_UM_free) + "px');")
+                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "px');")
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
