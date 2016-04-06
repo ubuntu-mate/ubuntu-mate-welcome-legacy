@@ -1178,14 +1178,17 @@
                   <td>
                     <span id="spec-capacity"></span>
                     <br>
-                    <div id="disk-usage">
-                      <a id="disk-used" style="width:0%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ubuntu MATE's Partition&zwnj;"></a>
-                      <a id="disk-other" style="width:100%" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, unallocated or swap space.&zwnj;"></a>
+                    <div id="disk-usage" style="width:200px">
+                      <a id="disk-allocated" class="disk-line" style="width:auto" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ubuntu MATE's Partition&zwnj;">
+                        <div id="disk-used" class="disk-line" style="width:0px"></div>
+                        <div id="disk-free" class="disk-line" style="width:0px"></div>
+                      </a>
+                      <a id="disk-other" class="disk-line" style="width:0px" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, unallocated or swap space.&zwnj;"></a>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th>-- &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
+                  <th><div class="disk-legend" style="background-color: #87A556"></div><div class="disk-legend" style="background-color: #C2D3A6"></div> &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
                   <td>
                     <span id="spec-allocated-space"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;The size of your operating system partition.&zwnj;">
@@ -1194,7 +1197,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th>-- &zwnj;Free Space:&zwnj;</th>
+                  <th><div class="disk-legend" style="background-color: #C2D3A6"></div>  &zwnj;Free Space:&zwnj;</th>
                   <td>
                     <span id="spec-free-space"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;How much space is available to use.&zwnj;">

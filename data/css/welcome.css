@@ -800,18 +800,33 @@ blockquote.terminal {
   height: 8px;
   background-color: #C8C8C8;
   border: 1px solid #8C8C8C;
+  overflow: hidden;
+}
+
+.disk-line {
+  float: left;
+  height: 100%;
 }
 
 #disk-used {
-  float: left;
   background-color: #87A556;
-  height: 100%;
+}
+
+#disk-free {
+  background-color: #C2D3A6;
 }
 
 #disk-other {
-  float: right;
   background-color: #484848;
-  height: 100%;
+}
+
+.disk-legend {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  float: left;
+  vertical-align: middle;
+  margin: 4px;
 }
 
 /************************

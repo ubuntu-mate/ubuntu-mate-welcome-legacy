@@ -1491,6 +1491,7 @@ class SystemState(object):
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
+                root_used = root_size - root_free
                 entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
 
@@ -1532,11 +1533,16 @@ class SystemState(object):
                 webkit.execute_script('$("#spec-free-space").html("' + free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>")')
 
                 ## Calculate representation across physical disk
-                disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
-                disk_percent_other   = int(round((root_size - root_free) / entire_disk) * 100)
-                arg.print_verbose('System Specs', ' ---- Disk: ' + root_dev + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
-                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
-                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
+                disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
+                disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
+                disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
+                arg.print_verbose('System Specs', ' --- Disk: ' + root_dev)
+                arg.print_verbose('System Specs', ' --- * OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)')
+                arg.print_verbose('System Specs', ' --- * OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)')
+                arg.print_verbose('System Specs', ' --- = Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)')
+                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "px');")
+                webkit.execute_script("$('#disk-free').width('" + str(disk_percent_UM_free) + "px');")
+                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "px');")
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
