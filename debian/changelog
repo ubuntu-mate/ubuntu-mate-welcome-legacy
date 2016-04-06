@@ -1,4 +1,4 @@
-ubuntu-mate-welcome (16.04.7~xenial2.0) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.7~xenial2.1) xenial; urgency=medium
 
   [ Martin Wimpress ]
     * Fix missing launch entries for Variety, Veracrypt and Zim.
@@ -23,14 +23,16 @@ ubuntu-mate-welcome (16.04.7~xenial2.0) xenial; urgency=medium
     * Fix text scaling based on font DPI setting.
     * Fix System Specifications.
     * Correct I-beam cursor, behaves more like a native application.
+    * Correct Flash Player link on Raspberry Pi documentation.
     * Improve readability of Keyboard Shortcuts and System Specifications.
     * Improve appearance of tooltips.
+    * Improve accuracy of disk usage in System Specifications.
     * Add MATE Disk Analyser and Psensor to System Specifications.
     * Add Source field for each Boutique application.
     * Add error message for applications that fail to launch.
     * Update footer to display version and subscription opt-in status.
 
- -- Martin Wimpress <code@flexion.org>  Thu, 24 Mar 2016 09:21:44 +0000
+ -- Martin Wimpress <code@flexion.org>  Tue, 05 Apr 2016 21:21:44 +0000
 
 ubuntu-mate-welcome (16.04.6) xenial; urgency=medium
 
