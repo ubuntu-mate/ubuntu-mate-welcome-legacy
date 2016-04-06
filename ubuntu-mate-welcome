@@ -870,18 +870,18 @@ class AppView(WebKit.WebView):
         ### Donate ###
         if self.current_page == 'donate.html':
             # Pass translatable short-hand month strings for the supporters grid.
-            self.execute_script('short_jan = "&zwnj;Jan&zwnj;"')
-            self.execute_script('short_feb = "&zwnj;Feb&zwnj;"')
-            self.execute_script('short_mar = "&zwnj;Mar&zwnj;"')
-            self.execute_script('short_apr = "&zwnj;Apr&zwnj;"')
-            self.execute_script('short_may = "&zwnj;May&zwnj;"')
-            self.execute_script('short_jun = "&zwnj;Jun&zwnj;"')
-            self.execute_script('short_jul = "&zwnj;Jul&zwnj;"')
-            self.execute_script('short_aug = "&zwnj;Aug&zwnj;"')
-            self.execute_script('short_sep = "&zwnj;Sep&zwnj;"')
-            self.execute_script('short_oct = "&zwnj;Oct&zwnj;"')
-            self.execute_script('short_nov = "&zwnj;Nov&zwnj;"')
-            self.execute_script('short_dec = "&zwnj;Dec&zwnj;"')
+            self.execute_script('short_jan = "' + _("Jan") + '"')
+            self.execute_script('short_feb = "' + _("Feb") + '"')
+            self.execute_script('short_mar = "' + _("Mar") + '"')
+            self.execute_script('short_apr = "' + _("Apr") + '"')
+            self.execute_script('short_may = "' + _("May") + '"')
+            self.execute_script('short_jun = "' + _("Jun") + '"')
+            self.execute_script('short_jul = "' + _("Jul") + '"')
+            self.execute_script('short_aug = "' + _("Aug") + '"')
+            self.execute_script('short_sep = "' + _("Sep") + '"')
+            self.execute_script('short_oct = "' + _("Oct") + '"')
+            self.execute_script('short_nov = "' + _("Nov") + '"')
+            self.execute_script('short_dec = "' + _("Dec") + '"')
 
     def _load_finished_cb(self, view, frame):
         self._push_config()
@@ -1500,8 +1500,12 @@ class SystemState(object):
                 capacity_GiB =  round(entire_disk/1024/1024/1024,1)
                 allocated_GB =  round(root_size/1000/1000/1000,1)
                 allocated_GiB = round(root_size/1024/1024/1024,1)
+                used_GB =       round(root_used/1000/1000/1000,1)
+                used_GiB =      round(root_used/1024/1024/1024,1)
                 free_GB =       round(root_free/1000/1000/1000,1)
                 free_GiB =      round(root_free/1024/1024/1024,1)
+                other_GB =      round((entire_disk-root_size)/1000/1000/1000,1)
+                other_GiB =     round((entire_disk-root_size)/1024/1024/1024,1)
 
                 # Show megabytes/mebibytes (in red) if gigabytes are too small.
                 if capacity_GB <= 1:
@@ -1518,6 +1522,13 @@ class SystemState(object):
                     allocated_GB = str(allocated_GB) + ' ' + gb_prefix
                     allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
 
+                if used_GB <= 1:
+                    used_GB =  str(round(root_used/1000/1000,1)) + ' ' + mb_prefix
+                    used_GiB = str(round(root_used/1024/1024,1)) + ' ' + mib_prefix
+                else:
+                    used_GB = str(used_GB) + ' ' + gb_prefix
+                    used_GiB = str(used_GiB) + ' ' + gib_prefix
+
                 if free_GB <= 1:
                     free_GB =  str(round(root_free/1000/1000,1)) + ' ' + mb_prefix
                     free_GiB = str(round(root_free/1024/1024,1)) + ' ' + mib_prefix
@@ -1526,11 +1537,20 @@ class SystemState(object):
                     free_GB = str(free_GB) + ' ' + gb_prefix
                     free_GiB = str(free_GiB) + ' ' + gib_prefix
 
+                if other_GB <= 1:
+                    other_GB =  str(round((entire_disk-root_size)/1000/1000,1)) + ' ' + mb_prefix
+                    other_GiB = str(round((entire_disk-root_size)/1024/1024,1)) + ' ' + mib_prefix
+                else:
+                    other_GB = str(other_GB) + ' ' + gb_prefix
+                    other_GiB = str(other_GiB) + ' ' + gib_prefix
+
                 ## Append data to HTML.
                 webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
                 webkit.execute_script('$("#spec-capacity").html("' + capacity_GB + ' <span class=\'secondary-value\'>(' + capacity_GiB + ')</span>")')
                 webkit.execute_script('$("#spec-allocated-space").html("' + allocated_GB + ' <span class=\'secondary-value\'>(' + allocated_GiB + ')</span>")')
+                webkit.execute_script('$("#spec-used-space").html("' + used_GB + ' <span class=\'secondary-value\'>(' + used_GiB + ')</span>")')
                 webkit.execute_script('$("#spec-free-space").html("' + free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>")')
+                webkit.execute_script('$("#spec-other-space").html("' + other_GB + ' <span class=\'secondary-value\'>(' + other_GiB + ')</span>")')
 
                 ## Calculate representation across physical disk
                 disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
