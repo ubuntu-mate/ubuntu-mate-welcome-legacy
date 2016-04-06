@@ -580,7 +580,7 @@
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Language Support&zwnj;</h2>
-            <p>&zwnj;You computer may require updates to your language and
+            <p>&zwnj;Your computer may require updates to your language and
             localization settings, or you may want to install additional
             language support.&zwnj;</p>
             <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language" onclick="smoothFade('','#locale-hint')">
@@ -1179,16 +1179,16 @@
                     <span id="spec-capacity"></span>
                     <br>
                     <div id="disk-usage" style="width:200px">
-                      <a id="disk-allocated" class="disk-line" style="width:auto" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ubuntu MATE's Partition&zwnj;">
+                      <a id="disk-allocated" class="disk-line" style="width:auto" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ubuntu MATE Usage&zwnj;">
                         <div id="disk-used" class="disk-line" style="width:0px"></div>
                         <div id="disk-free" class="disk-line" style="width:0px"></div>
                       </a>
-                      <a id="disk-other" class="disk-line" style="width:0px" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Other partitions, unallocated or swap space.&zwnj;"></a>
+                      <a id="disk-other" class="disk-line" style="width:0px" data-toggle="tooltip" data-placement="bottom" title="Other Usage"></a>
                     </div>
                   </td>
                 </tr>
                 <tr>
-                  <th><div class="disk-legend" style="background-color: #87A556"></div><div class="disk-legend" style="background-color: #C2D3A6"></div> &zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
+                  <th>&zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
                   <td>
                     <span id="spec-allocated-space"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;The size of your operating system partition.&zwnj;">
@@ -1197,10 +1197,22 @@
                   </td>
                 </tr>
                 <tr>
-                  <th><div class="disk-legend" style="background-color: #C2D3A6"></div>  &zwnj;Free Space:&zwnj;</th>
+                  <th><div class="disk-legend" style="background-color: #87A556"></div> &zwnj;Used Space:&zwnj;</th>
+                  <td>
+                    <span id="spec-used-space"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><div class="disk-legend" style="background-color: #C2D3A6"></div> &zwnj;Free Space:&zwnj;</th>
                   <td>
                     <span id="spec-free-space"></span>
-                    <a data-toggle="tooltip" data-placement="top" title="&zwnj;How much space is available to use.&zwnj;">
+                  </td>
+                </tr>
+                <tr>
+                  <th><div class="disk-legend" style="background-color: #484848;"></div> &zwnj;Other Usage:&zwnj;</th>
+                  <td>
+                    <span id="spec-other-space"></span>
+                    <a data-toggle="tooltip" data-placement="top" title="&zwnj;Reserved by system, other partitions, unallocated or swap.&zwnj;">
                       <span class="fa fa-info-circle"></span>
                     </a>
                   </td>
