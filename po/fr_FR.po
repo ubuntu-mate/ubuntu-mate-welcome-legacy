@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 12:15+0100\n"
-"PO-Revision-Date: 2016-04-05 19:11+0000\n"
-"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
+"POT-Creation-Date: 2016-04-07 13:44+0100\n"
+"PO-Revision-Date: 2016-04-07 12:46+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2255
+#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2285
 msgid "Software Boutique"
 msgstr "Boutique de Logiciels"
 
@@ -28,7 +28,7 @@ msgid ""
 "closing Welcome."
 msgstr "Des modifications logicielles sont en cours. Veuillez laisser Welcome terminer les opérations avant de fermer la fenêtre."
 
-#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2256
+#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2286
 msgid "OK"
 msgstr "OK"
 
@@ -80,7 +80,7 @@ msgstr "Les dépendances cassées n'ont pas pu être réparées."
 msgid "Fixing the broken dependencies failed."
 msgstr "La réparation des dépendances cassées a échoué."
 
-#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1857
+#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1887
 msgid "Install"
 msgstr "Installer"
 
@@ -92,7 +92,7 @@ msgstr "Installation de"
 msgid "installed."
 msgstr "a été installé(e)."
 
-#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1859
+#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1889
 msgid "Remove"
 msgstr "Désinstaller"
 
@@ -104,7 +104,7 @@ msgstr "Désinstallation de"
 msgid "removed."
 msgstr "a été désinstallé(e)"
 
-#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1860
+#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1890
 msgid "Upgrade"
 msgstr "Mettre à Jour"
 
@@ -192,6 +192,54 @@ msgstr "Passer"
 msgid "Servers"
 msgstr "Serveurs"
 
+#: ubuntu-mate-welcome:873
+msgid "Jan"
+msgstr ""
+
+#: ubuntu-mate-welcome:874
+msgid "Feb"
+msgstr ""
+
+#: ubuntu-mate-welcome:875
+msgid "Mar"
+msgstr ""
+
+#: ubuntu-mate-welcome:876
+msgid "Apr"
+msgstr ""
+
+#: ubuntu-mate-welcome:877
+msgid "May"
+msgstr ""
+
+#: ubuntu-mate-welcome:878
+msgid "Jun"
+msgstr ""
+
+#: ubuntu-mate-welcome:879
+msgid "Jul"
+msgstr ""
+
+#: ubuntu-mate-welcome:880
+msgid "Aug"
+msgstr ""
+
+#: ubuntu-mate-welcome:881
+msgid "Sep"
+msgstr ""
+
+#: ubuntu-mate-welcome:882
+msgid "Oct"
+msgstr ""
+
+#: ubuntu-mate-welcome:883
+msgid "Nov"
+msgstr ""
+
+#: ubuntu-mate-welcome:884
+msgid "Dec"
+msgstr ""
+
 #: ubuntu-mate-welcome:1145
 msgid "Welcome"
 msgstr "Bienvenue"
@@ -216,131 +264,131 @@ msgstr "GiB"
 msgid "Could not gather data."
 msgstr "Impossible de rassembler les données."
 
-#: ubuntu-mate-welcome:1654
+#: ubuntu-mate-welcome:1680
 msgid "Raspberry Pi Partition Resize"
 msgstr "Modifier la Taille de la Partition du Raspberry Pi"
 
-#: ubuntu-mate-welcome:1665
+#: ubuntu-mate-welcome:1691
 msgid "Root partition has been resized."
 msgstr "La taille de la partition Root a été modifiée."
 
-#: ubuntu-mate-welcome:1665
+#: ubuntu-mate-welcome:1691
 msgid "The filesystem will be enlarged upon the next reboot."
 msgstr "Le système de fichiers sera élargi au prochain démarrage."
 
-#: ubuntu-mate-welcome:1668
+#: ubuntu-mate-welcome:1697
 msgid "does not exist or is not a symlink."
 msgstr "n'existe pas ou n'est pas un lien symbolique."
 
-#: ubuntu-mate-welcome:1668 ubuntu-mate-welcome:1670 ubuntu-mate-welcome:1672
-#: ubuntu-mate-welcome:1674
+#: ubuntu-mate-welcome:1697 ubuntu-mate-welcome:1699 ubuntu-mate-welcome:1701
+#: ubuntu-mate-welcome:1703
 msgid "Don't know how to expand."
 msgstr "Impossible d'étendre la partition."
 
-#: ubuntu-mate-welcome:1670
+#: ubuntu-mate-welcome:1699
 msgid "is not an SD card."
 msgstr "n'est pas une carte SD."
 
-#: ubuntu-mate-welcome:1672
+#: ubuntu-mate-welcome:1701
 msgid "Your partition layout is not currently supported by this tool."
 msgstr "La disposition de vos partitions n'est pas supportée par cet outil."
 
-#: ubuntu-mate-welcome:1674
+#: ubuntu-mate-welcome:1703
 msgid "is not the last partition."
 msgstr "n'est pas la dernière partition."
 
-#: ubuntu-mate-welcome:1852
+#: ubuntu-mate-welcome:1882
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
 msgstr "Désolé, Welcome n'a pas pu afficher de logiciels compatibles dans cette catégorie."
 
-#: ubuntu-mate-welcome:1853
+#: ubuntu-mate-welcome:1883
 msgid "This application is set to receive the latest updates."
 msgstr "Cette application doit recevoir les dernières mises à jour."
 
-#: ubuntu-mate-welcome:1854
+#: ubuntu-mate-welcome:1884
 msgid "Alternative to:"
 msgstr "Alternative à :"
 
-#: ubuntu-mate-welcome:1855
+#: ubuntu-mate-welcome:1885
 msgid "Hide"
 msgstr "Masquer"
 
-#: ubuntu-mate-welcome:1856
+#: ubuntu-mate-welcome:1886
 msgid "Show"
 msgstr "Afficher"
 
-#: ubuntu-mate-welcome:1858
+#: ubuntu-mate-welcome:1888
 msgid "Reinstall"
 msgstr "Réinstaller"
 
-#: ubuntu-mate-welcome:1861
+#: ubuntu-mate-welcome:1891
 msgid "Launch"
 msgstr "Lancer"
 
-#: ubuntu-mate-welcome:1862
+#: ubuntu-mate-welcome:1892
 msgid "License"
 msgstr "Licence"
 
-#: ubuntu-mate-welcome:1863
+#: ubuntu-mate-welcome:1893
 msgid "Platform"
 msgstr "Plateforme"
 
-#: ubuntu-mate-welcome:1864
+#: ubuntu-mate-welcome:1894
 msgid "Category"
 msgstr "Catégorie"
 
-#: ubuntu-mate-welcome:1865
+#: ubuntu-mate-welcome:1895
 msgid "Website"
 msgstr "Site Web"
 
-#: ubuntu-mate-welcome:1866
+#: ubuntu-mate-welcome:1896
 msgid "Screenshot"
 msgstr "Capture d'Écran"
 
-#: ubuntu-mate-welcome:1867
+#: ubuntu-mate-welcome:1897
 msgid "Source"
 msgstr "Source"
 
-#: ubuntu-mate-welcome:1870
+#: ubuntu-mate-welcome:1900
 msgid "Canonical Partner Repository"
 msgstr "Dépôt Partenaire Canonical"
 
-#: ubuntu-mate-welcome:1871
+#: ubuntu-mate-welcome:1901
 msgid "Ubuntu Repository"
 msgstr "Dépôt Ubuntu"
 
-#: ubuntu-mate-welcome:1872
+#: ubuntu-mate-welcome:1902
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: ubuntu-mate-welcome:1980
+#: ubuntu-mate-welcome:2010
 msgid "Open Source"
 msgstr "Open Source"
 
-#: ubuntu-mate-welcome:1982
+#: ubuntu-mate-welcome:2012
 msgid "Proprietary"
 msgstr "Propriétaire"
 
-#: ubuntu-mate-welcome:2151
+#: ubuntu-mate-welcome:2181
 msgid "Installing..."
 msgstr "Installation en cours..."
 
-#: ubuntu-mate-welcome:2152
+#: ubuntu-mate-welcome:2182
 msgid "Removing..."
 msgstr "Désistallation en cours..."
 
-#: ubuntu-mate-welcome:2153
+#: ubuntu-mate-welcome:2183
 msgid "Upgrading..."
 msgstr "Mise à jour en cours..."
 
-#: ubuntu-mate-welcome:2257
+#: ubuntu-mate-welcome:2287
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
 msgstr "Une erreur est survenue au moment de lancer PROGRAM_NAME. Veuillez considérer réinstaller cette application."
 
-#: ubuntu-mate-welcome:2258
+#: ubuntu-mate-welcome:2288
 msgid "Command:"
 msgstr "Commande :"

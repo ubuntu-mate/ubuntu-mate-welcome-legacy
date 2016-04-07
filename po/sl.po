@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Dražen M. <drazen@ubuntu.si>, 2016
 # Helena S <ele@tutamail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 12:15+0100\n"
-"PO-Revision-Date: 2016-04-05 21:11+0000\n"
-"Last-Translator: Helena S <ele@tutamail.com>\n"
+"POT-Creation-Date: 2016-04-07 13:44+0100\n"
+"PO-Revision-Date: 2016-04-07 12:46+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Slovenian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
-#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2255
+#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2285
 msgid "Software Boutique"
 msgstr ""
 
@@ -28,7 +29,7 @@ msgid ""
 "closing Welcome."
 msgstr "Spremembe programa so v teku. Dovolite, da se končajo preden zaprete Welcome."
 
-#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2256
+#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2286
 msgid "OK"
 msgstr "V redu"
 
@@ -80,7 +81,7 @@ msgstr "Popravilo pokvarjenih odvisnosti je spodletelo."
 msgid "Fixing the broken dependencies failed."
 msgstr "Popravilo pokvarjenih odvisnosti je spodletelo."
 
-#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1857
+#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1887
 msgid "Install"
 msgstr "Namesti"
 
@@ -92,7 +93,7 @@ msgstr "Namestitev"
 msgid "installed."
 msgstr "nameščeno."
 
-#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1859
+#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1889
 msgid "Remove"
 msgstr "Odstrani"
 
@@ -104,7 +105,7 @@ msgstr "Odstranitev"
 msgid "removed."
 msgstr "odstranjeno."
 
-#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1860
+#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1890
 msgid "Upgrade"
 msgstr "Nadgradi"
 
@@ -192,6 +193,54 @@ msgstr "Preskoči"
 msgid "Servers"
 msgstr "Strežniki"
 
+#: ubuntu-mate-welcome:873
+msgid "Jan"
+msgstr ""
+
+#: ubuntu-mate-welcome:874
+msgid "Feb"
+msgstr ""
+
+#: ubuntu-mate-welcome:875
+msgid "Mar"
+msgstr ""
+
+#: ubuntu-mate-welcome:876
+msgid "Apr"
+msgstr ""
+
+#: ubuntu-mate-welcome:877
+msgid "May"
+msgstr ""
+
+#: ubuntu-mate-welcome:878
+msgid "Jun"
+msgstr ""
+
+#: ubuntu-mate-welcome:879
+msgid "Jul"
+msgstr ""
+
+#: ubuntu-mate-welcome:880
+msgid "Aug"
+msgstr ""
+
+#: ubuntu-mate-welcome:881
+msgid "Sep"
+msgstr ""
+
+#: ubuntu-mate-welcome:882
+msgid "Oct"
+msgstr ""
+
+#: ubuntu-mate-welcome:883
+msgid "Nov"
+msgstr ""
+
+#: ubuntu-mate-welcome:884
+msgid "Dec"
+msgstr ""
+
 #: ubuntu-mate-welcome:1145
 msgid "Welcome"
 msgstr "Dobrodošli"
@@ -216,131 +265,131 @@ msgstr "GiB"
 msgid "Could not gather data."
 msgstr "Podatkov ni bilo mogoče zbrati."
 
-#: ubuntu-mate-welcome:1654
+#: ubuntu-mate-welcome:1680
 msgid "Raspberry Pi Partition Resize"
 msgstr "Spremeni velikost razdelka Raspberry Pi"
 
-#: ubuntu-mate-welcome:1665
+#: ubuntu-mate-welcome:1691
 msgid "Root partition has been resized."
 msgstr "Korenski razdelek je bil spremenjen"
 
-#: ubuntu-mate-welcome:1665
+#: ubuntu-mate-welcome:1691
 msgid "The filesystem will be enlarged upon the next reboot."
 msgstr "Datotečni sistem se bo povečal ob naslednjem zagonu."
 
-#: ubuntu-mate-welcome:1668
+#: ubuntu-mate-welcome:1697
 msgid "does not exist or is not a symlink."
 msgstr "ne obstaja ali ni simbolna povezava."
 
-#: ubuntu-mate-welcome:1668 ubuntu-mate-welcome:1670 ubuntu-mate-welcome:1672
-#: ubuntu-mate-welcome:1674
+#: ubuntu-mate-welcome:1697 ubuntu-mate-welcome:1699 ubuntu-mate-welcome:1701
+#: ubuntu-mate-welcome:1703
 msgid "Don't know how to expand."
 msgstr "Ne znam razširiti."
 
-#: ubuntu-mate-welcome:1670
+#: ubuntu-mate-welcome:1699
 msgid "is not an SD card."
-msgstr "ni SD kartica."
+msgstr "ni kartica SD."
 
-#: ubuntu-mate-welcome:1672
+#: ubuntu-mate-welcome:1701
 msgid "Your partition layout is not currently supported by this tool."
 msgstr "Vaša postavitev razdelkov trenutno ni podprta s tem orodjem."
 
-#: ubuntu-mate-welcome:1674
+#: ubuntu-mate-welcome:1703
 msgid "is not the last partition."
 msgstr "ni zadnji razdelek."
 
-#: ubuntu-mate-welcome:1852
+#: ubuntu-mate-welcome:1882
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
 msgstr "Oprostite, Welcome ni mogel prikazati nobenega programa za to kategorijo, ki je združljiva na tem sistemu."
 
-#: ubuntu-mate-welcome:1853
+#: ubuntu-mate-welcome:1883
 msgid "This application is set to receive the latest updates."
 msgstr "Ta program je nastavljen za prejemanje najnovejših posodobitev."
 
-#: ubuntu-mate-welcome:1854
+#: ubuntu-mate-welcome:1884
 msgid "Alternative to:"
 msgstr "Nadomestitev za:"
 
-#: ubuntu-mate-welcome:1855
+#: ubuntu-mate-welcome:1885
 msgid "Hide"
 msgstr "Skrij"
 
-#: ubuntu-mate-welcome:1856
+#: ubuntu-mate-welcome:1886
 msgid "Show"
 msgstr "Prikaži"
 
-#: ubuntu-mate-welcome:1858
+#: ubuntu-mate-welcome:1888
 msgid "Reinstall"
 msgstr "Ponovno namesti "
 
-#: ubuntu-mate-welcome:1861
+#: ubuntu-mate-welcome:1891
 msgid "Launch"
 msgstr "Zaženi"
 
-#: ubuntu-mate-welcome:1862
+#: ubuntu-mate-welcome:1892
 msgid "License"
 msgstr "Licenca"
 
-#: ubuntu-mate-welcome:1863
+#: ubuntu-mate-welcome:1893
 msgid "Platform"
 msgstr "Okolje"
 
-#: ubuntu-mate-welcome:1864
+#: ubuntu-mate-welcome:1894
 msgid "Category"
 msgstr "Kategorija"
 
-#: ubuntu-mate-welcome:1865
+#: ubuntu-mate-welcome:1895
 msgid "Website"
 msgstr "Spletna stran"
 
-#: ubuntu-mate-welcome:1866
+#: ubuntu-mate-welcome:1896
 msgid "Screenshot"
 msgstr "Zaslonska slika "
 
-#: ubuntu-mate-welcome:1867
+#: ubuntu-mate-welcome:1897
 msgid "Source"
 msgstr "Vir"
 
-#: ubuntu-mate-welcome:1870
+#: ubuntu-mate-welcome:1900
 msgid "Canonical Partner Repository"
 msgstr "Canonical partnersko skladišče"
 
-#: ubuntu-mate-welcome:1871
+#: ubuntu-mate-welcome:1901
 msgid "Ubuntu Repository"
 msgstr "Ubuntu skladišče"
 
-#: ubuntu-mate-welcome:1872
+#: ubuntu-mate-welcome:1902
 msgid "Unknown"
 msgstr "Neznano"
 
-#: ubuntu-mate-welcome:1980
+#: ubuntu-mate-welcome:2010
 msgid "Open Source"
 msgstr "Odprtokoden"
 
-#: ubuntu-mate-welcome:1982
+#: ubuntu-mate-welcome:2012
 msgid "Proprietary"
 msgstr "Lastniško"
 
-#: ubuntu-mate-welcome:2151
+#: ubuntu-mate-welcome:2181
 msgid "Installing..."
 msgstr "Nameščanje ..."
 
-#: ubuntu-mate-welcome:2152
+#: ubuntu-mate-welcome:2182
 msgid "Removing..."
 msgstr "Odstranjevanje ..."
 
-#: ubuntu-mate-welcome:2153
+#: ubuntu-mate-welcome:2183
 msgid "Upgrading..."
 msgstr "Nadgrajevanje ..."
 
-#: ubuntu-mate-welcome:2257
+#: ubuntu-mate-welcome:2287
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
 msgstr "Med zagonom PROGRAM_NAME je prišlo do napake. Ponovno namestite program."
 
-#: ubuntu-mate-welcome:2258
+#: ubuntu-mate-welcome:2288
 msgid "Command:"
 msgstr "Ukaz: "
