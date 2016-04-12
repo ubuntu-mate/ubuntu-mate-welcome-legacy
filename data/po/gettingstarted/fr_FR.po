@@ -1,12 +1,13 @@
 # 
 # Translators:
+# bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-04-07 12:46+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-04-12 01:38+0000\n"
+"Last-Translator: bf5man <bf5man@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,13 +90,13 @@ msgstr "Veuillez choisir un sujet afin de démarrer."
 
 #: gettingstarted.html:63
 msgid "Modest System Requirements"
-msgstr "Des Exigences Systèmes Modestes"
+msgstr "Exigences Systèmes Modestes"
 
 #: gettingstarted.html:64
 msgid ""
 "Ubuntu MATE works well on both high-end to slow computers, optimized to be "
 "functional, while light on system resources."
-msgstr "Ubuntu MATE fonctionnent bien sur des systèmes très performants ainsi que des ordinateurs plus lents. Il est optimisé pour être fonctionnel et léger en ressources systèmes."
+msgstr "Ubuntu MATE fonctionne aussi bien sur des ordinateurs puissants ou moins puissants. Il est optimisé pour être fonctionnel et exiger peu de ressources systèmes."
 
 #: gettingstarted.html:67
 msgid "Minimum"
@@ -152,7 +153,7 @@ msgid ""
 "Ubuntu MATE is relatively simple to set up, whether you're looking to "
 "replace your existing operating system or install Ubuntu MATE alongside an "
 "existing one - such as"
-msgstr "Ubuntu MATE est assez simple à installer et configurer, que vous cherchiez à remplacer votre système d'exploitation ou que vous installiez Ubuntu MATE aux côtés d'un système existant comme"
+msgstr "Ubuntu MATE est relativement simple à installer et configurer, que vous cherchiez à remplacer votre système d'exploitation ou que vous installiez Ubuntu MATE aux côtés d'un système existant comme"
 
 #: gettingstarted.html:105
 msgid "Microsoft Windows or another"
@@ -172,7 +173,7 @@ msgstr "Faites une sauvegarde"
 
 #: gettingstarted.html:110
 msgid "any important data to another storage device."
-msgstr "de toutes vos données importantes sur un autre appareil de stoquage."
+msgstr "de toutes vos données importantes sur un autre appareil de stockage."
 
 #: gettingstarted.html:111
 msgid ""
@@ -186,7 +187,7 @@ msgstr "Restez connecté(e) à Internet afin d'installer toutes les mises à jou
 
 #: gettingstarted.html:113
 msgid "Plug in your device to the mains if it is running on battery power."
-msgstr "Branchez votre appareil au réseau électrique domestique si la batterie est faible."
+msgstr "Branchez votre appareil à une source d'alimentation électrique si la batterie est faible."
 
 #: gettingstarted.html:118
 msgid ""
@@ -195,7 +196,7 @@ msgid ""
 "of your peripherals are working as intended before committing to installing "
 "it on your machine. Once you are ready, double click the installation icon "
 "from the desktop."
-msgstr "La session Live dans laquelle vous êtes en ce moment vous présente une bonne opportunité pour tester Ubuntu MATE sans modifier votre système, ce qui permet de tester vos périphériques et vérifier qu'ils fonctionnent comme ils le doivent avant de décider si oui ou non vous voulez installer Ubuntu MATE sur votre machine. Une fois prêt(e), double-cliquez l'icône d'installation sur le bureau."
+msgstr "La session Live dans laquelle vous êtes en ce moment est une bonne occasion de tester Ubuntu MATE sans modifier votre système, ce qui permet de tester vos périphériques et vérifier qu'ils fonctionnent comme ils le doivent avant de décider si oui ou non vous voulez installer Ubuntu MATE sur votre machine. Une fois prêt(e), double-cliquez l'icône d'installation sur le bureau."
 
 #: gettingstarted.html:125
 msgid "Modern UEFI-based computers"
@@ -227,7 +228,7 @@ msgstr ") avant installation, en particulier si vous aviez déjà un système d'
 
 #: gettingstarted.html:130
 msgid "If you are using a legacy BIOS machine, you do not need to do this."
-msgstr "Si vous utilisez une machine fonctionnant à partir d'un BIOS de type hérité, vous n'aurez pas besoin d'entreprendre cette action."
+msgstr "Si vous utilisez une machine fonctionnant à partir d'un BIOS legacy, vous n'aurez pas besoin de faire ceci."
 
 #: gettingstarted.html:133
 msgid ""
@@ -269,7 +270,7 @@ msgstr "mode"
 
 #: gettingstarted.html:149
 msgid "Swap"
-msgstr "Mémoire d'Échange"
+msgstr "Mémoire Virtuelle (Swap)"
 
 #: gettingstarted.html:150
 msgid ""
@@ -277,7 +278,7 @@ msgid ""
 "will start swapping to disk. Known as a \"paging file\" in Windows. "
 "Performance will decrease when running low on memory and could possibly "
 "freeze if you completely run out of memory without anywhere to swap."
-msgstr "Pour les ordinateurs ayant un manque de mémoire vive (RAM), le système d'exploitation commencera a mettre les données en swap (mémoire d'échange) sur le disque. Cette mémoire est connue en tant que \"fichier de pagination\" sur Windows."
+msgstr "Pour les ordinateurs qui commencent à manquer de mémoire vive (RAM), le système d'exploitation commencera à mettre les données en swap sur le disque. Cette mémoire est connue en tant que \"mémoire virtuelle de pagination\" sur Windows. Les performances diminuent lorsque la mémoire vive est presque toute utilisée et l'ordinateur pourrait possiblement geler s'il utilise complètement sa mémoire vive sans avoir d'endroit pour consigner les données en swap sur le disque."
 
 #: gettingstarted.html:154
 msgid ""
@@ -295,7 +296,7 @@ msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr "Dans le cas ou vous voudriez installer Ubuntu MATE aux cotés de votre système d'exploitation, vos partitions auront besoin d'être rétrécies. Ce qui implique que des sections de votre disque dur seront partagées entre différents systèmes d'exploitation."
+msgstr "Dans le cas ou vous voudriez installer Ubuntu MATE aux cotés de votre système d'exploitation, vos partitions auront besoin d'être rétrécies. Ce qui implique que des sections de votre disque dur seront divisées entre différents systèmes d'exploitation."
 
 #: gettingstarted.html:179
 msgid "I'm dual booting with"
@@ -315,11 +316,11 @@ msgstr "vos données importantes sur un autre disque."
 
 #: gettingstarted.html:186
 msgid "Defragment the hard drive."
-msgstr "Défragmenter le disque dur."
+msgstr "Défragmentez le disque dur."
 
 #: gettingstarted.html:187
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
-msgstr "Assurez-vous que Windows ait été fermé gracieusement (qu'il ne soit pas en mode hibernation)"
+msgstr "Assurez-vous que Windows a été arrêté convenablement (qu'il ne soit pas en mode hibernation)"
 
 #: gettingstarted.html:191
 msgid "Which approach would you prefer?"
@@ -383,7 +384,7 @@ msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr "à partir de l'invite de commandes et vérifiez le système de fichier. Il se peut que Windows planifie cette tâche automatiquement et assure donc une constance pour le système de fichiers NTFS."
+msgstr "à partir de l'invite de commandes et pour vérifier s'il y a des erreurs dans le système de fichier. Il se peut que Windows planifie cette tâche automatiquement. Cela assure la consistance pour le système de fichiers NTFS."
 
 #: gettingstarted.html:231
 msgid "Use GParted or the installer's \"Custom\" option."
@@ -414,19 +415,19 @@ msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr ". GParted permet une flexibilité complète sur vos partitions. Il est principalement fait pour les utilisateurs confirmés qui savent comment ils veulent aménager leur disques."
+msgstr ". GParted permet une flexibilité complète sur vos partitions. Il est principalement fait pour les utilisateurs confirmés qui savent comment ils veulent aménager leur disques. Cette méthode permet de changer les partitions avant l'installation."
 
 #: gettingstarted.html:244
 msgid ""
 "After completing operations to your disk, you can leave the remaining space "
 "unallocated,"
-msgstr "Une fois les opérations sur vos disques terminées, vous pourrez laisser l'espace disque restant non-alloué."
+msgstr "Une fois les opérations sur vos disques complétées, vous pouvez laisser l'espace disque restant non-alloué."
 
 #: gettingstarted.html:245
 msgid ""
 "whereby the installer will detect this unused space to install Ubuntu MATE "
 "to."
-msgstr "L'installeur détectera enfin cet espace non-utilisé et installera Ubuntu MATE dessus."
+msgstr "L'installeur détectera cet espace non-utilisé et y installera Ubuntu MATE."
 
 #: gettingstarted.html:247
 msgid "Using the Installer's \"Custom\" option."
@@ -557,7 +558,7 @@ msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr "Les nouvelles versions de Windows contiennent un utilitaire pour diminuer la taille du volume NTFS pendant que votre système est en marche. Ce qui est plus sûr si il est essentiel que Windows puisse toujours démarrer sur votre ordinateur alors que vous faites l'expérience d'Ubuntu MATE."
+msgstr "Les nouvelles versions de Windows contiennent un utilitaire pour diminuer la taille du volume NTFS pendant que votre système est en marche. Ce qui est plus sûr s'il est essentiel que Windows puisse toujours démarrer sur votre ordinateur alors que vous faites l'expérience d'Ubuntu MATE."
 
 #: gettingstarted.html284, 560, 1254, 1271, 1287, 1303, 1319, 1335
 msgid "Open"
@@ -647,7 +648,7 @@ msgstr "Veuillez vous connecter à Internet afin de télécharger et de pouvoir 
 
 #: gettingstarted.html:328
 msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Désolé, Welcome n'a pas été en mesure d'établir une connexion."
+msgstr "Désolé, Bienvenue n'a pas été en mesure d'établir une connexion."
 
 #: gettingstarted.html:329
 msgid "Retry"
@@ -689,7 +690,7 @@ msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr "Le paquet \"codecs\" inclut une solution multiples-plateformes pour décoder, encoder, enregistrer, convertir ainsi que diffuser audio et vidéo. Il inclut aussi un décodeur audio MP3 permettant la lecture de fichiers \"MPEG 1 audio layer III\" (MP3)."
+msgstr "Le paquet \"codecs\" inclut une solution multi-plateformes pour décoder, encoder, enregistrer, convertir ainsi que diffuser de l'audio et du vidéo. Il inclut aussi un décodeur audio MP3 permettant la lecture de fichiers \"MPEG 1 audio layer III\" (MP3)."
 
 #: gettingstarted.html:370
 msgid ""
@@ -727,13 +728,13 @@ msgstr "Pilotes Additionnels"
 
 #: gettingstarted.html:409
 msgid "Install Firmware Package"
-msgstr "Installer l Paquet du Micrologiciel"
+msgstr "Installer Paquet Micrologiciel"
 
 #: gettingstarted.html:423
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr "Désolé, Welcome n'a pas été en mesure d'identifier la marque de votre carte graphique."
+msgstr "Désolé, Bienvenue n'a pas été en mesure d'identifier la marque de votre carte graphique."
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Card/Chipset:"
@@ -758,7 +759,7 @@ msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr "Les pilotes AMD ne sont plus supportés sur Ubuntu. Ceux que vous utilisez actuellement donneront les performances les plus stables."
+msgstr "Les pilotes AMD ne sont plus supportés sur Ubuntu. Les pilotes open source que vous utilisez actuellement donneront les performances les plus stables."
 
 #: gettingstarted.html:442
 msgid "You're already good to go."
@@ -767,7 +768,7 @@ msgstr "Tout est déjà bon."
 #: gettingstarted.html:443
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr "Les pilotes Intel sont open source et sont soutenus / mis à jour avec le noyau."
+msgstr "Les pilotes Intel sont open source et sont supportés / mis à jour avec le noyau."
 
 #: gettingstarted.html:448
 msgid "VirtualBox Guest Additions"
@@ -785,11 +786,11 @@ msgstr "Pilotes Propriétaires ou Open Source ?"
 
 #: gettingstarted.html:454
 msgid "Proprietary drivers come directly from the manufacturer."
-msgstr "Les pilotes propriétaires viennent directement du fabricant."
+msgstr "Les pilotes propriétaires proviennent directement du fabricant."
 
 #: gettingstarted.html:455
 msgid "As they are not open source, Ubuntu developers are"
-msgstr "Ils ne sont pas open source, les développeurs d'Ubuntu ne"
+msgstr "Comme ils ne sont pas open source, les développeurs d'Ubuntu ne"
 
 #: gettingstarted.html:455
 msgid "unable review and improve code"
@@ -797,7 +798,7 @@ msgstr "peuvent pas examiner ou améliorer le code"
 
 #: gettingstarted.html:455
 msgid "meaning you'll have to rely on the manufacturer for support."
-msgstr "ce qui signifie que vous devrez vous référer au fabricant pour un suivi."
+msgstr "ce qui signifie que vous devrez vous référer au fabricant pour le support."
 
 #: gettingstarted.html:458
 msgid "In addition, proprietary drivers can"
@@ -813,7 +814,7 @@ msgstr " et par extension"
 
 #: gettingstarted.html:459
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr "le système entier. Il se peut que les utilisateurs veuillent installer ces pilotes pour :"
+msgstr "le système tout entier. Les utilisateurs pourraient désirer installer ces pilotes pour :"
 
 #: gettingstarted.html:461
 msgid "Run 3D applications and games."
@@ -879,7 +880,7 @@ msgstr "va chercher les derniers pilotes testés directement des dépôts Ubuntu
 msgid ""
 "Advanced users and gamers who would like newer versions may wish to consider"
 " adding the"
-msgstr "Les utilisateurs avancés ainsi que les \"gamers\" voulant des versions plus récentes pourront considérer le fait d'ajouter le PPA"
+msgstr "Les utilisateurs avancés ainsi que les \"gamers\" désirant des versions plus récentes pourront considérer le fait d'ajouter le PPA"
 
 #: gettingstarted.html:486
 msgid "Ubuntu Graphics Driver PPA"
@@ -895,7 +896,7 @@ msgstr "qui contient les derniers pilotes NVIDIA pour Ubuntu. Ces paquets ne son
 msgid ""
 "This only applies for actively supported cards, and not older cards using "
 "the legacy driver."
-msgstr "Ceci ne s'applique que pour les cartes supportées, et non les cartes plus anciennes utilisant un pilote hérité."
+msgstr "Ceci ne s'applique que pour les cartes supportées, et non les cartes plus anciennes utilisant un pilote legacy."
 
 #: gettingstarted.html:492
 msgid "Add Repository"
@@ -923,7 +924,7 @@ msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr "Dans le cas où aucun pilote n'a été trouvé, et que votre matériel ne fonctionne pas après avoir installé le paquet du micrologiciel, il se peut que vous deviez faire une recherche en mentionnant le nom de votre appareil afin de trouver les pilotes appropriés."
+msgstr "Dans le cas où aucun pilote n'a été trouvé, et que votre matériel ne fonctionne pas après avoir installé les paquets de micrologiciels, il se peut que vous deviez faire une recherche en mentionnant le nom de votre appareil afin de trouver les pilotes appropriés."
 
 #: gettingstarted.html:514
 msgid ""
@@ -937,7 +938,7 @@ msgstr "Malheureusement cela est dû au fait que, soit le fabricant de votre mat
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr "Il se peut que certains fabricants fournissent des pilotes au code source privé eux même directement. Si vous avec besoin d'aide,"
+msgstr "Il se peut que certains fabricants fournissent eux-même des pilotes au code source privé directement. Si vous avec besoin d'aide,"
 
 #: gettingstarted.html:522
 msgid "ask the community"
@@ -1023,7 +1024,7 @@ msgstr "Saisie Complexe"
 
 #: gettingstarted.html:599
 msgid "Some regions of the world require complex inputs."
-msgstr "Certaines régions du monde ont besoin de la Saisie Complexe."
+msgstr "Certaines régions du monde nécessitent la Saisie Complexe."
 
 #: gettingstarted.html:604
 msgid "Chinese"
@@ -1149,11 +1150,11 @@ msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr "Vous trouverez dans Ubuntu MATE un outils unique pour transformer l'interface utilisateur. Vous pourrez l'utiliser afin de rapidement paramétrer l'interface utilisateur et ainsi imiter d'autres systèmes d'exploitation populaires, aussi bien en apparence qu'en fonction. Les agencements"
+msgstr "Vous trouverez dans Ubuntu MATE un outil unique pour transformer l'interface utilisateur. Vous pourrez l'utiliser afin de rapidement paramétrer l'interface utilisateur et ainsi imiter d'autres systèmes d'exploitation populaires, aussi bien en apparence qu'en fonction. Les agencements"
 
 #: gettingstarted.html:722
 msgid "layouts are most similar to Microsoft Windows while"
-msgstr "donnent une apparence similaire à Microsoft Windows tandis que les agencements"
+msgstr "agencements donnent une apparence similaire à Microsoft Windows tandis que les agencements"
 
 #: gettingstarted.html:723
 msgid "layouts are most similar to Apple Mac OS X."
@@ -1180,26 +1181,26 @@ msgstr "Les utilitaires mentionnés plus haut font partie de l'application compl
 
 #: gettingstarted.html:742
 msgid "can be found later in the"
-msgstr "peut être retrouvé plus tard dans le menu"
+msgstr "peut être retrouvé plus tard dans le"
 
 #: gettingstarted.html:743
 msgid "menu."
-msgstr "."
+msgstr "menu."
 
 #: gettingstarted.html:746
 msgid "Desktop Wallpaper"
-msgstr "Papier-Peint du Bureau"
+msgstr "Arrière-plan du Bureau"
 
 #: gettingstarted.html:747
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr "La Communauté Ubuntu MATE a contribué au projet en soumettant des dizaines de papiers peints au fil des années. Pourquoi ne pas les installer, vous en trouverez peut-être un qui vous plaira ?"
+msgstr "La Communauté Ubuntu MATE a contribué au projet en soumettant des dizaines d'arrières-plans au fil des années. Pourquoi ne pas les installer, vous en trouverez peut-être un qui vous plaira ?"
 
 #: gettingstarted.html:751
 msgid "Wallpapers"
-msgstr "Papiers Peints"
+msgstr "Arrière-plans"
 
 #: gettingstarted.html:770
 msgid ""
@@ -1556,7 +1557,7 @@ msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr "Votre ordinateur est fait de nombreux composants interagissant entre eux. Cette information est utile au moment ou vous voulez demander de l'aide, pour s'assurer que le matériel et les logiciels fonctionne sur votre machine."
+msgstr "Votre ordinateur est fait de nombreux composants interagissant entre eux. Cette information est utile au moment ou vous voulez demander de l'aide, pour s'assurer que le matériel et les logiciels fonctionnent sur votre machine."
 
 #: gettingstarted.html:1060
 msgid "Please wait while the information is being populated..."
@@ -1657,7 +1658,7 @@ msgstr "Déconnecté"
 
 #: gettingstarted.html:1164
 msgid "Storage"
-msgstr "Stoquage"
+msgstr "Stockage"
 
 #: gettingstarted.html:1168
 msgid "Root File System:"
@@ -1809,20 +1810,20 @@ msgstr "Affiche et dessine des graphiques de la température des composants atta
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
-msgstr ""
+msgstr "Votre ordinateur pourrait nécessiter des mises à jours pour les paramètres de langue et de localisation, ou vous pouvez vouloir installer le support de langues additionnel."
 
 #: gettingstarted.html:1182
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "Utilisation Ubuntu MATE"
 
 #: gettingstarted.html:1200
 msgid "Used Space:"
-msgstr ""
+msgstr "Espace Utilisé:"
 
 #: gettingstarted.html:1212
 msgid "Other Usage:"
-msgstr ""
+msgstr "Autre Utilisation:"
 
 #: gettingstarted.html:1215
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "Réservé au système, autres partitions, allouées ou swap."
