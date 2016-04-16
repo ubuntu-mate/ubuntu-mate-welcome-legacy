@@ -3432,6 +3432,33 @@
             },
             "working": true
         },
+        "clementine": {
+            "name": "Clementine",
+            "img": "clementine",
+            "main-package": "clementine",
+            "launch-command": "clementine",
+            "install-packages": "clementine",
+            "remove-packages": "clementine",
+            "description": [
+                "Clementine is a multiplatform music player focusing on a",
+                "fast and easy-to-use interface for searching and playing",
+                "your music."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "http://www.clementine-player.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "precise,trusty,vivid,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "musescore": {
             "name": "MuseScore",
             "img": "musescore",
