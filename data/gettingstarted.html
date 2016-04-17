@@ -25,26 +25,26 @@
 
       <!-- Shown in live session only -->
       <span class="live-session-only"><h5>&zwnj;Prerequisites&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('sysreq','&zwnj;System Requirements&zwnj;')">        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')"> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-only" onclick="changePage('dualboot','&zwnj;Dual Booting&zwnj;')">             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("sysreq","&zwnj;System Requirements&zwnj;")'>        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("prepare","&zwnj;Installation Preparations&zwnj;")'> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("dualboot","&zwnj;Dual Booting&zwnj;")'>             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
       <a class="btn btn-success index-btn live-session-only" href="cmd://install">                                                    <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
       <span class="live-session"><h5>&zwnj;Post-Installation&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('updates','&zwnj;Software Updates&zwnj;')">          <span class="fa fa-refresh"></span>       &zwnj;Software Updates&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('drivers','&zwnj;Drivers&zwnj;')">                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('languageInput','&zwnj;Language & Input&zwnj;')">    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick="changePage('tasks','&zwnj;Optional Tasks&zwnj;')">              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("updates","&zwnj;Software Updates&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Software Updates&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("languageInput","&zwnj;Language & Input&zwnj;")'>    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
 
       <br><h5>&zwnj;Familiarity&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"                   onclick="changePage('customize','&zwnj;Customization&zwnj;')">           <span class="fa fa-adjust"></span>        &zwnj;Customization&zwnj;</a>
-      <a class="btn btn-inverse index-btn"                   onclick="changePage('shortcuts','&zwnj;Keyboard Shortcuts&zwnj;')">      <span class="fa fa-keyboard-o"></span>    &zwnj;Keyboard Shortcuts&zwnj;</a>
+      <a class="btn btn-inverse index-btn"                   onclick='changePage("customize","&zwnj;Customization&zwnj;")'>           <span class="fa fa-adjust"></span>        &zwnj;Customization&zwnj;</a>
+      <a class="btn btn-inverse index-btn"                   onclick='changePage("shortcuts","&zwnj;Keyboard Shortcuts&zwnj;")'>      <span class="fa fa-keyboard-o"></span>    &zwnj;Keyboard Shortcuts&zwnj;</a>
 
       <!-- Shown in either session -->
       <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"     onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); InitSystemInfo()"> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
+      <a class="btn btn-inverse index-btn"     onclick='changePage("specs","&zwnj;System Specifications&zwnj;"); InitSystemInfo()'> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
 
     </div>
     <div id="content" class="container-fluid entire-page-fade" hidden>
@@ -82,12 +82,12 @@
             computer meets or surpasses the recommended requirements.&zwnj;</p>
 
             <div class="center">
-              <a onclick="changePage('specs','&zwnj;System Specifications&zwnj;'); InitSystemInfo()" class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
+              <a onclick='changePage("specs","&zwnj;System Specifications&zwnj;"); InitSystemInfo()' class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
             </div>
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')">
+              <a class="btn" onclick='changePage("prepare","&zwnj;Installation Preparations&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Installation Preparations&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
           </div>
@@ -156,9 +156,9 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('sysreq','&zwnj;System Requirements&zwnj;')">
+              <a class="btn" onclick='changePage("sysreq","&zwnj;System Requirements&zwnj;")'>
                 <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;System Requirements&zwnj;</a>
-              <a class="btn" onclick="changePage('dualboot','&zwnj;Dual Booting&zwnj;')">
+              <a class="btn" onclick='changePage("dualboot","&zwnj;Dual Booting&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Dual Booting&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
           </div>
@@ -334,7 +334,7 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('prepare','&zwnj;Installation Preparations&zwnj;')">
+              <a class="btn" onclick='changePage("prepare","&zwnj;Installation Preparations&zwnj;")'>
                 <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Install Preparations&zwnj;</a>
               </div>
           </div>
@@ -381,7 +381,7 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('drivers','&zwnj;Drivers&zwnj;')">
+              <a class="btn" onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Drivers&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
           </div>
@@ -566,9 +566,9 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('updates','&zwnj;Software Updates&zwnj;')">
+              <a class="btn" onclick='changePage("updates","&zwnj;Software Updates&zwnj;")'>
                 <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Software Updates&zwnj;</a>
-              <a class="btn" onclick="changePage('languageInput','&zwnj;Language Input&zwnj;')">
+              <a class="btn" onclick='changePage("languageInput","&zwnj;Language Input&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Language Input&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
           </div>
@@ -612,9 +612,9 @@
         </div>
         <div class="center">
           <hr class="soften-light">
-          <a class="btn" onclick="changePage('drivers','&zwnj;Drivers&zwnj;')">
+          <a class="btn" onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>
             <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Drivers&zwnj;</a>
-          <a class="btn" onclick="changePage('tasks','&zwnj;Optional Tasks&zwnj;')">
+          <a class="btn" onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>
             <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Optional Tasks&zwnj; <span class="fa fa-chevron-right"></span></a>
         </div>
       </div>
@@ -704,9 +704,9 @@
 
         <div class="center">
           <hr class="soften-light">
-          <a class="btn" onclick="changePage('languageInput','&zwnj;Language Input&zwnj;')">
+          <a class="btn" onclick='changePage("languageInput","&zwnj;Language Input&zwnj;")'>
             <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Language Input&zwnj;</a>
-          <a class="btn" onclick="changePage('customize','&zwnj;Customization&zwnj;')">
+          <a class="btn" onclick='changePage("customize","&zwnj;Customization&zwnj;")'>
             <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Customization&zwnj; <span class="fa fa-chevron-right"></span></a>
         </div>
       </div>
@@ -753,9 +753,9 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('tasks','&zwnj;Optional Tasks&zwnj;')">
+              <a class="btn" onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>
                 <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Optional Tasks&zwnj;</a>
-              <a class="btn" onclick="changePage('shortcuts','&zwnj;Keyboard Shortcuts&zwnj;')">
+              <a class="btn" onclick='changePage("shortcuts","&zwnj;Keyboard Shortcuts&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Keyboard Shortcuts&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
           </div>
@@ -1035,7 +1035,7 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick="changePage('customize','&zwnj;Customization&zwnj;')">
+              <a class="btn" onclick='changePage("customize","&zwnj;Customization&zwnj;")'>
                 <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Customization&zwnj;</a>
             </div>
           </div>
