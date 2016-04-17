@@ -10,10 +10,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included
 # in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
 # OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
@@ -23,15 +23,16 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 pass_notify() {
-  # 1 = Success
+  # Miscellaneous information to show in notification.
+  echo -n "${2}" > /tmp/notify_rpi_text
+
+  # 0 = Success
   # 2 = /dev/root non-existent or not a symlink
   # 3 = Not an SD card.
   # 4 = Unsupported layout.
   # 5 = Not the last partition.
-  echo "${1}" > /tmp/notify_rpi_status
-
-  # Miscellaneous information to show in notification.
-  echo "${2}" > /tmp/notify_rpi_text
+  echo "Finished with exit code ${1}."
+  exit ${1}
 }
 
 get_init_sys() {
@@ -52,7 +53,6 @@ do_expand_rootfs() {
   else
     if ! [ -h /dev/root ]; then
       pass_notify 2 '/dev/root'
-      return 0
     fi
     ROOT_PART=$(readlink /dev/root)
   fi
@@ -63,7 +63,7 @@ do_expand_rootfs() {
     return 0
   fi
 
-  # NOTE: the NOOBS partition layout confuses parted. For now, let's only 
+  # NOTE: the NOOBS partition layout confuses parted. For now, let's only
   # agree to work with a sufficiently simple partition layout
   if [ "$PART_NUM" -ne 2 ]; then
     pass_notify 4 ''
@@ -130,19 +130,4 @@ EOF
 }
 
 do_expand_rootfs
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+pass_notify 1 ''

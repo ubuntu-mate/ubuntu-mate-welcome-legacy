@@ -5,12 +5,15 @@ current_page = document.location.href.match(/[^\/]+$/)[0];
 $(window).load(function() {
     // Smoothly fade into the page.
     $('.entire-page-fade').fadeIn('medium');
+    $('#navigation-right').hide();
+    $('#navigation-right').fadeIn('medium');
 });
 
 // Smoothly fade out of the page.
 function smoothPageFade(target_href) {
     $('.entire-page-fade').fadeOut('medium');
     $('#navigation-title').fadeOut('medium');
+    $('#navigation-right').fadeOut('medium');
     $('.navigation-button').fadeOut('medium');
     setTimeout(function(){
         window.location.href = target_href;
@@ -25,7 +28,7 @@ $(document).ready(function() {
     $('#navigation-title').jAnimateOnce('fadeInDown');
   }
 
-  // Initialize scroll to the top
+  // Back to the top
   $(window).scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scroll-top').fadeIn();
@@ -34,7 +37,8 @@ $(document).ready(function() {
       }
   });
 
-  $('#footer').append('<a id="scroll-top" class="navigation-button"><span class="fa fa-chevron-up"></span></a>')
+  $('#navigation-right').append('<a id="scroll-top" class="navigation-button" style="display:none"><span class="fa fa-chevron-up"></span></a>')
+
   $('#scroll-top').click(function () {
       $("html, body").animate({
           scrollTop: 0
