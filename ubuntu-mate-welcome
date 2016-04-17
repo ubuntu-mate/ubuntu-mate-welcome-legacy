@@ -1033,7 +1033,7 @@ class AppView(WebKit.WebView):
                 self.execute_script("$('.offline').show();")
                 self.execute_script("$('.online').hide();")
         elif uri == 'resize-rpi':
-            systemstate.rpi_resize('do-resize')
+            systemstate.rpi_resize('do-resize', self)
         elif uri == 'reboot-rpi':
             systemstate.rpi_resize('reboot')
         elif uri == 'subscribe-updates':
@@ -1674,33 +1674,32 @@ class SystemState(object):
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
+            proc = subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
+            proc.wait()
+            status_code = proc.returncode
 
-            def notify(subject, body):
+            def notify(subject, body, icon):
                 Notify.init(_('Raspberry Pi Partition Resize'))
-                resize_notify=Notify.Notification.new(subject, body, 'dialog-information')
+                resize_notify=Notify.Notification.new(subject, body, icon)
                 resize_notify.show()
-
-            with open('/tmp/notify_rpi_status') as status_file:
-                status_code = int(status_file.read())
 
             with open('/tmp/notify_rpi_text') as misc_file:
                 misc_text = misc_file.read()
 
-            if status_code == 1:
-                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot.") )
+            if status_code == 0:
+                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
                 self.rpi_resize_pending = True
                 webkit.execute_script('$("#rpi-resized").hide()')
                 webkit.execute_script('$("#rpi-not-resized").hide()')
                 webkit.execute_script('$("#rpi-restart-now").show()')
             elif status_code == 2:
-                notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand.") )
+                notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand."), 'dialog-error' )
             elif status_code == 3:
-                notify( misc_text + ' ' + _("is not an SD card."), _("Don't know how to expand.") )
+                notify( misc_text + ' ' + _("is not an SD card."), _("Don't know how to expand."), 'dialog-error' )
             elif status_code == 4:
-                notify( _("Your partition layout is not currently supported by this tool."), _("Don't know how to expand.") )
+                notify( _("Your partition layout is not currently supported by this tool."), _("Don't know how to expand."), 'dialog-error' )
             elif status_code == 5:
-                notify( misc_text + ' ' + _("is not the last partition."), _("Don't know how to expand.") )
+                notify( misc_text + ' ' + _("is not the last partition."), _("Don't know how to expand."), 'dialog-error' )
             else:
                 print('[Welcome] Unrecognised return code for Raspberry Pi resize.')
 
