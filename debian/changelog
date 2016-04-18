@@ -1,14 +1,14 @@
-ubuntu-mate-welcome (16.04.9~xenial1.1) xenial; urgency=medium
-
-  [ Martin Wimpress ]
-    + Show Software Boutique in the menus of any desktop environment.
+ubuntu-mate-welcome (16.04.9~xenial1.2) xenial; urgency=medium
 
   [ Luke Horwell ]
-    + Fix Raspberry Pi partition resize button, so it prompts to
-    restart.
+    + Fix Raspberry Pi resize button, so it prompts to restart.
     + Fix parsing errors in quoted strings.
     + Correct typo in Vivaldi.
+
+  [ Martin Wimpress ]
+    + Don't hide the Software Boutique.
     + Update translations.
+    + Closes (LP: #1571635)
 
  -- Martin Wimpress <code@flexion.org>  Sun, 17 Apr 2016 19:34:27 +0100
 
