@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-04-10 23:05+0000\n"
+"PO-Revision-Date: 2016-04-17 23:09+0000\n"
 "Last-Translator: Helena S <ele@tutamail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Izbirna opravila"
 
 #: gettingstarted.html:41
 msgid "Familiarity"
-msgstr "Domačnost"
+msgstr "Prepoznavanje"
 
 #: gettingstarted.html42, 42, 709, 710, 1042, 1043
 msgid "Customization"
@@ -173,7 +173,7 @@ msgstr "Ustvarite varnostno kopijo"
 
 #: gettingstarted.html:110
 msgid "any important data to another storage device."
-msgstr "vse pomembne podatke na drugo napravo za shranjevanje."
+msgstr "vseh pomembnih podatkov na drugo napravo za shranjevanje."
 
 #: gettingstarted.html:111
 msgid ""
@@ -196,11 +196,11 @@ msgid ""
 "of your peripherals are working as intended before committing to installing "
 "it on your machine. Once you are ready, double click the installation icon "
 "from the desktop."
-msgstr "Živa seja v kateri ste sedaj je odlična priložnost da preizkusite Ubuntu MATE brez da bi spreminjali računalnik. Lahko boste preizkusili, če vse vaše zunanje naprave delujejo preden se odločite za namestitev na vaš računalnik. Ko boste pripravljeni dvakrat kliknite na ikono za namestitev na namizju."
+msgstr "Živa seja v kateri ste sedaj je odlična priložnost, da preizkusite Ubuntu MATE brez da bi spreminjali računalnik. Lahko boste preizkusili, če vse vaše zunanje naprave delujejo preden se odločite za namestitev na vaš računalnik. Ko boste pripravljeni dvakrat kliknite na ikono za namestitev na namizju."
 
 #: gettingstarted.html:125
 msgid "Modern UEFI-based computers"
-msgstr "Sodobni na UEFI temelječi računalniki"
+msgstr "Sodobni računalniki, ki temeljijo na UEFI"
 
 #: gettingstarted.html:126
 msgid ""
@@ -228,13 +228,13 @@ msgstr "možnost) pred namestitvijo, še posebej, če je bil operacijski sistem 
 
 #: gettingstarted.html:130
 msgid "If you are using a legacy BIOS machine, you do not need to do this."
-msgstr ""
+msgstr "Če uporabljate računalnik z opuščenim BIOSom, potem tega ni potrebno storiti."
 
 #: gettingstarted.html:133
 msgid ""
 "Especially when dual booting, it is important that you boot your system in "
 "the correct mode and use the"
-msgstr ""
+msgstr "Še posebej med dvojnim zagonom je pomembno, da zaženete svoj sistem v pravem načinu in uporabite"
 
 #: gettingstarted.html:134
 msgid "64-bit image"
@@ -244,13 +244,13 @@ msgstr "64-bitna slika"
 msgid ""
 ", as you cannot boot an operating system installed in BIOS mode after "
 "installing a UEFI-enabled operating system or vice versa."
-msgstr ""
+msgstr ", ker ni mogoče zagnati operacijskega sistema nameščenega v načinu BIOS po namestitvi UEFI omogočenega operacijskega sistema in obratno."
 
 #: gettingstarted.html:139
 msgid ""
 "Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also "
 "show a \"protection layer\"."
-msgstr ""
+msgstr "Zagon v načinu BIOS na sistemu UEFI z diskom, ki uporablja GPT, bo pokazal tudi \"zaščitno plast\"."
 
 #: gettingstarted.html:140
 msgid "Do not worry,"
@@ -262,7 +262,7 @@ msgstr "vaši podatki niso izgubljeni ali pokvarjeni!"
 
 #: gettingstarted.html:144
 msgid "Your system is currently running in"
-msgstr "Vaš sistem trenutno teče v "
+msgstr "Vaš sistem trenutno teče v"
 
 #: gettingstarted.html:144
 msgid "mode"
@@ -270,7 +270,7 @@ msgstr "načinu"
 
 #: gettingstarted.html:149
 msgid "Swap"
-msgstr ""
+msgstr "Izmenjevalni razdelek"
 
 #: gettingstarted.html:150
 msgid ""
@@ -278,14 +278,14 @@ msgid ""
 "will start swapping to disk. Known as a \"paging file\" in Windows. "
 "Performance will decrease when running low on memory and could possibly "
 "freeze if you completely run out of memory without anywhere to swap."
-msgstr ""
+msgstr "Za računalnike, ki jim primanjkuje pomnilnika (RAM), bo operacijski sistem začel uporabljati izmenjevalni razdelek na disku. Na Windowsih znano kot \"ostranjevalna datoteka\". Hitrost delovanja bo manjša, ko bo primanjkovalo pomnilnika in mogoče bo sistem zmrznil, če vam bo zmanjkalo pomnilnika, če ste brez izmenjevalnega razdelka."
 
 #: gettingstarted.html:154
 msgid ""
 "By default, a swap partition is created based on the size of your RAM. For "
 "example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
 "reserved for swap at the end of the drive."
-msgstr ""
+msgstr "Privzeto je izmenjevalni razdelek ustvarjen glede na velikost vašega pomnilnika RAM. Na primer, če imate 2 GiB RAMa, potem bo 2 GiB prostora na trdem disku rezerviranega za izmenjevalni razdelek."
 
 #: gettingstarted.html160, 338, 570, 616, 708, 757, 1043
 msgid "Previous:"
@@ -296,11 +296,11 @@ msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr "Če želite namestiti Ubuntu MATE zraven obstoječega operacijskega sistema, je treba skrčiti razdelke. \"Rezultat te operacije je razdelitev trdega diska med operacijskimi sistemi."
+msgstr "Če želite namestiti Ubuntu MATE zraven obstoječega operacijskega sistema, je treba skrčiti razdelke. Rezultat te operacije je razdelitev trdega diska med operacijskimi sistemi."
 
 #: gettingstarted.html:179
 msgid "I'm dual booting with"
-msgstr ""
+msgstr "Imam dvojni zagon z"
 
 #: gettingstarted.html:182
 msgid "To minimize the risk of data loss or failure, ensure that:"
@@ -340,7 +340,7 @@ msgstr "Najvarnejše"
 
 #: gettingstarted.html:200
 msgid "The simplest method is to use the installer."
-msgstr "Najbolj enostavna metoda je uporaba namestnika."
+msgstr "Najbolj enostavna metoda je uporaba namestilnika."
 
 #: gettingstarted.html:202
 msgid ""
@@ -364,7 +364,7 @@ msgstr "Ne prekinite ali ugasnite računalnika medtem ko poteka sprememba veliko
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr ""
+msgstr "Če prekinete potek lahko izgubite podatke ali pokvarite tabelo razdelkov. Dvakrat preverite svoje spremembe preden nadaljujete."
 
 #: gettingstarted.html:219
 msgid "The installer may show a"
@@ -373,18 +373,18 @@ msgstr "Namestilnik lahko kaže"
 #: gettingstarted.html:219
 msgid ""
 "spinner cursor for a long period of time, depending on the size of your disk"
-msgstr ""
+msgstr "dejavnost kazalnika dlje časa, odvisno od velikosti vašega diska"
 
 #: gettingstarted.html:223
 msgid "When you next boot Windows, run"
-msgstr "Pri naslednjem zagonu Windows, zaženite "
+msgstr "Pri naslednjem zagonu Windows, zaženite"
 
 #: gettingstarted.html:224
 msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr ""
+msgstr "iz ukazne vrstice, da preverite če so kakšne napake na datotečnem sistemu. Windows lahko to naredi samodejno. To zagotavlja doslednost datotečnega sistema NTFS."
 
 #: gettingstarted.html:231
 msgid "Use GParted or the installer's \"Custom\" option."
@@ -400,7 +400,7 @@ msgstr "je na voljo samo med živo sejo."
 
 #: gettingstarted.html:235
 msgid "It is located under the"
-msgstr "Nahaja se"
+msgstr "Nahaja se v"
 
 #: gettingstarted.html235, 362, 415, 535, 591, 650, 675, 699, 730, 743, 1076
 msgid "System"
@@ -415,7 +415,7 @@ msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr "GParted zagotavlja popolno fleksibilnost nad vašimi razdelki, predvsem za napredne uporabnike, ki vedo, kakšno postavitev svojih diskov želijo. Ta metoda omogoča spreminjanje razdelkov pred namestitvijo."
+msgstr ". GParted zagotavlja popolno fleksibilnost nad vašimi razdelki, predvsem za napredne uporabnike, ki vedo, kakšno postavitev svojih diskov želijo. Ta metoda omogoča spreminjanje razdelkov pred namestitvijo."
 
 #: gettingstarted.html:244
 msgid ""
@@ -474,31 +474,31 @@ msgstr "Vsebuje večino programov"
 
 #: gettingstarted.html:259
 msgid "(binaries, documentation, libraries, etc)"
-msgstr ""
+msgstr "(binarnih datotek, dokumentacija, knjižnice, ipd.)"
 
 #: gettingstarted.html:260
 msgid "Variable data"
-msgstr ""
+msgstr "Spremenljivi podatki"
 
 #: gettingstarted.html:260
 msgid "(such as system logs)"
-msgstr ""
+msgstr "(kot so sistemski dnevniki)"
 
 #: gettingstarted.html:261
 msgid "Data for System Services"
-msgstr ""
+msgstr "Podatki za sistemske storitve"
 
 #: gettingstarted.html:261
 msgid "(typically used for server configurations)"
-msgstr ""
+msgstr "(ponavadi uporabljeni za nastavitve strežnika)"
 
 #: gettingstarted.html:262
 msgid "Additional software unmanaged by the package manager"
-msgstr ""
+msgstr "Dodatni programi, niso upravljani prek upravljalnika paketov"
 
 #: gettingstarted.html:263
 msgid "such as"
-msgstr ""
+msgstr "kot je"
 
 #: gettingstarted.html:265
 msgid ""
@@ -558,11 +558,11 @@ msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "Nove različice Windowsov ponujajo orodje za zmanjšanje nosilca NTFS znotraj Windowsov. To je varneje, če želite še vedno zagnati Windows medtem ko preizkušate Windows MATE."
 
 #: gettingstarted.html284, 560, 1254, 1271, 1287, 1303, 1319, 1335
 msgid "Open"
-msgstr "Odpri"
+msgstr "Odprite"
 
 #: gettingstarted.html:284
 msgid "Disk Management"
@@ -624,7 +624,7 @@ msgid ""
 " systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
-msgstr ""
+msgstr "ki poišče in naloži operacijski sistem. Vendar nekateri operacijski sistemi (npr. Windows) ne vključijo obstoječih zagonskih nalagalnikov in jih bodo prepisali in takrat boste začasno izgubili dostop do Ubuntu MATE."
 
 #: gettingstarted.html:321
 msgid "Fortunately, you can use the"
@@ -675,7 +675,7 @@ msgid ""
 "Ubuntu MATE periodically will check to see if new software and security "
 "updates are available for your computer. If you have just installed Ubuntu "
 "MATE, you might want to do this now."
-msgstr "Ubuntu MATE redno preverja, če so na voljo nove programske ali varnostne posodobitve za vaš računalnik. V primeru, da ste ravno namestili Ubuntu MATE, morda želite to narediti sedaj. "
+msgstr "Ubuntu MATE redno preverja, če so na voljo nove programske ali varnostne posodobitve za vaš računalnik. V primeru, da ste ravno namestili Ubuntu MATE, morda želite to narediti sedaj."
 
 #: gettingstarted.html358, 361
 msgid "Software Updater"
@@ -690,17 +690,17 @@ msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "Paket s kodeki vključuje celovito rešitev, ki deluje na različnih sistemih, za odkodiranje, kodiranje, snemanje, pretvarjanje in pretok zvoka in videa. Prav tako vsebuje odkodirnik zvoka MP3, ki dovoljuje predvajanje MPEG1 audio layer III (MP3)."
 
 #: gettingstarted.html:370
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Potrebujete podatkovno zbirko Blu-ray AACS, če želite predvajati zaščitene z AACS ali BD+ diske."
 
 #: gettingstarted.html:374
 msgid "Install Codecs Package"
-msgstr "Namestite paket kodekov"
+msgstr "Namesti paket kodekov"
 
 #: gettingstarted.html:377
 msgid "Install Blu-ray AACS Database"
@@ -728,7 +728,7 @@ msgstr "Dodatni gonilniki"
 
 #: gettingstarted.html:409
 msgid "Install Firmware Package"
-msgstr "Namestite pakete strojne programske opreme"
+msgstr "Namesti pakete strojne programske opreme"
 
 #: gettingstarted.html:423
 msgid ""
@@ -738,7 +738,7 @@ msgstr "Oprostite, Welcome ni mogel samodejno prepoznati grafičnega proizvajalc
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Kartica/Nabor čipov:"
 
 #: gettingstarted.html424, 430, 438, 444
 msgid "Unknown"
@@ -759,11 +759,11 @@ msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr "AMD gonilniki za Ubuntu niso več podprti. Odprto-kodni gonilniki, ki jih trenutno uporabljate bo prinesel najbolj stabilno delovanje iz vaše kartice."
+msgstr "AMD gonilniki za Ubuntu niso več podprti. Odprto-kodni gonilniki, ki jih trenutno uporabljate bodo prinesli najbolj stabilno delovanje iz vaše kartice."
 
 #: gettingstarted.html:442
 msgid "You're already good to go."
-msgstr ""
+msgstr "Pripravljeni ste."
 
 #: gettingstarted.html:443
 msgid ""
@@ -772,13 +772,13 @@ msgstr "Intelovi gonilniki so odprtokodni in se vzdržujejo / posodabljajo v jed
 
 #: gettingstarted.html:448
 msgid "VirtualBox Guest Additions"
-msgstr ""
+msgstr "Dodatki gosta VirtualBox"
 
 #: gettingstarted.html:449
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "Za grafično pospeševanje znotraj navideznega računalnika namestite Dodatke za gosta."
 
 #: gettingstarted.html:453
 msgid "Proprietary or Open Source Drivers?"
@@ -814,15 +814,15 @@ msgstr "in kot rezultat"
 
 #: gettingstarted.html:459
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr "celoten sistem. Uporabniki morda želijo namestiti tudi te gonilnike: "
+msgstr "celoten sistem. Uporabniki morda želijo namestiti tudi te gonilnike:"
 
 #: gettingstarted.html:461
 msgid "Run 3D applications and games."
-msgstr ""
+msgstr "Zaženite 3D programe in igre."
 
 #: gettingstarted.html:462
 msgid "Use Compiz's window effects."
-msgstr ""
+msgstr "Uporabite Compizov učinke na oknih."
 
 #: gettingstarted.html:463
 msgid ""
@@ -836,21 +836,21 @@ msgstr "Izboljšanje podpore za visoko ločljivost in več monitorjev."
 
 #: gettingstarted.html:465
 msgid "Fix blank screen issues."
-msgstr ""
+msgstr "Popravite težave s črnim zaslonom."
 
 #: gettingstarted.html:468
 msgid ""
 "Proprietary drivers are known as \"binary blobs\". Certain hardware may "
 "experience worse behavior,"
-msgstr ""
+msgstr "Lastniški gonilniki so znani kot \"zbirka binarnih podatkov\". Nekatera strojna oprema lahko deluje slabše,"
 
 #: gettingstarted.html:469
 msgid "causing more issues then the open source drivers, such as:"
-msgstr ""
+msgstr "povzroča več težav kot odprtokodni gonilnikot kot je na primer:"
 
 #: gettingstarted.html:471
 msgid "Failing to boot to the graphical desktop."
-msgstr "V primeru, da se grafično namizje na zažene. "
+msgstr "V primeru, da se grafično namizje na zažene."
 
 #: gettingstarted.html:472
 msgid "Broken drivers after an upgrade."
@@ -858,7 +858,7 @@ msgstr "Pokvarjeni gonilniki po nadgradnji."
 
 #: gettingstarted.html:473
 msgid "Severe graphical glitches."
-msgstr ""
+msgstr "Resne grafične težave."
 
 #: gettingstarted.html:474
 msgid "Problems with applications/games requiring hardware acceleration."
@@ -870,11 +870,11 @@ msgstr "je odprtokoden gonilnik za vašo kartico."
 
 #: gettingstarted.html:483
 msgid "What about the latest NVIDIA drivers?"
-msgstr ""
+msgstr "Kaj pa najnovejši gonilnik NVIDIA?"
 
 #: gettingstarted.html:484
 msgid "fetches the latest tested driver from the Ubuntu repositories."
-msgstr "pridobi najnovejše preverjene gonilnike iz Ubuntu skladiščev. "
+msgstr "pridobi najnovejše preverjene gonilnike iz Ubuntu skladišč."
 
 #: gettingstarted.html:485
 msgid ""
@@ -884,13 +884,13 @@ msgstr "Napredni uporabniki in igralci iger, ki bi radi novejše različice bodo
 
 #: gettingstarted.html:486
 msgid "Ubuntu Graphics Driver PPA"
-msgstr ""
+msgstr "PPA za grafični gonilnik Ubuntu"
 
 #: gettingstarted.html:487
 msgid ""
 "which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
 "not as thoroughly tested."
-msgstr ""
+msgstr ", ki vsebuje najnovejši gonilnik NVIDIA za Ubuntu. Vendar ti paketi niso temeljito preizkušeni."
 
 #: gettingstarted.html:489
 msgid ""
@@ -942,7 +942,7 @@ msgstr "Nekateri proizvajalci lahko neposredno zagotovijo zaprte gonilnike. Če 
 
 #: gettingstarted.html:522
 msgid "ask the community"
-msgstr "vprašate skupnost."
+msgstr "vprašate skupnost"
 
 #: gettingstarted.html:525
 msgid "Read more on troubleshooting wireless hardware."
@@ -968,7 +968,7 @@ msgstr "pod"
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr "če bo potrebno, bo prikazan seznam gonilnikov, ki so na voljo za uporabo, "
+msgstr "bo prikazan seznam gonilnikov, ki so na voljo za uporabo, če bo potrebno."
 
 #: gettingstarted.html:539
 msgid ""
@@ -982,7 +982,7 @@ msgstr "Preberite več o tiskalnikih"
 
 #: gettingstarted.html:553
 msgid "HP Linux Printing and Imaging System"
-msgstr ""
+msgstr "HP Linux Printing and Imaging System"
 
 #: gettingstarted.html:554
 msgid ""
@@ -990,7 +990,7 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "Priporočeno, če imate tiskalnik HP, ker ponuja popolno podporo za tiskanje na večini brizgalnik tiskalnikov HP (inkjet) in veliko LaserJets, optično branje, pošiljanje faksov in za dostop do kartice fotografij na večini večnamenskih tiskalnikov HP (MFP)."
 
 #: gettingstarted.html561, 1255, 1272, 1288, 1304, 1320, 1336
 msgid "Install"
@@ -1020,11 +1020,11 @@ msgstr "Osebno"
 
 #: gettingstarted.html:598
 msgid "Complex Input"
-msgstr ""
+msgstr "Zapleten vnos"
 
 #: gettingstarted.html:599
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Nekatere regije po svetu potrebujejo zapletene vnose."
 
 #: gettingstarted.html:604
 msgid "Chinese"
@@ -1080,7 +1080,7 @@ msgstr "Požarni zid preprečuje vstop in izstop zlonamernim povezavam v/iz rač
 
 #: gettingstarted.html:665
 msgid "learn more about firewalls"
-msgstr "Več informacij o požarnih zidih"
+msgstr "več informacij o požarnih zidih"
 
 #: gettingstarted.html:667
 msgid "provides a graphical frontend to"
@@ -1100,7 +1100,7 @@ msgstr "tudi več načinov, da ostanete varni"
 
 #: gettingstarted.html:671
 msgid "Configure Firewall"
-msgstr "Nastavite varnostni zid"
+msgstr "Nastavi varnostni zid"
 
 #: gettingstarted.html:674
 msgid "Firewall Configuration"
@@ -1210,7 +1210,7 @@ msgstr "Ubuntu MATE ima veliko bližnjic na tipkovnici, ki pomagajo, da uporablj
 
 #: gettingstarted.html:772
 msgid "Common application shortcuts"
-msgstr "Pogosto uporabljene bližnice "
+msgstr "Pogosto uporabljene bližnjice"
 
 #: gettingstarted.html:773
 msgid "These shortcuts apply in most applications."
@@ -1236,7 +1236,7 @@ msgstr "Prilepi / vstavi izbrano besedilo / predmet"
 
 #: gettingstarted.html:794
 msgid "Select all text"
-msgstr "Izberi vse besedilo"
+msgstr "Izberi vso besedilo"
 
 #: gettingstarted.html:798
 msgid "Find and replace words"
@@ -1280,7 +1280,7 @@ msgstr "Uveljavi zadnjo spremembo"
 
 #: gettingstarted.html:838
 msgid "Toggle the current application between full-screen and windowed"
-msgstr "Preklopite trenutni program med celozaslonskem in okenskem načinu"
+msgstr "Preklopi trenutni program med celozaslonskim in okenskim načinom"
 
 #: gettingstarted.html:842
 msgid "Desktop shortcuts"
@@ -1294,11 +1294,11 @@ msgstr "V tem razdelku so navedene najpogostejše bližnjice na tipkovnici, ki j
 
 #: gettingstarted.html:849
 msgid "Open the Applications menu"
-msgstr "Odprite meni programi"
+msgstr "Odpri meni programi"
 
 #: gettingstarted.html:853
 msgid "Run an application by typing its name in the box which appears"
-msgstr "Zaženite program tako, da vnesete njegovo ime v polje, ki se pojavi"
+msgstr "Zaženi program z vnosom imena programa v polje, ki se pojavi"
 
 #: gettingstarted.html:856
 msgid "Prt Sc"
@@ -1334,7 +1334,7 @@ msgstr "Omogoči/onemogoči zaslonski bralnik."
 
 #: gettingstarted.html:881
 msgid "Window shortcuts"
-msgstr "Bljižnice za okna"
+msgstr "Bližnjice za okna"
 
 #: gettingstarted.html:884
 msgid "Tab"
@@ -1400,7 +1400,7 @@ msgstr "Zapre okno."
 
 #: gettingstarted.html:926
 msgid "Returns window to 'normal' or previous size."
-msgstr "Povrne okno na 'normalno' ali predhodno velikost. "
+msgstr "Povrne okno na 'normalno' ali predhodno velikost."
 
 #: gettingstarted.html:930
 msgid "Moves the current window (can be moved with mouse or keyboard)."
@@ -1408,7 +1408,7 @@ msgstr "Premakne trenutno okno (lahko premaknemo z miško ali tipkovnico)."
 
 #: gettingstarted.html:934
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr "Spremeni velikost trenutnemu oknu (še enkrat, lahko premaknemo z miško ali tipkovnico)"
+msgstr "Spremeni velikost trenutnemu oknu (lahko premaknemo z miško ali tipkovnico)."
 
 #: gettingstarted.html:938
 msgid "Minimizes current window."
@@ -1424,7 +1424,7 @@ msgstr "Spustni Terminal."
 
 #: gettingstarted.html:949
 msgid "Space"
-msgstr "Presledek"
+msgstr "Preslednica"
 
 #: gettingstarted.html:950
 msgid ""
@@ -1466,7 +1466,7 @@ msgstr "Postavi okno v spodnji desni kot zaslona."
 
 #: gettingstarted.html:982
 msgid "Compiz Effects Shortcuts"
-msgstr "Bližnjice učinkov Compiz-a"
+msgstr "Bližnjice učinkov Compiza"
 
 #: gettingstarted.html:983
 msgid ""
@@ -1489,7 +1489,7 @@ msgid ""
 "Unfolds your workspace cube allowing you to see more than one of your "
 "workspaces at once, using the left and right cursor keys with this active "
 "will allow you to select the workspace you wish to use."
-msgstr ""
+msgstr "Razgrne vaše delovno okolje, kocko, tako da lahko naenkrat vidite več kot eno delovno okolje. Ko je to dejavno, boste lahko z uporabo tipk za levo in desno izbirali želeno delovno okolje."
 
 #: gettingstarted.html999, 1003, 1007, 1011, 1015, 1019, 1023
 msgid "Super"
@@ -1502,15 +1502,15 @@ msgstr "Oddalji, prikaži preklopnik delovnih površin."
 #: gettingstarted.html:1004
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Omogoči učinek \"spreminjanja velikosti\". Pokaže vsa okna trenutnega delovnega okolja."
 
 #: gettingstarted.html:1008
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Omogoči učinek \"spreminjanja velikosti\". Pokaže vsa okna vseh delovnih okolij."
 
 #: gettingstarted.html:1012
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Obrni barve okna v žarišču."
 
 #: gettingstarted.html:1016
 msgid "Invert colors for the whole screen."
@@ -1518,7 +1518,7 @@ msgstr "Obrni barve celotnega zaslona."
 
 #: gettingstarted.html:1019
 msgid "Mouse Scroll"
-msgstr ""
+msgstr "Drsenje z miško"
 
 #: gettingstarted.html:1020
 msgid "Zooms in on the screen."
@@ -1526,7 +1526,7 @@ msgstr "Približa na zaslonu."
 
 #: gettingstarted.html1023, 1031
 msgid "Middle Mouse Button"
-msgstr ""
+msgstr "Srednji miškin gumb"
 
 #: gettingstarted.html:1024
 msgid "Select a region to zoom into, using a rectangle."
@@ -1534,19 +1534,19 @@ msgstr "Izberite območje povečave z uporabo štirikotnika."
 
 #: gettingstarted.html:1027
 msgid "Left Mouse Button"
-msgstr ""
+msgstr "Levi miškin gumb"
 
 #: gettingstarted.html:1028
 msgid "Move focused window."
-msgstr ""
+msgstr "Premakni okna v žarišču."
 
 #: gettingstarted.html:1032
 msgid "Resize focused window."
-msgstr ""
+msgstr "Spremeni velikost okna v žarišču."
 
 #: gettingstarted.html:1035
 msgid "Right Mouse Button"
-msgstr ""
+msgstr "Desni miškin gumb"
 
 #: gettingstarted.html:1036
 msgid "Show window menu."
@@ -1557,11 +1557,11 @@ msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr ""
+msgstr "Vaš računalnik je sestavljen iz različnih delov, ki se sporazumevajo eden z drugim. Ta podrobnost je uporabna pri zagotavljanju podpore, da zagotovite da tako strojna kot programska oprema dela na vašem računalniku."
 
 #: gettingstarted.html:1060
 msgid "Please wait while the information is being populated..."
-msgstr "Prosimo počakajte dokler zberemo podrobnosti"
+msgstr "Počakajte dokler ne zberemo vseh podrobnosti..."
 
 #: gettingstarted.html:1062
 msgid "Basic"
@@ -1593,11 +1593,11 @@ msgstr "Matična plošča:"
 
 #: gettingstarted.html:1096
 msgid "Boot Mode:"
-msgstr ""
+msgstr "Način zagona:"
 
 #: gettingstarted.html:1099
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
-msgstr ""
+msgstr "Prikaže način, katerega Ubuntu MATE uporablja za sporočanje s strojno programsko opremo."
 
 #: gettingstarted.html:1107
 msgid "Processor"
@@ -1605,7 +1605,7 @@ msgstr "Procesor"
 
 #: gettingstarted.html:1110
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
 #: gettingstarted.html:1114
 msgid "Speed:"
@@ -1613,20 +1613,20 @@ msgstr "Hitrost:"
 
 #: gettingstarted.html:1118
 msgid "Architecture in use:"
-msgstr ""
+msgstr "Arhitektura:"
 
 #: gettingstarted.html:1121
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
-msgstr ""
+msgstr "Arhitektura katero operacijski sistem uporablja. Na primer i386 = 32-bit."
 
 #: gettingstarted.html:1127
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "Podprta/e arhitektura(e):"
 
 #: gettingstarted.html:1130
 msgid "Architectures that are supported by this processor."
-msgstr ""
+msgstr "Arhitekture, ki jih podpira ta procesor."
 
 #: gettingstarted.html:1138
 msgid "Components"
@@ -1642,7 +1642,7 @@ msgstr "Več RAM-a omogoča, da več programov deluje istočasno."
 
 #: gettingstarted.html:1150
 msgid "Graphics:"
-msgstr ""
+msgstr "Grafika:"
 
 #: gettingstarted.html:1154
 msgid "Internet Access:"
@@ -1658,11 +1658,11 @@ msgstr "Brez povezave"
 
 #: gettingstarted.html:1164
 msgid "Storage"
-msgstr ""
+msgstr "Shramba"
 
 #: gettingstarted.html:1168
 msgid "Root File System:"
-msgstr ""
+msgstr "Korenski datotečni sistem:"
 
 #: gettingstarted.html:1171
 msgid "The file system where Ubuntu MATE is installed."
@@ -1678,7 +1678,7 @@ msgstr "Razdelek z Ubuntu MATE"
 
 #: gettingstarted.html:1183
 msgid "Other partitions, unallocated or swap space."
-msgstr " Izmenjevalni ali drugi razdelki ali nerazporejen prostor."
+msgstr "Izmenjevalni ali drugi razdelki ali nerazporejen prostor."
 
 #: gettingstarted.html:1188
 msgid "Allocated for Ubuntu MATE:"
@@ -1702,11 +1702,11 @@ msgstr "Zakaj vidim dve enoti?"
 
 #: gettingstarted.html:1214
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "Enote SI ali IEC?"
 
 #: gettingstarted.html:1216
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "Desetiški (standard SI)"
 
 #: gettingstarted.html:1218
 msgid "1 KB = 1000 bytes"
@@ -1714,7 +1714,7 @@ msgstr "1 KB = 1000 bajtov"
 
 #: gettingstarted.html:1219
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
+msgstr "Izgovorjava z \"ga\" - kot je \"Mega\", \"Giga\"."
 
 #: gettingstarted.html:1220
 msgid "Common in every day applications and file storage."
@@ -1722,7 +1722,7 @@ msgstr "Pogosto pri vsakodnevnih programih in shranjevanju datotek."
 
 #: gettingstarted.html:1224
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "Dvojiško (standard IEC)"
 
 #: gettingstarted.html:1226
 msgid "1 KiB = 1024 bytes"
@@ -1730,11 +1730,11 @@ msgstr "1 KiB = 1024 bajtov"
 
 #: gettingstarted.html:1227
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
+msgstr "Izgovorjava z \"bi\" - kot je \"Mebi\", \"Gibi\"."
 
 #: gettingstarted.html:1228
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr "Pogosta v RAM-u, diskih in razdelkih, vključno z orodji, kot je GParted."
+msgstr "Pogosta v RAMu, diskih in razdelkih, vključno z orodji, kot je GParted."
 
 #: gettingstarted.html:1237
 msgid "The following information is retrieved directly from the"
@@ -1756,7 +1756,7 @@ msgstr "System Profiler and Benchmark"
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
-msgstr ""
+msgstr "Za več podrobnosti o sistemu vključno s povezanimi USBji, napravami PCI in preprostim primerjalnim preizkusom CPU, si oglejte v grafičnem oknu."
 
 #: gettingstarted.html:1266
 msgid "Disks"
@@ -1767,7 +1767,7 @@ msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
-msgstr ""
+msgstr "Prednameščeno orodje, ki dovoli splošno nastavitev diskov in razdelkov, vključno s formatiranjem, ustvarjanjem razdelkov, priklopom, ogledom podatkov S.M.A.R.T in zapisom slik na kartice SD/naprave USB."
 
 #: gettingstarted.html:1284
 msgid ""
@@ -1784,7 +1784,7 @@ msgstr "Preučevalnik porabe diska"
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
-msgstr "Grafični orodje za raziskovanje datotečnega sistema ali posameznih map in ugotovitev koliko prostora je v uporabi."
+msgstr "Grafično orodje za raziskovanje datotečnega sistema ali posameznih map in ugotovitev koliko prostora je v uporabi."
 
 #: gettingstarted.html:1315
 msgid "System Monitor"
@@ -1804,7 +1804,7 @@ msgstr "Psensor"
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
-msgstr "Prikazi in grafi trenutnih temperatur sestavnih delov, povezanih s sistemom. Vključno z: matična plošča, CPU, GPU in trdih diskov."
+msgstr "Prikazi in grafi trenutnih temperatur sestavnih delov, povezanih s sistemom. Vključno z: matično ploščo, CPU, GPU in trdimi diski."
 
 #: gettingstarted.html:583
 msgid ""
@@ -1814,7 +1814,7 @@ msgstr "Računalnik lahko zahteva posodobitve za vaš jezik in lokalizacijo nast
 
 #: gettingstarted.html:1182
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "Poraba Ubuntu MATE"
 
 #: gettingstarted.html:1200
 msgid "Used Space:"
@@ -1826,4 +1826,4 @@ msgstr "Ostala uporaba:"
 
 #: gettingstarted.html:1215
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "Rezervirano s strani sistema, drugih razdelkov, nedodeljeno ali izmenjevalni razdelek."
