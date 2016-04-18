@@ -1,4 +1,15 @@
-ubuntu-mate-welcome (16.04.8~xenial1.5) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.9~xenial1.0) xenial; urgency=medium
+
+  [ Luke Horwell ]
+    + Fix Raspberry Pi partition resize button, so it prompts to
+    restart.
+    + Fix parsing errors in quoted strings.
+    + Correct typo in Vivaldi.
+    + Update translations.
+
+ -- Martin Wimpress <code@flexion.org>  Sun, 17 Apr 2016 19:34:27 +0100
+
+ubuntu-mate-welcome (16.04.8) xenial; urgency=medium
 
   [ Martin Wimpress ]
     + Add Turkish (tr_TR) translation.
