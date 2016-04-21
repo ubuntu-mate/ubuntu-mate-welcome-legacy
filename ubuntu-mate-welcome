@@ -1693,16 +1693,16 @@ class SystemState(object):
                 webkit.execute_script('$("#rpi-not-resized").hide()')
                 webkit.execute_script('$("#rpi-restart-now").show()')
             elif status_code == 2:
-                notify( misc_text + ' ' + _("does not exist or is not a symlink."), _("Don't know how to expand."), 'dialog-error' )
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("does not exist or is not a symlink."), 'dialog-error' )
             elif status_code == 3:
-                notify( misc_text + ' ' + _("is not an SD card."), _("Don't know how to expand."), 'dialog-error' )
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not an SD card."), 'dialog-error' )
             elif status_code == 4:
-                notify( _("Your partition layout is not currently supported by this tool."), _("Don't know how to expand."), 'dialog-error' )
+                notify( _("Don't know how to expand."), _("Your partition layout is not currently supported by this tool."), 'dialog-error' )
             elif status_code == 5:
-                notify( misc_text + ' ' + _("is not the last partition."), _("Don't know how to expand."), 'dialog-error' )
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
             else:
                 notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
-                print('[Welcome] Unrecognised return code for Raspberry Pi resize.')
+                print('[Welcome] Unrecognised return code for Raspberry Pi resize: ' + str(status_code))
 
             app._appView._push_config()
 
