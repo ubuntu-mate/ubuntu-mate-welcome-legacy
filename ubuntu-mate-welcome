@@ -1683,8 +1683,11 @@ class SystemState(object):
                 resize_notify=Notify.Notification.new(subject, body, icon)
                 resize_notify.show()
 
-            with open('/tmp/notify_rpi_text') as misc_file:
-                misc_text = misc_file.read()
+            try:
+                with open('/tmp/notify_rpi_text') as misc_file:
+                    misc_text = misc_file.read()
+            except:
+                misc_text = ""
 
             if status_code == 0:
                 notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
