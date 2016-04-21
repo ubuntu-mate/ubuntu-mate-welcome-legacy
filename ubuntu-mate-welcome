@@ -1674,9 +1674,7 @@ class SystemState(object):
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
-            proc = subprocess.Popen(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
-            proc.wait()
-            status_code = proc.returncode
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
 
             def notify(subject, body, icon):
                 Notify.init(_('Raspberry Pi Partition Resize'))
@@ -1684,12 +1682,18 @@ class SystemState(object):
                 resize_notify.show()
 
             try:
+                with open('/tmp/notify_rpi_status') as status_file:
+                    status_code = int(status_file.read())
+            except:
+                status_code = 0
+
+            try:
                 with open('/tmp/notify_rpi_text') as misc_file:
                     misc_text = misc_file.read()
             except:
                 misc_text = ""
 
-            if status_code == 0:
+            if status_code == 1:
                 notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
                 self.rpi_resize_pending = True
                 webkit.execute_script('$("#rpi-resized").hide()')

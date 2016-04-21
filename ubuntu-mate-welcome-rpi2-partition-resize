@@ -23,16 +23,15 @@
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 pass_notify() {
-  # Miscellaneous information to show in notification.
-  echo -n "${2}" > /tmp/notify_rpi_text
-
-  # 0 = Success
+  # 1 = Success
   # 2 = /dev/root non-existent or not a symlink
   # 3 = Not an SD card.
   # 4 = Unsupported layout.
   # 5 = Not the last partition.
-  echo "Finished with exit code ${1}."
-  exit ${1}
+  echo "${1}" > /tmp/notify_rpi_status
+
+  # Miscellaneous information to show in notification.
+  echo "${2}" > /tmp/notify_rpi_text
 }
 
 get_init_sys() {
@@ -53,6 +52,7 @@ do_expand_rootfs() {
   else
     if ! [ -h /dev/root ]; then
       pass_notify 2 '/dev/root'
+      return 0
     fi
     ROOT_PART=$(readlink /dev/root)
   fi
@@ -130,4 +130,3 @@ EOF
 }
 
 do_expand_rootfs
-pass_notify 1 ''
