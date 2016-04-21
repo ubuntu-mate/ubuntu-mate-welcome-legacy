@@ -1701,6 +1701,7 @@ class SystemState(object):
             elif status_code == 5:
                 notify( misc_text + ' ' + _("is not the last partition."), _("Don't know how to expand."), 'dialog-error' )
             else:
+                notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
                 print('[Welcome] Unrecognised return code for Raspberry Pi resize.')
 
             app._appView._push_config()
