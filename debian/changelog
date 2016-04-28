@@ -1,7 +1,11 @@
-ubuntu-mate-welcome (16.04.10~xenial1.1) xenial; urgency=medium
+ubuntu-mate-welcome (16.04.9.1) xenial; urgency=medium
 
   [ Martin Wimpress ]
     + Remove linux-firmware-nonfree from the install options.
+    + Fix Raspberry Pi partition resizer.
+
+  [ Luke Horwell ]
+    + Correct some strings so translations are exposed.
 
  -- Martin Wimpress <code@flexion.org>  Wed, 20 Apr 2016 22:00:55 +0100
 
@@ -17,7 +21,7 @@ ubuntu-mate-welcome (16.04.9~xenial1.2) xenial; urgency=medium
     + Update translations.
     + Closes (LP: #1571635)
 
- -- Martin Wimpress <code@flexion.org>  Sun, 17 Apr 2016 19:34:27 +0100
+ -- Logan Rosen <logan@ubuntu.com>  Mon, 18 Apr 2016 16:30:28 +0000
 
 ubuntu-mate-welcome (16.04.8) xenial; urgency=medium
 
