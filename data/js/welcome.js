@@ -34,6 +34,7 @@ $(document).ready(function() {
           $('#scroll-top').fadeIn();
       } else {
           $('#scroll-top').fadeOut();
+          $('#scroll-top').removeClass('active');
       }
   });
 
@@ -43,6 +44,7 @@ $(document).ready(function() {
       $("html, body").animate({
           scrollTop: 0
       }, 600);
+      $('#scroll-top').addClass('active');
       return false;
   });
 
@@ -328,6 +330,9 @@ if ( current_page == 'software.html' ) {
         changeSubtitle(subtitle);
         $('html, body').animate({ scrollTop: 0 }, 0)
 
+        // Remove any other current page highlights
+        $('#navigation-news').removeClass('active');
+
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
@@ -490,6 +495,15 @@ if ( current_page == 'software.html' ) {
     // Smooth transition for footer.
     $('#footer-left').hide();
     $('#footer-left').fadeIn();
+
+    // Toggling to show the Boutique News
+    function showNews(subtitle) {
+      switchCategory(currentCategory, '#News', subtitle)
+      $('#tabs li').removeClass('active');
+      $('#navigation-news').addClass('active');
+      $('#non-free-toggle').fadeOut();
+      $('#show-misc-cmds').fadeOut();
+    }
 }
 
 

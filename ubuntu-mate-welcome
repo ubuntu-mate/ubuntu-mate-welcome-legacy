@@ -851,6 +851,7 @@ class AppView(WebKit.WebView):
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
+            dynamicapps.populate_news(self)
 
             # Show a different footer in the Boutique.
             self.execute_script("$('#footer-global-left').html('" + boutique_footer + "');")
@@ -2339,6 +2340,170 @@ class DynamicApps(object):
 
     def show_screenshot(self, filename):
         ssw = ScreenshotWindow(filename)
+
+    ###### JSON News Structure
+    #
+    #  {
+    #      "version" {
+    #          "add" [
+    #              "program_id (as seen in index)"
+    #          ],
+    #          "fix" {
+    #              "program_id (as seen in index)": "Reason"
+    #          },
+    #          "del" {
+    #              "Name of Application": "Reason"
+    #          }
+    #      }
+    #  }
+    #
+    #   ** Standard JSON rules apply. Watch out for the commas.
+    #   ** Important!! Use &#8217; instead of ' for an apostrophe character.
+    #
+    #   ==== Reasons ====
+    #   These allow easy translations for generic strings.
+    #   If none of the reasons match, the English text will be displayed as-is
+    #   WITHOUT TRANSLATION. Please beware this may confuse non-English users.
+    #
+    #   Reason        Mainly    String
+    #   ------------  --------  ------------------------------------------------------
+    #   new-source    Fixes     Uses a new source.
+    #   add-source    Fixes     Now works for some releases.
+    #   snappy        Fixes     Now a snappy package.
+    #   general       Fixes     General maintenance.
+    #   bad-source    Removal   Broken or problematic source.
+    #   no-source     Removal   Not yet available for some releases.
+    #   broken        Removal   No longer works for some releases.
+    #   unstable      Removal   Not suitable for production machines.
+    #   testing       Removal   Requires further testing.
+    #   not-nice      Removal   Does not meet our standards to be featured.
+    #
+
+    def populate_news(self, webkit):
+        try:
+            print('[Apps] Reading News...')
+            json_path = os.path.abspath(os.path.join(app._data_path, 'js/news.json'))
+            with open(json_path) as data_file:
+                self.news = json.load(data_file)
+        except Exception as e:
+            self.news = None
+            print("[Apps] ERROR: News JSON is invalid or missing!")
+            print("------------------------------------------------------------")
+            print("Exception:")
+            print(str(e))
+            print("------------------------------------------------------------")
+            return
+
+        # These functions are used later
+
+        # Raw reasons → Human translatable text
+        def get_reason_string(reason):
+            if reason == "new-source":
+                return _("Uses a new source.")
+            elif reason == "add-source":
+                return _("Now works for some releases.")
+            elif reason == "snappy":
+                return _("Now a snappy package.")
+            elif reason == "general":
+                return _("General maintenance.")
+            elif reason == "bad-source":
+                return _("Broken or problematic source.")
+            elif reason == "no-source":
+                return _("Not yet available for some releases.")
+            elif reason == "broken":
+                return _("No longer works for some releases.")
+            elif reason == "unstable":
+                return _("Not suitable for production machines.")
+            elif reason == "testing":
+                return _("Requires further testing.")
+            elif reason == "not-nice":
+                return _("Does not meet our standards to be featured.")
+            else:
+                return reason
+
+        # Raw categories → Human translatable categories
+        def get_category_string(category):
+            if category == "Accessories":
+                return _("Accessories")
+            elif category == "Education":
+                return _("Education")
+            elif category == "Games":
+                return _("Games")
+            elif category == "Graphics":
+                return _("Graphics")
+            elif category == "Internet":
+                return _("Internet")
+            elif category == "Office":
+                return _("Office")
+            elif category == "Programming":
+                return _("Programming")
+            elif category == "Media":
+                return _("Sound & Video")
+            elif category == "SysTools":
+                return _("System Tools")
+            elif category == "UnivAccess":
+                return _("Universal Access")
+            elif category == "Servers":
+                return _("Server One-Click Installation")
+            else:
+                # Includes "Unlisted"
+                return "Miscellaneous"
+
+        # Begin generating the HTML to append.
+        news_buffer = '<hr class="soften">'
+        news_versions = list(self.news.keys())
+        news_versions.sort(reverse=True)
+        for version in news_versions:
+            news_buffer = news_buffer + '<h4>' + version + '</h4><div class="news-list-version">'
+
+            # Create "Added" list.
+            news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + _("Added") + '</h5>'
+            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+            list_add = self.news[version]['add']
+            list_add.sort()
+            for item_id in list_add:
+                # Extract it's attributes.
+                try:
+                    item_name = self.get_attribute_for_app(item_id, 'name')
+                    item_img = self.get_attribute_for_app(item_id, 'img')
+                    item_category_raw = self.get_attribute_for_app(item_id, 'category')
+                    item_category = get_category_string(item_category_raw)
+                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
+                except Exception as e:
+                    print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+            news_buffer = news_buffer + '</ul></div>'
+
+            # Create "Fixes/Updates" list.
+            news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + _("Fixed") + '</h5>'
+            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+            list_fix = list(self.news[version]['fix'].keys())
+            list_fix.sort()
+            for item_id in list_fix:
+                try:
+                    item_name = self.get_attribute_for_app(item_id, 'name')
+                    item_img = self.get_attribute_for_app(item_id, 'img')
+                    item_reason = get_reason_string(self.news[version]['fix'][item_id])
+                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                except Exception as e:
+                    print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+            news_buffer = news_buffer + '</ul></div>'
+
+            # Create "Removed" list.
+            news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + _("Removed") + '</h5>'
+            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+            list_del = list(self.news[version]['del'].keys())
+            list_del.sort()
+            for item_name in list_del:
+                try:
+                    item_img = 'unknown'
+                    item_reason = get_reason_string(self.news[version]['del'][item_name])
+                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                except Exception as e:
+                    print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
+            news_buffer = news_buffer + '</ul></div>'
+            news_buffer = news_buffer + '</div><hr class="soften">'
+        webkit.execute_script('$("#News-Content").html(\'' + news_buffer + '\')')
+        print('[Apps] Successfully loaded news.')
 
 
 class ScreenshotWindow(Gtk.Window):

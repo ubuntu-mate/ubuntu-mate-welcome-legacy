@@ -110,7 +110,7 @@ body, button {
 }
 
 .navigation-button {
-  width: 11px;
+  width: 15px;
   height: 21px;
 	color: #DED9CB;
   display: inline-block;
@@ -130,6 +130,10 @@ body, button {
 .navigation-button:active {
   background-color: #667E40;
   color: #fff;
+}
+
+.navigation-button.active {
+  background-color: #667E40;
 }
 
 #navigation-title {
@@ -852,4 +856,32 @@ blockquote.terminal {
 .hello p {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+/************************
+ * Boutique News
+*************************/
+.news-list-version {
+  margin-left: 16px;
+}
+
+.news-list-items {
+  margin-left: 32px;
+}
+
+.news-reason {
+  color: #959595;
+  font-style: italic;
+}
+
+#news-add {
+  color: #86A555;
+}
+
+#news-fix {
+  color: #609FCF;
+}
+
+#news-del {
+  color: #FF0108;
 }
