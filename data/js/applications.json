@@ -3787,7 +3787,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "wily",
+            "releases": "wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4299,7 +4299,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily",
+            "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4773,10 +4773,10 @@
         "firmware": {
             "name": "Firmware Drivers",
             "img": "null",
-            "main-package": "linux-firmware-nonfree",
+            "main-package": "firmware-b43-installer",
             "launch-command": null,
-            "install-packages": "firmware-b43-installer,linux-firmware,linux-firmware-nonfree",
-            "remove-packages": "firmware-b43-installer,linux-firmware,linux-firmware-nonfree",
+            "install-packages": "firmware-b43-installer,linux-firmware",
+            "remove-packages": "firmware-b43-installer,linux-firmware",
             "description": "null",
             "alternate-to": null,
             "subcategory": "null",
