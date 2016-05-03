@@ -29,7 +29,7 @@ $(document).ready(function() {
   }
 
   // Back to the top
-  $(window).scroll(function () {
+  $('#content').scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scroll-top').fadeIn();
       } else {
@@ -41,7 +41,7 @@ $(document).ready(function() {
   $('#navigation-right').append('<a id="scroll-top" class="navigation-button" style="display:none"><span class="fa fa-chevron-up"></span></a>')
 
   $('#scroll-top').click(function () {
-      $("html, body").animate({
+      $("#content").animate({
           scrollTop: 0
       }, 600);
       $('#scroll-top').addClass('active');
@@ -308,6 +308,9 @@ if ( current_page == 'index.html' ) {
 // Introduction/Features = Animation
 if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
   new WOW().init();
+  new WOW({
+    scrollContainer: '#content'
+  }).init();
 }
 
 
@@ -328,7 +331,7 @@ if ( current_page == 'software.html' ) {
     function switchCategory(now, next, subtitle) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
-        $('html, body').animate({ scrollTop: 0 }, 0)
+        $('#content').animate({ scrollTop: 0 }, 0)
 
         // Remove any other current page highlights
         $('#navigation-news').removeClass('active');
@@ -377,7 +380,7 @@ if ( current_page == 'software.html' ) {
       // Python passes 'server_string' variable to allow translation.
       changeCategoryTab('#Servers', server_string);
       $('#ServersBtn').tab('show');
-      $('html, body').animate({ scrollTop: 0 }, 100)
+      $('#content').animate({ scrollTop: 0 }, 100)
 
       // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
       if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
@@ -385,7 +388,7 @@ if ( current_page == 'software.html' ) {
       if ( appno == 3 ) {  targetDiv = 'murmur';  }
 
       setTimeout(function(){
-          $('html, body').animate({
+          $('#content').animate({
               scrollTop: $('#'+targetDiv).offset().top - 100
           }, 1000);
       }, 1000);
