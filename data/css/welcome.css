@@ -45,6 +45,8 @@ body, button {
 
 .backdrop-simple {
   background-color: #f4f4f4;
+  background: #F4F4F4 url("../img/welcome/background.svg") no-repeat fixed right bottom;
+  background-position: 100% calc(100% - 64px);
 }
 
 .cursor-wait {
