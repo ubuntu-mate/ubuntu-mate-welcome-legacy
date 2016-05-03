@@ -337,6 +337,9 @@ if ( current_page == 'software.html' ) {
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
+        } else if ( next == '#News' ) {
+          $('#non-free-toggle').fadeOut();
+          $('#show-misc-cmds').fadeOut();
         } else {
           smoothFade('#show-misc-cmds','#non-free-toggle');
         }

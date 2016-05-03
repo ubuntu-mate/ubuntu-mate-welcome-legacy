@@ -2386,7 +2386,7 @@ class DynamicApps(object):
 
     def populate_news(self, webkit):
         try:
-            print('[Apps] Reading News...')
+            arg.print_verbose('Apps','Reading News...')
             json_path = os.path.abspath(os.path.join(app._data_path, 'js/news.json'))
             with open(json_path) as data_file:
                 self.news = json.load(data_file)
@@ -2508,7 +2508,7 @@ class DynamicApps(object):
             news_buffer = news_buffer + '</ul></div>'
             news_buffer = news_buffer + '</div><hr class="soften">'
         webkit.execute_script('$("#News-Content").html(\'' + news_buffer + '\')')
-        print('[Apps] Successfully loaded news.')
+        arg.print_verbose('Apps','Successfully loaded news.')
 
 
 class ScreenshotWindow(Gtk.Window):
