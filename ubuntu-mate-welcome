@@ -39,6 +39,7 @@ import locale
 import logging
 import os
 import platform
+import pwd
 import random
 import shutil
 import signal
@@ -695,6 +696,7 @@ class AppView(WebKit.WebView):
         <a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
         <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a> \
         </div>'
+        footer_close = '<a href="cmd://quit" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
 
         ## Boutique Footer ##
         str_subscribed = _("Set to retrieve the latest software listings.")
@@ -714,16 +716,8 @@ class AppView(WebKit.WebView):
             if not self.current_page == 'splash.html' and not self.current_page == 'software.html':
                 self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
 
-        # Show the button depending on context.
-        footer_close = '<a href="cmd://quit" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
-        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">' + _("Skip") + '</a>'
-
-        if self.current_page == 'splash.html':
-            self.execute_script("$('#footer-global-right').html('" + footer_skip + "');")
-        elif arg.jump_software_page:
-            # Do not show a "Close" button for the Boutique.
-            pass
-        else:
+        # Do not show the Close button in Boutique mode.
+        if not arg.jump_software_page:
             self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
 
         # Smoothly fade in the footer links between pages.
@@ -794,10 +788,14 @@ class AppView(WebKit.WebView):
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
                 self.execute_script('var splashNextPage = "hellolive"')
+                self.execute_script('var quick_splash = true')
             elif systemstate.session_type == 'guest':
                 self.execute_script('var splashNextPage = "helloguest"')
+                self.execute_script('var quick_splash = true')
             else:
                 self.execute_script('var splashNextPage = "index"')
+                self.execute_script('var quick_splash = false')
+                self.execute_script('$("#fullname").html("' + systemstate.full_name + '")')
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
@@ -1313,6 +1311,9 @@ class SystemState(object):
 
         self.dpi = font_dpi
         self.zoom_level = zoom_level
+
+        # Get the name of the user
+        self.full_name = pwd.getpwuid(os.getuid())[4].replace(',','')
 
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')

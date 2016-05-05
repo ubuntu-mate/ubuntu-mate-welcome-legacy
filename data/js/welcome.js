@@ -519,41 +519,56 @@ if ( current_page == 'splash.html' ) {
   // Scenes - Delayed elements to appear
   $(document).ready(function()
   {
-    $('#sceneA').show();
-    $('#sceneA').jAnimateOnce('fadeIn');
-    $('#splash-multilingual').show();
-    $('#splash-multilingual').jAnimateOnce('zoomIn');
+    $('body').show();
+    $('#splash-logo').show();
+    $('#splash-logo').jAnimateOnce('entrance');
+    $('#MATE-Logo').show();
+    $('#MATE-Logo').jAnimateOnce('mateRoll');
 
-    setTimeout(function(){ $('#circle1').fadeOut('medium');}, 2000);
-    setTimeout(function(){ $('#circle2').fadeOut('medium');}, 2100);
-    setTimeout(function(){ $('#circle3').fadeOut('medium');}, 2200);
-    setTimeout(function(){ $('#circle4').fadeOut('medium');}, 2300);
-    setTimeout(function(){ $('#circle5').fadeOut('medium');}, 2400);
-
-    setTimeout(function(){
-      $('#sceneA').show();
-      $('#sceneA').fadeOut();
-      $('#splash-multilingual').fadeOut('slow');
-    }, 2500);
+    $('#MATE-Text1').css('opacity','0');
+    $('#MATE-Text2').css('opacity','0');
+    $('#MATE-Text1').show();
+    $('#MATE-Text2').show();
 
     setTimeout(function(){
-      $('#sceneB').show();
-      $('#sceneB').jAnimateOnce('zoomIn');
-      $('body').addClass('fade-to-menu');
+      $('#MATE-Text1').hide();
+      $('#MATE-Text1').css('opacity','');
+      $('#MATE-Text1').fadeIn(1500);
+    }, 250);
+
+    setTimeout(function(){
+      $('#MATE-Text2').hide();
+      $('#MATE-Text2').css('opacity','');
+      $('#MATE-Text2').fadeIn(1500);
+    }, 600);
+
+    setTimeout(function(){
+      $('#header').show();
+      $('#footer').show();
+      $('#header').jAnimateOnce('fadeInDown');
+      $('#footer').jAnimateOnce('fadeInUp');
+    }, 2000);
+
+    setTimeout(function(){
+      $('#splash-logo').hide();
+      $('#skip-splash').fadeOut();
+      if ( quick_splash == true ) {
+        $('#white-start').fadeOut('fast');
+        continueToPage(false)
+      } else {
+        $('#splash-welcome').show();
+        $('#splash-welcome').jAnimateOnce('zoomInInverse');
+        $('#white-start').fadeOut('slow');
+      }
     }, 3000);
 
     setTimeout(function(){
-      $('body').removeClass('fade-to-menu');
-      $('body').css('background-color','#f4f4f4');
-    }, 4000);
-
-    setTimeout(function(){
-      $('#sceneB').fadeOut();
-    }, 5000);
+      $('#splash-welcome').fadeOut();
+    }, 4500);
 
     setTimeout(function(){
       continueToPage(false)
-    }, 5300);
+    }, 5000);
 
   });
 
@@ -562,10 +577,10 @@ if ( current_page == 'splash.html' ) {
 
   function continueToPage(skipped) {
     if ( skipped == true ) {
-      $('body').addClass('fade-to-menu');
-      $('#sceneA').fadeOut('medium');
-      $('#sceneB').fadeOut('medium');
-      $('#splash-multilingual').fadeOut('medium');
+      $('#white-start').fadeOut('fast');
+      $('#splash-logo').fadeOut('fast');
+      $('#splash-text').fadeOut('fast');
+      $('#splash-welcome').fadeOut('fast');
       setTimeout(function(){
           smoothPageFade(splashNextPage + '.html');
       }, 500);

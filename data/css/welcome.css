@@ -609,6 +609,16 @@ blockquote.terminal {
   color: #5A6943;
 }
 
+.main-menu-version {
+  font-family: "Ubuntu";
+  font-size: 20px;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 20px;
+  color: #5A6943;
+  pointer-events: none;
+}
+
 .menu-bkgnd {
   height: 390px;
   width: 390px;
@@ -664,84 +674,81 @@ blockquote.terminal {
 /************************
  * Splash Screen
 *************************/
-/* Scene A */
-.splash-center {
+#splash-logo {
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  padding-top: 4%;
+  width: auto;
+  height: 128px;
+  pointer-events: none;
   text-align: center;
   vertical-align: middle;
-  position: absolute;
-  z-index: -1;
-  margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin-top: -50px;
-  width: 446px; height: 459px;
-  pointer-events: none;
 }
 
-.splash-text {
+#splash-text {
+  display: inline;
   font-family: "Ubuntu";
   font-weight: 100;
-  font-size: 64px;
-  color: #fff;
-  position: relative;
-  top: 30%;
-}
-
-#splash-multilingual {
-  position: absolute;
-  top: 50%;
-  width: 640px;
-  height: 190px;
-  left: 0; right: 0;
-  margin: auto;
-  font-size: 20px;
-  color: #909090;
-  text-align: center;
-  line-height: 32px;
-}
-
-.boot-circle {
-  background: #8ba34f;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: inline-table;
-}
-
-.boot-circle-block {
-  width: 16px;
-  height: 16px;
-  display: inline-table;
-  margin: 0;
-  padding: 0;
-}
-
-/* Scene B */
-#sceneB {
-  position: absolute;
-  top: -50px; bottom: 0; left: 0; right: 0;
-  width: 450px;
-  height: 180px;
-  margin: auto;
-  text-align: center;
-}
-
-.splash-version {
-  vertical-align: top;
-  font-weight: bold;
   font-size: 20px;
   color: #5A6943;
-  pointer-events: none;
 }
 
-/* Background */
-@-webkit-keyframes fade-to-menu {
-  from { background-color: #3B3A36; }
-  to   { background-color: #f4f4f4; }
+#splash-welcome {
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  width: auto;
+  height: 128px;
+  padding-top: 8%;
+  font-family: "Ubuntu";
+  font-weight: 100;
+  font-size: 48px;
+  color: #3B3A36;
+  text-align: center;
 }
 
-.fade-to-menu {
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation: fade-to-menu 1s ease-in-out;
+@-webkit-keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.5, 1.5, 1.5);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(.9, .9, .9);
+  }
+}
+
+/* Modified animate.css rollIn */
+@-webkit-keyframes splashRollIn {
+  00% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+  }
+
+  30% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.entrance {
+  -webkit-animation-name: entrance;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* Slower version from animate.css */
+.mateRoll {
+  -webkit-animation-name: splashRollIn;
+  -webkit-animation-duration: 3s;
 }
 
 /************************
