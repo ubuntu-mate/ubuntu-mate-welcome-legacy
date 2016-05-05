@@ -908,6 +908,9 @@ if ( current_page == 'donate.html' ) {
 
 // Entering Software Only Mode
 if ( current_page == 'software-only.html' ) {
+    setTimeout(function() {
+      $('#boutique-splash').fadeOut(500)
+    }, 750);
     setCursorBusy()
 }
 

@@ -572,13 +572,20 @@ blockquote.terminal {
 }
 
 /* Software Only Mode Splash */
-#center-spinner {
-  width: 200px;
-  height: 200px;
+#boutique-splash {
+  width: auto;
+  height: 64px;
   margin: auto;
   top: 0; bottom: 0; left: 0; right: 0;
   position: absolute;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: 40px;
+  color: #5A6943;
+  pointer-events: none;
 }
+
 
 /************************
  * Main Menu
@@ -612,9 +619,8 @@ blockquote.terminal {
 .main-menu-version {
   font-family: "Ubuntu";
   font-size: 20px;
-  vertical-align: top;
   font-weight: bold;
-  font-size: 20px;
+  vertical-align: top;
   color: #5A6943;
   pointer-events: none;
 }
