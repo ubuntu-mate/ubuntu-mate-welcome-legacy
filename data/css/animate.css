@@ -2658,6 +2658,35 @@ Copyright (c) 2015 Daniel Eden
   animation-name: zoomIn;
 }
 
+@-webkit-keyframes zoomInInverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInInverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(-.3, -.3, -.3);
+    transform: scale3d(-.3, -.3, -.3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.zoomInInverse {
+  -webkit-animation-name: zoomInInverse;
+  animation-name: zoomInInverse;
+}
+
 @-webkit-keyframes zoomInDown {
   0% {
     opacity: 0;
@@ -2857,6 +2886,43 @@ Copyright (c) 2015 Daniel Eden
 .zoomOut {
   -webkit-animation-name: zoomOut;
   animation-name: zoomOut;
+}
+
+@-webkit-keyframes zoomOutInverse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOutInverse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.zoomOutInverse {
+  -webkit-animation-name: zoomOutInverse;
+  animation-name: zoomOutInverse;
 }
 
 @-webkit-keyframes zoomOutDown {
