@@ -411,6 +411,11 @@ hr.soften-light {
   color: #477301;
 }
 
+/* Feedback with button interactions */
+.btn:active, .btn:focus, .btn:hover {
+  border: 1px solid #87A556;
+}
+
 /************************
  * Introduction Page
 *************************/
