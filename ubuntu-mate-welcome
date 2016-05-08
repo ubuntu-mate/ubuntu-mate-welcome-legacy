@@ -631,22 +631,66 @@ class WelcomeConfig(object):
         self._autostart = os.path.exists(self._autostart_path)
 
 
+class Translations(object):
+    def __init__(self, data_path):
+        # Determine which locale to use
+        if arg.locale:
+            self.locale = arg.locale
+        else:
+            self.locale = str(locale.getlocale()[0])
+
+        # Determine if localized pages exist, or fallback to original pages.
+        def get_pages_path():
+            if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
+                self.localized = True
+                print('[i18n] Locale Set: ' + self.locale + ' (using relative path)')
+                return os.path.join(data_path, 'i18n', self.locale)
+            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
+                self.localized = True
+                print('[i18n] Locale Set: ' + self.locale + ' (using /usr/share/ path)')
+                return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
+            else:
+                self.localized = False
+                print('[i18n] Locale Not Available: ' + self.locale + ' (using en_US instead)')
+                return data_path
+
+        self.pages_dir = get_pages_path()
+
+        # Should this locale not exist, try a generic one. (e.g. "en_GB" → "en")
+        if self.pages_dir == data_path:
+            self.localized = False
+            self.locale = self.locale.split('_')[0]
+            self.pages_dir = get_pages_path()
+        else:
+            self.localized = True
+
+        # Validate all the i18n pages so we have the same structure as the original.
+        page_was_lost = False
+        if not self.pages_dir == data_path:
+            for page in os.listdir(data_path):
+                if page[-5:] == '.html':
+                    if os.path.exists(os.path.join(self.pages_dir, page)):
+                        arg.print_verbose('i18n', 'Page Verified: ' + page)
+                    else:
+                        page_was_lost = True
+                        print('[i18n] Page Missing: ' + page)
+        if page_was_lost:
+            print('[i18n] ** One or more translation pages are missing!')
+            print('[i18n] ** How unusual. Falling back to en_US.')
+            self.pages_dir = data_path
+            self.localized = False
+        else:
+            arg.print_verbose('i18n', 'All translated i18n pages found.')
+
 class AppView(WebKit2.WebView):
-    def __init__(self, slide_list = None):
-        """
-            Args:
-            slide_list : A list of tuples containing the filenames of translated html files
-                         or, if no translation is available, the filename of the original
-                         untranslated slide
-        """
+    def __init__(self):
+        # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
         self._config = WelcomeConfig()
         self._apt_cache = apt.Cache()
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
-        self.l_uri = None
-        self._slide_list = slide_list
 
         self.set_zoom_level(systemstate.zoom_level)
         print('[Welcome] Setting zoom level to: ' + str(systemstate.zoom_level))
@@ -896,10 +940,8 @@ class AppView(WebKit2.WebView):
         uri = str(self.get_uri())
         app.current_page = uri.rsplit('/', 1)[1]
         if not self.is_loading():
-            arg.print_verbose('Debug', 'Page: ' + app.current_page)
+            arg.print_verbose('Debug', 'Page: ' + app.current_page + '\n      ' + uri)
             self._push_config()
-
-    # FIXME: Translation framework temporarily removed - Not yet ported to WebKit2!
 
     def _do_command(self, cmd):
       try:
@@ -1033,72 +1075,17 @@ class WelcomeApp(object):
 
         # Check for relative path
         if( os.path.exists( os.path.join(self.current_folder, 'data/' ) ) ):
-            print('[Debug] Using relative path for data source. Non-production testing.')
+            arg.print_verbose('Debug', 'Using relative path for data source. Non-production testing.')
             self.data_path = os.path.join(self.current_folder, 'data/')
         elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-            print('Using /usr/share/ubuntu-mate-welcome/ path.')
+            arg.print_verbose('Debug', 'Using /usr/share/ubuntu-mate-welcome/ path.')
             self.data_path = '/usr/share/ubuntu-mate-welcome/'
         else:
             print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
 
+        self.translations = Translations(self.data_path)
         self.load_app()
-
-    def _get_translated_slides(self):
-        """ If a locale has been specified on the command line, get translated slides
-            for that. If not, get translated slides for the current locale
-
-        Do not assume that every slide has a translation, check each file individually
-
-        Returns:
-            a list of filenames of translated slides - if there is no translated version
-            of a slide, the filename of the untranslated version from the _data_path directory
-            is used instead
-
-        """
-
-        if (arg.locale is not None):
-            locale_to_use = arg.locale
-        else:
-            locale_to_use = str(locale.getlocale()[0])
-
-        def set_locale_dir(this_locale):
-            # check for relative path
-            if (os.path.exists(os.path.join(self._location, 'i18n', this_locale))):
-                locale_dir = os.path.join(self._location, 'i18n', this_locale)
-                print('[i18n] Using ' + this_locale + '. Non-production testing.')
-            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale))):
-                locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale)
-                print('[i18n] Using ' + this_locale)
-            else:
-                locale_dir = ''
-                print('[i18n] Locale ' + this_locale + ' not available.')
-
-            return locale_dir
-
-        # if no locale exists, try a generic locale.
-        locale_dir = set_locale_dir(locale_to_use)
-        if locale_dir == '':
-            locale_generic = locale_to_use.split('_')[0]
-            print('[i18n] Trying ' + locale_generic + '...')
-            locale_dir = set_locale_dir(locale_generic)
-
-        results = []
-
-        slides = glob.glob(os.path.join(self._data_path, '*.html'))
-        for slide in slides:
-            # get the slide name and see if a translated version exists
-            head, slide_name = os.path.split(slide)
-
-            trans_slide = os.path.join(locale_dir, slide_name)
-            if os.path.exists(trans_slide):
-                results.append(trans_slide)
-                arg.print_verbose("i18n","Will use %s translation of %s" %(locale_to_use, slide_name))
-            else:
-                results.append(slide)
-                arg.print_verbose("i18n","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
-
-        return results
 
     def load_app(self):
         # Slightly different attributes if "--software-only" is activated.
@@ -1150,15 +1137,12 @@ class WelcomeApp(object):
         icon_dir = os.path.join(self.data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
-        #get the translated slide list
-        trans_slides = self._get_translated_slides()
         # Build WebKit2 container
-        self.webkit = AppView(trans_slides)
+        self.webkit = AppView()
 
-        # Load our index file
-        file = os.path.abspath(os.path.join(self.data_path, load_file))
-
-        uri = 'file://' + urllib.request.pathname2url(file)
+        # Load the starting page
+        path = os.path.abspath(os.path.join(self.translations.pages_dir, load_file))
+        uri = 'file://' + urllib.request.pathname2url(path)
         self.webkit.load_uri(uri)
 
         # Build scrolled window widget and add our appview container

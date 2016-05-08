@@ -194,6 +194,11 @@ def translate_file(in_file, in_po, out_file, verbose):
                 print ("WARNING: translatable string  %s not found" %translatable[1])
 
     outfile = codecs.open(out_file, 'w', encoding='utf-8')    
+    # Post actions for i18n folder - Use relative paths.
+    content = content.replace('css/', '../../css/')
+    content = content.replace('js/', '../../js/')
+    content = content.replace('img/', '../../img/')
+
     outfile.write(content)
     outfile.close()
 
@@ -278,7 +283,7 @@ def create_i18n_slides(slide_dir, po_dir, i18n_dir, verbose):
     Args:
         slide_dir : the location of the html files
         po_dir    : the location of the po files containing translations
-        i18n_diir : the location where translatied html gets written
+        i18n_dir : the location where translatied html gets written
         verbose   : let the user know what's going on
     """
 
@@ -413,7 +418,7 @@ if cmd_check is not None:
 source_dir = '.'
 build_slides = os.path.join(source_dir, 'data')
 po_dir = os.path.join(build_slides, 'po')
-i18n_dir =os.path.join(source_dir, 'i18n')
+i18n_dir =os.path.join(source_dir, 'data/i18n')
 
 if create_all_pots:
     create_all_pot_files(build_slides, po_dir, verbose)

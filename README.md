@@ -120,7 +120,7 @@ Stupid name, but we like it, which supports the following arguments:
   * `translate-all` - for each slide, will produce translated html for
   each `.po` found in `data/po/slidename`. The `.po` should according to
   locale e.g. `en_GB.po`. The output will be written to the
-  `i18n/<locale>/` directory as `slide_name.html`
+  `data/i18n/<locale>/` directory as `slide_name.html`
   * `create-pot` - create a single `.pot` file (mainly for testing purposes)
   * `translate` - translate a single slide (mainly for testing purposes)
   * `po` - for each translatable string in a po file, set the
@@ -153,7 +153,7 @@ run, this can be used to generate test `en_GB` and `fr_FR` .po files for
 each slide. The `en_GB` version contains no translations whilst the
 French version has every translation set as the reverse of the original
 string. Translated html can be produced from these .po files by running
-`edgar-allan translate-all`, and viewed in the `i18n/en_GB` and `fr_FR`
+`edgar-allan translate-all`, and viewed in the `data/i18n/en_GB` and `fr_FR`
 directories.
 
 # Building a local package
