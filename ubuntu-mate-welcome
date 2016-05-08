@@ -682,6 +682,14 @@ class Translations(object):
         else:
             arg.print_verbose('i18n', 'All translated i18n pages found.')
 
+        # Sets the path for resources (img/css/js)
+        if self.localized:
+            # E.g. data/i18n/en_GB/*.html → data/
+            self.res_dir = '../../'
+        else:
+            # E.g. data/*.html → data/
+            self.res_dir = ''
+
 class AppView(WebKit2.WebView):
     def __init__(self):
         # WebKit2 Initalisation
@@ -738,11 +746,11 @@ class AppView(WebKit2.WebView):
 
         ## Social Links ##
         footer_left = '<div id="social" class="pull-left"> \
-        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="img/social/google+.svg"></a> \
-        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="img/social/facebook.svg"></a> \
-        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="img/social/twitter.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a> \
+        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + app.translations.res_dir + 'img/social/google+.svg"></a> \
+        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + app.translations.res_dir + 'img/social/facebook.svg"></a> \
+        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + app.translations.res_dir + 'img/social/twitter.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + app.translations.res_dir + 'img/humanity/website.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + app.translations.res_dir + 'img/humanity/donate.svg"></a> \
         </div>'
         footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
 
@@ -755,7 +763,7 @@ class AppView(WebKit2.WebView):
         boutique_footer = '<div id="boutique-footer" class="pull-left"> \
         <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
         <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
-        <p hidden id="update-subscribing"><img src="img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
+        <p hidden id="update-subscribing"><img src="' + app.translations.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
         <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
         </div>'
 
@@ -1868,8 +1876,8 @@ class DynamicApps(object):
         str_source = _("Source")
         str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
         str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
-        str_source_partner = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
-        str_source_skip = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
+        str_source_partner = '<img src="' + app.translations.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_skip = '<img src="' + app.translations.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
 
         # Get the app data from each category and list them.
@@ -1933,7 +1941,7 @@ class DynamicApps(object):
                     html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
-                html_buffer = html_buffer + '<img src="img/applications/' + self.app_img + '.png">'
+                html_buffer = html_buffer + '<img src="' + app.translations.res_dir + 'img/applications/' + self.app_img + '.png">'
                 html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
                 html_buffer = html_buffer + '</div><div class="span10">'
                 html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
@@ -1959,7 +1967,7 @@ class DynamicApps(object):
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
-                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
+                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + app.translations.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
@@ -1971,7 +1979,7 @@ class DynamicApps(object):
                         html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + app.translations.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
                 # More details section.
                 html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
@@ -2072,9 +2080,10 @@ class DynamicApps(object):
                 screenshots_end = False
                 screenshot_buffer = ''
                 while not screenshots_end:
-                    screenshot_path = os.path.join(app.data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
+                    screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
+                    screenshot_path = os.path.join(app.data_path, screenshot_img)
                     if os.path.exists(screenshot_path):
-                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + screenshot_path + '" class="screenshot"/></a>'
+                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + app.translations.res_dir + screenshot_img + '" class="screenshot"/></a>'
                         screenshots = screenshots + 1
                     else:
                         screenshots_end = True
@@ -2130,9 +2139,10 @@ class DynamicApps(object):
                     possible_apps.append(self.index[category][program_id]['img'])
 
         random.shuffle(possible_apps)
-        for no in range(0,17):
-            arg.print_verbose('Apps', str(no) + '. ' + possible_apps[no])
-            webkit.run_javascript("addToGrid('" + possible_apps[no] + "');")
+        for no in range(1,18):
+            random_img = possible_apps[no]
+            arg.print_verbose('Apps', str(no) + '. ' + random_img)
+            app.update_page('#featured-grid', 'append', '<img src="' + app.translations.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
         webkit.run_javascript("initGrid();")
         arg.print_verbose('Apps','------------------')
 
@@ -2435,7 +2445,7 @@ class DynamicApps(object):
                     item_img = self.get_attribute_for_app(item_id, 'img')
                     item_category_raw = self.get_attribute_for_app(item_id, 'category')
                     item_category = get_category_string(item_category_raw)
-                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'
@@ -2450,7 +2460,7 @@ class DynamicApps(object):
                     item_name = self.get_attribute_for_app(item_id, 'name')
                     item_img = self.get_attribute_for_app(item_id, 'img')
                     item_reason = get_reason_string(self.news[version]['fix'][item_id])
-                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'
@@ -2464,7 +2474,7 @@ class DynamicApps(object):
                 try:
                     item_img = 'unknown'
                     item_reason = get_reason_string(self.news[version]['del'][item_name])
-                    news_buffer = news_buffer + '<li><img src="img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'

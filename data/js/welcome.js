@@ -443,13 +443,6 @@ if ( current_page == 'software.html' ) {
         cmd('filter-apps?' + selected_filter + '?toggle');
     }
 
-    // Featured Grid - Randomly populate and add applications to the grid.
-    var iconID = 0;
-    function addToGrid(icon) {
-      iconID++;
-      $('#featured-grid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="grid-hidden" />');
-    }
-
     // Featured Grid - Set classes to create a semi-circle fade effect.
     function initGrid() {
         $('#appIcon1').addClass('grid-outer');
