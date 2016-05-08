@@ -450,7 +450,7 @@ class PreInstallation(object):
 
         # Function to run privileged commands.
         def run_task(function):
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(app._data_path, 'js/applications.json')), function, category, program_id, target])
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(app.data_path, 'js/applications.json')), function, category, program_id, target])
 
         # Determine if any pre-configuration is specific to a codename.
         try:
@@ -1028,22 +1028,21 @@ class WelcomeApp(object):
         # Set variables
         self.current_page = ""
         self.webkit = None
+        self.data_path = "/usr/share/ubuntu-mate-welcome/"
+        self.current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
 
-        # establish our location
-        self._location = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
-
-        # check for relative path
-        if( os.path.exists( os.path.join(self._location, 'data/' ) ) ):
+        # Check for relative path
+        if( os.path.exists( os.path.join(self.current_folder, 'data/' ) ) ):
             print('[Debug] Using relative path for data source. Non-production testing.')
-            self._data_path = os.path.join(self._location, 'data/')
+            self.data_path = os.path.join(self.current_folder, 'data/')
         elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
             print('Using /usr/share/ubuntu-mate-welcome/ path.')
-            self._data_path = '/usr/share/ubuntu-mate-welcome/'
+            self.data_path = '/usr/share/ubuntu-mate-welcome/'
         else:
             print('Unable to source the ubuntu-mate-welcome data directory.')
             sys.exit(1)
 
-        self._build_app()
+        self.load_app()
 
     def _get_translated_slides(self):
         """ If a locale has been specified on the command line, get translated slides
@@ -1101,8 +1100,7 @@ class WelcomeApp(object):
 
         return results
 
-    def _build_app(self):
-
+    def load_app(self):
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
             title = _("Software Boutique")
@@ -1136,7 +1134,7 @@ class WelcomeApp(object):
         if arg.jump_to:
             load_file = arg.jump_to + '.html'
 
-        # build window
+        # Build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
@@ -1149,30 +1147,30 @@ class WelcomeApp(object):
         else:
             w.set_size_request(width, height)
 
-        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
+        icon_dir = os.path.join(self.data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
         #get the translated slide list
         trans_slides = self._get_translated_slides()
-        # build WebKit2 container
+        # Build WebKit2 container
         self.webkit = AppView(trans_slides)
 
-        # load our index file
-        file = os.path.abspath(os.path.join(self._data_path, load_file))
+        # Load our index file
+        file = os.path.abspath(os.path.join(self.data_path, load_file))
 
         uri = 'file://' + urllib.request.pathname2url(file)
         self.webkit.load_uri(uri)
 
-        # build scrolled window widget and add our appview container
+        # Build scrolled window widget and add our appview container
         sw = Gtk.ScrolledWindow()
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
         sw.add(self.webkit)
 
-        # build an autoexpanding box and add our scrolled window
+        # Build an autoexpanding box and add our scrolled window
         b = Gtk.VBox(homogeneous=False, spacing=0)
         b.pack_start(sw, expand=True, fill=True, padding=0)
 
-        # add the box to the parent window and show
+        # Add the box to the parent window and show
         w.add(b)
         w.connect('delete-event', goodbye)
         w.show_all()
@@ -1815,7 +1813,7 @@ class DynamicApps(object):
     def reload_index(self):
         try:
             print('[Apps] Reading index...')
-            json_path = os.path.abspath(os.path.join(app._data_path, 'js/applications.json'))
+            json_path = os.path.abspath(os.path.join(app.data_path, 'js/applications.json'))
             with open(json_path) as data_file:
                 self.index = json.load(data_file)
                 print('[Apps] Successfully loaded index.')
@@ -2090,7 +2088,7 @@ class DynamicApps(object):
                 screenshots_end = False
                 screenshot_buffer = ''
                 while not screenshots_end:
-                    screenshot_path = os.path.join(app._data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
+                    screenshot_path = os.path.join(app.data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
                     if os.path.exists(screenshot_path):
                         screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + screenshot_path + '" class="screenshot"/></a>'
                         screenshots = screenshots + 1
@@ -2367,7 +2365,7 @@ class DynamicApps(object):
     def populate_news(self, webkit):
         try:
             arg.print_verbose('Apps','Reading News...')
-            json_path = os.path.abspath(os.path.join(app._data_path, 'js/news.json'))
+            json_path = os.path.abspath(os.path.join(app.data_path, 'js/news.json'))
             with open(json_path) as data_file:
                 self.news = json.load(data_file)
         except Exception as e:
@@ -2500,7 +2498,7 @@ class ScreenshotWindow(Gtk.Window):
         # Strings for this child window.
         title_string = 'Preview Screenshot'
         close_string = 'Close'
-        path = app._data_path + '/img/applications/screenshots/' + filename + '.jpg'
+        path = app.data_path + '/img/applications/screenshots/' + filename + '.jpg'
 
         # Build a basic pop up window containing the screenshot at its full dimensions.
         Gtk.Window.__init__(self, title=title_string)
