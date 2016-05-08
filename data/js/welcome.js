@@ -1,6 +1,23 @@
 // Which page?
 current_page = document.location.href.match(/[^\/]+$/)[0];
 
+// Show an error dialog when JavaScript errors occur.
+$(window).on("error", function(evt) {
+    // Gets JavaScript Event
+    var e = evt.originalEvent;
+    friendly_txt = "Oops! Welcome encountered an internal error.\n\nPlease tell the Ubuntu MATE Developers so this can fixed right away.";
+    if (e.message) {
+        alert(friendly_txt + "\n\nError:\n\t" + e.message + "\nLine:\n\t" + e.lineno + "\nFile:\n\t" + e.filename);
+    } else {
+        alert(friendly_txt + "\n\nError:\n\t" + e.type + "\nElement:\n\t" + (e.srcElement || e.target));
+    }
+});
+
+// Pass commands to Python
+function cmd(instruction) {
+  document.title = instruction;
+}
+
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
@@ -67,11 +84,12 @@ function changeSubtitle(textToDisplay) {
 }
 
 // For pages that depend on an internet connection, but Welcome couldn't connect.
-function reconnectTimeout() {
+function reconnectRetry() {
+  cmd('checkInternetConnection');
   if ( ! $('#reconnectFailed').is(':visible') ) {
     $('#reconnectFailed').fadeIn();
   } else {
-    $('#reconnectFailed').jAnimateOnce('pulse');
+    $('#reconnectFailed').jAnimateOnce('flash');
   }
 }
 
@@ -418,11 +436,11 @@ if ( current_page == 'software.html' ) {
     });
 
     function applyFilter() {
-        window.location.href = 'cmd://filter-apps?' + selected_filter + '?';
+        cmd('filter-apps?' + selected_filter + '?');
     }
 
     function toggleNonFree() {
-        window.location.href = 'cmd://filter-apps?' + selected_filter + '?toggle';
+        cmd('filter-apps?' + selected_filter + '?toggle');
     }
 
     // Featured Grid - Randomly populate and add applications to the grid.
@@ -701,7 +719,7 @@ if ( current_page == 'gettingstarted.html' ) {
   function InitSystemInfo() {
     setCursorBusy()
     setTimeout(function() {
-      window.location.href = "cmd://init-system-info";
+      cmd("init-system-info");
     }, 1000);
   }
 
@@ -736,7 +754,7 @@ if ( current_page == 'donate.html' ) {
       // Add a Month = (New Column)
       function addMonth(m,y) {
         cellID = y + '-' + m;
-        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a href="cmd://link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/">' + numToShortMonth(m) + '</a></td>');
+        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a onclick="cmd(\'link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/\')">' + numToShortMonth(m) + '</a></td>');
       }
 
       // Add a Blank Month = (New Column, Empty)

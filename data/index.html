@@ -14,7 +14,7 @@
       <div id="navigation-title" hidden>&zwnj;Main Menu&zwnj;</div>
       <div id="navigation-right">
         <div hidden id="update-notification" class="heads-up entire-page-fade">
-          <a href="cmd://subscribe-updates" class="btn btn-inverse" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ensures Welcome's documentation, translations and software picks are always up-to-date.&zwnj;">
+          <a onclick="cmd('subscribe-updates')" class="btn btn-inverse" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ensures Welcome's documentation, translations and software picks are always up-to-date.&zwnj;">
             &zwnj;Subscribe to Welcome updates&zwnj; &nbsp;<span class="fa fa-arrow-circle-up"></span>
           </a>
         </div>
@@ -84,7 +84,7 @@
         <span id="footer-global-left"></span>
       </div>
       <div id="footer-right" class="form">
-        <a href="cmd://autostart" id="open-at-start" class="live-session entire-page-fade" style="display:none">
+        <a onclick="cmd('autostart')" id="open-at-start" class="live-session entire-page-fade" style="display:none">
           <span id="autostart" class="fa fa-square fa-va"></span> &zwnj;Open Welcome when I log on.&zwnj;
         </a>
         <span id="footer-global-right"></span>

@@ -29,7 +29,7 @@
       <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("sysreq","&zwnj;System Requirements&zwnj;")'>        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("prepare","&zwnj;Installation Preparations&zwnj;")'> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("dualboot","&zwnj;Dual Booting&zwnj;")'>             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
-      <a class="btn btn-success index-btn live-session-only" href="cmd://install">                                                    <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
+      <a class="btn btn-success index-btn live-session-only" onclick="cmd('install')">                                                <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
@@ -239,7 +239,7 @@
                   This method makes changes to partitions prior to installation.&zwnj;
                 </p>
                 <div class="center">
-                  <a href="cmd://gparted" class="btn btn-inverse"><img src="img/applications/gparted.png" width="32px" height="32px"> Open GParted</a>
+                  <a onclick="cmd('gparted')" class="btn btn-inverse"><img src="img/applications/gparted.png" width="32px" height="32px"> Open GParted</a>
                 </div>
                 <br>
                 <p>&zwnj;After completing operations to your disk, you can leave the remaining space unallocated,&zwnj;
@@ -306,7 +306,7 @@
                 <h5>&zwnj;Further Reading&zwnj;</h5>
                 <p>&zwnj;For further information on the best practices to modify partitions containing
                 Windows, see the following&zwnj;
-                <a href="cmd://link?https://help.ubuntu.com/community/HowtoResizeWindowsPartitions">
+                <a onclick="cmd('link?https://help.ubuntu.com/community/HowtoResizeWindowsPartitions')">
                   &zwnj;help article&zwnj;</a> &zwnj;online&zwnj;.</p>
               </div>
 
@@ -327,11 +327,11 @@
               <h5>&zwnj;Requires downloading a package.&zwnj;</h5>
               <p>&zwnj;Please connect to the Internet to download and use this utility.&zwnj;</p>
               <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-              <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+              <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
             </div>
 
-            <a class="boot-repair-install btn btn-inverse online" href="cmd://install-appid?boot-repair"><span class="fa fa-download"></span>&nbsp; &zwnj;Download Boot Repair&zwnj;</a>
-            <a class="boot-repair-remove btn btn-success" href="cmd://run?boot-repair"><span class="fa fa-wrench"></span>&nbsp; &zwnj;Open Boot-Repair&zwnj;</a>
+            <a class="boot-repair-install btn btn-inverse online" onclick="cmd('install-appid?boot-repair')"><span class="fa fa-download"></span>&nbsp; &zwnj;Download Boot Repair&zwnj;</a>
+            <a class="boot-repair-remove btn btn-success" onclick="cmd('run?boot-repair')"><span class="fa fa-wrench"></span>&nbsp; &zwnj;Open Boot-Repair&zwnj;</a>
 
             <div class="center">
               <hr class="soften-light">
@@ -355,7 +355,7 @@
             and security updates are available for your computer. If you
             have just installed Ubuntu MATE, you might want to do this now.&zwnj;</p>
             <div align="center">
-              <a class="btn btn-lg btn-inverse" href="cmd://update" onclick="smoothFade('','#updates-hint')">
+              <a class="btn btn-lg btn-inverse" onclick="cmd('update')" onclick="smoothFade('','#updates-hint')">
                 <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; &zwnj;Software Updater&zwnj;
               </a>
               <span id="updates-hint" class="center" hidden><small>
@@ -371,10 +371,10 @@
             <!-- <p>&zwnj;You'll need the Blu-ray AACS database in order
             to play AACS encrypted or BD+ protected discs.&zwnj;</p> -->
             <div align="center">
-              <a class="btn btn-lg btn-inverse" href="cmd://install-appid?codecs">
+              <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?codecs')">
                 <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Codecs Package&zwnj;
               </a>
-              <!-- <a class="btn btn-lg btn-inverse" href="cmd://get-aacs-db">
+              <!-- <a class="btn btn-lg btn-inverse" onclick="cmd('get-aacs-db')">
                 <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
               </a> -->
               <span class="codecs-applying bluray-applying"><br><br><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
@@ -403,10 +403,10 @@
               <h5>&zwnj;An Internet connection is required to download and install drivers.&zwnj;</h5>
             </div>
             <div align="center">
-                <a class="btn btn-inverse" href="cmd://drivers" onclick="smoothFade('','#drivers-hint')">
+                <a class="btn btn-inverse" onclick="cmd('drivers')" onclick="smoothFade('','#drivers-hint')">
                     <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; &zwnj;Additional Drivers&zwnj;
                 </a>
-                <a class="btn btn-inverse" href="cmd://install-appid?firmware">
+                <a class="btn btn-inverse" onclick="cmd('install-appid?firmware')">
                     <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; &zwnj;Install Firmware Package&zwnj;
                 </a>
             </div>
@@ -484,13 +484,13 @@
                   <h4>&zwnj;What about the latest NVIDIA drivers?&zwnj;</h4>
                   <p><b>&zwnj;Additional Drivers&zwnj;</b> &zwnj;fetches the latest tested driver from the Ubuntu repositories.&zwnj;
                   &zwnj;Advanced users and gamers who would like newer versions may wish to consider adding the&zwnj;
-                  <a href="cmd://link?https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa">&zwnj;Ubuntu Graphics Driver PPA&zwnj;</a>,
+                  <a onclick="cmd('link?https://launchpad.net/~graphics-drivers/+archive/ubuntu/ppa')">&zwnj;Ubuntu Graphics Driver PPA&zwnj;</a>,
                   &zwnj;which packages up the latest NVIDIA drivers for Ubuntu. These packages are not as thoroughly tested.&zwnj;</p>
                   <div class="alert alert-warning">
                     <span class="fa fa-exclamation-triangle"></span> &zwnj;This only applies for actively supported cards,
                     and not older cards using the legacy driver.&zwnj;
                   </div>
-                  <a class="btn btn-warning" href="cmd://upgrade-appid?nvidia-settings"><span class="fa fa-level-up"></span>&nbsp; &zwnj;Add Repository&zwnj;</a>
+                  <a class="btn btn-warning" onclick="cmd('upgrade-appid?nvidia-settings')"><span class="fa fa-level-up"></span>&nbsp; &zwnj;Add Repository&zwnj;</a>
                   <br><br>
                   <!-- <a class="btn btn-danger" href="#"><span class="fa fa-trash"></span>&nbsp; Remove Repository</a> -->
                   <p>&zwnj;To add the repository to the system, open a terminal and type the following:&zwnj;</p>
@@ -499,7 +499,7 @@
                     <br>&nbsp;<span class="fa fa-dollar"></span> sudo apt-get update
                   </blockquote>
                   <p>&zwnj;After the PPA is added, newer versions are presented
-                  to install in&zwnj; <a href="cmd://drivers">&zwnj;Additional Drivers:&zwnj;</a></p>
+                  to install in&zwnj; <a onclick="cmd('drivers')">&zwnj;Additional Drivers:&zwnj;</a></p>
                   <img src="img/screenshots/graphics-drivers-nvidia.png"/>
                 </p>
               </div>
@@ -522,7 +522,7 @@
                provided by themselves directly. If you require assistance,
                feel free to&zwnj; <a onclick="smoothPageFade('community.html')">&zwnj;ask the community&zwnj;</a>.</p>
 
-               <p><a href="cmd://link?https://help.ubuntu.com/community/WifiDocs/WirelessTroubleShootingGuide/Drivers">
+               <p><a onclick="cmd('link?https://help.ubuntu.com/community/WifiDocs/WirelessTroubleShootingGuide/Drivers')">
                <span class="fa fa-globe"></span> &zwnj;Read more on troubleshooting wireless hardware.&zwnj;</a></p>
             </div>
 
@@ -530,7 +530,7 @@
             <a onclick="toggleSub('printers-section','printers-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="printers-arrow"></span> &zwnj;Printers&zwnj;</h3></a>
             <div id="printers-section" hidden>
               <p>&zwnj;When you set up a printer in the&zwnj;
-              <a href="cmd://printers">
+              <a onclick="cmd('printers')">
               <img src="/usr/share/icons/Humanity/actions/16/document-print.svg" width="20px" height="20px"/>
               <b>&zwnj;Printers&zwnj;</b></a>
               &zwnj;utility&zwnj; <i>(&zwnj;under&zwnj; &zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span>
@@ -539,7 +539,7 @@
 
               <p>&zwnj;Some manufacturers may provide their own drivers and
               require you to download them from their website.&zwnj;</p>
-              <p><a href="cmd://link?https://help.ubuntu.com/community/Printers">
+              <p><a onclick="cmd('link?https://help.ubuntu.com/community/Printers')">
               <span class="fa fa-globe"></span> &zwnj;Read more on
               printing&zwnj;</a>.</p>
 
@@ -558,8 +558,8 @@
                   sending faxes and for photo-card access on most HP MFP
                   (multi-function peripheral) printers.&zwnj;</p>
                   <p class="text-right">
-                    <a class="btn btn-inverse hp-printer-remove" href="cmd://launch-appid?hp-printer"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                    <a class="btn btn-success hp-printer-install" href="cmd://install-appid?hp-printer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                    <a class="btn btn-inverse hp-printer-remove" onclick="cmd('launch-appid?hp-printer')"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                    <a class="btn btn-success hp-printer-install" onclick="cmd('install-appid?hp-printer')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
                   </p>
                 </div>
               </div>
@@ -584,7 +584,7 @@
             <p>&zwnj;Your computer may require updates to your language and
             localization settings, or you may want to install additional
             language support.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://language" onclick="smoothFade('','#locale-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('language')" onclick="smoothFade('','#locale-hint')">
               <img src="img/humanity/preferences-desktop-locale.svg" width="32px" height="32px"/>&nbsp; &zwnj;Language Support&zwnj;
             </a></div>
             <span id="locale-hint" class="center" hidden><small>
@@ -602,13 +602,13 @@
         </div>
         <div class="row-fluid">
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://install-appid?keyboard-chinese"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Chinese&zwnj;</a>
+            <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?keyboard-chinese')"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Chinese&zwnj;</a>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://install-appid?keyboard-japanese"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Japanese&zwnj;</a>
+            <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?keyboard-japanese')"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Japanese&zwnj;</a>
           </div>
           <div class="span4 center">
-            <a class="btn btn-lg btn-inverse" href="cmd://install-appid?keyboard-korean"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Korean&zwnj;</a>
+            <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?keyboard-korean')"><span class="fa fa-3x fa-keyboard-o fa-va"></span>&nbsp; &zwnj;Korean&zwnj;</a>
           </div>
         </div>
         <div class="center">
@@ -643,7 +643,7 @@
             <p><img src="img/applications/deja-dup.png" width="20px" height="20px"/>
             <b>Deja-Dup</b> &zwnj;comes pre-installed and supports backups to
             local devices as well as online cloud-based services.&zwnj;</p>
-            <a class="btn btn-lg btn-inverse" href="cmd://backup" onclick="smoothFade('','#backup-hint')">
+            <a class="btn btn-lg btn-inverse" onclick="cmd('backup')" onclick="smoothFade('','#backup-hint')">
               <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Backup&zwnj;
             </a>
             <span id="backup-hint" class="center" hidden><small>
@@ -673,7 +673,7 @@
               <br>&zwnj;Choose a folder and select "Sharing Options".&zwnj;
             </span>
             <span class="caja-share-install">
-              <a class="btn btn-success" href="cmd://install-appid?caja-share"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj; Samba</a>
+              <a class="btn btn-success" onclick="cmd('install-appid?caja-share')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj; Samba</a>
               <br><small>&zwnj;Samba is available from the Software Boutique under "Servers".&zwnj;</small>
             </span>
           </div>
@@ -688,12 +688,12 @@
             <h3>&zwnj;Firewall&zwnj;</h3>
             <p>&zwnj;Firewalls prevent malicious connections entering and leaving
               your computer. By default, the firewall is disabled,&zwnj;
-              <a href="cmd://link?https://help.ubuntu.com/community/DoINeedAFirewall">&zwnj;learn more about firewalls&zwnj;</a>.</p>
+              <a onclick="cmd('link?https://help.ubuntu.com/community/DoINeedAFirewall')">&zwnj;learn more about firewalls&zwnj;</a>.</p>
             <p><img src="img/applications/gufw.png" width="20px" height="20px"/>
               <b>Gufw</b> &zwnj;provides a graphical frontend to&zwnj; <code>ufw</code>
               (&zwnj;Uncomplicated Firewall&zwnj;). &zwnj;If security is important to you, there are&zwnj;
-              <a href="cmd://link?https://wiki.ubuntu.com/BasicSecurity">&zwnj;more ways to stay secure too&zwnj;</a>.</p>
-            <a class="btn btn-lg btn-inverse" href="cmd://firewall" onclick="smoothFade('','#firewall-hint')">
+              <a onclick="cmd('link?https://wiki.ubuntu.com/BasicSecurity')">&zwnj;more ways to stay secure too&zwnj;</a>.</p>
+            <a class="btn btn-lg btn-inverse" onclick="cmd('firewall')" onclick="smoothFade('','#firewall-hint')">
               <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Firewall&zwnj;
             </a>
             <span id="firewall-hint" class="center" hidden><small>
@@ -717,7 +717,7 @@
             </p>
             <p>&zwnj;You can also log in to a&zwnj; <b>&zwnj;Guest Session&zwnj;</b> &zwnj;if someone
             is using your computer as a one-off.&zwnj;</p>
-            <a class="btn btn-lg btn-inverse" href="cmd://users" onclick="smoothFade('','#users-hint')">
+            <a class="btn btn-lg btn-inverse" onclick="cmd('users')" onclick="smoothFade('','#users-hint')">
               <img src="img/humanity/system-users.svg" width="32px" height="32px"/>&nbsp; &zwnj;Configure Users&zwnj;
             </a>
             <span id="users-hint" class="center" hidden><small>
@@ -748,7 +748,7 @@
             and feel. The&zwnj; <b>Redmond</b> &zwnj;layouts are most similar to
             Microsoft Windows while&zwnj; <b>Cupertino</b> &zwnj;layouts are most
             similar to Apple Mac OS X.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://tweak" onclick="smoothFade('','#tweak-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('tweak')" onclick="smoothFade('','#tweak-hint')">
               <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; &zwnj;User Interface&zwnj;
             </a></div>
             <span id="tweak-hint" class="center" hidden><small>
@@ -761,7 +761,7 @@
             <p>&zwnj;The utilities mentioned above are all part of the extensive
             Control Center that Ubuntu MATE provides. You can configure
             just about every aspect of your computer from the Control Center.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" href="cmd://control" onclick="smoothFade('','#control-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('control')" onclick="smoothFade('','#control-hint')">
               <img src="img/applications/user-desktop.svg" width="32px" height="32px"/>&nbsp; &zwnj;Control Center&zwnj;
             </a></div>
             <span id="control-hint" class="center" hidden><small>
@@ -774,7 +774,7 @@
             desktop wallpaper images over the years. Why not install them
             and find something that suits your tastes?&zwnj;</p>
             <div class="center">
-            <a class="btn btn-lg btn-inverse" href="cmd://install-appid?ubuntu-mate-wallpapers-complete"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; &zwnj;Wallpapers&zwnj;</a>
+            <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?ubuntu-mate-wallpapers-complete')"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; &zwnj;Wallpapers&zwnj;</a>
             </div>
 
             <div class="center">
@@ -1288,8 +1288,8 @@
               <p>&zwnj;See more specific system information in a graphical window,
               including connected USBs, PCI devices and a simple CPU benchmark.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse hardinfo-remove" href="cmd://launch-appid?hardinfo"><img src="img/applications/hardinfo.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success hardinfo-install" href="cmd://install-appid?hardinfo"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse hardinfo-remove" onclick="cmd('launch-appid?hardinfo')"><img src="img/applications/hardinfo.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success hardinfo-install" onclick="cmd('install-appid?hardinfo')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>
@@ -1305,8 +1305,8 @@
               including formatting, partitioning, mounting, viewing S.M.A.R.T data and writing
               images to SD cards/USB drives.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse gnome-disk-utility-remove" href="cmd://launch-appid?gnome-disk-utility"><img src="img/applications/gnome-disk-utility.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success gnome-disk-utility-install" href="cmd://install-appid?gnome-disk-utility"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse gnome-disk-utility-remove" onclick="cmd('launch-appid?gnome-disk-utility')"><img src="img/applications/gnome-disk-utility.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success gnome-disk-utility-install" onclick="cmd('install-appid?gnome-disk-utility')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>
@@ -1321,8 +1321,8 @@
               <p>&zwnj;An advanced tool for viewing, creating, modifying and deleting partitions.
               It also has features to expand/shrink file systems and supports a wide range of formats.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse gparted-remove" href="cmd://launch-appid?gparted"><img src="img/applications/gparted.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success gparted-install" href="cmd://install-appid?gparted"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse gparted-remove" onclick="cmd('launch-appid?gparted')"><img src="img/applications/gparted.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success gparted-install" onclick="cmd('install-appid?gparted')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>
@@ -1337,8 +1337,8 @@
               <p>&zwnj;A graphical tool for exploring your file system or individual folders
               to determine how much space is being used.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse mate-disk-usage-analyzer-remove" href="cmd://launch-appid?mate-disk-usage-analyzer"><img src="img/applications/mate-disk-usage-analyzer.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success mate-disk-usage-analyzer-install" href="cmd://install-appid?mate-disk-usage-analyzer"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse mate-disk-usage-analyzer-remove" onclick="cmd('launch-appid?mate-disk-usage-analyzer')"><img src="img/applications/mate-disk-usage-analyzer.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success mate-disk-usage-analyzer-install" onclick="cmd('install-appid?mate-disk-usage-analyzer')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>
@@ -1353,8 +1353,8 @@
               <p>&zwnj;Views currently running processes, resource usage, and the amount of space used
               and free for currently mounted file systems.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse mate-system-monitor-remove" href="cmd://launch-appid?mate-system-monitor"><img src="img/applications/mate-system-monitor.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success mate-system-monitor-install" href="cmd://install-appid?mate-system-monitor"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse mate-system-monitor-remove" onclick="cmd('launch-appid?mate-system-monitor')"><img src="img/applications/mate-system-monitor.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success mate-system-monitor-install" onclick="cmd('install-appid?mate-system-monitor')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>
@@ -1369,8 +1369,8 @@
               <p>&zwnj;Views and graphs the current temperature of components attached to the
               system. Including: Motherboard, CPU, GPU and hard disks.&zwnj;</p>
               <p class="text-right">
-                <a class="btn btn-inverse psensor-remove" href="cmd://launch-appid?psensor"><img src="img/applications/psensor.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
-                <a class="btn btn-success psensor-install" href="cmd://install-appid?psensor"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                <a class="btn btn-inverse psensor-remove" onclick="cmd('launch-appid?psensor')"><img src="img/applications/psensor.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                <a class="btn btn-success psensor-install" onclick="cmd('install-appid?psensor')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
               </p>
             </div>
           </div>

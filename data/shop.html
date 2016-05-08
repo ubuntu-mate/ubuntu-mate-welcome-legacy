@@ -44,10 +44,10 @@
           <div class="alert alert-warning offline">
             <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
             <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+            <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
           </div>
           <div align="center">
-            <a class="btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.boutique"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; ubuntu-mate.boutique</a>
+            <a class="btn btn-lg btn-success" onclick="cmd('link?https://ubuntu-mate.boutique')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; ubuntu-mate.boutique</a>
           </div>
         </div>
       </div>
