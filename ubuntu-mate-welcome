@@ -1056,6 +1056,7 @@ class AppView(WebKit2.WebView):
         print('[Error] Failed to execute command: ', cmd)
         print('[Error] Exception: ', e)
 
+
 ##################################
 #  Welcome Main Application
 ##################################
@@ -2553,23 +2554,28 @@ class Arguments(object):
         self.font_dpi_override = None
 
         for arg in sys.argv:
-          if arg == '--help':
+          if arg == '--help' or arg == '-h':
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
-              print('  -v  --verbose               Show more details.')
-              print('  --force-arch=<ARCH>         Simulate a specific architecture.')
-              print('                                 "i386", "amd64" or "armhf" or "powerpc"')
-              print('  --force-session=<TYPE>      Simulate a specific architecture.')
-              print('                                 "guest", "live" or "pi" or "vbox"')
-              print('  --force-codename=<NAME>     Simulate a specific Ubuntu MATE codename release.')
-              print('                                 Examples: "trusty", "wily" or "xenial"')
-              print('  --force-no-net              Simulate no internet connection.')
-              print('  --force-net                 Simulate a working internet connection.')
-              print('  --software-only             Open Welcome only for the software selections.')
-              print('  --simulate-changes          Simulate software package changes without modifying the system.')
-              print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
-              print('  --jump-to=<page>            Open a specific page, excluding html extension.')
-              print('  --font-dpi=<number>         Override the font size by specifying a font DPI.')
+              #     | Command                      | Help Text                                     |
+              print('  --dev                        Alias for --verbose and no locale.')
+              print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
+              print('  -h, --help                   Show this help text.')
+              print('  --force-arch=ARCH            Simulate a specific architecture.')
+              print('                                -- Options: i386, amd64, armhf, powerpc')
+              print('  --force-codename=CODENAME    Simulate a specific release.')
+              print('                                -- Examples: trusty, wily, xenial')
+              print('  --force-net                  Simulate a working internet connection.')
+              print('  --force-no-net               Simulate no internet connection.')
+              print('  --force-session=TYPE         Simulate a specific architecture.')
+              print('                                -- Options: guest, live, pi, vbox')
+              print('  --jump-to=PAGE               Open a specific page, excluding *.html')
+              print('  --locale=CODE                Locale to use. e.g. fr_FR.')
+              print('  --simulate-changes           Simulate software package changes without')
+              print('                               modifying the system.')
+              print('  --software-only              Open Welcome only for the software selections.')
+              print('  -b, --boutique               ')
+              print('  -v, --verbose                Show more details to stdout (for debugging).')
               print('')
               exit()
 
@@ -2613,13 +2619,18 @@ class Arguments(object):
               print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
               self.simulate_force_connection = True
 
-          if arg == '--software-only':
-              print('[Welcome] Starting in software selections only mode.')
+          if arg == '--software-only' or arg == '--boutique':
+              print('[Welcome] Starting in Software Boutique mode.')
               self.jump_software_page = True
 
           if arg == '--simulate-changes':
               print('[Debug] Any changes to software will be simulated without modifying the actual system.')
               self.simulate_software_changes = True
+
+          if arg == '--dev':
+              print('[Debug] Running in debugging mode.')
+              self.verbose_enabled = True
+              self.locale = 'null'
 
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
