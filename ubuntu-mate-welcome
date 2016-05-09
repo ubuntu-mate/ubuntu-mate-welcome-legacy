@@ -61,10 +61,6 @@ from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 
-# i18n - if no translation is available use the inline strings
-t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/')
-_ = t.gettext
-
 
 def goodbye(a=None, b=None):
     # NOTE: _a_ and _b_ are passed via the close window 'delete-event'.
@@ -107,6 +103,21 @@ def set_proc_title(name=None):
         print("Failed to set process title")
 
     return ret
+
+
+def whereami():
+    """ Determine data source """
+    current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
+    if( os.path.exists( os.path.join(current_folder, 'data/' ) ) ):
+        arg.print_verbose('Debug', 'Using relative path for data source. Non-production testing.')
+        data_path = os.path.join(current_folder, 'data/')
+    elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
+        arg.print_verbose('Debug', 'Using /usr/share/ubuntu-mate-welcome/ path.')
+        data_path = '/usr/share/ubuntu-mate-welcome/'
+    else:
+        print('Unable to source the ubuntu-mate-welcome data directory.')
+        sys.exit(1)
+    return data_path
 
 
 ##################################
@@ -448,7 +459,7 @@ class PreInstallation(object):
 
         # Function to run privileged commands.
         def run_task(function):
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(app.data_path, 'js/applications.json')), function, category, program_id, target])
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
 
         # Determine if any pre-configuration is specific to a codename.
         try:
@@ -583,14 +594,17 @@ class Translations(object):
         def get_pages_path():
             if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
                 self.localized = True
+                self.relative_i18n = True
                 print('[i18n] Locale Set: ' + self.locale + ' (using relative path)')
                 return os.path.join(data_path, 'i18n', self.locale)
             elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
                 self.localized = True
+                self.relative_i18n = False
                 print('[i18n] Locale Set: ' + self.locale + ' (using /usr/share/ path)')
                 return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
             else:
                 self.localized = False
+                self.relative_i18n = False
                 print('[i18n] Locale Not Available: ' + self.locale + ' (using en_US instead)')
                 return data_path
 
@@ -630,6 +644,23 @@ class Translations(object):
             # E.g. data/*.html → data/
             self.res_dir = ''
 
+        # Initalise i18n for Python translations.
+        if self.relative_i18n:
+            i18n_path = '/usr/share/locale/'
+        else:
+            i18n_path = data_path + '/locale/'
+
+        global t, _
+        arg.print_verbose('i18n', 'Using locale for gettext: ' + self.locale)
+        arg.print_verbose('i18n', 'Using path for gettext: ' + i18n_path)
+        try:
+            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale])
+            _ = t.gettext
+            arg.print_verbose('i18n', 'Translation found for gettext.')
+        except:
+            arg.print_verbose('i18n', 'No translation exists for gettext. Using default.')
+            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path)
+            _ = t.gettext
 
 class AppView(WebKit2.WebView):
     def __init__(self):
@@ -682,11 +713,11 @@ class AppView(WebKit2.WebView):
 
         ## Social Links ##
         footer_left = '<div id="social" class="pull-left"> \
-        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + app.translations.res_dir + 'img/social/google+.svg"></a> \
-        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + app.translations.res_dir + 'img/social/facebook.svg"></a> \
-        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + app.translations.res_dir + 'img/social/twitter.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + app.translations.res_dir + 'img/humanity/website.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + app.translations.res_dir + 'img/humanity/donate.svg"></a> \
+        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
+        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
+        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + trans.res_dir + 'img/humanity/website.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + trans.res_dir + 'img/humanity/donate.svg"></a> \
         </div>'
         footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
 
@@ -699,7 +730,7 @@ class AppView(WebKit2.WebView):
         boutique_footer = '<div id="boutique-footer" class="pull-left"> \
         <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
         <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
-        <p hidden id="update-subscribing"><img src="' + app.translations.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
+        <p hidden id="update-subscribing"><img src="' + trans.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
         <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
         </div>'
 
@@ -1024,21 +1055,6 @@ class WelcomeApp(object):
         # Set variables
         self.current_page = ""
         self.webkit = None
-        self.data_path = "/usr/share/ubuntu-mate-welcome/"
-        self.current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
-
-        # Check for relative path
-        if( os.path.exists( os.path.join(self.current_folder, 'data/' ) ) ):
-            arg.print_verbose('Debug', 'Using relative path for data source. Non-production testing.')
-            self.data_path = os.path.join(self.current_folder, 'data/')
-        elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-            arg.print_verbose('Debug', 'Using /usr/share/ubuntu-mate-welcome/ path.')
-            self.data_path = '/usr/share/ubuntu-mate-welcome/'
-        else:
-            print('Unable to source the ubuntu-mate-welcome data directory.')
-            sys.exit(1)
-
-        self.translations = Translations(self.data_path)
         self.load_app()
 
     def load_app(self):
@@ -1088,14 +1104,14 @@ class WelcomeApp(object):
         else:
             w.set_size_request(width, height)
 
-        icon_dir = os.path.join(self.data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
+        icon_dir = os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
         # Build WebKit2 container
         self.webkit = AppView()
 
         # Load the starting page
-        path = os.path.abspath(os.path.join(self.translations.pages_dir, load_file))
+        path = os.path.abspath(os.path.join(trans.pages_dir, load_file))
         uri = 'file://' + urllib.request.pathname2url(path)
         self.webkit.load_uri(uri)
 
@@ -1799,7 +1815,7 @@ class DynamicApps(object):
     def reload_index(self):
         try:
             print('[Apps] Reading index...')
-            json_path = os.path.abspath(os.path.join(app.data_path, 'js/applications.json'))
+            json_path = os.path.abspath(os.path.join(data_path, 'js/applications.json'))
             with open(json_path) as data_file:
                 self.index = json.load(data_file)
                 print('[Apps] Successfully loaded index.')
@@ -1870,8 +1886,8 @@ class DynamicApps(object):
         str_source = _("Source")
         str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
         str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
-        str_source_partner = '<img src="' + app.translations.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
-        str_source_skip = '<img src="' + app.translations.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
+        str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
 
         # Get the app data from each category and list them.
@@ -1935,7 +1951,7 @@ class DynamicApps(object):
                     html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
-                html_buffer = html_buffer + '<img src="' + app.translations.res_dir + 'img/applications/' + self.app_img + '.png">'
+                html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
                 html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
                 html_buffer = html_buffer + '</div><div class="span10">'
                 html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
@@ -1961,7 +1977,7 @@ class DynamicApps(object):
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
-                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + app.translations.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
+                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
                     html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
                     html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
@@ -1973,7 +1989,7 @@ class DynamicApps(object):
                         html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + app.translations.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
                 # More details section.
                 html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
@@ -2075,9 +2091,9 @@ class DynamicApps(object):
                 screenshot_buffer = ''
                 while not screenshots_end:
                     screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
-                    screenshot_path = os.path.join(app.data_path, screenshot_img)
+                    screenshot_path = os.path.join(data_path, screenshot_img)
                     if os.path.exists(screenshot_path):
-                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + app.translations.res_dir + screenshot_img + '" class="screenshot"/></a>'
+                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></a>'
                         screenshots = screenshots + 1
                     else:
                         screenshots_end = True
@@ -2136,7 +2152,7 @@ class DynamicApps(object):
         for no in range(1,18):
             random_img = possible_apps[no]
             arg.print_verbose('Apps', str(no) + '. ' + random_img)
-            app.update_page('#featured-grid', 'append', '<img src="' + app.translations.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
+            app.update_page('#featured-grid', 'append', '<img src="' + trans.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
         webkit.run_javascript("initGrid();")
         arg.print_verbose('Apps','------------------')
 
@@ -2353,7 +2369,7 @@ class DynamicApps(object):
     def populate_news(self, webkit):
         try:
             arg.print_verbose('Apps','Reading News...')
-            json_path = os.path.abspath(os.path.join(app.data_path, 'js/news.json'))
+            json_path = os.path.abspath(os.path.join(data_path, 'js/news.json'))
             with open(json_path) as data_file:
                 self.news = json.load(data_file)
         except Exception as e:
@@ -2439,7 +2455,7 @@ class DynamicApps(object):
                     item_img = self.get_attribute_for_app(item_id, 'img')
                     item_category_raw = self.get_attribute_for_app(item_id, 'category')
                     item_category = get_category_string(item_category_raw)
-                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'
@@ -2454,7 +2470,7 @@ class DynamicApps(object):
                     item_name = self.get_attribute_for_app(item_id, 'name')
                     item_img = self.get_attribute_for_app(item_id, 'img')
                     item_reason = get_reason_string(self.news[version]['fix'][item_id])
-                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'
@@ -2468,7 +2484,7 @@ class DynamicApps(object):
                 try:
                     item_img = 'unknown'
                     item_reason = get_reason_string(self.news[version]['del'][item_name])
-                    news_buffer = news_buffer + '<li><img src="' + app.translations.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                 except Exception as e:
                     print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
             news_buffer = news_buffer + '</ul></div>'
@@ -2486,7 +2502,7 @@ class ScreenshotWindow(Gtk.Window):
         # Strings for this child window.
         title_string = 'Preview Screenshot'
         close_string = 'Close'
-        path = app.data_path + '/img/applications/screenshots/' + filename + '.jpg'
+        path = data_path + '/img/applications/screenshots/' + filename + '.jpg'
 
         # Build a basic pop up window containing the screenshot at its full dimensions.
         Gtk.Window.__init__(self, title=title_string)
@@ -2639,6 +2655,8 @@ if __name__ == "__main__":
 
     # Application Initialisation
     set_proc_title()
+    data_path = whereami()
+    trans = Translations(data_path)
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()
