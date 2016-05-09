@@ -39,7 +39,6 @@ import locale
 import logging
 import os
 import platform
-import pwd
 import random
 import shutil
 import signal
@@ -61,7 +60,6 @@ from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
-from getpass import getuser
 
 # i18n - if no translation is available use the inline strings
 t = gettext.translation("ubuntu-mate-welcome", "./locale", fallback=True)
@@ -405,7 +403,7 @@ class PreInstallation(object):
     #
 
     def __init__(self):
-        # Always ensure we have the correct variables.
+        # Always ensure we have the correct variables, not any overrides.
         self.os_version = platform.dist()[1]
         self.codename = platform.dist()[2]
         arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
@@ -573,64 +571,6 @@ class PreInstallation(object):
                 transaction.upgrade_packages()
 
 
-class WelcomeConfig(object):
-    """ Manages Welcome configuration """
-    def __init__(self):
-        # store our base architecture
-        self.os_version = platform.dist()[1]
-        self.os_codename = platform.dist()[2]
-        self.os_title = 'Ubuntu MATE ' + self.os_version
-        self._arch = systemstate.arch
-
-        # store full path to our binary
-        self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
-
-        # directory for the configuration
-        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
-
-        # autostart directory
-        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
-
-        # full path to the autostart symlink
-        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
-
-        # ensure our config and autostart directories exists
-        for _dir in [self._config_dir, self._autostart_dir]:
-            if not os.path.exists(_dir):
-                try:
-                    os.makedirs(_dir)
-                except OSError as err:
-                    print(err)
-                    pass
-
-        # does autostart symlink exist
-        self._autostart = os.path.exists(self._autostart_path)
-
-    @property
-    def autostart(self):
-        return self._autostart
-
-    @autostart.setter
-    def autostart(self, state):
-        if state and not os.path.exists(self._autostart_path):
-            # create the autostart symlink
-            try:
-                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
-            except OSError as err:
-                print(err)
-                pass
-        elif not state and os.path.exists(self._autostart_path):
-            # remove the autostart symlink
-            try:
-                os.unlink(self._autostart_path)
-            except OSError as err:
-                print(err)
-                pass
-
-        # determine autostart state based on absence of the disable file
-        self._autostart = os.path.exists(self._autostart_path)
-
-
 class Translations(object):
     def __init__(self, data_path):
         # Determine which locale to use
@@ -690,12 +630,12 @@ class Translations(object):
             # E.g. data/*.html → data/
             self.res_dir = ''
 
+
 class AppView(WebKit2.WebView):
     def __init__(self):
         # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
-        self._config = WelcomeConfig()
         self._apt_cache = systemstate.apt_cache
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
@@ -712,14 +652,10 @@ class AppView(WebKit2.WebView):
 
     def _push_config(self):
         ### Global - On all pages ###
-        self.run_javascript("$('#os_title').html('%s')" % self._config.os_title)
-        self.run_javascript("$('#os_version').html('%s')" % self._config.os_version)
-        self.run_javascript("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
-
-        # If this is a Live session (booted from ISO) show the
-        # 'Install OS' button, if running on an installed system show
-        # the 'Install Software' button.
         if systemstate.session_type == 'live':
+            # If this is a Live session (booted from ISO) show the
+            # 'Install OS' button, if running on an installed system show
+            # the 'Install Software' button.
             app.update_page('#install', 'hide')
             app.update_page('#software', 'hide')
             app.update_page('.live-session', 'hide')
@@ -787,8 +723,18 @@ class AppView(WebKit2.WebView):
         # Individual Page Actions
         ### Main Menu ###
         if app.current_page == 'index.html':
+            app.update_page('#os_version', 'html', systemstate.os_version)
+
+            # Show Welcome at logon state
+            if systemstate.autostart:
+                app.update_page('#autostart', 'removeClass', 'fa-check-square')
+                app.update_page('#autostart', 'addClass', 'fa-square')
+            else:
+                app.update_page('#autostart', 'addClass', 'fa-check-square')
+                app.update_page('#autostart', 'removeClass', 'fa-square')
+
+            # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
-                # Disable features that are unavailable to guests.
                 app.update_page('#gettingstarted', 'hide')
                 app.update_page('#software', 'hide')
                 app.update_page('#introduction', 'addClass', 'btn-success')
@@ -1001,7 +947,7 @@ class AppView(WebKit2.WebView):
             get_aacs_db()
             app.update_page('.bluray-applying', 'hide')
         elif cmd == 'autostart':
-            self._config.autostart ^= True
+            systemstate.autostart_toggle()
             self._push_config()
         elif cmd == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
@@ -1179,22 +1125,36 @@ class WelcomeApp(object):
     def update_page(self, element, function, parm1=None, parm2=None):
         """ Runs a JavaScript jQuery function on the page,
             ensuring correctly parsed quotes. """
-        if parm1 and not parm2:
-            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
         if parm1 and parm2:
             self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
+        if parm1:
+            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
         else:
             self.webkit.run_javascript('$("' + element + '").' + function + '()')
 
 
 class SystemState(object):
     def __init__(self):
-        # Set initial variables
+        # Set default variables
         self.is_online = False
-        self.user_name = getuser()
         self.updates_subscribed = False
-        self.welcome_version = 'Unknown'
         self.rpi_resize_pending = False
+        self.welcome_version = 'Unknown'
+
+        # Get user details.
+        self.user_name = GLib.get_user_name()
+        self.full_name = GLib.get_real_name()
+
+        # Full path to binary
+        self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
+        #  User's Welcome configuration directory
+        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
+
+        # User's autostart directory and full path to autostart symlink.
+        # Used for systemstate.autostart_toggle() function.
+        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
+        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
+        self.autostart = self.autostart_check()
 
         # Load Apt Cache
         self.apt_cache = apt.Cache()
@@ -1203,9 +1163,9 @@ class SystemState(object):
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
         self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
-        # Get current codename of Ubuntu MATE in use.
-        # Uses first word in lowercase, such as : trusty, wily, xenial
-        self.codename = platform.dist()[2]
+        # Get current version / codename of Ubuntu MATE in use.
+        self.os_version = platform.dist()[1]    # → 14.04, 15.10, 16.04
+        self.codename = platform.dist()[2]      # → trusty, wily, xenial
 
         # Determine which type of session we are in.
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
@@ -1227,7 +1187,7 @@ class SystemState(object):
         else:
             self.boot_mode = 'BIOS'
 
-        # Create, then spawn threads
+        # Multithread to prevent holding up program execution.
         thread1 = Thread(target=self.check_internet_connection)
         thread2 = Thread(target=self.detect_graphics)
         thread1.start()
@@ -1267,7 +1227,7 @@ class SystemState(object):
         elif font_dpi <= 94:
             zoom_level = 0.9
         elif font_dpi <= 101:
-            zoom_level = 1.0    # Default DPI is usually 96.
+            zoom_level = 1.0    # Default DPI for fresh install is 96.
         elif font_dpi <= 108:
             zoom_level = 1.1
         elif font_dpi <= 115:
@@ -1282,8 +1242,39 @@ class SystemState(object):
         self.dpi = font_dpi
         self.zoom_level = zoom_level
 
-        # Get the name of the user
-        self.full_name = pwd.getpwuid(os.getuid())[4].replace(',','')
+    def autostart_check(self):
+        # Ensure our config and autostart directories exist
+        for _dir in [self._config_dir, self._autostart_dir]:
+            if not os.path.exists(_dir):
+                try:
+                    os.makedirs(_dir)
+                except OSError as err:
+                    print(err)
+                    pass
+
+        # Set boolean if the autostart file exists.
+        if os.path.exists(self._autostart_path):
+            return True
+        else:
+            return False
+
+    def autostart_toggle(self):
+        if not os.path.exists(self._autostart_path):
+            # create the autostart symlink
+            try:
+                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
+            except OSError as err:
+                print(err)
+                pass
+        elif os.path.exists(self._autostart_path):
+            # remove the autostart symlink
+            try:
+                os.unlink(self._autostart_path)
+            except OSError as err:
+                print(err)
+                pass
+        self.autostart = self.autostart_check()
+        arg.print_verbose('Debug', 'Auto start toggled. Now: ' + str(self.autostart))
 
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
