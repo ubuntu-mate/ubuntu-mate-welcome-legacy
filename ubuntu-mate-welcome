@@ -696,7 +696,7 @@ class AppView(WebKit2.WebView):
         webkit = WebKit2
         webkit.WebView.__init__(self)
         self._config = WelcomeConfig()
-        self._apt_cache = apt.Cache()
+        self._apt_cache = systemstate.apt_cache
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
 
@@ -1195,6 +1195,9 @@ class SystemState(object):
         self.updates_subscribed = False
         self.welcome_version = 'Unknown'
         self.rpi_resize_pending = False
+
+        # Load Apt Cache
+        self.apt_cache = apt.Cache()
 
         # Get current architecture of system.
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
@@ -1717,7 +1720,7 @@ class DynamicApps(object):
         self.hide_non_free = False
 
         # Reading the apt cache later.
-        self._apt_cache = apt.Cache()
+        self._apt_cache = systemstate.apt_cache
 
         # Indicate that operations are in progress.
         self.operations_busy = False
