@@ -2573,8 +2573,8 @@ class Arguments(object):
               print('  --locale=CODE                Locale to use. e.g. fr_FR.')
               print('  --simulate-changes           Simulate software package changes without')
               print('                               modifying the system.')
-              print('  --software-only              Open Welcome only for the software selections.')
-              print('  -b, --boutique               ')
+              print('  -b, -boutique,               Open Welcome only for the software selections.')
+              print('  --software-only              ')
               print('  -v, --verbose                Show more details to stdout (for debugging).')
               print('')
               exit()
@@ -2619,7 +2619,7 @@ class Arguments(object):
               print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
               self.simulate_force_connection = True
 
-          if arg == '--software-only' or arg == '--boutique':
+          if arg == '--software-only' or arg == '--boutique' or arg == '-b':
               print('[Welcome] Starting in Software Boutique mode.')
               self.jump_software_page = True
 

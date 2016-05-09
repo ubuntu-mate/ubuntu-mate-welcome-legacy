@@ -47,9 +47,10 @@ Usage: ubuntu-mate-welcome [arguments]
   --locale=CODE                Locale to use. e.g. fr_FR.
   --simulate-changes           Simulate software package changes without
                                modifying the system.
-  --software-only              Open Welcome only for the software selections.
-  -b, --boutique
+  -b, -boutique,               Open Welcome only for the software selections.
+  --software-only
   -v, --verbose                Show more details to stdout (for debugging).
+
 ```
 
 
