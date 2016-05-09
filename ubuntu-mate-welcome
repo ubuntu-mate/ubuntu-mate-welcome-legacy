@@ -62,6 +62,9 @@ from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 
 
+##################################
+#  Miscellaneous
+##################################
 def goodbye(a=None, b=None):
     # NOTE: _a_ and _b_ are passed via the close window 'delete-event'.
     ''' Closing the program '''
@@ -408,10 +411,10 @@ def get_aacs_db():
         aacs_notify.show()
 
 class PreInstallation(object):
-    #
-    #   See the JSON Structure in the `DynamicApps` class on
-    #    how to specify pre-configuration actions in `applications.json`
-    #
+    """
+         See the JSON Structure in the `DynamicApps` class on
+         how to specify pre-configuration actions in `applications.json`
+    """
 
     def __init__(self):
         # Always ensure we have the correct variables, not any overrides.
@@ -582,6 +585,9 @@ class PreInstallation(object):
                 transaction.upgrade_packages()
 
 
+##################################
+#  Translations Framework
+##################################
 class Translations(object):
     def __init__(self, data_path):
         # Determine which locale to use
@@ -648,7 +654,7 @@ class Translations(object):
         if self.relative_i18n:
             i18n_path = '/usr/share/locale/'
         else:
-            i18n_path = data_path + '/locale/'
+            i18n_path = os.path.join(data_path, 'locale/')
 
         global t, _
         arg.print_verbose('i18n', 'Using locale for gettext: ' + self.locale)
@@ -659,9 +665,13 @@ class Translations(object):
             arg.print_verbose('i18n', 'Translation found for gettext.')
         except:
             arg.print_verbose('i18n', 'No translation exists for gettext. Using default.')
-            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path)
+            t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/')
             _ = t.gettext
 
+
+##################################
+#  WebKit + Python Communications
+##################################
 class AppView(WebKit2.WebView):
     def __init__(self):
         # WebKit2 Initalisation
