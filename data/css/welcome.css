@@ -416,6 +416,19 @@ hr.soften-light {
   border: 1px solid #87A556;
 }
 
+/* Alert Box for Facts */
+.alert-fact {
+  color: #000000;
+  background-color: #DCDCDC;
+  border-color: #ACACAC;
+  padding: 8px;
+  opacity: 0.9;
+}
+
+.alert-fact > p {
+  margin: 0;
+}
+
 /************************
  * Introduction Page
 *************************/
