@@ -768,11 +768,11 @@ class AppView(WebKit2.WebView):
 
             # Show Welcome at logon state
             if systemstate.autostart:
-                app.update_page('#autostart', 'removeClass', 'fa-check-square')
-                app.update_page('#autostart', 'addClass', 'fa-square')
-            else:
                 app.update_page('#autostart', 'addClass', 'fa-check-square')
                 app.update_page('#autostart', 'removeClass', 'fa-square')
+            else:
+                app.update_page('#autostart', 'removeClass', 'fa-check-square')
+                app.update_page('#autostart', 'addClass', 'fa-square')
 
             # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
