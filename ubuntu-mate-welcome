@@ -680,13 +680,10 @@ class AppView(WebKit2.WebView):
         self._apt_cache = systemstate.apt_cache
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
+        self.connect('context-menu', self._context_menu_cb)
 
         self.set_zoom_level(systemstate.zoom_level)
         print('[Welcome] Setting zoom level to: ' + str(systemstate.zoom_level))
-
-        # Disable right-click context menu as it isn't needed.
-        # FIXME: Not ported to WebKit2!
-        # self.props.settings.props.enable_default_context_menu = False
 
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
@@ -937,6 +934,10 @@ class AppView(WebKit2.WebView):
         if not self.is_loading():
             arg.print_verbose('Debug', 'Page: ' + app.current_page + '\n      ' + uri)
             self._push_config()
+
+    def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
+        # Disable context menu.
+        return True
 
     def _do_command(self, cmd):
       try:
