@@ -2366,7 +2366,7 @@ class DynamicApps(object):
     #
     #   Reason        Mainly    String
     #   ------------  --------  ------------------------------------------------------
-    #   new-source    Fixes     Uses a new source.
+    #   new-source    Fixes     Uses a new or updated source.
     #   add-source    Fixes     Now works for some releases.
     #   snappy        Fixes     Now a snappy package.
     #   general       Fixes     General maintenance.
@@ -2398,9 +2398,9 @@ class DynamicApps(object):
         # Raw reasons → Human translatable text
         def get_reason_string(reason):
             if reason == "new-source":
-                return _("Uses a new source.")
+                return _("Uses a new or updated source.")
             elif reason == "add-source":
-                return _("Now works for some releases.")
+                return _("Now works for various versions of Ubuntu.")
             elif reason == "snappy":
                 return _("Now a snappy package.")
             elif reason == "general":
@@ -2456,50 +2456,59 @@ class DynamicApps(object):
             news_buffer = news_buffer + '<h4>' + version + '</h4><div class="news-list-version">'
 
             # Create "Added" list.
-            news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + _("Added") + '</h5>'
-            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
-            list_add = self.news[version]['add']
-            list_add.sort()
-            for item_id in list_add:
-                # Extract it's attributes.
-                try:
-                    item_name = self.get_attribute_for_app(item_id, 'name')
-                    item_img = self.get_attribute_for_app(item_id, 'img')
-                    item_category_raw = self.get_attribute_for_app(item_id, 'category')
-                    item_category = get_category_string(item_category_raw)
-                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
-                except Exception as e:
-                    print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
-            news_buffer = news_buffer + '</ul></div>'
+            try:
+                list_add = self.news[version]['add']
+                list_add.sort()
+                news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + _("Added") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_id in list_add:
+                    # Extract it's attributes.
+                    try:
+                        item_name = self.get_attribute_for_app(item_id, 'name')
+                        item_img = self.get_attribute_for_app(item_id, 'img')
+                        item_category_raw = self.get_attribute_for_app(item_id, 'category')
+                        item_category = get_category_string(item_category_raw)
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
 
             # Create "Fixes/Updates" list.
-            news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + _("Fixed") + '</h5>'
-            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
-            list_fix = list(self.news[version]['fix'].keys())
-            list_fix.sort()
-            for item_id in list_fix:
-                try:
-                    item_name = self.get_attribute_for_app(item_id, 'name')
-                    item_img = self.get_attribute_for_app(item_id, 'img')
-                    item_reason = get_reason_string(self.news[version]['fix'][item_id])
-                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
-                except Exception as e:
-                    print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
-            news_buffer = news_buffer + '</ul></div>'
+            try:
+                list_fix = list(self.news[version]['fix'].keys())
+                list_fix.sort()
+                news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + _("Fixed") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_id in list_fix:
+                    try:
+                        item_name = self.get_attribute_for_app(item_id, 'name')
+                        item_img = self.get_attribute_for_app(item_id, 'img')
+                        item_reason = get_reason_string(self.news[version]['fix'][item_id])
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
 
             # Create "Removed" list.
-            news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + _("Removed") + '</h5>'
-            news_buffer = news_buffer + '<div class="news-list-items"><ul>'
-            list_del = list(self.news[version]['del'].keys())
-            list_del.sort()
-            for item_name in list_del:
-                try:
-                    item_img = 'unknown'
-                    item_reason = get_reason_string(self.news[version]['del'][item_name])
-                    news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
-                except Exception as e:
-                    print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
-            news_buffer = news_buffer + '</ul></div>'
+            try:
+                list_del = list(self.news[version]['del'].keys())
+                list_del.sort()
+                news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + _("Removed") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_name in list_del:
+                    try:
+                        item_img = 'unknown'
+                        item_reason = get_reason_string(self.news[version]['del'][item_name])
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
             news_buffer = news_buffer + '</div><hr class="soften">'
         app.update_page('#News-Content', 'html', news_buffer)
         arg.print_verbose('Apps','Successfully loaded news.')
