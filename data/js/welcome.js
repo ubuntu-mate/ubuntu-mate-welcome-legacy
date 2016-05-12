@@ -919,9 +919,8 @@ if ( current_page == 'donate.html' ) {
 
 // Entering Software Only Mode
 if ( current_page == 'splash-boutique.html' ) {
+    setCursorBusy();
     setTimeout(function() {
-      $('#boutique-splash').fadeOut(500)
-    }, 750);
-    setCursorBusy()
+      $('#boutique-splash').jAnimate('zoomOutInverse');
+    }, 1000);
 }
-
