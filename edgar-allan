@@ -15,15 +15,15 @@ except:
     sys.exit(1)
 
 def get_translatables_from_file(input_file, trim_strs = True):
-    """ Get all translatable strings (enclosed by '&zwnj;' characters) 
-        from the specfified file 
+    """ Get all translatable strings (enclosed by '&zwnj;' characters)
+        from the specfified file
 
     Args : html_file - the file with the translatable strings
 
-           trim_strs - if True the translatable strings will have \n and 
+           trim_strs - if True the translatable strings will have \n and
                        redundant spaces between words removed
-                    
-    Returns: a list of tuples, each of which contains a list of line numbers 
+
+    Returns: a list of tuples, each of which contains a list of line numbers
              at which a translatable string was found, plus the string
              itself (without the &zwnj;s). Example:
              [[12,43, 66], "System Requirements"]
@@ -32,13 +32,13 @@ def get_translatables_from_file(input_file, trim_strs = True):
 
     # use regular expressions to iterate through all the translatables
     p= re.compile("&zwnj;(.+?)&zwnj;", re.MULTILINE | re.DOTALL)
-    lines = open(input_file, 'r') 
+    lines = open(input_file, 'r')
     content = lines.read()
     line_nos = []
     strings = []
     for m in re.finditer (p, content):
 
-        # get the translatable string and remove the "&zwnj;"s, \n chars 
+        # get the translatable string and remove the "&zwnj;"s, \n chars
         # and redundant spaces etc. in the text
         text = content[m.start() : m.end()]
         text = text.replace("&zwnj;", "")
@@ -67,11 +67,11 @@ def get_translatables_from_file(input_file, trim_strs = True):
 
 ###############################################################################
 def create_pot_file (input_file, pot_file, verbose):
-    """ 
+    """
         Create a .pot file from a translatables set of translatable strings
 
     Args:
-        translatables:  a list of tuples, each of which contain the line number 
+        translatables:  a list of tuples, each of which contain the line number
                         at which a translatable string was found, plus the string
                         itself
         pot_file     : the filename of the .pot to create
@@ -96,7 +96,7 @@ def create_pot_file (input_file, pot_file, verbose):
             "Content-Transfer-Encoding": "8bit",}
     else:
         pofile = polib.pofile(pot_file)
-    
+
     source_path, source_file = os.path.split(input_file)
     for translatable in translatables:
         entry = polib.POEntry(
@@ -135,13 +135,13 @@ def create_pot_file (input_file, pot_file, verbose):
 def translate_file(in_file, in_po, out_file, verbose):
     """ Translate a file from English to another language
 
-    For every translatable string in in_file, replace the corresponding
+    For every translatable string in_file, replace the corresponding
     text in the input file with the appropriate translation from the .po
     file. When all  translations are done, write the resulting html to the
     output file
 
     Args:
-        in_file: the original filename whose contents are in English within 
+        in_file: the original filename whose contents are in English within
                  &zwnj; enclosures
         in_po  : the filename of the .po file to use for the translation
         out_file : the filename that the translation gets written to
@@ -151,7 +151,7 @@ def translate_file(in_file, in_po, out_file, verbose):
     # get the translatable strings from the input file
     translatables = get_translatables_from_file(in_file, trim_strs=False)
 
-    # read the entitrecontents of the file 
+    # read the entire contents of the file
     content = open(in_file, 'r').read()
 
     # read the po file
@@ -167,19 +167,19 @@ def translate_file(in_file, in_po, out_file, verbose):
             # remove \n and redundant spaces between words from the translatable string, so that
             # it will match the entry in the .po file
             trim_text = translatable[1].replace("\n", "")
-            trim_text = " ".join(trim_text.split())            
-            
+            trim_text = " ".join(trim_text.split())
+
             # iterate through the po entries looking for the one which matches the current translatable
             for entry in po_file:
                 if (entry.msgid == trim_text):
-                    
+
                     if (entry.msgstr !=""):
-                    
-                        # replace the English text with the tranlated text. 
+
+                        # replace the English text with the tranlated text.
                         # NOTE: ALL occurrences of the English text are replaced throughout the entire
                         # file
-                    
-                        content = content.replace("%s%s%s" %("&zwnj;", translatable[1], "&zwnj;"), entry.msgstr) 
+
+                        content = content.replace("%s%s%s" %("&zwnj;", translatable[1], "&zwnj;"), entry.msgstr)
                         if verbose:
                             print ("Translated %s >> %s" %(trim_text, entry.msgstr))
                     else:
@@ -193,7 +193,12 @@ def translate_file(in_file, in_po, out_file, verbose):
             if verbose:
                 print ("WARNING: translatable string  %s not found" %translatable[1])
 
-    outfile = codecs.open(out_file, 'w', encoding='utf-8')    
+    # Post actions for i18n folder - Use relative paths.
+    content = content.replace('css/', '../../css/')
+    content = content.replace('js/', '../../js/')
+    content = content.replace('img/', '../../img/')
+
+    outfile = codecs.open(out_file, 'w', encoding='utf-8')
     outfile.write(content)
     outfile.close()
 
@@ -214,7 +219,7 @@ def create_dummy_translations(in_po, out_po, verbose):
         entry.msgstr = entry.msgid[::-1]
         if verbose:
             print ('Setting translation of "%s" to "%s"' %(entry.msgid, entry.msgstr))
-   
+
     if verbose:
         print ('Saving to %s' %out_po)
     pofile.save(out_po)
@@ -225,12 +230,12 @@ def create_dummy_translations(in_po, out_po, verbose):
 def create_all_pot_files(slide_dir, po_dir, verbose):
     """ Create .pot files for all the html files in slide_dir and place them
         in the po_dir directory
-        
+
         Args: slide_dir - the directory containing the html files
               po_dir - the directory where the .pot files are to be created
               verbose - let the user know what's happening
 
-    """           
+    """
 
     # if there isnt already a 'po' directory in ./data, create one
     if not os.path.exists(po_dir):
@@ -240,7 +245,7 @@ def create_all_pot_files(slide_dir, po_dir, verbose):
 
     template_slides = glob.glob(os.path.join(slide_dir, '*.html'))
 
-    # create a list of tuples containing the full slide path and filename, and the slide 
+    # create a list of tuples containing the full slide path and filename, and the slide
     # names minus the .html extension
     slide_info=[]
     for slide in template_slides:
@@ -278,7 +283,7 @@ def create_i18n_slides(slide_dir, po_dir, i18n_dir, verbose):
     Args:
         slide_dir : the location of the html files
         po_dir    : the location of the po files containing translations
-        i18n_diir : the location where translatied html gets written
+        i18n_dir : the location where translatied html gets written
         verbose   : let the user know what's going on
     """
 
@@ -302,12 +307,12 @@ def create_i18n_slides(slide_dir, po_dir, i18n_dir, verbose):
             #make the locale directory if it doesn't already exists
             if not os.path.exists(locale_slides):
                 os.mkdir(locale_slides)
-        
+
             output_slide = os.path.join(locale_slides, slide_name + ".html")
-	
+
             if os.path.exists(output_slide):
                 os.remove(output_slide)
-        
+
             translate_file(slide, locale_file, output_slide, False)
             if verbose:
                 print ("Translated %s to %s locale" %(slide_name,locale_name))
@@ -328,7 +333,7 @@ commands=0
 for arg in sys.argv:
     if arg == '--help':
         print('\nUsage: edgar-allan [command] [arguments]')
-        print('\nCommand may be one of the following:')         
+        print('\nCommand may be one of the following:')
         print('  create-all-pots            Create .pot files for each html file in the data directory and write')
         print('                             them to the data/po directory')
         print('  create-pot                 Create a .pot file from an input file containing &zwnj; enclosed')
@@ -367,7 +372,7 @@ for arg in sys.argv:
     if arg=='po':
         reverse_po = True
         commands+=1
-        
+
     if arg.startswith('--input='):
         input_file = arg.split('--input=')[1]
 
@@ -413,7 +418,7 @@ if cmd_check is not None:
 source_dir = '.'
 build_slides = os.path.join(source_dir, 'data')
 po_dir = os.path.join(build_slides, 'po')
-i18n_dir =os.path.join(source_dir, 'i18n')
+i18n_dir =os.path.join(source_dir, 'data/i18n')
 
 if create_all_pots:
     create_all_pot_files(build_slides, po_dir, verbose)

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
   <link href="css/font-awesome.css" rel="stylesheet" media="screen">
   <link href="css/welcome.css" rel="stylesheet" media="screen">
   <link href="css/animate.css" rel="stylesheet">
 </head>
-<body class="backdrop-simple" style="overflow: hidden'">
+<body class="backdrop-simple">
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
@@ -17,6 +18,9 @@
         <div id="navigation-title" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"> &zwnj;Boutique&zwnj;</span></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
         <div id="navigation-right">
+          <a id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">
+            <span class="fa fa-newspaper-o"></span>
+          </a>
         </div>
       </div>
     </div>
@@ -73,7 +77,7 @@
               </div>
 
               <ul class="unstyled">
-                <li><a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
+                <li><a onclick="cmd('reconnectRetry();" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
               </ul>
               <ul class="unstyled" id="helpButton">
                 <li><a onclick='smoothFade("#offlineMessage","#helpMe"); changeSubtitle("&zwnj;Connection Troubleshooting&zwnj;"); smoothFade("#featured-grid","");' class="btn btn-default">
@@ -108,7 +112,7 @@
               <h5>&zwnj;Not working at all or experiencing sluggish connections?&zwnj;</h5>
               <p>&zwnj;Sorry to hear that. You will need a temporary wired connection to install working drivers.&zwnj;</p>
               <ul>
-                <li>&zwnj;The&zwnj; <a href="cmd://drivers">&zwnj;Additional Drivers&zwnj;</a> &zwnj;tab may have them available for your system.&zwnj;</li>
+                <li>&zwnj;The&zwnj; <a onclick="cmd('drivers')">&zwnj;Additional Drivers&zwnj;</a> &zwnj;tab may have them available for your system.&zwnj;</li>
                 <li>&zwnj;Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
                 package containing the firmware. See&zwnj; <b>&zwnj;Drivers&zwnj;</b> &zwnj;in the&zwnj; <a onclick="smoothPageFade('gettingstarted.html')">&zwnj;Getting Started&zwnj;</a>
                 &zwnj;section for more details.&zwnj;</li>
@@ -289,11 +293,11 @@
               Ubuntu MATE connects online for the first time after installation.&zwnj;</p>
               <blockquote class="terminal miscCmd">
                 <b>&zwnj;Update the repository lists:&zwnj;</b><br>
-                <span class="fa fa-dollar"></span> sudo apt-get update
+                <span class="fa fa-dollar"></span> sudo apt update
               </blockquote>
               <div class="text-right">
-                <a href="cmd://apt-update" class="btn btn-inverse right"><span class="fa fa-refresh"></span> &zwnj;Update Sources List&zwnj;</a>
-                <a href="cmd://upgrade-appid?ubuntu-standard" class="btn btn-inverse right"><span class="fa fa-level-up"></span> &zwnj;Upgrade Installed Packages&zwnj;</a>
+                <a onclick="cmd('apt-update')" class="btn btn-inverse right"><span class="fa fa-refresh"></span> &zwnj;Update Sources List&zwnj;</a>
+                <a onclick="cmd('upgrade-appid?ubuntu-standard')" class="btn btn-inverse right"><span class="fa fa-level-up"></span> &zwnj;Upgrade Installed Packages&zwnj;</a>
               </div>
               <hr class="soften"/>
 
@@ -311,19 +315,19 @@
               </blockquote>
               <blockquote class="terminal miscCmd">
                 <b>&zwnj;Download and install broken dependencies:&zwnj;</b><br>
-                <span class="fa fa-dollar"></span> sudo apt-get --fix-broken install
+                <span class="fa fa-dollar"></span> sudo apt --fix-broken install
               </blockquote>
               <div class="text-right">
-                <a href="cmd://fix-incomplete-install" class="btn btn-inverse right"><span class="fa fa-cube"></span> &zwnj;Configure Interrupted Packages&zwnj;</a>
-                <a href="cmd://fix-broken-depends" class="btn btn-inverse right"><span class="fa fa-check"></span> &zwnj;Resolve Broken Packages&zwnj;</a>
+                <a onclick="cmd('fix-incomplete-install')" class="btn btn-inverse right"><span class="fa fa-cube"></span> &zwnj;Configure Interrupted Packages&zwnj;</a>
+                <a onclick="cmd('fix-broken-depends')" class="btn btn-inverse right"><span class="fa fa-check"></span> &zwnj;Resolve Broken Packages&zwnj;</a>
               </div>
               <hr class="soften"/>
 
               <p class="miscCmd"><b>&zwnj;In addition, listed below are terminal equivalent commands that
-              otherwise appear in the&zwnj; <a href="cmd://update">&zwnj;Software Updater&zwnj;</a>.</b></p>
+              otherwise appear in the&zwnj; <a onclick="cmd('update')">&zwnj;Software Updater&zwnj;</a>.</b></p>
               <blockquote class="terminal miscCmd">
                 <b>&zwnj;Upgrade all packages that have a new version available:&zwnj;</b><br>
-                <span class="fa fa-dollar"></span> sudo apt-get dist-upgrade
+                <span class="fa fa-dollar"></span> sudo apt dist-upgrade
               </blockquote>
               <blockquote class="terminal miscCmd">
                 <b>&zwnj;Upgrade to a new release of Ubuntu MATE:&zwnj;</b><br>
@@ -332,6 +336,13 @@
             </div>
           </div>
         </div>
+
+        <div id="News" hidden>
+          <h2>&zwnj;Boutique News&zwnj;</h2>
+          <p>&zwnj;Keeping you informed of the changes made to Ubuntu MATE's Software Boutique.&zwnj;</p>
+          <span id="News-Content"></span>
+        </div>
+
       </div>
     </div>
     <div id="footer" class="bottom">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
     <link href="css/font-awesome.css" rel="stylesheet" media="screen">
@@ -40,13 +41,13 @@
               Raspberry Pi, the file system will be restricted to the
               size of the original image, which is about 3.9 GB. Use
               this button to resize and fill the entire Micro-SD card.&zwnj;</p>
-              <a href="cmd://resize-rpi" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; &zwnj;Resize Now&zwnj;</a>
+              <a onclick="cmd('resize-rpi')" class="btn btn-inverse"><span class="fa fa-hdd-o"></span>&nbsp; &zwnj;Resize Now&zwnj;</a>
             </span>
             <span id="rpi-restart-now" hidden>
               <p><span class="fa fa-warning"></span>
               &zwnj;To complete the resize of your Raspberry Pi file system, please
               close all open windows and restart now.&zwnj;</p>
-              <a href="cmd://reboot-rpi" class="btn btn-danger"><span class="fa fa-refresh"></span>&nbsp; &zwnj;Reboot&zwnj;</a>
+              <a onclick="cmd('reboot-rpi')" class="btn btn-danger"><span class="fa fa-refresh"></span>&nbsp; &zwnj;Reboot&zwnj;</a>
             </span>
             <hr class="soften"/>
 
@@ -74,7 +75,7 @@
             <ul>
               <li><img src="img/applications/chromium.png" width="24px" height="24px"> Chromium</li>
               <li><img src="img/applications/minecraft.png" width="24px" height="24px"> Minecraft: Pi Edition</li>
-              <li><a href="cmd://link?https://ubuntu-mate.community/t/tutorial-flash-player-for-chromium-and-firefox/3598">Pepper Flash</a></li>
+              <li><a onclick="cmd('link?https://ubuntu-mate.community/t/tutorial-flash-player-for-chromium-and-firefox/3598')">Pepper Flash</a></li>
               <li>QEMU</li>
             </ul>
           </div>
@@ -97,16 +98,16 @@
             prevent your installation from booting, or cause severe glitches.&zwnj;</p>
 
             <p>&zwnj;You can, however, install&zwnj; <b>&zwnj;regular updates&zwnj;</b> &zwnj;via the&zwnj;
-            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            <a onclick="cmd('update')"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
             &zwnj;Software Updater&zwnj;</a> &zwnj;utility for your installed software.&zwnj;</p>
 
             <hr class="soften"/>
             <h3>&zwnj;Kernel Updates&zwnj;</h3>
             <p>&zwnj;The same kernel provided by the&zwnj;
-            <a href="cmd://link?https://www.raspberrypi.org/documentation/linux/kernel/">&zwnj;Raspberry Pi foundation&zwnj;</a>
+            <a onclick="cmd('link?https://www.raspberrypi.org/documentation/linux/kernel/')">&zwnj;Raspberry Pi foundation&zwnj;</a>
             &zwnj;is used in this edition of Ubuntu MATE. As this kernel is delivered
             like a "firmware" blob, updates are not distributed via the&zwnj;
-            <a href="cmd://update"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
+            <a onclick="cmd('update')"><img src="img/applications/system-software-update.png" width="20px" height="20px"/>
             &zwnj;Software Updater&zwnj;</a> &zwnj;or&zwnj; <b>apt-get</b>.</p>
 
             <p><b>&zwnj;Instead, to update the kernel, open a terminal and run:&zwnj;</b></p>
@@ -115,14 +116,14 @@
             <hr class="soften"/>
             <h3>&zwnj;Hardware Acceleration&zwnj;</h3>
             <p>&zwnj;Currently, hardware accelerated applications are&zwnj; <b>&zwnj;not supported&zwnj;</b>
-            &zwnj;unlike&zwnj; <a href="cmd://link?https://www.raspbian.org/">Raspbian</a>.
+            &zwnj;unlike&zwnj; <a onclick="cmd('link?https://www.raspbian.org/')">Raspbian</a>.
             &zwnj;Applications that depend on OpenGL ES libraries or require the GPU
             will fail to start.&zwnj;</p>
 
             <p>&zwnj;For playing videos, the application&zwnj; <code>omxplayer</code> &zwnj;will be able to
             do this and is pre-installed. If you are looking to play MPEG-2 or VC-1 video files
             then&zwnj; <b>&zwnj;you will need MPEG-2 and/or VC-1 licenses from the&zwnj;
-            <a href="cmd://link?http://www.raspberrypi.com/license-keys/">&zwnj;Raspberry Pi Store.&zwnj;</a></b></p>
+            <a onclick="cmd('link?http://www.raspberrypi.com/license-keys/')">&zwnj;Raspberry Pi Store.&zwnj;</a></b></p>
 
             <hr class="soften"/>
             <h3>&zwnj;Enable/Disable X11&zwnj;</h3>
@@ -143,12 +144,12 @@
             <h3>&zwnj;Release Notes&zwnj;</h3>
             <p>&zwnj;To read up on release notes and changes by version, visit the Ubuntu MATE website.&zwnj;</p>
             <div align="center">
-              <a class="btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.org/raspberry-pi/"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.org/raspberry-pi</a>
+              <a class="btn btn-lg btn-success" onclick="cmd('link?https://ubuntu-mate.org/raspberry-pi/')"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.org/raspberry-pi</a>
             </div>
 
             <div class="center">
               <br>
-              <small>&zwnj;Raspberry Pi is a trademark of the &zwnj; <a href="cmd://link?https://www.raspberrypi.org/">Raspberry Pi Foundation</a>.</small>
+              <small>&zwnj;Raspberry Pi is a trademark of the &zwnj; <a onclick="cmd('link?https://www.raspberrypi.org/')">Raspberry Pi Foundation</a>.</small>
             </div>
           </div>
         </div>
