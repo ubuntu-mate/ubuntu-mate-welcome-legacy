@@ -78,6 +78,15 @@ and testing purposes, the following can be specified:
 
 # Translations
 
+## Developers
+
+When you need to update translations do the following.
+
+  tx pull -a
+  ./welcome-po.py --update-pos
+  ./edgar-allan create-all-pots
+  ./edgar-allan translate-all
+
 ## Translators
 
 If you are looking to translate the software, look in
@@ -92,7 +101,6 @@ the folders `po/` and `data/po` for PO and POT files.
 A complete guide has been written at the Ubuntu MATE Community:
 
  * https://ubuntu-mate.community/t/guide-how-to-translate-ubuntu-mate-welcome/4234
-
 
 ## Preview in another locale.
 
@@ -109,7 +117,6 @@ Currently, Welcome still uses English for:
   * Software Boutique - Names and descriptions for applications.
   * Terminal debug output.
   * Screenshots.
-
 
 ## edgar-allan
 
@@ -166,4 +173,5 @@ If you want to build a local package for testing then do the following:
     ./edgar-allan translate-all
     debuild -b
 
-The resulting `.deb` can be installed with `sudo dpkg -i` or `gdebi`.
+The resulting `.deb` can be installed with
+`sudo apt-get install ./ubuntu-mate-welcome.deb`.
