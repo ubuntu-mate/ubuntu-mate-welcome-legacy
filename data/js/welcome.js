@@ -40,7 +40,7 @@ function smoothPageFade(target_href) {
 // When page first opens
 $(document).ready(function() {
   // Animate navigation elements on page load
-  if ( current_page != 'software-only.html' ) {
+  if ( current_page != 'splash-boutique.html' ) {
     $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
   }
@@ -918,7 +918,7 @@ if ( current_page == 'donate.html' ) {
 
 
 // Entering Software Only Mode
-if ( current_page == 'software-only.html' ) {
+if ( current_page == 'splash-boutique.html' ) {
     setTimeout(function() {
       $('#boutique-splash').fadeOut(500)
     }, 750);
