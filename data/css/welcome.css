@@ -410,6 +410,45 @@ hr.soften-light {
  * Software Page / Boutique
 *************************/
 
+/* Responsive Column Structure */
+@media (max-width:1279px) {
+  .app-entry {
+    width:100%;
+    box-sizing:border-box;
+    float:none;
+    margin:0 0 0 0;
+    transition: all 0.7s linear;
+  }
+}
+
+@media (min-width:1280px) and (max-width:1599px) {
+  .app-entry {
+    width:48%;
+    box-sizing:border-box;
+    float:left;
+    margin:0 2% 0 0;
+    transition: all 0.7s linear;
+  }
+  .app-entry:nth-child(even) {
+    clear:both;
+    float:left;
+  }
+}
+
+@media (min-width:1600px) {
+  .app-entry {
+    width:31%;
+    box-sizing:border-box;
+    float:left;
+    margin:0 2% 0 0;
+    transition: all 0.7s linear;
+}
+  .app-entry:nth-child(3n+5) {
+    clear:both;
+    float:left;
+  }
+}
+
 /* Always keep category tabs visible */
 #category-tabs {
   position: fixed;
