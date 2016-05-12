@@ -660,12 +660,12 @@ class Translations(object):
         arg.print_verbose('i18n', 'Using locale for gettext: ' + self.locale)
         arg.print_verbose('i18n', 'Using path for gettext: ' + i18n_path)
         try:
-            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale])
+            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale], fallback=True)
             _ = t.gettext
             arg.print_verbose('i18n', 'Translation found for gettext.')
         except:
             arg.print_verbose('i18n', 'No translation exists for gettext. Using default.')
-            t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/')
+            t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/', fallback=True)
             _ = t.gettext
 
 
