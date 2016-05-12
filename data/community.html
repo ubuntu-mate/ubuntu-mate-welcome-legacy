@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
   <link href="css/font-awesome.css" rel="stylesheet" media="screen">
@@ -30,10 +31,10 @@
           <div class="alert alert-warning offline">
             <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
             <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+            <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
           </div>
           <div align="center">
-            <a class="btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.community"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.community</a>
+            <a class="btn btn-lg btn-success" onclick="cmd('link?https://ubuntu-mate.community')"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.community</a>
           </div>
           <h2>&zwnj;Social Networks&zwnj;</h2>
           <p>&zwnj;Ubuntu MATE is active on the following social networks.&zwnj;</p>
@@ -41,17 +42,17 @@
         <div class="row-fluid">
           <div class="span4">
             <div id="social" class="text-center social-large">
-              <a href="cmd://link?https://plus.google.com/communities/108331279007926658904"><img src="img/social/google+.svg"></a>
+              <a onclick="cmd('link?https://plus.google.com/communities/108331279007926658904')"><img src="img/social/google+.svg"></a>
             </div>
           </div>
           <div class="span4">
             <div id="social" class="text-center social-large">
-              <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/"><img src="img/social/facebook.svg"></a>
+              <a onclick="cmd('link?https://www.facebook.com/UbuntuMATEedition/')"><img src="img/social/facebook.svg"></a>
             </div>
           </div>
           <div class="span4">
             <div id="social" class="text-center social-large">
-              <a href="cmd://link?https://twitter.com/ubuntu_mate"><img src="img/social/twitter.svg"></a>
+              <a onclick="cmd('link?https://twitter.com/ubuntu_mate')"><img src="img/social/twitter.svg"></a>
             </div>
           </div>
         </div>
