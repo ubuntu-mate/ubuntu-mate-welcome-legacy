@@ -1,8 +1,20 @@
 ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
 
   [ Martin Wimpress ]
-  * Enable Nuvola Player for Xenial.
-  * Enable VirtualBox for Xenial.
+    + Enable Nuvola Player for Xenial.
+    + Enable VirtualBox for Xenial.
+    + Update translations.
+
+  [ Luke Horwell ]
+    + Getting Started
+      - Keyboard Shortcuts - New "Tux" Super Key illustration and description.
+      - Keyboard Shortcuts -New mouse icons to illustrate clicks and movement.
+      - Optional Tasks - Add about setting up file shares.
+    + Bug Fix - Correct i18n path.
+    + Boutique
+      - Add Boutique News.
+      - Show apt instead of apt-get for terminal commands.
+      - Use new 2016 VirtualBox signing key.
 
  -- Martin Wimpress <code@flexion.org>  Fri, 29 Apr 2016 17:32:21 +0100
 
