@@ -6,6 +6,21 @@ ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
     + Update translations.
 
   [ Luke Horwell ]
+    + Ported to WebKit 2.
+    + Internal restructure changes, reorganisation and cleaning up.
+    + Fix i18n translations.
+    + Slightly faster launch speeds with one Apt.Cache() object.
+    + Update a partitioning screenshot.
+    + Use a abstract "flat" background.
+    + Much, much improved scroll bar integration.
+    + Update introduction page's animations.
+    + Green borders around buttons on click and hover.
+    + New 16.10 Splash screen (including the one used for the Boutique).
+    + Rename DVD library.
+    + Uses new Entroware Orion model laptop image.
+    + Remove obsolete or unused files.
+    + Add a script to quickly test translations.
+    + Update parameters (-b, --boutique and --dev)
     + Getting Started
       - Keyboard Shortcuts - New "Tux" Super Key illustration and description.
       - Keyboard Shortcuts -New mouse icons to illustrate clicks and movement.
