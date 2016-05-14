@@ -8,7 +8,7 @@
 # Copyright 2015-2016 Luke Horwell <lukehorwell37+code@gmail.com>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
-# it under the temms of the GNU General Public License as published by
+# it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
@@ -27,7 +27,7 @@ import gi
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
-gi.require_version("WebKit", "3.0")
+gi.require_version("WebKit2", "4.0")
 
 import apt
 import errno
@@ -57,16 +57,14 @@ from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
                                   AptProgressDialog
 import aptdaemon.errors
 from aptdaemon.enums import *
-from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit
+from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
-from getpass import getuser
-
-# i18n - if no translation is available use the inline strings
-t = gettext.translation("ubuntu-mate-welcome", "./locale", fallback=True)
-_ = t.gettext
 
 
+##################################
+#  Miscellaneous
+##################################
 def goodbye(a=None, b=None):
     # NOTE: _a_ and _b_ are passed via the close window 'delete-event'.
     ''' Closing the program '''
@@ -110,6 +108,24 @@ def set_proc_title(name=None):
     return ret
 
 
+def whereami():
+    """ Determine data source """
+    current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
+    if( os.path.exists( os.path.join(current_folder, 'data/' ) ) ):
+        arg.print_verbose('Debug', 'Using relative path for data source. Non-production testing.')
+        data_path = os.path.join(current_folder, 'data/')
+    elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
+        arg.print_verbose('Debug', 'Using /usr/share/ubuntu-mate-welcome/ path.')
+        data_path = '/usr/share/ubuntu-mate-welcome/'
+    else:
+        print('Unable to source the ubuntu-mate-welcome data directory.')
+        sys.exit(1)
+    return data_path
+
+
+##################################
+#  Apt and Installation Operations
+##################################
 class SimpleApt(object):
     def __init__(self, packages, action):
         self._timeout = 100
@@ -395,13 +411,13 @@ def get_aacs_db():
         aacs_notify.show()
 
 class PreInstallation(object):
-    #
-    #   See the JSON Structure in the `DynamicApps` class on
-    #    how to specify pre-configuration actions in `applications.json`
-    #
+    """
+         See the JSON Structure in the `DynamicApps` class on
+         how to specify pre-configuration actions in `applications.json`
+    """
 
     def __init__(self):
-        # Always ensure we have the correct variables.
+        # Always ensure we have the correct variables, not any overrides.
         self.os_version = platform.dist()[1]
         self.codename = platform.dist()[2]
         arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
@@ -446,7 +462,7 @@ class PreInstallation(object):
 
         # Function to run privileged commands.
         def run_task(function):
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(app._data_path, 'js/applications.json')), function, category, program_id, target])
+            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
 
         # Determine if any pre-configuration is specific to a codename.
         try:
@@ -569,132 +585,148 @@ class PreInstallation(object):
                 transaction.upgrade_packages()
 
 
-class WelcomeConfig(object):
-    """ Manages Welcome configuration """
+##################################
+#  Translations Framework
+##################################
+class Translations(object):
+    def __init__(self, data_path):
+        # Determine which locale to use
+        if arg.locale:
+            self.locale = arg.locale
+        else:
+            self.locale = str(locale.getlocale()[0])
+
+        # Determine if localized pages exist, or fallback to original pages.
+        def get_pages_path():
+            if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
+                self.localized = True
+                self.relative_i18n = True
+                print('[i18n] Locale Set: ' + self.locale + ' (using relative path)')
+                return os.path.join(data_path, 'i18n', self.locale)
+            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
+                self.localized = True
+                self.relative_i18n = False
+                print('[i18n] Locale Set: ' + self.locale + ' (using /usr/share/ path)')
+                return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
+            else:
+                self.localized = False
+                self.relative_i18n = False
+                print('[i18n] Locale Not Available: ' + self.locale + ' (using en_US instead)')
+                return data_path
+
+        self.pages_dir = get_pages_path()
+
+        # Should this locale not exist, try a generic one. (e.g. "en_GB" → "en")
+        if self.pages_dir == data_path:
+            self.localized = False
+            self.locale = self.locale.split('_')[0]
+            self.pages_dir = get_pages_path()
+        else:
+            self.localized = True
+
+        # Validate all the i18n pages so we have the same structure as the original.
+        page_was_lost = False
+        if not self.pages_dir == data_path:
+            for page in os.listdir(data_path):
+                if page[-5:] == '.html':
+                    if os.path.exists(os.path.join(self.pages_dir, page)):
+                        arg.print_verbose('i18n', 'Page Verified: ' + page)
+                    else:
+                        page_was_lost = True
+                        print('[i18n] Page Missing: ' + page)
+        if page_was_lost:
+            print('[i18n] ** One or more translation pages are missing!')
+            print('[i18n] ** How unusual. Falling back to en_US.')
+            self.pages_dir = data_path
+            self.localized = False
+        else:
+            arg.print_verbose('i18n', 'All translated i18n pages found.')
+
+        # Sets the path for resources (img/css/js)
+        if self.localized:
+            # E.g. data/i18n/en_GB/*.html → data/
+            self.res_dir = '../../'
+        else:
+            # E.g. data/*.html → data/
+            self.res_dir = ''
+
+        # Initalise i18n for Python translations.
+        if self.relative_i18n:
+            i18n_path = '/usr/share/locale/'
+        else:
+            i18n_path = os.path.join(data_path, 'locale/')
+
+        global t, _
+        arg.print_verbose('i18n', 'Using locale for gettext: ' + self.locale)
+        arg.print_verbose('i18n', 'Using path for gettext: ' + i18n_path)
+        try:
+            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale])
+            _ = t.gettext
+            arg.print_verbose('i18n', 'Translation found for gettext.')
+        except:
+            arg.print_verbose('i18n', 'No translation exists for gettext. Using default.')
+            t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/')
+            _ = t.gettext
+
+
+##################################
+#  WebKit + Python Communications
+##################################
+class AppView(WebKit2.WebView):
     def __init__(self):
-        # store our base architecture
-        self.os_version = platform.dist()[1]
-        self.os_codename = platform.dist()[2]
-        self.os_title = 'Ubuntu MATE ' + self.os_version
-        self._arch = systemstate.arch
-
-        # store full path to our binary
-        self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
-
-        # directory for the configuration
-        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
-
-        # autostart directory
-        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
-
-        # full path to the autostart symlink
-        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
-
-        # ensure our config and autostart directories exists
-        for _dir in [self._config_dir, self._autostart_dir]:
-            if not os.path.exists(_dir):
-                try:
-                    os.makedirs(_dir)
-                except OSError as err:
-                    print(err)
-                    pass
-
-        # does autostart symlink exist
-        self._autostart = os.path.exists(self._autostart_path)
-
-    @property
-    def autostart(self):
-        return self._autostart
-
-    @autostart.setter
-    def autostart(self, state):
-        if state and not os.path.exists(self._autostart_path):
-            # create the autostart symlink
-            try:
-                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
-            except OSError as err:
-                print(err)
-                pass
-        elif not state and os.path.exists(self._autostart_path):
-            # remove the autostart symlink
-            try:
-                os.unlink(self._autostart_path)
-            except OSError as err:
-                print(err)
-                pass
-
-        # determine autostart state based on absence of the disable file
-        self._autostart = os.path.exists(self._autostart_path)
-
-
-class AppView(WebKit.WebView):
-    def __init__(self, slide_list = None):
-        """
-            Args:
-            slide_list : A list of tuples containing the filenames of translated html files
-                         or, if no translation is available, the filename of the original
-                         untranslated slide
-        """
-        WebKit.WebView.__init__(self)
-        WebKit.WebView.__init__(self)
-        self._config = WelcomeConfig()
-        self._apt_cache = apt.Cache()
-        self.connect('load-finished', self._load_finished_cb)
-        self.connect('navigation-policy-decision-requested', self._nav_request_policy_decision_cb)
-        self.l_uri = None
-        self._slide_list = slide_list
+        # WebKit2 Initalisation
+        webkit = WebKit2
+        webkit.WebView.__init__(self)
+        self._apt_cache = systemstate.apt_cache
+        self.connect('load-changed', self._load_changed_cb)
+        self.connect('notify::title', self._title_changed_cb)
+        self.connect('context-menu', self._context_menu_cb)
 
         self.set_zoom_level(systemstate.zoom_level)
         print('[Welcome] Setting zoom level to: ' + str(systemstate.zoom_level))
-
-        # Disable right-click context menu as it isn't needed.
-        self.props.settings.props.enable_default_context_menu = False
 
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
 
     def _push_config(self):
         ### Global - On all pages ###
-        self.execute_script("$('#os_title').html('%s')" % self._config.os_title)
-        self.execute_script("$('#os_version').html('%s')" % self._config.os_version)
-        self.execute_script("$('#autostart').toggleClass('fa-check-square', %s).toggleClass('fa-square', %s)" % (json.dumps(self._config.autostart), json.dumps(not self._config.autostart)))
-
-        # If this is a Live session (booted from ISO) show the
-        # 'Install OS' button, if running on an installed system show
-        # the 'Install Software' button.
         if systemstate.session_type == 'live':
-            self.execute_script("$('#install').show();")
-            self.execute_script("$('#software').hide();")
-            self.execute_script("$('.live-session').hide();")
-            self.execute_script("$('.live-session-only').show();")
+            # If this is a Live session (booted from ISO) show the
+            # 'Install OS' button, if running on an installed system show
+            # the 'Install Software' button.
+            app.update_page('#install', 'hide')
+            app.update_page('#software', 'hide')
+            app.update_page('.live-session', 'hide')
+            app.update_page('.live-session-only', 'show')
         else:
-            self.execute_script("$('#install').hide();")
-            self.execute_script("$('#software').show();")
-            self.execute_script("$('.live-session').show();")
-            self.execute_script("$('.live-session-only').hide();")
+            app.update_page('#install', 'hide')
+            app.update_page('#software', 'show')
+            app.update_page('.live-session', 'show')
+            app.update_page('.live-session-only', 'hide')
 
         # If started from a Raspberry Pi.
         if systemstate.session_type == 'pi':
-            self.execute_script("$('.rpi-only').show();")
+            app.update_page('.rpi-only', 'show')
         else:
-            self.execute_script("$('.rpi-only').hide();")
+            app.update_page('.rpi-only', 'hide')
 
         # Display warnings if the user is not connected to the internet.
         if systemstate.is_online:
-            self.execute_script("$('.offline').hide();")
-            self.execute_script("$('.online').show();")
+            app.update_page('.offline', 'hide')
+            app.update_page('.online', 'show')
         else:
-            self.execute_script("$('.offline').show();")
-            self.execute_script("$('.online').hide();")
+            app.update_page('.offline', 'show')
+            app.update_page('.online', 'hide')
 
         ## Social Links ##
         footer_left = '<div id="social" class="pull-left"> \
-        <a href="cmd://link?https://plus.google.com/communities/108331279007926658904" title="Google+"><img src="img/social/google+.svg"></a> \
-        <a href="cmd://link?https://www.facebook.com/UbuntuMATEedition/" title="Facebook"><img src="img/social/facebook.svg"></a> \
-        <a href="cmd://link?https://twitter.com/ubuntu_mate" title="Twitter"><img src="img/social/twitter.svg"></a> \
-        <a href="cmd://link?https://ubuntu-mate.org" title="ubuntu-mate.org"><img src="img/humanity/website.svg"></a> \
-        <a href="cmd://link?https://ubuntu-mate.org/donate/" title="ubuntu-mate.org/donate/"><img src="img/humanity/donate.svg"></a> \
+        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
+        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
+        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + trans.res_dir + 'img/humanity/website.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + trans.res_dir + 'img/humanity/donate.svg"></a> \
         </div>'
+        footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
 
         ## Boutique Footer ##
         str_subscribed = _("Set to retrieve the latest software listings.")
@@ -704,119 +736,125 @@ class AppView(WebKit.WebView):
 
         boutique_footer = '<div id="boutique-footer" class="pull-left"> \
         <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
-        <p hidden id="update-notification"><a href="cmd://subscribe-updates"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
-        <p hidden id="update-subscribing"><img src="img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
+        <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
+        <p hidden id="update-subscribing"><img src="' + trans.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
         <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
         </div>'
 
         # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
-            if not self.current_page == 'splash.html' and not self.current_page == 'software.html':
-                self.execute_script("$('#footer-global-left').html('" + footer_left + "');")
+            if not app.current_page == 'splash.html' and not app.current_page == 'software.html':
+                app.update_page('#footer-global-left', 'html', footer_left)
 
-        # Show the button depending on context.
-        footer_close = '<a href="cmd://quit" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
-        footer_skip  = '<a onclick="continueToPage(true)" class="btn btn-inverse">' + _("Skip") + '</a>'
-
-        if self.current_page == 'splash.html':
-            self.execute_script("$('#footer-global-right').html('" + footer_skip + "');")
-        elif arg.jump_software_page:
-            # Do not show a "Close" button for the Boutique.
-            pass
-        else:
-            self.execute_script("$('#footer-global-right').html('" + footer_close + "');")
+        # Do not show the Close button in Boutique mode.
+        if not arg.jump_software_page:
+            app.update_page('#footer-global-right', 'html', footer_close)
 
         # Smoothly fade in the footer links between pages.
         #   splash → index
         #   index ← → software
-        if self.do_smooth_footer or self.current_page == 'software.html':
+        if self.do_smooth_footer or app.current_page == 'software.html':
             self.do_smooth_footer = False
-            self.execute_script("$('#footer-left').hide();")
-            self.execute_script("$('#footer-left').fadeIn();")
+            app.update_page('#footer-left', 'hide')
+            app.update_page('#footer-left', 'fadeIn')
 
         # Individual Page Actions
         ### Main Menu ###
-        if self.current_page == 'index.html':
+        if app.current_page == 'index.html':
+            app.update_page('#os_version', 'html', systemstate.os_version)
+
+            # Show Welcome at logon state
+            if systemstate.autostart:
+                app.update_page('#autostart', 'addClass', 'fa-check-square')
+                app.update_page('#autostart', 'removeClass', 'fa-square')
+            else:
+                app.update_page('#autostart', 'removeClass', 'fa-check-square')
+                app.update_page('#autostart', 'addClass', 'fa-square')
+
+            # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
-                # Disable features that are unavailable to guests.
-                self.execute_script("$('#gettingstarted').hide();")
-                self.execute_script("$('#software').hide();")
-                self.execute_script("$('#introduction').addClass('btn-success');")
-                self.execute_script("$('#community').addClass('btn-success');")
+                app.update_page('#gettingstarted', 'hide')
+                app.update_page('#software', 'hide')
+                app.update_page('#introduction', 'addClass', 'btn-success')
+                app.update_page('#community', 'addClass', 'btn-success')
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
-            self.execute_script('$("#update-subscribing").hide()')
+            app.update_page('#update-subscribing', 'hide')
             if not systemstate.updates_subscribed:
                 if systemstate.is_online:
-                    self.execute_script('$("#update-notification").fadeIn("slow")')
+                    app.update_page('#update-notification', 'fadeIn', 'slow')
             else:
-                self.execute_script('$("#update-notification").hide()')
+                app.update_page('#update-notification', 'hide')
 
             # Disable confetti on machines that may suffer performance issues.
             if systemstate.arch == 'armhf':
-                self.execute_script('var disable_confetti = true;')
+                self.run_javascript('var disable_confetti = true;')
             elif systemstate.arch == 'powerpc':
-                self.execute_script('var disable_confetti = true;')
+                self.run_javascript('var disable_confetti = true;')
             else:
-                self.execute_script('var disable_confetti = false;')
+                self.run_javascript('var disable_confetti = false;')
 
             # Special event strings.
-            self.execute_script('var days_in = "&zwnj;in&zwnj;"')
-            self.execute_script('var future_days = "&zwnj;days.&zwnj;"')
-            self.execute_script('var days_ago = "&zwnj;days ago.&zwnj;"')
-            self.execute_script('var yesterday = "&zwnj;yesterday.&zwnj;"')
-            self.execute_script('var tomorrow = "&zwnj;tomorrow.&zwnj;"')
-            self.execute_script('var years_ago = "&zwnj;years ago today.&zwnj;"')
-            self.execute_script('var today_string = "&zwnj;today.&zwnj;"')
-            self.execute_script('var years_old = "&zwnj;years old&zwnj;"')
+            self.run_javascript('var days_in = "&zwnj;in&zwnj;"')
+            self.run_javascript('var future_days = "&zwnj;days.&zwnj;"')
+            self.run_javascript('var days_ago = "&zwnj;days ago.&zwnj;"')
+            self.run_javascript('var yesterday = "&zwnj;yesterday.&zwnj;"')
+            self.run_javascript('var tomorrow = "&zwnj;tomorrow.&zwnj;"')
+            self.run_javascript('var years_ago = "&zwnj;years ago today.&zwnj;"')
+            self.run_javascript('var today_string = "&zwnj;today.&zwnj;"')
+            self.run_javascript('var years_old = "&zwnj;years old&zwnj;"')
 
-            self.execute_script('var flavour_anniversary_future  = "&zwnj;Ubuntu MATE\'s official flavour anniversary&zwnj;"')
-            self.execute_script('var flavour_anniversary_present = "&zwnj;Ubuntu MATE become an official flavour&zwnj;"')
-            self.execute_script('var flavour_anniversary_past    = "&zwnj;Ubuntu MATE\'s official flavour anniversary was&zwnj;"')
+            self.run_javascript('var flavour_anniversary_future  = "&zwnj;Ubuntu MATE\'s official flavour anniversary&zwnj;"')
+            self.run_javascript('var flavour_anniversary_present = "&zwnj;Ubuntu MATE become an official flavour&zwnj;"')
+            self.run_javascript('var flavour_anniversary_past    = "&zwnj;Ubuntu MATE\'s official flavour anniversary was&zwnj;"')
 
-            self.execute_script('var project_birthday_future  = "&zwnj;Ubuntu MATE will be&zwnj;"')
-            self.execute_script('var project_birthday_present = "&zwnj;Ubuntu MATE is&zwnj;"')
-            self.execute_script('var project_birthday_past    = "&zwnj;Ubuntu MATE turned&zwnj;"')
+            self.run_javascript('var project_birthday_future  = "&zwnj;Ubuntu MATE will be&zwnj;"')
+            self.run_javascript('var project_birthday_present = "&zwnj;Ubuntu MATE is&zwnj;"')
+            self.run_javascript('var project_birthday_past    = "&zwnj;Ubuntu MATE turned&zwnj;"')
 
-            self.execute_script('var project_birthday         = "&zwnj;Happy Birthday!&zwnj;"')
-            self.execute_script('var celebrate_new_year       = "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;"')
+            self.run_javascript('var project_birthday         = "&zwnj;Happy Birthday!&zwnj;"')
+            self.run_javascript('var celebrate_new_year       = "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;"')
 
-            self.execute_script('var project_release_future   = "&zwnj;will be released&zwnj;"')
-            self.execute_script('var project_release_present  = "&zwnj;is released today!&zwnj;"')
-            self.execute_script('var project_release_past     = "&zwnj;was released&zwnj;"')
-            self.execute_script('var project_release_thanks   = "&zwnj;Thank you for testing&zwnj;"')
+            self.run_javascript('var project_release_future   = "&zwnj;will be released&zwnj;"')
+            self.run_javascript('var project_release_present  = "&zwnj;is released today!&zwnj;"')
+            self.run_javascript('var project_release_past     = "&zwnj;was released&zwnj;"')
+            self.run_javascript('var project_release_thanks   = "&zwnj;Thank you for testing&zwnj;"')
 
-            self.execute_script('checkDates();')
+            self.run_javascript('checkDates();')
 
         ### Splash ###
-        if self.current_page == 'splash.html':
+        if app.current_page == 'splash.html':
             self.do_smooth_footer = True
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
-                self.execute_script('var splashNextPage = "hellolive"')
+                self.run_javascript('var splashNextPage = "hellolive"')
+                self.run_javascript('var quick_splash = true')
             elif systemstate.session_type == 'guest':
-                self.execute_script('var splashNextPage = "helloguest"')
+                self.run_javascript('var splashNextPage = "helloguest"')
+                self.run_javascript('var quick_splash = true')
             else:
-                self.execute_script('var splashNextPage = "index"')
+                self.run_javascript('var splashNextPage = "index"')
+                self.run_javascript('var quick_splash = false')
+                app.update_page('#fullname', 'html', systemstate.full_name)
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
 
         ### Chat Page ###
-        if self.current_page == 'chatroom.html':
+        if app.current_page == 'chatroom.html':
             if self._apt_cache['hexchat'].is_installed:
-                self.execute_script("$('.hexchat').show();")
-                self.execute_script("$('.webchat').hide();")
+                app.update_page('.hexchat', 'show')
+                app.update_page('.webchat', 'hide')
             else:
-                self.execute_script("$('.hexchat').hide();")
-                self.execute_script("$('.webchat').show();")
+                app.update_page('.hexchat', 'hide')
+                app.update_page('.webchat', 'show')
 
         ### Getting Started Page ###
-        if self.current_page == 'gettingstarted.html':
+        if app.current_page == 'gettingstarted.html':
             # Display information tailored to graphics vendor (Getting Started / Drivers)
-            self.execute_script('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
-            self.execute_script('var graphicsGrep = "' + systemstate.graphics_grep + '";')
-            self.execute_script('$("#boot-mode").html("' + systemstate.boot_mode + '")')
+            self.run_javascript('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
+            self.run_javascript('var graphicsGrep = "' + systemstate.graphics_grep + '";')
+            app.update_page('#boot-mode', 'html', systemstate.boot_mode)
 
             # Update any applications featured on these pages.
             dynamicapps.update_app_status(self, 'hardinfo')
@@ -832,212 +870,175 @@ class AppView(WebKit.WebView):
             dynamicapps.update_app_status(self, 'keyboard-chinese')
             dynamicapps.update_app_status(self, 'keyboard-japanese')
             dynamicapps.update_app_status(self, 'keyboard-korean')
+            dynamicapps.update_app_status(self, 'caja-share')
 
         ### Software Page ###
-        if self.current_page == 'software.html':
+        if app.current_page == 'software.html':
             dynamicapps.hide_non_free = False
             self.do_smooth_footer = True
 
             # If loading a minimal "Get More Software" only page.
             if arg.jump_software_page:
-                self.execute_script('$("#menu-button").hide()')
-                self.execute_script('$("#navigation-title").html("<span id=\'navigation-sub-title\'>Curated software collection</span>")')
-                self.execute_script('$("#navigation-sub-title").css("color","#DED9CB")')
+                app.update_page('#menu-button', 'hide')
+                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + _("Software Boutique") + "</span>")
+                app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
 
             # Pass 'Servers' variable used for one-click server links.
-            self.execute_script('var server_string = "' + _("Servers") + '"')
+            self.run_javascript('var server_string = "' + _("Servers") + '"')
 
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
             dynamicapps.populate_featured_apps(self)
+            dynamicapps.populate_news(self)
 
             # Show a different footer in the Boutique.
-            self.execute_script("$('#footer-global-left').html('" + boutique_footer + "');")
+            app.update_page('#footer-global-left', 'html', boutique_footer)
 
             # Set version and subscription details.
-            self.execute_script('$("#boutique-version").html("' + systemstate.welcome_version + '")')
+            app.update_page('#boutique-version', 'html', systemstate.welcome_version)
             if systemstate.updates_subscribed:
-                self.execute_script('$("#update-subscribed").show()')
+                app.update_page('#update-subscribed', 'show')
             else:
-                self.execute_script('$("#update-notification").show()')
+                app.update_page('#update-notification', 'show')
 
         ### Raspberry Pi Page ###
-        if self.current_page == 'rpi.html':
+        if app.current_page == 'rpi.html':
             # Check file system resize flag.
             systemstate.rpi_resize('check', self)
 
         ### Donate ###
-        if self.current_page == 'donate.html':
+        if app.current_page == 'donate.html':
             # Pass translatable short-hand month strings for the supporters grid.
-            self.execute_script('short_jan = "&zwnj;Jan&zwnj;"')
-            self.execute_script('short_feb = "&zwnj;Feb&zwnj;"')
-            self.execute_script('short_mar = "&zwnj;Mar&zwnj;"')
-            self.execute_script('short_apr = "&zwnj;Apr&zwnj;"')
-            self.execute_script('short_may = "&zwnj;May&zwnj;"')
-            self.execute_script('short_jun = "&zwnj;Jun&zwnj;"')
-            self.execute_script('short_jul = "&zwnj;Jul&zwnj;"')
-            self.execute_script('short_aug = "&zwnj;Aug&zwnj;"')
-            self.execute_script('short_sep = "&zwnj;Sep&zwnj;"')
-            self.execute_script('short_oct = "&zwnj;Oct&zwnj;"')
-            self.execute_script('short_nov = "&zwnj;Nov&zwnj;"')
-            self.execute_script('short_dec = "&zwnj;Dec&zwnj;"')
+            self.run_javascript('short_jan = "' + _("Jan") + '"')
+            self.run_javascript('short_feb = "' + _("Feb") + '"')
+            self.run_javascript('short_mar = "' + _("Mar") + '"')
+            self.run_javascript('short_apr = "' + _("Apr") + '"')
+            self.run_javascript('short_may = "' + _("May") + '"')
+            self.run_javascript('short_jun = "' + _("Jun") + '"')
+            self.run_javascript('short_jul = "' + _("Jul") + '"')
+            self.run_javascript('short_aug = "' + _("Aug") + '"')
+            self.run_javascript('short_sep = "' + _("Sep") + '"')
+            self.run_javascript('short_oct = "' + _("Oct") + '"')
+            self.run_javascript('short_nov = "' + _("Nov") + '"')
+            self.run_javascript('short_dec = "' + _("Dec") + '"')
 
-    def _load_finished_cb(self, view, frame):
-        self._push_config()
+    def _title_changed_cb(self, view, frame):
+        title = self.get_title()
+        arg.print_verbose('Debug', 'Command: ' + title)
+        self._do_command(title)
 
-    def _nav_request_policy_decision_cb(self, view, frame, net_req, nav_act, pol_dec):
-        uri = net_req.get_uri()
-        self.current_page = uri.rsplit('/', 1)[1]
+    def _load_changed_cb(self, view, frame):
+        uri = str(self.get_uri())
+        app.current_page = uri.rsplit('/', 1)[1]
+        if not self.is_loading():
+            arg.print_verbose('Debug', 'Page: ' + app.current_page + '\n      ' + uri)
+            self._push_config()
 
-        try:
-            if uri.index('#') > 0:
-                uri = uri[:uri.index('#')]
-        except ValueError:
-            pass
-
-        if uri == self.l_uri:
-            pol_dec.use()
-            return True
-
-        if uri.startswith('cmd://'):
-            self._do_command(uri)
-            return True
-
-        self.l_uri = uri
-
-        if self._slide_list is None:
-            # no translations have to been specified, so we can just load the specified page..
-            page = urllib.request.urlopen(uri)
-        else:
-            # find the slide in slide_list
-            head, slide_name = os.path.split(uri)
-            found = False
-            for slide in self._slide_list:
-                head, trans_slide_name = os.path.split(slide)
-                if slide_name == trans_slide_name:
-                    found = True
-                    # load the translated html
-                    trans_uri = urllib.parse.urljoin('file:', urllib.request.pathname2url(slide))
-                    page = urllib.request.urlopen(trans_uri)
-                    break
-
-            if not found:
-                # this should never happen, but if it does, recover by loading the originally specified page
-                arg.print_verbose('Translation','Couldn''t find slide %s when getting translation' %uri)
-                page = urllib.request.urlopen(uri)
-
-        # use UTF-8 encoding as fix for &nbsp chars in translated html
-        #
-        # When loading the html, for the base_uri, use the uri of the originally specified
-        # page (which will be in _data_path) rather than the uri of any translated html we may be using instead.
-        # Doing this allows the js, css, fonts etc. directories to be located by the translated page,
-        frame.load_string(page.read().decode(), "text/html", "UTF-8", uri);
-
-        pol_dec.ignore()
+    def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
+        # Disable context menu.
         return True
 
-    def _do_command(self, uri):
-      if uri.startswith('cmd://'):
-          uri = uri[6:]
-
+    def _do_command(self, cmd):
       try:
-        if uri.startswith('install-appid?'):
-            dynamicapps.modify_app(self, 'install', uri[14:])
-        elif uri.startswith('remove-appid?'):
-            dynamicapps.modify_app(self, 'remove', uri[13:])
-        elif uri.startswith('upgrade-appid?'):
-            dynamicapps.modify_app(self, 'upgrade', uri[14:])
-        elif uri.startswith('launch-appid?'):
-            dynamicapps.launch_app(uri[13:])
-        elif uri.startswith('filter-apps?'):
-            filter_name = uri.split('?')[1]
-            nonfree_toggle = uri.split('?')[2]
+        if cmd.startswith('install-appid?'):
+            dynamicapps.modify_app(self, 'install', cmd[14:])
+        elif cmd.startswith('remove-appid?'):
+            dynamicapps.modify_app(self, 'remove', cmd[13:])
+        elif cmd.startswith('upgrade-appid?'):
+            dynamicapps.modify_app(self, 'upgrade', cmd[14:])
+        elif cmd.startswith('launch-appid?'):
+            dynamicapps.launch_app(cmd[13:])
+        elif cmd.startswith('filter-apps?'):
+            filter_name = cmd.split('?')[1]
+            nonfree_toggle = cmd.split('?')[2]
             if nonfree_toggle == 'toggle':
                 dynamicapps.apply_filter(self, filter_name, True)
             else:
                 dynamicapps.apply_filter(self, filter_name)
-        elif uri.startswith('app-info-show?'):
-            appid = uri.split('?')[1]
-            self.execute_script('$("#info-show-' + appid + '").hide()')
-            self.execute_script('$("#info-hide-' + appid + '").show()')
-            self.execute_script('$("#details-' + appid + '").fadeIn("fast")')
-        elif uri.startswith('app-info-hide?'):
-            appid = uri.split('?')[1]
-            self.execute_script('$("#info-show-' + appid + '").show()')
-            self.execute_script('$("#info-hide-' + appid + '").hide()')
-            self.execute_script('$("#details-' + appid + '").fadeOut("fast")')
-        elif uri.startswith('screenshot?'):
-            filename = uri.split('?')[1]
+        elif cmd.startswith('app-info-show?'):
+            appid = cmd.split('?')[1]
+            app.update_page('#info-show-'+appid, 'hide')
+            app.update_page('#info-hide-'+appid, 'show')
+            app.update_page('#details-'+appid, 'fadeIn', 'fast')
+        elif cmd.startswith('app-info-hide?'):
+            appid = cmd.split('?')[1]
+            app.update_page('#info-show-'+appid, 'show')
+            app.update_page('#info-hide-'+appid, 'hide')
+            app.update_page('#details-'+appid, 'fadeOut', 'fast')
+        elif cmd.startswith('screenshot?'):
+            filename = cmd.split('?')[1]
             dynamicapps.show_screenshot(filename)
-        elif uri == 'apt-update':
+        elif cmd == 'apt-update':
             update_repos()
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
-        elif uri == 'fix-incomplete-install':
+        elif cmd == 'fix-incomplete-install':
             fix_incomplete_install()
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
-        elif uri == 'fix-broken-depends':
+        elif cmd == 'fix-broken-depends':
             fix_broken_depends()
             self._apt_cache.close()
             self._apt_cache = apt.Cache()
             self._push_config()
-        elif uri == 'get-aacs-db':
-            self.execute_script('$(".bluray-applying").show()')
+        elif cmd == 'get-aacs-db':
+            app.update_page('.bluray-applying', 'show')
             get_aacs_db()
-            self.execute_script('$(".bluray-applying").hide()')
-        elif uri == 'autostart':
-            self._config.autostart ^= True
+            app.update_page('.bluray-applying', 'hide')
+        elif cmd == 'autostart':
+            systemstate.autostart_toggle()
             self._push_config()
-        elif uri == 'install':
+        elif cmd == 'install':
             subprocess.Popen(['ubiquity','gtk_ui'])
-        elif uri == 'backup':
+        elif cmd == 'backup':
             subprocess.Popen(['deja-dup-preferences'])
-        elif uri == 'chatroom':
+        elif cmd == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
-        elif uri == 'control':
+        elif cmd == 'control':
             subprocess.Popen(['mate-control-center'])
-        elif uri == 'drivers':
+        elif cmd == 'drivers':
             subprocess.Popen(['software-properties-gtk','--open-tab=4'])
-        elif uri == 'firewall':
+        elif cmd == 'firewall':
             subprocess.Popen(['gufw'])
-        elif uri == 'language':
+        elif cmd == 'language':
             subprocess.Popen(['gnome-language-selector'])
-        elif uri == 'users':
+        elif cmd == 'users':
             subprocess.Popen(['users-admin'])
-        elif uri == 'quit':
+        elif cmd == 'quit':
             goodbye()
-        elif uri == 'tweak':
+        elif cmd == 'tweak':
             subprocess.Popen(['mate-tweak'])
-        elif uri == 'update':
+        elif cmd == 'update':
             subprocess.Popen(['update-manager'])
-        elif uri == 'printers':
+        elif cmd == 'printers':
             subprocess.Popen(['system-config-printer'])
-        elif uri == 'gparted':
+        elif cmd == 'gparted':
             subprocess.Popen(['gparted-pkexec'])
-        elif uri == 'sysmonitor':
+        elif cmd == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
-        elif uri.startswith('run?'):
-            subprocess.Popen([uri[4:]])
-        elif uri.startswith('link?'):
-            webbrowser.open_new_tab(uri[5:])
-        elif uri == 'checkInternetConnection':
+        elif cmd.startswith('run?'):
+            subprocess.Popen([cmd[4:]])
+        elif cmd.startswith('link?'):
+            webbrowser.open_new_tab(cmd[5:])
+        elif cmd == 'checkInternetConnection':
             systemstate.check_internet_connection()
             if systemstate.is_online:
-                self.execute_script("$('.offline').hide();")
-                self.execute_script("$('.online').show();")
+                app.update_page('.offline', 'hide')
+                app.update_page('.online', 'show')
             else:
-                self.execute_script("$('.offline').show();")
-                self.execute_script("$('.online').hide();")
-        elif uri == 'resize-rpi':
-            systemstate.rpi_resize('do-resize')
-        elif uri == 'subscribe-updates':
+                app.update_page('.offline', 'show')
+                app.update_page('.online', 'hide')
+        elif cmd == 'resize-rpi':
+            systemstate.rpi_resize('do-resize', self)
+        elif cmd == 'reboot-rpi':
+            systemstate.rpi_resize('reboot')
+        elif cmd == 'subscribe-updates':
             print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
-            self.execute_script("$('#update-notification').hide()")
-            self.execute_script("$('#update-subscribing').show()")
+            app.update_page('#update-notification', 'hide')
+            app.update_page('#update-subscribing', 'show')
             dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists(systemstate.welcome_ppa_file):
@@ -1046,99 +1047,35 @@ class AppView(WebKit.WebView):
                     os.execv(__file__, sys.argv)
             else:
                 print('[Welcome] Failed, PPA not detected!')
-                self.execute_script('$("#update-subscribing").hide()')
-                self.execute_script('$("#update-notification").show()')
-        elif uri == 'init-system-info':
+                app.update_page('#update-subscribing', 'hide')
+                app.update_page('#update-notification', 'show')
+        elif cmd == 'init-system-info':
             systemstate.get_system_info(self)
         else:
-            print('[Error] Unknown command: ', uri)
+            print('[Error] Unknown command: ', cmd)
       except Exception as e:
-        print('[Error] Failed to execute command: ', uri)
+        print('[Error] Failed to execute command: ', cmd)
         print('[Error] Exception: ', e)
 
 
+##################################
+#  Welcome Main Application
+##################################
+
 class WelcomeApp(object):
     def __init__(self):
-        # establish our location
-        self._location = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
+        # Set variables
+        self.current_page = ""
+        self.webkit = None
+        self.load_app()
 
-        # check for relative path
-        if( os.path.exists( os.path.join(self._location, 'data/' ) ) ):
-            print('[Debug] Using relative path for data source. Non-production testing.')
-            self._data_path = os.path.join(self._location, 'data/')
-        elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-            print('Using /usr/share/ubuntu-mate-welcome/ path.')
-            self._data_path = '/usr/share/ubuntu-mate-welcome/'
-        else:
-            print('Unable to source the ubuntu-mate-welcome data directory.')
-            sys.exit(1)
-
-        self._build_app()
-
-    def _get_translated_slides(self):
-        """ If a locale has been specified on the command line, get translated slides
-            for that. If not, get translated slides for the current locale
-
-        Do not assume that every slide has a translation, check each file individually
-
-        Returns:
-            a list of filenames of translated slides - if there is no translated version
-            of a slide, the filename of the untranslated version from the _data_path directory
-            is used instead
-
-        """
-
-        if (arg.locale is not None):
-            locale_to_use = arg.locale
-        else:
-            locale_to_use = str(locale.getlocale()[0])
-
-        def set_locale_dir(this_locale):
-            # check for relative path
-            if (os.path.exists(os.path.join(self._location, 'i18n', this_locale))):
-                locale_dir = os.path.join(self._location, 'i18n', this_locale)
-                print('[i18n] Using ' + this_locale + '. Non-production testing.')
-            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale))):
-                locale_dir = os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', this_locale)
-                print('[i18n] Using ' + this_locale)
-            else:
-                locale_dir = ''
-                print('[i18n] Locale ' + this_locale + ' not available.')
-
-            return locale_dir
-
-        # if no locale exists, try a generic locale.
-        locale_dir = set_locale_dir(locale_to_use)
-        if locale_dir == '':
-            locale_generic = locale_to_use.split('_')[0]
-            print('[i18n] Trying ' + locale_generic + '...')
-            locale_dir = set_locale_dir(locale_generic)
-
-        results = []
-
-        slides = glob.glob(os.path.join(self._data_path, '*.html'))
-        for slide in slides:
-            # get the slide name and see if a translated version exists
-            head, slide_name = os.path.split(slide)
-
-            trans_slide = os.path.join(locale_dir, slide_name)
-            if os.path.exists(trans_slide):
-                results.append(trans_slide)
-                arg.print_verbose("i18n","Will use %s translation of %s" %(locale_to_use, slide_name))
-            else:
-                results.append(slide)
-                arg.print_verbose("i18n","No %s translation of %s found. Will use version in _data_path" %(locale_to_use, slide))
-
-        return results
-
-    def _build_app(self):
-
+    def load_app(self):
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
             title = _("Software Boutique")
             width = 900
             height = 600
-            load_file = 'software-only.html'
+            load_file = 'splash-boutique.html'
         else:
             title = _("Welcome")
             width = 800
@@ -1166,7 +1103,7 @@ class WelcomeApp(object):
         if arg.jump_to:
             load_file = arg.jump_to + '.html'
 
-        # build window
+        # Build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
@@ -1179,36 +1116,32 @@ class WelcomeApp(object):
         else:
             w.set_size_request(width, height)
 
-        icon_dir = os.path.join(self._data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
+        icon_dir = os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
-        #get the translated slide list
-        trans_slides = self._get_translated_slides()
-        # build webkit container
-        mv = AppView(trans_slides)
+        # Build WebKit2 container
+        self.webkit = AppView()
 
-        # load our index file
-        file = os.path.abspath(os.path.join(self._data_path, load_file))
+        # Load the starting page
+        path = os.path.abspath(os.path.join(trans.pages_dir, load_file))
+        uri = 'file://' + urllib.request.pathname2url(path)
+        self.webkit.load_uri(uri)
 
-        uri = 'file://' + urllib.request.pathname2url(file)
-        mv.open(uri)
-
-        # build scrolled window widget and add our appview container
+        # Build scrolled window widget and add our appview container
         sw = Gtk.ScrolledWindow()
         sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        sw.add(mv)
+        sw.add(self.webkit)
 
-        # build an autoexpanding box and add our scrolled window
+        # Build an autoexpanding box and add our scrolled window
         b = Gtk.VBox(homogeneous=False, spacing=0)
         b.pack_start(sw, expand=True, fill=True, padding=0)
 
-        # add the box to the parent window and show
+        # Add the box to the parent window and show
         w.add(b)
         w.connect('delete-event', goodbye)
         w.show_all()
 
         self._window = w
-        self._appView = mv
 
     def run(self):
         signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -1217,25 +1150,50 @@ class WelcomeApp(object):
     def close(self, p1, p2):
         Gtk.main_quit(p1, p2);
 
+    def update_page(self, element, function, parm1=None, parm2=None):
+        """ Runs a JavaScript jQuery function on the page,
+            ensuring correctly parsed quotes. """
+        if parm1 and parm2:
+            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
+        if parm1:
+            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
+        else:
+            self.webkit.run_javascript('$("' + element + '").' + function + '()')
+
 
 class SystemState(object):
     def __init__(self):
-        # Set initial variables
+        # Set default variables
         self.is_online = False
-        self.user_name = getuser()
         self.updates_subscribed = False
+        self.rpi_resize_pending = False
         self.welcome_version = 'Unknown'
 
-        # These variables are determined:
-        # self.arch;  self.session_type;  self.boot_mode
+        # Get user details.
+        self.user_name = GLib.get_user_name()
+        self.full_name = GLib.get_real_name()
+
+        # Full path to binary
+        self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
+        #  User's Welcome configuration directory
+        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
+
+        # User's autostart directory and full path to autostart symlink.
+        # Used for systemstate.autostart_toggle() function.
+        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
+        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
+        self.autostart = self.autostart_check()
+
+        # Load Apt Cache
+        self.apt_cache = apt.Cache()
 
         # Get current architecture of system.
         # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
         self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
-        # Get current codename of Ubuntu MATE in use.
-        # Uses first word in lowercase, such as : trusty, wily, xenial
-        self.codename = platform.dist()[2]
+        # Get current version / codename of Ubuntu MATE in use.
+        self.os_version = platform.dist()[1]    # → 14.04, 15.10, 16.04
+        self.codename = platform.dist()[2]      # → trusty, wily, xenial
 
         # Determine which type of session we are in.
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
@@ -1257,7 +1215,7 @@ class SystemState(object):
         else:
             self.boot_mode = 'BIOS'
 
-        # Create, then spawn threads
+        # Multithread to prevent holding up program execution.
         thread1 = Thread(target=self.check_internet_connection)
         thread2 = Thread(target=self.detect_graphics)
         thread1.start()
@@ -1297,7 +1255,7 @@ class SystemState(object):
         elif font_dpi <= 94:
             zoom_level = 0.9
         elif font_dpi <= 101:
-            zoom_level = 1.0    # Default DPI is usually 96.
+            zoom_level = 1.0    # Default DPI for fresh install is 96.
         elif font_dpi <= 108:
             zoom_level = 1.1
         elif font_dpi <= 115:
@@ -1311,6 +1269,40 @@ class SystemState(object):
 
         self.dpi = font_dpi
         self.zoom_level = zoom_level
+
+    def autostart_check(self):
+        # Ensure our config and autostart directories exist
+        for _dir in [self._config_dir, self._autostart_dir]:
+            if not os.path.exists(_dir):
+                try:
+                    os.makedirs(_dir)
+                except OSError as err:
+                    print(err)
+                    pass
+
+        # Set boolean if the autostart file exists.
+        if os.path.exists(self._autostart_path):
+            return True
+        else:
+            return False
+
+    def autostart_toggle(self):
+        if not os.path.exists(self._autostart_path):
+            # create the autostart symlink
+            try:
+                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
+            except OSError as err:
+                print(err)
+                pass
+        elif os.path.exists(self._autostart_path):
+            # remove the autostart symlink
+            try:
+                os.unlink(self._autostart_path)
+            except OSError as err:
+                print(err)
+                pass
+        self.autostart = self.autostart_check()
+        arg.print_verbose('Debug', 'Auto start toggled. Now: ' + str(self.autostart))
 
     def check_internet_connection(self):
         print('[Network Test] Checking for internet connectivity... ')
@@ -1397,7 +1389,7 @@ class SystemState(object):
         html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></a>'
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
-            webkit.execute_script('$("#spec-' + element + '").html("' + html_tag + '")')
+            app.update_page('#spec'+element, 'html', html_tag)
 
         # Collect basic system information
         def run_external_command(command, with_shell=False):
@@ -1413,7 +1405,7 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Gathering data: Distribution')
             distro_description = run_external_command(['lsb_release','-d','-s'])
             distro_codename = run_external_command(['lsb_release','-c','-s'])
-            webkit.execute_script('$("#spec-distro").html("' + distro_description + '")')
+            app.update_page('#spec-distro', 'html', distro_description)
         except:
             print('[System Specs] Failed to retrieve data: Distribution')
 
@@ -1421,7 +1413,7 @@ class SystemState(object):
         try:
             arg.print_verbose('System Specs', 'Gathering data: Kernel')
             kernel = run_external_command(['uname','-r'])
-            webkit.execute_script('$("#spec-kernel").html("' + kernel + '")')
+            app.update_page('#spec-kernel', 'html', kernel)
         except:
             print('[System Specs] Failed to retrieve data: Kernel')
 
@@ -1429,7 +1421,7 @@ class SystemState(object):
         try:
             arg.print_verbose('System Specs', 'Gathering data: Motherboard')
             motherboard_name = run_external_command(['cat','/sys/devices/virtual/dmi/id/board_name'])
-            webkit.execute_script('$("#spec-motherboard").html("' + motherboard_name + '")')
+            app.update_page('#spec-motherboard', 'html', motherboard_name)
         except:
             print('[System Specs] Failed to retrieve data: Motherboard')
 
@@ -1437,7 +1429,7 @@ class SystemState(object):
         arg.print_verbose('System Specs', 'Gathering data: CPU')
         try:
             cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
-            webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
+            app.update_page('#spec-cpu-model', 'html', cpu_model)
         except:
             print('[System Specs] Failed to retrieve data: CPU Model')
 
@@ -1449,7 +1441,7 @@ class SystemState(object):
                 # Otherwise, fetch the CPU's MHz.
                 cpu_speed = int(run_external_command(['lscpu | grep "CPU MHz"'], True).split(': ')[1].strip(' ').split('.')[0])
 
-            webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + ' MHz")')
+            app.update_page('#spec-cpu-speed', 'html', str(cpu_speed) + ' MHz')
         except:
             print('[System Specs] Failed to retrieve data: CPU Speed')
 
@@ -1460,20 +1452,20 @@ class SystemState(object):
                 cpu_arch_used = '64-bit'
             else:
                 cpu_arch_used = self.arch
-            webkit.execute_script('$("#spec-arch-use").html("' + cpu_arch_used + '")')
+            app.update_page('#spec-arch-use', 'html', cpu_arch_used)
         except:
             print('[System Specs] Failed to retrieve data: CPU Arch in Use')
 
         try:
             cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
-            webkit.execute_script('$("#spec-arch-supported").html("' + cpu_arch_supported + '")')
+            app.update_page('#spec-arch-supported', 'html', cpu_arch_supported)
         except:
             print('[System Specs] Failed to retrieve data: CPU Supported Arch')
 
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
             if self.session_type == 'live':
-                webkit.execute_script('$(".specs-hide-live-session").hide()')
+                app.update_page('.spec-hide-live-session', 'hide')
             else:
                 arg.print_verbose('System Specs', 'Gathering data: Storage')
                 ## Gather entire disk data
@@ -1491,52 +1483,80 @@ class SystemState(object):
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
+                root_used = root_size - root_free
                 entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
                 entire_disk = int(entire_disk.split()[3])
 
                 ## Perform calculations across units
-                capacity_GB =   int(round(entire_disk/1000/1000/1000))
-                capacity_GiB =  int(round(entire_disk/1024/1024/1024))
-                allocated_GB =  int(round(root_size/1000/1000/1000))
-                allocated_GiB = int(round(root_size/1024/1024/1024))
-                free_GB =       int(round(root_free/1000/1000/1000))
-                free_GiB =      int(round(root_free/1024/1024/1024))
+                capacity_GB =   round(entire_disk/1000/1000/1000,1)
+                capacity_GiB =  round(entire_disk/1024/1024/1024,1)
+                allocated_GB =  round(root_size/1000/1000/1000,1)
+                allocated_GiB = round(root_size/1024/1024/1024,1)
+                used_GB =       round(root_used/1000/1000/1000,1)
+                used_GiB =      round(root_used/1024/1024/1024,1)
+                free_GB =       round(root_free/1000/1000/1000,1)
+                free_GiB =      round(root_free/1024/1024/1024,1)
+                other_GB =      round((entire_disk-root_size)/1000/1000/1000,1)
+                other_GiB =     round((entire_disk-root_size)/1024/1024/1024,1)
 
                 # Show megabytes/mebibytes (in red) if gigabytes are too small.
                 if capacity_GB <= 1:
-                    capacity_GB = str(int(round(entire_disk/1000/1000))) + ' ' + mb_prefix
-                    capacity_GiB = str(int(round(entire_disk/1024/1024))) + ' ' + mib_prefix
+                    capacity_GB = str(round(entire_disk/1000/1000,1)) + ' ' + mb_prefix
+                    capacity_GiB = str(round(entire_disk/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     capacity_GB = str(capacity_GB) + ' ' + gb_prefix
                     capacity_GiB = str(capacity_GiB) + ' ' + gib_prefix
 
                 if allocated_GB <= 1:
-                    allocated_GB =  str(int(round(root_size/1000/1000))) + ' ' + mb_prefix
-                    allocated_GiB = str(int(round(root_size/1024/1024))) + ' ' + mib_prefix
+                    allocated_GB =  str(round(root_size/1000/1000,1)) + ' ' + mb_prefix
+                    allocated_GiB = str(round(root_size/1024/1024,1)) + ' ' + mib_prefix
                 else:
                     allocated_GB = str(allocated_GB) + ' ' + gb_prefix
                     allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
 
+                if used_GB <= 1:
+                    used_GB =  str(round(root_used/1000/1000,1)) + ' ' + mb_prefix
+                    used_GiB = str(round(root_used/1024/1024,1)) + ' ' + mib_prefix
+                else:
+                    used_GB = str(used_GB) + ' ' + gb_prefix
+                    used_GiB = str(used_GiB) + ' ' + gib_prefix
+
                 if free_GB <= 1:
-                    free_GB =  str(int(round(root_free/1000/1000))) + ' ' + mb_prefix
-                    free_GiB = str(int(round(root_free/1024/1024))) + ' ' + mib_prefix
-                    webkit.execute_script('$("#spec-free-space").addClass("specs-error")')
+                    free_GB =  str(round(root_free/1000/1000,1)) + ' ' + mb_prefix
+                    free_GiB = str(round(root_free/1024/1024,1)) + ' ' + mib_prefix
+                    app.update_page('#spec-free-space', 'addClass', 'specs-error')
                 else:
                     free_GB = str(free_GB) + ' ' + gb_prefix
                     free_GiB = str(free_GiB) + ' ' + gib_prefix
 
+                if other_GB <= 1:
+                    other_GB =  str(round((entire_disk-root_size)/1000/1000,1)) + ' ' + mb_prefix
+                    other_GiB = str(round((entire_disk-root_size)/1024/1024,1)) + ' ' + mib_prefix
+                else:
+                    other_GB = str(other_GB) + ' ' + gb_prefix
+                    other_GiB = str(other_GiB) + ' ' + gib_prefix
+
                 ## Append data to HTML.
-                webkit.execute_script('$("#spec-filesystem").html("' + root_partition + '")')
-                webkit.execute_script('$("#spec-capacity").html("' + capacity_GB + ' <span class=\'secondary-value\'>(' + capacity_GiB + ')</span>")')
-                webkit.execute_script('$("#spec-allocated-space").html("' + allocated_GB + ' <span class=\'secondary-value\'>(' + allocated_GiB + ')</span>")')
-                webkit.execute_script('$("#spec-free-space").html("' + free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>")')
+                app.update_page('#spec-filesystem', 'html', root_partition)
+                app.update_page('#spec-capacity', 'html', capacity_GB + ' <span class=\'secondary-value\'>(' + capacity_GiB + ')</span>')
+                app.update_page('#spec-allocated-space', 'html',  allocated_GB + ' <span class=\'secondary-value\'>(' + allocated_GiB + ')</span>')
+                app.update_page('#spec-used-space', 'html', used_GB + ' <span class=\'secondary-value\'>(' + used_GiB + ')</span>')
+                app.update_page('#spec-free-space', 'html', free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>')
+                app.update_page('#spec-other-space', 'html', other_GB + ' <span class=\'secondary-value\'>(' + other_GiB + ')</span>')
 
                 ## Calculate representation across physical disk
-                disk_percent_UM_used = int(round(root_size / entire_disk) * 100)
-                disk_percent_other   = int(round((root_size - root_free) / entire_disk) * 100)
-                arg.print_verbose('System Specs', ' ---- Disk: ' + root_dev + ' --- ' + str(disk_percent_UM_used) + '% used by / --- ' + str(disk_percent_other) + '% used by others.')
-                webkit.execute_script("$('#disk-used').width('" + str(disk_percent_UM_used) + "');")
-                webkit.execute_script("$('#disk-other').width('" + str(disk_percent_other) + "');")
+                disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
+                disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
+                disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
+                arg.print_verbose('System Specs', ' --- Disk: ' + root_dev)
+                arg.print_verbose('System Specs', ' --- * OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)')
+                arg.print_verbose('System Specs', ' --- * OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)')
+                arg.print_verbose('System Specs', ' --- = Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)')
+
+                app.update_page('#disk-used', 'width', str(disk_percent_UM_used) + 'px')
+                app.update_page('#disk-free', 'width', str(disk_percent_UM_free) + 'px')
+                app.update_page('#disk-other', 'width', str(disk_percent_other) + 'px')
+
         except:
             print('[System Specs] Failed to retrieve data: Storage')
 
@@ -1552,12 +1572,12 @@ class SystemState(object):
                 ram_xb =  str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix
                 ram_xib = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix
             ram_string = ram_xb + ' <span class=\'secondary-value\'>(' + ram_xib + ')</span>'
-            webkit.execute_script('$("#spec-memory").html("' + ram_string + '")')
+            app.update_page('#spec-memory', 'html', ram_string)
         except:
             print('[System Specs] Failed to retrieve data: RAM (Memory)')
 
         ## Graphics
-        webkit.execute_script('$("#spec-graphics").html("' + self.graphics_grep + '")')
+        app.update_page('#spec-graphics', 'html', self.graphics_grep)
 
         ## Collect missing data differently for some architectures.
         if systemstate.arch == 'powerpc':
@@ -1566,7 +1586,7 @@ class SystemState(object):
                 arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Motherboard')
                 mb_model = run_external_command(['grep','motherboard','/proc/cpuinfo']).split(': ')[1]
                 mb_rev = run_external_command(['grep','revision','/proc/cpuinfo']).split(': ')[1]
-                webkit.execute_script('$("#spec-motherboard").html("' + mb_model + ' ' + mb_rev + '")')
+                app.update_page('#spec-motherboard', 'html', mb_model + ' ' + mb_rev)
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Motherboard')
 
@@ -1575,8 +1595,8 @@ class SystemState(object):
                 arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC CPU')
                 cpu_model = run_external_command(['grep','cpu','/proc/cpuinfo']).split(': ')[1]
                 cpu_speed = run_external_command(['grep','clock','/proc/cpuinfo']).split(': ')[1]
-                webkit.execute_script('$("#spec-cpu-model").html("' + cpu_model + '")')
-                webkit.execute_script('$("#spec-cpu-speed").html("' + str(cpu_speed) + '")')
+                app.update_page('#spec-cpu-model', 'html', cpu_model)
+                app.update_page('#spec-cpu-speed', 'html', str(cpu_speed))
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerPC CPU')
 
@@ -1584,7 +1604,7 @@ class SystemState(object):
             try:
                 arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Model Name')
                 mb_name = run_external_command(['grep','detected','/proc/cpuinfo']).split(': ')[1]
-                webkit.execute_script('$("#spec-motherboard").append(" / ' + mb_name + '")')
+                app.update_page('#spec-motherboard', 'append', ' / ' + mb_name)
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Model Name')
 
@@ -1592,7 +1612,7 @@ class SystemState(object):
             try:
                 arg.print_verbose('System Specs', 'Gathering alternate data: PowerMac Generation')
                 mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
-                webkit.execute_script('$("#spec-boot-mode").html("Yaboot (' + mac_generation + ')")')
+                app.update_page('#spec-boot-mode', 'html', 'Yaboot (' + mac_generation + ')')
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerMac Generation')
 
@@ -1601,64 +1621,91 @@ class SystemState(object):
             arg.print_verbose('System Specs', 'Waiting for inxi process to finish...')
             inxi_output = str(inxi_raw.communicate()[0])
             inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
-            webkit.execute_script("$('#specs-inxi').html('')")
+            app.update_page('#specs-inxi', 'html', '')
             for line in inxi_output.split('\n'):
-                webkit.execute_script("$('#specs-inxi').append('" + line.strip('"').strip("'") + "<br>')")
+                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
             print('[System Specs] Successfully appended advanced system information.')
         except:
             print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
 
         # Check internet connectivity status.
         if self.is_online:
-            webkit.execute_script('$("#specs-has-net").show()')
-            webkit.execute_script('$("#specs-has-no-net").hide()')
+            app.update_page('#specs-has-net', 'show')
+            app.update_page('#specs-has-no-net', 'hide')
         else:
-            webkit.execute_script('$("#specs-has-net").hide()')
-            webkit.execute_script('$("#specs-has-no-net").show()')
+            app.update_page('#specs-has-net', 'hide')
+            app.update_page('#specs-has-no-net', 'show')
 
         # Change icon depending on what type of device we are using.
         if self.session_type == 'pi':
-            webkit.execute_script('$("#specs-device-rpi").show()')
-            webkit.execute_script('$(".specs-hide-pi").hide()')
+            app.update_page('#specs-device-rpi', 'show')
+            app.update_page('.specs-hide-pi', 'show')
         elif self.arch == 'powerpc':
-            webkit.execute_script('$("#specs-device-powerpc").show()')
-            webkit.execute_script('$(".specs-hide-ppc").hide()')
+            app.update_page('#specs-device-powerpc', 'show')
+            app.update_page('.specs-hide-ppc', 'hide')
         elif self.graphics_vendor == 'VirtualBox':
-            webkit.execute_script('$("#specs-device-vbox").show()')
-            webkit.execute_script('$(".specs-hide-vbox").hide()')
+            app.update_page('#specs-device-vbox', 'show')
+            app.update_page('.specs-hide-vbox', 'hide')
         elif self.session_type == 'live':
-            webkit.execute_script('$("#specs-live-session").show()')
-            webkit.execute_script('$(".specs-hide-live").hide()')
+            app.update_page('#specs-live-session', 'show')
+            app.update_page('.specs-live-live', 'hide')
         else:
-            webkit.execute_script('$("#specs-device-normal").show()')
+            app.update_page('#specs-device-normal', 'show')
 
         # Display UEFI/BIOS boot mode.
         if systemstate.arch == 'i386' or systemstate.arch == 'amd64':
-            webkit.execute_script('$("#spec-boot-mode").html("' + self.boot_mode + '")')
+            app.update_page('#spec-boot-mode', 'html', self.boot_mode)
 
         # Hide root storage info if in a live session.
         if self.session_type == 'live':
-            webkit.execute_script('$(".spec-3").hide()')
+            app.update_page('.spec-3', 'hide')
 
         # Data cached, ready to display.
-        webkit.execute_script('$("#specs-loading").fadeOut("fast")')
-        webkit.execute_script('$("#specs-tabs").fadeIn("fast")')
-        webkit.execute_script('$("#specs-basic").fadeIn("medium")')
-        webkit.execute_script('setCursorNormal()')
+        app.update_page('#specs-loading', 'fadeOut', 'fast')
+        app.update_page('#specs-tabs', 'fadeIn', 'fast')
+        app.update_page('#specs-basic', 'fadeIn', 'medium')
+        webkit.run_javascript('setCursorNormal()')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
             subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
-            with open('/tmp/notify_subject') as subject_file:
-                subject = subject_file.read()
 
-            with open('/tmp/notify_body') as body_file:
-                body = body_file.read()
+            def notify(subject, body, icon):
+                Notify.init(_('Raspberry Pi Partition Resize'))
+                resize_notify=Notify.Notification.new(subject, body, icon)
+                resize_notify.show()
 
-            Notify.init(_('Raspberry Pi Partition Resize'))
-            resize_notify=Notify.Notification.new(subject, body, 'dialog-information')
-            resize_notify.show()
-            app._appView._push_config()
+            try:
+                with open('/tmp/notify_rpi_status') as status_file:
+                    status_code = int(status_file.read())
+            except:
+                status_code = 0
+
+            try:
+                with open('/tmp/notify_rpi_text') as misc_file:
+                    misc_text = misc_file.read()
+            except:
+                misc_text = ""
+
+            if status_code == 1:
+                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
+                self.rpi_resize_pending = True
+                app.update_page('#rpi-resized', 'hide')
+                app.update_page('#rpi-not-resized', 'hide')
+                app.update_page('#rpi-restart-now', 'show')
+            elif status_code == 2:
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("does not exist or is not a symlink."), 'dialog-error' )
+            elif status_code == 3:
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not an SD card."), 'dialog-error' )
+            elif status_code == 4:
+                notify( _("Don't know how to expand."), _("Your partition layout is not currently supported by this tool."), 'dialog-error' )
+            elif status_code == 5:
+                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
+            else:
+                notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
+                print('[Welcome] Unrecognised return code for Raspberry Pi resize: ' + str(status_code))
+
+            app.webkit._push_config()
 
         elif action == 'check':
             if os.path.exists('/.resized'):
@@ -1667,11 +1714,19 @@ class SystemState(object):
                 resized = False
 
             if resized:
-                webkit.execute_script('$("#rpi-resized").show()')
-                webkit.execute_script('$("#rpi-not-resized").hide()')
+                app.update_page('#rpi-resized', 'show')
+                app.update_page('#rpi-not-resized', 'hide')
             else:
-                webkit.execute_script('$("#rpi-resized").hide()')
-                webkit.execute_script('$("#rpi-not-resized").show()')
+                app.update_page('#rpi-resized', 'hide')
+                app.update_page('#rpi-not-resized', 'show')
+
+            if self.rpi_resize_pending:
+                app.update_page('#rpi-resized', 'hide')
+                app.update_page('#rpi-not-resized', 'hide')
+                app.update_page('#rpi-restart-now', 'show')
+
+        elif action == 'reboot':
+            subprocess.call(['mate-session-save','--shutdown-dialog'])
 
 
 class DynamicApps(object):
@@ -1684,7 +1739,7 @@ class DynamicApps(object):
         self.hide_non_free = False
 
         # Reading the apt cache later.
-        self._apt_cache = apt.Cache()
+        self._apt_cache = systemstate.apt_cache
 
         # Indicate that operations are in progress.
         self.operations_busy = False
@@ -1772,7 +1827,7 @@ class DynamicApps(object):
     def reload_index(self):
         try:
             print('[Apps] Reading index...')
-            json_path = os.path.abspath(os.path.join(app._data_path, 'js/applications.json'))
+            json_path = os.path.abspath(os.path.join(data_path, 'js/applications.json'))
             with open(json_path) as data_file:
                 self.index = json.load(data_file)
                 print('[Apps] Successfully loaded index.')
@@ -1843,8 +1898,8 @@ class DynamicApps(object):
         str_source = _("Source")
         str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
         str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
-        str_source_partner = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
-        str_source_skip = '<img src="img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
+        str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
 
         # Get the app data from each category and list them.
@@ -1908,7 +1963,7 @@ class DynamicApps(object):
                     html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
                 html_buffer = html_buffer + '<div class="row-fluid">'
                 html_buffer = html_buffer + '<div class="span2 center-inside">'
-                html_buffer = html_buffer + '<img src="img/applications/' + self.app_img + '.png">'
+                html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
                 html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
                 html_buffer = html_buffer + '</div><div class="span10">'
                 html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
@@ -1929,24 +1984,24 @@ class DynamicApps(object):
                 if not self.app_alternate_to == None:
                     html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
                 html_buffer = html_buffer + '<p class="text-right">'
-                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" href="cmd://app-info-show?' + css_class + '"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
-                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" href="cmd://app-info-hide?' + css_class + '"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
+                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
 
                 # "Regular" packages - can be installed or removed with one-click by the user.
                 if not self.app_upgrade_only:
-                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="img/welcome/processing.gif" width="24px" height="24px"/></span>'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" href="cmd://install-appid?' + program_id + '"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" href="cmd://install-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" href="cmd://remove-appid?' + program_id + '" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
                 # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
                 if self.app_upgrade_only:
                     arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
                     if not upgraded:
-                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" href="cmd://upgrade-appid?' + program_id + '"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
+                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
                 if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" href="cmd://launch-appid?' + program_id + '"><img src="img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
                 # More details section.
                 html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
@@ -1971,10 +2026,10 @@ class DynamicApps(object):
 
                 ## Add Android / iOS app links if necessary.
                 if not self.app_url_android == None:
-                    platform_string = platform_string + '<a href="cmd://link?' + self.app_url_android + '"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+                    platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
 
                 if not self.app_url_ios == None:
-                    platform_string = platform_string + '<a href="cmd://link?' + self.app_url_ios + '"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+                    platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
 
                 ## Add details about the source of this file.
                 try:
@@ -2006,7 +2061,7 @@ class DynamicApps(object):
                             ppa = preinstall[target]['enable-ppa']
                             ppa_author = ppa.split(':')[1].split('/')[0]
                             ppa_archive = ppa.split(':')[1].split('/')[1]
-                            self.source_info.insert(0, str_source_ppa + ' <a href="cmd://link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '">' + ppa + '</a>')
+                            self.source_info.insert(0, str_source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
 
                         elif method == 'manual':
                             apt_source = ''.join(preinstall[target]['apt-sources'])
@@ -2030,7 +2085,7 @@ class DynamicApps(object):
 
                 ## Add a website URL if there is one.
                 if self.app_url_info:
-                    html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a href="cmd://link?' + self.app_url_info + '">' + self.app_url_info + '</a></td></tr>'
+                    html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
 
                 ## Add the source for this application.
                 if multiple_sources:
@@ -2047,9 +2102,10 @@ class DynamicApps(object):
                 screenshots_end = False
                 screenshot_buffer = ''
                 while not screenshots_end:
-                    screenshot_path = os.path.join(app._data_path + 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg')
+                    screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
+                    screenshot_path = os.path.join(data_path, screenshot_img)
                     if os.path.exists(screenshot_path):
-                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" href="cmd://screenshot?' + self.app_img + '-' + str(screenshots) + '"><img src="' + screenshot_path + '" class="screenshot"/></a>'
+                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></a>'
                         screenshots = screenshots + 1
                     else:
                         screenshots_end = True
@@ -2063,8 +2119,8 @@ class DynamicApps(object):
                 html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
 
                 # Append buffer to page
-                webkit.execute_script('$("#' + category + '").append(\'' + html_buffer + '\')')
-                webkit.execute_script('$("#info-hide-' + css_class + '").hide()')
+                app.update_page('#'+category, 'append', html_buffer)
+                app.update_page('#info-hide-'+css_class, 'hide')
 
                 # Keep track of how many apps added.
                 apps_here = apps_here + 1
@@ -2072,18 +2128,18 @@ class DynamicApps(object):
 
             # Display a message if there is nothing for this category.
             if apps_here == 0:
-                webkit.execute_script('$("#' + category + '").append("<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; ' + str_nothing_here + '</p>")')
+                app.update_page('#'+category, 'append', "<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; ' + str_nothing_here + '</p>")
 
             # Post actions to page
             ## Colour the architecture currently in use.
-            webkit.execute_script('$(".' + systemstate.arch + '").addClass("arch-in-use")')
+            app.update_page('.'+systemstate.arch, 'addClass', 'arch-in-use')
 
             # Process filters for this category.
             filters = list(set(subcategories))
             filters.sort()
             for string in filters:
                 css_subcategory = string.replace(' ','-')
-                webkit.execute_script('$("#Filter-' + category + '").append(\'<option value="' + css_subcategory + '">' + string + '</option>\')')
+                app.update_page('#Filter-'+category, 'append', '<option value="' + css_subcategory + '">' + string + '</option>')
 
         # "Stats for nerds"
         total_apps = total_added + total_skipped + total_unsupported
@@ -2105,23 +2161,24 @@ class DynamicApps(object):
                     possible_apps.append(self.index[category][program_id]['img'])
 
         random.shuffle(possible_apps)
-        for no in range(0,17):
-            arg.print_verbose('Apps', str(no) + '. ' + possible_apps[no])
-            webkit.execute_script("addToGrid('" + possible_apps[no] + "');")
-        webkit.execute_script("initGrid();")
+        for no in range(1,18):
+            random_img = possible_apps[no]
+            arg.print_verbose('Apps', str(no) + '. ' + random_img)
+            app.update_page('#featured-grid', 'append', '<img src="' + trans.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
+        webkit.run_javascript("initGrid();")
         arg.print_verbose('Apps','------------------')
 
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
         # Indicate changes are in progress.
         css_class = program_id.replace('.','-')
-        webkit.execute_script("$('." + css_class + "-applying').show();")
-        webkit.execute_script("$('." + css_class + "-launch').hide();")
-        webkit.execute_script("$('." + css_class + "-install').hide();")
-        webkit.execute_script("$('." + css_class + "-reinstall').hide();")
-        webkit.execute_script("$('." + css_class + "-remove').hide();")
-        webkit.execute_script("$('." + css_class + "-upgrade').hide();")
-        webkit.execute_script("$('." + css_class + "-text').css('color','#000');")
+        app.update_page('.'+css_class+'-applying', 'show')
+        app.update_page('.'+css_class+'-launch', 'hide')
+        app.update_page('.'+css_class+'-install', 'hide')
+        app.update_page('.'+css_class+'-reinstall', 'hide')
+        app.update_page('.'+css_class+'-remove', 'hide')
+        app.update_page('.'+css_class+'-upgrade', 'hide')
+        app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
 
         # Text to display when applying changes.
         install_text = _("Installing...")
@@ -2130,13 +2187,13 @@ class DynamicApps(object):
 
         # Asynchronous apt process
         if action == 'install':
-            webkit.execute_script("$('." + css_class + "-applying-status').html('" + install_text + "');")
+            app.update_page('.'+css_class+'-applying-status', 'html', install_text)
             preinstallation.process_packages(program_id, 'install')
         elif action == 'remove':
-            webkit.execute_script("$('." + css_class + "-applying-status').html('" + remove_text + "');")
+            app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
             preinstallation.process_packages(program_id, 'remove')
         elif action == 'upgrade':
-            webkit.execute_script("$('." + css_class + "-applying-status').html('" + upgrade_text + "');")
+            app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
             preinstallation.process_packages(program_id, 'upgrade')
         else:
             print('[Apps] An unknown action was requested.')
@@ -2171,19 +2228,19 @@ class DynamicApps(object):
         css_class = program_id.replace('.','-')
 
         # Update appearance on this page.
-        webkit.execute_script("$('." + css_class + "-applying').hide();")
+        app.update_page('.'+css_class+'-applying', 'hide')
         if this_installed:
-            webkit.execute_script("$('." + css_class + "-launch').show();")
-            webkit.execute_script("$('." + css_class + "-install').hide();")
-            webkit.execute_script("$('." + css_class + "-reinstall').show();")
-            webkit.execute_script("$('." + css_class + "-remove').show();")
-            webkit.execute_script("$('." + css_class + "-upgrade').show();")
+            app.update_page('.'+css_class+'-launch', 'show')
+            app.update_page('.'+css_class+'-install', 'hide')
+            app.update_page('.'+css_class+'-reinstall', 'show')
+            app.update_page('.'+css_class+'-remove', 'show')
+            app.update_page('.'+css_class+'-upgrade', 'show')
         else:
-            webkit.execute_script("$('." + css_class + "-launch').hide();")
-            webkit.execute_script("$('." + css_class + "-install').show();")
-            webkit.execute_script("$('." + css_class + "-reinstall').hide();")
-            webkit.execute_script("$('." + css_class + "-remove').hide();")
-            webkit.execute_script("$('." + css_class + "-upgrade').hide();")
+            app.update_page('.'+css_class+'-launch', 'hide')
+            app.update_page('.'+css_class+'-install', 'show')
+            app.update_page('.'+css_class+'-reinstall', 'hide')
+            app.update_page('.'+css_class+'-remove', 'hide')
+            app.update_page('.'+css_class+'-upgrade', 'hide')
 
     def update_all_app_status(self, webkit):
         ''' Update the webpage whether all indexed applications are installed or not. '''
@@ -2247,23 +2304,23 @@ class DynamicApps(object):
         if nonfree_toggle:
             if self.hide_non_free:
                 self.hide_non_free = False
-                webkit.execute_script('$("#nonFreeCheckBox").addClass("fa-square");')
-                webkit.execute_script('$("#nonFreeCheckBox").removeClass("fa-check-square");')
+                app.update_page('#nonFreeCheckBox', 'addClass', 'fa-square')
+                app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-check-square')
             else:
                 self.hide_non_free = True
-                webkit.execute_script('$("#nonFreeCheckBox").removeClass("fa-square");')
-                webkit.execute_script('$("#nonFreeCheckBox").addClass("fa-check-square");')
+                app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-square')
+                app.update_page('#nonFreeCheckBox', 'addClass', 'fa-check-square')
 
         if filter_value == 'none':
             arg.print_verbose('Apps','Filter reset.')
-            webkit.execute_script('$(".app-entry").show();')
+            app.update_page('.app-entry', 'show')
             if self.hide_non_free:
                 arg.print_verbose('Apps','Hiding all proprietary software.')
-                webkit.execute_script('$(".proprietary").hide();')
+                app.update_page('.proprietary', 'hide')
             return
         else:
             arg.print_verbose('Apps','Applying filter: ' + filter_value)
-            webkit.execute_script('$(".app-entry").hide();')
+            app.update_page('.app-entry', 'hide')
 
             for category in self.all_categories:
                 category_items = list(self.index[category].keys())
@@ -2273,15 +2330,188 @@ class DynamicApps(object):
 
                     # If the application is closed source and we're told to hide it.
                     if not app_open_source and self.hide_non_free:
-                        webkit.execute_script('$("#' + program_id.replace('.','-') + '").hide();')
+                        app.update_page('#' + program_id.replace('.','-'), 'hide')
                         continue
 
                     # Only show if subcategory matches.
                     if app_subcategory.replace(' ','-') == filter_value:
-                        webkit.execute_script('$("#' + program_id.replace('.','-') + '").show();')
+                        app.update_page('#' + program_id.replace('.','-'), 'show')
 
     def show_screenshot(self, filename):
         ssw = ScreenshotWindow(filename)
+
+    ###### JSON News Structure
+    #
+    #  {
+    #      "version" {
+    #          "add" [
+    #              "program_id (as seen in index)"
+    #          ],
+    #          "fix" {
+    #              "program_id (as seen in index)": "Reason"
+    #          },
+    #          "del" {
+    #              "Name of Application": "Reason"
+    #          }
+    #      }
+    #  }
+    #
+    #   ** Standard JSON rules apply. Watch out for the commas.
+    #   ** Important!! Use &#8217; instead of ' for an apostrophe character.
+    #
+    #   ==== Reasons ====
+    #   These allow easy translations for generic strings.
+    #   If none of the reasons match, the English text will be displayed as-is
+    #   WITHOUT TRANSLATION. Please beware this may confuse non-English users.
+    #
+    #   Reason        Mainly    String
+    #   ------------  --------  ------------------------------------------------------
+    #   new-source    Fixes     Uses a new or updated source.
+    #   add-source    Fixes     Now works for some releases.
+    #   snappy        Fixes     Now a snappy package.
+    #   general       Fixes     General maintenance.
+    #   bad-source    Removal   Broken or problematic source.
+    #   no-source     Removal   Not yet available for some releases.
+    #   broken        Removal   No longer works for some releases.
+    #   unstable      Removal   Not suitable for production machines.
+    #   testing       Removal   Requires further testing.
+    #   not-nice      Removal   Does not meet our standards to be featured.
+    #
+
+    def populate_news(self, webkit):
+        try:
+            arg.print_verbose('Apps','Reading News...')
+            json_path = os.path.abspath(os.path.join(data_path, 'js/news.json'))
+            with open(json_path) as data_file:
+                self.news = json.load(data_file)
+        except Exception as e:
+            self.news = None
+            print("[Apps] ERROR: News JSON is invalid or missing!")
+            print("------------------------------------------------------------")
+            print("Exception:")
+            print(str(e))
+            print("------------------------------------------------------------")
+            return
+
+        # These functions are used later
+
+        # Raw reasons → Human translatable text
+        def get_reason_string(reason):
+            if reason == "new-source":
+                return _("Uses a new or updated source.")
+            elif reason == "add-source":
+                return _("Now works for various versions of Ubuntu.")
+            elif reason == "snappy":
+                return _("Now a snappy package.")
+            elif reason == "general":
+                return _("General maintenance.")
+            elif reason == "bad-source":
+                return _("Broken or problematic source.")
+            elif reason == "no-source":
+                return _("Not yet available for some releases.")
+            elif reason == "broken":
+                return _("No longer works for some releases.")
+            elif reason == "unstable":
+                return _("Not suitable for production machines.")
+            elif reason == "testing":
+                return _("Requires further testing.")
+            elif reason == "not-nice":
+                return _("Does not meet our standards to be featured.")
+            else:
+                return reason
+
+        # Raw categories → Human translatable categories
+        def get_category_string(category):
+            if category == "Accessories":
+                return _("Accessories")
+            elif category == "Education":
+                return _("Education")
+            elif category == "Games":
+                return _("Games")
+            elif category == "Graphics":
+                return _("Graphics")
+            elif category == "Internet":
+                return _("Internet")
+            elif category == "Office":
+                return _("Office")
+            elif category == "Programming":
+                return _("Programming")
+            elif category == "Media":
+                return _("Sound & Video")
+            elif category == "SysTools":
+                return _("System Tools")
+            elif category == "UnivAccess":
+                return _("Universal Access")
+            elif category == "Servers":
+                return _("Server One-Click Installation")
+            else:
+                # Includes "Unlisted"
+                return "Miscellaneous"
+
+        # Begin generating the HTML to append.
+        news_buffer = '<hr class="soften">'
+        news_versions = list(self.news.keys())
+        news_versions.sort(reverse=True)
+        for version in news_versions:
+            news_buffer = news_buffer + '<h4>' + version + '</h4><div class="news-list-version">'
+
+            # Create "Added" list.
+            try:
+                list_add = self.news[version]['add']
+                list_add.sort()
+                news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + _("Added") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_id in list_add:
+                    # Extract it's attributes.
+                    try:
+                        item_name = self.get_attribute_for_app(item_id, 'name')
+                        item_img = self.get_attribute_for_app(item_id, 'img')
+                        item_category_raw = self.get_attribute_for_app(item_id, 'category')
+                        item_category = get_category_string(item_category_raw)
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
+
+            # Create "Fixes/Updates" list.
+            try:
+                list_fix = list(self.news[version]['fix'].keys())
+                list_fix.sort()
+                news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + _("Fixed") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_id in list_fix:
+                    try:
+                        item_name = self.get_attribute_for_app(item_id, 'name')
+                        item_img = self.get_attribute_for_app(item_id, 'img')
+                        item_reason = get_reason_string(self.news[version]['fix'][item_id])
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
+
+            # Create "Removed" list.
+            try:
+                list_del = list(self.news[version]['del'].keys())
+                list_del.sort()
+                news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + _("Removed") + '</h5>'
+                news_buffer = news_buffer + '<div class="news-list-items"><ul>'
+                for item_name in list_del:
+                    try:
+                        item_img = 'unknown'
+                        item_reason = get_reason_string(self.news[version]['del'][item_name])
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                    except Exception as e:
+                        print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
+                news_buffer = news_buffer + '</ul></div>'
+            except:
+                pass
+            news_buffer = news_buffer + '</div><hr class="soften">'
+        app.update_page('#News-Content', 'html', news_buffer)
+        arg.print_verbose('Apps','Successfully loaded news.')
 
 
 class ScreenshotWindow(Gtk.Window):
@@ -2293,7 +2523,7 @@ class ScreenshotWindow(Gtk.Window):
         # Strings for this child window.
         title_string = 'Preview Screenshot'
         close_string = 'Close'
-        path = app._data_path + '/img/applications/screenshots/' + filename + '.jpg'
+        path = data_path + '/img/applications/screenshots/' + filename + '.jpg'
 
         # Build a basic pop up window containing the screenshot at its full dimensions.
         Gtk.Window.__init__(self, title=title_string)
@@ -2313,7 +2543,8 @@ class ScreenshotWindow(Gtk.Window):
         Gtk.main()
 
     def destroy_window(self, widget, dummy=None):
-        self.destroy()
+        # FIXME: Does not re-open once closed!
+        self.close()
 
 
 class Arguments(object):
@@ -2333,23 +2564,28 @@ class Arguments(object):
         self.font_dpi_override = None
 
         for arg in sys.argv:
-          if arg == '--help':
+          if arg == '--help' or arg == '-h':
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
-              print('  -v  --verbose               Show more details.')
-              print('  --force-arch=<ARCH>         Simulate a specific architecture.')
-              print('                                 "i386", "amd64" or "armhf" or "powerpc"')
-              print('  --force-session=<TYPE>      Simulate a specific architecture.')
-              print('                                 "guest", "live" or "pi" or "vbox"')
-              print('  --force-codename=<NAME>     Simulate a specific Ubuntu MATE codename release.')
-              print('                                 Examples: "trusty", "wily" or "xenial"')
-              print('  --force-no-net              Simulate no internet connection.')
-              print('  --force-net                 Simulate a working internet connection.')
-              print('  --software-only             Open Welcome only for the software selections.')
-              print('  --simulate-changes          Simulate software package changes without modifying the system.')
-              print('  --locale=<LOCALE>           Locale to use e.g. fr_FR.')
-              print('  --jump-to=<page>            Open a specific page, excluding html extension.')
-              print('  --font-dpi=<number>         Override the font size by specifying a font DPI.')
+              #     | Command                      | Help Text                                     |
+              print('  --dev                        Alias for --verbose and no locale.')
+              print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
+              print('  -h, --help                   Show this help text.')
+              print('  --force-arch=ARCH            Simulate a specific architecture.')
+              print('                                -- Options: i386, amd64, armhf, powerpc')
+              print('  --force-codename=CODENAME    Simulate a specific release.')
+              print('                                -- Examples: trusty, wily, xenial')
+              print('  --force-net                  Simulate a working internet connection.')
+              print('  --force-no-net               Simulate no internet connection.')
+              print('  --force-session=TYPE         Simulate a specific architecture.')
+              print('                                -- Options: guest, live, pi, vbox')
+              print('  --jump-to=PAGE               Open a specific page, excluding *.html')
+              print('  --locale=CODE                Locale to use. e.g. fr_FR.')
+              print('  --simulate-changes           Simulate software package changes without')
+              print('                               modifying the system.')
+              print('  -b, -boutique,               Open Welcome only for the software selections.')
+              print('  --software-only              ')
+              print('  -v, --verbose                Show more details to stdout (for debugging).')
               print('')
               exit()
 
@@ -2393,13 +2629,18 @@ class Arguments(object):
               print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
               self.simulate_force_connection = True
 
-          if arg == '--software-only':
-              print('[Welcome] Starting in software selections only mode.')
+          if arg == '--software-only' or arg == '--boutique' or arg == '-b':
+              print('[Welcome] Starting in Software Boutique mode.')
               self.jump_software_page = True
 
           if arg == '--simulate-changes':
               print('[Debug] Any changes to software will be simulated without modifying the actual system.')
               self.simulate_software_changes = True
+
+          if arg == '--dev':
+              print('[Debug] Running in debugging mode.')
+              self.verbose_enabled = True
+              self.locale = 'null'
 
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
@@ -2443,8 +2684,10 @@ if __name__ == "__main__":
     # Process any parameters passed to the program.
     arg = Arguments()
 
-    # Application Initialization
+    # Application Initialisation
     set_proc_title()
+    data_path = whereami()
+    trans = Translations(data_path)
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()

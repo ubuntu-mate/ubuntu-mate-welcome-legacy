@@ -1,0 +1,36 @@
+{
+    "16.04.999-Example": {
+        "add": [
+            "skype",
+            "gparted",
+            "hardinfo"
+        ],
+        "fix": {
+            "skype": "new-source",
+            "virtualbox": "add-source",
+            "minecraft": "snappy",
+            "spotify": "general",
+            "simplescreenrecorder": "bad-source",
+            "makemkv": "no-source",
+            "kodi": "broken",
+            "audacity": "unstable",
+            "caja-share": "testing",
+            "terminator": "not-nice"
+        },
+        "del": {
+            "VirtualBox": "no-source",
+            "psensor": "new-source"
+        }
+    },
+    "16.04.555-Example": {
+        "add": [
+            "virtualbox"
+        ],
+        "fix": {
+            "skype": "add-source"
+        },
+        "del": {
+            "SuperTuxKart": "unstable"
+        }
+    }
+}

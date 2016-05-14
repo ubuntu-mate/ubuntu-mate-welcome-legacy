@@ -1,25 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Kisbenedek Márton <kmarton815@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-02 22:42+0100\n"
-"PO-Revision-Date: 2016-03-21 17:02+0000\n"
+"POT-Creation-Date: 2016-04-07 13:44+0100\n"
+"PO-Revision-Date: 2016-04-08 08:43+0000\n"
 "Last-Translator: Kisbenedek Márton <kmarton815@gmail.com>\n"
-"Language-Team: Hungarian (Hungary) (http://www.transifex.com/ubuntu-mate/"
-"ubuntu-mate-welcome/language/hu_HU/)\n"
-"Language: hu_HU\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1138 ubuntu-mate-welcome:2221
+#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2285
 msgid "Software Boutique"
 msgstr "Szoftver butik"
 
@@ -27,11 +26,9 @@ msgstr "Szoftver butik"
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr ""
-"Szoftver változások folyamatban. Kérlek engedélyezd őket a befejezéshez "
-"mielőtt bezárod az Üdvözlőt."
+msgstr "Szoftver változások folyamatban. Kérlek engedélyezd őket a befejezéshez, mielőtt bezárod az Üdvözlőt."
 
-#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2222
+#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2286
 msgid "OK"
 msgstr "Oké"
 
@@ -83,7 +80,7 @@ msgstr "Nem sikerült kijavítani a törött függőségeket."
 msgid "Fixing the broken dependencies failed."
 msgstr "A törött függőségek javítása meghiúsult."
 
-#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1823
+#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1887
 msgid "Install"
 msgstr "Telepítés"
 
@@ -95,7 +92,7 @@ msgstr "A következő telepítése: "
 msgid "installed."
 msgstr "telepítve."
 
-#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1825
+#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1889
 msgid "Remove"
 msgstr "Eltávolítás"
 
@@ -107,7 +104,7 @@ msgstr "A következő eltávolítása: "
 msgid "removed."
 msgstr "eltávolítva."
 
-#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1826
+#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1890
 msgid "Upgrade"
 msgstr "Frissítés"
 
@@ -169,151 +166,229 @@ msgstr "A Blu-ray AACS adatbázis telepítése meghiúsult."
 
 #: ubuntu-mate-welcome:700
 msgid "Set to retrieve the latest software listings."
-msgstr ""
+msgstr "Beállítva a legújabb szoftver listázások beszerzésére."
 
 #: ubuntu-mate-welcome:701
 msgid "Retrieve the latest software listings."
-msgstr ""
+msgstr "A legújabb szoftver listázások beszerzése."
 
 #: ubuntu-mate-welcome:702
 msgid "Please wait while the application is being updated..."
-msgstr ""
+msgstr "Kérlek várj, míg az alkalmazás frissül..."
 
 #: ubuntu-mate-welcome:703
 msgid "Version:"
-msgstr ""
+msgstr "Verzió:"
 
 #: ubuntu-mate-welcome:718
 msgid "Close"
-msgstr ""
+msgstr "Bezár"
 
 #: ubuntu-mate-welcome:719
 msgid "Skip"
-msgstr ""
+msgstr "Kihagy"
 
 #: ubuntu-mate-welcome:848
 msgid "Servers"
-msgstr ""
+msgstr "Szerverek"
 
-#: ubuntu-mate-welcome:1143
+#: ubuntu-mate-welcome:873
+msgid "Jan"
+msgstr "Jan"
+
+#: ubuntu-mate-welcome:874
+msgid "Feb"
+msgstr "Feb"
+
+#: ubuntu-mate-welcome:875
+msgid "Mar"
+msgstr "Már"
+
+#: ubuntu-mate-welcome:876
+msgid "Apr"
+msgstr "Ápr"
+
+#: ubuntu-mate-welcome:877
+msgid "May"
+msgstr "Máj"
+
+#: ubuntu-mate-welcome:878
+msgid "Jun"
+msgstr "Jún"
+
+#: ubuntu-mate-welcome:879
+msgid "Jul"
+msgstr "Júl"
+
+#: ubuntu-mate-welcome:880
+msgid "Aug"
+msgstr "Aug"
+
+#: ubuntu-mate-welcome:881
+msgid "Sep"
+msgstr "Szep"
+
+#: ubuntu-mate-welcome:882
+msgid "Oct"
+msgstr "Okt"
+
+#: ubuntu-mate-welcome:883
+msgid "Nov"
+msgstr "Nov"
+
+#: ubuntu-mate-welcome:884
+msgid "Dec"
+msgstr "Dec"
+
+#: ubuntu-mate-welcome:1145
 msgid "Welcome"
-msgstr ""
+msgstr "Üdvözöljük"
 
 #: ubuntu-mate-welcome:1382
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: ubuntu-mate-welcome:1383
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ubuntu-mate-welcome:1384
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: ubuntu-mate-welcome:1385
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ubuntu-mate-welcome:1396
 msgid "Could not gather data."
-msgstr ""
+msgstr "Nem lehet adatot gyűjteni."
 
-#: ubuntu-mate-welcome:1818
+#: ubuntu-mate-welcome:1680
+msgid "Raspberry Pi Partition Resize"
+msgstr "Raspberry Pi partíció átméretezés"
+
+#: ubuntu-mate-welcome:1691
+msgid "Root partition has been resized."
+msgstr "A partíció átméretezve."
+
+#: ubuntu-mate-welcome:1691
+msgid "The filesystem will be enlarged upon the next reboot."
+msgstr "A fájlrendszer meg lesz növelve a következő újraindításkor."
+
+#: ubuntu-mate-welcome:1697
+msgid "does not exist or is not a symlink."
+msgstr "nem létezik, vagy nem szimbolikus link."
+
+#: ubuntu-mate-welcome:1697 ubuntu-mate-welcome:1699 ubuntu-mate-welcome:1701
+#: ubuntu-mate-welcome:1703
+msgid "Don't know how to expand."
+msgstr "Nem tudni, hogyan kell kiterjeszteni."
+
+#: ubuntu-mate-welcome:1699
+msgid "is not an SD card."
+msgstr "nem egy SD kártya."
+
+#: ubuntu-mate-welcome:1701
+msgid "Your partition layout is not currently supported by this tool."
+msgstr "A partíció kiosztásodat jelenleg nem támogatja ez az eszköz."
+
+#: ubuntu-mate-welcome:1703
+msgid "is not the last partition."
+msgstr "nem az utolsó partíció."
+
+#: ubuntu-mate-welcome:1882
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr ""
+msgstr "Sajnáljuk, az Üdvözlő nem talált egyetlen szoftvert sem ebben a kategóriában, ami kompatibilis lenne a rendszerrel."
 
-#: ubuntu-mate-welcome:1819
+#: ubuntu-mate-welcome:1883
 msgid "This application is set to receive the latest updates."
-msgstr ""
+msgstr "Az alkalmazás be lett állítva a legújabb frissítések fogadására."
 
-#: ubuntu-mate-welcome:1820
+#: ubuntu-mate-welcome:1884
 msgid "Alternative to:"
-msgstr ""
+msgstr "Erre alternatíva:"
 
-#: ubuntu-mate-welcome:1821
+#: ubuntu-mate-welcome:1885
 msgid "Hide"
-msgstr ""
+msgstr "Elrejt"
 
-#: ubuntu-mate-welcome:1822
+#: ubuntu-mate-welcome:1886
 msgid "Show"
-msgstr ""
+msgstr "Mutat"
 
-#: ubuntu-mate-welcome:1824
-#, fuzzy
+#: ubuntu-mate-welcome:1888
 msgid "Reinstall"
-msgstr "Telepítés"
+msgstr "Újratelepít"
 
-#: ubuntu-mate-welcome:1827
+#: ubuntu-mate-welcome:1891
 msgid "Launch"
-msgstr ""
+msgstr "Indítás"
 
-#: ubuntu-mate-welcome:1828
+#: ubuntu-mate-welcome:1892
 msgid "License"
-msgstr ""
+msgstr "Licensz"
 
-#: ubuntu-mate-welcome:1829
+#: ubuntu-mate-welcome:1893
 msgid "Platform"
-msgstr ""
+msgstr "Platform"
 
-#: ubuntu-mate-welcome:1830
+#: ubuntu-mate-welcome:1894
 msgid "Category"
-msgstr ""
+msgstr "Kategória"
 
-#: ubuntu-mate-welcome:1831
+#: ubuntu-mate-welcome:1895
 msgid "Website"
-msgstr ""
+msgstr "Weboldal"
 
-#: ubuntu-mate-welcome:1832
+#: ubuntu-mate-welcome:1896
 msgid "Screenshot"
-msgstr ""
+msgstr "Képernyőkép"
 
-#: ubuntu-mate-welcome:1833
+#: ubuntu-mate-welcome:1897
 msgid "Source"
-msgstr ""
+msgstr "Forrás"
 
-#: ubuntu-mate-welcome:1836
+#: ubuntu-mate-welcome:1900
 msgid "Canonical Partner Repository"
-msgstr ""
+msgstr "Canonical partner tároló"
 
-#: ubuntu-mate-welcome:1837
+#: ubuntu-mate-welcome:1901
 msgid "Ubuntu Repository"
-msgstr ""
+msgstr "Ubuntu tároló"
 
-#: ubuntu-mate-welcome:1838
+#: ubuntu-mate-welcome:1902
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
-#: ubuntu-mate-welcome:1946
+#: ubuntu-mate-welcome:2010
 msgid "Open Source"
-msgstr ""
+msgstr "Nyílt forrás"
 
-#: ubuntu-mate-welcome:1948
+#: ubuntu-mate-welcome:2012
 msgid "Proprietary"
-msgstr ""
+msgstr "Zárt"
 
-#: ubuntu-mate-welcome:2117
-#, fuzzy
+#: ubuntu-mate-welcome:2181
 msgid "Installing..."
-msgstr "Telepítés"
+msgstr "Telepítés..."
 
-#: ubuntu-mate-welcome:2118
+#: ubuntu-mate-welcome:2182
 msgid "Removing..."
-msgstr ""
+msgstr "Eltávolítás..."
 
-#: ubuntu-mate-welcome:2119
-#, fuzzy
+#: ubuntu-mate-welcome:2183
 msgid "Upgrading..."
-msgstr "Frissítés"
+msgstr "Frissítés..."
 
-#: ubuntu-mate-welcome:2223
+#: ubuntu-mate-welcome:2287
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr ""
+msgstr "Hiba történt a(z) PROGRAM_NAME indítása közben. Kérjük fontold meg az alkalmazás újratelepítését."
 
-#: ubuntu-mate-welcome:2224
+#: ubuntu-mate-welcome:2288
 msgid "Command:"
-msgstr ""
+msgstr "Parancs:"

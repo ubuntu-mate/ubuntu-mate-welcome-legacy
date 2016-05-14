@@ -1,16 +1,36 @@
 // Which page?
 current_page = document.location.href.match(/[^\/]+$/)[0];
 
+// Show an error dialog when JavaScript errors occur.
+$(window).on("error", function(evt) {
+    // Gets JavaScript Event
+    var e = evt.originalEvent;
+    friendly_txt = "Oops! Welcome encountered an internal error.\n\nPlease tell the Ubuntu MATE Developers so this can fixed right away.";
+    if (e.message) {
+        alert(friendly_txt + "\n\nError:\n\t" + e.message + "\nLine:\n\t" + e.lineno + "\nFile:\n\t" + e.filename);
+    } else {
+        alert(friendly_txt + "\n\nError:\n\t" + e.type + "\nElement:\n\t" + (e.srcElement || e.target));
+    }
+});
+
+// Pass commands to Python
+function cmd(instruction) {
+  document.title = instruction;
+}
+
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
     $('.entire-page-fade').fadeIn('medium');
+    $('#navigation-right').hide();
+    $('#navigation-right').fadeIn('medium');
 });
 
 // Smoothly fade out of the page.
 function smoothPageFade(target_href) {
     $('.entire-page-fade').fadeOut('medium');
     $('#navigation-title').fadeOut('medium');
+    $('#navigation-right').fadeOut('medium');
     $('.navigation-button').fadeOut('medium');
     setTimeout(function(){
         window.location.href = target_href;
@@ -20,25 +40,28 @@ function smoothPageFade(target_href) {
 // When page first opens
 $(document).ready(function() {
   // Animate navigation elements on page load
-  if ( current_page != 'software-only.html' ) {
+  if ( current_page != 'splash-boutique.html' ) {
     $('#menu-button').jAnimateOnce('fadeInLeft');
     $('#navigation-title').jAnimateOnce('fadeInDown');
   }
 
-  // Initialize scroll to the top
-  $(window).scroll(function () {
+  // Back to the top
+  $('#content').scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scroll-top').fadeIn();
       } else {
           $('#scroll-top').fadeOut();
+          $('#scroll-top').removeClass('active');
       }
   });
 
-  $('#footer').append('<a id="scroll-top" class="navigation-button"><span class="fa fa-chevron-up"></span></a>')
+  $('#navigation-right').append('<a id="scroll-top" class="navigation-button" style="display:none"><span class="fa fa-chevron-up"></span></a>')
+
   $('#scroll-top').click(function () {
-      $("html, body").animate({
+      $("#content").animate({
           scrollTop: 0
       }, 600);
+      $('#scroll-top').addClass('active');
       return false;
   });
 
@@ -61,11 +84,12 @@ function changeSubtitle(textToDisplay) {
 }
 
 // For pages that depend on an internet connection, but Welcome couldn't connect.
-function reconnectTimeout() {
+function reconnectRetry() {
+  cmd('checkInternetConnection');
   if ( ! $('#reconnectFailed').is(':visible') ) {
     $('#reconnectFailed').fadeIn();
   } else {
-    $('#reconnectFailed').jAnimateOnce('pulse');
+    $('#reconnectFailed').jAnimateOnce('flash');
   }
 }
 
@@ -302,6 +326,9 @@ if ( current_page == 'index.html' ) {
 // Introduction/Features = Animation
 if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
   new WOW().init();
+  new WOW({
+    scrollContainer: '#content'
+  }).init();
 }
 
 
@@ -322,12 +349,18 @@ if ( current_page == 'software.html' ) {
     function switchCategory(now, next, subtitle) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
-        $('html, body').animate({ scrollTop: 0 }, 0)
+        $('#content').animate({ scrollTop: 0 }, 0)
+
+        // Remove any other current page highlights
+        $('#navigation-news').removeClass('active');
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
+        } else if ( next == '#News' ) {
+          $('#non-free-toggle').fadeOut();
+          $('#show-misc-cmds').fadeOut();
         } else {
           smoothFade('#show-misc-cmds','#non-free-toggle');
         }
@@ -365,7 +398,7 @@ if ( current_page == 'software.html' ) {
       // Python passes 'server_string' variable to allow translation.
       changeCategoryTab('#Servers', server_string);
       $('#ServersBtn').tab('show');
-      $('html, body').animate({ scrollTop: 0 }, 100)
+      $('#content').animate({ scrollTop: 0 }, 100)
 
       // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
       if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
@@ -373,7 +406,7 @@ if ( current_page == 'software.html' ) {
       if ( appno == 3 ) {  targetDiv = 'murmur';  }
 
       setTimeout(function(){
-          $('html, body').animate({
+          $('#content').animate({
               scrollTop: $('#'+targetDiv).offset().top - 100
           }, 1000);
       }, 1000);
@@ -403,18 +436,11 @@ if ( current_page == 'software.html' ) {
     });
 
     function applyFilter() {
-        window.location.href = 'cmd://filter-apps?' + selected_filter + '?';
+        cmd('filter-apps?' + selected_filter + '?');
     }
 
     function toggleNonFree() {
-        window.location.href = 'cmd://filter-apps?' + selected_filter + '?toggle';
-    }
-
-    // Featured Grid - Randomly populate and add applications to the grid.
-    var iconID = 0;
-    function addToGrid(icon) {
-      iconID++;
-      $('#featured-grid').append('<img src="img/applications/'+icon+'.png" id="appIcon' + iconID + '" class="grid-hidden" />');
+        cmd('filter-apps?' + selected_filter + '?toggle');
     }
 
     // Featured Grid - Set classes to create a semi-circle fade effect.
@@ -486,6 +512,15 @@ if ( current_page == 'software.html' ) {
     // Smooth transition for footer.
     $('#footer-left').hide();
     $('#footer-left').fadeIn();
+
+    // Toggling to show the Boutique News
+    function showNews(subtitle) {
+      switchCategory(currentCategory, '#News', subtitle)
+      $('#tabs li').removeClass('active');
+      $('#navigation-news').addClass('active');
+      $('#non-free-toggle').fadeOut();
+      $('#show-misc-cmds').fadeOut();
+    }
 }
 
 
@@ -495,41 +530,56 @@ if ( current_page == 'splash.html' ) {
   // Scenes - Delayed elements to appear
   $(document).ready(function()
   {
-    $('#sceneA').show();
-    $('#sceneA').jAnimateOnce('fadeIn');
-    $('#splash-multilingual').show();
-    $('#splash-multilingual').jAnimateOnce('zoomIn');
+    $('body').show();
+    $('#splash-logo').show();
+    $('#splash-logo').jAnimateOnce('entrance');
+    $('#MATE-Logo').show();
+    $('#MATE-Logo').jAnimateOnce('mateRoll');
 
-    setTimeout(function(){ $('#circle1').fadeOut('medium');}, 2000);
-    setTimeout(function(){ $('#circle2').fadeOut('medium');}, 2100);
-    setTimeout(function(){ $('#circle3').fadeOut('medium');}, 2200);
-    setTimeout(function(){ $('#circle4').fadeOut('medium');}, 2300);
-    setTimeout(function(){ $('#circle5').fadeOut('medium');}, 2400);
-
-    setTimeout(function(){
-      $('#sceneA').show();
-      $('#sceneA').fadeOut();
-      $('#splash-multilingual').fadeOut('slow');
-    }, 2500);
+    $('#MATE-Text1').css('opacity','0');
+    $('#MATE-Text2').css('opacity','0');
+    $('#MATE-Text1').show();
+    $('#MATE-Text2').show();
 
     setTimeout(function(){
-      $('#sceneB').show();
-      $('#sceneB').jAnimateOnce('zoomIn');
-      $('body').addClass('fade-to-menu');
+      $('#MATE-Text1').hide();
+      $('#MATE-Text1').css('opacity','');
+      $('#MATE-Text1').fadeIn(1500);
+    }, 250);
+
+    setTimeout(function(){
+      $('#MATE-Text2').hide();
+      $('#MATE-Text2').css('opacity','');
+      $('#MATE-Text2').fadeIn(1500);
+    }, 600);
+
+    setTimeout(function(){
+      $('#header').show();
+      $('#footer').show();
+      $('#header').jAnimateOnce('fadeInDown');
+      $('#footer').jAnimateOnce('fadeInUp');
+    }, 2000);
+
+    setTimeout(function(){
+      $('#splash-logo').hide();
+      $('#skip-splash').fadeOut();
+      if ( quick_splash == true ) {
+        $('#white-start').fadeOut('fast');
+        continueToPage(false)
+      } else {
+        $('#splash-welcome').show();
+        $('#splash-welcome').jAnimateOnce('zoomInInverse');
+        $('#white-start').fadeOut('slow');
+      }
     }, 3000);
 
     setTimeout(function(){
-      $('body').removeClass('fade-to-menu');
-      $('body').css('background-color','#f4f4f4');
-    }, 4000);
-
-    setTimeout(function(){
-      $('#sceneB').fadeOut();
-    }, 5000);
+      $('#splash-welcome').fadeOut();
+    }, 4500);
 
     setTimeout(function(){
       continueToPage(false)
-    }, 5300);
+    }, 5000);
 
   });
 
@@ -538,10 +588,10 @@ if ( current_page == 'splash.html' ) {
 
   function continueToPage(skipped) {
     if ( skipped == true ) {
-      $('body').addClass('fade-to-menu');
-      $('#sceneA').fadeOut('medium');
-      $('#sceneB').fadeOut('medium');
-      $('#splash-multilingual').fadeOut('medium');
+      $('#white-start').fadeOut('fast');
+      $('#splash-logo').fadeOut('fast');
+      $('#splash-text').fadeOut('fast');
+      $('#splash-welcome').fadeOut('fast');
       setTimeout(function(){
           smoothPageFade(splashNextPage + '.html');
       }, 500);
@@ -662,7 +712,7 @@ if ( current_page == 'gettingstarted.html' ) {
   function InitSystemInfo() {
     setCursorBusy()
     setTimeout(function() {
-      window.location.href = "cmd://init-system-info";
+      cmd("init-system-info");
     }, 1000);
   }
 
@@ -697,7 +747,7 @@ if ( current_page == 'donate.html' ) {
       // Add a Month = (New Column)
       function addMonth(m,y) {
         cellID = y + '-' + m;
-        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a href="cmd://link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/">' + numToShortMonth(m) + '</a></td>');
+        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a onclick="cmd(\'link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/\')">' + numToShortMonth(m) + '</a></td>');
       }
 
       // Add a Blank Month = (New Column, Empty)
@@ -868,7 +918,9 @@ if ( current_page == 'donate.html' ) {
 
 
 // Entering Software Only Mode
-if ( current_page == 'software-only.html' ) {
-    setCursorBusy()
+if ( current_page == 'splash-boutique.html' ) {
+    setCursorBusy();
+    setTimeout(function() {
+      $('#boutique-splash').jAnimate('zoomOutInverse');
+    }, 1000);
 }
-

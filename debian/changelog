@@ -1,8 +1,53 @@
-ubuntu-mate-welcome (16.04.7~xenial1.6) xenial; urgency=medium
+ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
+
+  [ Martin Wimpress ]
+  * Enable Nuvola Player for Xenial.
+  * Enable VirtualBox for Xenial.
+
+ -- Martin Wimpress <code@flexion.org>  Fri, 29 Apr 2016 17:32:21 +0100
+
+ubuntu-mate-welcome (16.04.9.1) xenial; urgency=medium
+
+  [ Luke Horwell ]
+    + Correct some strings so translations are exposed.
+
+  [ Martin Wimpress ]
+    + Remove linux-firmware-nonfree from the install options.
+    + Fix Raspberry Pi partition resizer.
+    + Closes (LP: #1572931)
+
+ -- Martin Wimpress <code@flexion.org>  Wed, 20 Apr 2016 22:00:55 +0100
+
+ubuntu-mate-welcome (16.04.9) xenial; urgency=medium
+
+  [ Luke Horwell ]
+    + Fix Raspberry Pi resize button, so it prompts to restart.
+    + Fix parsing errors in quoted strings.
+    + Correct typo in Vivaldi.
+
+  [ Martin Wimpress ]
+    + Don't hide the Software Boutique.
+    + Update translations.
+    + Closes (LP: #1571635)
+
+ -- Logan Rosen <logan@ubuntu.com>  Mon, 18 Apr 2016 16:30:28 +0000
+
+ubuntu-mate-welcome (16.04.8) xenial; urgency=medium
+
+  [ Martin Wimpress ]
+    + Add Turkish (tr_TR) translation.
+    + Update translations.
+    + Update Vivaldi to stable.
+    + Update Telegram.
+
+ -- Martin Wimpress <code@flexion.org>  Wed, 06 Apr 2016 22:22:54 +0100
+
+ubuntu-mate-welcome (16.04.7) xenial; urgency=medium
 
   [ Martin Wimpress ]
     * Fix missing launch entries for Variety, Veracrypt and Zim.
     * Fix Extreme Tux Racer.
+    * Fix GNOME Software.
     * Fix Raspberry Pi partition resizing.
     * Add Psensor and Tux Paint to Software Boutique.
     * Add Catalan (ca_ES) translation.
@@ -22,14 +67,16 @@ ubuntu-mate-welcome (16.04.7~xenial1.6) xenial; urgency=medium
     * Fix text scaling based on font DPI setting.
     * Fix System Specifications.
     * Correct I-beam cursor, behaves more like a native application.
+    * Correct Flash Player link on Raspberry Pi documentation.
     * Improve readability of Keyboard Shortcuts and System Specifications.
     * Improve appearance of tooltips.
+    * Improve accuracy of disk usage in System Specifications.
     * Add MATE Disk Analyser and Psensor to System Specifications.
     * Add Source field for each Boutique application.
     * Add error message for applications that fail to launch.
     * Update footer to display version and subscription opt-in status.
 
- -- Martin Wimpress <code@flexion.org>  Thu, 24 Mar 2016 09:21:44 +0000
+ -- Martin Wimpress <code@flexion.org>  Tue, 05 Apr 2016 21:21:44 +0000
 
 ubuntu-mate-welcome (16.04.6) xenial; urgency=medium
 
