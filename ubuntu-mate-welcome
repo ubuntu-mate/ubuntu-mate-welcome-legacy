@@ -835,7 +835,6 @@ class AppView(WebKit2.WebView):
             else:
                 self.run_javascript('var splashNextPage = "index"')
                 self.run_javascript('var quick_splash = false')
-                app.update_page('#fullname', 'html', systemstate.full_name)
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
@@ -1171,7 +1170,6 @@ class SystemState(object):
 
         # Get user details.
         self.user_name = GLib.get_user_name()
-        self.full_name = GLib.get_real_name()
 
         # Full path to binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
