@@ -79,7 +79,7 @@
                 "saved locally on user\u2019s device and optionally he can sync",
                 "through other devices using his accounts of Dropbox, Box,",
                 "Google Drive, OneDrive and ownCloud.",
-                "<ul><li><b>Browser Extensions Available: </b><i>Enpass <a href=\"cmd://link?https://enpass.io/enpass-browser-extension/\">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>"
+                "<ul><li><b>Browser Extensions Available: </b><i>Enpass <a onclick=\"cmd('link?https://enpass.io/enpass-browser-extension/')\">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Password Management",
@@ -236,7 +236,7 @@
                 "any notifications you may have missed while",
                 "away from your computer.",
                 "<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
-                "<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
+                "<a onclick=\"cmd('run?mate-tweak')\"> MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Desktop Management",
@@ -2006,7 +2006,7 @@
             "description": [
                 "A simple application for",
                 "adding the music files on your computer to ",
-                "<a href=cmd://link?http://music.google.com>Google Play Music</a>.",
+                "<a onclick=\"cmd('link?http://music.google.com')\">Google Play Music</a>.",
                 "Use Music Manager to upload your favorite songs from your",
                 "computer to your Google Play library. You can upload up to",
                 "50,000 songs and listen on your mobile device, computer, or",
@@ -2100,7 +2100,7 @@
                 "support, Google Docs conversion, symlink support, and built in",
                 "sharing. <u>Insync is a commercial application</u>, if you",
                 "wish to continue using it after the evaluation period",
-                "<a href=cmd://link?https://www.insynchq.com/pricing>",
+                "<a onclick=\"cmd('link?https://www.insynchq.com/pricing')\">",
                 "you will have to pay for it.</a>",
                 "<ul><li><b>Equivalent to: </b><i>Google Drive Client</i></li></ul>"
             ],
@@ -2480,8 +2480,8 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:atareao/telegram",
-                    "source-file": "atareao-ubuntu-telegram-CODENAME"
+                    "enable-ppa": "ppa:flexiondotorg/telegram",
+                    "source-file": "flexiondotorg-ubuntu-telegram-CODENAME"
                 }
             },
             "working": true
@@ -2555,10 +2555,10 @@
         "vivaldi": {
             "name": "Vivaldi",
             "img": "vivaldi",
-            "main-package": "vivaldi-beta",
+            "main-package": "vivaldi-stable",
             "launch-command": "vivaldi",
-            "install-packages": "vivaldi-beta",
-            "remove-packages": "vivaldi-beta",
+            "install-packages": "vivaldi-stable",
+            "remove-packages": "vivaldi-stable",
             "description": [
                 "Vivaldi browser is made with power users in mind by people who love the Web."
             ],
@@ -3350,7 +3350,7 @@
                 "can choose one of the following sound tracks; Coffee Shop,",
                 "Fire, Forest, Night, Rain, Sea, Storm and Wind.",
                 "<ul><li><b>Note: </b><i>Ambient Noise works best with <u>Indicators enabled</u> via",
-                "<a href=cmd://run?mate-tweak> MATE Tweak</a>.</i></li></ul>"
+                "<a onclick=\"cmd('run?mate-tweak')\"> MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Media Playback",
@@ -3722,14 +3722,14 @@
             "working": true
         },
         "libdvdcss2": {
-            "name": "libdvdcss2",
+            "name": "DVD Playback Support",
             "img": "dvd",
             "main-package": "libdvdcss2",
             "launch-command": null,
             "install-packages": "libdvdcss2",
             "remove-packages": "libdvdcss2",
             "description": [
-                "A simple library designed for",
+                "<code>libdvdcss2</code> is a simple library designed for",
                 "accessing DVDs like a block device without having to bother",
                 "about the decryption. It will enable playback of DVD video in VLC."
             ],
@@ -3774,7 +3774,7 @@
                 "and there are tools to convert MKV files to many formats,",
                 "including DVD and Blu-ray discs. <u>MakeMKV for Linux is in",
                 "perpetual beta</u> and does require an activation key, which",
-                "<a href=cmd://link?http://www.makemkv.com/forum2/viewtopic.php?f=5&t=1053>is",
+                "<a onclick=\"cmd('link?http://www.makemkv.com/forum2/viewtopic.php?f=5&t=1053is')\">",
                 "always updated and on the MakeMKV forum</a>."
             ],
             "alternate-to": "Slysoft AnyDVD HD",
@@ -3818,7 +3818,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "wily",
+            "releases": "wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3877,7 +3877,7 @@
             "install-packages": "pithos",
             "remove-packages": "pithos",
             "description": [
-                "A native <a href=cmd://link?http://http://www.pandora.com>Pandora",
+                "A native <a onclick=\"cmd('link?http://www.pandora.com')\">Pandora",
                 "Radio</a> client for Linux. It&#8217;s more lightweight than the",
                 "Pandora.com web client, and integrates with desktop features",
                 "such as media keys, notifications, and the sound menu.",
@@ -4167,7 +4167,7 @@
                 "Connects smartphones to your",
                 "desktop to integrate with your smartphones and similar",
                 "devices. At the moment it only supports Android based devices.",
-                "<ul><li><b>Requires: </b><i>KDEConnect installed on your smartphone and <u>Indicators enabled</u> via <a href=cmd://run?mate-tweak>MATE Tweak</a>.</i></li></ul>"
+                "<ul><li><b>Requires: </b><i>KDEConnect installed on your smartphone and <u>Indicators enabled</u> via <a onclick=\"cmd('run?mate-tweak')\">MATE Tweak</a>.</i></li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Connectivity",
@@ -4330,12 +4330,12 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily",
+            "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "virtualbox",
-                    "apt-key-url": "https://www.virtualbox.org/download/oracle_vbox.asc",
+                    "apt-key-url": "https://www.virtualbox.org/download/oracle_vbox_2016.asc",
                     "apt-sources": [
                         "deb http://download.virtualbox.org/virtualbox/debian CODENAME contrib"
                     ]
@@ -4447,7 +4447,7 @@
                 "play on any device.",
                 "<br><br>When installed run <code>sudo service emby-server",
                 "start</code> from a terminal to start Emby and then point a",
-                "browser to <a href=cmd://link?http://localhost:8096>http://localhost:8096</a>",
+                "browser to <a onclick=\"cmd('link?http://localhost:8096')\">http://localhost:8096</a>",
                 "to configure Emby."
             ],
             "alternate-to": "Windows&reg; Media Center",
@@ -4481,7 +4481,7 @@
                 "Installs the official server so you can create your own multi-player world",
                 "to play with family and friends.",
                 "<br><br>When installed, run <code>minecraft-server</code> in the folder used for the server",
-                "<br>To learn more on setting up, see the <a href=cmd://link?http://minecraft.gamepedia.com/Setting_up_a_server> Minecraft Wiki </A>."
+                "<br>To learn more on setting up, see the <a onclick=\"cmd('link?http://minecraft.gamepedia.com/Setting_up_a_server')\"> Minecraft Wiki </A>."
             ],
             "alternate-to": null,
             "subcategory": "Server",
@@ -4643,8 +4643,8 @@
             "img": "gnome-software",
             "main-package": "gnome-software",
             "launch-command": "gnome-software",
-            "install-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
-            "remove-packages": "gnome-software,packagekit-plugin-click,packagekit-backend-smart,packagekit-gtk3-module",
+            "install-packages": "gnome-software,python3-aptdaemon.pkcompat",
+            "remove-packages": "gnome-software",
             "description": [
                 "Software lets you install and update applications and system extensions."
             ],
@@ -4804,10 +4804,10 @@
         "firmware": {
             "name": "Firmware Drivers",
             "img": "null",
-            "main-package": "linux-firmware-nonfree",
+            "main-package": "firmware-b43-installer",
             "launch-command": null,
-            "install-packages": "firmware-b43-installer,linux-firmware,linux-firmware-nonfree",
-            "remove-packages": "firmware-b43-installer,linux-firmware,linux-firmware-nonfree",
+            "install-packages": "firmware-b43-installer,linux-firmware",
+            "remove-packages": "firmware-b43-installer,linux-firmware",
             "description": "null",
             "alternate-to": null,
             "subcategory": "null",

@@ -15,8 +15,7 @@
 }
 
 html {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 html, body {
@@ -45,6 +44,8 @@ body, button {
 
 .backdrop-simple {
   background-color: #f4f4f4;
+  background: #F4F4F4 url("../img/welcome/background.svg") no-repeat fixed right bottom;
+  background-position: 100% calc(100% - 64px);
 }
 
 .cursor-wait {
@@ -52,9 +53,39 @@ body, button {
 }
 
 /************************
+ * Nicer Scroll Bar Integration
+*************************/
+::-webkit-scrollbar {
+  width: 20px;
+  height: 18px;
+  z-index: 100;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 6px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+  z-index: 100;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+  z-index: 100;
+}
+
+/************************
  * Header
 *************************/
-
 #header {
   padding: 8px 0;
   background-color: rgba(208, 208, 208, 0.25);
@@ -91,7 +122,6 @@ body, button {
 /************************
  * Navigation
 *************************/
-
 #navigation {
   left: 0;
   top: 0;
@@ -110,7 +140,7 @@ body, button {
 }
 
 .navigation-button {
-  width: 11px;
+  width: 15px;
   height: 21px;
 	color: #DED9CB;
   display: inline-block;
@@ -130,6 +160,10 @@ body, button {
 .navigation-button:active {
   background-color: #667E40;
   color: #fff;
+}
+
+.navigation-button.active {
+  background-color: #667E40;
 }
 
 #navigation-title {
@@ -155,14 +189,28 @@ body, button {
   position: fixed;
 }
 
+#navigation-right {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  z-index: 11;
+}
 
 /************************
  * Content
 *************************/
-
 #content {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  top: 48px;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  overflow-x: none;
+  overflow-y: scroll;
+  position: fixed;
+  height: auto;
+  width: auto;
 }
 
 .divider {
@@ -223,7 +271,6 @@ a {
 /************************
  * Footer
 *************************/
-
 #footer {
   background: url("../img/welcome/footer-bg.jpg");
   position: fixed;
@@ -360,17 +407,26 @@ hr.soften-light {
   to   { opacity: 1; }
 }
 
-/* Floating Back to Top */
-#scroll-top {
-  position: fixed;
-  top: 8px;
-  right: 8px;
-  display: none;
-  z-index: 11;
-}
-
 .success-text {
   color: #477301;
+}
+
+/* Feedback with button interactions */
+.btn:active, .btn:focus, .btn:hover {
+  border: 1px solid #87A556;
+}
+
+/* Alert Box for Facts */
+.alert-fact {
+  color: #000000;
+  background-color: #DCDCDC;
+  border-color: #ACACAC;
+  padding: 8px;
+  opacity: 0.9;
+}
+
+.alert-fact > p {
+  margin: 0;
 }
 
 /************************
@@ -413,12 +469,52 @@ hr.soften-light {
  * Software Page / Boutique
 *************************/
 
+/* Responsive Column Structure */
+@media (max-width:1279px) {
+  .app-entry {
+    width:100%;
+    box-sizing:border-box;
+    float:none;
+    margin:0 0 0 0;
+    transition: all 0.7s linear;
+  }
+}
+
+@media (min-width:1280px) and (max-width:1599px) {
+  .app-entry {
+    width:48%;
+    box-sizing:border-box;
+    float:left;
+    margin:0 2% 0 0;
+    transition: all 0.7s linear;
+  }
+  .app-entry:nth-child(even) {
+    clear:both;
+    float:left;
+  }
+}
+
+@media (min-width:1600px) {
+  .app-entry {
+    width:31%;
+    box-sizing:border-box;
+    float:left;
+    margin:0 2% 0 0;
+    transition: all 0.7s linear;
+}
+  .app-entry:nth-child(3n+5) {
+    clear:both;
+    float:left;
+  }
+}
+
 /* Always keep category tabs visible */
 #category-tabs {
   position: fixed;
   background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
-  width: 100%;
+  width: auto;
   left: 0;
+  right: 16px;
   top: 48px;
   z-index: 5;
   padding-top: 8px;
@@ -528,13 +624,20 @@ blockquote.terminal {
 }
 
 /* Software Only Mode Splash */
-#center-spinner {
-  width: 200px;
-  height: 200px;
+#boutique-splash {
+  width: auto;
+  height: 64px;
   margin: auto;
   top: 0; bottom: 0; left: 0; right: 0;
   position: absolute;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "Ubuntu";
+  font-size: 40px;
+  color: #5A6943;
+  pointer-events: none;
 }
+
 
 /************************
  * Main Menu
@@ -563,6 +666,15 @@ blockquote.terminal {
   font-weight: bold;
   font-size: 18px;
   color: #5A6943;
+}
+
+.main-menu-version {
+  font-family: "Ubuntu";
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #5A6943;
+  pointer-events: none;
 }
 
 .menu-bkgnd {
@@ -620,84 +732,81 @@ blockquote.terminal {
 /************************
  * Splash Screen
 *************************/
-/* Scene A */
-.splash-center {
+#splash-logo {
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  padding-top: 4%;
+  width: auto;
+  height: 128px;
+  pointer-events: none;
   text-align: center;
   vertical-align: middle;
-  position: absolute;
-  z-index: -1;
-  margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin-top: -50px;
-  width: 446px; height: 459px;
-  pointer-events: none;
 }
 
-.splash-text {
+#splash-text {
+  display: inline;
   font-family: "Ubuntu";
   font-weight: 100;
-  font-size: 64px;
-  color: #fff;
-  position: relative;
-  top: 30%;
-}
-
-#splash-multilingual {
-  position: absolute;
-  top: 50%;
-  width: 640px;
-  height: 190px;
-  left: 0; right: 0;
-  margin: auto;
-  font-size: 20px;
-  color: #909090;
-  text-align: center;
-  line-height: 32px;
-}
-
-.boot-circle {
-  background: #8ba34f;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: inline-table;
-}
-
-.boot-circle-block {
-  width: 16px;
-  height: 16px;
-  display: inline-table;
-  margin: 0;
-  padding: 0;
-}
-
-/* Scene B */
-#sceneB {
-  position: absolute;
-  top: -50px; bottom: 0; left: 0; right: 0;
-  width: 450px;
-  height: 180px;
-  margin: auto;
-  text-align: center;
-}
-
-.splash-version {
-  vertical-align: top;
-  font-weight: bold;
   font-size: 20px;
   color: #5A6943;
-  pointer-events: none;
 }
 
-/* Background */
-@-webkit-keyframes fade-to-menu {
-  from { background-color: #3B3A36; }
-  to   { background-color: #f4f4f4; }
+#splash-welcome {
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto;
+  position: absolute;
+  width: auto;
+  height: 128px;
+  padding-top: 8%;
+  font-family: "Ubuntu";
+  font-weight: 100;
+  font-size: 48px;
+  color: #3B3A36;
+  text-align: center;
 }
 
-.fade-to-menu {
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation: fade-to-menu 1s ease-in-out;
+@-webkit-keyframes entrance {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.5, 1.5, 1.5);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(.9, .9, .9);
+  }
+}
+
+/* Modified animate.css rollIn */
+@-webkit-keyframes splashRollIn {
+  00% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+  }
+
+  30% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.entrance {
+  -webkit-animation-name: entrance;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+/* Slower version from animate.css */
+.mateRoll {
+  -webkit-animation-name: splashRollIn;
+  -webkit-animation-duration: 3s;
 }
 
 /************************
@@ -750,7 +859,7 @@ blockquote.terminal {
  * Getting Started - System Specifications
 *************************/
 #specs-icon {
-  top: 22%;
+  top: 180px;
   left: 4%;
   width: 20%;
   height: auto;
@@ -800,18 +909,33 @@ blockquote.terminal {
   height: 8px;
   background-color: #C8C8C8;
   border: 1px solid #8C8C8C;
+  overflow: hidden;
+}
+
+.disk-line {
+  float: left;
+  height: 100%;
 }
 
 #disk-used {
-  float: left;
   background-color: #87A556;
-  height: 100%;
+}
+
+#disk-free {
+  background-color: #C2D3A6;
 }
 
 #disk-other {
-  float: right;
   background-color: #484848;
-  height: 100%;
+}
+
+.disk-legend {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  float: left;
+  vertical-align: middle;
+  margin: 4px;
 }
 
 /************************
@@ -840,4 +964,32 @@ blockquote.terminal {
 .hello p {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+/************************
+ * Boutique News
+*************************/
+.news-list-version {
+  margin-left: 16px;
+}
+
+.news-list-items {
+  margin-left: 32px;
+}
+
+.news-reason {
+  color: #959595;
+  font-style: italic;
+}
+
+#news-add {
+  color: #86A555;
+}
+
+#news-fix {
+  color: #609FCF;
+}
+
+#news-del {
+  color: #FF0108;
 }

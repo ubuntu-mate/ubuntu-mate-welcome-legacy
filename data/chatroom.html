@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
   <link href="css/font-awesome.css" rel="stylesheet" media="screen">
@@ -15,6 +16,7 @@
           <span class="fa fa-chevron-left"></span>
         </a>
         <div id="navigation-title" hidden>&zwnj;Chat Room&zwnj;</div>
+        <div id="navigation-right"></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
     </div>
@@ -25,7 +27,7 @@
           <h3>&zwnj;Chat with fellow users&zwnj;</h3>
           <p>&zwnj;This IRC client is pre-configured so you can jump into our&zwnj;
           <code>#ubuntu-mate</code> &zwnj;channel on&zwnj; <a
-          href="cmd://link?https://freenode.net/">Freenode</a>. &zwnj;Most of the Ubuntu
+          onclick="cmd('link?https://freenode.net/')">Freenode</a>. &zwnj;Most of the Ubuntu
           MATE team are on here but they have real lives too. If you
           have a question, feel free to ask.&zwnj; <strong>&zwnj;However, it may take a while
           for someone to reply. Just be patient and don't disconnect
@@ -33,11 +35,11 @@
           <div class="alert alert-warning offline">
             <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
             <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-            <a href="cmd://checkInternetConnection" onclick="reconnectTimeout();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+            <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
           </div>
           <div align="center">
-            <a class="hexchat btn btn-lg btn-inverse" href="cmd://chatroom"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Join the IRC in Hexchat&zwnj;</a>
-            <a class="webchat btn btn-lg btn-success" href="cmd://link?https://ubuntu-mate.org/irc/"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.org/IRC</a>
+            <a class="hexchat btn btn-lg btn-inverse" onclick="cmd('chatroom')"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Join the IRC in Hexchat&zwnj;</a>
+            <a class="webchat btn btn-lg btn-success" onclick="cmd('link?https://ubuntu-mate.org/irc/')"><img src="img/welcome/ubuntu-mate-gray.svg">&nbsp; ubuntu-mate.org/IRC</a>
           </div>
         </div>
       </div>

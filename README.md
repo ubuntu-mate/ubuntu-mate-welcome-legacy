@@ -93,22 +93,20 @@ A complete guide has been written at the Ubuntu MATE Community:
 
  * https://ubuntu-mate.community/t/guide-how-to-translate-ubuntu-mate-welcome/4234
 
-
-## Preview in another locale.
-
-Navigate to your repository folder.
-
-    ./edgar-allan translate-all
-    ./ubuntu-mate-welcome --locale=<CODE>
-
-Use the verbose flag (`-v`) for more detailed output on which
-pages will use the translated version.
-
-Currently, Welcome still uses English for:
+## Non-Translatable
 
   * Software Boutique - Names and descriptions for applications.
   * Terminal debug output.
   * Screenshots.
+
+## Developers
+
+When you need to update translations:
+
+    tx pull -a
+    ./welcome-po.py --update-pos
+    ./edgar-allan create-all-pots
+    ./edgar-allan translate-all
 
 
 ## edgar-allan
