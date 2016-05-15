@@ -827,14 +827,14 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,utopic,wily",
+            "releases": "trusty,utopic,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "lutris",
                     "apt-key-url": "http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/Release.key",
                     "apt-sources": [
-                        "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/ ./"
+                        "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_OSVERSION/ /"
                     ]
                 }
             },
