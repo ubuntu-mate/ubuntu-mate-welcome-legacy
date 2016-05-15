@@ -3006,21 +3006,25 @@
             "install-packages": "atom",
             "remove-packages": "atom",
             "description": [
-                "A hackable text editor for the 21st Century."
+                "Atom is a text editor that's modern,",
+                "approachable, yet hackable to the core—a",
+                "tool you can customize to do anything but",
+                "also use productively without ever touching",
+                "a config file."
             ],
             "alternate-to": null,
             "subcategory": "IDEs",
             "open-source": true,
-            "url-info": "https://atom.io/",
+            "url-info": "http://atom.io/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "trusty,vivid,wily",
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "precise,trusty,utopic,vivid,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:webupd8team/atom",
-                    "source-file": "webupd8team-atom-ubuntu-ppa-CODENAME"
+                    "source-file": "webupd8team-ubuntu-atom-CODENAME"
                 }
             },
             "working": true
