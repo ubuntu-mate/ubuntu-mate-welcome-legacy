@@ -2396,14 +2396,14 @@
                 "all": {
                     "method": "manual",
                     "source-file": "spideroakone",
-                    "apt-key-url": "https://spideroak.com/dist/spideroak-apt-2013.asc",
+                    "apt-key-url": "https://spideroak.com/dist/spideroak-apt-2016.asc",
                     "apt-sources": [
                         "deb http://APT.spideroak.com/ubuntu-spideroak-hardy/ release restricted",
                         " "
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "syncthing": {
             "name": "Syncthing",
