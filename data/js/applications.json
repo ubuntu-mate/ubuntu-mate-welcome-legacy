@@ -374,12 +374,15 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:peterlevi/ppa",
                     "source-file": "peterlevi-ubuntu-ppa-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
