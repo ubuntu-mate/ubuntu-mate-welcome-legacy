@@ -993,14 +993,6 @@
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
-                "precise": {
-                    "method": "ppa+manual",
-                    "enable-ppa": "ppa:ubuntu-wine/ppa",
-                    "apt-key-url": "http://deb.playonlinux.com/public.gpg",
-                    "apt-sources": [
-                        "deb http://deb.playonlinux.com/ CODENAME main"
-                    ]
-                },
                 "trusty": {
                     "method": "ppa+manual",
                     "enable-ppa": "ppa:ubuntu-wine/ppa",
@@ -2191,11 +2183,6 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "precise": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mumble/release",
-                    "source-file": "mumble-ubuntu-release-CODENAME"
-                },
                 "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mumble/release",
@@ -3967,11 +3954,6 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "precise": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:pithos/ppa",
-                    "source-file": "pithos-ubuntu-ppa-CODENAME"
-                },
                 "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:pithos/ppa",
