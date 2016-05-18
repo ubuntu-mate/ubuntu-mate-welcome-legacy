@@ -212,17 +212,14 @@
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "yakkety": {
-                    "method": "skip"
-                },
-                "xenial": {
-                    "method": "skip"
-                },
-                "all": {
+                "trusty,wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:flexiondotorg/keeypassx",
                     "source-file": "flexiondotorg-ubuntu-keeypassx-CODENAME"
-                }
+                },
+                "all": {
+                    "method": "skip"
+                }              
             },
             "working": true
         },
@@ -556,17 +553,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:stellarium/stellarium-releases",
-                    "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
-                },
-                "wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:stellarium/stellarium-releases",
-                    "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
-                },
-                "xenial": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:stellarium/stellarium-releases",
                     "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
@@ -633,17 +620,7 @@
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wfg/0ad",
-                    "source-file": "wfg-ubuntu-0ad-CODENAME"
-                },
-                "wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wfg/0ad",
-                    "source-file": "wfg-ubuntu-0ad-CODENAME"
-                },
-                "xenial": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wfg/0ad",
                     "source-file": "wfg-ubuntu-0ad-CODENAME"
@@ -1774,12 +1751,15 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.twitter.android",
             "url-ios": "https://itunes.apple.com/gb/app/twitter/id333903271",
             "arch": "i386,amd64",
-            "releases": "wily,xenial",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntuhandbook1/corebird",
                     "source-file": "ubuntuhandbook1-ubuntu-corebird-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
@@ -1903,12 +1883,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/gajim",
-                    "source-file": "flexiondotorg-ubuntu-gajim-CODENAME"
-                },
-                "wily": {
+                "trusty,wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:flexiondotorg/gajim",
                     "source-file": "flexiondotorg-ubuntu-gajim-CODENAME"
@@ -2212,12 +2187,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mumble/release",
-                    "source-file": "mumble-ubuntu-release-CODENAME"
-                },
-                "wily": {
+                "trusty,wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
@@ -2385,16 +2355,16 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "skip"
-                },
-                "all": {
+                "wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:flexiondotorg/sparkleshare",
                     "source-file": "flexiondotorg-ubuntu-sparkleshare-CODENAME"
-                }
+                },
+                "all": {
+                    "method": "skip"
+                }                
             },
             "working": true
         },
@@ -2530,7 +2500,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2561,7 +2531,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2623,12 +2593,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wireshark-dev/stable",
-                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
-                },
-                "wily": {
+                "trusty,wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wireshark-dev/stable",
                     "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
@@ -2661,17 +2626,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wireshark-dev/stable",
-                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
-                },
-                "wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wireshark-dev/stable",
-                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
-                },
-                "trusty": {
+                "trusty,wily,xenial,yakkety": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wireshark-dev/stable",
                     "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
@@ -3082,7 +3037,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "precise,trusty,utopic,vivid,wily,xenial,yakkety",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3355,12 +3310,15 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
                     "source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
@@ -3545,8 +3503,13 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "precise,trusty,vivid,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
+                "trusty,wily,xenial": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:me-davidsansome/clementine",
+                    "source-file": "me-davidsansome-ubuntu-clementine-CODENAME"
+                },
                 "all": {
                     "method": "skip"
                 }
@@ -3801,12 +3764,15 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:team-xbmc/ppa",
                     "source-file": "team-xbmc-ubuntu-ppa-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
@@ -4261,12 +4227,15 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:vikoadi/ppa",
                     "source-file": "vikoadi-ubuntu-ppa-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
@@ -4353,17 +4322,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:gnome-terminator/ppa",
-                    "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
-                },
-                "wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:gnome-terminator/ppa",
-                    "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
-                },
-                "xenial": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:gnome-terminator/ppa",
                     "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
@@ -4466,17 +4425,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:cesar-crea-si/eviacam",
-                    "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
-                },
-                "wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:cesar-crea-si/eviacam",
-                    "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
-                },
-                "xenial": {
+                "trusty,wily,xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:cesar-crea-si/eviacam",
                     "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
@@ -4633,12 +4582,7 @@
             "arch": "i386,amd64,armhf,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mumble/release",
-                    "source-file": "mumble-ubuntu-release-CODENAME"
-                },
-                "wily": {
+                "trusty,wily": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
@@ -4699,7 +4643,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4790,13 +4734,14 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "skip"
                 }
             },
-            "working": true
+            "working": true,
+            "notes": "Last release this is support is Xenial."
         },
         "4-synaptic": {
             "name": "Synaptic Package Manager",
