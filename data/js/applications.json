@@ -551,12 +551,25 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:stellarium/stellarium-releases",
                     "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
+                },
+                "wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:stellarium/stellarium-releases",
+                    "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
+                },
+                "xenial": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:stellarium/stellarium-releases",
+                    "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
