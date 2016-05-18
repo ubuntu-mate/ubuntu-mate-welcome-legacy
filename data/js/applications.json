@@ -4335,12 +4335,25 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,powerpc",
-            "releases": "trusty,wily,xenial",
+            "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:gnome-terminator/ppa",
                     "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
+                },
+                "wily": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:gnome-terminator/ppa",
+                    "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
+                },
+                "xenial": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:gnome-terminator/ppa",
+                    "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
