@@ -1,8 +1,13 @@
 ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
 
   [ Martin Wimpress ]
+    + Update all Yakkety compatible applications.
+    + Fix SpiderOAK One for Xenial and Yakkety.
     + Enable Nuvola Player for Xenial.
     + Enable VirtualBox for Xenial.
+    + Enable OBS Studio for Xenial.
+    + Enable ownCloud Client for Xenial.
+    + Enable Subsurface for Xenial.
     + Update translations.
 
   [ Luke Horwell ]
@@ -31,7 +36,7 @@ ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
       - Show apt instead of apt-get for terminal commands.
       - Use new 2016 VirtualBox signing key.
 
- -- Martin Wimpress <code@flexion.org>  Fri, 29 Apr 2016 17:32:21 +0100
+ -- Martin Wimpress <code@flexion.org>  Tue, 17 May 2016 22:32:21 +0100
 
 ubuntu-mate-welcome (16.04.9.1) xenial; urgency=medium
 
