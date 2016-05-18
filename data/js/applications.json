@@ -2500,12 +2500,45 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:webupd8team/tor-browser",
                     "source-file": "webupd8team-ubuntu-tor-browser-CODENAME"
+                }
+            },
+            "working": true
+        },
+        "torbrowser-launcher": {
+            "name": "Tor Browser",
+            "img": "torbrowser-launcher",
+            "main-package": "torbrowser-launcher",
+            "launch-command": "torbrowser-launcher",
+            "install-packages": "torbrowser-launcher",
+            "remove-packages": "torbrowser-launcher",
+            "description": [
+                "Lets you use Tor without needing to",
+                "install any additional software. It comes with a",
+                "pre-configured web browser to protect your anonymity, and is",
+                "self-contained. Tor Browser protects you by bouncing your",
+                "communications around a distributed network of relays run by",
+                "volunteers all around the world: it prevents somebody",
+                "watching your Internet connection from learning what sites",
+                "you visit, it prevents the sites you visit from learning your",
+                "physical location, and it lets you access sites which are blocked."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": true,
+            "url-info": "https://www.torproject.org/projects/torbrowser.html",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
