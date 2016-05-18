@@ -1,36 +1,28 @@
 {
-    "16.04.999-Example": {
+    "16.10.0": {
         "add": [
-            "skype",
-            "gparted",
-            "hardinfo"
+            "atom",
+            "clementine",
+            "lutris"
         ],
-        "fix": {
-            "skype": "new-source",
-            "virtualbox": "add-source",
-            "minecraft": "snappy",
-            "spotify": "general",
-            "simplescreenrecorder": "bad-source",
+        "del": {
+            "spideroakone": "new-source"
+        },
+        "del": {
+            "recentnotifications": "no-source",
+            "variety": "no-source",
+            "veracrypt": "no-source",
+            "playonlinux": "no-source",
+            "anoise": "no-source",
+            "audio-recorder": "no-source",
             "makemkv": "no-source",
-            "kodi": "broken",
-            "audacity": "unstable",
-            "caja-share": "testing",
-            "terminator": "not-nice"
-        },
-        "del": {
-            "VirtualBox": "no-source",
-            "psensor": "new-source"
-        }
-    },
-    "16.04.555-Example": {
-        "add": [
-            "virtualbox"
-        ],
-        "fix": {
-            "skype": "add-source"
-        },
-        "del": {
-            "SuperTuxKart": "unstable"
+            "nuvolaplayer": "no-source",
+            "simplescreenrecorder": "no-source",
+            "appgrid": "no-source",
+            "usc": "no-source",
+            "ubuntu-sdk": "no-source",
+            "aptik": "no-source",
+            "virtualbox": "no-source"
         }
     }
 }
