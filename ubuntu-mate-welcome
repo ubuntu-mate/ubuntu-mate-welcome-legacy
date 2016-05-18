@@ -1749,79 +1749,6 @@ class DynamicApps(object):
                 break
         print('[Welcome] Version: ' + systemstate.welcome_version)
 
-
-    ###### JSON Index Structure
-    #
-    #   ===== Structure Overview =====
-    #   {
-    #     "Category" {                                  - Application category.
-    #       "application-id" {                          - Unique string identifier for application, apps sorted A-Z. Hyphens preferred.
-    #         "variable": "data",                       - Variable containing single data.
-    #         "list": ["This is a line.",
-    #                   "The same line."]               - Variable containing a 'list' of data.
-    #         "group": { "variable": "data" }           - Group containing data.
-    #        }
-    #      }
-    #   }
-    #
-    #   ** Standard JSON rules apply. Watch out for the commas.
-    #   ** Important!! Use &#8217; instead of ' for an apostrophe character.
-
-    #   ===== Variable Index =====
-    #   Variable                Type        Required?   Description
-    #   ----------------------- ----------  ----------  ---------------------------------------------
-    #   name                    string      Yes         Name of the application as displayed to the user.
-    #   img                     string      Yes         Name of image. Excluding ".png" extension.
-    #   main-package            string      Yes         Package used to detect if it's installed.
-    #   launch-command          string      No          Command to launch the installed program. Can be ignored for no launch option.
-    #   install-packages        string      *           Packages to install/reinstall. Comma separated.
-    #   remove-packages         string      *           Packages to remove. Comma separated.
-    #   upgradable              boolean     *           This package is only for upgrading.
-    #   upgrade-packages        string      *           Packages to upgrade. Comma separated.
-    #   description             list        Yes         Description of the application. Use usual HTML tags for formatting. Can be left blank if unlisted.
-    #   alternate-to            string      No          If the app is similar or has an alternate. Can be ignored.
-    #   subcategory             string      Yes         Used for filtering applications within the category. Eg. "Partitioning", "Audio Production".
-    #   open-source             boolean     Yes         Proprietary or Open Source?
-    #   url-info                string      Yes         URL to the web page for more information.
-    #   url-android             string      No          URL if there is an associated Android app. Can be ignored.
-    #   url-ios                 string      No          URL if there is an associated Android app. Can be ignored.
-    #   arch                    string      Yes         Supported architectures for this app. Comma seperated.
-    #   releases                string      Yes         Supported versions of Ubuntu MATE to show this application. Comma seperated.
-    #   working                 boolean     Yes         Show/hide visibility of this application.
-    #   notes                   string      No          Optional developer notes for the application.
-    #
-    #### * Only if applicable to application.
-
-    #   ===== Pre-installation Index =====
-    #
-    #   "pre-install": {                                - Required group of data containing pre-installation procedures.
-    #       "trusty": {                                 - Different releases may have different operations.
-    #           "variable":  "data"                     - See table below for possible operations.
-    #       },
-    #       "all": {                                    - Use "all" to specify all other releases. This should be last.
-    #           "variable":  "data"                         If there is only one instruction,
-    #       }
-    #   }
-    #
-    #   method                  string      Yes         Pre-configuration methods. Multiple can be specified with a plus '+'.
-    #                                                       "skip"          =   Package is already in archive.
-    #                                                       "ppa"           =   Add a PPA. Specify (2), optionally (1).
-    #                                                       "partner-repo"  =   Add the Ubuntu Partners Repo.
-    #                                                       "manual"        =   Get keys and write a sources.list file. (3)
-    #   source-file        (1)  string      No          Source file to update, excluding the ".list" extension.
-    #   enable-ppa         (2)  string      *           Name of PPA to add, eg. "ppa:somebody/someapp".
-    #   apt-key-url        (3)  string      *           Retrieve the key from URL.
-    #   apt-key-server     (3)  list        *           Retrieve the key from a server.
-    #                                                       "server-address"    = Eg. "keyserver.ubuntu.com"
-    #                                                       "key"               = Eg. "D2C19886"
-    #   apt-sources        (3)  list        *           Contents for the sources file. Each variable is a new line.
-    #
-    #### These keys words can be given as placeholders:
-    #
-    #   CODENAME        =   Current Ubuntu release, eg. "xenial".
-    #   OSVERSION       =   Current Ubuntu version, eg "16.04".
-    #
-
     def reload_index(self):
         try:
             print('[Apps] Reading index...')
@@ -2337,44 +2264,6 @@ class DynamicApps(object):
 
     def show_screenshot(self, filename):
         ssw = ScreenshotWindow(filename)
-
-    ###### JSON News Structure
-    #
-    #  {
-    #      "version" {
-    #          "add" [
-    #              "program_id (as seen in index)"
-    #          ],
-    #          "fix" {
-    #              "program_id (as seen in index)": "Reason"
-    #          },
-    #          "del" {
-    #              "Name of Application": "Reason"
-    #          }
-    #      }
-    #  }
-    #
-    #   ** Standard JSON rules apply. Watch out for the commas.
-    #   ** Important!! Use &#8217; instead of ' for an apostrophe character.
-    #
-    #   ==== Reasons ====
-    #   These allow easy translations for generic strings.
-    #   If none of the reasons match, the English text will be displayed as-is
-    #   WITHOUT TRANSLATION. Please beware this may confuse non-English users.
-    #
-    #   Reason        Mainly    String
-    #   ------------  --------  ------------------------------------------------------
-    #   new-source    Fixes     Uses a new or updated source.
-    #   add-source    Fixes     Now works for some releases.
-    #   snappy        Fixes     Now a snappy package.
-    #   general       Fixes     General maintenance.
-    #   bad-source    Removal   Broken or problematic source.
-    #   no-source     Removal   Not yet available for some releases.
-    #   broken        Removal   No longer works for some releases.
-    #   unstable      Removal   Not suitable for production machines.
-    #   testing       Removal   Requires further testing.
-    #   not-nice      Removal   Does not meet our standards to be featured.
-    #
 
     def populate_news(self, webkit):
         try:
