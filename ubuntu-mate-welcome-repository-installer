@@ -101,7 +101,7 @@ if __name__ == "__main__":
         add_apt_key_from_keyserver(keyserver, key)
 
     elif function == 'add_apt_key_from_url':
-        url = index[category][program_id]['pre-install'][target]['apt-key-url']
+        url = index[category][program_id]['pre-install'][target]['apt-key-url'].replace('OSVERSION',os_version).replace('CODENAME',codename)
         add_apt_key_from_url(url)
 
     elif function == 'add_apt_sources':

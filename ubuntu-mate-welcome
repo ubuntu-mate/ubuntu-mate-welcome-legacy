@@ -523,7 +523,7 @@ class PreInstallation(object):
                 elif method == 'manual':
                     # Do we get the apt key from a URL?
                     try:
-                        apt_key_url = preinstall[target]['apt-key-url']
+                        apt_key_url = preinstall[target]['apt-key-url'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
                         print('[Pre-Install] Getting Apt key from URL: "' + apt_key_url + '"')
                         if not simulating:
                             run_task('add_apt_key_from_url')
