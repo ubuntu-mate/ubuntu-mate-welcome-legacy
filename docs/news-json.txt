@@ -1,0 +1,46 @@
+
+Software Boutique News Format
+(news.json)
+
+
+### Structure Overview
+
+  {
+      "version" {
+          "add" [
+              "program_id (as seen in index)"
+          ],
+          "fix" {
+              "program_id (as seen in index)": "Reason"
+          },
+          "del" {
+              "Name of Application": "Reason"
+          }
+      }
+  }
+
+   * Standard JSON rules apply. Watch out for the commas.
+
+   * Important!! Use &#8217; instead of ' for an apostrophe character.
+
+
+### Reasons Listing
+
+ This allow easy translations for generic strings.
+
+ If none of the reasons match, the English text will be displayed as-is
+ WITHOUT TRANSLATION. Please beware this may confuse non-English users.
+
+ Reason        Mainly    String
+ ------------  --------  ------------------------------------------------------
+ new-source    Fixes     Uses a new or updated source.
+ add-source    Fixes     Now works for various versions of Ubuntu.
+ snappy        Fixes     Now a snappy package.
+ general       Fixes     General maintenance.
+ bad-source    Removal   Broken or problematic source.
+ no-source     Removal   Not yet available for some releases.
+ broken        Removal   No longer works for some releases.
+ unstable      Removal   Not suitable for production machines.
+ testing       Removal   Requires further testing.
+ not-nice      Removal   Does not meet our standards to be featured.
+

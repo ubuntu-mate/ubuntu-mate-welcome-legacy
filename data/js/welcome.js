@@ -353,12 +353,13 @@ if ( current_page == 'software.html' ) {
 
         // Remove any other current page highlights
         $('#navigation-news').removeClass('active');
+        $('#navigation-search').removeClass('active');
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
-        } else if ( next == '#News' ) {
+        } else if ( next == '#News' || next == '#Search' ) {
           $('#non-free-toggle').fadeOut();
           $('#show-misc-cmds').fadeOut();
         } else {
@@ -520,6 +521,26 @@ if ( current_page == 'software.html' ) {
       $('#navigation-news').addClass('active');
       $('#non-free-toggle').fadeOut();
       $('#show-misc-cmds').fadeOut();
+    }
+
+    // Toggling to show the Search Page
+    function showSearch(subtitle) {
+      switchCategory(currentCategory, '#Search', subtitle)
+      $('#tabs li').removeClass('active');
+      $('#navigation-search').addClass('active');
+      $('#non-free-toggle').fadeOut();
+      $('#show-misc-cmds').fadeOut();
+      $('#search-results').html('');
+      $('#search-results').hide();
+      $('#search-empty').hide();
+      $('#search-total').hide();
+      $('#search-terms').val('');
+    }
+
+    // Perform a search
+    function searchNow() {
+      keywords = $('#search-terms').val();
+      cmd('search?' + keywords)
     }
 }
 
