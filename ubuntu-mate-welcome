@@ -2455,7 +2455,7 @@ class Arguments(object):
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               #     | Command                      | Help Text                                     |
-              print('  --dev                        Alias for --verbose and no locale.')
+              print('  -d, --dev, --debug           Alias for --verbose and no locale.')
               print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
               print('  -h, --help                   Show this help text.')
               print('  --force-arch=ARCH            Simulate a specific architecture.')
@@ -2524,7 +2524,7 @@ class Arguments(object):
               print('[Debug] Any changes to software will be simulated without modifying the actual system.')
               self.simulate_software_changes = True
 
-          if arg == '--dev':
+          if arg == '--dev' or arg == '--debug' or arg == '-d':
               print('[Debug] Running in debugging mode.')
               self.verbose_enabled = True
               self.locale = 'null'
