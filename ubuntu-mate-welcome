@@ -40,6 +40,7 @@ import logging
 import os
 import platform
 import random
+import re
 import shutil
 import signal
 import socket
@@ -957,14 +958,14 @@ class AppView(WebKit2.WebView):
                 dynamicapps.apply_filter(self, filter_name)
         elif cmd.startswith('app-info-show?'):
             appid = cmd.split('?')[1]
-            app.update_page('#info-show-'+appid, 'hide')
-            app.update_page('#info-hide-'+appid, 'show')
-            app.update_page('#details-'+appid, 'fadeIn', 'fast')
+            app.update_page('.info-show-'+appid, 'hide')
+            app.update_page('.info-hide-'+appid, 'show')
+            app.update_page('.details-'+appid, 'fadeIn', 'fast')
         elif cmd.startswith('app-info-hide?'):
             appid = cmd.split('?')[1]
-            app.update_page('#info-show-'+appid, 'show')
-            app.update_page('#info-hide-'+appid, 'hide')
-            app.update_page('#details-'+appid, 'fadeOut', 'fast')
+            app.update_page('.info-show-'+appid, 'show')
+            app.update_page('.info-hide-'+appid, 'hide')
+            app.update_page('.details-'+appid, 'fadeOut', 'fast')
         elif cmd.startswith('screenshot?'):
             filename = cmd.split('?')[1]
             dynamicapps.show_screenshot(filename)
@@ -1050,6 +1051,9 @@ class AppView(WebKit2.WebView):
                 app.update_page('#update-notification', 'show')
         elif cmd == 'init-system-info':
             systemstate.get_system_info(self)
+        elif cmd.startswith('search'):
+            keywords = cmd.split('?')[1]
+            dynamicapps.perform_search(self, keywords)
         else:
             print('[Error] Unknown command: ', cmd)
       except Exception as e:
@@ -1851,9 +1855,9 @@ class DynamicApps(object):
 
         # "Normal" packages that can be installed/removed by the user.
         if self.app_open_source:
-            html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + '">'
+            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + '">'
         else:
-            html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
+            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + ' proprietary">'
         html_buffer = html_buffer + '<div class="row-fluid">'
         html_buffer = html_buffer + '<div class="span2 center-inside">'
         html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
@@ -1877,8 +1881,8 @@ class DynamicApps(object):
         if not self.app_alternate_to == None:
             html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
         html_buffer = html_buffer + '<p class="text-right">'
-        html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
-        html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
+        html_buffer = html_buffer + '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+        html_buffer = html_buffer + '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
 
         # "Regular" packages - can be installed or removed with one-click by the user.
         if not self.app_upgrade_only:
@@ -1897,7 +1901,7 @@ class DynamicApps(object):
             html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
         # More details section.
-        html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
+        html_buffer = html_buffer + '</p><div hidden class="details-' + css_class + '">'
 
         ## Determine string for license
         if self.app_open_source:
@@ -2012,7 +2016,7 @@ class DynamicApps(object):
 
         # Append buffer to page
         app.update_page(target_element, 'append', html_buffer)
-        app.update_page('#info-hide-'+css_class, 'hide')
+        app.update_page('.info-hide-'+css_class, 'hide')
 
     def populate_categories(self, webkit):
         ''' List all of the applications supported on the current architecture. '''
@@ -2261,12 +2265,12 @@ class DynamicApps(object):
 
                     # If the application is closed source and we're told to hide it.
                     if not app_open_source and self.hide_non_free:
-                        app.update_page('#' + program_id.replace('.','-'), 'hide')
+                        app.update_page('.' + program_id.replace('.','-'), 'hide')
                         continue
 
                     # Only show if subcategory matches.
                     if app_subcategory.replace(' ','-') == filter_value:
-                        app.update_page('#' + program_id.replace('.','-'), 'show')
+                        app.update_page('.' + program_id.replace('.','-'), 'show')
 
     def show_screenshot(self, filename):
         ssw = ScreenshotWindow(filename)
@@ -2405,6 +2409,43 @@ class DynamicApps(object):
             news_buffer = news_buffer + '</div><hr class="soften">'
         app.update_page('#News-Content', 'html', news_buffer)
         arg.print_verbose('Apps','Successfully loaded news.')
+
+    def perform_search(self, webkit, terms):
+        app.update_page('#search-empty', 'hide')
+        app.update_page('#search-total', 'hide')
+        # Do not allow blank searches.
+        if terms == '':
+            app.update_page('#search-results', 'html', _("Please enter a keyword to begin."))
+            return
+        # Start Searching!
+        arg.print_verbose('Search', 'Searching for: ' + terms)
+        app.update_page('#navigation-sub-title', 'html', _("Search") + ': ' + terms)
+        app.update_page('#search-results', 'hide')
+        app.update_page('#search-results', 'html', ' ')
+        total_results = 0
+        for category in self.all_categories:
+            # Search this category for any matches
+            category_items = list(self.index[category].keys())
+            category_items.sort()
+
+            # Was there any matches? List them!
+            for word in terms.split(' '):
+                regex = re.compile(".*(" + word + ").*", re.IGNORECASE)
+                results = [m.group(0) for l in category_items for m in [regex.search(l)] if m]
+
+            for program_id in results:
+                self.set_app_info(category, program_id)
+                return_code = self.append_app_listing(category, program_id, '#search-results')
+                if not return_code == 1 or return_code == 2:
+                    dynamicapps.update_app_status(self, program_id)
+                    total_results = total_results + 1
+
+        if total_results == 0:
+            app.update_page('#search-empty', 'fadeIn')
+        else:
+            app.update_page('#search-results', 'fadeIn')
+            app.update_page('#search-total', 'fadeIn')
+            app.update_page('#search-total', 'html', '<b>' + _("Matched:") + '</b> ' + str(total_results) + ' ' + _("applications."))
 
 
 class ScreenshotWindow(Gtk.Window):
