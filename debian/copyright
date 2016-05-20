@@ -4,6 +4,7 @@ Upstream-Contact: Martin Wimpress <code@flexion.org>
 Source: https://bitbucket.org/ubuntu-mate/ubuntu-mate-welcome
 
 Files: debian/*
+       .tx/config
 Copyright: 2015, Martin Wimpress <code@flexion.org>
 License: GPL-2+
 
@@ -17,12 +18,11 @@ Copyright: 2012-2013 Korora Project <dev@kororaproject.org>
 License: GPL-3+
 
 Files: edgar-allan
+       create-translations.sh
        clean.sh
-       create-test-pos.sh
        tools/app-index-debugger.py
        regenerate-pots.sh
        welcome-po.py
-       test.po
 Copyright: 2016 Robin Thompson
            2016 Luke Horwell <luke@ubuntu-mate.org>
            2016 Martin Wimpress <code@flexion.org>
@@ -42,9 +42,11 @@ Copyright: 2012-2013 Korora Project <dev@kororaproject.org>
 License: GPL-2+
 
 Files: README.md
+       LICENSE
        data/img/logos/*
        data/img/shop/*
-       data/js/applications.json
+       data/js/*.json
+       docs/*
        mate-settings-welcome.menu
        org.ubuntu-mate.welcome.policy
        ubuntu-mate-welcome-repository-installer
