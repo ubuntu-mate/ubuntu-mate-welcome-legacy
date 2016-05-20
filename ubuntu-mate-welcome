@@ -1793,19 +1793,8 @@ class DynamicApps(object):
         self.app_releases = self.index[category][program_id]['releases']
         self.app_working = self.index[category][program_id]['working']
 
-    def populate_categories(self, webkit):
-        ''' List all of the applications supported on the current architecture. '''
-        total_added = 0
-        total_skipped = 0
-        total_unsupported = 0
-
-        # Don't attempt to continue if the index is missing/incorrectly parsed.
-        if not self.index:
-            print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
-            return
-
-        # Strings
-        str_nothing_here = _("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
+    def append_app_listing(self, category, program_id, target_element, track_subcategories=False):
+        # Boutique Strings
         str_upgraded = _("This application is set to receive the latest updates.")
         str_alternate_to = _('Alternative to:')
         str_hide = _("Hide")
@@ -1827,6 +1816,216 @@ class DynamicApps(object):
         str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
 
+        # Only list the program if it's working.
+        if not self.app_working:
+            arg.print_verbose('Apps', ' Unlisted: ' + self.app_name)
+            return 2
+
+        # Only list the program if it supports the current architecture in use.
+        supported = False
+        supported_arch = False
+        supported_release = False
+
+        for architecture in self.app_arch.split(','):
+            if architecture == systemstate.arch:
+                supported_arch = True
+
+        # Only list the program if it's available for the current release.
+        for release in self.app_releases.split(','):
+            if release == systemstate.codename:
+                supported_release = True
+
+        if supported_arch and supported_release:
+            supported = True
+
+        if not supported:
+            arg.print_verbose('Apps', ' Unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ')' )
+            return 1
+
+        # If the app has made it this far, it can be added to the grid.
+        # CSS breaks with dots (.), so any must become hyphens (-).
+        arg.print_verbose('Apps', ' Added: ' + self.app_name)
+        html_buffer = ''
+        css_class = program_id.replace('.','-')
+        css_subcategory = self.app_subcategory.replace(' ','-')
+
+        # "Normal" packages that can be installed/removed by the user.
+        if self.app_open_source:
+            html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + '">'
+        else:
+            html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
+        html_buffer = html_buffer + '<div class="row-fluid">'
+        html_buffer = html_buffer + '<div class="span2 center-inside">'
+        html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
+        html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
+        html_buffer = html_buffer + '</div><div class="span10">'
+        html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+        html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
+
+        # Check any "Upgrade" packages if the PPA has already been added.
+        upgraded = False
+        if self.app_upgrade_only:
+            try:
+                listname = dynamicapps.index[category][program_id]['pre-install']['all']['source-file']
+                listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
+                    upgraded = True
+                    html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
+            except:
+                pass
+
+        if not self.app_alternate_to == None:
+            html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
+        html_buffer = html_buffer + '<p class="text-right">'
+        html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+        html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
+
+        # "Regular" packages - can be installed or removed with one-click by the user.
+        if not self.app_upgrade_only:
+            html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
+            html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
+            html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+            html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
+
+        # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
+        if self.app_upgrade_only:
+            arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
+            if not upgraded:
+                html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
+
+        if not self.app_launch_command == None:
+            html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+
+        # More details section.
+        html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
+
+        ## Determine string for license
+        if self.app_open_source:
+            license_string = _('Open Source')
+        else:
+            license_string = _('Proprietary')
+
+        ## Determine supported platforms
+        platform_string = ''
+        for arch in self.app_arch.split(','):
+            if arch == 'i386':
+                platform_string = platform_string + '<span class="i386"><span class="fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
+            elif arch =='amd64':
+                platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
+            elif arch =='armhf':
+                platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
+            elif arch =='powerpc':
+                platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
+
+        ## Add Android / iOS app links if necessary.
+        if not self.app_url_android == None:
+            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+
+        if not self.app_url_ios == None:
+            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+
+        ## Add details about the source of this file.
+        try:
+            preinstall = dynamicapps.index[category][program_id]['pre-install']
+            codenames = list(preinstall.keys())
+            target = None
+            for name in codenames:
+                if name == systemstate.codename:
+                    target = name
+                    break
+            if not target:
+                    target = 'all'
+
+            methods = preinstall[target]['method'].split('+')
+            self.source_info = []
+            if len(methods) > 1:
+                multiple_sources = True
+            else:
+                multiple_sources = False
+
+            for method in methods:
+                if method == 'skip':
+                    self.source_info.insert(0, str_source_skip)
+
+                elif method == 'partner-repo':
+                    self.source_info.insert(0, str_source_partner)
+
+                elif method == 'ppa':
+                    ppa = preinstall[target]['enable-ppa']
+                    ppa_author = ppa.split(':')[1].split('/')[0]
+                    ppa_archive = ppa.split(':')[1].split('/')[1]
+                    self.source_info.insert(0, str_source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
+
+                elif method == 'manual':
+                    apt_source = ''.join(preinstall[target]['apt-sources'])
+                    manual_text = str_source_manual + ' ' + str_unknown
+                    for substring in apt_source.split(' '):
+                        if substring[:4] == 'http':
+                            apt_source = substring.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
+                            manual_text = str_source_manual + ' ' + apt_source
+                            break
+                    self.source_info.insert(0, manual_text)
+        except:
+            print('[Apps] WARNING: Error occurred while processing pre-configuration! Skipped Source: ' + program_id)
+            self.source_info = [str_unknown]
+
+        ## Write contents of the table.
+        html_buffer = html_buffer + '<table class="more-details table table-striped">'
+        html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
+        html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
+        html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
+
+        ## Add a website URL if there is one.
+        if self.app_url_info:
+            html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
+
+        ## Add the source for this application.
+        if multiple_sources:
+            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
+            for item in self.source_info:
+                html_buffer = html_buffer + '<li>' + item + '</li>'
+            html_buffer = html_buffer + '</td></tr></ul>'
+        else:
+            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
+
+        ## Add a screenshot if there is any.
+        ## Images should be labelled the same as 'img' and increment starting at 1.
+        screenshots = 1
+        screenshots_end = False
+        screenshot_buffer = ''
+        while not screenshots_end:
+            screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
+            screenshot_path = os.path.join(data_path, screenshot_img)
+            if os.path.exists(screenshot_path):
+                screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></a>'
+                screenshots = screenshots + 1
+            else:
+                screenshots_end = True
+
+        if not screenshots == 1:
+            html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
+
+        html_buffer = html_buffer + '</table>'
+
+        # End the div's for this application.
+        html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
+
+        # Append buffer to page
+        app.update_page(target_element, 'append', html_buffer)
+        app.update_page('#info-hide-'+css_class, 'hide')
+
+    def populate_categories(self, webkit):
+        ''' List all of the applications supported on the current architecture. '''
+        str_nothing_here = _("Sorry, Welcome could not feature any software for this category that is compatible on this system.")
+        total_added = 0
+        total_skipped = 0
+        total_unsupported = 0
+
+        # Don't attempt to continue if the index is missing/incorrectly parsed.
+        if not self.index:
+            print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
+            return
+
         # Get the app data from each category and list them.
         for category in self.all_categories:
             arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
@@ -1839,228 +2038,35 @@ class DynamicApps(object):
             apps_here = 0
 
             # Keep track of the subcategories of the apps in this category so we can filter them.
-            subcategories = []
+            self.subcategories = []
 
             # Enumerate each program in this category.
             for program_id in category_items:
                 self.set_app_info(category, program_id)
+                return_code = self.append_app_listing(category, program_id, '#'+category)
 
-                # Only list the program if it's working.
-                if not self.app_working:
-                    arg.print_verbose('Apps', ' Unlisted: ' + self.app_name)
-                    total_skipped = total_skipped + 1
-                    continue
-
-                # Only list the program if it supports the current architecture in use.
-                supported = False
-                supported_arch = False
-                supported_release = False
-
-                for architecture in self.app_arch.split(','):
-                    if architecture == systemstate.arch:
-                        supported_arch = True
-
-                # Only list the program if it's available for the current release.
-                for release in self.app_releases.split(','):
-                    if release == systemstate.codename:
-                        supported_release = True
-
-                if supported_arch and supported_release:
-                    supported = True
-
-                if not supported:
-                    arg.print_verbose('Apps', ' Unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ')' )
+                # Successfully added application
+                if return_code == 1:
                     total_unsupported = total_unsupported + 1
-                    continue
-
-                # If the app has made it this far, it can be added to the grid.
-                # CSS breaks with dots (.), so any must become hyphens (-).
-                arg.print_verbose('Apps', ' Added: ' + self.app_name)
-                subcategories.append(self.app_subcategory)
-                html_buffer = ''
-                css_class = program_id.replace('.','-')
-                css_subcategory = self.app_subcategory.replace(' ','-')
-
-                # "Normal" packages that can be installed/removed by the user.
-                if self.app_open_source:
-                    html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + '">'
+                elif return_code == 2:
+                    total_skipped = total_skipped + 1
                 else:
-                    html_buffer = html_buffer + '<div id="' + css_class + '" class="app-entry filter-' + css_subcategory + ' proprietary">'
-                html_buffer = html_buffer + '<div class="row-fluid">'
-                html_buffer = html_buffer + '<div class="span2 center-inside">'
-                html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
-                html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
-                html_buffer = html_buffer + '</div><div class="span10">'
-                html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
-                html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
-
-                # Check any "Upgrade" packages if the PPA has already been added.
-                upgraded = False
-                if self.app_upgrade_only:
-                    try:
-                        listname = dynamicapps.index[category][program_id]['pre-install']['all']['source-file']
-                        listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
-                        if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
-                            upgraded = True
-                            html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
-                    except:
-                        pass
-
-                if not self.app_alternate_to == None:
-                    html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
-                html_buffer = html_buffer + '<p class="text-right">'
-                html_buffer = html_buffer + '<a id="info-show-' + css_class + '" class="btn" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
-                html_buffer = html_buffer + '<a hidden id="info-hide-' + css_class + '" class="btn" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
-
-                # "Regular" packages - can be installed or removed with one-click by the user.
-                if not self.app_upgrade_only:
-                    html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-                    html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
-
-                # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
-                if self.app_upgrade_only:
-                    arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
-                    if not upgraded:
-                        html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
-
-                if not self.app_launch_command == None:
-                    html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
-
-                # More details section.
-                html_buffer = html_buffer + '</p><div hidden id="details-' + css_class + '">'
-
-                ## Determine string for license
-                if self.app_open_source:
-                    license_string = _('Open Source')
-                else:
-                    license_string = _('Proprietary')
-
-                ## Determine supported platforms
-                platform_string = ''
-                for arch in self.app_arch.split(','):
-                    if arch == 'i386':
-                        platform_string = platform_string + '<span class="i386"><span class="i386 fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
-                    elif arch =='amd64':
-                        platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
-                    elif arch =='armhf':
-                        platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
-                    elif arch =='powerpc':
-                        platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
-
-                ## Add Android / iOS app links if necessary.
-                if not self.app_url_android == None:
-                    platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
-
-                if not self.app_url_ios == None:
-                    platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
-
-                ## Add details about the source of this file.
-                try:
-                    preinstall = dynamicapps.index[category][program_id]['pre-install']
-                    codenames = list(preinstall.keys())
-                    target = None
-                    for name in codenames:
-                        if name == systemstate.codename:
-                            target = name
-                            break
-                    if not target:
-                            target = 'all'
-
-                    methods = preinstall[target]['method'].split('+')
-                    self.source_info = []
-                    if len(methods) > 1:
-                        multiple_sources = True
-                    else:
-                        multiple_sources = False
-
-                    for method in methods:
-                        if method == 'skip':
-                            self.source_info.insert(0, str_source_skip)
-
-                        elif method == 'partner-repo':
-                            self.source_info.insert(0, str_source_partner)
-
-                        elif method == 'ppa':
-                            ppa = preinstall[target]['enable-ppa']
-                            ppa_author = ppa.split(':')[1].split('/')[0]
-                            ppa_archive = ppa.split(':')[1].split('/')[1]
-                            self.source_info.insert(0, str_source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
-
-                        elif method == 'manual':
-                            apt_source = ''.join(preinstall[target]['apt-sources'])
-                            manual_text = str_source_manual + ' ' + str_unknown
-                            for substring in apt_source.split(' '):
-                                if substring[:4] == 'http':
-                                    apt_source = substring.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
-                                    manual_text = str_source_manual + ' ' + apt_source
-                                    break
-                            self.source_info.insert(0, manual_text)
-
-                except:
-                    print('[Apps] WARNING: Error occurred while processing pre-configuration! Skipped Source: ' + program_id)
-                    self.source_info = [str_unknown]
-
-                ## Write contents of the table.
-                html_buffer = html_buffer + '<table class="more-details table table-striped">'
-                html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
-                html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
-
-                ## Add a website URL if there is one.
-                if self.app_url_info:
-                    html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
-
-                ## Add the source for this application.
-                if multiple_sources:
-                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
-                    for item in self.source_info:
-                        html_buffer = html_buffer + '<li>' + item + '</li>'
-                    html_buffer = html_buffer + '</td></tr></ul>'
-                else:
-                    html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
-
-                ## Add a screenshot if there is any.
-                ## Images should be labelled the same as 'img' and increment starting at 1.
-                screenshots = 1
-                screenshots_end = False
-                screenshot_buffer = ''
-                while not screenshots_end:
-                    screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
-                    screenshot_path = os.path.join(data_path, screenshot_img)
-                    if os.path.exists(screenshot_path):
-                        screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></a>'
-                        screenshots = screenshots + 1
-                    else:
-                        screenshots_end = True
-
-                if not screenshots == 1:
-                    html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
-
-                html_buffer = html_buffer + '</table>'
-
-                # End the div's for this application.
-                html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
-
-                # Append buffer to page
-                app.update_page('#'+category, 'append', html_buffer)
-                app.update_page('#info-hide-'+css_class, 'hide')
-
-                # Keep track of how many apps added.
-                apps_here = apps_here + 1
-                total_added = total_added + 1
+                    # Keep track of how many apps added.
+                    apps_here = apps_here + 1
+                    total_added = total_added + 1
+                    # Add to filters.
+                    self.subcategories.append(self.app_subcategory)
 
             # Display a message if there is nothing for this category.
             if apps_here == 0:
-                app.update_page('#'+category, 'append', "<p class=\'center\'><span class=\'fa fa-warning\'></span>&nbsp; ' + str_nothing_here + '</p>")
+                app.update_page('#'+category, 'append', "<p class='center'><span class='fa fa-warning'></span>&nbsp; " + str_nothing_here + "</p>")
 
             # Post actions to page
             ## Colour the architecture currently in use.
             app.update_page('.'+systemstate.arch, 'addClass', 'arch-in-use')
 
             # Process filters for this category.
-            filters = list(set(subcategories))
+            filters = list(set(self.subcategories))
             filters.sort()
             for string in filters:
                 css_subcategory = string.replace(' ','-')
