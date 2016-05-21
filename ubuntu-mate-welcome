@@ -2383,7 +2383,7 @@ class DynamicApps(object):
                         item_name = self.get_attribute_for_app(item_id, 'name')
                         item_img = self.get_attribute_for_app(item_id, 'img')
                         item_reason = get_reason_string(self.news[version]['fix'][item_id])
-                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
                         print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
                 news_buffer = news_buffer + '</ul></div>'
