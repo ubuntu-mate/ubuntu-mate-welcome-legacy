@@ -625,6 +625,32 @@ if ( current_page == 'splash.html' ) {
 }
 
 
+// Splash for Entering Boutique
+if ( current_page == 'splash-boutique.html' ) {
+    setCursorBusy();
+    setTimeout(function() {
+      $('#boutique-splash').jAnimate('zoomOutInverse');
+    }, 1000);
+
+    $('#Text1').css('opacity','0');
+    $('#Text2').css('opacity','0');
+    $('#Text1').show();
+    $('#Text2').show();
+
+    setTimeout(function(){
+      $('#Text1').hide();
+      $('#Text1').css('opacity','');
+      $('#Text1').fadeIn(750);
+    }, 150);
+
+    setTimeout(function(){
+      $('#Text2').hide();
+      $('#Text2').css('opacity','');
+      $('#Text2').fadeIn(750);
+    }, 450);
+}
+
+
 // Getting Started Only - Index Pane for Selecting Topics
 if ( current_page == 'gettingstarted.html' ) {
 
@@ -937,11 +963,3 @@ if ( current_page == 'donate.html' ) {
 
 }
 
-
-// Entering Software Only Mode
-if ( current_page == 'splash-boutique.html' ) {
-    setCursorBusy();
-    setTimeout(function() {
-      $('#boutique-splash').jAnimate('zoomOutInverse');
-    }, 1000);
-}
