@@ -352,34 +352,54 @@
             <div class="alert alert-warning offline">
               <h5>&zwnj;An Internet connection is required to download and install updates.&zwnj;</h5>
             </div>
-            <p>&zwnj;Ubuntu MATE periodically will check to see if new software
-            and security updates are available for your computer. If you
-            have just installed Ubuntu MATE, you might want to do this now.&zwnj;</p>
-            <div align="center">
-              <a class="btn btn-lg btn-inverse" onclick="cmd('update')" onclick="smoothFade('','#updates-hint')">
-                <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; &zwnj;Software Updater&zwnj;
-              </a>
-              <span id="updates-hint" class="center" hidden><small>
-                <p><span class="fa fa-info-circle"></span> <b>&zwnj;Software Updater&zwnj;</b> &zwnj;can be found later in&zwnj;
-                <b><i>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span> &zwnj;Administration&zwnj;.</i></b></p>
-              </small></span>
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/system-software-update.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Software Updater&zwnj;</h4>
+                <p>&zwnj;Ubuntu MATE periodically will check to see if new software
+                and security updates are available for your computer. If you
+                have just installed Ubuntu MATE, you might want to do this now.&zwnj;</p>
+                <span id="updates-hint" class="center" hidden>
+                  <small><p>
+                      <span class="fa fa-info-circle"></span> <b>&zwnj;Software Updater&zwnj;</b> &zwnj;can be found later in&zwnj;
+                      <b><i>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span> &zwnj;Administration&zwnj;.</i></b>
+                  </p></small>
+                </span>
+                <p class="text-right">
+                  <a class="btn btn-lg btn-inverse" onclick="cmd('update'); smoothFade('','#updates-hint')">
+                    <img src="img/applications/system-software-update.png" width="16px" height="16px"/>&nbsp; &zwnj;Check for Updates&zwnj;
+                  </a>
+                </p>
+              </div>
             </div>
             <hr class="soften"/>
-            <p>&zwnj;The codecs package include a complete, cross-platform solution to
-            decode, encode, record, convert and stream audio and video.
-            It also includes a MP3 audio decoder that permits the playback
-            of MPEG 1 audio layer III (MP3).&zwnj;</p>
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/codecs.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Additional Codecs&zwnj;</h4>
+                <p>&zwnj;The codecs package include a complete, cross-platform solution to
+                decode, encode, record, convert and stream audio and video.
+                It also includes a MP3 audio decoder that permits the playback
+                of MPEG 1 audio layer III (MP3).&zwnj;</p>
+                <p class="text-right">
+                  <span class="codecs-applying bluray-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <a class="btn btn-lg btn-success codecs-install" onclick="cmd('install-appid?codecs')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  <a class="btn btn-lg btn-danger codecs-remove"   onclick="cmd('remove-appid?codecs')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</a>
+                </p>
+              </div>
+            </div>
+
             <!-- <p>&zwnj;You'll need the Blu-ray AACS database in order
             to play AACS encrypted or BD+ protected discs.&zwnj;</p> -->
-            <div align="center">
-              <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?codecs')">
-                <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Codecs Package&zwnj;
-              </a>
-              <!-- <a class="btn btn-lg btn-inverse" onclick="cmd('get-aacs-db')">
-                <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
-              </a> -->
-              <span class="codecs-applying bluray-applying"><br><br><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
-            </div>
+            <!-- <a class="btn btn-lg btn-inverse" onclick="cmd('get-aacs-db')">
+              <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
+            </a> -->
 
             <div class="center">
               <hr class="soften-light">
