@@ -873,6 +873,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'caja-share')
             dynamicapps.update_app_status(self, 'libdvdcss2')
             dynamicapps.update_app_status(self, 'xscreensaver')
+            dynamicapps.update_app_status(self, 'wallpapers')
 
         ### Software Page ###
         if app.current_page == 'software.html':
