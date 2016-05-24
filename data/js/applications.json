@@ -5116,6 +5116,29 @@
                 }
             },
             "working": true
+        },
+        "xscreensaver": {
+            "name": "Additional screensavers",
+            "img": "null",
+            "main-package": "xscreensaver-gl",
+            "launch-command": null,
+            "install-packages": "xscreensaver-gl, xscreensaver-gl-extra",
+            "remove-packages": "xscreensaver-gl, xscreensaver-gl-extra",
+            "description": "Over 200 screensavers for Ubuntu MATE",
+            "alternate-to": null,
+            "subcategory": "null",
+            "open-source": true,
+            "url-info": "",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
         }
     }
 }
