@@ -3810,39 +3810,6 @@
             },
             "working": true
         },
-        "libdvdcss2": {
-            "name": "DVD Playback Support",
-            "img": "dvd",
-            "main-package": "libdvdcss2",
-            "launch-command": null,
-            "install-packages": "libdvdcss2",
-            "remove-packages": "libdvdcss2",
-            "description": [
-                "<code>libdvdcss2</code> is a simple library designed for",
-                "accessing DVDs like a block device without having to bother",
-                "about the decryption. It will enable playback of DVD video in VLC."
-            ],
-            "alternate-to": null,
-            "subcategory": "Codecs / Libraries",
-            "open-source": true,
-            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "libdvdcss2",
-                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
-                    "apt-sources": [
-                        "deb http://download.videolan.org/pub/debian/stable/ /",
-                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
-                    ]
-                }
-            },
-            "working": true
-        },
         "makemkv": {
             "name": "MakeMKV",
             "img": "makemkv",
@@ -5113,6 +5080,39 @@
             "pre-install": {
                 "all": {
                     "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "libdvdcss2": {
+            "name": "DVD Playback Support",
+            "img": "dvd",
+            "main-package": "libdvdcss2",
+            "launch-command": null,
+            "install-packages": "libdvdcss2",
+            "remove-packages": "libdvdcss2",
+            "description": [
+                "<code>libdvdcss2</code> is a simple library designed for",
+                "accessing DVDs like a block device without having to bother",
+                "about the decryption. It will enable playback of DVD video in VLC."
+            ],
+            "alternate-to": null,
+            "subcategory": "Codecs / Libraries",
+            "open-source": true,
+            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "libdvdcss2",
+                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
+                    "apt-sources": [
+                        "deb http://download.videolan.org/pub/debian/stable/ /",
+                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
+                    ]
                 }
             },
             "working": true
