@@ -1180,8 +1180,6 @@ class SystemState(object):
 
         # Full path to binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
-        #  User's Welcome configuration directory
-        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
 
         # User's autostart directory and full path to autostart symlink.
         # Used for systemstate.autostart_toggle() function.
@@ -1276,14 +1274,13 @@ class SystemState(object):
         self.zoom_level = zoom_level
 
     def autostart_check(self):
-        # Ensure our config and autostart directories exist
-        for _dir in [self._config_dir, self._autostart_dir]:
-            if not os.path.exists(_dir):
-                try:
-                    os.makedirs(_dir)
-                except OSError as err:
-                    print(err)
-                    pass
+        # Ensure our autostart directories exist
+        if not os.path.exists(self._autostart_dir):
+            try:
+                os.makedirs(_dir)
+            except OSError as err:
+                print(err)
+                pass
 
         # Set boolean if the autostart file exists.
         if os.path.exists(self._autostart_path):
@@ -2484,6 +2481,70 @@ class ScreenshotWindow(Gtk.Window):
         self.close()
 
 
+class Preferences(object):
+    def __init__(self):
+        self.folder = os.path.join(os.path.expanduser('~'), '.config/ubuntu-mate/welcome')
+        self.config = os.path.join(self.folder, 'preferences.json')
+        self.data = None
+        self.load_prefs()
+
+    def reset_prefs(self):
+        if os.path.exists(self.config):
+            os.remove(self.config)
+        stream = open(self.config, "w")
+        stream.write(json.dumps({}))
+        stream.close()
+        arg.print_verbose('Config', 'Preferences reset.')
+
+    def load_prefs(self):
+        # Create configuration data if non-existent.
+        if not os.path.exists(self.folder):
+            arg.print_verbose('Config', 'Config folder non-existent. Creating...')
+            os.makedirs(self.folder)
+
+        if not os.path.exists(self.config) or os.path.getsize(self.config) < 2:
+            arg.print_verbose('Config', 'Preferences non-existent. Creating...')
+            self.reset_prefs()
+
+        load_error = False
+        with open(self.config) as stream:
+            try:
+                self.data = json.load(stream)
+            except Exception as e:
+                load_error = True
+                arg.print_verbose('Config', 'Failed to load preferences. Reason: ' + str(e))
+
+        if load_error:
+            print('[Config]', 'Errors occured while loading.')
+            self.reset_prefs()
+        else:
+            arg.print_verbose('Config', 'Preferences loaded from file.')
+
+    def write_prefs(self):
+        stream = open(self.config, "w+")
+        stream.write(json.dumps(self.data))
+        stream.close()
+        arg.print_verbose('Config', 'Preferences written to file.')
+
+    def set(self, variable, data):
+        try:
+            arg.print_verbose('Config', 'Write "' + variable + '" => "' + str(data) + '"')
+            self.data[variable] = data
+        except:
+            print('[Config] Failed to write data! "' + variable + '" => "' + str(data) + '"')
+        self.write_prefs()
+
+    def get(self, variable, default):
+        try:
+            value = self.data[variable]
+            arg.print_verbose('Config', ' Read "' + variable + '" => "' + str(value) + '"')
+            return value
+        except:
+            arg.print_verbose('Config', ' Read "' + variable + '" => "' + str(default) + '" (default)')
+            self.set(variable, default)
+            return default
+
+
 class Arguments(object):
     '''Check arguments passed the application.'''
 
@@ -2625,6 +2686,7 @@ if __name__ == "__main__":
     set_proc_title()
     data_path = whereami()
     trans = Translations(data_path)
+    pref = Preferences()
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()
