@@ -1052,6 +1052,34 @@
             },
             "working": true
         },
+        "retroarch": {
+            "name": "RetroArch",
+            "img": "retroarch",
+            "main-package": "retroarch",
+            "launch-command": "retroarch",
+            "install-packages": "retroarch",
+            "remove-packages": "retroarch,retroarch-assets",
+            "description": [
+                "RetroArch is an open source, multi-platform frontend for the libretro API. It",
+                "is designed to be a fast, lightweight, and portable multi-system emulator."
+            ],
+            "alternate-to": null,
+            "subcategory": "Game Management",
+            "open-source": true,
+            "url-info": "http://libretro.com",
+            "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "precise,trusty,vivid,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:libretro/stable",
+                    "source-file": "libretro-ubuntu-stable-CODENAME"
+                }
+            },
+            "working": true
+        },
         "steam32": {
             "name": "Steam",
             "img": "steam",
