@@ -2241,7 +2241,6 @@ class DynamicApps(object):
             app.update_page('#nonFreeCheckBox', 'addClass', 'fa-square')
             app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-check-square')
 
-
     def apply_filter(self, webkit, filter_value, nonfree_toggle=False):
         sub_css_class = 'filter-' + filter_value
 
@@ -2424,8 +2423,16 @@ class DynamicApps(object):
         app.update_page('#search-total', 'hide')
         # Do not allow blank searches.
         if terms == '':
-            app.update_page('#search-results', 'html', _("Please enter a keyword to begin."))
+            app.update_page('#search-results', 'fadeIn')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter a keyword to begin.") + '</h5></div>')
             return
+
+        # Do not search if less than 3 characters
+        if len(terms) < 3:
+            app.update_page('#search-results', 'fadeIn')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter at least 3 characters.") + '</h5></div>')
+            return
+
         # Start Searching!
         arg.print_verbose('Search', 'Searching for: ' + terms)
         app.update_page('#navigation-sub-title', 'html', _("Search") + ': ' + terms)
