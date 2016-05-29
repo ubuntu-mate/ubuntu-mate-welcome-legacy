@@ -542,6 +542,12 @@ if ( current_page == 'software.html' ) {
       keywords = $('#search-terms').val();
       cmd('search?' + keywords)
     }
+
+    // Search again but include non-free matches.
+    function searchAgainNonFree() {
+      toggleNonFree()
+      searchNow()
+    }
 }
 
 
