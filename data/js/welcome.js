@@ -37,6 +37,15 @@ function smoothPageFade(target_href) {
     }, 400);
 }
 
+// Back to the top function
+function backToTop() {
+    $("#content").animate({
+        scrollTop: 0
+    }, 600);
+    $('#scroll-top').addClass('active');
+    return false;
+};
+
 // When page first opens
 $(document).ready(function() {
   // Animate navigation elements on page load
@@ -45,26 +54,22 @@ $(document).ready(function() {
     $('#navigation-title').jAnimateOnce('fadeInDown');
   }
 
-  // Back to the top
+  // Show back to top button on page scroll
   $('#content').scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scroll-top').fadeIn();
+          $('#scroll-top-always-show').removeClass('disabled');
       } else {
           $('#scroll-top').fadeOut();
           $('#scroll-top').removeClass('active');
+          $('#scroll-top-always-show').addClass('disabled');
       }
   });
 
-  $('#navigation-right').append('<a id="scroll-top" class="navigation-button" style="display:none"><span class="fa fa-chevron-up"></span></a>')
-
-  $('#scroll-top').click(function () {
-      $("#content").animate({
-          scrollTop: 0
-      }, 600);
-      $('#scroll-top').addClass('active');
-      return false;
-  });
-
+  // Boutique uses its own custom scroll-top button:
+  if ( current_page != 'software.html' ) {
+    $('#navigation-right').append('<a id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none"><span class="fa fa-chevron-up"></span></a>')
+  }
 });
 
 // Smoothly fade between two elements (by ID)

@@ -522,6 +522,11 @@ hr.soften-light {
   padding-bottom: 28px;
 }
 
+/* Always show the back to top button when disabled */
+#scroll-top-always-show.disabled {
+  opacity: 0.2;
+}
+
 /* Proprietary Software Tooltip */
 .popover-title {
   background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
