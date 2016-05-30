@@ -357,8 +357,8 @@ if ( current_page == 'software.html' ) {
         $('#content').animate({ scrollTop: 0 }, 0)
 
         // Remove any other current page highlights
-        $('#navigation-news').removeClass('active');
         $('#navigation-search').removeClass('active');
+        $('#navigation-news').removeClass('active');
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
@@ -519,22 +519,25 @@ if ( current_page == 'software.html' ) {
     $('#footer-left').hide();
     $('#footer-left').fadeIn();
 
-    // Toggling to show the Boutique News
-    function showNews(subtitle) {
-      switchCategory(currentCategory, '#News', subtitle)
+    // Toggling right navigation "tabs"
+    function resetNavTabs() {
       $('#tabs li').removeClass('active');
-      $('#navigation-news').addClass('active');
       $('#non-free-toggle').fadeOut();
       $('#show-misc-cmds').fadeOut();
+    }
+
+    // Toggling to show the Boutique News
+    function showNews(subtitle) {
+      switchCategory(currentCategory, '#News', subtitle);
+      resetNavTabs();
+      $('#navigation-news').addClass('active');
     }
 
     // Toggling to show the Search Page
     function showSearch(subtitle) {
       switchCategory(currentCategory, '#Search', subtitle)
-      $('#tabs li').removeClass('active');
+      resetNavTabs();
       $('#navigation-search').addClass('active');
-      $('#non-free-toggle').fadeOut();
-      $('#show-misc-cmds').fadeOut();
       $('#search-results').html('');
       $('#search-results').hide();
       $('#search-empty').hide();
