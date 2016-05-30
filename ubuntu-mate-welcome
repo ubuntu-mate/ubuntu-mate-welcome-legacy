@@ -2234,11 +2234,13 @@ class DynamicApps(object):
     def toggle_non_free(self):
         # Toggles visibility of non-free software.
         if self.hide_non_free:
-            app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-square')
-            app.update_page('#nonFreeCheckBox', 'addClass', 'fa-check-square')
+            for element in ['#nonFreeCheckBox', '#pref-non-free']:
+                app.update_page(element, 'removeClass', 'fa-square')
+                app.update_page(element, 'addClass', 'fa-check-square')
         else:
-            app.update_page('#nonFreeCheckBox', 'addClass', 'fa-square')
-            app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-check-square')
+            for element in ['#nonFreeCheckBox', '#pref-non-free']:
+                app.update_page(element, 'addClass', 'fa-square')
+                app.update_page(element, 'removeClass', 'fa-check-square')
 
     def apply_filter(self, webkit, filter_value, nonfree_toggle=False):
         sub_css_class = 'filter-' + filter_value

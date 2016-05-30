@@ -24,6 +24,9 @@
           <a id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">
             <span class="fa fa-newspaper-o"></span>
           </a>
+          <a id="navigation-prefs" class="navigation-button" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">
+            <span class="fa fa-wrench"></span>
+          </a>
           <a id="scroll-top-always-show" class="navigation-button disabled" onclick="backToTop()"><span class="fa fa-chevron-up"></span></a>
         </div>
       </div>
@@ -371,6 +374,20 @@
           </div>
           <div id="search-total" class="center"></div>
         </div>
+
+        <div id="Preferences" hidden>
+          <h2>&zwnj;Preferences&zwnj;</h2>
+          <p>&zwnj;Fine-tune the Software Boutique to suit your preferred behaviors.&zwnj;</p>
+          <table id="pref-table" class="table">
+            <tr>
+              <th width="40%">&zwnj;Boutique Selection&zwnj;</th>
+              <td width="60%">
+                <a onclick="toggleNonFree();"><i id="pref-non-free" class="fa fa-square fa-va"></i> &zwnj;Hide proprietary applications&zwnj;</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+
       </div>
     </div>
     <div id="footer" class="bottom">
@@ -379,7 +396,7 @@
           <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <a id="non-free-toggle" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
+          <a id="non-free-toggle" onclick="toggleNonFree();" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
             <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> &zwnj;Hide Proprietary Software&zwnj;
           </a>
           <a id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>

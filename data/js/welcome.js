@@ -359,6 +359,7 @@ if ( current_page == 'software.html' ) {
         // Remove any other current page highlights
         $('#navigation-search').removeClass('active');
         $('#navigation-news').removeClass('active');
+        $('#navigation-prefs').removeClass('active');
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
@@ -435,10 +436,6 @@ if ( current_page == 'software.html' ) {
     $("select").change(function(){
         selected_filter = $(this).val();
         applyFilter();
-    });
-
-    $('#non-free-toggle').on('click', function (e) {
-        toggleNonFree();
     });
 
     function applyFilter() {
@@ -556,6 +553,14 @@ if ( current_page == 'software.html' ) {
       toggleNonFree()
       searchNow()
     }
+
+    // Toggling to show the Preferences page
+    function showPrefs(subtitle) {
+      switchCategory(currentCategory, '#Preferences', subtitle, true)
+      resetNavTabs();
+      $('#navigation-prefs').addClass('active');
+    }
+
 }
 
 
