@@ -351,7 +351,7 @@ if ( current_page == 'software.html' ) {
     $(currentCategory).show();
 
     // Switch to another category.
-    function switchCategory(now, next, subtitle) {
+    function switchCategory(now, next, subtitle, hideCheckmarks=false) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
         $('#content').animate({ scrollTop: 0 }, 0)
@@ -364,7 +364,7 @@ if ( current_page == 'software.html' ) {
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
-        } else if ( next == '#News' || next == '#Search' ) {
+        } else if ( hideCheckmarks == true ) {
           $('#non-free-toggle').fadeOut();
           $('#show-misc-cmds').fadeOut();
         } else {
@@ -528,14 +528,14 @@ if ( current_page == 'software.html' ) {
 
     // Toggling to show the Boutique News
     function showNews(subtitle) {
-      switchCategory(currentCategory, '#News', subtitle);
+      switchCategory(currentCategory, '#News', subtitle, true);
       resetNavTabs();
       $('#navigation-news').addClass('active');
     }
 
     // Toggling to show the Search Page
     function showSearch(subtitle) {
-      switchCategory(currentCategory, '#Search', subtitle)
+      switchCategory(currentCategory, '#Search', subtitle, true)
       resetNavTabs();
       $('#navigation-search').addClass('active');
       $('#search-results').html('');
