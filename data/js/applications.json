@@ -4778,7 +4778,7 @@
     "Unlisted": {
         "ubuntu-mate-welcome": {
             "name": "Ubuntu MATE Welcome Updates",
-            "img": "",
+            "img": "unknown",
             "main-package": "ubuntu-mate-welcome",
             "install-packages": "ubuntu-mate-welcome",
             "launch-command": "ubuntu-mate-welcome",
@@ -4804,7 +4804,7 @@
         },
         "ubuntu-standard": {
             "name": "Ubuntu Standard Updates",
-            "img": "",
+            "img": "unknown",
             "main-package": "ubuntu-standard",
             "launch-command": null,
             "upgradable": true,
@@ -4829,7 +4829,7 @@
         },
         "boot-repair": {
             "name": "Boot-Repair",
-            "img": "null",
+            "img": "unknown",
             "main-package": "boot-repair",
             "launch-command": null,
             "install-packages": "boot-repair",
@@ -4854,7 +4854,7 @@
         },
         "firmware": {
             "name": "Firmware Drivers",
-            "img": "null",
+            "img": "additional-drivers",
             "main-package": "firmware-b43-installer",
             "launch-command": null,
             "install-packages": "firmware-b43-installer,linux-firmware",
@@ -4877,7 +4877,7 @@
         },
         "hp-printer": {
             "name": "HP Printing and Imaging System",
-            "img": "null",
+            "img": "hplip",
             "main-package": "hplip-gui",
             "launch-command": "hp-toolbox",
             "install-packages": "hplip-gui",
@@ -4899,8 +4899,8 @@
             "working": true
         },
         "keyboard-chinese": {
-            "name": "Keyboard Layout Packages - Chinese",
-            "img": "null",
+            "name": "Chinese Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-sunpinyin",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-sunpinyin",
@@ -4922,8 +4922,8 @@
             "working": true
         },
         "keyboard-japanese": {
-            "name": "Keyboard Layout Packages - Japanese",
-            "img": "null",
+            "name": "Japanese Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-mozc",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-mozc",
@@ -4945,8 +4945,8 @@
             "working": true
         },
         "keyboard-korean": {
-            "name": "Keyboard Layout Packages - Korean",
-            "img": "null",
+            "name": "Korean Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-hangul",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-hangul",
@@ -4969,7 +4969,7 @@
         },
         "nvidia-settings": {
             "name": "NVIDIA Proprietary Drivers",
-            "img": "null",
+            "img": "additional-drivers",
             "main-package": "nvidia-settings",
             "launch-command": null,
             "upgradable": true,
@@ -4993,8 +4993,8 @@
             "working": true
         },
         "wallpapers": {
-            "name": "Every Ubuntu MATE Wallpaper",
-            "img": "null",
+            "name": "Ubuntu MATE Community Wallpapers",
+            "img": "desktop",
             "main-package": "ubuntu-mate-wallpapers-complete",
             "launch-command": null,
             "install-packages": "ubuntu-mate-wallpapers-complete",
@@ -5017,7 +5017,7 @@
         },
         "gnome-disk-utility": {
             "name": "GNOME Disks",
-            "img": "null",
+            "img": "gnome-disk-utility",
             "main-package": "gnome-disk-utility",
             "launch-command": "gnome-disks",
             "install-packages": "gnome-disk-utility",
@@ -5040,7 +5040,7 @@
         },
         "mate-disk-usage-analyzer": {
             "name": "MATE Disk Usage Analyzer",
-            "img": "null",
+            "img": "mate-disk-usage-analyzer",
             "main-package": "mate-utils",
             "launch-command": "mate-disk-usage-analyzer",
             "install-packages": "mate-utils",
@@ -5063,7 +5063,7 @@
         },
         "mate-system-monitor": {
             "name": "MATE System Monitor",
-            "img": "null",
+            "img": "mate-system-monitor",
             "main-package": "mate-system-monitor",
             "launch-command": "mate-system-monitor",
             "install-packages": "mate-system-monitor",
@@ -5119,7 +5119,7 @@
         },
         "xscreensaver": {
             "name": "Additional screensavers",
-            "img": "null",
+            "img": "xscreensaver",
             "main-package": "xscreensaver-gl",
             "launch-command": null,
             "install-packages": "xscreensaver-gl, xscreensaver-gl-extra",
