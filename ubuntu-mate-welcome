@@ -976,6 +976,9 @@ class AppView(WebKit2.WebView):
             else:
                 app.update_page('#update-notification', 'show')
 
+            # Refresh preferences page
+            pref.refresh_pref_page('enable-queue')
+
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
             # Check file system resize flag.
@@ -2636,7 +2639,7 @@ class Preferences(object):
                 arg.print_verbose('Config', 'Failed to load preferences. Reason: ' + str(e))
 
         if load_error:
-            print('[Config]', 'Errors occured while loading.')
+            print('[Config]', 'Errors occurred while loading.')
             self.reset_prefs()
         else:
             arg.print_verbose('Config', 'Preferences loaded from file.')
@@ -2647,23 +2650,51 @@ class Preferences(object):
         stream.close()
         arg.print_verbose('Config', 'Preferences written to file.')
 
-    def set(self, variable, data):
+    def set(self, key, data):
         try:
-            arg.print_verbose('Config', 'Write "' + variable + '" => "' + str(data) + '"')
-            self.data[variable] = data
+            arg.print_verbose('Config', 'Write "' + key + '" => "' + str(data) + '"')
+            self.data[key] = data
         except:
-            print('[Config] Failed to write data! "' + variable + '" => "' + str(data) + '"')
+            print('[Config] Failed to write data! "' + key + '" => "' + str(data) + '"')
         self.write_prefs()
 
-    def get(self, variable, default):
+    def get(self, key, default):
         try:
-            value = self.data[variable]
-            arg.print_verbose('Config', ' Read "' + variable + '" => "' + str(value) + '"')
+            value = self.data[key]
+            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(value) + '"')
             return value
         except:
-            arg.print_verbose('Config', ' Read "' + variable + '" => "' + str(default) + '" (default)')
-            self.set(variable, default)
+            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(default) + '" (default)')
+            self.set(key, default)
             return default
+
+    def toggle(self, key):
+        try:
+            value = self.data[key]
+            if value == True:
+                self.set(key, False)
+            else:
+                self.set(key, True)
+        except:
+            self.set(key, True)
+
+    def refresh_pref_page(self, key):
+        # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd(toggle-pref?xxx)"
+        try:
+            value = self.data[key]
+            arg.print_verbose('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')')
+        except:
+            print('[Config] No data for "' + key + '"!')
+            return
+
+        # For boolean data, set check boxes
+        if type(value) is bool:
+            if value == True:
+                app.update_page('#pref-' + key, 'removeClass', 'fa-square')
+                app.update_page('#pref-' + key, 'addClass', 'fa-check-square')
+            else:
+                app.update_page('#pref-' + key, 'addClass', 'fa-square')
+                app.update_page('#pref-' + key, 'removeClass', 'fa-check-square')
 
 
 class Arguments(object):
