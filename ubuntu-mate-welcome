@@ -123,11 +123,18 @@ def whereami():
     return data_path
 
 
+def notify_send(title, description, icon_path):
+    # Sends a system notification to the user.
+    Notify.init(title)
+    notification=Notify.Notification.new(title, description, icon_path)
+    notification.show()
+
+
 ##################################
 #  Apt and Installation Operations
 ##################################
 class SimpleApt(object):
-    def __init__(self, packages, action):
+    def __init__(self, packages, action, program_id=None):
         self._timeout = 100
         self.packages = packages
         self.action = action
@@ -135,6 +142,7 @@ class SimpleApt(object):
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
+        self.program_id = program_id
 
     def on_error(self, error):
         dynamicapps.operations_busy = False
@@ -153,38 +161,32 @@ class SimpleApt(object):
         dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
-            Notify.init(_('Fixing incomplete install succeeded'))
-            apt_notify=Notify.Notification.new(_('Successfully fixed an incomplete install.'), _('Fixing the incomplete install was successful.'), 'dialog-information')
-            apt_notify.show()
+            notify_send( _("Successfully performed fix."), _("Any previously incomplete installations have been finished."), data_path + 'img/notify/fix-success.svg' )
             return True
         else:
-            Notify.init(_('Fixing incomplete install failed'))
-            apt_notify=Notify.Notification.new(_('Failed to fix incomplete install.'), _('Fixing the incomplete install failed.'), 'dialog-error')
-            apt_notify.show()
+            notify_send( _("Failed to perform fix."), _("Errors occurred while finishing an incomplete installation."), data_path + 'img/notify/fix-error.svg' )
             return False
 
     def on_finished_fix_broken_depends(self, transaction, status):
         dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
-            Notify.init(_('Fixing broken dependencies succeeded'))
-            apt_notify=Notify.Notification.new(_('Successfully fixed broken dependencies.'), _('Fixing the broken dependencies was successful.'), 'dialog-information')
-            apt_notify.show()
+            notify_send( _("Successfully performed fix."), _("Packages with broken dependencies have been resolved."), data_path + 'img/notify/fix-success.svg')
             return True
         else:
-            Notify.init(_('Fixing broken dependencies failed'))
-            apt_notify=Notify.Notification.new(_('Failed to fix broken dependencies.'), _('Fixing the broken dependencies failed.'), 'dialog-error')
-            apt_notify.show()
+            notify_send( _("Failed to perform fix."), _("Packages may still have broken dependencies."), data_path + 'img/notify/fix-error.svg')
             return False
 
     def on_finished_update(self, transaction, status):
         dynamicapps.operations_busy = False
-        # If the action is only to update do not display notifcations
+        # Show notification if user forces cache update.
         if self.action == 'update':
             self.loop.quit()
             if status == 'exit-success':
+                notify_send(_("Successfully updated cache."), _("Software is now ready to install."), data_path + 'img/notify/fix-success.svg')
                 return True
             else:
+                notify_send( _("Failed to update cache."), _("There may be a problem with your repository configuration."), data_path + 'img/notify/fix-error.svg')
                 return False
         elif self.action == 'install':
             if status != 'exit-success':
@@ -228,33 +230,101 @@ class SimpleApt(object):
             self.do_notify(status)
 
     def do_notify(self, status):
-        print('Status: ' + status)
-        if self.action == 'install':
-            title = _('Install')
-            noun = _('Installation of ')
-            action = _('installed.')
-        elif self.action == 'remove':
-            title = _('Remove')
-            noun = _('Removal of ')
-            action = _('removed.')
-        elif self.action == 'upgrade':
-            title = _('Upgrade')
-            noun = _('Upgrade of ')
-            action = _('upgraded.')
+        # Notifications for individual applications.
+        if self.program_id:
+            name = dynamicapps.get_attribute_for_app(self.program_id, 'name')
+            img = dynamicapps.get_attribute_for_app(self.program_id, 'img')
+            img_path = os.path.join(data_path, 'img', 'applications', img)
+            if not os.path.exists(img_path):
+                img_path = 'package'
 
-        # Do not show notifications when updating the cache
-        if self.action != 'update':
-            if status == 'exit-success':
-                Notify.init(title + ' ' + _('complete'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('complete'), ', '.join(self.packages) + ' ' + _('has been successfully ') +action, 'dialog-information')
-            elif status == 'exit-cancelled':
-                Notify.init(title + ' ' + _('cancelled'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + ', '.join(self.packages) + ' ' + _('was cancelled.'), 'dialog-information')
-            else:
-                Notify.init(title + ' ' + _('failed'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + ', '.join(self.packages) + ' ' + _('failed.'), 'dialog-error')
+            print('[Apps] Changed status for "' + self.program_id + '": ' + status)
 
-            apt_notify.show()
+            # Show a different notification for Welcome Updates
+            if self.program_id == 'ubuntu-mate-welcome' and status == 'exit-success':
+                notify_send( _("Welcome will stay up-to-date."), \
+                             _("Welcome and the Software Boutique are set to receive the latest updates."), \
+                             os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg'))
+                return
+
+            # Show a different notification for "Upgrade Installed Packages" fix
+            if self.program_id == 'ubuntu-standard' and status == 'exit-success':
+                notify_send( _("Everything is up-to-date"), \
+                             _("All packages have been upgraded to the latest versions."), \
+                             os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg'))
+                return
+
+            if self.action == 'install':
+                title_success   = name + ' ' + _('Installed')
+                descr_success   = _("The application is now ready to use.")
+
+                title_cancel    = name + ' ' + _("was not installed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = name + ' ' + _("failed to install")
+                descr_error     = _("There was a problem installing this application.")
+
+            elif self.action == 'remove':
+                title_success   = name + ' ' + _('Removed')
+                descr_success   = _("The application has been uninstalled.")
+
+                title_cancel    = name + ' ' + _("was not removed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = name + ' ' + _("failed to remove")
+                descr_error     = _("A problem is preventing this application from being removed.")
+
+            elif self.action == 'upgrade':
+                title_success   = name + ' ' + _('Upgraded')
+                descr_success   = _("This application is set to use the latest version.")
+
+                title_cancel    = name + ' ' + _("was not upgraded.")
+                descr_cancel    = _("The application will continue to use the stable version.")
+
+                title_error     = name + ' ' + _("failed to upgrade")
+                descr_error     = _("A problem is preventing this application from being upgraded.")
+
+            # Do not show notifications when updating the cache
+            if self.action != 'update':
+                if status == 'exit-success':
+                    notify_send(title_success, descr_success, img_path)
+                    #~ queue.ui_rm_card(self.program_id)
+                    #~ queue.ui_add_card(self.program_id, card_status+'-ok')
+                elif status == 'exit-cancelled':
+                    notify_send(title_cancel, descr_cancel, img_path)
+                else:
+                    notify_send(title_error, descr_error, img_path)
+
+        # Notifications for bulk operations
+        else:
+            if self.action == 'install':
+                title_success   = str(len(queue.install_queue)) + ' ' + _("applications have been installed")
+                descr_success   = _("Your newly installed applications are ready to use.")
+
+                title_cancel    = _("Some applications were not installed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = _("Some applications failed to install.")
+                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
+
+            elif self.action == 'remove':
+                title_success   = str(len(queue.remove_queue)) + ' ' + _("applications have been removed")
+                descr_success   = _("These applications are no longer present on your system.")
+
+                title_cancel    = _("Some applications were not removed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = _("Some applications failed to remove.")
+                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
+
+            # Do not show notifications when updating the cache
+            if self.action != 'update':
+                if status == 'exit-success':
+                    notify_send(title_success, descr_success, data_path + 'img/notify/bulk-success.svg')
+                elif status == 'exit-cancelled':
+                    notify_send(title_cancel, descr_cancel,  data_path + 'img/notify/bulk-warning.svg')
+                else:
+                    notify_send(title_error, descr_error,  data_path + 'img/notify/bulk-error.svg')
 
     def do_fix_incomplete_install(self):
         dynamicapps.operations_busy = True
@@ -428,6 +498,8 @@ class PreInstallation(object):
 
         # Get category for this program, which can be used to retrieve data later.
         category = dynamicapps.get_attribute_for_app(program_id, 'category')
+        fullname = dynamicapps.get_attribute_for_app(program_id, 'img')
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
 
         try:
             preconfig = dynamicapps.index[category][program_id]['pre-install']
@@ -458,7 +530,7 @@ class PreInstallation(object):
         else:
             print('[Apps] ERROR: No package(s) supplied for "' + program_id + '".')
             return
-        transaction = SimpleApt(packages, action)
+        transaction = SimpleApt(packages, action, program_id)
 
         # Function to run privileged commands.
         def run_task(function):
