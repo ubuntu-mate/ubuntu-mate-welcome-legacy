@@ -1088,3 +1088,26 @@ blockquote.terminal {
 .queue-card > .status > .failed, .queue-plan.remove {
   color: #800000 !important;
 }
+
+/* Glow Queue button on add/remove */
+@-webkit-keyframes queue-glow-add {
+  0% { background-color: #3C3B37; color: #DED9CB; }
+  40% { background-color: #A0CA5F; color: #000; }
+  60% { background-color: #A0CA5F; color: #000; }
+  100% { background-color: #3C3B37; color: #DED9CB; }
+}
+
+.queue-glow-add {
+  -webkit-animation: queue-glow-add;
+}
+
+@-webkit-keyframes queue-glow-remove {
+  0% { background-color: #3C3B37; color: #DED9CB; }
+  40% { background-color: #CA645F; color: #FFF; }
+  60% { background-color: #CA645F; color: #FFF; }
+  100% { background-color: #3C3B37; color: #DED9CB; }
+}
+
+.queue-glow-remove {
+  -webkit-animation: queue-glow-remove;
+}

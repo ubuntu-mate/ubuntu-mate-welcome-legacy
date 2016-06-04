@@ -2659,11 +2659,15 @@ class ChangesQueue(object):
             self.ui_add_card(program_id, 'install')
             plan_html = '<span class="fa fa-download"></span> ' + _("Queued for installation.")
             plan_css = 'install'
+            app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-add')
+
         elif queue == 'remove':
             self.remove_queue.append(program_id)
             self.ui_add_card(program_id, 'remove')
             plan_html = '<span class="fa fa-trash"></span> ' +_("Queued for removal.")
             plan_css = 'remove'
+            app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-remove')
+
         else:
             print('[Queue] Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.')
             return
