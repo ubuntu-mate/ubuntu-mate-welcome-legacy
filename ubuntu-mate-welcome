@@ -234,7 +234,7 @@ class SimpleApt(object):
         if self.program_id:
             name = dynamicapps.get_attribute_for_app(self.program_id, 'name')
             img = dynamicapps.get_attribute_for_app(self.program_id, 'img')
-            img_path = os.path.join(data_path, 'img', 'applications', img)
+            img_path = os.path.join(data_path, 'img', 'applications', img + '.png')
             if not os.path.exists(img_path):
                 img_path = 'package'
 
@@ -1148,6 +1148,14 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('search'):
             keywords = cmd.split('?')[1]
             dynamicapps.perform_search(self, keywords)
+        elif cmd.startswith('set-pref'):
+            key = cmd.split('?')[1]
+            value = cmd.split('?')[2]
+            pref.set(key, value)
+        elif cmd.startswith('toggle-pref'):
+            key = cmd.split('?')[1]
+            pref.toggle(key)
+            pref.refresh_pref_page(key)
         else:
             print('[Error] Unknown command: ', cmd)
       except Exception as e:
@@ -2981,7 +2989,7 @@ class Preferences(object):
             self.set(key, True)
 
     def refresh_pref_page(self, key):
-        # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd(toggle-pref?xxx)"
+        # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd('toggle-pref?xxx')"
         try:
             value = self.data[key]
             arg.print_verbose('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')')
