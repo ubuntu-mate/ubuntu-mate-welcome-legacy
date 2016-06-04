@@ -357,6 +357,7 @@ if ( current_page == 'software.html' ) {
         $('#content').animate({ scrollTop: 0 }, 0)
 
         // Remove any other current page highlights
+        $('#navigation-queue').removeClass('active');
         $('#navigation-search').removeClass('active');
         $('#navigation-news').removeClass('active');
         $('#navigation-prefs').removeClass('active');
@@ -559,6 +560,13 @@ if ( current_page == 'software.html' ) {
       switchCategory(currentCategory, '#Preferences', subtitle, true)
       resetNavTabs();
       $('#navigation-prefs').addClass('active');
+    }
+
+    // Toggling to show the Queue page
+    function showQueue(subtitle) {
+      switchCategory(currentCategory, '#Queue', subtitle, true)
+      resetNavTabs();
+      $('#navigation-queue').addClass('active');
     }
 
 }

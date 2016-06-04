@@ -288,8 +288,6 @@ class SimpleApt(object):
             if self.action != 'update':
                 if status == 'exit-success':
                     notify_send(title_success, descr_success, img_path)
-                    #~ queue.ui_rm_card(self.program_id)
-                    #~ queue.ui_add_card(self.program_id, card_status+'-ok')
                 elif status == 'exit-cancelled':
                     notify_send(title_cancel, descr_cancel, img_path)
                 else:
@@ -492,7 +490,7 @@ class PreInstallation(object):
         self.codename = platform.dist()[2]
         arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
 
-    def process_packages(self, program_id, action):
+    def process_packages(self, program_id, action, preconfigure_only=False):
         simulating = arg.simulate_software_changes
         print(' ')
 
@@ -643,18 +641,22 @@ class PreInstallation(object):
             except:
                 print('[Pre-Install]', 'No apt source specified, so none will be removed.')
 
+        # Pre-configuration complete. Now perform the operations.
+        # Do not do this if:
+        #   * Simulation flag is active.
+        #   * Part of the bulk queue - which handles packages differently.
 
-        # Pre-configuration complete. Now perform the operations, unless this was just a simulation.
-        if simulating:
-            print('[Pre-Install] Simulation flag active. No changes will be performed.')
-            return
-        else:
-            if transaction.action == 'install':
-                transaction.install_packages()
-            elif transaction.action == 'remove':
-                transaction.remove_packages()
-            elif transaction.action == 'upgrade':
-                transaction.upgrade_packages()
+        if not preconfigure_only:
+            if simulating:
+                print('[Pre-Install] Simulation flag active. No changes will be performed.')
+                return
+            else:
+                if transaction.action == 'install':
+                    transaction.install_packages()
+                elif transaction.action == 'remove':
+                    transaction.remove_packages()
+                elif transaction.action == 'upgrade':
+                    transaction.upgrade_packages()
 
 
 ##################################
@@ -829,6 +831,8 @@ class AppView(WebKit2.WebView):
             self.do_smooth_footer = False
             app.update_page('#footer-left', 'hide')
             app.update_page('#footer-left', 'fadeIn')
+            app.update_page('#navigation-right', 'hide')
+            app.update_page('#navigation-right', 'fadeIn')
 
         # Individual Page Actions
         ### Main Menu ###
@@ -979,6 +983,10 @@ class AppView(WebKit2.WebView):
             # Refresh preferences page
             pref.refresh_pref_page('enable-queue')
 
+            # Is the queue enabled?
+            queue.refresh_page_state()
+            queue.clear()
+
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
             # Check file system resize flag.
@@ -1024,6 +1032,15 @@ class AppView(WebKit2.WebView):
             dynamicapps.modify_app(self, 'remove', cmd[13:])
         elif cmd.startswith('upgrade-appid?'):
             dynamicapps.modify_app(self, 'upgrade', cmd[14:])
+        elif cmd == 'queue-start':
+            queue.apply()
+        elif cmd == 'queue-clear':
+            queue.clear()
+        elif cmd.startswith('queue-drop?'):
+            program_id = cmd[11:]
+            queue.drop_item(program_id)
+        elif cmd == 'queue-refresh':
+            queue.refresh_page_state()
         elif cmd.startswith('launch-appid?'):
             dynamicapps.launch_app(cmd[13:])
         elif cmd.startswith('filter-apps?'):
@@ -1346,6 +1363,10 @@ class SystemState(object):
 
         self.dpi = font_dpi
         self.zoom_level = zoom_level
+
+    def reload_cache(self):
+        self.apt_cache.open()
+        arg.print_verbose('Apt', 'Cache reloaded.')
 
     def autostart_check(self):
         # Ensure our autostart directories exist
@@ -1893,6 +1914,7 @@ class DynamicApps(object):
         str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
         str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
+        str_undo = _("Undo Changes")
 
         # Only list the program if it's working.
         if not self.app_working:
@@ -1938,6 +1960,10 @@ class DynamicApps(object):
         html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
         html_buffer = html_buffer + '</div><div class="span10">'
         html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+
+        # When queue mode is enabled, show the "plan" text here.
+        html_buffer = html_buffer + '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
+
         html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
         # Check any "Upgrade" packages if the PPA has already been added.
@@ -1971,6 +1997,10 @@ class DynamicApps(object):
             if not upgraded:
                 html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
+        # Add a button to undo an action in the queue.
+        html_buffer = html_buffer + '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + str_undo + '</a>'
+
+        # Add a button to launch, depending on the app:
         if not self.app_launch_command == None:
             html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
@@ -2179,38 +2209,58 @@ class DynamicApps(object):
 
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
-        # Indicate changes are in progress.
-        css_class = program_id.replace('.','-')
-        app.update_page('.'+css_class+'-applying', 'show')
-        app.update_page('.'+css_class+'-launch', 'hide')
-        app.update_page('.'+css_class+'-install', 'hide')
-        app.update_page('.'+css_class+'-reinstall', 'hide')
-        app.update_page('.'+css_class+'-remove', 'hide')
-        app.update_page('.'+css_class+'-upgrade', 'hide')
-        app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
+        # Either:
+        #   -   Queue the application for install/remove later.
+        #   -   Perform a one click operation.
+        if queue.is_enabled():
+            queue.add_item(program_id, action)
 
-        # Text to display when applying changes.
-        install_text = _("Installing...")
-        remove_text = _("Removing...")
-        upgrade_text = _("Upgrading...")
-
-        # Asynchronous apt process
-        if action == 'install':
-            app.update_page('.'+css_class+'-applying-status', 'html', install_text)
-            preinstallation.process_packages(program_id, 'install')
-        elif action == 'remove':
-            app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
-            preinstallation.process_packages(program_id, 'remove')
-        elif action == 'upgrade':
-            app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
-            preinstallation.process_packages(program_id, 'upgrade')
         else:
-            print('[Apps] An unknown action was requested.')
+            # Indicate changes are in progress.
+            css_class = program_id.replace('.','-')
+            app.update_page('.'+css_class+'-applying', 'show')
+            app.update_page('.'+css_class+'-launch', 'hide')
+            app.update_page('.'+css_class+'-install', 'hide')
+            app.update_page('.'+css_class+'-reinstall', 'hide')
+            app.update_page('.'+css_class+'-remove', 'hide')
+            app.update_page('.'+css_class+'-upgrade', 'hide')
+            app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
 
-        # Refresh the page to reflect changes (if any).
-        self._apt_cache.close()
-        self._apt_cache = apt.Cache()
-        self.update_app_status(webkit, program_id)
+            # Text to display when applying changes.
+            install_text = _("Installing...")
+            remove_text = _("Removing...")
+            upgrade_text = _("Upgrading...")
+
+            # Asynchronous apt process - perform any pre-installations.
+            if action == 'install':
+                app.update_page('.'+css_class+'-applying-status', 'html', install_text)
+                preinstallation.process_packages(program_id, 'install')
+            elif action == 'remove':
+                app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
+                preinstallation.process_packages(program_id, 'remove')
+            elif action == 'upgrade':
+                app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
+                preinstallation.process_packages(program_id, 'upgrade')
+            else:
+                print('[Apps] An unknown action was requested.')
+
+            # Refresh the page to reflect changes (if any).
+            self._apt_cache.close()
+            self._apt_cache = apt.Cache()
+            self.update_app_status(webkit, program_id)
+
+    def is_app_installed(self, program_id):
+        main_package = self.get_attribute_for_app(program_id, 'main-package')
+        try:
+            if self._apt_cache[main_package].is_installed:
+                arg.print_verbose('Apt', 'Package "' + main_package + '" is present.')
+                return True
+            else:
+                arg.print_verbose('Apt', 'Package "' + main_package + '" is not installed.')
+                return False
+        except:
+            arg.print_verbose('Apt', 'Package "' + main_package + '" not available. Considered not installed.')
+            return False
 
     def update_app_status(self, webkit, program_id):
         ''' Update the web page for an individual application. '''
@@ -2221,24 +2271,20 @@ class DynamicApps(object):
             return
 
         # Check whether the application is installed or not.
+        installed = self.is_app_installed(program_id)
         main_package = self.get_attribute_for_app(program_id, 'main-package')
-        try:
-            if self._apt_cache[main_package].is_installed:
-                this_installed = True
-                arg.print_verbose('Apps', '  Installed: ' + main_package)
-            else:
-                this_installed = False
-                arg.print_verbose('Apps', 'Not present: ' + main_package)
-        except:
-            this_installed = False
-            arg.print_verbose('Apps', 'Not present: ' + main_package)
 
         # Replace any dots with dashes, as they are unsupported in CSS.
         css_class = program_id.replace('.','-')
 
-        # Update appearance on this page.
+        # Show/hide other buttons for this application.
         app.update_page('.'+css_class+'-applying', 'hide')
-        if this_installed:
+        app.update_page('.'+css_class+'-undo', 'hide')
+        app.update_page('.'+css_class+'-plan', 'slideUp', 'fast')
+        app.update_page('.'+css_class+'-plan', 'removeClass', 'install')
+        app.update_page('.'+css_class+'-plan', 'removeClass', 'remove')
+
+        if installed:
             app.update_page('.'+css_class+'-launch', 'show')
             app.update_page('.'+css_class+'-install', 'hide')
             app.update_page('.'+css_class+'-reinstall', 'show')
@@ -2572,6 +2618,262 @@ class DynamicApps(object):
                 app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _(" proprietary applications are hidden.") + '</a>')
 
 
+class ChangesQueue(object):
+    def __init__(self):
+        # Reset queues
+        self.reset()
+
+        # Card template
+        self.card_template = '<div class="card-PROGRAM_ID queue-card">' + \
+                                 '<img class="icon" src="img/applications/PROGRAM_IMG.png"/>' + \
+                                 '<span class="title">PROGRAM_NAME</span>' + \
+                                 '<div class="status">' + \
+                                     '<span class="status-PROGRAM_ID"> DEFAULT_TEXT </span> ' + \
+                                     '<a class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + _("Cancel") + '"><span class="fa fa-times fa-2x"></span></a>' + \
+                                 '</div>' + \
+                             '</div>'
+
+    def reset(self):
+        # Intended when re-entering the Boutique from the main menu.
+        self.install_queue = []
+        self.remove_queue = []
+
+    def add_item(self, program_id, queue):
+        # User adds to the bulk queue
+        # Is this the first item? Hide the help text.
+        if len(self.install_queue) + len(self.remove_queue) == 0:
+            app.update_page('#queue-empty','slideUp')
+            app.update_page('#queue-options','slideDown')
+
+        # What's the plan?
+        if queue == 'install':
+            self.install_queue.append(program_id)
+            self.ui_add_card(program_id, 'install')
+            plan_html = '<span class="fa fa-download"></span> ' + _("Queued for installation.")
+            plan_css = 'install'
+        elif queue == 'remove':
+            self.remove_queue.append(program_id)
+            self.ui_add_card(program_id, 'remove')
+            plan_html = '<span class="fa fa-trash"></span> ' +_("Queued for removal.")
+            plan_css = 'remove'
+        else:
+            print('[Queue] Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.')
+            return
+
+        arg.print_verbose('Queue', 'Added "' + program_id + '" to "' + queue + '" queue.')
+
+        # Update UI in application listings.
+        css_class = program_id.replace('.','-')
+        app.update_page('.'+css_class+'-launch', 'hide')
+        app.update_page('.'+css_class+'-install', 'hide')
+        app.update_page('.'+css_class+'-reinstall', 'hide')
+        app.update_page('.'+css_class+'-remove', 'hide')
+        app.update_page('.'+css_class+'-upgrade', 'hide')
+        app.update_page('.'+css_class+'-undo', 'show')
+        app.update_page('.'+css_class+'-plan', 'slideDown', 'fast')
+        app.update_page('.'+css_class+'-plan', 'html', plan_html)
+        app.update_page('.'+css_class+'-plan', 'addClass', plan_css)
+
+    def drop_item(self, program_id):
+        # User no longer wants changes to this program.
+        try:
+            self.install_queue.remove(program_id)
+            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from install queue.')
+        except:
+            pass
+
+        try:
+            self.remove_queue.remove(program_id)
+            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from remove queue.')
+        except:
+            pass
+
+        self.ui_remove_card(program_id)
+        dynamicapps.update_app_status(app.webkit, program_id)
+
+        # Is this the last card? Show the help text if so.
+        if len(self.install_queue) + len(self.remove_queue) == 0:
+            app.update_page('#queue-empty','slideDown')
+            app.update_page('#queue-options','slideUp')
+
+    def clear(self):
+        arg.print_verbose('Queue', 'Clearing queue...')
+        while len(self.install_queue) > 0:
+            program_id = self.install_queue[0]
+            self.drop_item(program_id)
+
+        while len(self.remove_queue) > 0:
+            program_id = self.remove_queue[0]
+            self.drop_item(program_id)
+
+        self.install_queue = []
+        self.remove_queue = []
+        arg.print_verbose('Queue', 'Queue cleared.')
+
+        # Reset UI elements
+        app.update_page('#queue-btn-apply', 'show')
+        app.update_page('#queue-btn-clear', 'show')
+        app.update_page('#queue-btn-reset', 'hide')
+
+        # Unlock/Restore UI if applicable
+        app.update_page('#navigation-right', 'removeClass', 'disabled')
+        app.update_page('#category-tabs', 'removeClass', 'disabled')
+        app.update_page('#queue-btn-reset', 'fadeOut')
+        app.update_page('#queue-error', 'fadeOut')
+
+    def apply(self):
+        # "Hello, would you like a bag?"
+        #
+        # Priority:     Remove first -->  Install
+        arg.print_verbose('Queue', 'Applying changes...')
+
+        # Lock/Update UI
+        app.update_page('#navigation-right', 'addClass', 'disabled')
+        app.update_page('#category-tabs', 'addClass', 'disabled')
+        app.webkit.run_javascript('smoothFade("#queue-options","#queue-busy")')
+        app.update_page('#queue-error', 'fadeOut')
+        app.update_page('.drop', 'hide')
+
+        # Function to compile all the packages together from program IDs.
+        def get_packages(program_id_list, json_attribute):
+            return_packages = []
+            for program_id in program_id_list:
+                packages = dynamicapps.get_attribute_for_app(program_id, json_attribute)
+                for package in packages.split(','):
+                    return_packages.append(package)
+            return return_packages
+
+        # Uninstall applications first
+        if len(self.remove_queue) > 0:
+            # Preconfiguration - delete sources/ppa if applicable
+            for program_id in self.remove_queue:
+                self.ui_update_progress(1, _("Preparing to remove:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                preinstallation.process_packages(program_id, 'remove', True)
+
+            # Compile package lists
+            self.ui_update_progress(2, _("Listing packages...") )
+            packages = get_packages(self.remove_queue, 'remove-packages')
+            arg.print_verbose('Apps', 'Packages for bulk removal: ' + str(packages))
+
+            # Bulk remove packages
+            self.ui_update_progress(3, _("Removing software...") )
+            transaction = SimpleApt(packages, 'remove')
+            transaction.remove_packages()
+
+        # Install applications next
+        if len(self.install_queue) > 0:
+            # Pre-configuration - add sources/ppa if applicable
+            for program_id in self.install_queue:
+                self.ui_update_progress(4, _("Preparing to install:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                preinstallation.process_packages(program_id, 'install', True)
+
+            # Compile package lists
+            self.ui_update_progress(5, _("Listing packages...") )
+            packages = get_packages(self.install_queue, 'install-packages')
+            arg.print_verbose('Apps', 'Packages for bulk install: ' + str(packages))
+
+            # Bulk remove packages
+            self.ui_update_progress(6, _("Installing software...") )
+            transaction = SimpleApt(packages, 'install')
+            transaction.install_packages()
+
+        # Check that all the software was installed successfully.
+        self.ui_update_progress(7, _("Verifying software changes...") )
+        systemstate.reload_cache()
+        all_good = True
+
+        for program_id in self.install_queue:
+            installed = dynamicapps.is_app_installed(program_id)
+            if installed:
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Installed"), 'success')
+            else:
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Install"), 'error')
+                all_good = False
+            dynamicapps.update_app_status(app.webkit, program_id)
+
+        for program_id in self.remove_queue:
+            installed = dynamicapps.is_app_installed(program_id)
+            if not installed:
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Removed"), 'success')
+            else:
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Remove"), 'error')
+                all_good = False
+            dynamicapps.update_app_status(app.webkit, program_id)
+
+        # Update UI, but do not unlock until user acknowledges "Finished".
+        app.webkit.run_javascript('smoothFade("#queue-busy","#queue-options")')
+        app.update_page('#queue-btn-apply', 'hide')
+        app.update_page('#queue-btn-clear', 'hide')
+        app.update_page('#queue-btn-reset', 'show')
+
+        # Show a warning when something didn't go right.
+        if not all_good:
+            app.update_page('#queue-error', 'fadeIn')
+
+    def ui_update_progress(self, current_stage, string):
+        total_stages = 7
+        percent = str(int((current_stage / total_stages)*100)) + '%'
+        app.update_page('#queue-bar', 'width', percent)
+        app.update_page('#queue-status', 'html', string)
+        arg.print_verbose('Queue', 'Progress updated: "' + string + '" (' + percent + ')')
+
+    def ui_add_card(self, program_id, status):
+        # Get details for this card
+        name = dynamicapps.get_attribute_for_app(program_id, 'name')
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+
+        # Assemble strings
+        buffer = self.card_template.replace('PROGRAM_ID', program_id).replace('PROGRAM_IMG', img).replace('PROGRAM_NAME', name)
+
+        # What is the status on this card?
+        if status == 'install':
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-download"></span> ' + _("To be installed") )
+        elif status == 'remove':
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-trash"></span> ' +_("To be removed") )
+
+        # Add to page
+        app.update_page('#queue-cards', 'append', buffer)
+        arg.print_verbose('Queue', 'Add new card for "' + program_id + '" with status "' + status + '".')
+
+    def ui_update_card(self, program_id, string, colour=None):
+        # Update the status label of a card.
+        card_id   = '.card-' + program_id
+        status_id = '.status-' + program_id
+
+        app.update_page(status_id, 'html', string)
+        if colour:
+            if colour == 'error':
+                app.update_page(card_id, 'addClass', 'failed')
+                app.update_page(status_id, 'addClass', 'failed')
+            elif colour == 'success':
+                app.update_page(card_id, 'addClass', 'success')
+                app.update_page(status_id, 'addClass', 'success')
+        arg.print_verbose('Queue', 'Card updated for "' + program_id + '"')
+
+    def ui_remove_card(self, program_id):
+        app.update_page('.card-' + program_id, 'slideUp')
+        app.update_page('.card-' + program_id, 'attr', 'card-'+program_id, 'card-old-'+program_id)
+        app.webkit.run_javascript('setTimeout(function(){ $("#card-old-' + program_id + '").remove(); }, 500);')
+
+    def is_enabled(self):
+        enabled = pref.get('enable-queue', False)
+        if enabled:
+            return True
+        else:
+            return False
+
+    def refresh_page_state(self):
+        if self.is_enabled():
+            app.update_page('#navigation-queue', 'show')
+            app.update_page('#navigation-queue-disabled', 'hide')
+        else:
+            app.update_page('#navigation-queue', 'hide')
+            app.update_page('#navigation-queue-disabled', 'show')
+
+    def ui_animate_queue_button(self, state):
+        # Change the look of the queue button to indicate progress.
+        # TODO: Not ready
+        return
 class ScreenshotWindow(Gtk.Window):
     ''' Displays a simple window when enlarging a screenshot. '''
 
@@ -2842,6 +3144,7 @@ if __name__ == "__main__":
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()
+    queue = ChangesQueue()
     preinstallation = PreInstallation()
 
     # Argument Overrides

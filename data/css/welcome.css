@@ -196,6 +196,11 @@ body, button, input {
   z-index: 11;
 }
 
+#navigation-right.disabled, #category-tabs.disabled ul li a {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 /************************
  * Content
 *************************/
@@ -1012,4 +1017,74 @@ blockquote.terminal {
 
 #news-del {
   color: #FF0108;
+}
+
+/************************
+ * Boutique Queuing
+*************************/
+/* Page Layout/Styling */
+#queue-empty {
+  color: #7F7F7F;
+  font-style: italic;
+}
+
+#queue-options {
+  text-align: right;
+}
+
+.queue-plan {
+  font-style: bold;
+}
+
+/* Card Layout */
+.queue-card {
+  height: 50px;
+  width: 98%;
+  background-color: rgba(255,255,255,0.8);
+  border: 1px solid #E8E8E8;
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 2px #C8C8C8;
+}
+
+.queue-card > .icon {
+  width: 48px;
+  height: 48px;
+
+}
+.queue-card > .title {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.queue-card > .status {
+  font-size: smaller;
+  margin-top: 12px;
+  color: #7F7F7F;
+  float: right;
+}
+
+.queue-card > .status > .drop {
+  float: right;
+  color: black;
+  margin-left: 16px;
+  margin-right: 8px;
+}
+
+/* Card States */
+.queue-card.success {
+  border: 3px solid #008000;
+}
+
+.queue-card.failed {
+  border: 3px solid #800000;
+}
+
+/* Card Labels */
+.queue-card > .status > .success, .queue-plan.install {
+  color: #008000 !important;
+}
+
+.queue-card > .status > .failed, .queue-plan.remove {
+  color: #800000 !important;
 }
