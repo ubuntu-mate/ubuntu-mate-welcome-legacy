@@ -1092,8 +1092,8 @@ blockquote.terminal {
 /* Glow Queue button on add/remove */
 @-webkit-keyframes queue-glow-add {
   0% { background-color: #3C3B37; color: #DED9CB; }
-  40% { background-color: #A0CA5F; color: #000; }
-  60% { background-color: #A0CA5F; color: #000; }
+  40% { background-color: #A0CA5F; color: #A0CA5F; }
+  60% { background-color: #A0CA5F; color: #A0CA5F; }
   100% { background-color: #3C3B37; color: #DED9CB; }
 }
 
@@ -1103,11 +1103,41 @@ blockquote.terminal {
 
 @-webkit-keyframes queue-glow-remove {
   0% { background-color: #3C3B37; color: #DED9CB; }
-  40% { background-color: #CA645F; color: #FFF; }
-  60% { background-color: #CA645F; color: #FFF; }
+  40% { background-color: #CA645F; color: #CA645F; }
+  60% { background-color: #CA645F; color: #CA645F; }
   100% { background-color: #3C3B37; color: #DED9CB; }
 }
 
 .queue-glow-remove {
   -webkit-animation: queue-glow-remove;
+}
+
+/* Animate program icons into the queue */
+.queue-zoom-icon {
+  position: absolute;
+  top: 0px;
+  right: 184px;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-animation: queue-zoom-icon;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes queue-zoom-icon {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale3d(.8, .8, .8);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(.1, .1, .1);
+  }
 }

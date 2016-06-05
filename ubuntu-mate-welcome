@@ -2686,6 +2686,10 @@ class ChangesQueue(object):
         app.update_page('.'+css_class+'-plan', 'html', plan_html)
         app.update_page('.'+css_class+'-plan', 'addClass', plan_css)
 
+        # Zoom the application into the queue.
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+        app.update_page('#navigation-right', 'append', '<img src="' + data_path + 'img/applications/' + img + '.png" class="queue-zoom-icon"/>')
+
     def drop_item(self, program_id):
         # User no longer wants changes to this program.
         try:
