@@ -571,6 +571,7 @@ class PreInstallation(object):
                     if not simulating:
                         run_task('enable_partner_repository')
                         transaction.update_cache = True
+                        queue.must_update_cache = True
 
                 elif method == 'ppa':
                     try:
@@ -582,6 +583,7 @@ class PreInstallation(object):
                     if not simulating:
                         run_task('enable_ppa')
                         transaction.update_cache = True
+                        queue.must_update_cache = True
                     try:
                         source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
                         print('[Pre-Install] Updating Apt Source: "' + source_file + '.list"')
@@ -597,6 +599,7 @@ class PreInstallation(object):
                         print('[Pre-Install] Getting Apt key from URL: "' + apt_key_url + '"')
                         if not simulating:
                             run_task('add_apt_key_from_url')
+                            queue.must_update_cache = True
                     except:
                         arg.print_verbose('Pre-Install', 'No apt key to retrieve from a URL.')
 
@@ -607,6 +610,7 @@ class PreInstallation(object):
                         print('[Pre-Install] Getting key "' + apt_key_key + '" from keyserver: "' + apt_key_server + '"')
                         if not simulating:
                             run_task('add_apt_key_from_keyserver')
+                            queue.must_update_cache = True
                     except:
                         arg.print_verbose('Pre-Install', 'No apt key to retrieve from a key server.')
 
@@ -625,6 +629,7 @@ class PreInstallation(object):
                                 run_task('add_apt_sources')
                                 transaction.source_to_update = source_file + '.list'
                                 transaction.update_cache = True
+                                queue.must_update_cache = True
                         except:
                             arg.print_verbose('Pre-Install','Failed to add apt sources!')
                     except:
@@ -638,6 +643,7 @@ class PreInstallation(object):
                     print('[Simulation] Deleting Apt Source: ' + listname)
                 else:
                     run_task('del_apt_sources')
+                    queue.must_update_cache = True
             except:
                 print('[Pre-Install]', 'No apt source specified, so none will be removed.')
 
@@ -2630,6 +2636,10 @@ class ChangesQueue(object):
         # Reset queues
         self.reset()
 
+        # Whether PreInstallation class should inform us to update the cache.
+        # (For software that adds/removes a repository)
+        self.must_update_cache = False
+
         # Card template
         self.card_template = '<div class="card-PROGRAM_ID queue-card">' + \
                                  '<img class="icon" src="img/applications/PROGRAM_IMG.png"/>' + \
@@ -2644,6 +2654,7 @@ class ChangesQueue(object):
         # Intended when re-entering the Boutique from the main menu.
         self.install_queue = []
         self.remove_queue = []
+        self.must_update_cache = False
 
     def add_item(self, program_id, queue):
         # User adds to the bulk queue
@@ -2787,10 +2798,11 @@ class ChangesQueue(object):
             packages = get_packages(self.install_queue, 'install-packages')
             arg.print_verbose('Apps', 'Packages for bulk install: ' + str(packages))
 
-            # Update the cache (in case of new repositories)
-            self.ui_update_progress(6, _("Updating cache...") )
-            update_repos()
-            systemstate.reload_cache()
+            # Update the cache (in case of repository changes)
+            if self.must_update_cache:
+                self.ui_update_progress(6, _("Updating cache...") )
+                update_repos()
+                systemstate.reload_cache()
 
             # Bulk remove packages
             self.ui_update_progress(7, _("Installing software...") )
