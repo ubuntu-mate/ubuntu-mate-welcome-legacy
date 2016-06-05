@@ -751,7 +751,7 @@ class AppView(WebKit2.WebView):
         # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
-        self._apt_cache = systemstate.apt_cache
+        systemstate.apt_cache = systemstate.apt_cache
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
@@ -917,7 +917,7 @@ class AppView(WebKit2.WebView):
 
         ### Chat Page ###
         if app.current_page == 'chatroom.html':
-            if self._apt_cache['hexchat'].is_installed:
+            if systemstate.apt_cache['hexchat'].is_installed:
                 app.update_page('.hexchat', 'show')
                 app.update_page('.webchat', 'hide')
             else:
@@ -1065,18 +1065,18 @@ class AppView(WebKit2.WebView):
             dynamicapps.show_screenshot(filename)
         elif cmd == 'apt-update':
             update_repos()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'fix-incomplete-install':
             fix_incomplete_install()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'fix-broken-depends':
             fix_broken_depends()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'get-aacs-db':
             app.update_page('.bluray-applying', 'show')
@@ -1373,7 +1373,9 @@ class SystemState(object):
         self.zoom_level = zoom_level
 
     def reload_cache(self):
-        self.apt_cache.open()
+        arg.print_verbose('Apt', 'Reloading cache...')
+        self.apt_cache.close()
+        self.apt_cache = apt.Cache()
         arg.print_verbose('Apt', 'Cache reloaded.')
 
     def autostart_check(self):
@@ -1843,16 +1845,13 @@ class DynamicApps(object):
         self.all_categories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
         self.hide_non_free = pref.get('hide_non_free', False)
 
-        # Reading the apt cache later.
-        self._apt_cache = systemstate.apt_cache
-
         # Indicate that operations are in progress.
         self.operations_busy = False
 
         # Get the version of Welcome in use.
-        for pkgname in self._apt_cache.keys():
+        for pkgname in systemstate.apt_cache.keys():
             if 'ubuntu-mate-welcome' in pkgname:
-                systemstate.welcome_version = self._apt_cache['ubuntu-mate-welcome'].installed.version
+                systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
                 break
         print('[Welcome] Version: ' + systemstate.welcome_version)
 
@@ -2253,14 +2252,14 @@ class DynamicApps(object):
                 print('[Apps] An unknown action was requested.')
 
             # Refresh the page to reflect changes (if any).
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self.update_app_status(webkit, program_id)
 
     def is_app_installed(self, program_id):
         main_package = self.get_attribute_for_app(program_id, 'main-package')
         try:
-            if self._apt_cache[main_package].is_installed:
+            if systemstate.apt_cache[main_package].is_installed:
                 arg.print_verbose('Apt', 'Package "' + main_package + '" is present.')
                 return True
             else:
@@ -2788,13 +2787,18 @@ class ChangesQueue(object):
             packages = get_packages(self.install_queue, 'install-packages')
             arg.print_verbose('Apps', 'Packages for bulk install: ' + str(packages))
 
+            # Update the cache (in case of new repositories)
+            self.ui_update_progress(6, _("Updating cache...") )
+            update_repos()
+            systemstate.reload_cache()
+
             # Bulk remove packages
-            self.ui_update_progress(6, _("Installing software...") )
+            self.ui_update_progress(7, _("Installing software...") )
             transaction = SimpleApt(packages, 'install')
             transaction.install_packages()
 
         # Check that all the software was installed successfully.
-        self.ui_update_progress(7, _("Verifying software changes...") )
+        self.ui_update_progress(8, _("Verifying software changes...") )
         systemstate.reload_cache()
         all_good = True
 
@@ -2827,7 +2831,7 @@ class ChangesQueue(object):
             app.update_page('#queue-error', 'fadeIn')
 
     def ui_update_progress(self, current_stage, string):
-        total_stages = 7
+        total_stages = 8
         percent = str(int((current_stage / total_stages)*100)) + '%'
         app.update_page('#queue-bar', 'width', percent)
         app.update_page('#queue-status', 'html', string)
@@ -2886,10 +2890,7 @@ class ChangesQueue(object):
             app.update_page('#navigation-queue', 'hide')
             app.update_page('#navigation-queue-disabled', 'show')
 
-    def ui_animate_queue_button(self, state):
-        # Change the look of the queue button to indicate progress.
-        # TODO: Not ready
-        return
+
 class ScreenshotWindow(Gtk.Window):
     ''' Displays a simple window when enlarging a screenshot. '''
 
