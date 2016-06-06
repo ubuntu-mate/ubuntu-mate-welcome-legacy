@@ -103,6 +103,7 @@ We are on Transifex!
     ./welcome-po.py --update-pos
     ./edgar-allan create-all-pots
     ./edgar-allan translate-all
+    tx push -s
 
 ## Non-Translatable
 
