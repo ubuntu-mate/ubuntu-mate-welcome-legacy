@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Bruno Mendes <brunosouza@alunos.utfpr.edu.br>, 2016
 # Danilo Silva, 2016
+# Guilherme Galván <guilherme_galvan@hotmail.com>, 2016
 # mateusln <mateus.loures@gmail.com>, 2016
 # Nitai Charan <nitaicharan@gmail.com>, 2016
 # Rodrigo Piñero <rodrigo.pinero@yahoo.com.br>, 2016
@@ -12,387 +13,673 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-07 13:44+0100\n"
-"PO-Revision-Date: 2016-05-15 15:58+0000\n"
-"Last-Translator: Nitai Charan <nitaicharan@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/pt_BR/)\n"
+"POT-Creation-Date: 2016-06-06 17:25+0100\n"
+"PO-Revision-Date: 2016-06-06 16:10+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/ubuntu-mate/"
+"ubuntu-mate-welcome/language/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:1140 ubuntu-mate-welcome:2285
+#: ubuntu-mate-welcome:75 ubuntu-mate-welcome:967 ubuntu-mate-welcome:1186
+#: ubuntu-mate-welcome:2356
 msgid "Software Boutique"
 msgstr "Boutique de Software"
 
-#: ubuntu-mate-welcome:78
+#: ubuntu-mate-welcome:76
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr "As alterações no aplicativo estão em progresso. Por favor espere a conclusão antes de fechar as Boas Vindas."
+msgstr ""
+"As alterações no aplicativo estão em progresso. Por favor espere a conclusão "
+"antes de fechar as Boas Vindas."
 
-#: ubuntu-mate-welcome:79 ubuntu-mate-welcome:2286
+#: ubuntu-mate-welcome:77 ubuntu-mate-welcome:2357
 msgid "OK"
 msgstr "OK"
 
-#: ubuntu-mate-welcome:140
-msgid "Fixing incomplete install succeeded"
-msgstr "Reparo de instalação incompleta terminado"
+#: ubuntu-mate-welcome:164 ubuntu-mate-welcome:174
+msgid "Successfully performed fix."
+msgstr ""
 
-#: ubuntu-mate-welcome:141
-msgid "Successfully fixed an incomplete install."
-msgstr "Instalação incompleta corrigida"
+#: ubuntu-mate-welcome:164
+msgid "Any previously incomplete installations have been finished."
+msgstr ""
 
-#: ubuntu-mate-welcome:141
-msgid "Fixing the incomplete install was successful."
-msgstr "O reparo na instalação incompleta foi bem sucedido."
+#: ubuntu-mate-welcome:167 ubuntu-mate-welcome:177
+msgid "Failed to perform fix."
+msgstr ""
 
-#: ubuntu-mate-welcome:145
-msgid "Fixing incomplete install failed"
-msgstr "O reparo na instalação incompleta falhou"
+#: ubuntu-mate-welcome:167
+msgid "Errors occurred while finishing an incomplete installation."
+msgstr ""
 
-#: ubuntu-mate-welcome:146
-msgid "Failed to fix incomplete install."
-msgstr "Falha no reparo de instalação incompleta."
+#: ubuntu-mate-welcome:174
+msgid "Packages with broken dependencies have been resolved."
+msgstr ""
 
-#: ubuntu-mate-welcome:146
-msgid "Fixing the incomplete install failed."
-msgstr "O reparo na instalação incompleta falhou"
+#: ubuntu-mate-welcome:177
+msgid "Packages may still have broken dependencies."
+msgstr ""
 
-#: ubuntu-mate-welcome:154
-msgid "Fixing broken dependencies succeeded"
-msgstr "O reparo nas dependências quebradas foi bem sucedido"
+#: ubuntu-mate-welcome:186
+msgid "Successfully updated cache."
+msgstr ""
 
-#: ubuntu-mate-welcome:155
-msgid "Successfully fixed broken dependencies."
-msgstr "Sucesso no reparo das dependências quebradas."
+#: ubuntu-mate-welcome:186
+msgid "Software is now ready to install."
+msgstr ""
 
-#: ubuntu-mate-welcome:155
-msgid "Fixing the broken dependencies was successful."
-msgstr "As dependências foram reparadas com sucesso."
+#: ubuntu-mate-welcome:189
+msgid "Failed to update cache."
+msgstr ""
 
-#: ubuntu-mate-welcome:159
-msgid "Fixing broken dependencies failed"
-msgstr "A reparação das dependências quebradas falhou."
+#: ubuntu-mate-welcome:189
+msgid "There may be a problem with your repository configuration."
+msgstr ""
 
-#: ubuntu-mate-welcome:160
-msgid "Failed to fix broken dependencies."
-msgstr "Falhou a reparação das dependências quebradas."
+#: ubuntu-mate-welcome:245
+msgid "Welcome will stay up-to-date."
+msgstr ""
 
-#: ubuntu-mate-welcome:160
-msgid "Fixing the broken dependencies failed."
-msgstr "A reparação das dependências quebradas falhou."
+#: ubuntu-mate-welcome:246
+#, fuzzy
+msgid ""
+"Welcome and the Software Boutique are set to receive the latest updates."
+msgstr "Esta aplicação está definida para receber as últimas atualizações."
 
-#: ubuntu-mate-welcome:217 ubuntu-mate-welcome:1887
-msgid "Install"
+#: ubuntu-mate-welcome:252
+msgid "Everything is up-to-date"
+msgstr ""
+
+#: ubuntu-mate-welcome:253
+msgid "All packages have been upgraded to the latest versions."
+msgstr ""
+
+#: ubuntu-mate-welcome:258
+#, fuzzy
+msgid "Installed"
 msgstr "Instalar"
 
-#: ubuntu-mate-welcome:218
-msgid "Installation of "
-msgstr "Instalação de"
+#: ubuntu-mate-welcome:259
+#, fuzzy
+msgid "The application is now ready to use."
+msgstr "Esta aplicação está definida para receber as últimas atualizações."
 
-#: ubuntu-mate-welcome:219
-msgid "installed."
-msgstr "instalado."
+#: ubuntu-mate-welcome:261
+#, fuzzy
+msgid "was not installed."
+msgstr "Reinstalar"
 
-#: ubuntu-mate-welcome:221 ubuntu-mate-welcome:1889
-msgid "Remove"
+#: ubuntu-mate-welcome:262 ubuntu-mate-welcome:272 ubuntu-mate-welcome:303
+#: ubuntu-mate-welcome:313
+msgid "The operation was cancelled."
+msgstr ""
+
+#: ubuntu-mate-welcome:264
+#, fuzzy
+msgid "failed to install"
+msgstr "Reinstalar"
+
+#: ubuntu-mate-welcome:265
+msgid "There was a problem installing this application."
+msgstr ""
+
+#: ubuntu-mate-welcome:268 ubuntu-mate-welcome:2540
+msgid "Removed"
+msgstr ""
+
+#: ubuntu-mate-welcome:269
+#, fuzzy
+msgid "The application has been uninstalled."
+msgstr "Partição raiz foi redimensionada."
+
+#: ubuntu-mate-welcome:271
+#, fuzzy
+msgid "was not removed."
 msgstr "Remover"
 
-#: ubuntu-mate-welcome:222
-msgid "Removal of "
-msgstr "Remoção de"
+#: ubuntu-mate-welcome:274
+msgid "failed to remove"
+msgstr ""
 
-#: ubuntu-mate-welcome:223
-msgid "removed."
-msgstr "removido."
+#: ubuntu-mate-welcome:275
+msgid "A problem is preventing this application from being removed."
+msgstr ""
 
-#: ubuntu-mate-welcome:225 ubuntu-mate-welcome:1890
-msgid "Upgrade"
+#: ubuntu-mate-welcome:278
+#, fuzzy
+msgid "Upgraded"
 msgstr "Atualizar"
 
-#: ubuntu-mate-welcome:226
-msgid "Upgrade of "
-msgstr "Atualização de"
+#: ubuntu-mate-welcome:279
+#, fuzzy
+msgid "This application is set to use the latest version."
+msgstr "Esta aplicação está definida para receber as últimas atualizações."
 
-#: ubuntu-mate-welcome:227
-msgid "upgraded."
-msgstr "atualizado."
+#: ubuntu-mate-welcome:281
+#, fuzzy
+msgid "was not upgraded."
+msgstr "Atualizar"
 
-#: ubuntu-mate-welcome:232 ubuntu-mate-welcome:233
-msgid "complete"
-msgstr "completo"
+#: ubuntu-mate-welcome:282
+#, fuzzy
+msgid "The application will continue to use the stable version."
+msgstr "Esta aplicação está definida para receber as últimas atualizações."
 
-#: ubuntu-mate-welcome:233
-msgid "has been successfully "
-msgstr "feito com sucesso"
+#: ubuntu-mate-welcome:284
+msgid "failed to upgrade"
+msgstr ""
 
-#: ubuntu-mate-welcome:235 ubuntu-mate-welcome:236
-msgid "cancelled"
-msgstr "cancelado"
+#: ubuntu-mate-welcome:285
+#, fuzzy
+msgid "A problem is preventing this application from being upgraded."
+msgstr "Por favor, aguarde enquanto o aplicativo está sendo atualizado..."
 
-#: ubuntu-mate-welcome:236
-msgid "was cancelled."
-msgstr "foi cancelado."
+#: ubuntu-mate-welcome:299
+msgid "applications have been installed"
+msgstr ""
 
-#: ubuntu-mate-welcome:238 ubuntu-mate-welcome:239
-msgid "failed"
-msgstr "falhou"
+#: ubuntu-mate-welcome:300
+msgid "Your newly installed applications are ready to use."
+msgstr ""
 
-#: ubuntu-mate-welcome:239
-msgid "failed."
-msgstr "falhou."
+#: ubuntu-mate-welcome:302
+msgid "Some applications were not installed."
+msgstr ""
 
-#: ubuntu-mate-welcome:389
+#: ubuntu-mate-welcome:305
+msgid "Some applications failed to install."
+msgstr ""
+
+#: ubuntu-mate-welcome:306 ubuntu-mate-welcome:316
+msgid "Software Boutique encountered a problem with one of the applications."
+msgstr ""
+
+#: ubuntu-mate-welcome:309
+#, fuzzy
+msgid "applications have been removed"
+msgstr "Partição raiz foi redimensionada."
+
+#: ubuntu-mate-welcome:310
+msgid "These applications are no longer present on your system."
+msgstr ""
+
+#: ubuntu-mate-welcome:312
+msgid "Some applications were not removed."
+msgstr ""
+
+#: ubuntu-mate-welcome:315
+msgid "Some applications failed to remove."
+msgstr ""
+
+#: ubuntu-mate-welcome:473
 msgid "Blu-ray AACS database install succeeded"
 msgstr "Instalação de base de dados Blu-ray AACS concluída"
 
-#: ubuntu-mate-welcome:390
+#: ubuntu-mate-welcome:474
 msgid "Successfully installed the Blu-ray AACS database."
 msgstr "Base de dados Blu-ray AACS instalada com sucesso."
 
-#: ubuntu-mate-welcome:390
+#: ubuntu-mate-welcome:474
 msgid "Installation of the Blu-ray AACS database was successful."
 msgstr "A instalação da base de dados do Blu-ray AACS foi bem sucedida."
 
-#: ubuntu-mate-welcome:393
+#: ubuntu-mate-welcome:477
 msgid "Blu-ray AACS database install failed"
 msgstr "Instalação da base de dados Blu-ray AACS falhou"
 
-#: ubuntu-mate-welcome:394
+#: ubuntu-mate-welcome:478
 msgid "Failed to install the Blu-ray AACS database."
 msgstr "Falhou ao instalar base de dados Blu-ray AACS."
 
-#: ubuntu-mate-welcome:394
+#: ubuntu-mate-welcome:478
 msgid "Installation of the Blu-ray AACS database failed."
 msgstr "A instalação da base de dados Blu-ray AACS falhou."
 
-#: ubuntu-mate-welcome:700
-msgid "Set to retrieve the latest software listings."
-msgstr "Definir para recuperar os novos anúncios de software."
-
-#: ubuntu-mate-welcome:701
-msgid "Retrieve the latest software listings."
-msgstr "Recuperar os novos anúncios de software."
-
-#: ubuntu-mate-welcome:702
-msgid "Please wait while the application is being updated..."
-msgstr "Por favor, aguarde enquanto o aplicativo está sendo atualizado..."
-
-#: ubuntu-mate-welcome:703
-msgid "Version:"
-msgstr "Versão:"
-
-#: ubuntu-mate-welcome:718
+#: ubuntu-mate-welcome:809
 msgid "Close"
 msgstr "Fechar"
 
-#: ubuntu-mate-welcome:719
-msgid "Skip"
-msgstr "Pular"
+#: ubuntu-mate-welcome:812
+msgid "Set to retrieve the latest software listings."
+msgstr "Definir para recuperar os novos anúncios de software."
 
-#: ubuntu-mate-welcome:848
+#: ubuntu-mate-welcome:813
+msgid "Retrieve the latest software listings."
+msgstr "Recuperar os novos anúncios de software."
+
+#: ubuntu-mate-welcome:814
+msgid "Please wait while the application is being updated..."
+msgstr "Por favor, aguarde enquanto o aplicativo está sendo atualizado..."
+
+#: ubuntu-mate-welcome:815
+msgid "Version:"
+msgstr "Versão:"
+
+#: ubuntu-mate-welcome:971
 msgid "Servers"
 msgstr "Servidor"
 
-#: ubuntu-mate-welcome:873
+#: ubuntu-mate-welcome:1004
 msgid "Jan"
 msgstr "Jan"
 
-#: ubuntu-mate-welcome:874
+#: ubuntu-mate-welcome:1005
 msgid "Feb"
 msgstr "Fev"
 
-#: ubuntu-mate-welcome:875
+#: ubuntu-mate-welcome:1006
 msgid "Mar"
 msgstr "Mar"
 
-#: ubuntu-mate-welcome:876
+#: ubuntu-mate-welcome:1007
 msgid "Apr"
 msgstr "Abr"
 
-#: ubuntu-mate-welcome:877
+#: ubuntu-mate-welcome:1008
 msgid "May"
 msgstr "Mai"
 
-#: ubuntu-mate-welcome:878
+#: ubuntu-mate-welcome:1009
 msgid "Jun"
 msgstr "Jun"
 
-#: ubuntu-mate-welcome:879
+#: ubuntu-mate-welcome:1010
 msgid "Jul"
 msgstr "Jul"
 
-#: ubuntu-mate-welcome:880
+#: ubuntu-mate-welcome:1011
 msgid "Aug"
 msgstr "Ago"
 
-#: ubuntu-mate-welcome:881
+#: ubuntu-mate-welcome:1012
 msgid "Sep"
 msgstr "Set"
 
-#: ubuntu-mate-welcome:882
+#: ubuntu-mate-welcome:1013
 msgid "Oct"
 msgstr "Out"
 
-#: ubuntu-mate-welcome:883
+#: ubuntu-mate-welcome:1014
 msgid "Nov"
 msgstr "Nov"
 
-#: ubuntu-mate-welcome:884
+#: ubuntu-mate-welcome:1015
 msgid "Dec"
 msgstr "Dez"
 
-#: ubuntu-mate-welcome:1145
+#: ubuntu-mate-welcome:1191
 msgid "Welcome"
 msgstr "Bem-vindo"
 
-#: ubuntu-mate-welcome:1382
+#: ubuntu-mate-welcome:1487
 msgid "MB"
 msgstr "MB"
 
-#: ubuntu-mate-welcome:1383
+#: ubuntu-mate-welcome:1488
 msgid "MiB"
 msgstr "MiB"
 
-#: ubuntu-mate-welcome:1384
+#: ubuntu-mate-welcome:1489
 msgid "GB"
 msgstr "GB"
 
-#: ubuntu-mate-welcome:1385
+#: ubuntu-mate-welcome:1490
 msgid "GiB"
 msgstr "GiB"
 
-#: ubuntu-mate-welcome:1396
+#: ubuntu-mate-welcome:1501
 msgid "Could not gather data."
 msgstr "Não foi possível reunir dados."
 
-#: ubuntu-mate-welcome:1680
+#: ubuntu-mate-welcome:1787
 msgid "Raspberry Pi Partition Resize"
-msgstr ""
+msgstr "Redimensionamento de Partição do Raspberry Pi"
 
-#: ubuntu-mate-welcome:1691
+#: ubuntu-mate-welcome:1804
 msgid "Root partition has been resized."
 msgstr "Partição raiz foi redimensionada."
 
-#: ubuntu-mate-welcome:1691
+#: ubuntu-mate-welcome:1804
 msgid "The filesystem will be enlarged upon the next reboot."
 msgstr "O sistema de arquivos será ampliado na próxima reinicialização."
 
-#: ubuntu-mate-welcome:1697
-msgid "does not exist or is not a symlink."
-msgstr "não existe ou não é um link simbólico."
-
-#: ubuntu-mate-welcome:1697 ubuntu-mate-welcome:1699 ubuntu-mate-welcome:1701
-#: ubuntu-mate-welcome:1703
+#: ubuntu-mate-welcome:1810 ubuntu-mate-welcome:1812 ubuntu-mate-welcome:1814
+#: ubuntu-mate-welcome:1816
 msgid "Don't know how to expand."
 msgstr "Não sei como expandir."
 
-#: ubuntu-mate-welcome:1699
+#: ubuntu-mate-welcome:1810
+msgid "does not exist or is not a symlink."
+msgstr "não existe ou não é um link simbólico."
+
+#: ubuntu-mate-welcome:1812
 msgid "is not an SD card."
 msgstr "não é um cartão SD."
 
-#: ubuntu-mate-welcome:1701
+#: ubuntu-mate-welcome:1814
 msgid "Your partition layout is not currently supported by this tool."
 msgstr "A disposição da partição não é suportado por esta ferramenta."
 
-#: ubuntu-mate-welcome:1703
+#: ubuntu-mate-welcome:1816
 msgid "is not the last partition."
 msgstr "não é a última partição."
 
-#: ubuntu-mate-welcome:1882
-msgid ""
-"Sorry, Welcome could not feature any software for this category that is "
-"compatible on this system."
-msgstr "Desculpe, Bem-vindo não poderia caracterizar qualquer software para esta categoria, que é compatível com este sistema."
+#: ubuntu-mate-welcome:1818
+msgid "Failed to run resize script."
+msgstr ""
 
-#: ubuntu-mate-welcome:1883
+#: ubuntu-mate-welcome:1818
+msgid "The returned error code is:"
+msgstr ""
+
+#: ubuntu-mate-welcome:1910
 msgid "This application is set to receive the latest updates."
 msgstr "Esta aplicação está definida para receber as últimas atualizações."
 
-#: ubuntu-mate-welcome:1884
+#: ubuntu-mate-welcome:1911
 msgid "Alternative to:"
 msgstr "Alternativa para:"
 
-#: ubuntu-mate-welcome:1885
+#: ubuntu-mate-welcome:1912
 msgid "Hide"
 msgstr "Esconder"
 
-#: ubuntu-mate-welcome:1886
+#: ubuntu-mate-welcome:1913
 msgid "Show"
 msgstr "Mostrar"
 
-#: ubuntu-mate-welcome:1888
+#: ubuntu-mate-welcome:1914
+msgid "Install"
+msgstr "Instalar"
+
+#: ubuntu-mate-welcome:1915
 msgid "Reinstall"
 msgstr "Reinstalar"
 
-#: ubuntu-mate-welcome:1891
+#: ubuntu-mate-welcome:1916
+msgid "Remove"
+msgstr "Remover"
+
+#: ubuntu-mate-welcome:1917
+msgid "Upgrade"
+msgstr "Atualizar"
+
+#: ubuntu-mate-welcome:1918
 msgid "Launch"
 msgstr "Iniciar"
 
-#: ubuntu-mate-welcome:1892
+#: ubuntu-mate-welcome:1919
 msgid "License"
 msgstr "Licença"
 
-#: ubuntu-mate-welcome:1893
+#: ubuntu-mate-welcome:1920
 msgid "Platform"
 msgstr "Plataforma"
 
-#: ubuntu-mate-welcome:1894
+#: ubuntu-mate-welcome:1921
 msgid "Category"
 msgstr "Categoria"
 
-#: ubuntu-mate-welcome:1895
+#: ubuntu-mate-welcome:1922
 msgid "Website"
 msgstr "Website"
 
-#: ubuntu-mate-welcome:1896
+#: ubuntu-mate-welcome:1923
 msgid "Screenshot"
 msgstr "Captura de Tela"
 
-#: ubuntu-mate-welcome:1897
+#: ubuntu-mate-welcome:1924
 msgid "Source"
 msgstr "Fonte"
 
-#: ubuntu-mate-welcome:1900
+#: ubuntu-mate-welcome:1927
 msgid "Canonical Partner Repository"
 msgstr "Repositório Parceiro da Canonical"
 
-#: ubuntu-mate-welcome:1901
+#: ubuntu-mate-welcome:1928
 msgid "Ubuntu Repository"
 msgstr "Repositório Ubuntu"
 
-#: ubuntu-mate-welcome:1902
+#: ubuntu-mate-welcome:1929
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: ubuntu-mate-welcome:2010
+#: ubuntu-mate-welcome:1930
+msgid "Undo Changes"
+msgstr ""
+
+#: ubuntu-mate-welcome:2025
 msgid "Open Source"
 msgstr "Código Aberto"
 
-#: ubuntu-mate-welcome:2012
+#: ubuntu-mate-welcome:2027
 msgid "Proprietary"
 msgstr "Proprietário"
 
-#: ubuntu-mate-welcome:2181
+#: ubuntu-mate-welcome:2140
+msgid ""
+"Sorry, Welcome could not feature any software for this category that is "
+"compatible on this system."
+msgstr ""
+"Desculpe, Bem-vindo não poderia caracterizar qualquer software para esta "
+"categoria, que é compatível com este sistema."
+
+#: ubuntu-mate-welcome:2243
 msgid "Installing..."
 msgstr "Instalando..."
 
-#: ubuntu-mate-welcome:2182
+#: ubuntu-mate-welcome:2244
 msgid "Removing..."
 msgstr "Removendo..."
 
-#: ubuntu-mate-welcome:2183
+#: ubuntu-mate-welcome:2245
 msgid "Upgrading..."
 msgstr "Atualizando..."
 
-#: ubuntu-mate-welcome:2287
+#: ubuntu-mate-welcome:2358
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr "Ocorreu um erro ao executar PROGRAM_NAME. Por favor, considere reinstalar o aplicativo."
+msgstr ""
+"Ocorreu um erro ao executar PROGRAM_NAME. Por favor, considere reinstalar o "
+"aplicativo."
 
-#: ubuntu-mate-welcome:2288
+#: ubuntu-mate-welcome:2359
 msgid "Command:"
 msgstr "Comando:"
+
+#: ubuntu-mate-welcome:2441
+msgid "Uses a new or updated source."
+msgstr ""
+
+#: ubuntu-mate-welcome:2443
+msgid "Now works for various versions of Ubuntu."
+msgstr ""
+
+#: ubuntu-mate-welcome:2445
+msgid "Now a snappy package."
+msgstr ""
+
+#: ubuntu-mate-welcome:2447
+msgid "General maintenance."
+msgstr ""
+
+#: ubuntu-mate-welcome:2449
+msgid "Broken or problematic source."
+msgstr ""
+
+#: ubuntu-mate-welcome:2451
+msgid "Not yet available for some releases."
+msgstr ""
+
+#: ubuntu-mate-welcome:2453
+msgid "No longer works for some releases."
+msgstr ""
+
+#: ubuntu-mate-welcome:2455
+msgid "Not suitable for production machines."
+msgstr ""
+
+#: ubuntu-mate-welcome:2457
+msgid "Requires further testing."
+msgstr ""
+
+#: ubuntu-mate-welcome:2459
+msgid "Does not meet our standards to be featured."
+msgstr ""
+
+#: ubuntu-mate-welcome:2466
+msgid "Accessories"
+msgstr "Acessórios"
+
+#: ubuntu-mate-welcome:2468
+msgid "Education"
+msgstr "Educação"
+
+#: ubuntu-mate-welcome:2470
+msgid "Games"
+msgstr "Jogos"
+
+#: ubuntu-mate-welcome:2472
+msgid "Graphics"
+msgstr "Gráficos"
+
+#: ubuntu-mate-welcome:2474
+msgid "Internet"
+msgstr "Internet"
+
+#: ubuntu-mate-welcome:2476
+msgid "Office"
+msgstr "Escritório"
+
+#: ubuntu-mate-welcome:2478
+msgid "Programming"
+msgstr "Programação"
+
+#: ubuntu-mate-welcome:2480
+msgid "Sound & Video"
+msgstr "Som & Vídeo"
+
+#: ubuntu-mate-welcome:2482
+msgid "System Tools"
+msgstr "Ferramentas do Sistema"
+
+#: ubuntu-mate-welcome:2484
+msgid "Universal Access"
+msgstr "Acesso Universal"
+
+#: ubuntu-mate-welcome:2486
+msgid "Server One-Click Installation"
+msgstr ""
+
+#: ubuntu-mate-welcome:2502
+msgid "Added"
+msgstr ""
+
+#: ubuntu-mate-welcome:2522
+msgid "Fixed"
+msgstr ""
+
+#: ubuntu-mate-welcome:2562
+msgid "Please enter a keyword to begin."
+msgstr ""
+
+#: ubuntu-mate-welcome:2568
+msgid "Please enter at least 3 characters."
+msgstr ""
+
+#: ubuntu-mate-welcome:2573
+msgid "Search"
+msgstr ""
+
+#: ubuntu-mate-welcome:2627
+msgid "applications found."
+msgstr ""
+
+#: ubuntu-mate-welcome:2631
+msgid " proprietary applications are hidden."
+msgstr ""
+
+#: ubuntu-mate-welcome:2649
+msgid "Cancel"
+msgstr ""
+
+#: ubuntu-mate-welcome:2670
+msgid "Queued for installation."
+msgstr ""
+
+#: ubuntu-mate-welcome:2677
+msgid "Queued for removal."
+msgstr ""
+
+#: ubuntu-mate-welcome:2776
+msgid "Preparing to remove:"
+msgstr ""
+
+#: ubuntu-mate-welcome:2780 ubuntu-mate-welcome:2797
+msgid "Listing packages..."
+msgstr ""
+
+#: ubuntu-mate-welcome:2785
+#, fuzzy
+msgid "Removing software..."
+msgstr "Removendo..."
+
+#: ubuntu-mate-welcome:2793
+msgid "Preparing to install:"
+msgstr ""
+
+#: ubuntu-mate-welcome:2803
+msgid "Updating cache..."
+msgstr ""
+
+#: ubuntu-mate-welcome:2808
+#, fuzzy
+msgid "Installing software..."
+msgstr "Instalando..."
+
+#: ubuntu-mate-welcome:2813
+msgid "Verifying software changes..."
+msgstr ""
+
+#: ubuntu-mate-welcome:2820
+msgid "Successfully Installed"
+msgstr ""
+
+#: ubuntu-mate-welcome:2822
+msgid "Failed to Install"
+msgstr ""
+
+#: ubuntu-mate-welcome:2829
+msgid "Successfully Removed"
+msgstr ""
+
+#: ubuntu-mate-welcome:2831
+msgid "Failed to Remove"
+msgstr ""
+
+#: ubuntu-mate-welcome:2862
+#, fuzzy
+msgid "To be installed"
+msgstr "Reinstalar"
+
+#: ubuntu-mate-welcome:2864
+#, fuzzy
+msgid "To be removed"
+msgstr "Remover"
+
+#, fuzzy
+#~ msgid "Installation of "
+#~ msgstr "Instalando..."
+
+#, fuzzy
+#~ msgid "Upgrade of "
+#~ msgstr "Atualizar"
+
+#~ msgid "Skip"
+#~ msgstr "Pular"
