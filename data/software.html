@@ -18,12 +18,12 @@
         <div id="navigation-title" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"> &zwnj;Boutique&zwnj;</span></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
         <div id="navigation-right">
-          <a id="navigation-search" class="navigation-button" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">
-            <span class="fa fa-search"></span>
-          </a>
-          <a id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">
-            <span class="fa fa-newspaper-o"></span>
-          </a>
+          <a id="navigation-queue" class="navigation-button" onclick="showQueue('&zwnj;Bulk Queue&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue&zwnj;">                  <span class="fa fa-clone"></span></a>
+          <a id="navigation-queue-disabled" class="navigation-button" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue Disabled&zwnj;" style="display:none">                         <span class="fa fa-clone" style="opacity:0.5"></span></a>
+          <a id="navigation-search" class="navigation-button" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">                        <span class="fa fa-search"></span></a>
+          <a id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">              <span class="fa fa-newspaper-o"></span></a>
+          <a id="navigation-prefs" class="navigation-button" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">                <span class="fa fa-wrench"></span></a>
+          <a id="scroll-top-always-show" class="navigation-button disabled" onclick="backToTop()"><span class="fa fa-chevron-up"></span></a>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
         <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Universal Access&zwnj;"> <a id="UnivAccessBtn"  data-toggle="tab" onclick='changeCategoryTab("#UnivAccess",  "&zwnj;Universal Access&zwnj;");'> <span class="fa fa-2x fa-va fa-wheelchair">     </span></a></li>
         <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Servers&zwnj;">          <a id="ServersBtn"     data-toggle="tab" onclick='changeCategoryTab("#Servers",     "&zwnj;Servers&zwnj;");'>          <span class="fa fa-2x fa-va fa-server">         </span></a></li>
         <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;More Software&zwnj;">    <a id="MoreAppsBtn"    data-toggle="tab" onclick='changeCategoryTab("#MoreApps",    "&zwnj;More Software&zwnj;");'>    <span class="fa fa-2x fa-va fa-download">       </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <a id="MiscBtn"        data-toggle="tab" onclick='changeCategoryTab("#Misc",        "&zwnj;Fixes&zwnj;");'>            <span class="fa fa-2x fa-va fa-wrench">         </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <a id="MiscBtn"        data-toggle="tab" onclick='changeCategoryTab("#Misc",        "&zwnj;Fixes&zwnj;");'>            <span class="fa fa-2x fa-va fa-check-square-o"> </span></a></li>
       </ul>
     </div>
     <div class="row-fluid">
@@ -70,8 +70,8 @@
               <p>&zwnj;Connect your computer to the Internet to explore a wide selection
               of applications for Ubuntu MATE.&zwnj;</p>
               <p>&zwnj;Once online, you'll be able to download and install tried & tested
-              software right here in Welcome. Our picks ensure that the
-              software featured integrates well the Ubuntu MATE desktop.&zwnj;</p>
+              software right here. Our picks ensure that the featured software integrates
+              well on the Ubuntu MATE desktop.&zwnj;</p>
 
               <div id="reconnectFailed" hidden class="alert alert-danger" style="width: 350px; margin-top: 12px">
                 <span class="fa fa-exclamation-triangle"></span>
@@ -80,7 +80,7 @@
               </div>
 
               <ul class="unstyled">
-                <li><a onclick="cmd('reconnectRetry();" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
+                <li><a onclick="reconnectRetry()" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
               </ul>
               <ul class="unstyled" id="helpButton">
                 <li><a onclick='smoothFade("#offlineMessage","#helpMe"); changeSubtitle("&zwnj;Connection Troubleshooting&zwnj;"); smoothFade("#featured-grid","");' class="btn btn-default">
@@ -362,9 +362,61 @@
                 <span class="fa fa-download"></span> &zwnj;Install a software center&zwnj;
               </a>
               &zwnj;to explore the entire Ubuntu catalogue.&zwnj;
+              <span id="search-retry-nonfree" hidden>
+                <br><br>
+                <a onclick="searchAgainNonFree()"><span class="fa fa-search"></span> &zwnj;Search again and include proprietary software.&zwnj;</a>
+              </span>
             </p>
           </div>
           <div id="search-total" class="center"></div>
+        </div>
+
+        <div id="Preferences" hidden>
+          <h2>&zwnj;Preferences&zwnj;</h2>
+          <p>&zwnj;Fine-tune the Software Boutique to suit your preferred behaviors.&zwnj;</p>
+          <table id="pref-table" class="table">
+            <tr>
+              <th width="40%">&zwnj;Boutique Selection&zwnj;</th>
+              <td width="60%">
+                <a onclick="toggleNonFree();"><i id="pref-non-free" class="fa fa-square fa-va"></i> &zwnj;Hide proprietary applications.&zwnj;</a>
+              </td>
+            </tr>
+            <tr>
+              <th>&zwnj;Installation&zwnj;</th>
+              <td>
+                <a onclick="cmd('toggle-pref?enable-queue');cmd('queue-refresh')"><i id="pref-enable-queue" class="fa fa-square fa-va"></i> &zwnj;Enable the Bulk Queue.&zwnj;</a>
+                <p class="pref-info">&zwnj;When enabled, applications wait to be installed/removed, allowing you to continue browsing.&zwnj;</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="Queue" hidden>
+          <h2>&zwnj;Your Queued Changes&zwnj;</h2>
+          <p>&zwnj;Decide which software to add or remove without committing straight away.&zwnj;</p>
+          <hr class="soften"/>
+
+          <div id="queue-options" hidden>
+            <a id="queue-btn-apply" onclick="cmd('queue-start')" class="btn btn-success"><span class="fa fa-check"></span> &zwnj;Apply Changes&zwnj;</a>
+            <a id="queue-btn-clear" onclick="cmd('queue-clear')" class="btn"><span class="fa fa-trash"></span> &zwnj;Clear&zwnj;</a>
+            <a id="queue-btn-reset" onclick="cmd('queue-clear')" class="btn btn-inverse" style="display:none"><span class="fa fa-check"></span> &zwnj;Finished&zwnj;</a>
+          </div>
+          <div id="queue-busy" class="alert alert-success" hidden>
+            <h5><img src="img/welcome/processing.gif"/> <span id="queue-status">...</span></h5>
+            <p>Your changes are being applied.</p>
+            <div class="progress progress-striped progress-success active">
+              <div id="queue-bar" class="bar" style="width: 40%;"></div>
+            </div>
+          </div>
+          <br>
+          <div id="queue-error" class="alert alert-danger" hidden>
+            <h5>&zwnj;Not all changes could be applied.&zwnj;</h5>
+            <p>&zwnj;Please review the error dialog for further details.&zwnj;</p>
+          </div>
+
+          <span id="queue-cards"></span>
+          <div id="queue-empty">&zwnj;Nothing to see here -- There's no software in the queue yet.&zwnj;</div>
+
         </div>
       </div>
     </div>
@@ -374,7 +426,7 @@
           <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <a id="non-free-toggle" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
+          <a id="non-free-toggle" onclick="toggleNonFree();" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
             <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> &zwnj;Hide Proprietary Software&zwnj;
           </a>
           <a id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>

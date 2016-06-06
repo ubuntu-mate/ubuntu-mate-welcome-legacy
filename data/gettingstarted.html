@@ -35,7 +35,7 @@
       <!-- Shown when installed -->
       <br class="live-session-only"/>
       <span class="live-session"><h5>&zwnj;Post-Installation&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("updates","&zwnj;Software Updates&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Software Updates&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("updates","&zwnj;Updates & Extras&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Updates & Extras&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session"      onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session"      onclick='changePage("languageInput","&zwnj;Language & Input&zwnj;")'>    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
       <a class="btn btn-inverse index-btn live-session"      onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
@@ -343,43 +343,121 @@
         </div>
       </div>
 
-      <!-- Software Updates -->
+      <!-- Updates & Extras -->
       <div id="updates" class="topicContents" hidden>
         <div class="row-fluid">
           <div class="span12">
-            <h2>&zwnj;Software Updates&zwnj;</h2>
+            <h2>&zwnj;Updates & Extras&zwnj;</h2>
 
             <div class="alert alert-warning offline">
               <h5>&zwnj;An Internet connection is required to download and install updates.&zwnj;</h5>
             </div>
-            <p>&zwnj;Ubuntu MATE periodically will check to see if new software
-            and security updates are available for your computer. If you
-            have just installed Ubuntu MATE, you might want to do this now.&zwnj;</p>
-            <div align="center">
-              <a class="btn btn-lg btn-inverse" onclick="cmd('update')" onclick="smoothFade('','#updates-hint')">
-                <img src="img/applications/system-software-update.png" width="32px" height="32px"/>&nbsp; &zwnj;Software Updater&zwnj;
-              </a>
-              <span id="updates-hint" class="center" hidden><small>
-                <p><span class="fa fa-info-circle"></span> <b>&zwnj;Software Updater&zwnj;</b> &zwnj;can be found later in&zwnj;
-                <b><i>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span> &zwnj;Administration&zwnj;.</i></b></p>
-              </small></span>
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/system-software-update.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Software Updater&zwnj;</h4>
+                <p>&zwnj;Ubuntu MATE periodically will check to see if new software
+                and security updates are available for your computer. If you
+                have just installed Ubuntu MATE, you might want to do this now.&zwnj;</p>
+                <span id="updates-hint" class="center" hidden>
+                  <small><p>
+                      <span class="fa fa-info-circle"></span> <b>&zwnj;Software Updater&zwnj;</b> &zwnj;can be found later in&zwnj;
+                      <b><i>&zwnj;System&zwnj; <span class="fa fa-long-arrow-right"></span> &zwnj;Administration&zwnj;.</i></b>
+                  </p></small>
+                </span>
+                <p class="text-right">
+                  <a class="btn btn-lg btn-inverse" onclick="cmd('update'); smoothFade('','#updates-hint')">
+                    <img src="img/applications/system-software-update.png" width="20px" height="20px"/>&nbsp; &zwnj;Check for Updates&zwnj;
+                  </a>
+                </p>
+              </div>
             </div>
             <hr class="soften"/>
-            <p>&zwnj;The codecs package include a complete, cross-platform solution to
-            decode, encode, record, convert and stream audio and video.
-            It also includes a MP3 audio decoder that permits the playback
-            of MPEG 1 audio layer III (MP3).&zwnj;</p>
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/codecs.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Additional Codecs&zwnj;</h4>
+                <p>&zwnj;The codecs package include a complete, cross-platform solution to
+                decode, encode, record, convert and stream audio and video.
+                It also includes a MP3 audio decoder that permits the playback
+                of MPEG 1 audio layer III (MP3).&zwnj;</p>
+                <p class="text-right">
+                  <span class="codecs-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <a class="btn btn-lg btn-success codecs-install" onclick="cmd('install-appid?codecs')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  <a class="btn btn-lg btn-danger codecs-remove"   onclick="cmd('remove-appid?codecs')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</a>
+                </p>
+              </div>
+            </div>
+            <hr class="soften">
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/dvd.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;DVD Playback Support&zwnj;</h4>
+                <p><code>libdvdcss2</code> &zwnj;is a simple library designed for
+                accessing DVDs like a block device without having to bother
+                about the decryption. It will enable playback of DVD video in VLC.&zwnj;</p>
+                <p class="text-right">
+                  <span class="libdvdcss2-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <a class="btn btn-lg btn-success libdvdcss2-install" onclick="cmd('install-appid?libdvdcss2')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  <a class="btn btn-lg btn-danger libdvdcss2-remove"   onclick="cmd('remove-appid?libdvdcss2')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</a>
+                </p>
+              </div>
+            </div>
+            <hr class="soften">
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/xscreensaver.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Additional Screen Savers&zwnj;</h4>
+                <p>&zwnj;Install over 200 screen savers for
+                when your computer is idle for long periods of time.
+                Screen savers were originally created to reduce burn-in for
+                cathode ray tube (CRT) monitors displaying the same
+                image for long periods of time.&zwnj;</p>
+                <p class="text-right">
+                  <span class="xscreensaver-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <a class="btn btn-lg btn-success xscreensaver-install" onclick="cmd('install-appid?xscreensaver')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  <a class="btn btn-lg btn-danger  xscreensaver-remove"  onclick="cmd('remove-appid?xscreensaver')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</a>
+                  <a class="btn btn-lg btn-inverse" onclick="cmd('run?mate-screensaver-preferences')"> <img src="img/applications/xscreensaver.png" width="20px" height="20px">&nbsp; &zwnj;Change Screen Saver&zwnj;</a>
+                </p>
+              </div>
+            </div>
+            <hr class="soften">
+
+            <div class="row-fluid">
+              <div class="span2 center-inside">
+                <img src="img/applications/desktop.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Additional Community Wallpapers&zwnj;</h4>
+                <p>&zwnj;The Ubuntu MATE Community have contributed dozens of
+                  desktop wallpaper images over the years. Why not install them
+                  and find something that suits your tastes?&zwnj;</p>
+                <p class="text-right">
+                  <span class="wallpapers-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <a class="btn btn-lg btn-success wallpapers-install" onclick="cmd('install-appid?wallpapers')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  <a class="btn btn-lg btn-danger  wallpapers-remove"  onclick="cmd('remove-appid?wallpapers')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</a>
+                  <a class="btn btn-lg btn-inverse" onclick="cmd('run?mate-appearance-properties')"> <img src="img/applications/appearance.png" width="20px" height="20px">&nbsp; &zwnj;Change Appearance&zwnj;</a>
+                </p>
+              </div>
+            </div>
+
             <!-- <p>&zwnj;You'll need the Blu-ray AACS database in order
             to play AACS encrypted or BD+ protected discs.&zwnj;</p> -->
-            <div align="center">
-              <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?codecs')">
-                <img src="img/applications/codecs.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Codecs Package&zwnj;
-              </a>
-              <!-- <a class="btn btn-lg btn-inverse" onclick="cmd('get-aacs-db')">
-                <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
-              </a> -->
-              <span class="codecs-applying bluray-applying"><br><br><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
-            </div>
+            <!-- <a class="btn btn-lg btn-inverse" onclick="cmd('get-aacs-db')">
+              <img src="img/applications/bluray.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Blu-ray AACS Database&zwnj;
+            </a> -->
 
             <div class="center">
               <hr class="soften-light">
@@ -405,10 +483,10 @@
             </div>
             <div align="center">
                 <a class="btn btn-inverse" onclick="cmd('drivers')" onclick="smoothFade('','#drivers-hint')">
-                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; &zwnj;Additional Drivers&zwnj;
+                    <img src="img/applications/additional-drivers.png" width="32px" height="32px"/>&nbsp; &zwnj;Additional Drivers&zwnj;
                 </a>
                 <a class="btn btn-inverse" onclick="cmd('install-appid?firmware')">
-                    <img src="img/humanity/jockey.svg" width="32px" height="32px"/>&nbsp; &zwnj;Install Firmware Package&zwnj;
+                    <img src="img/applications/additional-drivers.png" width="32px" height="32px"/>&nbsp; &zwnj;Install Firmware Package&zwnj;
                 </a>
             </div>
 
@@ -549,7 +627,7 @@
               <div class="row-fluid">
                 <div class="span2 center-inside">
                   <img src="img/applications/hplip.png" width="64px" height="64px"/>
-                  <span class="fa fa-check-circle fa-2x installed-check gparted-remove"></span>
+                  <span class="fa fa-check-circle fa-2x installed-check hp-printer-remove"></span>
                 </div>
                 <div class="span10">
                   <p><b>&zwnj;HP Linux Printing and Imaging System&zwnj;</b></p>
@@ -568,8 +646,8 @@
 
             <div class="center">
               <hr class="soften-light">
-              <a class="btn" onclick='changePage("updates","&zwnj;Software Updates&zwnj;")'>
-                <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Software Updates&zwnj;</a>
+              <a class="btn" onclick='changePage("updates","&zwnj;Updates & Extras&zwnj;")'>
+                <span class="fa fa-chevron-left"></span> <b>&zwnj;Previous:&zwnj;</b>&nbsp; &zwnj;Updates & Extras&zwnj;</a>
               <a class="btn" onclick='changePage("languageInput","&zwnj;Language Input&zwnj;")'>
                 <b>&zwnj;Next:&zwnj;</b>&nbsp; &zwnj;Language Input&zwnj; <span class="fa fa-chevron-right"></span></a>
             </div>
@@ -586,7 +664,7 @@
             localization settings, or you may want to install additional
             language support.&zwnj;</p>
             <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('language')" onclick="smoothFade('','#locale-hint')">
-              <img src="img/humanity/preferences-desktop-locale.svg" width="32px" height="32px"/>&nbsp; &zwnj;Language Support&zwnj;
+              <img src="img/applications/preferences-desktop-locale.png" width="32px" height="32px"/>&nbsp; &zwnj;Language Support&zwnj;
             </a></div>
             <span id="locale-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>&zwnj;Language Support&zwnj;</b> &zwnj;can be found later in&zwnj;
@@ -763,20 +841,12 @@
             Control Center that Ubuntu MATE provides. You can configure
             just about every aspect of your computer from the Control Center.&zwnj;</p>
             <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('control')" onclick="smoothFade('','#control-hint')">
-              <img src="img/applications/user-desktop.svg" width="32px" height="32px"/>&nbsp; &zwnj;Control Center&zwnj;
+              <img src="img/applications/desktop.png" width="32px" height="32px"/>&nbsp; &zwnj;Control Center&zwnj;
             </a></div>
             <span id="control-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>&zwnj;Control Center&zwnj;</b> &zwnj;can be found later in the&zwnj;
               <b><i>&zwnj;System&zwnj;</i></b> &zwnj;menu.&zwnj;</p>
             </small></span>
-
-            <h2>&zwnj;Desktop Wallpaper&zwnj;</h2>
-            <p>&zwnj;The Ubuntu MATE Community have contributed dozens of
-            desktop wallpaper images over the years. Why not install them
-            and find something that suits your tastes?&zwnj;</p>
-            <div class="center">
-            <a class="btn btn-lg btn-inverse" onclick="cmd('install-appid?ubuntu-mate-wallpapers-complete')"><span class="fa fa-3x fa-picture-o fa-va"></span>&nbsp; &zwnj;Wallpapers&zwnj;</a>
-            </div>
 
             <div class="center">
               <hr class="soften-light">

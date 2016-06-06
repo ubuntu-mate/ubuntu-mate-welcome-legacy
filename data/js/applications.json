@@ -3838,39 +3838,6 @@
             },
             "working": true
         },
-        "libdvdcss2": {
-            "name": "DVD Playback Support",
-            "img": "dvd",
-            "main-package": "libdvdcss2",
-            "launch-command": null,
-            "install-packages": "libdvdcss2",
-            "remove-packages": "libdvdcss2",
-            "description": [
-                "<code>libdvdcss2</code> is a simple library designed for",
-                "accessing DVDs like a block device without having to bother",
-                "about the decryption. It will enable playback of DVD video in VLC."
-            ],
-            "alternate-to": null,
-            "subcategory": "Codecs / Libraries",
-            "open-source": true,
-            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "libdvdcss2",
-                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
-                    "apt-sources": [
-                        "deb http://download.videolan.org/pub/debian/stable/ /",
-                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
-                    ]
-                }
-            },
-            "working": true
-        },
         "makemkv": {
             "name": "MakeMKV",
             "img": "makemkv",
@@ -4839,7 +4806,7 @@
     "Unlisted": {
         "ubuntu-mate-welcome": {
             "name": "Ubuntu MATE Welcome Updates",
-            "img": "",
+            "img": "unknown",
             "main-package": "ubuntu-mate-welcome",
             "install-packages": "ubuntu-mate-welcome",
             "launch-command": "ubuntu-mate-welcome",
@@ -4865,7 +4832,7 @@
         },
         "ubuntu-standard": {
             "name": "Ubuntu Standard Updates",
-            "img": "",
+            "img": "unknown",
             "main-package": "ubuntu-standard",
             "launch-command": null,
             "upgradable": true,
@@ -4890,7 +4857,7 @@
         },
         "boot-repair": {
             "name": "Boot-Repair",
-            "img": "null",
+            "img": "unknown",
             "main-package": "boot-repair",
             "launch-command": null,
             "install-packages": "boot-repair",
@@ -4915,7 +4882,7 @@
         },
         "firmware": {
             "name": "Firmware Drivers",
-            "img": "null",
+            "img": "additional-drivers",
             "main-package": "firmware-b43-installer",
             "launch-command": null,
             "install-packages": "firmware-b43-installer,linux-firmware",
@@ -4938,7 +4905,7 @@
         },
         "hp-printer": {
             "name": "HP Printing and Imaging System",
-            "img": "null",
+            "img": "hplip",
             "main-package": "hplip-gui",
             "launch-command": "hp-toolbox",
             "install-packages": "hplip-gui",
@@ -4960,8 +4927,8 @@
             "working": true
         },
         "keyboard-chinese": {
-            "name": "Keyboard Layout Packages - Chinese",
-            "img": "null",
+            "name": "Chinese Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-sunpinyin",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-sunpinyin",
@@ -4983,8 +4950,8 @@
             "working": true
         },
         "keyboard-japanese": {
-            "name": "Keyboard Layout Packages - Japanese",
-            "img": "null",
+            "name": "Japanese Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-mozc",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-mozc",
@@ -5006,8 +4973,8 @@
             "working": true
         },
         "keyboard-korean": {
-            "name": "Keyboard Layout Packages - Korean",
-            "img": "null",
+            "name": "Korean Keyboard Layout",
+            "img": "unknown",
             "main-package": "fcitx-hangul",
             "launch-command": null,
             "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-hangul",
@@ -5030,7 +4997,7 @@
         },
         "nvidia-settings": {
             "name": "NVIDIA Proprietary Drivers",
-            "img": "null",
+            "img": "additional-drivers",
             "main-package": "nvidia-settings",
             "launch-command": null,
             "upgradable": true,
@@ -5053,9 +5020,9 @@
             },
             "working": true
         },
-        "ubuntu-mate-wallpapers-complete": {
-            "name": "Every Ubuntu MATE Wallpaper",
-            "img": "null",
+        "wallpapers": {
+            "name": "Ubuntu MATE Community Wallpapers",
+            "img": "desktop",
             "main-package": "ubuntu-mate-wallpapers-complete",
             "launch-command": null,
             "install-packages": "ubuntu-mate-wallpapers-complete",
@@ -5078,7 +5045,7 @@
         },
         "gnome-disk-utility": {
             "name": "GNOME Disks",
-            "img": "null",
+            "img": "gnome-disk-utility",
             "main-package": "gnome-disk-utility",
             "launch-command": "gnome-disks",
             "install-packages": "gnome-disk-utility",
@@ -5101,7 +5068,7 @@
         },
         "mate-disk-usage-analyzer": {
             "name": "MATE Disk Usage Analyzer",
-            "img": "null",
+            "img": "mate-disk-usage-analyzer",
             "main-package": "mate-utils",
             "launch-command": "mate-disk-usage-analyzer",
             "install-packages": "mate-utils",
@@ -5124,12 +5091,68 @@
         },
         "mate-system-monitor": {
             "name": "MATE System Monitor",
-            "img": "null",
+            "img": "mate-system-monitor",
             "main-package": "mate-system-monitor",
             "launch-command": "mate-system-monitor",
             "install-packages": "mate-system-monitor",
             "remove-packages": "",
             "description": "Shown in the System Specifications page.",
+            "alternate-to": null,
+            "subcategory": "null",
+            "open-source": true,
+            "url-info": "",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "libdvdcss2": {
+            "name": "DVD Playback Support",
+            "img": "dvd",
+            "main-package": "libdvdcss2",
+            "launch-command": null,
+            "install-packages": "libdvdcss2",
+            "remove-packages": "libdvdcss2",
+            "description": [
+                "<code>libdvdcss2</code> is a simple library designed for",
+                "accessing DVDs like a block device without having to bother",
+                "about the decryption. It will enable playback of DVD video in VLC."
+            ],
+            "alternate-to": null,
+            "subcategory": "Codecs / Libraries",
+            "open-source": true,
+            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "libdvdcss2",
+                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
+                    "apt-sources": [
+                        "deb http://download.videolan.org/pub/debian/stable/ /",
+                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
+                    ]
+                }
+            },
+            "working": true
+        },
+        "xscreensaver": {
+            "name": "Additional screensavers",
+            "img": "xscreensaver",
+            "main-package": "xscreensaver-gl",
+            "launch-command": null,
+            "install-packages": "xscreensaver-gl, xscreensaver-gl-extra",
+            "remove-packages": "xscreensaver-gl, xscreensaver-gl-extra",
+            "description": "Over 200 screensavers for Ubuntu MATE",
             "alternate-to": null,
             "subcategory": "null",
             "open-source": true,

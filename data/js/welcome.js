@@ -37,6 +37,15 @@ function smoothPageFade(target_href) {
     }, 400);
 }
 
+// Back to the top function
+function backToTop() {
+    $("#content").animate({
+        scrollTop: 0
+    }, 600);
+    $('#scroll-top').addClass('active');
+    return false;
+};
+
 // When page first opens
 $(document).ready(function() {
   // Animate navigation elements on page load
@@ -45,26 +54,22 @@ $(document).ready(function() {
     $('#navigation-title').jAnimateOnce('fadeInDown');
   }
 
-  // Back to the top
+  // Show back to top button on page scroll
   $('#content').scroll(function () {
       if ($(this).scrollTop() > 90) {
           $('#scroll-top').fadeIn();
+          $('#scroll-top-always-show').removeClass('disabled');
       } else {
           $('#scroll-top').fadeOut();
           $('#scroll-top').removeClass('active');
+          $('#scroll-top-always-show').addClass('disabled');
       }
   });
 
-  $('#navigation-right').append('<a id="scroll-top" class="navigation-button" style="display:none"><span class="fa fa-chevron-up"></span></a>')
-
-  $('#scroll-top').click(function () {
-      $("#content").animate({
-          scrollTop: 0
-      }, 600);
-      $('#scroll-top').addClass('active');
-      return false;
-  });
-
+  // Boutique uses its own custom scroll-top button:
+  if ( current_page != 'software.html' ) {
+    $('#navigation-right').append('<a id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none"><span class="fa fa-chevron-up"></span></a>')
+  }
 });
 
 // Smoothly fade between two elements (by ID)
@@ -346,20 +351,22 @@ if ( current_page == 'software.html' ) {
     $(currentCategory).show();
 
     // Switch to another category.
-    function switchCategory(now, next, subtitle) {
+    function switchCategory(now, next, subtitle, hideCheckmarks=false) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
         $('#content').animate({ scrollTop: 0 }, 0)
 
         // Remove any other current page highlights
-        $('#navigation-news').removeClass('active');
+        $('#navigation-queue').removeClass('active');
         $('#navigation-search').removeClass('active');
+        $('#navigation-news').removeClass('active');
+        $('#navigation-prefs').removeClass('active');
 
         // Fade in non-free toggle as it starts hidden, except on the Misc. page,
         // where it's replaced by a command visibility toggle.
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
-        } else if ( next == '#News' || next == '#Search' ) {
+        } else if ( hideCheckmarks == true ) {
           $('#non-free-toggle').fadeOut();
           $('#show-misc-cmds').fadeOut();
         } else {
@@ -430,10 +437,6 @@ if ( current_page == 'software.html' ) {
     $("select").change(function(){
         selected_filter = $(this).val();
         applyFilter();
-    });
-
-    $('#non-free-toggle').on('click', function (e) {
-        toggleNonFree();
     });
 
     function applyFilter() {
@@ -514,22 +517,25 @@ if ( current_page == 'software.html' ) {
     $('#footer-left').hide();
     $('#footer-left').fadeIn();
 
-    // Toggling to show the Boutique News
-    function showNews(subtitle) {
-      switchCategory(currentCategory, '#News', subtitle)
+    // Toggling right navigation "tabs"
+    function resetNavTabs() {
       $('#tabs li').removeClass('active');
-      $('#navigation-news').addClass('active');
       $('#non-free-toggle').fadeOut();
       $('#show-misc-cmds').fadeOut();
     }
 
+    // Toggling to show the Boutique News
+    function showNews(subtitle) {
+      switchCategory(currentCategory, '#News', subtitle, true);
+      resetNavTabs();
+      $('#navigation-news').addClass('active');
+    }
+
     // Toggling to show the Search Page
     function showSearch(subtitle) {
-      switchCategory(currentCategory, '#Search', subtitle)
-      $('#tabs li').removeClass('active');
+      switchCategory(currentCategory, '#Search', subtitle, true)
+      resetNavTabs();
       $('#navigation-search').addClass('active');
-      $('#non-free-toggle').fadeOut();
-      $('#show-misc-cmds').fadeOut();
       $('#search-results').html('');
       $('#search-results').hide();
       $('#search-empty').hide();
@@ -542,6 +548,27 @@ if ( current_page == 'software.html' ) {
       keywords = $('#search-terms').val();
       cmd('search?' + keywords)
     }
+
+    // Search again but include non-free matches.
+    function searchAgainNonFree() {
+      toggleNonFree()
+      searchNow()
+    }
+
+    // Toggling to show the Preferences page
+    function showPrefs(subtitle) {
+      switchCategory(currentCategory, '#Preferences', subtitle, true)
+      resetNavTabs();
+      $('#navigation-prefs').addClass('active');
+    }
+
+    // Toggling to show the Queue page
+    function showQueue(subtitle) {
+      switchCategory(currentCategory, '#Queue', subtitle, true)
+      resetNavTabs();
+      $('#navigation-queue').addClass('active');
+    }
+
 }
 
 
@@ -622,6 +649,32 @@ if ( current_page == 'splash.html' ) {
 
   }
 
+}
+
+
+// Splash for Entering Boutique
+if ( current_page == 'splash-boutique.html' ) {
+    setCursorBusy();
+    setTimeout(function() {
+      $('#boutique-splash').jAnimate('zoomOutInverse');
+    }, 1000);
+
+    $('#Text1').css('opacity','0');
+    $('#Text2').css('opacity','0');
+    $('#Text1').show();
+    $('#Text2').show();
+
+    setTimeout(function(){
+      $('#Text1').hide();
+      $('#Text1').css('opacity','');
+      $('#Text1').fadeIn(750);
+    }, 150);
+
+    setTimeout(function(){
+      $('#Text2').hide();
+      $('#Text2').css('opacity','');
+      $('#Text2').fadeIn(750);
+    }, 450);
 }
 
 
@@ -937,11 +990,3 @@ if ( current_page == 'donate.html' ) {
 
 }
 
-
-// Entering Software Only Mode
-if ( current_page == 'splash-boutique.html' ) {
-    setCursorBusy();
-    setTimeout(function() {
-      $('#boutique-splash').jAnimate('zoomOutInverse');
-    }, 1000);
-}

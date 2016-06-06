@@ -40,7 +40,6 @@ import logging
 import os
 import platform
 import random
-import re
 import shutil
 import signal
 import socket
@@ -124,11 +123,18 @@ def whereami():
     return data_path
 
 
+def notify_send(title, description, icon_path):
+    # Sends a system notification to the user.
+    Notify.init(title)
+    notification=Notify.Notification.new(title, description, icon_path)
+    notification.show()
+
+
 ##################################
 #  Apt and Installation Operations
 ##################################
 class SimpleApt(object):
-    def __init__(self, packages, action):
+    def __init__(self, packages, action, program_id=None):
         self._timeout = 100
         self.packages = packages
         self.action = action
@@ -136,6 +142,7 @@ class SimpleApt(object):
         self.update_cache = False
         self.loop = GLib.MainLoop()
         self.client = AptClient()
+        self.program_id = program_id
 
     def on_error(self, error):
         dynamicapps.operations_busy = False
@@ -154,38 +161,32 @@ class SimpleApt(object):
         dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
-            Notify.init(_('Fixing incomplete install succeeded'))
-            apt_notify=Notify.Notification.new(_('Successfully fixed an incomplete install.'), _('Fixing the incomplete install was successful.'), 'dialog-information')
-            apt_notify.show()
+            notify_send( _("Successfully performed fix."), _("Any previously incomplete installations have been finished."), data_path + 'img/notify/fix-success.svg' )
             return True
         else:
-            Notify.init(_('Fixing incomplete install failed'))
-            apt_notify=Notify.Notification.new(_('Failed to fix incomplete install.'), _('Fixing the incomplete install failed.'), 'dialog-error')
-            apt_notify.show()
+            notify_send( _("Failed to perform fix."), _("Errors occurred while finishing an incomplete installation."), data_path + 'img/notify/fix-error.svg' )
             return False
 
     def on_finished_fix_broken_depends(self, transaction, status):
         dynamicapps.operations_busy = False
         self.loop.quit()
         if status == 'exit-success':
-            Notify.init(_('Fixing broken dependencies succeeded'))
-            apt_notify=Notify.Notification.new(_('Successfully fixed broken dependencies.'), _('Fixing the broken dependencies was successful.'), 'dialog-information')
-            apt_notify.show()
+            notify_send( _("Successfully performed fix."), _("Packages with broken dependencies have been resolved."), data_path + 'img/notify/fix-success.svg')
             return True
         else:
-            Notify.init(_('Fixing broken dependencies failed'))
-            apt_notify=Notify.Notification.new(_('Failed to fix broken dependencies.'), _('Fixing the broken dependencies failed.'), 'dialog-error')
-            apt_notify.show()
+            notify_send( _("Failed to perform fix."), _("Packages may still have broken dependencies."), data_path + 'img/notify/fix-error.svg')
             return False
 
     def on_finished_update(self, transaction, status):
         dynamicapps.operations_busy = False
-        # If the action is only to update do not display notifcations
+        # Show notification if user forces cache update.
         if self.action == 'update':
             self.loop.quit()
             if status == 'exit-success':
+                notify_send(_("Successfully updated cache."), _("Software is now ready to install."), data_path + 'img/notify/fix-success.svg')
                 return True
             else:
+                notify_send( _("Failed to update cache."), _("There may be a problem with your repository configuration."), data_path + 'img/notify/fix-error.svg')
                 return False
         elif self.action == 'install':
             if status != 'exit-success':
@@ -229,33 +230,99 @@ class SimpleApt(object):
             self.do_notify(status)
 
     def do_notify(self, status):
-        print('Status: ' + status)
-        if self.action == 'install':
-            title = _('Install')
-            noun = _('Installation of ')
-            action = _('installed.')
-        elif self.action == 'remove':
-            title = _('Remove')
-            noun = _('Removal of ')
-            action = _('removed.')
-        elif self.action == 'upgrade':
-            title = _('Upgrade')
-            noun = _('Upgrade of ')
-            action = _('upgraded.')
+        # Notifications for individual applications.
+        if self.program_id:
+            name = dynamicapps.get_attribute_for_app(self.program_id, 'name')
+            img = dynamicapps.get_attribute_for_app(self.program_id, 'img')
+            img_path = os.path.join(data_path, 'img', 'applications', img + '.png')
+            if not os.path.exists(img_path):
+                img_path = 'package'
 
-        # Do not show notifications when updating the cache
-        if self.action != 'update':
-            if status == 'exit-success':
-                Notify.init(title + ' ' + _('complete'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('complete'), ', '.join(self.packages) + ' ' + _('has been successfully ') +action, 'dialog-information')
-            elif status == 'exit-cancelled':
-                Notify.init(title + ' ' + _('cancelled'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('cancelled'), noun + ', '.join(self.packages) + ' ' + _('was cancelled.'), 'dialog-information')
-            else:
-                Notify.init(title + ' ' + _('failed'))
-                apt_notify=Notify.Notification.new(title + ' ' + _('failed'), noun + ', '.join(self.packages) + ' ' + _('failed.'), 'dialog-error')
+            print('[Apps] Changed status for "' + self.program_id + '": ' + status)
 
-            apt_notify.show()
+            # Show a different notification for Welcome Updates
+            if self.program_id == 'ubuntu-mate-welcome' and status == 'exit-success':
+                notify_send( _("Welcome will stay up-to-date."), \
+                             _("Welcome and the Software Boutique are set to receive the latest updates."), \
+                             os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg'))
+                return
+
+            # Show a different notification for "Upgrade Installed Packages" fix
+            if self.program_id == 'ubuntu-standard' and status == 'exit-success':
+                notify_send( _("Everything is up-to-date"), \
+                             _("All packages have been upgraded to the latest versions."), \
+                             os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg'))
+                return
+
+            if self.action == 'install':
+                title_success   = name + ' ' + _('Installed')
+                descr_success   = _("The application is now ready to use.")
+
+                title_cancel    = name + ' ' + _("was not installed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = name + ' ' + _("failed to install")
+                descr_error     = _("There was a problem installing this application.")
+
+            elif self.action == 'remove':
+                title_success   = name + ' ' + _('Removed')
+                descr_success   = _("The application has been uninstalled.")
+
+                title_cancel    = name + ' ' + _("was not removed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = name + ' ' + _("failed to remove")
+                descr_error     = _("A problem is preventing this application from being removed.")
+
+            elif self.action == 'upgrade':
+                title_success   = name + ' ' + _('Upgraded')
+                descr_success   = _("This application is set to use the latest version.")
+
+                title_cancel    = name + ' ' + _("was not upgraded.")
+                descr_cancel    = _("The application will continue to use the stable version.")
+
+                title_error     = name + ' ' + _("failed to upgrade")
+                descr_error     = _("A problem is preventing this application from being upgraded.")
+
+            # Do not show notifications when updating the cache
+            if self.action != 'update':
+                if status == 'exit-success':
+                    notify_send(title_success, descr_success, img_path)
+                elif status == 'exit-cancelled':
+                    notify_send(title_cancel, descr_cancel, img_path)
+                else:
+                    notify_send(title_error, descr_error, img_path)
+
+        # Notifications for bulk operations
+        else:
+            if self.action == 'install':
+                title_success   = str(len(queue.install_queue)) + ' ' + _("applications have been installed")
+                descr_success   = _("Your newly installed applications are ready to use.")
+
+                title_cancel    = _("Some applications were not installed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = _("Some applications failed to install.")
+                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
+
+            elif self.action == 'remove':
+                title_success   = str(len(queue.remove_queue)) + ' ' + _("applications have been removed")
+                descr_success   = _("These applications are no longer present on your system.")
+
+                title_cancel    = _("Some applications were not removed.")
+                descr_cancel    = _("The operation was cancelled.")
+
+                title_error     = _("Some applications failed to remove.")
+                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
+
+            # Do not show notifications when updating the cache
+            if self.action != 'update':
+                if status == 'exit-success':
+                    notify_send(title_success, descr_success, data_path + 'img/notify/bulk-success.svg')
+                elif status == 'exit-cancelled':
+                    notify_send(title_cancel, descr_cancel,  data_path + 'img/notify/bulk-warning.svg')
+                else:
+                    notify_send(title_error, descr_error,  data_path + 'img/notify/bulk-error.svg')
 
     def do_fix_incomplete_install(self):
         dynamicapps.operations_busy = True
@@ -423,12 +490,14 @@ class PreInstallation(object):
         self.codename = platform.dist()[2]
         arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
 
-    def process_packages(self, program_id, action):
+    def process_packages(self, program_id, action, preconfigure_only=False):
         simulating = arg.simulate_software_changes
         print(' ')
 
         # Get category for this program, which can be used to retrieve data later.
         category = dynamicapps.get_attribute_for_app(program_id, 'category')
+        fullname = dynamicapps.get_attribute_for_app(program_id, 'img')
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
 
         try:
             preconfig = dynamicapps.index[category][program_id]['pre-install']
@@ -459,7 +528,7 @@ class PreInstallation(object):
         else:
             print('[Apps] ERROR: No package(s) supplied for "' + program_id + '".')
             return
-        transaction = SimpleApt(packages, action)
+        transaction = SimpleApt(packages, action, program_id)
 
         # Function to run privileged commands.
         def run_task(function):
@@ -502,6 +571,7 @@ class PreInstallation(object):
                     if not simulating:
                         run_task('enable_partner_repository')
                         transaction.update_cache = True
+                        queue.must_update_cache = True
 
                 elif method == 'ppa':
                     try:
@@ -513,6 +583,7 @@ class PreInstallation(object):
                     if not simulating:
                         run_task('enable_ppa')
                         transaction.update_cache = True
+                        queue.must_update_cache = True
                     try:
                         source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
                         print('[Pre-Install] Updating Apt Source: "' + source_file + '.list"')
@@ -528,6 +599,7 @@ class PreInstallation(object):
                         print('[Pre-Install] Getting Apt key from URL: "' + apt_key_url + '"')
                         if not simulating:
                             run_task('add_apt_key_from_url')
+                            queue.must_update_cache = True
                     except:
                         arg.print_verbose('Pre-Install', 'No apt key to retrieve from a URL.')
 
@@ -538,6 +610,7 @@ class PreInstallation(object):
                         print('[Pre-Install] Getting key "' + apt_key_key + '" from keyserver: "' + apt_key_server + '"')
                         if not simulating:
                             run_task('add_apt_key_from_keyserver')
+                            queue.must_update_cache = True
                     except:
                         arg.print_verbose('Pre-Install', 'No apt key to retrieve from a key server.')
 
@@ -556,6 +629,7 @@ class PreInstallation(object):
                                 run_task('add_apt_sources')
                                 transaction.source_to_update = source_file + '.list'
                                 transaction.update_cache = True
+                                queue.must_update_cache = True
                         except:
                             arg.print_verbose('Pre-Install','Failed to add apt sources!')
                     except:
@@ -569,21 +643,26 @@ class PreInstallation(object):
                     print('[Simulation] Deleting Apt Source: ' + listname)
                 else:
                     run_task('del_apt_sources')
+                    queue.must_update_cache = True
             except:
                 print('[Pre-Install]', 'No apt source specified, so none will be removed.')
 
+        # Pre-configuration complete. Now perform the operations.
+        # Do not do this if:
+        #   * Simulation flag is active.
+        #   * Part of the bulk queue - which handles packages differently.
 
-        # Pre-configuration complete. Now perform the operations, unless this was just a simulation.
-        if simulating:
-            print('[Pre-Install] Simulation flag active. No changes will be performed.')
-            return
-        else:
-            if transaction.action == 'install':
-                transaction.install_packages()
-            elif transaction.action == 'remove':
-                transaction.remove_packages()
-            elif transaction.action == 'upgrade':
-                transaction.upgrade_packages()
+        if not preconfigure_only:
+            if simulating:
+                print('[Pre-Install] Simulation flag active. No changes will be performed.')
+                return
+            else:
+                if transaction.action == 'install':
+                    transaction.install_packages()
+                elif transaction.action == 'remove':
+                    transaction.remove_packages()
+                elif transaction.action == 'upgrade':
+                    transaction.upgrade_packages()
 
 
 ##################################
@@ -678,7 +757,7 @@ class AppView(WebKit2.WebView):
         # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
-        self._apt_cache = systemstate.apt_cache
+        systemstate.apt_cache = systemstate.apt_cache
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
@@ -758,6 +837,8 @@ class AppView(WebKit2.WebView):
             self.do_smooth_footer = False
             app.update_page('#footer-left', 'hide')
             app.update_page('#footer-left', 'fadeIn')
+            app.update_page('#navigation-right', 'hide')
+            app.update_page('#navigation-right', 'fadeIn')
 
         # Individual Page Actions
         ### Main Menu ###
@@ -842,7 +923,7 @@ class AppView(WebKit2.WebView):
 
         ### Chat Page ###
         if app.current_page == 'chatroom.html':
-            if self._apt_cache['hexchat'].is_installed:
+            if systemstate.apt_cache['hexchat'].is_installed:
                 app.update_page('.hexchat', 'show')
                 app.update_page('.webchat', 'hide')
             else:
@@ -871,10 +952,13 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'keyboard-japanese')
             dynamicapps.update_app_status(self, 'keyboard-korean')
             dynamicapps.update_app_status(self, 'caja-share')
+            dynamicapps.update_app_status(self, 'libdvdcss2')
+            dynamicapps.update_app_status(self, 'xscreensaver')
+            dynamicapps.update_app_status(self, 'wallpapers')
 
         ### Software Page ###
         if app.current_page == 'software.html':
-            dynamicapps.hide_non_free = False
+            dynamicapps.toggle_non_free()
             self.do_smooth_footer = True
 
             # If loading a minimal "Get More Software" only page.
@@ -901,6 +985,13 @@ class AppView(WebKit2.WebView):
                 app.update_page('#update-subscribed', 'show')
             else:
                 app.update_page('#update-notification', 'show')
+
+            # Refresh preferences page
+            pref.refresh_pref_page('enable-queue')
+
+            # Is the queue enabled?
+            queue.refresh_page_state()
+            queue.clear()
 
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
@@ -947,6 +1038,15 @@ class AppView(WebKit2.WebView):
             dynamicapps.modify_app(self, 'remove', cmd[13:])
         elif cmd.startswith('upgrade-appid?'):
             dynamicapps.modify_app(self, 'upgrade', cmd[14:])
+        elif cmd == 'queue-start':
+            queue.apply()
+        elif cmd == 'queue-clear':
+            queue.clear()
+        elif cmd.startswith('queue-drop?'):
+            program_id = cmd[11:]
+            queue.drop_item(program_id)
+        elif cmd == 'queue-refresh':
+            queue.refresh_page_state()
         elif cmd.startswith('launch-appid?'):
             dynamicapps.launch_app(cmd[13:])
         elif cmd.startswith('filter-apps?'):
@@ -971,18 +1071,18 @@ class AppView(WebKit2.WebView):
             dynamicapps.show_screenshot(filename)
         elif cmd == 'apt-update':
             update_repos()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'fix-incomplete-install':
             fix_incomplete_install()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'fix-broken-depends':
             fix_broken_depends()
-            self._apt_cache.close()
-            self._apt_cache = apt.Cache()
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
             self._push_config()
         elif cmd == 'get-aacs-db':
             app.update_page('.bluray-applying', 'show')
@@ -1054,6 +1154,14 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('search'):
             keywords = cmd.split('?')[1]
             dynamicapps.perform_search(self, keywords)
+        elif cmd.startswith('set-pref'):
+            key = cmd.split('?')[1]
+            value = cmd.split('?')[2]
+            pref.set(key, value)
+        elif cmd.startswith('toggle-pref'):
+            key = cmd.split('?')[1]
+            pref.toggle(key)
+            pref.refresh_pref_page(key)
         else:
             print('[Error] Unknown command: ', cmd)
       except Exception as e:
@@ -1177,8 +1285,6 @@ class SystemState(object):
 
         # Full path to binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
-        #  User's Welcome configuration directory
-        self._config_dir = os.path.expanduser('~/.config/ubuntu-mate/welcome/')
 
         # User's autostart directory and full path to autostart symlink.
         # Used for systemstate.autostart_toggle() function.
@@ -1272,15 +1378,20 @@ class SystemState(object):
         self.dpi = font_dpi
         self.zoom_level = zoom_level
 
+    def reload_cache(self):
+        arg.print_verbose('Apt', 'Reloading cache...')
+        self.apt_cache.close()
+        self.apt_cache = apt.Cache()
+        arg.print_verbose('Apt', 'Cache reloaded.')
+
     def autostart_check(self):
-        # Ensure our config and autostart directories exist
-        for _dir in [self._config_dir, self._autostart_dir]:
-            if not os.path.exists(_dir):
-                try:
-                    os.makedirs(_dir)
-                except OSError as err:
-                    print(err)
-                    pass
+        # Ensure our autostart directories exist
+        if not os.path.exists(self._autostart_dir):
+            try:
+                os.makedirs(_dir)
+            except OSError as err:
+                print(err)
+                pass
 
         # Set boolean if the autostart file exists.
         if os.path.exists(self._autostart_path):
@@ -1738,18 +1849,15 @@ class DynamicApps(object):
 
         # Variables to remember common details.
         self.all_categories = ['Accessories', 'Education', 'Games', 'Graphics', 'Internet', 'Office', 'Programming', 'Media', 'SysTools', 'UnivAccess', 'Servers', 'MoreApps']
-        self.hide_non_free = False
-
-        # Reading the apt cache later.
-        self._apt_cache = systemstate.apt_cache
+        self.hide_non_free = pref.get('hide_non_free', False)
 
         # Indicate that operations are in progress.
         self.operations_busy = False
 
         # Get the version of Welcome in use.
-        for pkgname in self._apt_cache.keys():
+        for pkgname in systemstate.apt_cache.keys():
             if 'ubuntu-mate-welcome' in pkgname:
-                systemstate.welcome_version = self._apt_cache['ubuntu-mate-welcome'].installed.version
+                systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
                 break
         print('[Welcome] Version: ' + systemstate.welcome_version)
 
@@ -1819,6 +1927,7 @@ class DynamicApps(object):
         str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
         str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
+        str_undo = _("Undo Changes")
 
         # Only list the program if it's working.
         if not self.app_working:
@@ -1864,6 +1973,10 @@ class DynamicApps(object):
         html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
         html_buffer = html_buffer + '</div><div class="span10">'
         html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+
+        # When queue mode is enabled, show the "plan" text here.
+        html_buffer = html_buffer + '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
+
         html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
         # Check any "Upgrade" packages if the PPA has already been added.
@@ -1897,6 +2010,10 @@ class DynamicApps(object):
             if not upgraded:
                 html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
+        # Add a button to undo an action in the queue.
+        html_buffer = html_buffer + '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + str_undo + '</a>'
+
+        # Add a button to launch, depending on the app:
         if not self.app_launch_command == None:
             html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
@@ -2105,38 +2222,58 @@ class DynamicApps(object):
 
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
-        # Indicate changes are in progress.
-        css_class = program_id.replace('.','-')
-        app.update_page('.'+css_class+'-applying', 'show')
-        app.update_page('.'+css_class+'-launch', 'hide')
-        app.update_page('.'+css_class+'-install', 'hide')
-        app.update_page('.'+css_class+'-reinstall', 'hide')
-        app.update_page('.'+css_class+'-remove', 'hide')
-        app.update_page('.'+css_class+'-upgrade', 'hide')
-        app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
+        # Either:
+        #   -   Queue the application for install/remove later.
+        #   -   Perform a one click operation.
+        if queue.is_enabled():
+            queue.add_item(program_id, action)
 
-        # Text to display when applying changes.
-        install_text = _("Installing...")
-        remove_text = _("Removing...")
-        upgrade_text = _("Upgrading...")
-
-        # Asynchronous apt process
-        if action == 'install':
-            app.update_page('.'+css_class+'-applying-status', 'html', install_text)
-            preinstallation.process_packages(program_id, 'install')
-        elif action == 'remove':
-            app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
-            preinstallation.process_packages(program_id, 'remove')
-        elif action == 'upgrade':
-            app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
-            preinstallation.process_packages(program_id, 'upgrade')
         else:
-            print('[Apps] An unknown action was requested.')
+            # Indicate changes are in progress.
+            css_class = program_id.replace('.','-')
+            app.update_page('.'+css_class+'-applying', 'show')
+            app.update_page('.'+css_class+'-launch', 'hide')
+            app.update_page('.'+css_class+'-install', 'hide')
+            app.update_page('.'+css_class+'-reinstall', 'hide')
+            app.update_page('.'+css_class+'-remove', 'hide')
+            app.update_page('.'+css_class+'-upgrade', 'hide')
+            app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
 
-        # Refresh the page to reflect changes (if any).
-        self._apt_cache.close()
-        self._apt_cache = apt.Cache()
-        self.update_app_status(webkit, program_id)
+            # Text to display when applying changes.
+            install_text = _("Installing...")
+            remove_text = _("Removing...")
+            upgrade_text = _("Upgrading...")
+
+            # Asynchronous apt process - perform any pre-installations.
+            if action == 'install':
+                app.update_page('.'+css_class+'-applying-status', 'html', install_text)
+                preinstallation.process_packages(program_id, 'install')
+            elif action == 'remove':
+                app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
+                preinstallation.process_packages(program_id, 'remove')
+            elif action == 'upgrade':
+                app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
+                preinstallation.process_packages(program_id, 'upgrade')
+            else:
+                print('[Apps] An unknown action was requested.')
+
+            # Refresh the page to reflect changes (if any).
+            systemstate.apt_cache.close()
+            systemstate.apt_cache = apt.Cache()
+            self.update_app_status(webkit, program_id)
+
+    def is_app_installed(self, program_id):
+        main_package = self.get_attribute_for_app(program_id, 'main-package')
+        try:
+            if systemstate.apt_cache[main_package].is_installed:
+                arg.print_verbose('Apt', 'Package "' + main_package + '" is present.')
+                return True
+            else:
+                arg.print_verbose('Apt', 'Package "' + main_package + '" is not installed.')
+                return False
+        except:
+            arg.print_verbose('Apt', 'Package "' + main_package + '" not available. Considered not installed.')
+            return False
 
     def update_app_status(self, webkit, program_id):
         ''' Update the web page for an individual application. '''
@@ -2147,24 +2284,20 @@ class DynamicApps(object):
             return
 
         # Check whether the application is installed or not.
+        installed = self.is_app_installed(program_id)
         main_package = self.get_attribute_for_app(program_id, 'main-package')
-        try:
-            if self._apt_cache[main_package].is_installed:
-                this_installed = True
-                arg.print_verbose('Apps', '  Installed: ' + main_package)
-            else:
-                this_installed = False
-                arg.print_verbose('Apps', 'Not present: ' + main_package)
-        except:
-            this_installed = False
-            arg.print_verbose('Apps', 'Not present: ' + main_package)
 
         # Replace any dots with dashes, as they are unsupported in CSS.
         css_class = program_id.replace('.','-')
 
-        # Update appearance on this page.
+        # Show/hide other buttons for this application.
         app.update_page('.'+css_class+'-applying', 'hide')
-        if this_installed:
+        app.update_page('.'+css_class+'-undo', 'hide')
+        app.update_page('.'+css_class+'-plan', 'slideUp', 'fast')
+        app.update_page('.'+css_class+'-plan', 'removeClass', 'install')
+        app.update_page('.'+css_class+'-plan', 'removeClass', 'remove')
+
+        if installed:
             app.update_page('.'+css_class+'-launch', 'show')
             app.update_page('.'+css_class+'-install', 'hide')
             app.update_page('.'+css_class+'-reinstall', 'show')
@@ -2232,19 +2365,29 @@ class DynamicApps(object):
                          '--window-icon=error',
                          '--timeout=15'])
 
+    def toggle_non_free(self):
+        # Toggles visibility of non-free software.
+        if self.hide_non_free:
+            for element in ['#nonFreeCheckBox', '#pref-non-free']:
+                app.update_page(element, 'removeClass', 'fa-square')
+                app.update_page(element, 'addClass', 'fa-check-square')
+        else:
+            for element in ['#nonFreeCheckBox', '#pref-non-free']:
+                app.update_page(element, 'addClass', 'fa-square')
+                app.update_page(element, 'removeClass', 'fa-check-square')
+
     def apply_filter(self, webkit, filter_value, nonfree_toggle=False):
         sub_css_class = 'filter-' + filter_value
 
-        # Toggle visibility of non-free software.
         if nonfree_toggle:
+            # Toggle the option on/off
             if self.hide_non_free:
                 self.hide_non_free = False
-                app.update_page('#nonFreeCheckBox', 'addClass', 'fa-square')
-                app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-check-square')
+                pref.set('hide_non_free', False)
             else:
                 self.hide_non_free = True
-                app.update_page('#nonFreeCheckBox', 'removeClass', 'fa-square')
-                app.update_page('#nonFreeCheckBox', 'addClass', 'fa-check-square')
+                pref.set('hide_non_free', True)
+            self.toggle_non_free()
 
         if filter_value == 'none':
             arg.print_verbose('Apps','Filter reset.')
@@ -2383,7 +2526,7 @@ class DynamicApps(object):
                         item_name = self.get_attribute_for_app(item_id, 'name')
                         item_img = self.get_attribute_for_app(item_id, 'img')
                         item_reason = get_reason_string(self.news[version]['fix'][item_id])
-                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_id + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
+                        news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
                         print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
                 news_buffer = news_buffer + '</ul></div>'
@@ -2415,37 +2558,349 @@ class DynamicApps(object):
         app.update_page('#search-total', 'hide')
         # Do not allow blank searches.
         if terms == '':
-            app.update_page('#search-results', 'html', _("Please enter a keyword to begin."))
+            app.update_page('#search-results', 'fadeIn')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter a keyword to begin.") + '</h5></div>')
             return
+
+        # Do not search if less than 3 characters
+        if len(terms) < 3:
+            app.update_page('#search-results', 'fadeIn')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter at least 3 characters.") + '</h5></div>')
+            return
+
         # Start Searching!
         arg.print_verbose('Search', 'Searching for: ' + terms)
         app.update_page('#navigation-sub-title', 'html', _("Search") + ': ' + terms)
+        terms.lower()
         app.update_page('#search-results', 'hide')
         app.update_page('#search-results', 'html', ' ')
         total_results = 0
+        hidden_results = 0
         for category in self.all_categories:
-            # Search this category for any matches
-            category_items = list(self.index[category].keys())
-            category_items.sort()
+            app_id = list(self.index[category].keys())
+            app_id.sort()
 
-            # Was there any matches? List them!
-            for word in terms.split(' '):
-                regex = re.compile(".*(" + word + ").*", re.IGNORECASE)
-                results = [m.group(0) for l in category_items for m in [regex.search(l)] if m]
+            # Gather sources to search for each app in this category
+            # Also search case insensitive
+            for program_id in app_id:
+                name = self.index[category][program_id]['name'].lower()
+                desc = self.index[category][program_id]['description']
+                desc = ' '.join(desc).lower()
+                alto = str(self.index[category][program_id]['alternate-to']).lower()
 
-            for program_id in results:
-                self.set_app_info(category, program_id)
-                return_code = self.append_app_listing(category, program_id, '#search-results')
-                if not return_code == 1 or return_code == 2:
-                    dynamicapps.update_app_status(self, program_id)
-                    total_results = total_results + 1
+                # Any matches? List them!
+                app_matched = False
+                matched_results = []
+                for term in terms.split(' '):
+                    matched_results.append(program_id.find(term))
+                    matched_results.append(name.find(term))
+                    matched_results.append(desc.find(term))
+                    matched_results.append(alto.find(term))
+                    for status in matched_results:
+                        if status != -1:
+                            app_matched = True
+                            break
+
+                if app_matched:
+                    # Skip this if user doesn't want non-free software.
+                    oss = self.index[category][program_id]['open-source']
+                    if self.hide_non_free and not oss:
+                        hidden_results = hidden_results + 1
+                        continue
+
+                    # Display result to user, if it works on the system (return code 0)
+                    self.set_app_info(category, program_id)
+                    return_code = self.append_app_listing(category, program_id, '#search-results')
+                    if not return_code == 1 or return_code == 2:
+                        dynamicapps.update_app_status(self, program_id)
+                        total_results = total_results + 1
 
         if total_results == 0:
             app.update_page('#search-empty', 'fadeIn')
+            if hidden_results > 0:
+                app.update_page('#search-retry-nonfree', 'show')
+            else:
+                app.update_page('#search-retry-nonfree', 'hide')
         else:
             app.update_page('#search-results', 'fadeIn')
             app.update_page('#search-total', 'fadeIn')
-            app.update_page('#search-total', 'html', '<b>' + _("Matched:") + '</b> ' + str(total_results) + ' ' + _("applications."))
+            app.update_page('#search-total', 'html', '<b>' + str(total_results) + ' ' + _("applications found.") + '</b>')
+
+            # If non-free filtering is enabled, inform of how many apps were hidden.
+            if self.hide_non_free and hidden_results > 0:
+                app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _(" proprietary applications are hidden.") + '</a>')
+
+
+class ChangesQueue(object):
+    def __init__(self):
+        # Reset queues
+        self.reset()
+
+        # Whether PreInstallation class should inform us to update the cache.
+        # (For software that adds/removes a repository)
+        self.must_update_cache = False
+
+        # Card template
+        self.card_template = '<div class="card-PROGRAM_ID queue-card">' + \
+                                 '<img class="icon" src="img/applications/PROGRAM_IMG.png"/>' + \
+                                 '<span class="title">PROGRAM_NAME</span>' + \
+                                 '<div class="status">' + \
+                                     '<span class="status-PROGRAM_ID"> DEFAULT_TEXT </span> ' + \
+                                     '<a class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + _("Cancel") + '"><span class="fa fa-times fa-2x"></span></a>' + \
+                                 '</div>' + \
+                             '</div>'
+
+    def reset(self):
+        # Intended when re-entering the Boutique from the main menu.
+        self.install_queue = []
+        self.remove_queue = []
+        self.must_update_cache = False
+
+    def add_item(self, program_id, queue):
+        # User adds to the bulk queue
+        # Is this the first item? Hide the help text.
+        if len(self.install_queue) + len(self.remove_queue) == 0:
+            app.update_page('#queue-empty','slideUp')
+            app.update_page('#queue-options','slideDown')
+
+        # What's the plan?
+        if queue == 'install':
+            self.install_queue.append(program_id)
+            self.ui_add_card(program_id, 'install')
+            plan_html = '<span class="fa fa-download"></span> ' + _("Queued for installation.")
+            plan_css = 'install'
+            app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-add')
+
+        elif queue == 'remove':
+            self.remove_queue.append(program_id)
+            self.ui_add_card(program_id, 'remove')
+            plan_html = '<span class="fa fa-trash"></span> ' +_("Queued for removal.")
+            plan_css = 'remove'
+            app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-remove')
+
+        else:
+            print('[Queue] Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.')
+            return
+
+        arg.print_verbose('Queue', 'Added "' + program_id + '" to "' + queue + '" queue.')
+
+        # Update UI in application listings.
+        css_class = program_id.replace('.','-')
+        app.update_page('.'+css_class+'-launch', 'hide')
+        app.update_page('.'+css_class+'-install', 'hide')
+        app.update_page('.'+css_class+'-reinstall', 'hide')
+        app.update_page('.'+css_class+'-remove', 'hide')
+        app.update_page('.'+css_class+'-upgrade', 'hide')
+        app.update_page('.'+css_class+'-undo', 'show')
+        app.update_page('.'+css_class+'-plan', 'slideDown', 'fast')
+        app.update_page('.'+css_class+'-plan', 'html', plan_html)
+        app.update_page('.'+css_class+'-plan', 'addClass', plan_css)
+
+        # Zoom the application into the queue.
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+        app.update_page('#navigation-right', 'append', '<img src="' + data_path + 'img/applications/' + img + '.png" class="queue-zoom-icon"/>')
+
+    def drop_item(self, program_id):
+        # User no longer wants changes to this program.
+        try:
+            self.install_queue.remove(program_id)
+            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from install queue.')
+        except:
+            pass
+
+        try:
+            self.remove_queue.remove(program_id)
+            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from remove queue.')
+        except:
+            pass
+
+        self.ui_remove_card(program_id)
+        dynamicapps.update_app_status(app.webkit, program_id)
+
+        # Is this the last card? Show the help text if so.
+        if len(self.install_queue) + len(self.remove_queue) == 0:
+            app.update_page('#queue-empty','slideDown')
+            app.update_page('#queue-options','slideUp')
+
+    def clear(self):
+        arg.print_verbose('Queue', 'Clearing queue...')
+        while len(self.install_queue) > 0:
+            program_id = self.install_queue[0]
+            self.drop_item(program_id)
+
+        while len(self.remove_queue) > 0:
+            program_id = self.remove_queue[0]
+            self.drop_item(program_id)
+
+        self.install_queue = []
+        self.remove_queue = []
+        arg.print_verbose('Queue', 'Queue cleared.')
+
+        # Reset UI elements
+        app.update_page('#queue-btn-apply', 'show')
+        app.update_page('#queue-btn-clear', 'show')
+        app.update_page('#queue-btn-reset', 'hide')
+
+        # Unlock/Restore UI if applicable
+        app.update_page('#navigation-right', 'removeClass', 'disabled')
+        app.update_page('#category-tabs', 'removeClass', 'disabled')
+        app.update_page('#queue-btn-reset', 'fadeOut')
+        app.update_page('#queue-error', 'fadeOut')
+
+    def apply(self):
+        # "Hello, would you like a bag?"
+        #
+        # Priority:     Remove first -->  Install
+        arg.print_verbose('Queue', 'Applying changes...')
+
+        # Lock/Update UI
+        app.update_page('#navigation-right', 'addClass', 'disabled')
+        app.update_page('#category-tabs', 'addClass', 'disabled')
+        app.webkit.run_javascript('smoothFade("#queue-options","#queue-busy")')
+        app.update_page('#queue-error', 'fadeOut')
+        app.update_page('.drop', 'hide')
+
+        # Function to compile all the packages together from program IDs.
+        def get_packages(program_id_list, json_attribute):
+            return_packages = []
+            for program_id in program_id_list:
+                packages = dynamicapps.get_attribute_for_app(program_id, json_attribute)
+                for package in packages.split(','):
+                    return_packages.append(package)
+            return return_packages
+
+        # Uninstall applications first
+        if len(self.remove_queue) > 0:
+            # Preconfiguration - delete sources/ppa if applicable
+            for program_id in self.remove_queue:
+                self.ui_update_progress(1, _("Preparing to remove:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                preinstallation.process_packages(program_id, 'remove', True)
+
+            # Compile package lists
+            self.ui_update_progress(2, _("Listing packages...") )
+            packages = get_packages(self.remove_queue, 'remove-packages')
+            arg.print_verbose('Apps', 'Packages for bulk removal: ' + str(packages))
+
+            # Bulk remove packages
+            self.ui_update_progress(3, _("Removing software...") )
+            transaction = SimpleApt(packages, 'remove')
+            transaction.remove_packages()
+
+        # Install applications next
+        if len(self.install_queue) > 0:
+            # Pre-configuration - add sources/ppa if applicable
+            for program_id in self.install_queue:
+                self.ui_update_progress(4, _("Preparing to install:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                preinstallation.process_packages(program_id, 'install', True)
+
+            # Compile package lists
+            self.ui_update_progress(5, _("Listing packages...") )
+            packages = get_packages(self.install_queue, 'install-packages')
+            arg.print_verbose('Apps', 'Packages for bulk install: ' + str(packages))
+
+            # Update the cache (in case of repository changes)
+            if self.must_update_cache:
+                self.ui_update_progress(6, _("Updating cache...") )
+                update_repos()
+                systemstate.reload_cache()
+
+            # Bulk remove packages
+            self.ui_update_progress(7, _("Installing software...") )
+            transaction = SimpleApt(packages, 'install')
+            transaction.install_packages()
+
+        # Check that all the software was installed successfully.
+        self.ui_update_progress(8, _("Verifying software changes...") )
+        systemstate.reload_cache()
+        all_good = True
+
+        for program_id in self.install_queue:
+            installed = dynamicapps.is_app_installed(program_id)
+            if installed:
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Installed"), 'success')
+            else:
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Install"), 'error')
+                all_good = False
+            dynamicapps.update_app_status(app.webkit, program_id)
+
+        for program_id in self.remove_queue:
+            installed = dynamicapps.is_app_installed(program_id)
+            if not installed:
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Removed"), 'success')
+            else:
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Remove"), 'error')
+                all_good = False
+            dynamicapps.update_app_status(app.webkit, program_id)
+
+        # Update UI, but do not unlock until user acknowledges "Finished".
+        app.webkit.run_javascript('smoothFade("#queue-busy","#queue-options")')
+        app.update_page('#queue-btn-apply', 'hide')
+        app.update_page('#queue-btn-clear', 'hide')
+        app.update_page('#queue-btn-reset', 'show')
+
+        # Show a warning when something didn't go right.
+        if not all_good:
+            app.update_page('#queue-error', 'fadeIn')
+
+    def ui_update_progress(self, current_stage, string):
+        total_stages = 8
+        percent = str(int((current_stage / total_stages)*100)) + '%'
+        app.update_page('#queue-bar', 'width', percent)
+        app.update_page('#queue-status', 'html', string)
+        arg.print_verbose('Queue', 'Progress updated: "' + string + '" (' + percent + ')')
+
+    def ui_add_card(self, program_id, status):
+        # Get details for this card
+        name = dynamicapps.get_attribute_for_app(program_id, 'name')
+        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+
+        # Assemble strings
+        buffer = self.card_template.replace('PROGRAM_ID', program_id).replace('PROGRAM_IMG', img).replace('PROGRAM_NAME', name)
+
+        # What is the status on this card?
+        if status == 'install':
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-download"></span> ' + _("To be installed") )
+        elif status == 'remove':
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-trash"></span> ' +_("To be removed") )
+
+        # Add to page
+        app.update_page('#queue-cards', 'append', buffer)
+        arg.print_verbose('Queue', 'Add new card for "' + program_id + '" with status "' + status + '".')
+
+    def ui_update_card(self, program_id, string, colour=None):
+        # Update the status label of a card.
+        card_id   = '.card-' + program_id
+        status_id = '.status-' + program_id
+
+        app.update_page(status_id, 'html', string)
+        if colour:
+            if colour == 'error':
+                app.update_page(card_id, 'addClass', 'failed')
+                app.update_page(status_id, 'addClass', 'failed')
+            elif colour == 'success':
+                app.update_page(card_id, 'addClass', 'success')
+                app.update_page(status_id, 'addClass', 'success')
+        arg.print_verbose('Queue', 'Card updated for "' + program_id + '"')
+
+    def ui_remove_card(self, program_id):
+        app.update_page('.card-' + program_id, 'slideUp')
+        app.update_page('.card-' + program_id, 'attr', 'card-'+program_id, 'card-old-'+program_id)
+        app.webkit.run_javascript('setTimeout(function(){ $("#card-old-' + program_id + '").remove(); }, 500);')
+
+    def is_enabled(self):
+        enabled = pref.get('enable-queue', False)
+        if enabled:
+            return True
+        else:
+            return False
+
+    def refresh_page_state(self):
+        if self.is_enabled():
+            app.update_page('#navigation-queue', 'show')
+            app.update_page('#navigation-queue-disabled', 'hide')
+        else:
+            app.update_page('#navigation-queue', 'hide')
+            app.update_page('#navigation-queue-disabled', 'show')
 
 
 class ScreenshotWindow(Gtk.Window):
@@ -2479,6 +2934,98 @@ class ScreenshotWindow(Gtk.Window):
     def destroy_window(self, widget, dummy=None):
         # FIXME: Does not re-open once closed!
         self.close()
+
+
+class Preferences(object):
+    def __init__(self):
+        self.folder = os.path.join(os.path.expanduser('~'), '.config/ubuntu-mate/welcome')
+        self.config = os.path.join(self.folder, 'preferences.json')
+        self.data = None
+        self.load_prefs()
+
+    def reset_prefs(self):
+        if os.path.exists(self.config):
+            os.remove(self.config)
+        stream = open(self.config, "w")
+        stream.write(json.dumps({}))
+        stream.close()
+        arg.print_verbose('Config', 'Preferences reset.')
+
+    def load_prefs(self):
+        # Create configuration data if non-existent.
+        if not os.path.exists(self.folder):
+            arg.print_verbose('Config', 'Config folder non-existent. Creating...')
+            os.makedirs(self.folder)
+
+        if not os.path.exists(self.config) or os.path.getsize(self.config) < 2:
+            arg.print_verbose('Config', 'Preferences non-existent. Creating...')
+            self.reset_prefs()
+
+        load_error = False
+        with open(self.config) as stream:
+            try:
+                self.data = json.load(stream)
+            except Exception as e:
+                load_error = True
+                arg.print_verbose('Config', 'Failed to load preferences. Reason: ' + str(e))
+
+        if load_error:
+            print('[Config]', 'Errors occurred while loading.')
+            self.reset_prefs()
+        else:
+            arg.print_verbose('Config', 'Preferences loaded from file.')
+
+    def write_prefs(self):
+        stream = open(self.config, "w+")
+        stream.write(json.dumps(self.data))
+        stream.close()
+        arg.print_verbose('Config', 'Preferences written to file.')
+
+    def set(self, key, data):
+        try:
+            arg.print_verbose('Config', 'Write "' + key + '" => "' + str(data) + '"')
+            self.data[key] = data
+        except:
+            print('[Config] Failed to write data! "' + key + '" => "' + str(data) + '"')
+        self.write_prefs()
+
+    def get(self, key, default):
+        try:
+            value = self.data[key]
+            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(value) + '"')
+            return value
+        except:
+            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(default) + '" (default)')
+            self.set(key, default)
+            return default
+
+    def toggle(self, key):
+        try:
+            value = self.data[key]
+            if value == True:
+                self.set(key, False)
+            else:
+                self.set(key, True)
+        except:
+            self.set(key, True)
+
+    def refresh_pref_page(self, key):
+        # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd('toggle-pref?xxx')"
+        try:
+            value = self.data[key]
+            arg.print_verbose('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')')
+        except:
+            print('[Config] No data for "' + key + '"!')
+            return
+
+        # For boolean data, set check boxes
+        if type(value) is bool:
+            if value == True:
+                app.update_page('#pref-' + key, 'removeClass', 'fa-square')
+                app.update_page('#pref-' + key, 'addClass', 'fa-check-square')
+            else:
+                app.update_page('#pref-' + key, 'addClass', 'fa-square')
+                app.update_page('#pref-' + key, 'removeClass', 'fa-check-square')
 
 
 class Arguments(object):
@@ -2622,9 +3169,11 @@ if __name__ == "__main__":
     set_proc_title()
     data_path = whereami()
     trans = Translations(data_path)
+    pref = Preferences()
     systemstate = SystemState()
     app = WelcomeApp()
     dynamicapps = DynamicApps()
+    queue = ChangesQueue()
     preinstallation = PreInstallation()
 
     # Argument Overrides

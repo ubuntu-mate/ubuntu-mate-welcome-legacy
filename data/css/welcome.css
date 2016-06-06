@@ -196,6 +196,11 @@ body, button, input {
   z-index: 11;
 }
 
+#navigation-right.disabled, #category-tabs.disabled ul li a {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 /************************
  * Content
 *************************/
@@ -522,6 +527,15 @@ hr.soften-light {
   padding-bottom: 28px;
 }
 
+#MiscBtn span {
+  color: rgb(83, 89, 138);
+}
+
+/* Always show the back to top button when disabled */
+#scroll-top-always-show.disabled {
+  opacity: 0.2;
+}
+
 /* Proprietary Software Tooltip */
 .popover-title {
   background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
@@ -638,6 +652,17 @@ blockquote.terminal {
   pointer-events: none;
 }
 
+/* Preferences */
+#pref-table > tbody > tr > td > a {
+  color: black;
+  text-decoration: none;
+}
+
+.pref-info {
+  padding-top: 8px;
+  color: #7F7F7F;
+  font-size: smaller;
+}
 
 /************************
  * Main Menu
@@ -992,4 +1017,127 @@ blockquote.terminal {
 
 #news-del {
   color: #FF0108;
+}
+
+/************************
+ * Boutique Queuing
+*************************/
+/* Page Layout/Styling */
+#queue-empty {
+  color: #7F7F7F;
+  font-style: italic;
+}
+
+#queue-options {
+  text-align: right;
+}
+
+.queue-plan {
+  font-style: bold;
+}
+
+/* Card Layout */
+.queue-card {
+  height: 50px;
+  width: 98%;
+  background-color: rgba(255,255,255,0.8);
+  border: 1px solid #E8E8E8;
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 2px #C8C8C8;
+}
+
+.queue-card > .icon {
+  width: 48px;
+  height: 48px;
+
+}
+.queue-card > .title {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.queue-card > .status {
+  font-size: smaller;
+  margin-top: 12px;
+  color: #7F7F7F;
+  float: right;
+}
+
+.queue-card > .status > .drop {
+  float: right;
+  color: black;
+  margin-left: 16px;
+  margin-right: 8px;
+}
+
+/* Card States */
+.queue-card.success {
+  border: 3px solid #008000;
+}
+
+.queue-card.failed {
+  border: 3px solid #800000;
+}
+
+/* Card Labels */
+.queue-card > .status > .success, .queue-plan.install {
+  color: #008000 !important;
+}
+
+.queue-card > .status > .failed, .queue-plan.remove {
+  color: #800000 !important;
+}
+
+/* Glow Queue button on add/remove */
+@-webkit-keyframes queue-glow-add {
+  0% { background-color: #3C3B37; color: #DED9CB; }
+  40% { background-color: #A0CA5F; color: #A0CA5F; }
+  60% { background-color: #A0CA5F; color: #A0CA5F; }
+  100% { background-color: #3C3B37; color: #DED9CB; }
+}
+
+.queue-glow-add {
+  -webkit-animation: queue-glow-add;
+}
+
+@-webkit-keyframes queue-glow-remove {
+  0% { background-color: #3C3B37; color: #DED9CB; }
+  40% { background-color: #CA645F; color: #CA645F; }
+  60% { background-color: #CA645F; color: #CA645F; }
+  100% { background-color: #3C3B37; color: #DED9CB; }
+}
+
+.queue-glow-remove {
+  -webkit-animation: queue-glow-remove;
+}
+
+/* Animate program icons into the queue */
+.queue-zoom-icon {
+  position: absolute;
+  top: 0px;
+  right: 184px;
+  width: 30px;
+  height: 30px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-animation: queue-zoom-icon;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes queue-zoom-icon {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale3d(.8, .8, .8);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(.1, .1, .1);
+  }
 }
