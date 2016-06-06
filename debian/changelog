@@ -1,3 +1,43 @@
+ubuntu-mate-welcome (16.10.1) yakkety; urgency=medium
+
+  [ Luke Horwell ]
+    + General
+      - New icon for Software Boutique. Installs system-wide.
+      - Move humanity SVG icons to applications folder as PNGs.
+    + Welcome - Getting Started
+      - Rename "Software Updates" category to "Update & Extras".
+      - Moved DVD Playback.
+      - Add xscreensavers.
+      - Moved wallpapers.
+    + Boutique - General
+      - Update Boutique Splash.
+      - Update Boutique desktop launcher.
+      - Always show "Back To Top" in Boutique
+      - Internal code changes to allow code re-use.
+    + Boutique - Features
+      - Implement preferences. (~/.config/ubuntu-mate/welcome/preferences.json)
+      - Retain non-free toggle across sessions.
+      - Boutique Search requires 3 characters.
+      - "Smarter" Boutique Search.
+      - Now checks descriptions and "alternate to" in addition to name.
+      - Abolishes regular expressions for Python's built-in functions.
+      - Respects non-free toggle.
+      - Add Preferences tab for Boutique.
+      - Change "Fixes" icon and colour.
+      - Refined installation/fixes notifications
+      - Updated string.
+      - Add Bulk Queue.
+    + Bug Fixes
+      - Fix connection retry button on Boutique offline page.
+      - Fix missing software icons in news.
+      - Fix HP Printer installed checkmark in Getting Started -> Drivers.
+      - Use green border for input controls.
+
+  [ Martin Wimpress ]
+    + Update translations.
+
+ -- Martin Wimpress <code@flexion.org>  Mon, 06 Jun 2016 17:18:50 +0100
+
 ubuntu-mate-welcome (16.10.0) yakkety; urgency=medium
 
   [ Martin Wimpress ]
