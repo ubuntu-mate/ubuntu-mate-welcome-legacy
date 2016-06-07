@@ -963,6 +963,10 @@ blockquote.terminal {
   margin: 4px;
 }
 
+#specs-inxi, .specs-sel-text {
+  -webkit-user-select: text;
+}
+
 /************************
  * Hello Page
 *************************/
