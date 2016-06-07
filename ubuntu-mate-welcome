@@ -1490,12 +1490,9 @@ class SystemState(object):
         gib_prefix = _("GiB")
 
         # Start collecting advanced system information in the background.
-        # (Python can do other things while this command completes)
-        arg.print_verbose('System Specs', 'Running "inxi" for advanced system information...')
-        try:
-            inxi_raw = subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE)
-        except:
-            print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
+        # (Runs in own thread to prevent holding up screen)
+        inxi_thread = Thread(target=self.get_inxi_info)
+        inxi_thread.start()
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
         stat_error_msg = _("Could not gather data.")
@@ -1729,18 +1726,6 @@ class SystemState(object):
             except:
                 arg.print_verbose('System Specs', 'Failed to gather data: PowerMac Generation')
 
-        # Append advanced system information
-        try:
-            arg.print_verbose('System Specs', 'Waiting for inxi process to finish...')
-            inxi_output = str(inxi_raw.communicate()[0])
-            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
-            app.update_page('#specs-inxi', 'html', '')
-            for line in inxi_output.split('\n'):
-                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
-            print('[System Specs] Successfully appended advanced system information.')
-        except:
-            print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
-
         # Check internet connectivity status.
         if self.is_online:
             app.update_page('#specs-has-net', 'show')
@@ -1777,7 +1762,30 @@ class SystemState(object):
         app.update_page('#specs-loading', 'fadeOut', 'fast')
         app.update_page('#specs-tabs', 'fadeIn', 'fast')
         app.update_page('#specs-basic', 'fadeIn', 'medium')
+        app.update_page('#specs-busy-basic', 'fadeOut', 'fast')
         webkit.run_javascript('setCursorNormal()')
+
+    def get_inxi_info(self):
+        arg.print_verbose('System Specs', 'Gathering advanced system information with "inxi"...')
+        try:
+            inxi_output = str(subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE).communicate()[0])
+        except:
+            print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
+
+        # Append advanced system information
+        try:
+            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
+            app.update_page('#specs-inxi', 'html', '')
+            for line in inxi_output.split('\n'):
+                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
+            app.update_page('#specs-inxi-busy', 'slideUp')
+            app.update_page('#specs-inxi', 'slideDown')
+            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
+            print('[System Specs] Successfully appended advanced system information.')
+        except:
+            print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
+            app.update_page('#specs-inxi-busy', 'slideUp')
+            app.update_page('#specs-inxi-error', 'slideDown')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
