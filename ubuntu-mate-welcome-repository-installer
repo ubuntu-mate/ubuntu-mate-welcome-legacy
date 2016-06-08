@@ -53,6 +53,9 @@ def enable_ppa(ppa):
 def enable_partner_repository():
     subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
+def enable_multiverse_repository():
+    subprocess.call(['apt-add-repository', 'multiverse', '--yes'])
+
 
 def finish(err=0):
     ''' Close the application '''

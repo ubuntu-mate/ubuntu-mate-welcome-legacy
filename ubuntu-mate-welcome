@@ -573,6 +573,13 @@ class PreInstallation(object):
                         transaction.update_cache = True
                         queue.must_update_cache = True
 
+                elif method == 'multiverse-repo':
+                    print('[Pre-Install] Enabling the Ubuntu partner repository.')
+                    if not simulating:
+                        run_task('enable_multiverse_repository')
+                        transaction.update_cache = True
+                        queue.must_update_cache = True
+
                 elif method == 'ppa':
                     try:
                         ppa = preinstall[target]['enable-ppa']
@@ -1933,6 +1940,7 @@ class DynamicApps(object):
         str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
         str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
         str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
+        str_source_multiverse = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Multiverse Repository')
         str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
         str_unknown = _('Unknown')
         str_undo = _("Undo Changes")
@@ -2078,6 +2086,9 @@ class DynamicApps(object):
 
                 elif method == 'partner-repo':
                     self.source_info.insert(0, str_source_partner)
+
+                elif method == 'multiverse-repo':
+                    self.source_info.insert(0, str_source_multiverse)
 
                 elif method == 'ppa':
                     ppa = preinstall[target]['enable-ppa']
