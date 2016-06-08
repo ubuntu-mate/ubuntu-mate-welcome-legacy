@@ -2231,9 +2231,9 @@ class DynamicApps(object):
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
         # Either:
-        #   -   Queue the application for install/remove later.
+        #   -   Queue the application for install/remove later. Only in Boutique.
         #   -   Perform a one click operation.
-        if queue.is_enabled():
+        if queue.is_enabled() and app.current_page == 'software.html':
             queue.add_item(program_id, action)
 
         else:
