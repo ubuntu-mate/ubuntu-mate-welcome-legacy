@@ -1395,7 +1395,7 @@ class SystemState(object):
         # Ensure our autostart directories exist
         if not os.path.exists(self._autostart_dir):
             try:
-                os.makedirs(_dir)
+                os.makedirs(self._autostart_dir)
             except OSError as err:
                 print(err)
                 pass
