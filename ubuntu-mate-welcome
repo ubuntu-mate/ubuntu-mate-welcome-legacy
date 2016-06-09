@@ -1169,6 +1169,9 @@ class AppView(WebKit2.WebView):
             key = cmd.split('?')[1]
             pref.toggle(key)
             pref.refresh_pref_page(key)
+        elif cmd.startswith('clipboard'):
+            var = cmd.split('?')[1]
+            systemstate.copy_to_clipboard(var)
         else:
             print('[Error] Unknown command: ', cmd)
       except Exception as e:
@@ -1782,12 +1785,14 @@ class SystemState(object):
         # Append advanced system information
         try:
             inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
+            self.inxi = inxi_output
             app.update_page('#specs-inxi', 'html', '')
             for line in inxi_output.split('\n'):
                 app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
             app.update_page('#specs-inxi-busy', 'slideUp')
             app.update_page('#specs-inxi', 'slideDown')
             app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
+            app.update_page('#specs-inxi-copy', 'slideDown')
             print('[System Specs] Successfully appended advanced system information.')
         except:
             print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
@@ -1855,6 +1860,19 @@ class SystemState(object):
 
         elif action == 'reboot':
             subprocess.call(['mate-session-save','--shutdown-dialog'])
+
+    def copy_to_clipboard(self, var):
+        # Copies text to clipboard, passes 'var' containing what we'd like copying.
+        if var == 'inxi':
+            contents = self.inxi
+        else:
+            print('[Clipboard]', 'Unknown variable to copy: ' + var)
+            return
+
+        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        clipboard.set_text(contents, -1)
+        clipboard.store()
+        arg.print_verbose('Clipboard', 'Copied contents of: ' + var)
 
 
 class DynamicApps(object):
