@@ -25,21 +25,33 @@ def failed(reason):
     global test
     global test_failed
     test_failed = True
-    print('\033[91m -- ' + reason)
+    if sys.stdout.isatty():
+        print('\033[91m -- ' + reason)
+    else:
+        print(' -- ' + reason)
 
 def test_results():
     global test
     global test_failed
     # Did the test succeed?
     if test_failed == True:
-        print('\033[91mTEST FAILED: ' + test)
+        if sys.stdout.isatty():
+            print('\033[91mTEST FAILED: ' + test)
+        else:
+            print('TEST FAILED: ' + test)
         exit(1)
     else:
-        print('\033[92mTest Passed: ' + test)
+        if sys.stdout.isatty():
+            print('\033[92mTest Passed: ' + test)
+        else:
+            print('Test Passed: ' + test)
         exit(0)
 
 # Silence please!
-print('\033[93m\nTest Started: ' + test + '\033[0m')
+if sys.stdout.isatty():
+    print('\033[93m\nTest Started: ' + test + '\033[0m')
+else:
+    print('Test Started: ' + test)
 
 
 ###############################################
