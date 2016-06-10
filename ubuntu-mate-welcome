@@ -1998,20 +1998,20 @@ class DynamicApps(object):
 
         # "Normal" packages that can be installed/removed by the user.
         if self.app_open_source:
-            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + '">'
+            html_buffer += '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + '">'
         else:
-            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + ' proprietary">'
-        html_buffer = html_buffer + '<div class="row-fluid">'
-        html_buffer = html_buffer + '<div class="span2 center-inside">'
-        html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
-        html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
-        html_buffer = html_buffer + '</div><div class="span10">'
-        html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+            html_buffer += '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + ' proprietary">'
+        html_buffer += '<div class="row-fluid">'
+        html_buffer += '<div class="span2 center-inside">'
+        html_buffer += '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
+        html_buffer += '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
+        html_buffer += '</div><div class="span10">'
+        html_buffer += '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
 
         # When queue mode is enabled, show the "plan" text here.
-        html_buffer = html_buffer + '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
+        html_buffer += '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
 
-        html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
+        html_buffer += '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
         # Check any "Upgrade" packages if the PPA has already been added.
         upgraded = False
@@ -2021,38 +2021,38 @@ class DynamicApps(object):
                 listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
                 if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
                     upgraded = True
-                    html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
+                    html_buffer += '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
             except:
                 pass
 
         if not self.app_alternate_to == None:
-            html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
-        html_buffer = html_buffer + '<p class="text-right">'
-        html_buffer = html_buffer + '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
-        html_buffer = html_buffer + '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
+            html_buffer += '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
+        html_buffer += '<p class="text-right">'
+        html_buffer += '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
+        html_buffer += '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
 
         # "Regular" packages - can be installed or removed with one-click by the user.
         if not self.app_upgrade_only:
-            html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
-            html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
-            html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-            html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
+            html_buffer += '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
+            html_buffer += '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
         # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
         if self.app_upgrade_only:
             arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
             if not upgraded:
-                html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
+                html_buffer += '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
 
         # Add a button to undo an action in the queue.
-        html_buffer = html_buffer + '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + str_undo + '</a>'
+        html_buffer += '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + str_undo + '</a>'
 
         # Add a button to launch, depending on the app:
         if not self.app_launch_command == None:
-            html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
 
         # More details section.
-        html_buffer = html_buffer + '</p><div hidden class="details-' + css_class + '">'
+        html_buffer += '</p><div hidden class="details-' + css_class + '">'
 
         ## Determine string for license
         if self.app_open_source:
@@ -2064,20 +2064,20 @@ class DynamicApps(object):
         platform_string = ''
         for arch in self.app_arch.split(','):
             if arch == 'i386':
-                platform_string = platform_string + '<span class="i386"><span class="fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
+                platform_string += '<span class="i386"><span class="fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
             elif arch =='amd64':
-                platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
+                platform_string += '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
             elif arch =='armhf':
-                platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
+                platform_string += '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
             elif arch =='powerpc':
-                platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
+                platform_string += '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
 
         ## Add Android / iOS app links if necessary.
         if not self.app_url_android == None:
-            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+            platform_string += '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
 
         if not self.app_url_ios == None:
-            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+            platform_string += '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
 
         ## Add details about the source of this file.
         try:
@@ -2128,23 +2128,23 @@ class DynamicApps(object):
             self.source_info = [str_unknown]
 
         ## Write contents of the table.
-        html_buffer = html_buffer + '<table class="more-details table table-striped">'
-        html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
-        html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
-        html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
+        html_buffer += '<table class="more-details table table-striped">'
+        html_buffer += '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
+        html_buffer += '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
+        html_buffer += '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
 
         ## Add a website URL if there is one.
         if self.app_url_info:
-            html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
+            html_buffer += '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
 
         ## Add the source for this application.
         if multiple_sources:
-            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
+            html_buffer += '<tr><th>' + str_source + '</th><td><ul>'
             for item in self.source_info:
-                html_buffer = html_buffer + '<li>' + item + '</li>'
-            html_buffer = html_buffer + '</td></tr></ul>'
+                html_buffer += '<li>' + item + '</li>'
+            html_buffer += '</td></tr></ul>'
         else:
-            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
+            html_buffer += '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
 
         ## Add a screenshot if there is any.
         ## Images should be labelled the same as 'img' and increment starting at 1.
@@ -2161,12 +2161,12 @@ class DynamicApps(object):
                 screenshots_end = True
 
         if not screenshots == 1:
-            html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
+            html_buffer += '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
 
-        html_buffer = html_buffer + '</table>'
+        html_buffer += '</table>'
 
         # End the div's for this application.
-        html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
+        html_buffer += '</div><br><hr class="soften"></div></div></div>'
 
         # Append buffer to page
         app.update_page(target_element, 'append', html_buffer)
