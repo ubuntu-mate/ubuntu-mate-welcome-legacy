@@ -354,33 +354,42 @@ class SimpleApt(object):
             apt_update = self.client.update_cache()
         apt_update.connect("finished",self.on_finished_update)
 
-        update_dialog = AptProgressDialog(apt_update)
-        update_dialog.run(close_on_finished=True, show_error=True,
-                reply_handler=lambda: True,
-                error_handler=self.on_error,
-                )
+        if pref.get('hide-apt-progress', False):
+            apt_update.run()
+        else:
+            update_dialog = AptProgressDialog(apt_update)
+            update_dialog.run(close_on_finished=True, show_error=True,
+                    reply_handler=lambda: True,
+                    error_handler=self.on_error,
+                    )
         return False
 
     def do_install(self):
         apt_install = self.client.install_packages(self.packages)
         apt_install.connect("finished", self.on_finished_install)
 
-        install_dialog = AptProgressDialog(apt_install)
-        install_dialog.run(close_on_finished=True, show_error=True,
-                        reply_handler=lambda: True,
-                        error_handler=self.on_error,
-                        )
+        if pref.get('hide-apt-progress', False):
+            apt_install.run()
+        else:
+            install_dialog = AptProgressDialog(apt_install)
+            install_dialog.run(close_on_finished=True, show_error=True,
+                            reply_handler=lambda: True,
+                            error_handler=self.on_error,
+                            )
         return False
 
     def do_remove(self):
         apt_remove = self.client.remove_packages(self.packages)
         apt_remove.connect("finished", self.on_finished_remove)
 
-        remove_dialog = AptProgressDialog(apt_remove)
-        remove_dialog.run(close_on_finished=True, show_error=True,
-                        reply_handler=lambda: True,
-                        error_handler=self.on_error,
-                        )
+        if pref.get('hide-apt-progress', False):
+            apt_remove.run()
+        else:
+            remove_dialog = AptProgressDialog(apt_remove)
+            remove_dialog.run(close_on_finished=True, show_error=True,
+                            reply_handler=lambda: True,
+                            error_handler=self.on_error,
+                            )
         return False
 
     def do_upgrade(self):
@@ -1051,6 +1060,7 @@ class AppView(WebKit2.WebView):
 
             # Refresh preferences page
             pref.refresh_pref_page('enable-queue')
+            pref.refresh_pref_page('hide-apt-progress')
 
             # Is the queue enabled?
             queue.refresh_page_state()
@@ -2930,7 +2940,7 @@ class ChangesQueue(object):
             transaction.install_packages()
 
         # Check that all the software was installed successfully.
-        self.ui_update_progress(8, string.queue_verifying_changes)
+        self.ui_update_progress(8, string.verifying_changes)
         systemstate.reload_cache()
         all_good = True
 
