@@ -1,3 +1,41 @@
+ubuntu-mate-welcome (16.10.2) yakkety; urgency=medium
+
+  [ Luke Horwell ]
+  * General
+    - Re-shuffled icons from humanity folder.
+    - Update Welcome languages for desktop launcher.
+    - stdout is more colourful in a terminal.
+    - Verbosity improved between none, -v and -d.
+  * Internal Changes
+    - Clean-up "appending variables".
+    - Common strings moved to own class.
+    - Only needs to call i18n once. Marginally faster?
+    - Remove unused/duplicate imports.
+  * Bug Fixes
+    - Fix autostart directory variable. Closes #24.
+    - Prevent "invalid packages" for screensavers.
+  * System Specs
+    - Loads faster.
+    - Remove horizontal lines (looked bad while scrolling)
+    - Allow text to be dragged.
+    - Add Copy to Clipboard.
+  * Boutique
+    - Do not queue applications outside of Boutique.
+    - Support enabling of multiverse repository.
+    - Update VirtualBox entry.
+    - "Virtualisation" Typo
+    - It's open source. (Not to confuse with the extension pack, which is the closed source part)
+    - Update Steam to install from Ubuntu repositories.
+  * Tools & Tests
+    - Update the application index debugger to look for missing screenshots and add --all parameter.
+    - Moved index validation to own test file.
+
+  [ Martin Wimpress ]
+  * Fixed Wireshark uninstall.
+  * Updated transaltions.
+
+ -- Martin Wimpress <code@flexion.org>  Sat, 11 Jun 2016 20:17:19 +0100
+
 ubuntu-mate-welcome (16.10.1) yakkety; urgency=medium
 
   [ Luke Horwell ]
