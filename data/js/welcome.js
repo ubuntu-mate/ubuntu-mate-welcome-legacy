@@ -782,9 +782,9 @@ if ( current_page == 'gettingstarted.html' ) {
   }
 
   // Fetch system specifications if not cached already.
-  // Wait a couple of seconds so it doesn't look like application had frozen.
   function InitSystemInfo() {
     setCursorBusy()
+    // Wait a second to allow a smooth fade animation.
     setTimeout(function() {
       cmd("init-system-info");
     }, 1000);

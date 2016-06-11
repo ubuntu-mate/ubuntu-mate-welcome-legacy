@@ -1080,13 +1080,13 @@
             },
             "working": true
         },
-        "steam32": {
+        "steam": {
             "name": "Steam",
             "img": "steam",
-            "main-package": "steam-launcher",
+            "main-package": "steam:i386",
             "launch-command": "steam",
-            "install-packages": "steam-launcher",
-            "remove-packages": "steam-launcher",
+            "install-packages": "steam:i386",
+            "remove-packages": "steam:i386",
             "description": [
                 "The ultimate entertainment platform. Play",
                 "games, connect with friends, even create and share content of",
@@ -1102,56 +1102,11 @@
             "url-info": "http://store.steampowered.com/",
             "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
-            "arch": "i386",
+            "arch": "i386,amd64",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
-                    "method": "manual",
-                    "source-file": "steam",
-                    "apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
-                    "apt-sources": [
-                        "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-                        "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-                        ""
-                    ]
-                }
-            },
-            "working": true
-        },
-        "steam64": {
-            "name": "Steam",
-            "img": "steam",
-            "main-package": "steam-launcher",
-            "launch-command": "steam",
-            "install-packages": "steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386",
-            "remove-packages": "steam-launcher,libgl1-mesa-dri:i386,libgl1-mesa-glx:i386,libc6:i386",
-            "description": [
-                "The ultimate entertainment platform. Play",
-                "games, connect with friends, even create and share content of",
-                "your own. Join 50 million of your closest friends on Steam.",
-                "Enjoy exclusive deals, automatic game updates, and",
-                "cross-platform multiplayer. Plus, now you take advantage of",
-                "Big Picture mode, designed for use with your TV and game",
-                "controller."
-            ],
-            "alternate-to": null,
-            "subcategory": "Game Management",
-            "open-source": false,
-            "url-info": "http://store.steampowered.com/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
-            "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
-            "arch": "amd64",
-            "releases": "trusty,wily,xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "steam",
-                    "apt-key-url": "http://repo.steampowered.com/steam/signature.gpg",
-                    "apt-sources": [
-                        "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-                        "deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam",
-                        ""
-                    ]
+                    "method": "multiverse-repo"
                 }
             },
             "working": true
@@ -3455,7 +3410,7 @@
             "name": "Ardour",
             "img": "ardour",
             "main-package": "ardour",
-            "launch-command": "ardour",
+            "launch-command": "ardour4",
             "install-packages": "ardour",
             "remove-packages": "ardour",
             "description": [
@@ -4379,7 +4334,7 @@
                 "client viewer presents a full graphical console to the guest domain."
             ],
             "alternate-to": "Oracle&reg; VirtualBox",
-            "subcategory": "Visualization",
+            "subcategory": "Virtualization",
             "open-source": true,
             "url-info": "https://virt-manager.org/",
             "url-android": null,
@@ -4406,11 +4361,11 @@
                 "your Linux system. This includes Windows, Linux, FreeBSD,",
                 "DOS, OpenBSD and others. VirtualBox comes with a broad",
                 "feature set and excellent performance, making it the premier",
-                "visualization software solution on the market."
+                "virtualization software solution on the market."
             ],
             "alternate-to": "VMware Workstation",
-            "subcategory": "Visualization",
-            "open-source": false,
+            "subcategory": "Virtualization",
+            "open-source": true,
             "url-info": "https://www.virtualbox.org/",
             "url-android": null,
             "url-ios": null,
@@ -5150,8 +5105,8 @@
             "img": "xscreensaver",
             "main-package": "xscreensaver-gl",
             "launch-command": null,
-            "install-packages": "xscreensaver-gl, xscreensaver-gl-extra",
-            "remove-packages": "xscreensaver-gl, xscreensaver-gl-extra",
+            "install-packages": "xscreensaver-gl,xscreensaver-gl-extra",
+            "remove-packages": "xscreensaver-gl,xscreensaver-gl-extra",
             "description": "Over 200 screensavers for Ubuntu MATE",
             "alternate-to": null,
             "subcategory": "null",

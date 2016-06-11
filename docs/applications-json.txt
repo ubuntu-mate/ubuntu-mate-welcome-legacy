@@ -59,10 +59,11 @@ Software Boutique Application Format
  }
 
  method                  string      Yes         Pre-configuration methods. Multiple can be specified with a plus '+'.
-                                                     "skip"          =   Package is already in archive.
-                                                     "ppa"           =   Add a PPA. Specify (2), optionally (1).
-                                                     "partner-repo"  =   Add the Ubuntu Partners Repo.
-                                                     "manual"        =   Get keys and write a sources.list file. (3)
+                                                     "skip"             =   Package is already in archive.
+                                                     "ppa"              =   Add a PPA. Specify (2), optionally (1).
+                                                     "partner-repo"     =   Enable the Ubuntu Partners Repo.
+                                                     "multiverse-repo"  =   Enable the multiverse repository.
+                                                     "manual"           =   Get keys and write a sources.list file. (3)
  source-file        (1)  string      No          Source file to update, excluding the ".list" extension.
  enable-ppa         (2)  string      *           Name of PPA to add, eg. "ppa:somebody/someapp".
  apt-key-url        (3)  string      *           Retrieve the key from URL.

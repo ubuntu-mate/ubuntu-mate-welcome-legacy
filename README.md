@@ -56,7 +56,8 @@ Usage: ubuntu-mate-welcome [arguments]
 
 #### tools/app-index-debugger.py
 
-  * `--validate`  =  Check index for consistent data types and required values.
+This tool is for making queries on the Software Boutique's JSON database.
+
   * `--list-index`  =  List applications in the index.
   * `--list-broken`  =  List applications that are not working.
   * `--list-missing-codename=<RELEASE>`  =  List applications not present in a release.
@@ -64,6 +65,10 @@ Usage: ubuntu-mate-welcome [arguments]
   * `--list-special`  =  List applications that pre-install differently on releases.
   * `--list-sources`  =  List each application\'s source (eg. PPA, Ubuntu Archives)
 
+## Tests
+
+To perform tests against the application, see the `tests/` folder. These scripts
+check the application for consistency and may even catch bugs early.
 
 ## Dependencies
 

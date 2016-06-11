@@ -797,7 +797,7 @@
             <p>&zwnj;You can also log in to a&zwnj; <b>&zwnj;Guest Session&zwnj;</b> &zwnj;if someone
             is using your computer as a one-off.&zwnj;</p>
             <a class="btn btn-lg btn-inverse" onclick="cmd('users')" onclick="smoothFade('','#users-hint')">
-              <img src="img/humanity/system-users.svg" width="32px" height="32px"/>&nbsp; &zwnj;Configure Users&zwnj;
+              <img src="img/applications/users.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Users&zwnj;
             </a>
             <span id="users-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>&zwnj;Users and Groups&zwnj;</b> &zwnj;can be found later in&zwnj;
@@ -1442,10 +1442,9 @@
             works on your machine.&zwnj;</p>
           </div>
         </div>
-        <div id="specs-loading"><p>&zwnj;Please wait while the information is being populated...&zwnj;</p></div>
-        <ul id="specs-tabs" class="nav nav-pills" data-tabs="tabs" hidden>
-          <li class="active"><a onclick="smoothFade('.tab-contents','#specs-basic')" data-toggle="tab">&zwnj;Basic&zwnj;</a></li>
-          <li><a onclick="smoothFade('.tab-contents','#specs-detailed')" data-toggle="tab">&zwnj;Detailed&zwnj;</a></li>
+        <ul id="specs-tabs" class="nav nav-pills" data-tabs="tabs">
+          <li class="active"><a onclick="smoothFade('.tab-contents','#specs-basic')" data-toggle="tab"><img id="specs-busy-basic" src="img/welcome/processing.gif" height="16px" width="16px"> &zwnj;Basic&zwnj;</a></li>
+          <li><a onclick="smoothFade('.tab-contents','#specs-detailed')" data-toggle="tab"><img id="specs-busy-detailed" src="img/welcome/processing.gif" height="16px" width="16px"> &zwnj;Detailed&zwnj;</a></li>
           <li><a onclick="smoothFade('.tab-contents','#specs-more')" data-toggle="tab">&zwnj;Utilities&zwnj;</a></li>
         </ul>
 
@@ -1462,11 +1461,11 @@
             <table class="table">
               <tr>
                 <th>&zwnj;Distribution:&zwnj;</th>
-                <td><span id="spec-distro"></span></td>
+                <td class="specs-sel-text"><span id="spec-distro"></span></td>
               </tr>
               <tr>
                 <th>&zwnj;Kernel:&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="spec-kernel"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;The Linux kernel is the heart of Ubuntu.&zwnj;">
                     <span class="fa fa-info-circle"></span>
@@ -1475,11 +1474,11 @@
               </tr>
               <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Motherboard:&zwnj;</th>
-                <td><span id="spec-motherboard"></span></td>
+                <td class="specs-sel-text"><span id="spec-motherboard"></span></td>
               </tr>
               <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Boot Mode:&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="spec-boot-mode"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;Displays the mode that Ubuntu MATE is communicating with the firmware.&zwnj;">
                     <span class="fa fa-info-circle"></span>
@@ -1487,21 +1486,21 @@
                 </td>
               </tr>
             </table>
-            <hr>
+            <br>
 
             <h4><span class="fa fa-bolt"></span> &zwnj;Processor&zwnj;</h4>
             <table class="table">
               <tr>
                 <th>&zwnj;Model:&zwnj;</th>
-                <td><span id="spec-cpu-model"></span></td>
+                <td class="specs-sel-text"><span id="spec-cpu-model"></span></td>
               </tr>
               <tr>
                 <th>&zwnj;Speed:&zwnj;</th>
-                <td><span id="spec-cpu-speed"></span></td>
+                <td class="specs-sel-text"><span id="spec-cpu-speed"></span></td>
               </tr>
               <tr>
                 <th>&zwnj;Architecture in use:&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="spec-arch-use"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;The operating system's architecture in use. For instance, i386 = 32-bit.&zwnj;">
                     <span class="fa fa-info-circle"></span>
@@ -1510,7 +1509,7 @@
               </tr>
               <tr class="specs-hide-vbox specs-hide-pi specs-hide-ppc">
                 <th>&zwnj;Architecture(s) supported:&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="spec-arch-supported"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;Architectures that are supported by this processor.&zwnj;">
                     <span class="fa fa-info-circle"></span>
@@ -1518,13 +1517,13 @@
                 </td>
               </tr>
             </table>
-            <hr>
+            <br>
 
             <h4><span class="fa fa-plug"></span> &zwnj;Components&zwnj;</h4>
             <table class="table">
               <tr>
                 <th>&zwnj;Memory (RAM):&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="spec-memory"></span>
                   <a data-toggle="tooltip" data-placement="right" title="&zwnj;More RAM allows more applications to run simultaneously.&zwnj;">
                     <span class="fa fa-info-circle"></span>
@@ -1533,17 +1532,17 @@
               </tr>
               <tr class="specs-hide-vbox specs-hide-pi">
                 <th>&zwnj;Graphics:&zwnj;</th>
-                <td><span id="spec-graphics"></span></td>
+                <td class="specs-sel-text"><span id="spec-graphics"></span></td>
               </tr>
               <tr>
                 <th>&zwnj;Internet Access:&zwnj;</th>
-                <td>
+                <td class="specs-sel-text">
                   <span id="specs-has-net"    style="color:#006400" hidden>&nbsp; <span class="fa fa-check"></span> &zwnj;Connected&zwnj;</span>
                   <span id="specs-has-no-net" style="color:#640000" hidden>&nbsp; <span class="fa fa-close"></span> &zwnj;Not Connected&zwnj;</span>
                 </td>
               </tr>
             </table>
-            <hr>
+            <br>
 
             <div class="specs-hide-live">
               <h4><span class="fa fa-hdd-o"></span> &zwnj;Storage&zwnj;</h4>
@@ -1551,7 +1550,7 @@
               <table class="table">
                 <tr>
                   <th>&zwnj;Root File System:&zwnj;</th>
-                  <td>
+                  <td class="specs-sel-text">
                     <span id="spec-filesystem"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;The file system where Ubuntu MATE is installed.&zwnj;">
                       <span class="fa fa-info-circle"></span>
@@ -1574,7 +1573,7 @@
                 </tr>
                 <tr>
                   <th>&zwnj;Allocated for Ubuntu MATE:&zwnj;</th>
-                  <td>
+                  <td class="specs-sel-text">
                     <span id="spec-allocated-space"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;The size of your operating system partition.&zwnj;">
                       <span class="fa fa-info-circle"></span>
@@ -1583,19 +1582,19 @@
                 </tr>
                 <tr>
                   <th><div class="disk-legend" style="background-color: #87A556"></div> &zwnj;Used Space:&zwnj;</th>
-                  <td>
+                  <td class="specs-sel-text">
                     <span id="spec-used-space"></span>
                   </td>
                 </tr>
                 <tr>
                   <th><div class="disk-legend" style="background-color: #C2D3A6"></div> &zwnj;Free Space:&zwnj;</th>
-                  <td>
+                  <td class="specs-sel-text">
                     <span id="spec-free-space"></span>
                   </td>
                 </tr>
                 <tr>
                   <th><div class="disk-legend" style="background-color: #484848;"></div> &zwnj;Other Usage:&zwnj;</th>
-                  <td>
+                  <td class="specs-sel-text">
                     <span id="spec-other-space"></span>
                     <a data-toggle="tooltip" data-placement="top" title="&zwnj;Reserved by system, other partitions, unallocated or swap.&zwnj;">
                       <span class="fa fa-info-circle"></span>
@@ -1634,8 +1633,13 @@
         <div class="tab-contents" id="specs-detailed" hidden>
           <div class="row-fluid">
             <div class="span12">
-              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly from the&zwnj; <code>inxi</code> &zwnj;command line program.&zwnj;</p>
-              <pre id="specs-inxi">&zwnj;Could not gather data.&zwnj;</pre>
+              <p><span class="fa fa-info-circle"></span> &zwnj;The following information is retrieved directly from the inxi command line program.&zwnj;</p>
+              <div id="specs-inxi-busy" class="alert alert-warning"><h5>&zwnj;Gathering data...&zwnj;</h5></div>
+              <div id="specs-inxi-error" class="alert alert-danger" hidden><h5>&zwnj;Sorry, there was a problem gathering this information.&zwnj;</h5></div>
+              <div style="text-align: right; margin-bottom: 8px;">
+                <a id="specs-inxi-copy" class="btn btn-inverse" onclick="cmd('clipboard?inxi')" style="display:none"><span class="fa fa-clipboard"></span> Copy to Clipboard</a>
+              </div>
+              <pre id="specs-inxi" style="display:none"></pre>
             </div>
           </div>
         </div>

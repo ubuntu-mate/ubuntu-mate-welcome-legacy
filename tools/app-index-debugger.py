@@ -19,7 +19,11 @@
 """ This utility helps diagnose and output useful information
     about the application.json index used by Welcome.         """
 
-import os, sys, signal, inspect, json
+import os
+import sys
+import signal
+import inspect
+import json
 try:
     from prettytable import PrettyTable
 except:
@@ -66,89 +70,6 @@ def list_all_apps():
     return
 
 
-def validate_apps():
-    global index
-    global current_folder
-    print('Scanning index for consistency...')
-    t = PrettyTable(["Category", 'Program ID', 'Severity', 'Variable', 'Fault'])
-    categories = list(index.keys())
-    categories.sort()
-    for category in categories:
-        category_items = list(index[category].keys())
-        category_items.sort()
-        for program_id in category_items:
-            app = index[category][program_id]
-            # Check for required variables.
-            for variable in ['name', 'img', 'main-package', 'description', 'subcategory', 'open-source', 'url-info', 'arch', 'releases', 'working']:
-                try:
-                    app[variable]
-                except:
-                    t.add_row([category, program_id, 'High', variable, 'Missing, is required.'])
-
-            # Check data types are consistent.
-            for variable in ['name', 'img', 'main-package', 'install-packages', 'remove-packages', 'subcategory', 'arch', 'releases']:
-                try:
-                    if not type(app[variable]) is str:
-                        t.add_row([category, program_id, 'High', variable, 'Must be a string.'])
-                except:
-                    pass
-
-            for variable in ['upgradable', 'boolean']:
-                try:
-                    if not type(app[variable]) is bool:
-                        t.add_row([category, program_id, 'High', variable, 'Must be a boolean.'])
-                except:
-                    pass
-
-            if not category == 'Unlisted':
-                for variable in ['description']:
-                    try:
-                        if not type(app[variable]) is list:
-                            t.add_row([category, program_id, 'High', variable, 'Must be a list.'])
-                    except:
-                        pass
-
-            if not category == 'Unlisted':
-                try:
-                    img = app['img']
-                except:
-                    img = 'null'
-
-                if not os.path.exists(os.path.join(current_folder, '../data/img/applications/', img + '.png' )):
-                    t.add_row([category, program_id, 'Optional', variable, 'Missing icon: "' + img + '.png"'])
-
-                if not os.path.exists(os.path.join(current_folder, '../data/img/applications/screenshots/', img + '-1.jpg' )):
-                    t.add_row([category, program_id, 'Optional', variable, 'No screenshot: "' + img + '-1.jpg"'])
-
-            try:
-                app['pre-install']
-                try:
-                    app['pre-install']['all']
-                except:
-                    t.add_row([category, program_id, 'High', variable, 'Missing explicit pre-install configuration for "all".'])
-            except:
-                t.add_row([category, program_id, 'High', variable, 'Missing pre-install configuration.'])
-
-            # Check that there is a valid arch specified for applications.
-            arch_check = app['arch'].split(',')
-            arch_OK = False
-            for arch in arch_check:
-                if arch == 'i386':
-                    pass
-                elif arch == 'amd64':
-                    pass
-                elif arch == 'armhf':
-                    pass
-                elif arch == 'powerpc':
-                    pass
-                else:
-                    t.add_row([category, program_id, 'High', variable, 'Invalid architecture: ' + arch])
-
-    print('\nIndex Validation Results\n')
-    print(t)
-    return
-
-
 def list_broken():
     global index
     t = PrettyTable(["Category", 'Program ID', 'Notes'])
@@ -167,6 +88,29 @@ def list_broken():
               t.add_row([category, program_id,  notes])
 
     print('\nBroken Applications\n')
+    print(t)
+    return
+
+
+def list_no_screenshot():
+    global index
+    t = PrettyTable(["Category", 'Program ID', 'Filename'])
+    categories = list(index.keys())
+    categories.sort()
+    for category in categories:
+        category_items = list(index[category].keys())
+        category_items.sort()
+        for program_id in category_items:
+            if not category == 'Unlisted':
+                try:
+                    img = index[category][program_id]['img']
+                except:
+                    img = 'null'
+
+                if not os.path.exists(os.path.join(current_folder, '../data/img/applications/screenshots/', img + '-1.jpg' )):
+                    t.add_row([category, program_id, img + '-1.jpg'])
+
+    print('\nApplications missing screenshots:\n')
     print(t)
     return
 
@@ -273,29 +217,48 @@ def process_args():
     for arg in sys.argv:
         if arg == '--help':
             help()
-        if arg == '--validate':
+        if arg == '--all':
             args_ok = True
-            validate_apps()
+            list_all_apps()
+            list_broken()
+            list_no_screenshot()
+            for codename in ['xenial', 'yakkety']:
+                list_missing_codename(codename)
+            for arch in ['i386', 'amd64', 'powerpc', 'armhf']:
+                list_missing_arch(arch)
+            list_special_preinstall()
+            list_app_sources()
+
         if arg == '--list-index':
             args_ok = True
             list_all_apps()
+
         if arg == '--list-broken':
             args_ok = True
             list_broken()
+
         if arg.startswith('--list-missing-codename'):
             codename = str(arg.split('--list-missing-codename=')[1])
             args_ok = True
             list_missing_codename(codename)
+
         if arg.startswith('--list-missing-arch'):
             arch = str(arg.split('--list-missing-arch=')[1])
             args_ok = True
             list_missing_arch(arch)
+
         if arg == '--list-special':
             args_ok = True
             list_special_preinstall()
+
         if arg == '--list-sources':
             args_ok = True
             list_app_sources()
+
+        if arg == '--list-no-screenshot':
+            args_ok = True
+            list_no_screenshot()
+
     if not args_ok:
         print('Invalid arguments.')
         help()
@@ -303,13 +266,14 @@ def process_args():
 
 def help():
     print('Usage:')
-    print(' --validate                        Check index for consistent data types and required values.')
+    print(' --all                             Show all lists.')
     print(' --list-index                      List applications in the index.')
     print(' --list-broken                     List applications that are not working.')
     print(' --list-missing-codename=<RELEASE> List applications not present in a release.')
     print(' --list-missing-arch=<ARCH>        List applications not present for an architecture.')
     print(' --list-special                    List applications that pre-install differently on releases.')
     print(' --list-sources                    List each application\'s source (eg. PPA, Ubuntu Archives)')
+    print(' --list-no-screenshot              List applications without a screenshot.')
     sys.exit()
 
 

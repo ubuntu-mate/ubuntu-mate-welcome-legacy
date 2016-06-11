@@ -32,21 +32,16 @@ gi.require_version("WebKit2", "4.0")
 import apt
 import errno
 import gettext
-import glob
 import inspect
 import json
 import locale
-import logging
 import os
 import platform
 import random
-import shutil
 import signal
 import socket
 import subprocess
 import sys
-import tempfile
-import urllib.request
 import webbrowser
 
 import urllib.error
@@ -71,8 +66,8 @@ def goodbye(a=None, b=None):
 
     # Refuse to quit if operations are in progress.
     if dynamicapps.operations_busy:
-        print('[Welcome] WARNING: Software changes are in progress!')
-        title = _("Software Boutique")
+        dbg.stdout('Welcome', 'Refusing to quit with software changes in progress!', 0, 1)
+        title = string.boutique
         text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
         ok_label = _("OK")
         messagebox = subprocess.Popen(['zenity',
@@ -85,7 +80,7 @@ def goodbye(a=None, b=None):
         return 1
 
     else:
-        print('[Welcome] Application Closed.')
+        dbg.stdout('Welcome', 'Application Closed', 0, 0)
         Gtk.main_quit()
         # Be quite forceful, particularly those child screenshot windows.
         exit()
@@ -103,7 +98,7 @@ def set_proc_title(name=None):
     ret = libc.prctl(15, byref(buff), 0, 0, 0)
 
     if ret != 0:
-        print("Failed to set process title")
+        dbg.stdout('Welcome', 'Failed to set process title', 0, 1)
 
     return ret
 
@@ -112,13 +107,13 @@ def whereami():
     """ Determine data source """
     current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
     if( os.path.exists( os.path.join(current_folder, 'data/' ) ) ):
-        arg.print_verbose('Debug', 'Using relative path for data source. Non-production testing.')
+        dbg.stdout('Welcome', 'Using relative path for data source. Non-production testing.', 1, 0)
         data_path = os.path.join(current_folder, 'data/')
     elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-        arg.print_verbose('Debug', 'Using /usr/share/ubuntu-mate-welcome/ path.')
+        dbg.stdout('Welcome', 'Using /usr/share/ubuntu-mate-welcome/ path.', 1, 0)
         data_path = '/usr/share/ubuntu-mate-welcome/'
     else:
-        print('Unable to source the ubuntu-mate-welcome data directory.')
+        dbg.stdout('Welcome', 'Unable to source the ubuntu-mate-welcome data directory.', 0, 1)
         sys.exit(1)
     return data_path
 
@@ -238,7 +233,7 @@ class SimpleApt(object):
             if not os.path.exists(img_path):
                 img_path = 'package'
 
-            print('[Apps] Changed status for "' + self.program_id + '": ' + status)
+            dbg.stdout('Apps', 'Changed status for "' + self.program_id + '": ' + status, 0, 3)
 
             # Show a different notification for Welcome Updates
             if self.program_id == 'ubuntu-mate-welcome' and status == 'exit-success':
@@ -462,7 +457,7 @@ def get_aacs_db():
     key_url = 'http://www.labdv.com/aacs/KEYDB.cfg'
     key_db = os.path.join(home_dir, '.config', 'aacs', 'KEYDB.cfg')
     mkdir_p(os.path.join(home_dir, '.config', 'aacs'))
-    print('[AACS] Getting ' + key_url + ' and saving as ' + key_db)
+    dbg.stdout('AACS', 'Getting ' + key_url + ' and saving as ' + key_db, 0, 0)
 
     # Download the file from `key_url` and save it locally under `file_name`:
     try:
@@ -488,11 +483,10 @@ class PreInstallation(object):
         # Always ensure we have the correct variables, not any overrides.
         self.os_version = platform.dist()[1]
         self.codename = platform.dist()[2]
-        arg.print_verbose("Pre-Install", "System is running Ubuntu " + self.os_version + " (" + self.codename + ")")
+        dbg.stdout('Pre-Install', "System is running Ubuntu " + self.os_version + " (" + self.codename + ")", 1, 0)
 
     def process_packages(self, program_id, action, preconfigure_only=False):
         simulating = arg.simulate_software_changes
-        print(' ')
 
         # Get category for this program, which can be used to retrieve data later.
         category = dynamicapps.get_attribute_for_app(program_id, 'category')
@@ -502,31 +496,31 @@ class PreInstallation(object):
         try:
             preconfig = dynamicapps.index[category][program_id]['pre-install']
         except:
-            print('[Pre-Install] Missing pre-configuration data for "' + program_id + '". Refusing to continue.')
+            dbg.stdout('Pre-Install', 'Missing pre-configuration data for "' + program_id + '". Refusing to continue.', 0, 1)
             return
 
         try:
             if action == 'install':
                 packages = dynamicapps.index[category][program_id]['install-packages']
-                print('[Apps] Packages to be installed:\n               ' + packages)
+                dbg.stdout('Apps', 'Packages to be installed:\n               ' + packages, 0, 0)
             elif action == 'remove':
                 packages = dynamicapps.index[category][program_id]['remove-packages']
-                print('[Apps] Packages to be removed:\n               ' + packages)
+                dbg.stdout('Apps', 'Packages to be removed:\n               ' + packages, 0, 0)
             elif action == 'upgrade':
                 packages = dynamicapps.index[category][program_id]['upgrade-packages']
-                print('[Apps] Packages to be upgraded:\n               ' + packages)
+                dbg.stdout('Apps', 'Packages to be upgraded:\n               ' + packages, 0, 0)
             else:
-                print('[Apps] ERROR: Invalid action was requested.')
+                dbg.stdout('Apps', 'Invalid action was requested.', 0, 1)
                 return
         except:
-            print('[Apps] ERROR: No packages retrieved for requested action.')
+            dbg.stdout('Apps', 'No packages retrieved for requested action.', 0, 1)
             return
 
         # Validate that we have packages to work with.
         if len(packages):
             packages = packages.split(',')
         else:
-            print('[Apps] ERROR: No package(s) supplied for "' + program_id + '".')
+            dbg.stdout('Apps', 'No package(s) supplied for "' + program_id + '".', 0, 1)
             return
         transaction = SimpleApt(packages, action, program_id)
 
@@ -539,9 +533,9 @@ class PreInstallation(object):
             preinstall = dynamicapps.index[category][program_id]['pre-install']
             codenames = list(preinstall.keys())
         except:
-            print('[Pre-Install] No pre-install data specified for "' + program_id + '". This application entry is invalid.')
+            dbg.stdout('Pre-Install', 'No data specified for "' + program_id + '". This application entry is invalid.', 0, 1)
             return
-        arg.print_verbose('Pre-Install','Available configurations: ' + str(codenames))
+        dbg.stdout('Pre-Install', 'Available configurations: ' + str(codenames), 1, 0)
         target = None
         for name in codenames:
             if name == self.codename:
@@ -549,27 +543,34 @@ class PreInstallation(object):
                 break
         if not target:
                 target = 'all'
-                arg.print_verbose('Pre-Install','Using "all" pre-configuration.')
+                dbg.stdout('Pre-Install', 'Using "all" pre-configuration.', 1, 0)
         else:
-            arg.print_verbose('Pre-Install','Using configuration for: "' + target + '".')
+            dbg.stdout('Pre-Install', 'Using configuration for: "' + target + '".', 1, 0)
 
         methods = preinstall[target]['method'].split('+')
         if not methods:
-            print('[Pre-Install] No pre-install method was specified. The index is invalid.')
+            dbg.stdout('Pre-Install', 'No pre-install method was specified. The index is invalid.', 0, 1)
         else:
-            arg.print_verbose('Pre-Install','Configuration changes: ' + str(methods))
+            dbg.stdout('Pre-Install', 'Configuration changes: ' + str(methods), 0, 0)
 
         # Perform any pre-configuration, if necessary.
         if action == 'install' or action == 'upgrade':
             for method in methods:
                 if method == 'skip':
-                    arg.print_verbose('Pre-Install','No need! The package is already in the archives.')
+                    dbg.stdout('Pre-Install', 'Using the Ubuntu repository.', 0, 0)
                     continue
 
                 elif method == 'partner-repo':
-                    print('[Pre-Install] Enabling the Ubuntu partner repository.')
+                    dbg.stdout('Pre-Install', 'Enabling the Ubuntu partner repository.', 0, 3)
                     if not simulating:
                         run_task('enable_partner_repository')
+                        transaction.update_cache = True
+                        queue.must_update_cache = True
+
+                elif method == 'multiverse-repo':
+                    dbg.stdout('Pre-Install', 'Enabling the Ubuntu multiverse repository.', 0, 3)
+                    if not simulating:
+                        run_task('enable_multiverse_repository')
                         transaction.update_cache = True
                         queue.must_update_cache = True
 
@@ -577,75 +578,75 @@ class PreInstallation(object):
                     try:
                         ppa = preinstall[target]['enable-ppa']
                     except:
-                        print('[Pre-Install] Missing "enable-ppa" attribute. Cannot add PPA as requested.')
+                        dbg.stdout('Pre-Install', 'Missing "enable-ppa" attribute. Cannot add PPA as requested.', 0, 1)
                         return
-                    print('[Pre-Install] Adding PPA: "' + ppa + '" and updating cache.')
+                    dbg.stdout('Pre-Install', 'Adding PPA: "' + ppa + '" and updating cache.', 0, 3)
                     if not simulating:
                         run_task('enable_ppa')
                         transaction.update_cache = True
                         queue.must_update_cache = True
                     try:
                         source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
-                        print('[Pre-Install] Updating Apt Source: "' + source_file + '.list"')
+                        dbg.stdout('Pre-Install', 'Updating Apt Source: "' + source_file + '.list"', 0, 3)
                         if not simulating:
                             transaction.source_to_update = source_file + '.list'
                     except:
-                        arg.print_verbose('Pre-Install','Updating entire cache as no source file was specified.')
+                        dbg.stdout('Pre-Install', 'Updating entire Apt cache. (No individual source file specified)', 1, 3)
 
                 elif method == 'manual':
                     # Do we get the apt key from a URL?
                     try:
                         apt_key_url = preinstall[target]['apt-key-url'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
-                        print('[Pre-Install] Getting Apt key from URL: "' + apt_key_url + '"')
+                        dbg.stdout('Pre-Install', 'Getting Apt key from URL: "' + apt_key_url + '"', 0, 3)
                         if not simulating:
                             run_task('add_apt_key_from_url')
                             queue.must_update_cache = True
                     except:
-                        arg.print_verbose('Pre-Install', 'No apt key to retrieve from a URL.')
+                        dbg.stdout('Pre-Install', 'No apt key to retrieve from a URL.', 1, 0)
 
                     # Do we get the apt key from the server?
                     try:
                         apt_key_server = preinstall[target]['apt-key-server'][0]
                         apt_key_key =    preinstall[target]['apt-key-server'][1]
-                        print('[Pre-Install] Getting key "' + apt_key_key + '" from keyserver: "' + apt_key_server + '"')
+                        dbg.stdout('Pre-Install', 'Getting key "' + apt_key_key + '" from keyserver: "' + apt_key_server + '"', 0, 3)
                         if not simulating:
                             run_task('add_apt_key_from_keyserver')
                             queue.must_update_cache = True
                     except:
-                        arg.print_verbose('Pre-Install', 'No apt key to retrieve from a key server.')
+                        dbg.stdout('Pre-Install', 'No apt key to retrieve from a key server.', 1, 0)
 
                     # Do we need to add an apt source file?
                     try:
                         source = preinstall[target]['apt-sources']
                         source_file = preinstall[target]['source-file'].replace('OSVERSION',self.os_version).replace('CODENAME',self.codename)
-                        print('[Pre-Install] Writing source file: ' + source_file + '.list')
-                        print('              -------- Start of file ------')
+                        dbg.stdout('Pre-Install', 'Writing source file: ' + source_file + '.list', 0, 3)
+                        dbg.stdout('Pre-Install', '              -------- Start of file ------', 1, 4)
                         for line in source:
-                            print('              ' + line.replace('OSVERSION',self.os_version).replace('CODENAME',self.codename))
-                        print('              -------- End of file ------')
+                            dbg.stdout('Pre-Install', '              ' + line.replace('OSVERSION',self.os_version).replace('CODENAME',self.codename), 0, 0)
+                        dbg.stdout('Pre-Install', '              -------- End of file ------', 1, 4)
                         try:
-                            print('[Pre-Install] Updating Apt Source: ' + source_file + '.list')
+                            dbg.stdout('Pre-Install', 'Updating Apt Source: ' + source_file + '.list', 0, 3)
                             if not simulating:
                                 run_task('add_apt_sources')
                                 transaction.source_to_update = source_file + '.list'
                                 transaction.update_cache = True
                                 queue.must_update_cache = True
                         except:
-                            arg.print_verbose('Pre-Install','Failed to add apt sources!')
+                            dbg.stdout('Pre-Install', 'Failed to add apt sources!', 0, 1)
                     except:
-                        arg.print_verbose('Pre-Install','No source data or source file to write.')
+                        dbg.stdout('Pre-Install', 'No source data or source file to write.', 0, 1)
 
         elif action == 'remove':
             try:
                 # The function uses wild cards, so we don't need to worry about being explict.
                 listname = preinstall[target]['source-file'].replace('CODENAME','').replace('OSVERSION','')
                 if simulating:
-                    print('[Simulation] Deleting Apt Source: ' + listname)
+                    dbg.stdout('Simulation', 'Deleting Apt Source: ' + listname, 0, 3)
                 else:
                     run_task('del_apt_sources')
                     queue.must_update_cache = True
             except:
-                print('[Pre-Install]', 'No apt source specified, so none will be removed.')
+                dbg.stdout('Pre-Install', 'No apt source specified, so none will be removed.', 1, 0)
 
         # Pre-configuration complete. Now perform the operations.
         # Do not do this if:
@@ -654,7 +655,7 @@ class PreInstallation(object):
 
         if not preconfigure_only:
             if simulating:
-                print('[Pre-Install] Simulation flag active. No changes will be performed.')
+                dbg.stdout('Pre-Install', 'Simulation flag active. No changes will be performed.', 0, 2)
                 return
             else:
                 if transaction.action == 'install':
@@ -666,7 +667,7 @@ class PreInstallation(object):
 
 
 ##################################
-#  Translations Framework
+#  Translations Framework & Strings
 ##################################
 class Translations(object):
     def __init__(self, data_path):
@@ -681,17 +682,17 @@ class Translations(object):
             if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
                 self.localized = True
                 self.relative_i18n = True
-                print('[i18n] Locale Set: ' + self.locale + ' (using relative path)')
+                dbg.stdout('i18n', 'Locale Set: ' + self.locale + ' (using relative path)', 1, 0)
                 return os.path.join(data_path, 'i18n', self.locale)
             elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
                 self.localized = True
                 self.relative_i18n = False
-                print('[i18n] Locale Set: ' + self.locale + ' (using /usr/share/ path)')
+                dbg.stdout('i18n', 'Locale Set: ' + self.locale + ' (using /usr/share/ path)', 1, 0)
                 return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
             else:
                 self.localized = False
                 self.relative_i18n = False
-                print('[i18n] Locale Not Available: ' + self.locale + ' (using en_US instead)')
+                dbg.stdout('i18n', 'Locale Not Available: ' + self.locale + ' (using en_US instead)', 1, 1)
                 return data_path
 
         self.pages_dir = get_pages_path()
@@ -710,17 +711,16 @@ class Translations(object):
             for page in os.listdir(data_path):
                 if page[-5:] == '.html':
                     if os.path.exists(os.path.join(self.pages_dir, page)):
-                        arg.print_verbose('i18n', 'Page Verified: ' + page)
+                        dbg.stdout('i18n', 'Page Verified: ' + page, 2, 2)
                     else:
                         page_was_lost = True
-                        print('[i18n] Page Missing: ' + page)
+                        dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
         if page_was_lost:
-            print('[i18n] ** One or more translation pages are missing!')
-            print('[i18n] ** How unusual. Falling back to en_US.')
+            dbg.stdout('i18n', 'One or more translation pages are missing! Falling back to "en_US".', 0, 1)
             self.pages_dir = data_path
             self.localized = False
         else:
-            arg.print_verbose('i18n', 'All translated i18n pages found.')
+            dbg.stdout('i18n', 'All translated i18n pages found.', 1, 2)
 
         # Sets the path for resources (img/css/js)
         if self.localized:
@@ -737,16 +737,102 @@ class Translations(object):
             i18n_path = os.path.join(data_path, 'locale/')
 
         global t, _
-        arg.print_verbose('i18n', 'Using locale for gettext: ' + self.locale)
-        arg.print_verbose('i18n', 'Using path for gettext: ' + i18n_path)
+        dbg.stdout('i18n', 'Using locale for gettext: ' + self.locale, 1, 0)
+        dbg.stdout('i18n', 'Using path for gettext: ' + i18n_path, 1, 0)
         try:
             t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale], fallback=True)
             _ = t.gettext
-            arg.print_verbose('i18n', 'Translation found for gettext.')
+            dbg.stdout('i18n', 'Translation found for gettext.', 1, 2)
         except:
-            arg.print_verbose('i18n', 'No translation exists for gettext. Using default.')
+            dbg.stdout('i18n', 'No translation exists for gettext. Using default.', 1, 2)
             t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/', fallback=True)
             _ = t.gettext
+
+class Strings(object):
+    """ Not all strings are stored here, but those common throughout the program. """
+    def __init__(self):
+        ## To avoid needing to call i18n each time,
+        ## variables are intentional to be strings.
+
+        # General
+        self.welcome = str(_("Welcome"))
+        self.boutique = str(_("Software Boutique"))
+        self.close = str(_("Close"))
+        self.cancel = str(_("Cancel"))
+
+        # Boutique Footer
+        self.subscribed = str(_("Set to retrieve the latest software listings."))
+        self.subscribe_link = str(_("Retrieve the latest software listings."))
+        self.subscribing = str(_("Please wait while the application is being updated..."))
+        self.version = str(_("Version:"))
+
+        # Application Listings
+        self.upgraded = str(_("This application is set to receive the latest updates."))
+        self.alternate_to = str(_('Alternative to:'))
+        self.hide = str(_("Hide"))
+        self.show = str(_("Show"))
+        self.install = str(_("Install"))
+        self.reinstall = str(_("Reinstall"))
+        self.remove = str(_("Remove"))
+        self.upgrade = str(_("Upgrade"))
+        self.launch = str(_("Launch"))
+        self.license = str(_("License"))
+        self.platform = str(_("Platform"))
+        self.category = str(_("Category"))
+        self.website = str(_("Website"))
+        self.screenshot = str(_("Screenshot"))
+        self.source = str(_("Source"))
+        self.repo_partner = str(_("Canonical Partner Repository"))
+        self.repo_multiverse = str(_("Ubuntu Multiverse Repository"))
+        self.repo_ubuntu = str(_("Ubuntu Repository"))
+        self.unknown = str(_('Unknown'))
+        self.undo = str(_("Undo Changes"))
+
+        # Applying Changes
+        self.install_text = str(_("Installing..."))
+        self.remove_text = str(_("Removing..."))
+        self.upgrade_text = str(_("Upgrading..."))
+
+        # Categories
+        self.accessories = str(_("Accessories"))
+        self.education = str(_("Education"))
+        self.games = str(_("Games"))
+        self.graphics = str(_("Graphics"))
+        self.internet = str(_("Internet"))
+        self.office = str(_("Office"))
+        self.programming = str(_("Programming"))
+        self.media = str(_("Sound & Video"))
+        self.systools = str(_("System Tools"))
+        self.univaccess = str(_("Universal Access"))
+        self.servers = str(_("Server One-Click Installation"))
+        self.misc = str(_("Miscellaneous"))
+
+        # Boutique Features
+        self.search = str(_("Search"))
+        self.search_begin = str(_("Please enter a keyword to begin."))
+        self.search_short = str(_("Please enter at least 3 characters."))
+
+        # Boutique News
+        self.added = str(_("Added"))
+        self.fixed = str(_("Fixed"))
+        self.removed = str(_("Removed"))
+
+        # Boutique Queue
+        self.queue_install = str(_("Queued for installation."))
+        self.queue_remove = str(_("Queued for removal."))
+        self.queue_prepare_remove = str(_("Preparing to remove:"))
+        self.queue_prepare_install = str(_("Preparing to install:"))
+        self.queue_listing = str(_("Listing packages..."))
+        self.queue_removing = str(_("Removing software..."))
+        self.queue_installing = str(_("Installing software..."))
+        self.updating_cache = str(_("Updating cache..."))
+        self.verifying_changes = str(_("Verifying software changes..."))
+        self.install_success = str(_("Successfully Installed"))
+        self.install_fail = str(_("Failed to Install"))
+        self.remove_success = str(_("Successfully Removed"))
+        self.remove_fail = str(_("Failed to Remove"))
+        self.status_install = str(_("To be installed"))
+        self.status_remove = str(_("To be removed"))
 
 
 ##################################
@@ -763,7 +849,7 @@ class AppView(WebKit2.WebView):
         self.connect('context-menu', self._context_menu_cb)
 
         self.set_zoom_level(systemstate.zoom_level)
-        print('[Welcome] Setting zoom level to: ' + str(systemstate.zoom_level))
+        dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
 
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
@@ -798,37 +884,14 @@ class AppView(WebKit2.WebView):
             app.update_page('.offline', 'show')
             app.update_page('.online', 'hide')
 
-        ## Social Links ##
-        footer_left = '<div id="social" class="pull-left"> \
-        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
-        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
-        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + trans.res_dir + 'img/humanity/website.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + trans.res_dir + 'img/humanity/donate.svg"></a> \
-        </div>'
-        footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</a>'
-
-        ## Boutique Footer ##
-        str_subscribed = _("Set to retrieve the latest software listings.")
-        str_subscribe_link = _("Retrieve the latest software listings.")
-        str_subscribing = _("Please wait while the application is being updated...")
-        str_listing_version = _("Version:")
-
-        boutique_footer = '<div id="boutique-footer" class="pull-left"> \
-        <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + str_subscribed + '</p> \
-        <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + str_subscribe_link + '</a></p> \
-        <p hidden id="update-subscribing"><img src="' + trans.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + str_subscribing + '</p> \
-        <p><b>' + str_listing_version + '</b> <span id="boutique-version"></span></p> \
-        </div>'
-
         # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
             if not app.current_page == 'splash.html' and not app.current_page == 'software.html':
-                app.update_page('#footer-global-left', 'html', footer_left)
+                app.update_page('#footer-global-left', 'html', app.footer_left)
 
         # Do not show the Close button in Boutique mode.
         if not arg.jump_software_page:
-            app.update_page('#footer-global-right', 'html', footer_close)
+            app.update_page('#footer-global-right', 'html', app.footer_close)
 
         # Smoothly fade in the footer links between pages.
         #   splash → index
@@ -964,7 +1027,7 @@ class AppView(WebKit2.WebView):
             # If loading a minimal "Get More Software" only page.
             if arg.jump_software_page:
                 app.update_page('#menu-button', 'hide')
-                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + _("Software Boutique") + "</span>")
+                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + string.boutique + "</span>")
                 app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
 
             # Pass 'Servers' variable used for one-click server links.
@@ -977,7 +1040,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.populate_news(self)
 
             # Show a different footer in the Boutique.
-            app.update_page('#footer-global-left', 'html', boutique_footer)
+            app.update_page('#footer-global-left', 'html', app.boutique_footer)
 
             # Set version and subscription details.
             app.update_page('#boutique-version', 'html', systemstate.welcome_version)
@@ -1016,14 +1079,14 @@ class AppView(WebKit2.WebView):
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
-        arg.print_verbose('Debug', 'Command: ' + title)
+        dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
         self._do_command(title)
 
     def _load_changed_cb(self, view, frame):
         uri = str(self.get_uri())
         app.current_page = uri.rsplit('/', 1)[1]
         if not self.is_loading():
-            arg.print_verbose('Debug', 'Page: ' + app.current_page + '\n      ' + uri)
+            dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
             self._push_config()
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
@@ -1136,17 +1199,17 @@ class AppView(WebKit2.WebView):
         elif cmd == 'reboot-rpi':
             systemstate.rpi_resize('reboot')
         elif cmd == 'subscribe-updates':
-            print('[Welcome] Subscribing to Ubuntu MATE Welcome Updates...')
+            dbg.stdout('Welcome', 'Subscribing to Ubuntu MATE Welcome Updates...', 0, 3)
             app.update_page('#update-notification', 'hide')
             app.update_page('#update-subscribing', 'show')
             dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists(systemstate.welcome_ppa_file):
                 if os.path.getsize(systemstate.welcome_ppa_file) > 0:
-                    print('[Welcome] Success, PPA added! Application restarting...')
+                    dbg.stdout('Welcome', 'Success - Welcome PPA Added! Restarting application...', 0, 2)
                     os.execv(__file__, sys.argv)
             else:
-                print('[Welcome] Failed, PPA not detected!')
+                dbg.stdout('Welcome', 'Failed - Welcome PPA not detected!', 0, 1)
                 app.update_page('#update-subscribing', 'hide')
                 app.update_page('#update-notification', 'show')
         elif cmd == 'init-system-info':
@@ -1162,11 +1225,14 @@ class AppView(WebKit2.WebView):
             key = cmd.split('?')[1]
             pref.toggle(key)
             pref.refresh_pref_page(key)
+        elif cmd.startswith('clipboard'):
+            var = cmd.split('?')[1]
+            systemstate.copy_to_clipboard(var)
         else:
-            print('[Error] Unknown command: ', cmd)
+            dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
       except Exception as e:
-        print('[Error] Failed to execute command: ', cmd)
-        print('[Error] Exception: ', e)
+          dbg.stdout('Welcome', 'Failed to execute command: ' + cmd, 0, 1)
+          dbg.stdout('Welcome', 'Exception: ' + str(e), 0, 1)
 
 
 ##################################
@@ -1180,15 +1246,32 @@ class WelcomeApp(object):
         self.webkit = None
         self.load_app()
 
+        ## Social Links ##
+        self.footer_left = '<div id="social" class="pull-left"> \
+        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
+        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
+        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + trans.res_dir + 'img/welcome/website.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></a> \
+        </div>'
+        self.footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</a>'
+
+        self.boutique_footer = '<div id="boutique-footer" class="pull-left"> \
+        <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + string.subscribed + '</p> \
+        <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + string.subscribe_link + '</a></p> \
+        <p hidden id="update-subscribing"><img src="' + trans.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + string.subscribing + '</p> \
+        <p><b>' + string.version + '</b> <span id="boutique-version"></span></p> \
+        </div>'
+
     def load_app(self):
         # Slightly different attributes if "--software-only" is activated.
         if arg.jump_software_page:
-            title = _("Software Boutique")
+            title = string.boutique
             width = 900
             height = 600
             load_file = 'splash-boutique.html'
         else:
-            title = _("Welcome")
+            title = string.welcome
             width = 800
             height = 552
             load_file = 'splash.html'
@@ -1217,7 +1300,7 @@ class WelcomeApp(object):
         # Build window
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
-        w.set_wmclass('Ubuntu MATE Welcome', 'Ubuntu MATE Welcome')
+        w.set_wmclass('ubuntu-mate-welcome', 'ubuntu-mate-welcome')
         w.set_title(title)
 
         # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
@@ -1270,6 +1353,35 @@ class WelcomeApp(object):
             self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
         else:
             self.webkit.run_javascript('$("' + element + '").' + function + '()')
+
+
+class Debug(object):
+    def __init__(self):
+        self.verbose_level = 0
+
+    def stdout(self, item, info, verbosity=0, colour=0):
+        # Only colourise output if running in a real terminal.
+        if sys.stdout.isatty():
+            end = '\033[0m'
+            if colour == 1:            # Failure (Red)
+                start = '\033[91m'
+            elif colour == 2:          # Success (Green)
+                start = '\033[92m'
+            elif colour == 3:          # Action (Yellow)
+                start = '\033[93m'
+            elif colour == 4:          # Debug (Blue)
+                start = '\033[96m'
+            else:                      # Normal/Misc (White)
+                start = '\033[0m'
+
+        # Ignore colours when redirected or piped.
+        else:
+            start = ''
+            end   = ''
+
+        # Output the message depending how detailed it is.
+        if self.verbose_level >= verbosity:
+            print(start + '[' + item + '] ' + info, end)
 
 
 class SystemState(object):
@@ -1343,16 +1455,16 @@ class SystemState(object):
                 font_gsettings = Gio.Settings.new('org.mate.font-rendering')
                 font_value = font_gsettings.get_value('dpi')
                 font_dpi = int(float(str(font_value)))
-                arg.print_verbose('Welcome', 'Font DPI is: ' + str(font_dpi))
+                dbg.stdout('Welcome', 'Font DPI is: ' + str(font_dpi), 1, 0)
             except:
                 font_dpi = 96
-                print('[Welcome] Couldn\'t retrieve font DPI. Using default value of ' + str(font_dpi))
+                dbg.stdout('Welcome', "Couldn't retrieve font DPI. Using default value of " + str(font_dpi), 0, 1)
 
         if font_dpi < 50:
-            print('[Welcome] DPI below 50. Out of range..')
+            dbg.stdout('Welcome', 'DPI below 50. Out of range..', 0, 1)
             font_dpi = 96
         elif font_dpi > 500:
-            print('[Welcome] DPI over 500. Out of range.')
+            dbg.stdout('Welcome', 'DPI over 500. Out of range.', 0, 1)
             font_dpi = 96
 
         zoom_level = 1.0
@@ -1379,18 +1491,18 @@ class SystemState(object):
         self.zoom_level = zoom_level
 
     def reload_cache(self):
-        arg.print_verbose('Apt', 'Reloading cache...')
+        dbg.stdout('Apt', 'Reloading cache...', 0, 3)
         self.apt_cache.close()
         self.apt_cache = apt.Cache()
-        arg.print_verbose('Apt', 'Cache reloaded.')
+        dbg.stdout('Apt', 'Cache reloaded.', 0, 2)
 
     def autostart_check(self):
         # Ensure our autostart directories exist
         if not os.path.exists(self._autostart_dir):
             try:
-                os.makedirs(_dir)
+                os.makedirs(self._autostart_dir)
             except OSError as err:
-                print(err)
+                dbg.stdout('Welcome', 'Error while checking autostart directory: ' + str(err), 0, 1)
                 pass
 
         # Set boolean if the autostart file exists.
@@ -1405,31 +1517,33 @@ class SystemState(object):
             try:
                 os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
-                print(err)
+                dbg.stdout('Welcome', 'Error while enabling autostart: ' + str(err), 0, 1)
                 pass
+
         elif os.path.exists(self._autostart_path):
             # remove the autostart symlink
             try:
                 os.unlink(self._autostart_path)
             except OSError as err:
-                print(err)
+                dbg.stdout('Welcome', 'Error while disabling autostart: ' + str(err), 0, 1)
                 pass
+
         self.autostart = self.autostart_check()
-        arg.print_verbose('Debug', 'Auto start toggled. Now: ' + str(self.autostart))
+        dbg.stdout('Welcome', 'Auto start toggled to: ' + str(self.autostart), 1, 2)
 
     def check_internet_connection(self):
-        print('[Network Test] Checking for internet connectivity... ')
         url = "http://archive.ubuntu.com/"
+        dbg.stdout('Network Test', 'Establishing a connection test to "' + url + '"', 1, 3)
 
         if arg.simulate_no_connection:
-            print('[Network Test] Simulation argument override. Retrying will reset this.')
+            dbg.stdout('Network Test', 'Simulation flag: Forcing no connection presence. Retrying will reset this.', 0, 1)
             arg.simulate_no_connection = False
             self.is_online = False
             return
 
         if arg.simulate_force_connection:
-            print('[Network Test] Simulation argument override. Forcing connection presence.')
-            print('[Network Test] WARNING: Do not attempt to install/remove software offline as this may lead to errors later!')
+            dbg.stdout('Network Test', 'Simulation flag: Forcing a connection presence.', 0, 2)
+            dbg.stdout('Network Test', 'WARNING: Do not attempt to install/remove software offline as this may cause problems!', 0, 1)
             arg.simulate_connection = False
             self.is_online = True
             return
@@ -1437,13 +1551,13 @@ class SystemState(object):
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            print("[Network Test] -- Socket timed out to URL {0}".format(url))
+            dbg.stdout('Network Test', 'Failed. Socket timed out to URL: ' + url, 0, 1)
             self.is_online = False
         except:
-            print("[Network Test] -- Could not establish a connection to '{0}'. ".format(url))
+            dbg.stdout('Welcome', "Couldn't establish a connection: " + url, 0, 1)
             self.is_online = False
         else:
-            print("[Network Test] Successfully pinged '{0}' ".format(url))
+            dbg.stdout('Welcome', 'Successfully pinged: ' + url, 1, 2)
             self.is_online = True
 
     def detect_graphics(self):
@@ -1454,13 +1568,13 @@ class SystemState(object):
             return
 
         # TODO: Support dual graphic cards.
-        arg.print_verbose('Graphics','Detecting graphics vendor... ')
+        dbg.stdout('Specs', 'Detecting graphics vendor... ', 1, 3)
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            arg.print_verbose("Graphics","Couldn't detect a VGA Controller on this system.")
+            dbg.stdout('Specs', "Couldn't detect a VGA Controller on this system.", 0, 1)
             output = 'Unknown'
 
         # Scan for and set known brand name.
@@ -1478,10 +1592,10 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        arg.print_verbose("Graphics","Detected: {0}".format(self.graphics_grep))
+        dbg.stdout('Specs', 'Detected: ' + str(self.graphics_grep), 1, 2)
 
     def get_system_info(self, webkit):
-        print('[System Specs] Gathering system specifications...')
+        dbg.stdout('Specs', 'Gathering system specifications...', 0, 3)
 
         # Prefixes for translation
         mb_prefix = _("MB")
@@ -1490,12 +1604,9 @@ class SystemState(object):
         gib_prefix = _("GiB")
 
         # Start collecting advanced system information in the background.
-        # (Python can do other things while this command completes)
-        arg.print_verbose('System Specs', 'Running "inxi" for advanced system information...')
-        try:
-            inxi_raw = subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE)
-        except:
-            print('[System Specs] Failed to execute collect advanced information. Is "inxi" no longer installed?')
+        # (Runs in own thread to prevent holding up screen)
+        inxi_thread = Thread(target=self.get_inxi_info)
+        inxi_thread.start()
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
         stat_error_msg = _("Could not gather data.")
@@ -1515,36 +1626,36 @@ class SystemState(object):
 
         ## Distro
         try:
-            arg.print_verbose('System Specs', 'Gathering data: Distribution')
+            dbg.stdout('Specs', 'Gathering Data: Distribution', 1, 0)
             distro_description = run_external_command(['lsb_release','-d','-s'])
             distro_codename = run_external_command(['lsb_release','-c','-s'])
             app.update_page('#spec-distro', 'html', distro_description)
         except:
-            print('[System Specs] Failed to retrieve data: Distribution')
+            dbg.stdout('Specs', 'Failed to gather data: Distribution', 0, 1)
 
         ## Kernel
         try:
-            arg.print_verbose('System Specs', 'Gathering data: Kernel')
+            dbg.stdout('Specs', 'Gathering Data: Kernel', 1, 0)
             kernel = run_external_command(['uname','-r'])
             app.update_page('#spec-kernel', 'html', kernel)
         except:
-            print('[System Specs] Failed to retrieve data: Kernel')
+            dbg.stdout('Specs', 'Failed to gather data: Kernel', 0, 1)
 
         ## Motherboard
         try:
-            arg.print_verbose('System Specs', 'Gathering data: Motherboard')
+            dbg.stdout('Specs', 'Gathering Data: Motherboard', 1, 0)
             motherboard_name = run_external_command(['cat','/sys/devices/virtual/dmi/id/board_name'])
             app.update_page('#spec-motherboard', 'html', motherboard_name)
         except:
-            print('[System Specs] Failed to retrieve data: Motherboard')
+            dbg.stdout('Specs', 'Failed to gather data: Motherboard', 0, 1)
 
         ## CPU Details
-        arg.print_verbose('System Specs', 'Gathering data: CPU')
+        dbg.stdout('Specs', 'Gathering Data: CPU', 1, 0)
         try:
             cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
             app.update_page('#spec-cpu-model', 'html', cpu_model)
         except:
-            print('[System Specs] Failed to retrieve data: CPU Model')
+            dbg.stdout('Specs', 'Failed to gather data: CPU Model', 0, 1)
 
         try:
             try:
@@ -1556,7 +1667,7 @@ class SystemState(object):
 
             app.update_page('#spec-cpu-speed', 'html', str(cpu_speed) + ' MHz')
         except:
-            print('[System Specs] Failed to retrieve data: CPU Speed')
+            dbg.stdout('Specs', 'Failed to gather data: CPU Speed', 0, 1)
 
         try:
             if self.arch == 'i386':
@@ -1567,20 +1678,20 @@ class SystemState(object):
                 cpu_arch_used = self.arch
             app.update_page('#spec-arch-use', 'html', cpu_arch_used)
         except:
-            print('[System Specs] Failed to retrieve data: CPU Arch in Use')
+            dbg.stdout('Specs', 'Failed to gather data: CPU Architecture', 0, 1)
 
         try:
             cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
             app.update_page('#spec-arch-supported', 'html', cpu_arch_supported)
         except:
-            print('[System Specs] Failed to retrieve data: CPU Supported Arch')
+            dbg.stdout('Specs', 'Failed to gather data: CPU Supported Architectures', 0, 1)
 
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
             if self.session_type == 'live':
                 app.update_page('.spec-hide-live-session', 'hide')
             else:
-                arg.print_verbose('System Specs', 'Gathering data: Storage')
+                dbg.stdout('Specs', 'Gathering Data: Storage', 1, 0)
                 ## Gather entire disk data
                 root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
                 if root_partition[:-2] == "/dev/sd":            # /dev/sdXY
@@ -1592,7 +1703,7 @@ class SystemState(object):
                 else:
                     root_dev = root_partition[:-1]              # Generic
                 disk_dev_name = root_dev.split('/')[2]
-                arg.print_verbose('System Specs', 'Ubuntu MATE is installed on disk: ' + root_dev)
+                dbg.stdout('Specs', 'Ubuntu MATE is installed on disk: ' + root_dev, 1, 4)
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
@@ -1661,21 +1772,21 @@ class SystemState(object):
                 disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
                 disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
                 disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
-                arg.print_verbose('System Specs', ' --- Disk: ' + root_dev)
-                arg.print_verbose('System Specs', ' --- * OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)')
-                arg.print_verbose('System Specs', ' --- * OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)')
-                arg.print_verbose('System Specs', ' --- = Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)')
+                dbg.stdout('Specs', ' Disk: ' + root_dev, 1, 4)
+                dbg.stdout('Specs', '  -- OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)', 1, 4)
+                dbg.stdout('Specs', '  -- OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)', 1, 4)
+                dbg.stdout('Specs', '  -- Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)', 1, 4)
 
                 app.update_page('#disk-used', 'width', str(disk_percent_UM_used) + 'px')
                 app.update_page('#disk-free', 'width', str(disk_percent_UM_free) + 'px')
                 app.update_page('#disk-other', 'width', str(disk_percent_other) + 'px')
 
         except:
-            print('[System Specs] Failed to retrieve data: Storage')
+            dbg.stdout('Specs', 'Failed to gather data: Storage', 0, 1)
 
         ## RAM
         try:
-            arg.print_verbose('System Specs', 'Gathering Data: RAM')
+            dbg.stdout('Specs', 'Gathering Data: RAM (Memory)', 1, 0)
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
             if round(ram_bytes / 1024 / 1024) < 1024:
@@ -1687,7 +1798,7 @@ class SystemState(object):
             ram_string = ram_xb + ' <span class=\'secondary-value\'>(' + ram_xib + ')</span>'
             app.update_page('#spec-memory', 'html', ram_string)
         except:
-            print('[System Specs] Failed to retrieve data: RAM (Memory)')
+            dbg.stdout('Specs', 'Failed to gather data: RAM (Memory)', 0, 1)
 
         ## Graphics
         app.update_page('#spec-graphics', 'html', self.graphics_grep)
@@ -1696,50 +1807,38 @@ class SystemState(object):
         if systemstate.arch == 'powerpc':
             ## Motherboard & Revision
             try:
-                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Motherboard')
+                dbg.stdout('Specs', 'Gathering Data: PowerPC Motherboard', 1, 0)
                 mb_model = run_external_command(['grep','motherboard','/proc/cpuinfo']).split(': ')[1]
                 mb_rev = run_external_command(['grep','revision','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-motherboard', 'html', mb_model + ' ' + mb_rev)
             except:
-                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Motherboard')
+                dbg.stdout('Specs', 'Failed to gather data: PowerPC Motherboard', 0, 1)
 
             ## CPU and Clock Speed
             try:
-                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC CPU')
+                dbg.stdout('Specs', 'Gathering Data: PowerPC CPU', 1, 0)
                 cpu_model = run_external_command(['grep','cpu','/proc/cpuinfo']).split(': ')[1]
                 cpu_speed = run_external_command(['grep','clock','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-cpu-model', 'html', cpu_model)
                 app.update_page('#spec-cpu-speed', 'html', str(cpu_speed))
             except:
-                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC CPU')
+                dbg.stdout('Specs', 'Failed to gather data: PowerPC CPU', 0, 1)
 
             ## Device Name
             try:
-                arg.print_verbose('System Specs', 'Gathering alternate data: PowerPC Model Name')
+                dbg.stdout('Specs', 'Gathering Data: PowerPC Model Name', 1, 0)
                 mb_name = run_external_command(['grep','detected','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-motherboard', 'append', ' / ' + mb_name)
             except:
-                arg.print_verbose('System Specs', 'Failed to gather data: PowerPC Model Name')
+                dbg.stdout('Specs', 'Failed to gather data: PowerPC Model Name', 0, 1)
 
             ## Boot Mode / PowerMac Generation
             try:
-                arg.print_verbose('System Specs', 'Gathering alternate data: PowerMac Generation')
+                dbg.stdout('Specs', 'Gathering Data: PowerMac Generation', 1, 0)
                 mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-boot-mode', 'html', 'Yaboot (' + mac_generation + ')')
             except:
-                arg.print_verbose('System Specs', 'Failed to gather data: PowerMac Generation')
-
-        # Append advanced system information
-        try:
-            arg.print_verbose('System Specs', 'Waiting for inxi process to finish...')
-            inxi_output = str(inxi_raw.communicate()[0])
-            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
-            app.update_page('#specs-inxi', 'html', '')
-            for line in inxi_output.split('\n'):
-                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
-            print('[System Specs] Successfully appended advanced system information.')
-        except:
-            print('[System Specs] Failed to append advanced system information or communicate with "inxi" process.')
+                dbg.stdout('Specs', 'Failed to gather data: PowerMac Generation', 0, 1)
 
         # Check internet connectivity status.
         if self.is_online:
@@ -1777,7 +1876,32 @@ class SystemState(object):
         app.update_page('#specs-loading', 'fadeOut', 'fast')
         app.update_page('#specs-tabs', 'fadeIn', 'fast')
         app.update_page('#specs-basic', 'fadeIn', 'medium')
+        app.update_page('#specs-busy-basic', 'fadeOut', 'fast')
         webkit.run_javascript('setCursorNormal()')
+
+    def get_inxi_info(self):
+        dbg.stdout('Specs', 'Gathering advanced system information with "inxi"...', 1, 0)
+        try:
+            inxi_output = str(subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE).communicate()[0])
+        except:
+            dbg.stdout('Specs', 'Failed to execute collect advanced information. Is "inxi" no longer installed?', 0, 1)
+
+        # Append advanced system information
+        try:
+            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
+            self.inxi = inxi_output
+            app.update_page('#specs-inxi', 'html', '')
+            for line in inxi_output.split('\n'):
+                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
+            app.update_page('#specs-inxi-busy', 'slideUp')
+            app.update_page('#specs-inxi', 'slideDown')
+            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
+            app.update_page('#specs-inxi-copy', 'slideDown')
+            dbg.stdout('Specs', 'Successfully appended advanced system information.', 0, 2)
+        except:
+            dbg.stdout('Specs', 'Failed to append advanced system information or communicate with "inxi" process.', 0, 1)
+            app.update_page('#specs-inxi-busy', 'slideUp')
+            app.update_page('#specs-inxi-error', 'slideDown')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
@@ -1816,7 +1940,7 @@ class SystemState(object):
                 notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
             else:
                 notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
-                print('[Welcome] Unrecognised return code for Raspberry Pi resize: ' + str(status_code))
+                dbg.stdout('Welcome', 'Unrecognised return code for Raspberry Pi resize: ' + str(status_code), 0, 1)
 
             app.webkit._push_config()
 
@@ -1841,6 +1965,19 @@ class SystemState(object):
         elif action == 'reboot':
             subprocess.call(['mate-session-save','--shutdown-dialog'])
 
+    def copy_to_clipboard(self, var):
+        # Copies text to clipboard, passes 'var' containing what we'd like copying.
+        if var == 'inxi':
+            contents = self.inxi
+        else:
+            dbg.stdout('Clipboard', 'Unknown variable to copy: ' + var, 0, 1)
+            return
+
+        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        clipboard.set_text(contents, -1)
+        clipboard.store()
+        dbg.stdout('Clipboard', 'Copied contents of: ' + var, 1, 2)
+
 
 class DynamicApps(object):
     def __init__(self):
@@ -1859,22 +1996,21 @@ class DynamicApps(object):
             if 'ubuntu-mate-welcome' in pkgname:
                 systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
                 break
-        print('[Welcome] Version: ' + systemstate.welcome_version)
+        dbg.stdout('Welcome', 'Version: ' + systemstate.welcome_version, 0, 0)
 
     def reload_index(self):
         try:
-            print('[Apps] Reading index...')
+            dbg.stdout('Apps', 'Reading index...', 1, 3)
             json_path = os.path.abspath(os.path.join(data_path, 'js/applications.json'))
             with open(json_path) as data_file:
                 self.index = json.load(data_file)
-                print('[Apps] Successfully loaded index.')
+                dbg.stdout('Apps', 'Successfully loaded index.', 1, 2)
         except Exception as e:
             self.index = None
-            print("[Apps] ERROR: Software Index JSON is invalid or missing!")
-            print("------------------------------------------------------------")
-            print("Exception:")
-            print(str(e))
-            print("------------------------------------------------------------")
+            dbg.stdout('Apps', 'Software Index JSON is invalid or missing!', 0, 1)
+            dbg.stdout('Apps', '------------------------------------------------------------', 1, 1)
+            dbg.stdout('Apps', str(e), 1, 1)
+            dbg.stdout('Apps', '------------------------------------------------------------', 1, 1)
 
     def set_app_info(self, category, program_id):
         self.app_name = self.index[category][program_id]['name']
@@ -1906,32 +2042,9 @@ class DynamicApps(object):
         self.app_working = self.index[category][program_id]['working']
 
     def append_app_listing(self, category, program_id, target_element, track_subcategories=False):
-        # Boutique Strings
-        str_upgraded = _("This application is set to receive the latest updates.")
-        str_alternate_to = _('Alternative to:')
-        str_hide = _("Hide")
-        str_show = _("Show")
-        str_install = _("Install")
-        str_reinstall = _("Reinstall")
-        str_remove = _("Remove")
-        str_upgrade = _("Upgrade")
-        str_launch = _("Launch")
-        str_license = _("License")
-        str_platform = _("Platform")
-        str_category = _("Category")
-        str_website = _("Website")
-        str_screenshot = _("Screenshot")
-        str_source = _("Source")
-        str_source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
-        str_source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
-        str_source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Canonical Partner Repository')
-        str_source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + _('Ubuntu Repository')
-        str_unknown = _('Unknown')
-        str_undo = _("Undo Changes")
-
         # Only list the program if it's working.
         if not self.app_working:
-            arg.print_verbose('Apps', ' Unlisted: ' + self.app_name)
+            dbg.stdout('Apps', ' Skipping unlisted application: ' + self.app_name, 2, 4)
             return 2
 
         # Only list the program if it supports the current architecture in use.
@@ -1952,32 +2065,39 @@ class DynamicApps(object):
             supported = True
 
         if not supported:
-            arg.print_verbose('Apps', ' Unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ')' )
+            dbg.stdout('Apps', ' Skipping unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ')', 2, 4)
             return 1
 
         # If the app has made it this far, it can be added to the grid.
         # CSS breaks with dots (.), so any must become hyphens (-).
-        arg.print_verbose('Apps', ' Added: ' + self.app_name)
+        dbg.stdout('Apps', ' Added: ' + self.app_name, 2, 2)
         html_buffer = ''
         css_class = program_id.replace('.','-')
         css_subcategory = self.app_subcategory.replace(' ','-')
 
+        # Icons/text to show for source fields
+        source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
+        source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
+        source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_partner
+        source_multiverse = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_multiverse
+        source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_ubuntu
+
         # "Normal" packages that can be installed/removed by the user.
         if self.app_open_source:
-            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + '">'
+            html_buffer += '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + '">'
         else:
-            html_buffer = html_buffer + '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + ' proprietary">'
-        html_buffer = html_buffer + '<div class="row-fluid">'
-        html_buffer = html_buffer + '<div class="span2 center-inside">'
-        html_buffer = html_buffer + '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
-        html_buffer = html_buffer + '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
-        html_buffer = html_buffer + '</div><div class="span10">'
-        html_buffer = html_buffer + '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
+            html_buffer += '<div class="app-entry ' + css_class + ' filter-' + css_subcategory + ' proprietary">'
+        html_buffer += '<div class="row-fluid">'
+        html_buffer += '<div class="span2 center-inside">'
+        html_buffer += '<img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png">'
+        html_buffer += '<span class="fa fa-check-circle fa-2x installed-check ' + css_class + '-remove"></span>'
+        html_buffer += '</div><div class="span10">'
+        html_buffer += '<p><b class="' + css_class + '-text">' + self.app_name + '</b></p>'
 
         # When queue mode is enabled, show the "plan" text here.
-        html_buffer = html_buffer + '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
+        html_buffer += '<h5 class="queue-plan ' + css_class + '-plan" hidden></h5>'
 
-        html_buffer = html_buffer + '<p class="' + css_class + '-text">' + self.app_description + '</p>'
+        html_buffer += '<p class="' + css_class + '-text">' + self.app_description + '</p>'
 
         # Check any "Upgrade" packages if the PPA has already been added.
         upgraded = False
@@ -1987,38 +2107,38 @@ class DynamicApps(object):
                 listname = listname.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
                 if os.path.exists(os.path.join('/', 'etc', 'apt', 'sources.list.d', listname+'.list')):
                     upgraded = True
-                    html_buffer = html_buffer + '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + str_upgraded + '</h5>'
+                    html_buffer += '<h5 class="' + css_class + '-text"><span class="fa fa-check-circle"></span> ' + string.upgraded + '</h5>'
             except:
                 pass
 
         if not self.app_alternate_to == None:
-            html_buffer = html_buffer + '<ul><li class="' + css_class + '-text"><b>' + str_alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
-        html_buffer = html_buffer + '<p class="text-right">'
-        html_buffer = html_buffer + '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + str_show + '</a>&nbsp;'
-        html_buffer = html_buffer + '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + str_hide + '</a>&nbsp;'
+            html_buffer += '<ul><li class="' + css_class + '-text"><b>' + string.alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
+        html_buffer += '<p class="text-right">'
+        html_buffer += '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + string.show + '</a>&nbsp;'
+        html_buffer += '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + string.hide + '</a>&nbsp;'
 
         # "Regular" packages - can be installed or removed with one-click by the user.
         if not self.app_upgrade_only:
-            html_buffer = html_buffer + '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
-            html_buffer = html_buffer + '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + str_install + '</a>&nbsp;'
-            html_buffer = html_buffer + '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-            html_buffer = html_buffer + '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + str_remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
+            html_buffer += '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
+            html_buffer += '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + string.install + '</a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
 
         # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
         if self.app_upgrade_only:
-            arg.print_verbose('Apps', 'Upgrade: ' + self.app_name)
+            dbg.stdout('Apps', 'Upgrade: ' + self.app_name, 2, 4)
             if not upgraded:
-                html_buffer = html_buffer + '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + str_upgrade + '</a>&nbsp;'
+                html_buffer += '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + string.upgrade + '</a>&nbsp;'
 
         # Add a button to undo an action in the queue.
-        html_buffer = html_buffer + '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + str_undo + '</a>'
+        html_buffer += '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + string.undo + '</a>'
 
         # Add a button to launch, depending on the app:
         if not self.app_launch_command == None:
-            html_buffer = html_buffer + '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + str_launch + '</a>&nbsp;'
+            html_buffer += '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + string.launch + '</a>&nbsp;'
 
         # More details section.
-        html_buffer = html_buffer + '</p><div hidden class="details-' + css_class + '">'
+        html_buffer += '</p><div hidden class="details-' + css_class + '">'
 
         ## Determine string for license
         if self.app_open_source:
@@ -2030,20 +2150,20 @@ class DynamicApps(object):
         platform_string = ''
         for arch in self.app_arch.split(','):
             if arch == 'i386':
-                platform_string = platform_string + '<span class="i386"><span class="fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
+                platform_string += '<span class="i386"><span class="fa fa-laptop"></span> 32-bit</span> &nbsp;&nbsp;'
             elif arch =='amd64':
-                platform_string = platform_string + '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
+                platform_string += '<span class="amd64"><span class="fa fa-laptop"></span> 64-bit</span> &nbsp;&nbsp;'
             elif arch =='armhf':
-                platform_string = platform_string + '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
+                platform_string += '<span class="armhf"><span class="fa fa-tv"></span> aarch32 (ARMv7)</span> &nbsp;&nbsp;'
             elif arch =='powerpc':
-                platform_string = platform_string + '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
+                platform_string += '<span class="powerpc"><span class="fa fa-desktop"></span> PowerPC</span> &nbsp;&nbsp;'
 
         ## Add Android / iOS app links if necessary.
         if not self.app_url_android == None:
-            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+            platform_string += '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
 
         if not self.app_url_ios == None:
-            platform_string = platform_string + '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+            platform_string += '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
 
         ## Add details about the source of this file.
         try:
@@ -2066,48 +2186,51 @@ class DynamicApps(object):
 
             for method in methods:
                 if method == 'skip':
-                    self.source_info.insert(0, str_source_skip)
+                    self.source_info.insert(0, source_skip)
 
                 elif method == 'partner-repo':
-                    self.source_info.insert(0, str_source_partner)
+                    self.source_info.insert(0, source_partner)
+
+                elif method == 'multiverse-repo':
+                    self.source_info.insert(0, source_multiverse)
 
                 elif method == 'ppa':
                     ppa = preinstall[target]['enable-ppa']
                     ppa_author = ppa.split(':')[1].split('/')[0]
                     ppa_archive = ppa.split(':')[1].split('/')[1]
-                    self.source_info.insert(0, str_source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
+                    self.source_info.insert(0, source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
 
                 elif method == 'manual':
                     apt_source = ''.join(preinstall[target]['apt-sources'])
-                    manual_text = str_source_manual + ' ' + str_unknown
+                    manual_text = source_manual + ' ' + string.unknown
                     for substring in apt_source.split(' '):
                         if substring[:4] == 'http':
                             apt_source = substring.replace('OSVERSION',preinstallation.os_version).replace('CODENAME',preinstallation.codename)
-                            manual_text = str_source_manual + ' ' + apt_source
+                            manual_text = source_manual + ' ' + apt_source
                             break
                     self.source_info.insert(0, manual_text)
         except:
-            print('[Apps] WARNING: Error occurred while processing pre-configuration! Skipped Source: ' + program_id)
-            self.source_info = [str_unknown]
+            dbg.stdout('Apps', 'Failed to process pre-configuration for: ' + program_id, 0, 1)
+            self.source_info = [string.unknown]
 
         ## Write contents of the table.
-        html_buffer = html_buffer + '<table class="more-details table table-striped">'
-        html_buffer = html_buffer + '<tr><th>' + str_license + '</th><td>' + license_string + '</td></tr>'
-        html_buffer = html_buffer + '<tr><th>' + str_platform + '</th><td>' + platform_string + '</td></tr>'
-        html_buffer = html_buffer + '<tr><th>' + str_category + '</th><td>' + self.app_subcategory + '</td></tr>'
+        html_buffer += '<table class="more-details table table-striped">'
+        html_buffer += '<tr><th>' + string.license + '</th><td>' + license_string + '</td></tr>'
+        html_buffer += '<tr><th>' + string.platform + '</th><td>' + platform_string + '</td></tr>'
+        html_buffer += '<tr><th>' + string.category + '</th><td>' + self.app_subcategory + '</td></tr>'
 
         ## Add a website URL if there is one.
         if self.app_url_info:
-            html_buffer = html_buffer + '<tr><th>' + str_website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
+            html_buffer += '<tr><th>' + string.website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
 
         ## Add the source for this application.
         if multiple_sources:
-            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td><ul>'
+            html_buffer += '<tr><th>' + string.source + '</th><td><ul>'
             for item in self.source_info:
-                html_buffer = html_buffer + '<li>' + item + '</li>'
-            html_buffer = html_buffer + '</td></tr></ul>'
+                html_buffer += '<li>' + item + '</li>'
+            html_buffer += '</td></tr></ul>'
         else:
-            html_buffer = html_buffer + '<tr><th>' + str_source + '</th><td>' + self.source_info[0] + '</td></tr>'
+            html_buffer += '<tr><th>' + string.source + '</th><td>' + self.source_info[0] + '</td></tr>'
 
         ## Add a screenshot if there is any.
         ## Images should be labelled the same as 'img' and increment starting at 1.
@@ -2124,12 +2247,12 @@ class DynamicApps(object):
                 screenshots_end = True
 
         if not screenshots == 1:
-            html_buffer = html_buffer + '<tr><th>' + str_screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
+            html_buffer += '<tr><th>' + string.screenshot + '</th><td>' + screenshot_buffer + '</td></tr>'
 
-        html_buffer = html_buffer + '</table>'
+        html_buffer += '</table>'
 
         # End the div's for this application.
-        html_buffer = html_buffer + '</div><br><hr class="soften"></div></div></div>'
+        html_buffer += '</div><br><hr class="soften"></div></div></div>'
 
         # Append buffer to page
         app.update_page(target_element, 'append', html_buffer)
@@ -2144,12 +2267,12 @@ class DynamicApps(object):
 
         # Don't attempt to continue if the index is missing/incorrectly parsed.
         if not self.index:
-            print('[Apps] ERROR: Application index not loaded. Cannot populate categories.')
+            dbg.stdout('Apps', 'Application index not loaded. Cannot populate categories.', 0, 1)
             return
 
         # Get the app data from each category and list them.
         for category in self.all_categories:
-            arg.print_verbose('Apps', ' ------ Processing: ' + category + ' ------')
+            dbg.stdout('Apps', ' ------ Processing: ' + category + ' ------', 2, 0)
 
             # Convert to a list to work with. Sort alphabetically.
             category_items = list(self.index[category].keys())
@@ -2195,15 +2318,15 @@ class DynamicApps(object):
 
         # "Stats for nerds"
         total_apps = total_added + total_skipped + total_unsupported
-        arg.print_verbose('Apps','------------------')
-        arg.print_verbose('Apps','Applications added: ' + str(total_added))
-        arg.print_verbose('Apps','Applications unsupported on this architecture: ' + str(total_unsupported))
-        arg.print_verbose('Apps','Applications that are broken or not suitable for inclusion: ' + str(total_skipped))
-        arg.print_verbose('Apps','Total number of applications: ' + str(total_apps))
-        arg.print_verbose('Apps','------------------')
+        dbg.stdout('Apps', '----------------------------------------', 1, 4)
+        dbg.stdout('Apps', 'Applications added: ' + str(total_added), 1, 4)
+        dbg.stdout('Apps', 'Applications unsupported on this architecture: ' + str(total_unsupported), 1, 4)
+        dbg.stdout('Apps', 'Applications that are broken or not suitable for inclusion: ' + str(total_skipped), 1, 4)
+        dbg.stdout('Apps', 'Total number of applications: ' + str(total_apps), 1, 4)
+        dbg.stdout('Apps', '----------------------------------------', 1, 4)
 
     def populate_featured_apps(self, webkit):
-        arg.print_verbose('Apps', '---- Populating Featured Apps Grid ----')
+        dbg.stdout('Apps', '---- Populating Featured Apps Grid ----', 2, 0)
         # Randomly generate a list of apps to feature if supported on this architecture.
         possible_apps = []
         for category in self.all_categories:
@@ -2215,17 +2338,17 @@ class DynamicApps(object):
         random.shuffle(possible_apps)
         for no in range(1,18):
             random_img = possible_apps[no]
-            arg.print_verbose('Apps', str(no) + '. ' + random_img)
+            dbg.stdout('Apps', str(no) + '. ' + random_img, 2, 4)
             app.update_page('#featured-grid', 'append', '<img src="' + trans.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
         webkit.run_javascript("initGrid();")
-        arg.print_verbose('Apps','------------------')
+        dbg.stdout('Apps', '------------------', 2, 4)
 
     def modify_app(self, webkit, action, program_id):
         ''' Installs, removes or upgrades an application. '''
         # Either:
-        #   -   Queue the application for install/remove later.
+        #   -   Queue the application for install/remove later. Only in Boutique.
         #   -   Perform a one click operation.
-        if queue.is_enabled():
+        if queue.is_enabled() and app.current_page == 'software.html':
             queue.add_item(program_id, action)
 
         else:
@@ -2239,23 +2362,18 @@ class DynamicApps(object):
             app.update_page('.'+css_class+'-upgrade', 'hide')
             app.update_page('.'+css_class+'-text', 'css', 'color', '#000')
 
-            # Text to display when applying changes.
-            install_text = _("Installing...")
-            remove_text = _("Removing...")
-            upgrade_text = _("Upgrading...")
-
             # Asynchronous apt process - perform any pre-installations.
             if action == 'install':
-                app.update_page('.'+css_class+'-applying-status', 'html', install_text)
+                app.update_page('.'+css_class+'-applying-status', 'html', string.install_text)
                 preinstallation.process_packages(program_id, 'install')
             elif action == 'remove':
-                app.update_page('.'+css_class+'-applying-status', 'html', remove_text)
+                app.update_page('.'+css_class+'-applying-status', 'html', string.remove_text)
                 preinstallation.process_packages(program_id, 'remove')
             elif action == 'upgrade':
-                app.update_page('.'+css_class+'-applying-status', 'html', upgrade_text)
+                app.update_page('.'+css_class+'-applying-status', 'html', string.upgrade_text)
                 preinstallation.process_packages(program_id, 'upgrade')
             else:
-                print('[Apps] An unknown action was requested.')
+                dbg.stdout('Apps', 'An unknown action was requested.', 0, 1)
 
             # Refresh the page to reflect changes (if any).
             systemstate.apt_cache.close()
@@ -2266,13 +2384,13 @@ class DynamicApps(object):
         main_package = self.get_attribute_for_app(program_id, 'main-package')
         try:
             if systemstate.apt_cache[main_package].is_installed:
-                arg.print_verbose('Apt', 'Package "' + main_package + '" is present.')
+                dbg.stdout('Apt', 'Package "' + main_package + '" is present.', 1, 4)
                 return True
             else:
-                arg.print_verbose('Apt', 'Package "' + main_package + '" is not installed.')
+                dbg.stdout('Apt', 'Package "' + main_package + '" is not installed.', 1, 4)
                 return False
         except:
-            arg.print_verbose('Apt', 'Package "' + main_package + '" not available. Considered not installed.')
+            dbg.stdout('Apt', 'Package "' + main_package + '" not available. Considered not installed.', 1, 4)
             return False
 
     def update_app_status(self, webkit, program_id):
@@ -2280,7 +2398,7 @@ class DynamicApps(object):
 
         # Don't attempt to continue if the index is missing/incorrectly parsed.
         if not self.index:
-            print('[Apps] ERROR: Application index not loaded. Cannot update application status.')
+            dbg.stdout('Apps', 'Application index not loaded. Cannot update application status.', 0, 1)
             return
 
         # Check whether the application is installed or not.
@@ -2315,11 +2433,11 @@ class DynamicApps(object):
 
         # Don't attempt to continue if the index is missing/incorrectly parsed.
         if not self.index:
-            print('[Apps] ERROR: Application index not loaded. Cannot update page.')
+            dbg.stdout('Apps', 'Application index not loaded. Cannot update page.', 0, 1)
             return
 
         # Enumerate each program and check each one from the index.
-        arg.print_verbose('Apps', '---- Checking cache for installed applications ----')
+        dbg.stdout('Apps', '---- Checking cache for installed applications ----', 2, 0)
         for category in self.all_categories:
             category_items = list(self.index[category].keys())
             for program_id in category_items:
@@ -2329,8 +2447,7 @@ class DynamicApps(object):
                     self.update_app_status(webkit, program_id)
                 else:
                     continue
-
-        arg.print_verbose('Apps', '----------------------------------------')
+        dbg.stdout('Apps', '----------------------------------------', 2, 0)
 
     def get_attribute_for_app(self, requested_id, attribute):
         ''' Retrieves a specific attribute from a listed application,
@@ -2348,12 +2465,12 @@ class DynamicApps(object):
         ''' Launch an application directly from Welcome '''
         program_name = self.get_attribute_for_app(appid, 'name')
         program_command = self.get_attribute_for_app(appid, 'launch-command')
-        print('[Apps] Launched "' + program_name + '" (Command: "' + program_command + '").')
+        dbg.stdout('Apps', 'Launching "' + program_name + '... " (Command: "' + program_command + '").', 0, 3)
         try:
             subprocess.Popen(program_command.split(' '))
         except:
-            print('[Apps] Failed to launch command: ' + program_command)
-            title = _("Software Boutique")
+            dbg.stdout('Apps', 'Failed to execute: ' + program_command, 0, 1)
+            title = string.boutique
             ok_label = _("OK")
             text_error = _("An error occurred while launching PROGRAM_NAME. Please consider re-installing the application.").replace('PROGRAM_NAME', program_name) + \
                             '\n\n' + _("Command:") + ' "' + program_command + '"'
@@ -2390,14 +2507,14 @@ class DynamicApps(object):
             self.toggle_non_free()
 
         if filter_value == 'none':
-            arg.print_verbose('Apps','Filter reset.')
+            dbg.stdout('Apps', 'Filter reset.', 1, 4)
             app.update_page('.app-entry', 'show')
             if self.hide_non_free:
-                arg.print_verbose('Apps','Hiding all proprietary software.')
+                dbg.stdout('Apps', 'Hiding all proprietary software.', 1, 4)
                 app.update_page('.proprietary', 'hide')
             return
         else:
-            arg.print_verbose('Apps','Applying filter: ' + filter_value)
+            dbg.stdout('Apps', 'Applying filter: ' + filter_value, 1, 4)
             app.update_page('.app-entry', 'hide')
 
             for category in self.all_categories:
@@ -2420,17 +2537,17 @@ class DynamicApps(object):
 
     def populate_news(self, webkit):
         try:
-            arg.print_verbose('Apps','Reading News...')
+            dbg.stdout('Apps', 'Reading News...', 1, 3)
             json_path = os.path.abspath(os.path.join(data_path, 'js/news.json'))
             with open(json_path) as data_file:
                 self.news = json.load(data_file)
         except Exception as e:
             self.news = None
-            print("[Apps] ERROR: News JSON is invalid or missing!")
-            print("------------------------------------------------------------")
-            print("Exception:")
-            print(str(e))
-            print("------------------------------------------------------------")
+            dbg.stdout('Apps', ' News JSON is invalid or missing!', 0, 1)
+            dbg.stdout('Apps', "------------------------------------------------------------", 2, 1)
+            dbg.stdout('Apps', "Exception:", 2, 1)
+            dbg.stdout('Apps', str(e), 2, 1)
+            dbg.stdout('Apps', "------------------------------------------------------------", 2, 1)
             return
 
         # These functions are used later
@@ -2463,30 +2580,30 @@ class DynamicApps(object):
         # Raw categories → Human translatable categories
         def get_category_string(category):
             if category == "Accessories":
-                return _("Accessories")
+                return string.accessories
             elif category == "Education":
-                return _("Education")
+                return string.education
             elif category == "Games":
-                return _("Games")
+                return string.games
             elif category == "Graphics":
-                return _("Graphics")
+                return string.graphics
             elif category == "Internet":
-                return _("Internet")
+                return string.internet
             elif category == "Office":
-                return _("Office")
+                return string.office
             elif category == "Programming":
-                return _("Programming")
+                return string.programming
             elif category == "Media":
-                return _("Sound & Video")
+                return string.media
             elif category == "SysTools":
-                return _("System Tools")
+                return string.systools
             elif category == "UnivAccess":
-                return _("Universal Access")
+                return string.univaccess
             elif category == "Servers":
-                return _("Server One-Click Installation")
+                return string.servers
             else:
                 # Includes "Unlisted"
-                return "Miscellaneous"
+                return string.misc
 
         # Begin generating the HTML to append.
         news_buffer = '<hr class="soften">'
@@ -2499,7 +2616,7 @@ class DynamicApps(object):
             try:
                 list_add = self.news[version]['add']
                 list_add.sort()
-                news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + _("Added") + '</h5>'
+                news_buffer = news_buffer + '<h5 id="news-add" class="news-list-version"><span class="fa fa-star"></span> ' + string.added + '</h5>'
                 news_buffer = news_buffer + '<div class="news-list-items"><ul>'
                 for item_id in list_add:
                     # Extract it's attributes.
@@ -2510,7 +2627,8 @@ class DynamicApps(object):
                         item_category = get_category_string(item_category_raw)
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
                     except Exception as e:
-                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                        dbg.stdout('Apps', 'Failed to process news item: ' + item_id, 0, 1)
+                        dbg.stdout('Apps', 'Exception: ' + str(e), 2, 1)
                 news_buffer = news_buffer + '</ul></div>'
             except:
                 pass
@@ -2519,7 +2637,7 @@ class DynamicApps(object):
             try:
                 list_fix = list(self.news[version]['fix'].keys())
                 list_fix.sort()
-                news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + _("Fixed") + '</h5>'
+                news_buffer = news_buffer + '<h5 id="news-fix" class="news-list-version"><span class="fa fa-wrench"></span> ' + string.fixed + '</h5>'
                 news_buffer = news_buffer + '<div class="news-list-items"><ul>'
                 for item_id in list_fix:
                     try:
@@ -2528,7 +2646,8 @@ class DynamicApps(object):
                         item_reason = get_reason_string(self.news[version]['fix'][item_id])
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
-                        print('[Apps] Exception processing news: ' + item_id + ' (' + str(e) + ')')
+                        dbg.stdout('Apps', 'Failed to process news item: ' + item_id, 0, 1)
+                        dbg.stdout('Apps', 'Exception: ' + str(e), 2, 1)
                 news_buffer = news_buffer + '</ul></div>'
             except:
                 pass
@@ -2537,7 +2656,7 @@ class DynamicApps(object):
             try:
                 list_del = list(self.news[version]['del'].keys())
                 list_del.sort()
-                news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + _("Removed") + '</h5>'
+                news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + string.removed + '</h5>'
                 news_buffer = news_buffer + '<div class="news-list-items"><ul>'
                 for item_name in list_del:
                     try:
@@ -2545,13 +2664,14 @@ class DynamicApps(object):
                         item_reason = get_reason_string(self.news[version]['del'][item_name])
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
-                        print('[Apps] Exception processing news: ' + item_name + ' (' + str(e) + ')')
+                        dbg.stdout('Apps', 'Failed to process news item: ' + item_name, 0, 1)
+                        dbg.stdout('Apps', 'Exception: ' + str(e), 2, 1)
                 news_buffer = news_buffer + '</ul></div>'
             except:
                 pass
             news_buffer = news_buffer + '</div><hr class="soften">'
         app.update_page('#News-Content', 'html', news_buffer)
-        arg.print_verbose('Apps','Successfully loaded news.')
+        dbg.stdout('Apps', 'Successfully loaded news.', 1, 2)
 
     def perform_search(self, webkit, terms):
         app.update_page('#search-empty', 'hide')
@@ -2559,18 +2679,18 @@ class DynamicApps(object):
         # Do not allow blank searches.
         if terms == '':
             app.update_page('#search-results', 'fadeIn')
-            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter a keyword to begin.") + '</h5></div>')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + string.search_begin + '</h5></div>')
             return
 
         # Do not search if less than 3 characters
         if len(terms) < 3:
             app.update_page('#search-results', 'fadeIn')
-            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + _("Please enter at least 3 characters.") + '</h5></div>')
+            app.update_page('#search-results', 'html', '<div class="alert alert-danger"><h5>' + string.search_short + '</h5></div>')
             return
 
         # Start Searching!
-        arg.print_verbose('Search', 'Searching for: ' + terms)
-        app.update_page('#navigation-sub-title', 'html', _("Search") + ': ' + terms)
+        dbg.stdout('Apps', 'Searching for: ' + terms, 1, 4)
+        app.update_page('#navigation-sub-title', 'html', string.search + ': ' + terms)
         terms.lower()
         app.update_page('#search-results', 'hide')
         app.update_page('#search-results', 'html', ' ')
@@ -2628,7 +2748,7 @@ class DynamicApps(object):
 
             # If non-free filtering is enabled, inform of how many apps were hidden.
             if self.hide_non_free and hidden_results > 0:
-                app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _(" proprietary applications are hidden.") + '</a>')
+                app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</a>')
 
 
 class ChangesQueue(object):
@@ -2646,7 +2766,7 @@ class ChangesQueue(object):
                                  '<span class="title">PROGRAM_NAME</span>' + \
                                  '<div class="status">' + \
                                      '<span class="status-PROGRAM_ID"> DEFAULT_TEXT </span> ' + \
-                                     '<a class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + _("Cancel") + '"><span class="fa fa-times fa-2x"></span></a>' + \
+                                     '<a class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + string.cancel + '"><span class="fa fa-times fa-2x"></span></a>' + \
                                  '</div>' + \
                              '</div>'
 
@@ -2667,22 +2787,22 @@ class ChangesQueue(object):
         if queue == 'install':
             self.install_queue.append(program_id)
             self.ui_add_card(program_id, 'install')
-            plan_html = '<span class="fa fa-download"></span> ' + _("Queued for installation.")
+            plan_html = '<span class="fa fa-download"></span> ' + string.queue_install
             plan_css = 'install'
             app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-add')
 
         elif queue == 'remove':
             self.remove_queue.append(program_id)
             self.ui_add_card(program_id, 'remove')
-            plan_html = '<span class="fa fa-trash"></span> ' +_("Queued for removal.")
+            plan_html = '<span class="fa fa-trash"></span> ' + string.queue_remove
             plan_css = 'remove'
             app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-remove')
 
         else:
-            print('[Queue] Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.')
+            dbg.stdout('Queue', 'Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.', 0, 1)
             return
 
-        arg.print_verbose('Queue', 'Added "' + program_id + '" to "' + queue + '" queue.')
+        dbg.stdout('Queue', 'Added "' + program_id + '" to "' + queue + '" queue.', 1, 3)
 
         # Update UI in application listings.
         css_class = program_id.replace('.','-')
@@ -2704,13 +2824,13 @@ class ChangesQueue(object):
         # User no longer wants changes to this program.
         try:
             self.install_queue.remove(program_id)
-            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from install queue.')
+            dbg.stdout('Queue', 'Dropped "' + program_id + '" from install queue.', 1, 3)
         except:
             pass
 
         try:
             self.remove_queue.remove(program_id)
-            arg.print_verbose('Queue', 'Dropped "' + program_id + '" from remove queue.')
+            dbg.stdout('Queue', 'Dropped "' + program_id + '" from remove queue.', 1, 3)
         except:
             pass
 
@@ -2723,7 +2843,7 @@ class ChangesQueue(object):
             app.update_page('#queue-options','slideUp')
 
     def clear(self):
-        arg.print_verbose('Queue', 'Clearing queue...')
+        dbg.stdout('Queue', 'Clearing queue...', 1, 3)
         while len(self.install_queue) > 0:
             program_id = self.install_queue[0]
             self.drop_item(program_id)
@@ -2734,7 +2854,7 @@ class ChangesQueue(object):
 
         self.install_queue = []
         self.remove_queue = []
-        arg.print_verbose('Queue', 'Queue cleared.')
+        dbg.stdout('Queue', 'Queue cleared.', 1, 2)
 
         # Reset UI elements
         app.update_page('#queue-btn-apply', 'show')
@@ -2751,7 +2871,7 @@ class ChangesQueue(object):
         # "Hello, would you like a bag?"
         #
         # Priority:     Remove first -->  Install
-        arg.print_verbose('Queue', 'Applying changes...')
+        dbg.stdout('Queue', 'Applying changes...', 0, 3)
 
         # Lock/Update UI
         app.update_page('#navigation-right', 'addClass', 'disabled')
@@ -2773,16 +2893,16 @@ class ChangesQueue(object):
         if len(self.remove_queue) > 0:
             # Preconfiguration - delete sources/ppa if applicable
             for program_id in self.remove_queue:
-                self.ui_update_progress(1, _("Preparing to remove:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                self.ui_update_progress(1, string.queue_prepare_remove + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
                 preinstallation.process_packages(program_id, 'remove', True)
 
             # Compile package lists
-            self.ui_update_progress(2, _("Listing packages...") )
+            self.ui_update_progress(2, string.queue_listing)
             packages = get_packages(self.remove_queue, 'remove-packages')
-            arg.print_verbose('Apps', 'Packages for bulk removal: ' + str(packages))
+            dbg.stdout('Queue', 'Packages for bulk removal: ' + str(packages), 1, 4)
 
             # Bulk remove packages
-            self.ui_update_progress(3, _("Removing software...") )
+            self.ui_update_progress(3, string.queue_removing)
             transaction = SimpleApt(packages, 'remove')
             transaction.remove_packages()
 
@@ -2790,45 +2910,45 @@ class ChangesQueue(object):
         if len(self.install_queue) > 0:
             # Pre-configuration - add sources/ppa if applicable
             for program_id in self.install_queue:
-                self.ui_update_progress(4, _("Preparing to install:") + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                self.ui_update_progress(4, string.queue_prepare_install + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
                 preinstallation.process_packages(program_id, 'install', True)
 
             # Compile package lists
-            self.ui_update_progress(5, _("Listing packages...") )
+            self.ui_update_progress(5, string.queue_listing)
             packages = get_packages(self.install_queue, 'install-packages')
-            arg.print_verbose('Apps', 'Packages for bulk install: ' + str(packages))
+            dbg.stdout('Queue', 'Packages for bulk install: ' + str(packages), 1, 4)
 
             # Update the cache (in case of repository changes)
             if self.must_update_cache:
-                self.ui_update_progress(6, _("Updating cache...") )
+                self.ui_update_progress(6, string.updating_cache)
                 update_repos()
                 systemstate.reload_cache()
 
             # Bulk remove packages
-            self.ui_update_progress(7, _("Installing software...") )
+            self.ui_update_progress(7, string.queue_installing)
             transaction = SimpleApt(packages, 'install')
             transaction.install_packages()
 
         # Check that all the software was installed successfully.
-        self.ui_update_progress(8, _("Verifying software changes...") )
+        self.ui_update_progress(8, string.queue_verifying_changes)
         systemstate.reload_cache()
         all_good = True
 
         for program_id in self.install_queue:
             installed = dynamicapps.is_app_installed(program_id)
             if installed:
-                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Installed"), 'success')
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.install_success, 'success')
             else:
-                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Install"), 'error')
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.install_fail, 'error')
                 all_good = False
             dynamicapps.update_app_status(app.webkit, program_id)
 
         for program_id in self.remove_queue:
             installed = dynamicapps.is_app_installed(program_id)
             if not installed:
-                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + _("Successfully Removed"), 'success')
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.remove_success, 'success')
             else:
-                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + _("Failed to Remove"), 'error')
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.remove_fail, 'error')
                 all_good = False
             dynamicapps.update_app_status(app.webkit, program_id)
 
@@ -2847,7 +2967,7 @@ class ChangesQueue(object):
         percent = str(int((current_stage / total_stages)*100)) + '%'
         app.update_page('#queue-bar', 'width', percent)
         app.update_page('#queue-status', 'html', string)
-        arg.print_verbose('Queue', 'Progress updated: "' + string + '" (' + percent + ')')
+        dbg.stdout('Queue', 'Progress updated: "' + string + '" (' + percent + ')', 1, 4)
 
     def ui_add_card(self, program_id, status):
         # Get details for this card
@@ -2859,13 +2979,13 @@ class ChangesQueue(object):
 
         # What is the status on this card?
         if status == 'install':
-            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-download"></span> ' + _("To be installed") )
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-download"></span> ' + string.status_install )
         elif status == 'remove':
-            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-trash"></span> ' +_("To be removed") )
+            buffer = buffer.replace('DEFAULT_TEXT', '<span class="fa fa-trash"></span> ' + string.status_remove )
 
         # Add to page
         app.update_page('#queue-cards', 'append', buffer)
-        arg.print_verbose('Queue', 'Add new card for "' + program_id + '" with status "' + status + '".')
+        dbg.stdout('Queue', 'Add new card for "' + program_id + '" with status "' + status + '".', 2, 4)
 
     def ui_update_card(self, program_id, string, colour=None):
         # Update the status label of a card.
@@ -2880,7 +3000,7 @@ class ChangesQueue(object):
             elif colour == 'success':
                 app.update_page(card_id, 'addClass', 'success')
                 app.update_page(status_id, 'addClass', 'success')
-        arg.print_verbose('Queue', 'Card updated for "' + program_id + '"')
+        dbg.stdout('Queue', 'Card updated for "' + program_id + '"', 2, 4)
 
     def ui_remove_card(self, program_id):
         app.update_page('.card-' + program_id, 'slideUp')
@@ -2949,16 +3069,16 @@ class Preferences(object):
         stream = open(self.config, "w")
         stream.write(json.dumps({}))
         stream.close()
-        arg.print_verbose('Config', 'Preferences reset.')
+        dbg.stdout('Config', 'Preferences reset.', 1, 2)
 
     def load_prefs(self):
         # Create configuration data if non-existent.
         if not os.path.exists(self.folder):
-            arg.print_verbose('Config', 'Config folder non-existent. Creating...')
+            dbg.stdout('Config', 'Config folder non-existent. Creating...', 1, 3)
             os.makedirs(self.folder)
 
         if not os.path.exists(self.config) or os.path.getsize(self.config) < 2:
-            arg.print_verbose('Config', 'Preferences non-existent. Creating...')
+            dbg.stdout('Config', 'Preferences non-existent. Creating...', 1, 3)
             self.reset_prefs()
 
         load_error = False
@@ -2967,35 +3087,35 @@ class Preferences(object):
                 self.data = json.load(stream)
             except Exception as e:
                 load_error = True
-                arg.print_verbose('Config', 'Failed to load preferences. Reason: ' + str(e))
+                dbg.stdout('Config', 'Failed to load preferences. Reason: ' + str(e), 0, 1)
 
         if load_error:
-            print('[Config]', 'Errors occurred while loading.')
+            dbg.stdout('Config', 'Errors occurred while loading.', 0, 1)
             self.reset_prefs()
         else:
-            arg.print_verbose('Config', 'Preferences loaded from file.')
+            dbg.stdout('Queue', 'Preferences loaded from file.', 1, 2)
 
     def write_prefs(self):
         stream = open(self.config, "w+")
         stream.write(json.dumps(self.data))
         stream.close()
-        arg.print_verbose('Config', 'Preferences written to file.')
+        dbg.stdout('Queue', 'Preferences written to file.', 1, 2)
 
     def set(self, key, data):
         try:
-            arg.print_verbose('Config', 'Write "' + key + '" => "' + str(data) + '"')
+            dbg.stdout('Config', 'Write "' + key + '" => "' + str(data) + '"', 2, 4)
             self.data[key] = data
         except:
-            print('[Config] Failed to write data! "' + key + '" => "' + str(data) + '"')
+            dbg.stdout('Config', 'Failed to write data! "' + key + '" => "' + str(data) + '"', 0, 1)
         self.write_prefs()
 
     def get(self, key, default):
         try:
             value = self.data[key]
-            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(value) + '"')
+            dbg.stdout('Config', ' Read "' + key + '" => "' + str(value) + '"', 2, 4)
             return value
         except:
-            arg.print_verbose('Config', ' Read "' + key + '" => "' + str(default) + '" (default)')
+            dbg.stdout('Config', ' Read "' + key + '" => "' + str(default) + '" (default)', 2, 4)
             self.set(key, default)
             return default
 
@@ -3013,9 +3133,9 @@ class Preferences(object):
         # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd('toggle-pref?xxx')"
         try:
             value = self.data[key]
-            arg.print_verbose('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')')
+            dbg.stdout('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')', 2, 4)
         except:
-            print('[Config] No data for "' + key + '"!')
+            dbg.stdout('Config', 'No data exists for "' + key + '"!', 1, 1)
             return
 
         # For boolean data, set check boxes
@@ -3049,7 +3169,8 @@ class Arguments(object):
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               #     | Command                      | Help Text                                     |
-              print('  -d, --dev, --debug           Alias for --verbose and no locale.')
+              print('  -d, --dev, --debug           Disables locales and is very verbose')
+              print('                               intended for development purposes.')
               print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
               print('  -h, --help                   Show this help text.')
               print('  --force-arch=ARCH            Simulate a specific architecture.')
@@ -3066,82 +3187,78 @@ class Arguments(object):
               print('                               modifying the system.')
               print('  -b, -boutique,               Open Welcome only for the software selections.')
               print('  --software-only              ')
-              print('  -v, --verbose                Show more details to stdout (for debugging).')
+              print('  -v, --verbose                Show more details to stdout (for diagnosis).')
               print('')
               exit()
 
           if arg == '--verbose' or arg == '-v':
-              print('[Debug] Verbose mode enabled.')
-              self.verbose_enabled = True
+              dbg.stdout('Debug', 'Verbose mode enabled.', 0, 0)
+              dbg.verbose_level = 1
 
           if arg.startswith('--force-arch'):
               try:
                   self.simulate_arch = arg.split('--force-arch=')[1]
                   if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf' and not self.simulate_arch == 'powerpc':
-                      print('[Debug] Unrecognised architecture: ' + self.simulate_arch)
+                      dbg.stdout('Debug', 'Unrecognised architecture: ' + self.simulate_arch, 0, 1)
                       exit()
                   else:
-                      print('[Debug] Simulating architecture: ' + self.simulate_arch)
+                      dbg.stdout('Debug', 'Simulating architecture: ' + self.simulate_arch, 0, 0)
               except:
-                  print('[Debug] Invalid arguments for "--force-arch"')
+                  dbg.stdout('Debug', 'Invalid arguments for "--force-arch"', 0, 1)
                   exit()
 
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
                   if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi' and not self.simulate_session == 'vbox':
-                      print('[Debug] Unrecognised session type: ' + self.simulate_session)
+                      dbg.stdout('Debug', 'Unrecognised session type: ' + self.simulate_session, 0, 1)
                       exit()
                   else:
-                      print('[Debug] Simulating session: ' + self.simulate_session)
+                      dbg.stdout('Debug', 'Simulating session: ' + self.simulate_session, 0, 0)
               except:
-                  print('[Debug] Invalid arguments for "--force-session"')
+                  dbg.stdout('Debug', 'Invalid arguments for "--force-session"', 0, 1)
                   exit()
 
           if arg.startswith('--force-codename'):
               self.simulate_codename = arg.split('--force-codename=')[1]
-              print('[Debug] Simulating Ubuntu MATE release: ' + self.simulate_codename)
+              dbg.stdout('Debug', 'Simulating Ubuntu release: ' + self.simulate_codename, 0, 0)
 
           if arg == '--force-no-net':
-              print('[Debug] Simulating the application without an internet connection.')
+              dbg.stdout('Debug', 'Simulating the application without an internet connection.', 0, 0)
               self.simulate_no_connection = True
 
           if arg == '--force-net':
-              print('[Debug] Forcing the application to think we\'re connected with an internet connection.')
+              dbg.stdout('Debug', 'Forcing the application to think we\'re connected with an internet connection.', 0, 0)
               self.simulate_force_connection = True
 
           if arg == '--software-only' or arg == '--boutique' or arg == '-b':
-              print('[Welcome] Starting in Software Boutique mode.')
+              dbg.stdout('Welcome', 'Starting in Software Boutique mode.', 0, 0)
               self.jump_software_page = True
 
           if arg == '--simulate-changes':
-              print('[Debug] Any changes to software will be simulated without modifying the actual system.')
+              dbg.stdout('Debug', 'Any changes to software will be simulated without modifying the actual system.', 0, 0)
               self.simulate_software_changes = True
 
           if arg == '--dev' or arg == '--debug' or arg == '-d':
-              print('[Debug] Running in debugging mode.')
-              self.verbose_enabled = True
+              dbg.stdout('Debug', 'Running in debugging mode.', 0, 0)
+              dbg.verbose_level = 2
               self.locale = 'null'
 
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
-              print('[Debug] Setting locale to: ' + self.locale)
+              dbg.stdout('Debug', 'Setting locale to: ' + self.locale, 0, 0)
 
           if arg.startswith('--jump-to='):
               self.jump_to = arg.split('--jump-to=')[1]
-              print('[Debug] Opening page: ' + self.jump_to + '.html')
+              dbg.stdout('Debug', 'Opening page: ' + self.jump_to + '.html', 0, 0)
 
           if arg.startswith('--font-dpi='):
               try:
                   self.font_dpi_override = int(arg.split('--font-dpi=')[1])
               except:
-                  print('[Debug] Invalid Override Font DPI specified. Ignoring.')
+                  dbg.stdout('Debug', 'Invalid Override Font DPI specified. Ignoring.', 0, 1)
                   return
-              print('[Debug] Overriding font DPI to ' + str(self.font_dpi_override) + '.')
-
-    def print_verbose(self, feature, text):
-        if self.verbose_enabled:
-            print('[' + feature + '] ' + text)
+              dbg.stdout('Debug', 'Overriding font DPI to ' + str(self.font_dpi_override) + '.', 0, 0)
 
     def override_arch(self):
         if not self.simulate_arch == None:
@@ -3160,15 +3277,24 @@ class Arguments(object):
             systemstate.codename = self.simulate_codename
 
 
+##################################
+#  Program Initialisation
+##################################
 if __name__ == "__main__":
 
     # Process any parameters passed to the program.
+    dbg = Debug()
     arg = Arguments()
 
     # Application Initialisation
     set_proc_title()
     data_path = whereami()
+
+    # Set up translations and strings
     trans = Translations(data_path)
+    string = Strings()
+
+    # Welcome Features
     pref = Preferences()
     systemstate = SystemState()
     app = WelcomeApp()
@@ -3181,5 +3307,5 @@ if __name__ == "__main__":
     arg.override_session()
     arg.override_codename()
 
-    print('[Welcome] Application Started.')
+    dbg.stdout('Welcome', 'Application Ready.', 0, 0)
     app.run()
