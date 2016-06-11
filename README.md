@@ -118,7 +118,6 @@ The following cannot be translated:
   * Terminal debug output.
   * Screenshots.
 
-
 ## edgar-allan
 
 Stupid name, but we like it, which supports the following arguments:
