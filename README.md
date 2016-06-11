@@ -109,6 +109,7 @@ We are on Transifex!
     ./edgar-allan create-all-pots
     ./edgar-allan translate-all
     tx push -s
+    ./clean.sh
 
 ## Non-Translatable
 
