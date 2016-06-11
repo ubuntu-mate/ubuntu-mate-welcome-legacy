@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Moo, 2016
 msgid ""
@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-06 17:25+0100\n"
-"PO-Revision-Date: 2016-06-06 16:10+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/"
-"ubuntu-mate-welcome/language/lt_LT/)\n"
-"Language: lt_LT\n"
+"PO-Revision-Date: 2016-06-06 22:20+0000\n"
+"Last-Translator: Moo\n"
+"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt_LT\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ubuntu-mate-welcome:75 ubuntu-mate-welcome:967 ubuntu-mate-welcome:1186
 #: ubuntu-mate-welcome:2356
@@ -29,9 +27,7 @@ msgstr "Programinės įrangos butikas"
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr ""
-"Programinės įrangos pakeitimai yra eigoje. Prašome, prieš užveriant programą "
-"Sveiki, leisti jiems užsibaigti."
+msgstr "Programinės įrangos pakeitimai yra eigoje. Prašome, prieš užveriant programą Sveiki, leisti jiems užsibaigti."
 
 #: ubuntu-mate-welcome:77 ubuntu-mate-welcome:2357
 msgid "OK"
@@ -39,15 +35,15 @@ msgstr "Gerai"
 
 #: ubuntu-mate-welcome:164 ubuntu-mate-welcome:174
 msgid "Successfully performed fix."
-msgstr ""
+msgstr "Pataisymas sėkmingai atliktas."
 
 #: ubuntu-mate-welcome:164
 msgid "Any previously incomplete installations have been finished."
-msgstr ""
+msgstr "Bet kokie ankstesni nepilni įdiegimai buvo užbaigti."
 
 #: ubuntu-mate-welcome:167 ubuntu-mate-welcome:177
 msgid "Failed to perform fix."
-msgstr ""
+msgstr "Nepavyko atlikti pataisymo."
 
 #: ubuntu-mate-welcome:167
 msgid "Errors occurred while finishing an incomplete installation."
@@ -63,7 +59,7 @@ msgstr ""
 
 #: ubuntu-mate-welcome:186
 msgid "Successfully updated cache."
-msgstr ""
+msgstr "Podėlis sėkmingai atnaujintas."
 
 #: ubuntu-mate-welcome:186
 msgid "Software is now ready to install."
@@ -71,21 +67,20 @@ msgstr ""
 
 #: ubuntu-mate-welcome:189
 msgid "Failed to update cache."
-msgstr ""
+msgstr "Nepavyko atnaujinti podėlio."
 
 #: ubuntu-mate-welcome:189
 msgid "There may be a problem with your repository configuration."
-msgstr ""
+msgstr "Gali būti, kad yra problemų su jūsų saugyklos konfigūracija."
 
 #: ubuntu-mate-welcome:245
 msgid "Welcome will stay up-to-date."
 msgstr ""
 
 #: ubuntu-mate-welcome:246
-#, fuzzy
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
-msgstr "Ši programa yra nustatyta gauti paskiausius atnaujinimus."
+msgstr "Programa Sveiki ir Programinės įrangos butikas yra nustatyti gauti naujausius atnaujinimus."
 
 #: ubuntu-mate-welcome:252
 msgid "Everything is up-to-date"
@@ -96,84 +91,73 @@ msgid "All packages have been upgraded to the latest versions."
 msgstr ""
 
 #: ubuntu-mate-welcome:258
-#, fuzzy
 msgid "Installed"
-msgstr "Įdiegti"
+msgstr "Įdiegta"
 
 #: ubuntu-mate-welcome:259
-#, fuzzy
 msgid "The application is now ready to use."
-msgstr "Ši programa yra nustatyta gauti paskiausius atnaujinimus."
+msgstr "Dabar, programa paruošta naudojimui."
 
 #: ubuntu-mate-welcome:261
-#, fuzzy
 msgid "was not installed."
-msgstr "Įdiegti iš naujo"
+msgstr "nebuvo įdiegta."
 
 #: ubuntu-mate-welcome:262 ubuntu-mate-welcome:272 ubuntu-mate-welcome:303
 #: ubuntu-mate-welcome:313
 msgid "The operation was cancelled."
-msgstr ""
+msgstr "Operacija atšaukta."
 
 #: ubuntu-mate-welcome:264
-#, fuzzy
 msgid "failed to install"
-msgstr "Įdiegti iš naujo"
+msgstr "nepavyko įdiegti"
 
 #: ubuntu-mate-welcome:265
 msgid "There was a problem installing this application."
-msgstr ""
+msgstr "Įdiegiant šią programą, atsirado problemų."
 
 #: ubuntu-mate-welcome:268 ubuntu-mate-welcome:2540
 msgid "Removed"
-msgstr ""
+msgstr "Pašalinta"
 
 #: ubuntu-mate-welcome:269
-#, fuzzy
 msgid "The application has been uninstalled."
-msgstr "Šaknies failų sistemos dydis buvo pakeistas."
+msgstr "Programa buvo pašalinta."
 
 #: ubuntu-mate-welcome:271
-#, fuzzy
 msgid "was not removed."
-msgstr "Šalinti"
+msgstr "nebuvo pašalinta."
 
 #: ubuntu-mate-welcome:274
 msgid "failed to remove"
-msgstr ""
+msgstr "nepavyko pašalinti"
 
 #: ubuntu-mate-welcome:275
 msgid "A problem is preventing this application from being removed."
 msgstr ""
 
 #: ubuntu-mate-welcome:278
-#, fuzzy
 msgid "Upgraded"
-msgstr "Naujinti"
+msgstr ""
 
 #: ubuntu-mate-welcome:279
-#, fuzzy
 msgid "This application is set to use the latest version."
-msgstr "Ši programa yra nustatyta gauti paskiausius atnaujinimus."
+msgstr ""
 
 #: ubuntu-mate-welcome:281
-#, fuzzy
 msgid "was not upgraded."
-msgstr "Naujinti"
+msgstr ""
 
 #: ubuntu-mate-welcome:282
-#, fuzzy
 msgid "The application will continue to use the stable version."
-msgstr "Ši programa yra nustatyta gauti paskiausius atnaujinimus."
+msgstr ""
 
 #: ubuntu-mate-welcome:284
 msgid "failed to upgrade"
 msgstr ""
 
 #: ubuntu-mate-welcome:285
-#, fuzzy
 msgid "A problem is preventing this application from being upgraded."
-msgstr "Prašome palaukti, kol programa yra atnaujinama..."
+msgstr ""
 
 #: ubuntu-mate-welcome:299
 msgid "applications have been installed"
@@ -181,36 +165,35 @@ msgstr ""
 
 #: ubuntu-mate-welcome:300
 msgid "Your newly installed applications are ready to use."
-msgstr ""
+msgstr "Jūsų naujai įdiegtos programos yra paruoštos naudoti."
 
 #: ubuntu-mate-welcome:302
 msgid "Some applications were not installed."
-msgstr ""
+msgstr "Kai kurios programos nebuvo įdiegtos."
 
 #: ubuntu-mate-welcome:305
 msgid "Some applications failed to install."
-msgstr ""
+msgstr "Kai kurių programų įdiegti nepavyko."
 
 #: ubuntu-mate-welcome:306 ubuntu-mate-welcome:316
 msgid "Software Boutique encountered a problem with one of the applications."
 msgstr ""
 
 #: ubuntu-mate-welcome:309
-#, fuzzy
 msgid "applications have been removed"
-msgstr "Šaknies failų sistemos dydis buvo pakeistas."
+msgstr ""
 
 #: ubuntu-mate-welcome:310
 msgid "These applications are no longer present on your system."
-msgstr ""
+msgstr "Šių programų jūsų sistemoje daugiau nebėra."
 
 #: ubuntu-mate-welcome:312
 msgid "Some applications were not removed."
-msgstr ""
+msgstr "Kai kurios programos nebuvo pašalintos."
 
 #: ubuntu-mate-welcome:315
 msgid "Some applications failed to remove."
-msgstr ""
+msgstr "Kai kurių programų pašalinti nepavyko."
 
 #: ubuntu-mate-welcome:473
 msgid "Blu-ray AACS database install succeeded"
@@ -371,7 +354,7 @@ msgstr ""
 
 #: ubuntu-mate-welcome:1818
 msgid "The returned error code is:"
-msgstr ""
+msgstr "Grąžintos klaidos kodas yra:"
 
 #: ubuntu-mate-welcome:1910
 msgid "This application is set to receive the latest updates."
@@ -461,9 +444,7 @@ msgstr "Nuosavybinė"
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr ""
-"Atleiskite, programai Sveiki nepavyko šioje kategorijoje atrasti jokios "
-"programinės įrangos, kuri būtų suderinama su šia sistema."
+msgstr "Atleiskite, programai Sveiki nepavyko šioje kategorijoje atrasti jokios programinės įrangos, kuri būtų suderinama su šia sistema."
 
 #: ubuntu-mate-welcome:2243
 msgid "Installing..."
@@ -481,9 +462,7 @@ msgstr "Naujinama..."
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr ""
-"Paleidžiant PROGRAM_NAME, įvyko klaida. Prašome pagalvoti apie programos "
-"įdiegimą iš naujo."
+msgstr "Paleidžiant PROGRAM_NAME, įvyko klaida. Prašome pagalvoti apie programos įdiegimą iš naujo."
 
 #: ubuntu-mate-welcome:2359
 msgid "Command:"
@@ -491,7 +470,7 @@ msgstr "Komanda:"
 
 #: ubuntu-mate-welcome:2441
 msgid "Uses a new or updated source."
-msgstr ""
+msgstr "Naudoja naują ar atnaujintą šaltinį."
 
 #: ubuntu-mate-welcome:2443
 msgid "Now works for various versions of Ubuntu."
@@ -499,7 +478,7 @@ msgstr ""
 
 #: ubuntu-mate-welcome:2445
 msgid "Now a snappy package."
-msgstr ""
+msgstr "Dabar, snappy paketas."
 
 #: ubuntu-mate-welcome:2447
 msgid "General maintenance."
@@ -507,7 +486,7 @@ msgstr ""
 
 #: ubuntu-mate-welcome:2449
 msgid "Broken or problematic source."
-msgstr ""
+msgstr "Sugadintas ar problematinis šaltinis."
 
 #: ubuntu-mate-welcome:2451
 msgid "Not yet available for some releases."
@@ -575,23 +554,23 @@ msgstr ""
 
 #: ubuntu-mate-welcome:2502
 msgid "Added"
-msgstr ""
+msgstr "Pridėta"
 
 #: ubuntu-mate-welcome:2522
 msgid "Fixed"
-msgstr ""
+msgstr "Pataisyta"
 
 #: ubuntu-mate-welcome:2562
 msgid "Please enter a keyword to begin."
-msgstr ""
+msgstr "Norėdami pradėti, įrašykite raktažodį."
 
 #: ubuntu-mate-welcome:2568
 msgid "Please enter at least 3 characters."
-msgstr ""
+msgstr "Prašome įrašyti bent 3 simbolius."
 
 #: ubuntu-mate-welcome:2573
 msgid "Search"
-msgstr ""
+msgstr "Ieškoti"
 
 #: ubuntu-mate-welcome:2627
 msgid "applications found."
@@ -599,7 +578,7 @@ msgstr ""
 
 #: ubuntu-mate-welcome:2631
 msgid " proprietary applications are hidden."
-msgstr ""
+msgstr "nuosavybinės programos yra paslėptos."
 
 #: ubuntu-mate-welcome:2649
 msgid "Cancel"
@@ -615,67 +594,52 @@ msgstr ""
 
 #: ubuntu-mate-welcome:2776
 msgid "Preparing to remove:"
-msgstr ""
+msgstr "Ruošiamasi pašalinti:"
 
 #: ubuntu-mate-welcome:2780 ubuntu-mate-welcome:2797
 msgid "Listing packages..."
-msgstr ""
+msgstr "Išvardijami paketai..."
 
 #: ubuntu-mate-welcome:2785
-#, fuzzy
 msgid "Removing software..."
-msgstr "Šalinama"
+msgstr "Šalinama programinė įranga..."
 
 #: ubuntu-mate-welcome:2793
 msgid "Preparing to install:"
-msgstr ""
+msgstr "Ruošiamasi įdiegti:"
 
 #: ubuntu-mate-welcome:2803
 msgid "Updating cache..."
-msgstr ""
+msgstr "Atnaujinamas podėlis..."
 
 #: ubuntu-mate-welcome:2808
-#, fuzzy
 msgid "Installing software..."
-msgstr "Įdiegiama..."
+msgstr "Įdiegiama programinė įranga..."
 
 #: ubuntu-mate-welcome:2813
 msgid "Verifying software changes..."
-msgstr ""
+msgstr "Patvirtinami programinės įrangos pakeitimai..."
 
 #: ubuntu-mate-welcome:2820
 msgid "Successfully Installed"
-msgstr ""
+msgstr "Sėkmingai įdiegta"
 
 #: ubuntu-mate-welcome:2822
 msgid "Failed to Install"
-msgstr ""
+msgstr "Nepavyko įdiegti"
 
 #: ubuntu-mate-welcome:2829
 msgid "Successfully Removed"
-msgstr ""
+msgstr "Sėkmingai pašalinta"
 
 #: ubuntu-mate-welcome:2831
 msgid "Failed to Remove"
-msgstr ""
+msgstr "Nepavyko pašalinti"
 
 #: ubuntu-mate-welcome:2862
-#, fuzzy
 msgid "To be installed"
-msgstr "Įdiegti iš naujo"
+msgstr "Bus įdiegta"
 
 #: ubuntu-mate-welcome:2864
-#, fuzzy
 msgid "To be removed"
-msgstr "Šalinti"
-
-#, fuzzy
-#~ msgid "Installation of "
-#~ msgstr "Įdiegiama..."
-
-#, fuzzy
-#~ msgid "Upgrade of "
-#~ msgstr "Naujinti"
-
-#~ msgid "Skip"
-#~ msgstr "Praleisti"
+msgstr "Bus pašalinta"

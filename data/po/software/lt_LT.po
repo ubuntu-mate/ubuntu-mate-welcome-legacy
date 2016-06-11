@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-06 16:10+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-06-06 22:21+0000\n"
+"Last-Translator: Moo\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,79 +15,91 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: software.html:17
+#: software.html:18
 msgid "Software"
 msgstr "Programinė įranga"
 
-#: software.html:17
+#: software.html:18
 msgid "Boutique"
 msgstr "Butikas"
 
-#: software.html20, 20
+#: software.html21, 21
+msgid "Bulk Queue"
+msgstr ""
+
+#: software.html:22
+msgid "Bulk Queue Disabled"
+msgstr ""
+
+#: software.html23, 23
 msgid "Search"
-msgstr ""
+msgstr "Paieška"
 
-#: software.html23, 23, 343
+#: software.html24, 24, 344
 msgid "Boutique News"
-msgstr ""
+msgstr "Butiko naujienos"
 
-#: software.html32, 32, 138
+#: software.html25, 25, 375
+msgid "Preferences"
+msgstr "Nuostatos"
+
+#: software.html33, 33, 139
 msgid "Accessories"
 msgstr "Reikmenys"
 
-#: software.html33, 33, 151
+#: software.html34, 34, 152
 msgid "Education"
 msgstr "Švietimas"
 
-#: software.html34, 34, 164
+#: software.html35, 35, 165
 msgid "Games"
 msgstr "Žaidimai"
 
-#: software.html35, 35, 177
+#: software.html36, 36, 178
 msgid "Graphics"
 msgstr "Grafika"
 
-#: software.html36, 36, 190
+#: software.html37, 37, 191
 msgid "Internet"
 msgstr "Internetas"
 
-#: software.html37, 37, 203
+#: software.html38, 38, 204
 msgid "Office"
 msgstr "Raštinė"
 
-#: software.html38, 38, 216
+#: software.html39, 39, 217
 msgid "Programming"
 msgstr "Programavimas"
 
-#: software.html39, 39, 229
+#: software.html40, 40, 230
 msgid "Sound & Video"
 msgstr "Garsas ir vaizdas"
 
-#: software.html40, 40, 242
+#: software.html41, 41, 243
 msgid "System Tools"
 msgstr "Sistemos įrankiai"
 
-#: software.html41, 41, 255
+#: software.html42, 42, 256
 msgid "Universal Access"
 msgstr "Universali prieiga"
 
-#: software.html42, 42, 265
+#: software.html43, 43, 266
 msgid "Servers"
 msgstr "Serveriai"
 
-#: software.html43, 43
+#: software.html44, 44
 msgid "More Software"
 msgstr "Daugiau programinės įrangos"
 
-#: software.html44, 44
+#: software.html45, 45
 msgid "Fixes"
 msgstr "Pataisymai"
 
-#: software.html:53
+#: software.html:54
 msgid "Software Boutique"
 msgstr "Programinės įrangos butikas"
 
-#: software.html:54
+#: software.html:55
 msgid ""
 "There is an abundance of software available for Ubuntu MATE and some people "
 "find that choice overwhelming. The Boutique is a carefully curated selection"
@@ -96,303 +108,303 @@ msgid ""
 "experience."
 msgstr "Ubuntu MATE yra prieinama daugybė programinės įrangos ir kai kuriems žmonėms toks didelis pasirinkimas yra neįveikiamas. Šis butikas yra atidžiai kuruojamas, aukščiausios klasės programų parinkimas. Programos yra pasirenkamos dėl to, kad jos yra gerai integruotos į Ubuntu MATE, papildo sistemą ir leidžia jums patiems kurti savo kompiuterinio patyrimo stilių."
 
-#: software.html:61
+#: software.html:62
 msgid "If you can't find what you're looking for, install one of the"
 msgstr "Jeigu jūs negalite rasti tai, ko ieškote, įdiekite vieną iš"
 
-#: software.html62, 360
+#: software.html63, 361
 msgid "Get More Apps"
-msgstr ""
+msgstr "Gauti daugiau programų"
 
-#: software.html:63
+#: software.html:64
 msgid "software centers"
 msgstr "programinės įrangos centrų,"
 
-#: software.html:64
+#: software.html:65
 msgid "to explore the complete Ubuntu software catalog."
 msgstr "kad išžvalgytumėte visą Ubuntu programinės įrangos katalogą."
 
-#: software.html:68
+#: software.html:69
 msgid "More Apps Await."
 msgstr "Laukia daugiau programų."
 
-#: software.html:69
+#: software.html:70
 msgid ""
 "Connect your computer to the Internet to explore a wide selection of "
 "applications for Ubuntu MATE."
 msgstr "Prijunkite savo kompiuterį prie interneto, kad atrastumėte didelį Ubuntu MATE sistemai skirtų programų pasirinkimą."
 
-#: software.html:71
+#: software.html:72
 msgid ""
 "Once online, you'll be able to download and install tried & tested software "
-"right here in Welcome. Our picks ensure that the software featured "
-"integrates well the Ubuntu MATE desktop."
-msgstr "Kai būsite prisijungę, galėsite atsisiųsti ir įdiegti išbandytą ir patikrintą programinę įrangą, tiesiog, čia, programoje Sveiki. Mūsų parinkimai užtikrina, kad programinė įranga bus gerai integruota į Ubuntu MATE darbalaukį."
+"right here. Our picks ensure that the featured software integrates well on "
+"the Ubuntu MATE desktop."
+msgstr "Kai būsite prisijungę, galėsite atsisiųsti ir įdiegti išbandytą ir patikrintą programinę įrangą, tiesiog, čia. Mūsų parinkimai užtikrina, kad programinė įranga būtų gerai integruota į Ubuntu MATE darbalaukį."
 
-#: software.html:77
+#: software.html:78
 msgid ""
 "Sorry, Welcome could not establish a connection to the Ubuntu repository "
 "server. Please check your connection and try again."
 msgstr "Atleiskite, programai Sveiki nepavyko užmegzti ryšio su Ubuntu saugyklos serveriu. Prašome patikrinti savo ryšį ir bandyti dar kartą."
 
-#: software.html:82
+#: software.html:83
 msgid "Retry Connection"
 msgstr "Iš naujo bandyti ryšį"
 
-#: software.html:85
-msgid "Connection Troubleshooting"
-msgstr ""
-
 #: software.html:86
+msgid "Connection Troubleshooting"
+msgstr "Ryšio nesklandumų šalinimas"
+
+#: software.html:87
 msgid "Connection Help"
 msgstr "Prisijungimo pagalba"
 
-#: software.html:92
+#: software.html:93
 msgid "Get Connected."
 msgstr "Prisijunkite."
 
-#: software.html:93
+#: software.html:94
 msgid ""
 "Here's a few things you can check, depending on the type of connection you "
 "have:"
 msgstr "Štai keli dalykai, kuriuos galite patikrinti, priklausomai nuo to, kokio tipo ryšį naudojate:"
 
-#: software.html:94
+#: software.html:95
 msgid "Wired Connection"
 msgstr "Laidinis ryšys"
 
-#: software.html:96
+#: software.html:97
 msgid "Is the cable securely plugged in?"
 msgstr "Ar kabelis yra saugiai prijungtas?"
 
-#: software.html:97
+#: software.html:98
 msgid ""
 "Is the router online and can other devices access the network? Try "
 "restarting the router."
 msgstr "Ar maršruto parinktuvas yra prijungtas prie interneto ir ar kiti įrenginiai turi prieigą prie tinklo? Pabandykite iš naujo paleisti maršruto parinktuvą."
 
-#: software.html:100
+#: software.html:101
 msgid "Wireless Connection"
 msgstr "Belaidis ryšys"
 
-#: software.html:101
+#: software.html:102
 msgid "Have you entered the correct wireless password from the"
 msgstr "Ar teisingai esate įrašę belaidžio ryšio slaptažodį"
 
-#: software.html:101
+#: software.html:102
 msgid "network indicator"
 msgstr "tinklo indikatoriuje,"
 
-#: software.html:101
+#: software.html:102
 msgid "in the upper-right?"
 msgstr "kuris yra viršutiniame dešiniajame kampe?"
 
-#: software.html:103
+#: software.html:104
 msgid "When disconnected, the applet looks like this:"
 msgstr "Kai atsijungta, programėlė atrodo štai taip:"
 
-#: software.html:105
+#: software.html:106
 msgid ""
 "Is there a physical switch that may have accidentally switched off wireless "
 "functionality?"
 msgstr "Ar yra fizinis perjungiklis, kuris, galbūt, netyčia išjungė belaidžio ryšio funkcionalumą?"
 
-#: software.html:107
+#: software.html:108
 msgid "Is there a soft (keyboard) switch that toggles it off?"
 msgstr "Ar yra švelnus (klaviatūros) perjungiklis, kuris jį išjungia?"
 
-#: software.html:109
+#: software.html:110
 msgid "You may need to hold the FN key while pressing the function key."
 msgstr "Galbūt, nuspaudžiant funkcijos klavišą, jums reikia laikyti nuspaustą FN klavišą."
 
-#: software.html:110
+#: software.html:111
 msgid "Here's an example:"
 msgstr "Štai pavyzdys:"
 
-#: software.html:114
+#: software.html:115
 msgid "Not working at all or experiencing sluggish connections?"
 msgstr "Iš viso neveikia arba patiriate lėtą ryšį?"
 
-#: software.html:115
+#: software.html:116
 msgid ""
 "Sorry to hear that. You will need a temporary wired connection to install "
 "working drivers."
 msgstr "Apgailestaujame tai išgirsti. Jums laikinai reikės laidinio ryšio, kad įdiegtumėte veikiančias tvarkykles."
 
-#: software.html:117
+#: software.html:118
 msgid "The"
 msgstr "Kortelėje"
 
-#: software.html:117
+#: software.html:118
 msgid "Additional Drivers"
 msgstr "Papildomos tvarkyklės"
 
-#: software.html:117
+#: software.html:118
 msgid "tab may have them available for your system."
 msgstr "jos gali būti prieinamos jūsų sistemai."
 
-#: software.html:118
+#: software.html:119
 msgid ""
 "Otherwise, you will need to manually install third party drivers for your "
 "hardware, or a download specific package containing the firmware. See"
 msgstr "Kitu atveju, jums reikės rankiniu būdu įdiegti savo aparatinei įrangai trečiųjų šalių tvarkykles arba atsisiųsti konkretų paketą su programine aparatine įranga. Žiūrėkite kortelę"
 
-#: software.html:119
+#: software.html:120
 msgid "Drivers"
 msgstr "Tvarkyklės"
 
-#: software.html:119
+#: software.html:120
 msgid "in the"
 msgstr ", sekcijoje"
 
-#: software.html:119
+#: software.html:120
 msgid "Getting Started"
 msgstr "Darbo pradžia"
 
-#: software.html:120
+#: software.html:121
 msgid "section for more details."
 msgstr ", kad sužinotumėte daugiau."
 
-#: software.html:121
+#: software.html:122
 msgid "Feel free to"
 msgstr "Nesivaržykite"
 
-#: software.html:121
+#: software.html:122
 msgid "ask the community"
 msgstr "klausti bendruomenės"
 
-#: software.html:121
+#: software.html:122
 msgid "if you need assistance."
 msgstr ", jeigu jums reikia pagalbos."
 
-#: software.html:125
+#: software.html:126
 msgid "Our Picks"
 msgstr ""
 
-#: software.html:126
+#: software.html:127
 msgid "OK"
 msgstr "Gerai"
 
-#: software.html140, 153, 166, 179, 192, 205, 218, 231, 244
+#: software.html141, 154, 167, 180, 193, 206, 219, 232, 245
 msgid "No Filter"
 msgstr "Nėra filtro"
 
-#: software.html:142
+#: software.html:143
 msgid "Handy utilities for your computing needs."
 msgstr "Patogios paslaugų programos, skirtos jūsų naudojimosi kompiuteriu poreikiams"
 
-#: software.html:155
+#: software.html:156
 msgid "For study and children."
 msgstr "Mokslams ir vaikams."
 
-#: software.html:168
+#: software.html:169
 msgid "A selection of 2D and 3D games for your enjoyment."
 msgstr "2D ir 3D žaidimų pasirinkimas jūsų malonumui."
 
-#: software.html:181
+#: software.html:182
 msgid "For producing and editing works of art."
 msgstr "Meno darbų kūrimui ir redagavimui."
 
-#: software.html:194
+#: software.html:195
 msgid "For staying connected and enjoying the features of your own cloud."
 msgstr "Prisijungimui prie interneto bei asmeninės debesijos ypatybių mėgavimuisi."
 
-#: software.html:207
+#: software.html:208
 msgid "For more then just documents and spreadsheets."
 msgstr "Ne tik dokumentams ir skaičiuoklėms."
 
-#: software.html:220
+#: software.html:221
 msgid "For the developers and system administrators out there."
 msgstr "Kūrėjams ir sistemos administratoriams."
 
-#: software.html:233
+#: software.html:234
 msgid "Multimedia software for listening and production."
 msgstr "Multimedijos programinė įranga, skirta klausymuisi ir kūrimui."
 
-#: software.html:246
+#: software.html:247
 msgid "Software that makes the most out of your system resources."
 msgstr "Programinė įranga, kuri maksimaliai išnaudoja jūsų sistemos išteklius."
 
-#: software.html:256
+#: software.html:257
 msgid "Software that makes your computer more accessible."
 msgstr "Programinė įranga, kuri padaro jūsų kompiuterį labiau prieinamą."
 
-#: software.html:266
+#: software.html:267
 msgid "One-click installations for serving the network."
 msgstr "Vieno spustelėjimo įdiegimai, skirti tinklo aptarnavimui."
 
-#: software.html:275
+#: software.html:276
 msgid "Discover More Software"
 msgstr "Atraskite daugiau programinės įrangos"
 
-#: software.html:276
+#: software.html:277
 msgid ""
 "Graphical interfaces to browse a wide selection of software available for "
 "your operating system."
 msgstr "Grafinės sąsajos, skirtos naršyti didelį, jūsų operacinei sistemai prieinamą, programinės įrangos pasirinkimą."
 
-#: software.html:284
+#: software.html:285
 msgid "Miscellaneous Fixes"
 msgstr "Įvarūs pataisymai"
 
-#: software.html:285
+#: software.html:286
 msgid ""
 "This section contains operations that can fix common problems should you "
 "encounter an error while upgrading or installing new software."
 msgstr "Šioje sekcijoje yra operacijos, kurios gali pataisyti bendras problemas, tam atvejui, jeigu, atnaujindami ar įdiegdami naują programinę įrangą, susidurtumėte su klaida."
 
-#: software.html:292
+#: software.html:293
 msgid "Outdated Package Lists?"
 msgstr "Pasenę paketų sąrašai?"
 
-#: software.html:293
+#: software.html:294
 msgid "Your repository lists may be out of date, which can cause"
 msgstr "Jūsų saugyklų sąrašai gali būti pasenę, kas savo ruožtu gali sukelti tokią klaidą kaip"
 
-#: software.html:293
+#: software.html:294
 msgid "Not Found"
 msgstr "Nerasta"
 
-#: software.html:293
+#: software.html:294
 msgid "errors and"
 msgstr "ir"
 
-#: software.html:293
+#: software.html:294
 msgid "outdated version"
 msgstr "pasenusios versijos"
 
-#: software.html:294
+#: software.html:295
 msgid ""
 "information when trying to install new or newer versions of software. This "
 "is particularly the case when Ubuntu MATE connects online for the first time"
 " after installation."
 msgstr "informaciją, tais atvejais, kai bandote įdiegti naują ar naujesnę programinės įrangos versiją. Tai ypač nutinka, kai po įdiegimo, Ubuntu MATE prisijungia prie interneto."
 
-#: software.html:297
+#: software.html:298
 msgid "Update the repository lists:"
 msgstr "Atnaujinti saugyklų sąrašus:"
 
-#: software.html:301
+#: software.html:302
 msgid "Update Sources List"
 msgstr "Atnaujinti šaltinių sąrašą"
 
-#: software.html:302
+#: software.html:303
 msgid "Upgrade Installed Packages"
 msgstr "Naujinti įdiegtus paketus"
 
-#: software.html:306
+#: software.html:307
 msgid "Broken Packages?"
 msgstr "Sugadinti paketai?"
 
-#: software.html:307
+#: software.html:308
 msgid "When a previous installation or removal was interrupted"
 msgstr "Kai ankstesnis įdiegimas ar šalinimas buvo pertrauktas"
 
-#: software.html:308
+#: software.html:309
 msgid "(for instance, due to power failure or loss of Internet connection)"
 msgstr "(pavyzdžiui, dėl elektros maitinimo ar interneto ryšio trikties)"
 
-#: software.html:309
+#: software.html:310
 msgid ""
 "further software cannot be added or removed without properly re-configuring "
 "these broken packages. If necessary, you may need to also resolve "
@@ -400,104 +412,163 @@ msgid ""
 "run properly."
 msgstr "tolimesnė programinė įranga negali būti pridėta ar pašalinta be tinkamo šių sugadintų paketų konfigūravimo iš naujo. Jei reikia, jums taip pat gali tekti išspręsti sugadintas priklausomybes ir įdiegti trūkstamus paketus tam, kad programinė įranga tinkamai veiktų."
 
-#: software.html:315
+#: software.html:316
 msgid "Configure packages that were unpacked but not configured:"
 msgstr "Konfigūruoti paketus, kurie buvo išpakuoti, bet nesukonfigūruoti:"
 
-#: software.html:319
+#: software.html:320
 msgid "Download and install broken dependencies:"
 msgstr "Atsisiųsti ir įdiegti sugadintas priklausomybes:"
 
-#: software.html:323
+#: software.html:324
 msgid "Configure Interrupted Packages"
 msgstr "Konfigūruoti pertrauktus paketus"
 
-#: software.html:324
+#: software.html:325
 msgid "Resolve Broken Packages"
 msgstr "Išspręsti sugadintus paketus"
 
-#: software.html:328
+#: software.html:329
 msgid ""
 "In addition, listed below are terminal equivalent commands that otherwise "
 "appear in the"
 msgstr "Be to, žemiau yra išvardintos atitinkamos terminalo komandos, kurios kitaip pasirodo programoje"
 
-#: software.html:329
+#: software.html:330
 msgid "Software Updater"
 msgstr "Programų naujinimas"
 
-#: software.html:331
+#: software.html:332
 msgid "Upgrade all packages that have a new version available:"
 msgstr "Naujinti visus paketus, kurie turi prieinamą naują versiją:"
 
-#: software.html:335
+#: software.html:336
 msgid "Upgrade to a new release of Ubuntu MATE:"
 msgstr "Naujinti į naują Ubuntu MATE laidą:"
 
-#: software.html:344
+#: software.html:345
 msgid ""
 "Keeping you informed of the changes made to Ubuntu MATE's Software Boutique."
 msgstr ""
 
-#: software.html:349
-msgid "Search for Applications"
-msgstr ""
-
 #: software.html:350
+msgid "Search for Applications"
+msgstr "Ieškokite programų"
+
+#: software.html:351
 msgid "Enter a keyword to search the Software Boutique."
-msgstr ""
+msgstr "Įrašykite raktažodį, kad atliktumėte paiešką programinės įrangos butike."
 
-#: software.html:352
+#: software.html:353
 msgid "Name of Application"
-msgstr ""
+msgstr "Programos pavadinimas"
 
-#: software.html:357
+#: software.html:358
 msgid "No software matched your key words."
-msgstr ""
+msgstr "Jokia programinė įranga neatitiko jūsų raktažodžio."
 
-#: software.html:359
+#: software.html:360
 msgid "The Boutique is just a collection of software."
-msgstr ""
+msgstr "Butikas yra tik programinės įrangos kolekcija."
 
-#: software.html:361
+#: software.html:362
 msgid "Install a software center"
-msgstr ""
+msgstr "Įdiekite programinės įrangos centrą,"
 
-#: software.html:363
+#: software.html:364
 msgid "to explore the entire Ubuntu catalogue."
-msgstr ""
+msgstr "kad išžvalgytumėte visą Ubuntu katalogą."
 
-#: software.html:366
+#: software.html:367
 msgid "Search again and include proprietary software."
 msgstr ""
 
-#: software.html:380
+#: software.html:376
+msgid "Fine-tune the Software Boutique to suit your preferred behaviors."
+msgstr ""
+
+#: software.html:379
+msgid "Boutique Selection"
+msgstr ""
+
+#: software.html:381
+msgid "Hide proprietary applications."
+msgstr "Slėpti nuosavybines programas."
+
+#: software.html:385
+msgid "Installation"
+msgstr "Įdiegimas"
+
+#: software.html:387
+msgid "Enable the Bulk Queue."
+msgstr ""
+
+#: software.html:388
+msgid ""
+"When enabled, applications wait to be installed/removed, allowing you to "
+"continue browsing."
+msgstr "Kai įjungta, programos lauks įdiegimo/šalinimo, taip leisdamos jums tęsti naršymą."
+
+#: software.html:395
+msgid "Your Queued Changes"
+msgstr ""
+
+#: software.html:396
+msgid ""
+"Decide which software to add or remove without committing straight away."
+msgstr ""
+
+#: software.html:400
+msgid "Apply Changes"
+msgstr "Taikyti pakeitimus"
+
+#: software.html:401
+msgid "Clear"
+msgstr "Išvalyti"
+
+#: software.html:402
+msgid "Finished"
+msgstr "Užbaigta"
+
+#: software.html:413
+msgid "Not all changes could be applied."
+msgstr "Ne visus pakeitimus pavyko pritaikyti."
+
+#: software.html:414
+msgid "Please review the error dialog for further details."
+msgstr "Išsamesnei informacijai, prašome peržvelgti klaidos dialogą."
+
+#: software.html:418
+msgid "Nothing to see here -- There's no software in the queue yet."
+msgstr ""
+
+#: software.html:429
 msgid "Filter by Software License"
 msgstr "Filtruoti pagal programinės įrangos licenciją"
 
-#: software.html:381
+#: software.html:430
 msgid "Hide Proprietary Software"
 msgstr "Slėpti nuosavybinę programinę įrangą"
 
-#: software.html:383
+#: software.html:432
 msgid "Show Terminal Commands"
 msgstr "Rodyti terminalo komandas"
 
-#: software.html:389
+#: software.html:438
 msgid "Proprietary Software"
 msgstr "Nuosavybinė programinė įranga"
 
-#: software.html:390
+#: software.html:439
 msgid ""
 "is owned by an individual or company. There may be restrictions on its usage"
 " (like a license agreement), and provides no access to the source code."
 msgstr "priklauso individui ar kompanijai. Gali būti apribojimų, susijusių su jos naudojimu (pvz., licencijos sutartis), be to ji nesuteikia prieigos prie šaltinio kodo."
 
-#: software.html:393
+#: software.html:442
 msgid "Free and Open Source Software"
 msgstr "Laisvoji bei atviro kodo programinė įranga"
 
-#: software.html:394
+#: software.html:443
 msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "

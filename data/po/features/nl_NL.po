@@ -1,12 +1,13 @@
 # 
 # Translators:
+# Gerard Simon <lrtcfr@gmail.com>, 2016
 # Robbie Deighton <deightonrobbie@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-30 06:17+0000\n"
-"Last-Translator: Robbie Deighton <deightonrobbie@gmail.com>\n"
+"PO-Revision-Date: 2016-06-06 16:27+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,15 +16,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: features.html:17
+#: features.html:18
 msgid "Features"
 msgstr "Kenmerken"
 
-#: features.html:25
+#: features.html:27
 msgid "Modern and Full-Featured"
 msgstr ""
 
-#: features.html:26
+#: features.html:28
 msgid ""
 "Ubuntu MATE is a modern computer operating system, with an attractive and "
 "easy to understand user interface. Its update manager keeps not only the "
@@ -33,11 +34,11 @@ msgid ""
 "computer hardware today."
 msgstr "Ubuntu MATE is een modern besturingssysteem, met een aantrekkelijke en gemakkelijk te begrijpen gebruikersomgeving. Zijn update manager houdt niet alleen het besturingssysteem zelf courant, maar ook alle geïnstalleerde applicaties. Het besturingssysteem is veiliger en wordt beter ondersteund dan besturingssystemen die typisch vooraf geïnstalleerd worden op de meeste hedendaagse computers."
 
-#: features.html:36
+#: features.html:38
 msgid "Pre-Configured Yet Flexible"
 msgstr "Voorgeconfigureerd maar flexiebel"
 
-#: features.html:42
+#: features.html:44
 msgid ""
 "Using Ubuntu MATE provides you with the freedom to run a complete, full-"
 "featured operating system, pre-configured with most, if not all, of the "
@@ -46,11 +47,11 @@ msgid ""
 "suit your taste."
 msgstr "Als je Ubuntu mate gebruikt krijg je de vrijheid van een compleet besturingssysteem met alle benodigde functies en vooraf ingesteld met de meeste, of zelfs alle programma's die je nodig hebt voor je dagelijks gebruik -of die je nodig hebt om het uitzicht, de werking en de programma's  ervan aan te passen naar je eigen smaak."
 
-#: features.html:51
+#: features.html:53
 msgid "Built-In Security"
 msgstr "Ingebouwde beveiliging"
 
-#: features.html:57
+#: features.html:59
 msgid ""
 "Ubuntu MATE is designed with security in mind. Unlike operating systems that"
 " update only once a month, Ubuntu MATE receives updates continuously. The "
@@ -58,9 +59,9 @@ msgid ""
 "Security updates for all of its installed applications are also provided on "
 "the same schedule. This ensures that you have the latest protection for all "
 "of your computer's software -- as soon as it's available!"
-msgstr ""
+msgstr "Ubuntu MATE werd ontworpen met beveiliging in gedachten. In tegenstelling tot besturingssystemen die slechts éénmaal per maand updaten, ontvangt Ubuntu MATE  continu updates. Deze updates omvatten beveiligingspatches voor Ubuntu MATE en alle bijbehorende componenten. Beveiligingsupdates voor alle geïnstalleerde toepassingen gebeuren op hetzelfde schema. Dit zorgt ervoor dat u de nieuwste bescherming voor al uw computer software krijgt zodra deze beschikbaar is!"
 
-#: features.html:73
+#: features.html:75
 msgid ""
 "Ubuntu MATE can get viruses and other infections... but it doesn't. Rapid "
 "and timely updates ensure that there are very few, if any threats to Linux "
@@ -72,17 +73,17 @@ msgid ""
 "without conscious intervention by you, the user. Even if you do accidentally"
 " invite in an infection, chances are it's designed to attack Windows and "
 "won't do much, if any damage to Ubuntu MATE."
-msgstr ""
+msgstr "Ubuntu MATE kunnen virussen en andere infecties... maar hij werkt niet. Snelle en regelmatige updates zorgen ervoor dat er heel weinig of geen bedreiging voor Linux systemen als Ubuntu MATE die nog in het wild. In werkelijkheid zijn er weinig 'openbaar' infecties in de afgelopen 10 jaar die invloed kunnen hebben op Ubuntu MATE. Zij zijn geen bedreiging meer voor iedereen het installeren of gebruiken van een moderne Linux-distributie. Ubuntu MATE is ontworpen om het ontstaan van virussen, root-kits en andere malware kunnen worden geïnstalleerd en uitgevoerd zonder bewuste tussenkomst van de gebruiker. Zelfs als u per ongeluk uitnodigen een infectie, is de kans groot dat het systeem is ontworpen om aanvallen Windows en niet veel, indien schade aan Ubuntu MATE."
 
-#: features.html:93
+#: features.html:95
 msgid ""
 "Another significant security feature of Ubuntu MATE is that its users are "
 "not administrators by default. Administrators (\"root\" users) on any "
 "computer system have permission to do anything they want, including the "
 "ability to damage the system."
-msgstr ""
+msgstr "Een andere belangrijke functie van Ubuntu MATE dat haar gebruikers niet beheerders standaard. Beheerders (\"root\" gebruikers) op een computersysteem toestemming hebben om te doen wat ze willen, inclusief de mogelijkheid om het systeem beschadigen."
 
-#: features.html:97
+#: features.html:99
 msgid ""
 "For example, other operating systems look at the name of a file to determine"
 " which program should open it, then immediately attempt to open it. That "
@@ -94,31 +95,31 @@ msgid ""
 "program that will be run if you give it permission to continue. To be extra "
 "secure, Ubuntu MATE requires you to provide your administrator password "
 "before that permission is granted. Every single time."
-msgstr ""
+msgstr "Bijvoorbeeld andere besturingssystemen kijken naar de naam van een bestand om te bepalen welk programma moet openen, daarna meteen proberen om het te openen. Dat ontwerp maakt het gemakkelijk om een indringer met een aanval op een computer. Ubuntu MATE opent een bestand gebaseerd op wat het bestand is niet gebaseerd op zijn naam. Dus zelfs als een kwaadaardig programma vermommingen zijn identiteit door het gebruik van de naam \"Laatste wilsbeschikking.txt\" Ubuntu MATE herkent het bestand als een programma. Het systeem geeft een melding dat het bestand niet een tekstbestand, maar dat is een programma dat wordt uitgevoerd als u hem geeft toestemming om door te gaan. Extra beveiligde, Ubuntu MATE vereist om uw beheerderswachtwoord voordat hiervoor toestemming heeft verleend. Elke keer weer."
 
-#: features.html:115
+#: features.html:117
 msgid "Powerful Applications"
-msgstr ""
+msgstr "Krachtige toepassingen"
 
-#: features.html:116
+#: features.html:118
 msgid ""
 "While MATE Desktop provides the essential user interfaces to control and use"
 " a computer, Ubuntu MATE adds a collection of additional applications to "
 "turn your computer into a truly powerful workstation."
-msgstr ""
+msgstr "Terwijl MATE Desktop biedt essentiële gebruikersinterfaces te beheersen en een computer gebruiken, Ubuntu MATE voegt een verzameling aanvullende toepassingen op uw computer omvormen tot een echt krachtig workstation."
 
-#: features.html:121
+#: features.html:123
 msgid "Productivity"
 msgstr "Productiviteit"
 
-#: features.html:130
+#: features.html:132
 msgid ""
 "Firefox delivers safe, easy web browsing. A familiar user interface, "
 "enhanced security features including protection from online identity theft, "
 "and an integrated search to let you get the most out of the web."
 msgstr "Firefox brengt veilig, gemakkelijk webbrowsen, een vertrouwde gebruikersomgeving, verhoogde beveiligingskenmerken inclusief bescherming voor online identiteitsdiefstal, en een geïntegreerde zoekfunctie om je de beste surf-ervaring te geven."
 
-#: features.html:142
+#: features.html:144
 msgid ""
 "Thunderbird is a full-featured email, RSS and newsgroup client that makes "
 "emailing safer, faster and easier than ever before. It supports different "
@@ -127,174 +128,174 @@ msgid ""
 "filter, advanced search and indexing capabilities, and offers easy "
 "organization of mails with tagging and virtual folders. It also features "
 "unrivalled extensibility."
-msgstr ""
+msgstr "Thunderbird is een volwaardige e-mail, RSS en nieuwsgroep client maakt e-mailen veiliger, sneller en eenvoudiger dan ooit tevoren. Het ondersteunt verschillende emailaccounts (POP, IMAP, Gmail), heeft een eenvoudige mail account setup wizard one-click adresboek tabbed interface, een geïntegreerd leren spamfilter uitgebreid zoeken en indexeringsfuncties en biedt eenvoudige organisatie van mails met tagging en virtuele mappen. Het beschikt ook over een ongekende uitbreidingsmogelijkheden."
 
-#: features.html:158
+#: features.html:160
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
 "powerful tools let you unleash your creativity and grow your productivity. "
 "LibreOffice embeds several applications that make it the most powerful Free "
 "and Open Source Office suite on the market:"
-msgstr ""
+msgstr "LibreOffice is, een volledig uitgerust kantoorsoftwarepakket verkrijgbaar dat een buurt vervanging voor Microsoft(R) Office; haar schone interface en krachtige hulpmiddelen kunt u uw creativiteit de vrije loop en breid uw productiviteit. LibreOffice is uitgerust met diverse toepassingen die het de krachtigste vrije en open source office suite op de markt:"
 
-#: features.html:165
+#: features.html:167
 msgid "Writer, the word processor."
 msgstr "Writer, de tekstverwerker."
 
-#: features.html:166
+#: features.html:168
 msgid "Calc, the spreadsheet application."
 msgstr "Calc, het rekenblad."
 
-#: features.html:167
+#: features.html:169
 msgid "Impress, the presentation engine."
 msgstr "Impress, het presentatiepakket."
 
-#: features.html:168
-msgid "Draw, the drawing and flowcharting application"
-msgstr "Draw, het tekenpakket en flowchart programma."
+#: features.html:170
+msgid "Draw, the drawing and flowcharting application."
+msgstr ""
 
-#: features.html:169
+#: features.html:171
 msgid "Base, the database and database frontend."
 msgstr "Base, de databank en databank frontend."
 
-#: features.html:170
+#: features.html:172
 msgid "Math, for editing mathematics."
 msgstr "Math, het wiskundig programma."
 
-#: features.html:177
+#: features.html:179
 msgid "Entertainment"
 msgstr "Amusement"
 
-#: features.html:183
+#: features.html:185
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
 "inspired by Apple's iTunes, the current version also supports Internet "
 "Radio, iPod integration and generic portable audio player support, Audio CD "
 "burning, Audio CD playback, music sharing, and Podcasts."
-msgstr ""
+msgstr "Rhythmbox is een zeer gebruiksvriendelijk muziek en management programma ondersteunt een breed scala aan audio-indelingen (zoals mp3 en ogg). Aanvankelijk geïnspireerd door Apple's iTunes, de huidige versie ondersteunt ook internetradio, iPod integratie en generieke draagbare audiospeler, audio-CD's, audio-CD's, het delen van muziek en podcasts."
 
-#: features.html:197
+#: features.html:199
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
 "fullscreen mode, and export them to share with others. It is able to manage "
 "a lot of different image formats, also including raw CR2 files."
-msgstr ""
+msgstr "Shotwell is een Digital photo organizer. U kunt foto's importeren vanaf een diskette of camera, indelen op verschillende manieren weergeven in full-venster of fullscreen mode en exporteren met anderen te delen. Het kunnen omgaan met een heleboel verschillende beeldformaten, waaronder ook raw CR2 bestanden."
 
-#: features.html:210
+#: features.html:212
 msgid ""
 "VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
 "DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
 "podcasts, and multimedia streams from various network sources."
-msgstr ""
+msgstr "Shotwell is een Digital photo organizer. U kunt foto's importeren vanaf een diskette van camera, indelen op verschillende manieren weergeven in de modus Volledig venster van fullscreen mode en exporteren met anderen te delen. Het kunnen omgaan met een heleboel verschillende beeldformaten, waaronder ook raw CRtwee bestanden."
 
-#: features.html:214
+#: features.html:216
 msgid ""
 "VLC can also be used as a streaming server that duplicates the stream it "
 "reads and multicasts them through the network to other clients, or serves "
 "them through HTTP."
-msgstr ""
+msgstr "VLC kan ook worden gebruikt als een streaming server die dezelfde stream het leest en verzendt ze via het netwerk naar andere clients of komt hen via HTTP."
 
-#: features.html:217
+#: features.html:219
 msgid ""
 "VLC has support for on-the-fly transcoding of audio and video formats, "
 "either for broadcasting purposes or for movie format transformations."
-msgstr ""
-
-#: features.html:225
-msgid "... And a whole lot more!"
-msgstr ""
+msgstr "VLC heeft ondersteuning voor on-the-fly conversie van audio- en video-indelingen, hetzij voor uitzending of voor filmformaten transformaties."
 
 #: features.html:227
+msgid "... And a whole lot more!"
+msgstr "... En nog veel meer!"
+
+#: features.html:229
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
-msgstr ""
+msgstr "Natuurlijk krijg je ook een firewall, backup, document/photo scanner en printer management opgenomen in Ubuntu MATE. En dit is nog maar het begin. De"
 
-#: features.html:230
+#: features.html:232
 msgid "Software"
 msgstr "Programma"
 
-#: features.html:230
+#: features.html:232
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
 msgstr "secties omvatten best-in-class programma's voor de meeste taken, en een één-klik installatieprogramma voor een"
 
-#: features.html:232
+#: features.html:234
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
-msgstr ""
+msgstr "Dat geeft je toegang tot duizenden toepassingen geschikt voor zowat elke professionele of recreatieve nastreven."
 
-#: features.html:239
+#: features.html:241
 msgid "Games"
-msgstr ""
+msgstr "Games"
 
-#: features.html:245
+#: features.html:247
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
 msgstr "In de laatste paar jaar werd Linux een eerste klas spelplatform dankzij"
 
-#: features.html:248
+#: features.html:250
 msgid "bringing the"
 msgstr ""
 
-#: features.html:250
+#: features.html:252
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
-msgstr ""
+msgstr "Platform voor Linux. Op het moment van schrijven stoom heeft meer dan 1000 hoogwaardige indie en AAA titels beschikbaar voor Linux. Ubuntu MATE is volledig compatibel met stoom voor Linux."
 
-#: features.html:255
+#: features.html:257
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
 "MATE. It doesn't matter if you like flight simulators, motor racing, first "
 "person shooters, jump and run or card games, you'll find something to keep "
 "you entertained."
-msgstr ""
+msgstr "Terwijl Steam is een grote stap voorwaarts voor games op Linux, er zijn ook vele hoogwaardige en plezierige Open Source games beschikbaar voor Ubuntu MATE. Het maakt niet uit of u vluchtsimulatoren, autoracen, first person shooters, Jump and Run of kaartspellen, er is altijd wel iets om je zoet te houden."
 
-#: features.html:265
+#: features.html:267
 msgid "Accessibility"
-msgstr ""
+msgstr "Toegankelijkheid"
 
-#: features.html:271
+#: features.html:273
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
-msgstr ""
+msgstr "Het maken van een toegankelijke besturingssysteem was een belangrijke prioriteit bij de Ubuntu MATE oprichters aanvankelijk ingesteld worden de doelstellingen van het project."
 
-#: features.html:275
+#: features.html:277
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
-msgstr ""
+msgstr "Ubuntu MATE is nooit in staat zou zijn de volledige integratie van ondersteunende technologieën die"
 
-#: features.html:277
+#: features.html:279
 msgid "Sonar GNU/Linux"
-msgstr ""
+msgstr "Echolood GNU/Linux"
 
-#: features.html:278
+#: features.html:280
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
-msgstr ""
+msgstr "Biedt. Maar Ubuntu MATE blijft volgen hun voorsprong zodat Ubuntu MATE is een levensvatbare desktopoplossing waar computer toegang wordt gedeeld binnen een huishouden of bedrijf waar individuele behoeften verschillen."
 
-#: features.html:286
+#: features.html:288
 msgid "Mobile Integration"
-msgstr ""
+msgstr "Mobiele integratie"
 
-#: features.html:292
+#: features.html:294
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "
 "automatically detected and mounted. You can then access the files on it or "
 "sync its contents."
-msgstr ""
+msgstr "Momenteel Ubuntu MATE heeft het essentiële mobile device support je zou verwachten. U kunt een telefoon, mediaspeler of digitale camera en apparaten worden automatisch herkend en bevestigd. U krijgt dan toegang tot de bestanden op het synchroniseren van de inhoud."
