@@ -66,7 +66,7 @@ def goodbye(a=None, b=None):
 
     # Refuse to quit if operations are in progress.
     if dynamicapps.operations_busy:
-        dbg.stdout('[Welcome] Refusing to quit with software changes in progress!', 0, 1)
+        dbg.stdout('Welcome', 'Refusing to quit with software changes in progress!', 0, 1)
         title = string.boutique
         text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
         ok_label = _("OK")
@@ -233,7 +233,7 @@ class SimpleApt(object):
             if not os.path.exists(img_path):
                 img_path = 'package'
 
-            dbg.stdout('Apps', '[Apps] Changed status for "' + self.program_id + '": ' + status, 0, 3)
+            dbg.stdout('Apps', 'Changed status for "' + self.program_id + '": ' + status, 0, 3)
 
             # Show a different notification for Welcome Updates
             if self.program_id == 'ubuntu-mate-welcome' and status == 'exit-success':
@@ -789,9 +789,9 @@ class Strings(object):
         self.undo = str(_("Undo Changes"))
 
         # Applying Changes
-        install_text = str(_("Installing..."))
-        remove_text = str(_("Removing..."))
-        upgrade_text = str(_("Upgrading..."))
+        self.install_text = str(_("Installing..."))
+        self.remove_text = str(_("Removing..."))
+        self.upgrade_text = str(_("Upgrading..."))
 
         # Categories
         self.accessories = str(_("Accessories"))
