@@ -2911,17 +2911,16 @@ class ChangesQueue(object):
             current = 0
             total = len(self.remove_queue)
             for program_id in self.remove_queue:
-                current += 1
                 name = dynamicapps.get_attribute_for_app(program_id, 'name')
                 img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
                 self.ui_update_progress(string.queue_prepare_remove + ' <img src="' + img + '" width="16px" height="16px"/> ' + name, current, total)
                 preinstallation.process_packages(program_id, 'remove', True)
+                current += 1
 
             # Remove each application's packages
             current = 0
             total = len(self.remove_queue)
             for program_id in self.remove_queue:
-                current += 1
                 name = dynamicapps.get_attribute_for_app(program_id, 'name')
                 img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
                 packages = dynamicapps.get_attribute_for_app(program_id, 'remove-packages').split(',')
@@ -2931,6 +2930,7 @@ class ChangesQueue(object):
                 transaction = SimpleApt(packages, 'remove')
                 transaction.remove_packages()
                 check_app_state(self, program_id, 'remove')
+                current += 1
 
         # Install applications next
         if len(self.install_queue) > 0:
@@ -2938,9 +2938,9 @@ class ChangesQueue(object):
             current = 0
             total = len(self.remove_queue)
             for program_id in self.install_queue:
-                current += 1
                 self.ui_update_progress(string.queue_prepare_install + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name'))
                 preinstallation.process_packages(program_id, 'install', True)
+                current += 1
 
             # Update the cache (in case of repository changes)
             if self.must_update_cache:
@@ -2952,7 +2952,6 @@ class ChangesQueue(object):
             current = 0
             total = len(self.install_queue)
             for program_id in self.install_queue:
-                current += 1
                 name = dynamicapps.get_attribute_for_app(program_id, 'name')
                 img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
                 packages = dynamicapps.get_attribute_for_app(program_id, 'install-packages').split(',')
@@ -2962,6 +2961,7 @@ class ChangesQueue(object):
                 transaction = SimpleApt(packages, 'install')
                 transaction.install_packages()
                 check_app_state(self, program_id, 'install')
+                current += 1
 
         # Update UI, but do not unlock until user acknowledges "Finished".
         app.webkit.run_javascript('smoothFade("#queue-busy","#queue-options")')
