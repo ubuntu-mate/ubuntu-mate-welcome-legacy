@@ -1103,7 +1103,6 @@ class AppView(WebKit2.WebView):
         return True
 
     def _do_command(self, cmd):
-      try:
         if cmd.startswith('install-appid?'):
             dynamicapps.modify_app(self, 'install', cmd[14:])
         elif cmd.startswith('remove-appid?'):
@@ -1239,9 +1238,6 @@ class AppView(WebKit2.WebView):
             systemstate.copy_to_clipboard(var)
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
-      except Exception as e:
-          dbg.stdout('Welcome', 'Failed to execute command: ' + cmd, 0, 1)
-          dbg.stdout('Welcome', 'Exception: ' + str(e), 0, 1)
 
 
 ##################################
