@@ -831,9 +831,8 @@ class Strings(object):
         self.queue_remove = str(_("Queued for removal."))
         self.queue_prepare_remove = str(_("Preparing to remove:"))
         self.queue_prepare_install = str(_("Preparing to install:"))
-        self.queue_listing = str(_("Listing packages..."))
-        self.queue_removing = str(_("Removing software..."))
-        self.queue_installing = str(_("Installing software..."))
+        self.queue_removing = str(_("Removing:"))
+        self.queue_installing = str(_("Installing:"))
         self.updating_cache = str(_("Updating cache..."))
         self.verifying_changes = str(_("Verifying software changes..."))
         self.install_success = str(_("Successfully Installed"))
@@ -2890,77 +2889,83 @@ class ChangesQueue(object):
         app.update_page('#queue-error', 'fadeOut')
         app.update_page('.drop', 'hide')
 
-        # Function to compile all the packages together from program IDs.
-        def get_packages(program_id_list, json_attribute):
-            return_packages = []
-            for program_id in program_id_list:
-                packages = dynamicapps.get_attribute_for_app(program_id, json_attribute)
-                for package in packages.split(','):
-                    return_packages.append(package)
-            return return_packages
+        # Function to check whether an application's change was successful.
+        self.bulk_all_good = True
+        def check_app_state(self, program_id, check_for_state):
+            systemstate.reload_cache()
+            installed = dynamicapps.is_app_installed(program_id)
+
+            if installed and check_for_state == 'install':
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.install_success, 'success')
+
+            elif not installed and check_for_state == 'install':
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.install_fail, 'error')
+                self.bulk_all_good = False
+
+            elif not installed and check_for_state == 'remove':
+                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.remove_success, 'success')
+
+            elif installed and check_for_state == 'remove':
+                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.remove_fail, 'error')
+                self.bulk_all_good = False
 
         # Uninstall applications first
         if len(self.remove_queue) > 0:
             # Preconfiguration - delete sources/ppa if applicable
+            current = 0
+            total = len(self.remove_queue)
             for program_id in self.remove_queue:
-                self.ui_update_progress(1, string.queue_prepare_remove + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                current += 1
+                name = dynamicapps.get_attribute_for_app(program_id, 'name')
+                img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
+                self.ui_update_progress(string.queue_prepare_remove + ' <img src="' + img + '" width="16px" height="16px"/> ' + name, current, total)
                 preinstallation.process_packages(program_id, 'remove', True)
 
-            # Compile package lists
-            self.ui_update_progress(2, string.queue_listing)
-            packages = get_packages(self.remove_queue, 'remove-packages')
-            dbg.stdout('Queue', 'Packages for bulk removal: ' + str(packages), 1, 4)
+            # Remove each application's packages
+            current = 0
+            total = len(self.remove_queue)
+            for program_id in self.remove_queue:
+                current += 1
+                name = dynamicapps.get_attribute_for_app(program_id, 'name')
+                img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
+                packages = dynamicapps.get_attribute_for_app(program_id, 'remove-packages').split(',')
 
-            # Bulk remove packages
-            self.ui_update_progress(3, string.queue_removing)
-            transaction = SimpleApt(packages, 'remove')
-            transaction.remove_packages()
+                self.ui_update_progress(string.queue_removing + ' <img src="' + img + '" width="16px" height="16px"/> ' + name, current, total)
+
+                transaction = SimpleApt(packages, 'remove')
+                transaction.remove_packages()
+                check_app_state(self, program_id, 'remove')
 
         # Install applications next
         if len(self.install_queue) > 0:
             # Pre-configuration - add sources/ppa if applicable
+            current = 0
+            total = len(self.remove_queue)
             for program_id in self.install_queue:
-                self.ui_update_progress(4, string.queue_prepare_install + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name') )
+                current += 1
+                self.ui_update_progress(string.queue_prepare_install + ' ' + dynamicapps.get_attribute_for_app(program_id, 'name'))
                 preinstallation.process_packages(program_id, 'install', True)
-
-            # Compile package lists
-            self.ui_update_progress(5, string.queue_listing)
-            packages = get_packages(self.install_queue, 'install-packages')
-            dbg.stdout('Queue', 'Packages for bulk install: ' + str(packages), 1, 4)
 
             # Update the cache (in case of repository changes)
             if self.must_update_cache:
-                self.ui_update_progress(6, string.updating_cache)
+                self.ui_update_progress(string.updating_cache)
                 update_repos()
                 systemstate.reload_cache()
 
-            # Bulk remove packages
-            self.ui_update_progress(7, string.queue_installing)
-            transaction = SimpleApt(packages, 'install')
-            transaction.install_packages()
+            # Remove each application's packages
+            current = 0
+            total = len(self.install_queue)
+            for program_id in self.install_queue:
+                current += 1
+                name = dynamicapps.get_attribute_for_app(program_id, 'name')
+                img  = trans.res_dir + 'img/applications/' + dynamicapps.get_attribute_for_app(program_id, 'img') + '.png'
+                packages = dynamicapps.get_attribute_for_app(program_id, 'install-packages').split(',')
 
-        # Check that all the software was installed successfully.
-        self.ui_update_progress(8, string.verifying_changes)
-        systemstate.reload_cache()
-        all_good = True
+                self.ui_update_progress(string.queue_installing + ' <img src="' + img + '" width="16px" height="16px"/> ' + name, current, total)
 
-        for program_id in self.install_queue:
-            installed = dynamicapps.is_app_installed(program_id)
-            if installed:
-                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.install_success, 'success')
-            else:
-                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.install_fail, 'error')
-                all_good = False
-            dynamicapps.update_app_status(app.webkit, program_id)
-
-        for program_id in self.remove_queue:
-            installed = dynamicapps.is_app_installed(program_id)
-            if not installed:
-                self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.remove_success, 'success')
-            else:
-                self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.remove_fail, 'error')
-                all_good = False
-            dynamicapps.update_app_status(app.webkit, program_id)
+                transaction = SimpleApt(packages, 'install')
+                transaction.install_packages()
+                check_app_state(self, program_id, 'install')
 
         # Update UI, but do not unlock until user acknowledges "Finished".
         app.webkit.run_javascript('smoothFade("#queue-busy","#queue-options")')
@@ -2969,14 +2974,18 @@ class ChangesQueue(object):
         app.update_page('#queue-btn-reset', 'show')
 
         # Show a warning when something didn't go right.
-        if not all_good:
+        if not self.bulk_all_good:
             app.update_page('#queue-error', 'fadeIn')
 
-    def ui_update_progress(self, current_stage, string):
-        total_stages = 8
-        percent = str(int((current_stage / total_stages)*100)) + '%'
-        app.update_page('#queue-bar', 'width', percent)
+    def ui_update_progress(self, string, current=0, total=0):
         app.update_page('#queue-status', 'html', string)
+        if not current == 0:
+            percent = str(int((current / total) * 100)) + '%'
+            app.update_page('#queue-bar', 'width', percent)
+            app.update_page('#queue-bar', 'fadeIn', 'fast')
+        else:
+            percent = '--%'
+            app.update_page('#queue-bar', 'fadeOut', 'fast')
         dbg.stdout('Queue', 'Progress updated: "' + string + '" (' + percent + ')', 1, 4)
 
     def ui_add_card(self, program_id, status):
