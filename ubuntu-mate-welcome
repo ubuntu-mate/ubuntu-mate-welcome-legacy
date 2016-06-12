@@ -2779,6 +2779,7 @@ class ChangesQueue(object):
         # Intended when re-entering the Boutique from the main menu.
         self.install_queue = []
         self.remove_queue = []
+        self.queue_count = 0
         self.must_update_cache = False
 
     def add_item(self, program_id, queue):
@@ -2807,6 +2808,8 @@ class ChangesQueue(object):
             dbg.stdout('Queue', 'Unrecognised request: "' + queue + '" does not exist. "' + program_id + '" ignored.', 0, 1)
             return
 
+        self.queue_count += 1
+        self.ui_update_count()
         dbg.stdout('Queue', 'Added "' + program_id + '" to "' + queue + '" queue.', 1, 3)
 
         # Update UI in application listings.
@@ -2841,6 +2844,8 @@ class ChangesQueue(object):
 
         self.ui_remove_card(program_id)
         dynamicapps.update_app_status(app.webkit, program_id)
+        self.queue_count -= 1
+        self.ui_update_count()
 
         # Is this the last card? Show the help text if so.
         if len(self.install_queue) + len(self.remove_queue) == 0:
@@ -3021,6 +3026,13 @@ class ChangesQueue(object):
         app.update_page('.card-' + program_id, 'slideUp')
         app.update_page('.card-' + program_id, 'attr', 'card-'+program_id, 'card-old-'+program_id)
         app.webkit.run_javascript('setTimeout(function(){ $("#card-old-' + program_id + '").remove(); }, 500);')
+
+    def ui_update_count(self):
+        app.update_page('#navigation-queue-count', 'html', str(self.queue_count))
+        if self.queue_count == 0:
+            app.update_page('#navigation-queue-count', 'addClass', 'empty')
+        else:
+            app.update_page('#navigation-queue-count', 'removeClass', 'empty')
 
     def is_enabled(self):
         enabled = pref.get('enable-queue', False)

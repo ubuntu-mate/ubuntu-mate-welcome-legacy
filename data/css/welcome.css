@@ -1145,3 +1145,23 @@ blockquote.terminal {
     -webkit-transform: scale3d(.1, .1, .1);
   }
 }
+
+#navigation-queue-count {
+  position: absolute;
+  top: 20px;
+  right: 177px;
+  z-index: 100;
+  display: inline-block;
+  padding: 4px 4px;
+  -webkit-border-radius: 8px;
+  font-size: 11px;
+  line-height: 8px;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #3C3B37;
+  color: white;
+}
+
+#navigation-queue-count.empty {
+  opacity: 0.6;
+}
