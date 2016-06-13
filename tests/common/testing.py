@@ -32,6 +32,12 @@ def error(reason):
     else:
         print(' -- ' + reason)
 
+def warning(message):
+    if sys.stdout.isatty():
+        print('\033[93m -- ' + message + '\033[0m')
+    else:
+        print(' -- WARNING: ' + message)
+
 def end():
     global name
     global failed

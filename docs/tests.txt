@@ -16,6 +16,7 @@ Start with:
 
 test.start()          Prints the start of the test log.
 test.error(str)       Prints an error reason and indicates a test failure.
+test.warning(str)     Prints a warning, but isn't serious enough to fail the test.
 test.end()            Prints the end of the test log.
 
 Passed tests return code 0.
