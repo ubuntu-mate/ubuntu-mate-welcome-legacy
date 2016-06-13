@@ -268,7 +268,13 @@
                 "position of the sun. A different color temperature is set",
                 "during night and daytime. During twilight and early morning,",
                 "the color temperature transitions smoothly from night to",
-                "daytime temperature to allow your eyes to slowly adapt."
+                "daytime temperature to allow your eyes to slowly adapt.",
+                "<ul><li><b>Note: </b><i>Redshift assumes that your screen",
+                "will produce light at a color of 6500K when no color",
+                "correction is applied by the program. Thus, 6500K is the",
+                "neutral temperature. Setting the color temperature to a",
+                "value higher than this results in more blue light, and",
+                "setting a lower value will result in more red light.</i></li></ul>"
             ],
             "alternate-to": "f.lux &reg",
             "subcategory": "Cosmetic",
