@@ -2049,6 +2049,14 @@
                     "apt-sources": [
                         "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client CODENAME main"
                     ]
+                },
+                "yakkety": {
+                    "method": "manual",
+                    "source-file": "atlassian-hipchat4",
+                    "apt-key-url": "https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public",
+                    "apt-sources": [
+                        "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client xenial main"
+                    ]
                 }
             },
             "working": true
