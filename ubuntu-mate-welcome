@@ -851,11 +851,14 @@ class AppView(WebKit2.WebView):
         # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
-        systemstate.apt_cache = systemstate.apt_cache
+
+        # Connect signals to application
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
 
+
+        # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
         dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
 
