@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Test ubuntu-mate-welcome locally.
+#
+
 repo_root=$(dirname "$0")
 success=true
 

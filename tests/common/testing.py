@@ -22,7 +22,7 @@ def start():
     if sys.stdout.isatty():
         print('\033[93m\nTest Started: ' + name + '\033[0m')
     else:
-        print('Test Started: ' + name)
+        print('Test Name: ' + name + '\n')
 
 def error(reason):
     global failed
@@ -30,13 +30,13 @@ def error(reason):
     if sys.stdout.isatty():
         print('\033[91m -- ' + reason + '\033[0m')
     else:
-        print(' -- ' + reason)
+        print('ERROR: ' + reason)
 
 def warning(message):
     if sys.stdout.isatty():
         print('\033[93m -- ' + message + '\033[0m')
     else:
-        print(' -- WARNING: ' + message)
+        print('WARNING: ' + message)
 
 def end():
     global name
@@ -47,11 +47,11 @@ def end():
         if sys.stdout.isatty():
             print('\033[91mTEST FAILED: ' + name + '\033[0m')
         else:
-            print('TEST FAILED: ' + name)
+            print('\nTest Failed!')
         exit(1)
     else:
         if sys.stdout.isatty():
             print('\033[92mTest Passed: ' + name + '\033[0m')
         else:
-            print('Test Passed: ' + name)
+            print('\nSuccessfully passed.')
         exit(0)
