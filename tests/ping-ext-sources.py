@@ -18,6 +18,10 @@ import requests
 ###############################################
 test.start()
 
+# Default placeholders for manual entries.
+default_codename = 'xenial'
+default_version  = '16.04'
+
 # Dictonary of URLs. Unique to prevent duplicates.
 # urls["http://example.com"] = 1
 urls = {}
@@ -71,9 +75,14 @@ checklist.sort()
 
 # Check for resources that no longer exist.
 for url in checklist:
-    r = requests.get('http://ubuntu-mate.org/')
-    if r.status_code == 404:
-        test.error("Repository not found: " + url)
+    url = url.replace('OSVERSION', default_version)
+    url = url.replace('CODENAME', default_codename)
+    print("Requesting: " + url + '...', end='')
+    r = requests.get(url)
+    code = r.status_code
+    print(str(code))
+    if code == 404:
+        test.error("Repository not available: " + url)
 
 ###############################################
 # END OF TEST
