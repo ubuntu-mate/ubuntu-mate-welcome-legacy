@@ -2300,6 +2300,34 @@
             },
             "working": true
         },
+        "pidgin": {
+            "name": "Pidgin",
+            "img": "pidgin",
+            "main-package": "pidgin",
+            "launch-command": "pidgin",
+            "install-packages": "pidgin",
+            "remove-packages": "pidgin",
+            "description": [
+                "Pidgin is an easy to use and free chat client used by",
+                "millions. Connect to AIM, MSN, Yahoo, and more chat networks",
+                "all at once. Supports chat networks AIM, Google Talk, ICQ,",
+                "IRC, MSN, XMPP, and more."
+            ],
+            "alternate-to": null,
+            "subcategory": "Instant Messaging",
+            "open-source": true,
+            "url-info": "https://pidgin.im/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "precise,trusty,utopic,vivid,wily,xenial",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "remmina": {
             "name": "Remmina",
             "img": "remmina",
