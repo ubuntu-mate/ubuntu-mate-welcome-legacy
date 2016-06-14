@@ -2,6 +2,9 @@
 
 The Ubuntu MATE Welcome application to greet both new and returning users on their first login.
 
+* **Yakkety** [![Build Status](https://semaphoreci.com/api/v1/lah7/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/lah7/ubuntu-mate-welcome)
+* **Xenial** [![Build Status](https://semaphoreci.com/api/v1/lah7/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/lah7/ubuntu-mate-welcome)
+
 ## Features
 
   * **Introduce new users to the operating system.**
