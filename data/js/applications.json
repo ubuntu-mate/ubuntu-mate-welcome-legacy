@@ -1,5 +1,33 @@
 {
     "Accessories": {
+        "activity-log-manager": {
+            "name": "Activity Log Manager",
+            "img": "activity-log-manager",
+            "main-package": "activity-log-manager",
+            "install-packages": "activity-log-manager",
+            "remove-packages": "activity-log-manager",
+            "launch-command": "activity-log-manager",
+            "description": [
+                "A graphical user interface which lets you control what gets",
+                "logged by Zeitgeist. It supports setting up blacklists according",
+                "to several criteria (such as application or file types),",
+                "temporarily stopping all logging as well as deleting recent events."
+            ],
+            "alternate-to": null,
+            "subcategory": "Privacy",
+            "open-source": true,
+            "url-info": "https://launchpad.net/activity-log-manager",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "convertall": {
             "name": "ConvertAll",
             "img": "convertall",
