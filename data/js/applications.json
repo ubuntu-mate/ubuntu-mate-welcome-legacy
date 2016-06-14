@@ -4261,6 +4261,35 @@
                 }
             },
             "working": true
+        },
+        "youtube-dlg": {
+            "name": "YouTube Downloader",
+            "img": "youtube-dlg",
+            "main-package": "youtube-dlg",
+            "launch-command": "youtube-dl-gui",
+            "install-packages": "youtube-dl,youtube-dlg",
+            "remove-packages": "youtube-dl,youtube-dlg",
+            "description": [
+                "A front-end GUI of the popular youtube-dl, which can download videos from",
+                "YouTube, and hundreds of other sites, that do not provide direct links to the videos",
+                "served."
+            ],
+            "alternate-to": null,
+            "subcategory": "Video Production",
+            "open-source": true,
+            "url-info": "https://github.com/MrS0m30n3/youtube-dl-gui",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "xenial,aykkety",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:flexiondotorg/youtube-dl-gui",
+                    "source-file": "flexiondotorg-ubuntu-youtube-dl-gui-CODENAME"
+                }
+            },
+            "working": true
         }
     },
     "SysTools": {
