@@ -16,6 +16,11 @@ import json
 ###############################################
 test.start()
 
+valid_distro_codenames = [
+                          'precise', 'trusty', 'utopic', 'vivid',
+                          'wily', 'xenial', 'yakkety'
+                         ]
+
 # Load Applications JSON
 json_path = os.path.join(test.repo_root, 'data/js/applications.json' )
 try:
@@ -102,7 +107,6 @@ for category in categories:
 
         # Check that there is a valid arch specified for applications.
         arch_check = app['arch'].split(',')
-        arch_OK = False
         for arch in arch_check:
             if arch == 'i386':
                 pass
@@ -113,7 +117,20 @@ for category in categories:
             elif arch == 'powerpc':
                 pass
             else:
-                test.error('Unknown architecture: "' + arch + '" for Program ID "' + program_id + '"')
+                test.error('Unknown architecture: "{0}" for Program ID "{1}"'.format(arch, program_id))
+
+        # Check for valid distribution releases.
+        distro_check = app['releases'].split(',')
+        for release in distro_check:
+            matched = False
+            for codename in valid_distro_codenames:
+                if codename == release:
+                    matched = True
+                    break
+                else:
+                    bad_name = release
+            if not matched:
+                test.error('Unknown release: "{0}" for Program ID "{1}"'.format(bad_name, program_id))
 
         # Check for no spaces in package names.
         ## For regular packages
