@@ -3199,6 +3199,35 @@
             },
             "working": true
         },
+        "d-feet": {
+            "name": "d-feet",
+            "img": "d-feet",
+            "main-package": "d-feet",
+            "launch-command": "d-feet",
+            "install-packages": "d-feet",
+            "remove-packages": "d-feet",
+            "description": [
+                "A D-Bus debugger that allow you to,",
+                "view names on the session and system bus,",
+                "view exported objects, interfaces, methods and signals,",
+                "view the full command line of services on the bus and",
+                "execute methods with parameters on the bus and see their return values."
+            ],
+            "alternate-to": null,
+            "subcategory": "Debugger",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Apps/DFeet",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "geany": {
             "name": "Geany",
             "img": "geany",
