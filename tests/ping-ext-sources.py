@@ -22,6 +22,12 @@ test.start()
 default_codename = 'xenial'
 default_version  = '16.04'
 
+# Skipped Checks (Program IDs)
+skipped_ids = [
+               'google-chrome',     # Purposefully 404's
+               'emby',              # No 16.04 source
+              ]
+
 # Dictonary of URLs. Unique to prevent duplicates.
 # urls["http://example.com"] = 1
 urls = {}
@@ -43,6 +49,18 @@ for category in categories:
     category_items.sort()
     for program_id in category_items:
         app = index[category][program_id]
+
+        if app['working'] == False:
+            continue
+
+        skipped = False
+        for skip in skipped_ids:
+            if program_id == skip:
+                skipped = True
+
+        if skipped:
+            continue
+
         preinst = list(app['pre-install'].keys())
         for distro in preinst:
             method = app['pre-install'][distro]['method']
