@@ -1,0 +1,33 @@
+
+Ubuntu MATE Welcome Tests
+
+
+Test scripts are to be written in Python and placed in `tests/`
+
+
+=== Import ===
+
+Start with:
+
+    import common.testing as test
+
+
+=== Functions ===
+
+test.start()          Prints the start of the test log.
+test.error(str)       Prints an error reason and indicates a test failure.
+test.warning(str)     Prints a warning, but isn't serious enough to fail the test.
+test.end()            Prints the end of the test log.
+
+Passed tests return code 0.
+Failed tests return code 1.
+
+The continuious integration will recognise these exit codes to
+determine if a commit or pull request is suitable for merging.
+
+
+=== Useful Variables ===
+
+test.name             String containing name of test.
+test.failed           Boolean indicating success or failure.
+test.repo_root        String containing the top-level folder where the repository is located.

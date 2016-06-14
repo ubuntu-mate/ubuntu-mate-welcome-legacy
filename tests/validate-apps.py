@@ -2,71 +2,35 @@
 #
 #  Validates the applications saved in the Boutique database.
 #
-#  Test written by Luke Horwell
+#  (C) Luke Horwell, Revised Jun 2016
 #
 
-test = 'Index Validation'
+import common.testing as test
+test.name = 'Index Validation'
 
 import os
-import sys
-import signal
-import inspect
 import json
-
-current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
-json_path = os.path.join(current_folder, '../data/js/applications.json' )
-test_failed = False
-
-# Prevent lock-up on CTRL+C
-signal.signal(signal.SIGINT, signal.SIG_DFL)
-
-# When tests fail.
-def failed(reason):
-    global test
-    global test_failed
-    test_failed = True
-    if sys.stdout.isatty():
-        print('\033[91m -- ' + reason)
-    else:
-        print(' -- ' + reason)
-
-def test_results():
-    global test
-    global test_failed
-    # Did the test succeed?
-    if test_failed == True:
-        if sys.stdout.isatty():
-            print('\033[91mTEST FAILED: ' + test)
-        else:
-            print('TEST FAILED: ' + test)
-        exit(1)
-    else:
-        if sys.stdout.isatty():
-            print('\033[92mTest Passed: ' + test)
-        else:
-            print('Test Passed: ' + test)
-        exit(0)
-
-# Silence please!
-if sys.stdout.isatty():
-    print('\033[93m\nTest Started: ' + test + '\033[0m')
-else:
-    print('Test Started: ' + test)
-
 
 ###############################################
 # START OF TEST
 ###############################################
+test.start()
+
+valid_distro_codenames = [
+                          'precise', 'trusty', 'utopic', 'vivid',
+                          'wily', 'xenial', 'yakkety'
+                         ]
 
 # Load Applications JSON
+json_path = os.path.join(test.repo_root, 'data/js/applications.json' )
 try:
     with open(json_path) as data_file:
         index = json.load(data_file)
 except Exception as reason:
-    failed('Syntax Error in "applications.json": ' + str(reason))
+    test.error('Syntax Error in "applications.json": ' + str(reason))
     # The test can't continue.
-    exit(1)
-
+    test.error('Cannot open applications.json due to load error!')
+    test.end()
 
 # Check each application in index for correct data structure
 categories = list(index.keys())
@@ -82,25 +46,25 @@ for category in categories:
             try:
                 app[variable]
             except:
-                failed('Missing required data: "' + variable + '" for Program ID "' + program_id + '"')
+                test.error('Missing required data: "' + variable + '" for Program ID "' + program_id + '"')
 
         # Program IDs should only contain alphumerical characters or numbers or dashes in lowercase.
         for char in program_id:
             if char not in 'qwertyuiopasdfghjklzxcvbnm1234567890-':
-                failed('Non-alphumeric lowercase characters (a-z 0-9 -) found for: "' + program_id + '"')
+                test.error('Non-alphumeric lowercase characters (a-z 0-9 -) found for: "' + program_id + '"')
 
         # Should not start or end with a dash.
         if program_id[:1] == '-':
-            failed('ID cannot start with dash: "' + program_id + '"')
+            test.error('ID cannot start with dash: "' + program_id + '"')
 
         if program_id[-1:] == '-':
-            failed('ID cannot end with dash: "' + program_id + '"')
+            test.error('ID cannot end with dash: "' + program_id + '"')
 
         # Check data types are consistent for strings.
         for variable in ['name', 'img', 'main-package', 'install-packages', 'remove-packages', 'subcategory', 'arch', 'releases']:
             try:
                 if not type(app[variable]) is str:
-                    failed('Data must be string: "' + variable + '" for Program ID "' + program_id + '"')
+                    test.error('Data must be string: "' + variable + '" for Program ID "' + program_id + '"')
             except:
                 pass
 
@@ -108,7 +72,7 @@ for category in categories:
         for variable in ['upgradable', 'boolean']:
             try:
                 if not type(app[variable]) is bool:
-                    failed('Data must be boolean: "' + variable + '" for Program ID "' + program_id + '"')
+                    test.error('Data must be boolean: "' + variable + '" for Program ID "' + program_id + '"')
             except:
                 pass
 
@@ -117,7 +81,7 @@ for category in categories:
             for variable in ['description']:
                 try:
                     if not type(app[variable]) is list:
-                        failed('Data must be list: "' + variable + '" for Program ID "' + program_id + '"')
+                        test.error('Data must be list: "' + variable + '" for Program ID "' + program_id + '"')
                 except:
                     pass
 
@@ -127,9 +91,9 @@ for category in categories:
         except:
             img = 'null'
 
-        path = os.path.join(current_folder, '../data/img/applications/', img + '.png' )
+        path = os.path.join(test.repo_root, 'data/img/applications/', img + '.png' )
         if not os.path.exists(path):
-            failed('Missing icon: "' + path + '" for Program ID "' + program_id + '"')
+            test.error('Missing icon: "' + path + '" for Program ID "' + program_id + '"')
 
         # Is there pre-install info?
         try:
@@ -137,13 +101,12 @@ for category in categories:
             try:
                 app['pre-install']['all']
             except:
-                failed('Missing pre-install data for Program ID "' + program_id + '". "all": { "method": "skip" } must be explicitly stated. ')
+                test.error('Missing pre-install data for Program ID "' + program_id + '". "all": { "method": "skip" } must be explicitly stated. ')
         except:
-            failed('Missing pre-install information for Program ID "' + program_id + '!"')
+            test.error('Missing pre-install information for Program ID "' + program_id + '!"')
 
         # Check that there is a valid arch specified for applications.
         arch_check = app['arch'].split(',')
-        arch_OK = False
         for arch in arch_check:
             if arch == 'i386':
                 pass
@@ -154,7 +117,20 @@ for category in categories:
             elif arch == 'powerpc':
                 pass
             else:
-                failed('Unknown architecture: "' + arch + '" for Program ID "' + program_id + '"')
+                test.error('Unknown architecture: "{0}" for Program ID "{1}"'.format(arch, program_id))
+
+        # Check for valid distribution releases.
+        distro_check = app['releases'].split(',')
+        for release in distro_check:
+            matched = False
+            for codename in valid_distro_codenames:
+                if codename == release:
+                    matched = True
+                    break
+                else:
+                    bad_name = release
+            if not matched:
+                test.error('Unknown release: "{0}" for Program ID "{1}"'.format(bad_name, program_id))
 
         # Check for no spaces in package names.
         ## For regular packages
@@ -163,7 +139,7 @@ for category in categories:
                 packages = app[list_data]
                 search = packages.find(' ')
                 if search is not -1:
-                    failed('Whitespace found: "' + list_data + '" for "' + program_id + '".')
+                    test.error('Whitespace found: "' + list_data + '" for "' + program_id + '".')
             except:
                 # That package list doesn't exist, depends if it's an upgrade package or not.
                 pass
@@ -172,5 +148,4 @@ for category in categories:
 ###############################################
 # END OF TEST
 ###############################################
-
-test_results()
+test.end()
