@@ -851,6 +851,31 @@
             },
             "working": true
         },
+        "aisleriot": {
+            "name": "Desktop Games",
+            "img": "aisleriot",
+            "main-package": "gnome-cards-data",
+            "launch-command": null,
+            "install-packages": "aisleriot,gnome-cards-data,gnome-mahjongg,gnome-mines,gnome-sudoku,branding-ubuntu",
+            "remove-packages": "aisleriot,gnome-cards-data,gnome-mahjongg,gnome-mines,gnome-sudoku,branding-ubuntu",
+            "description": [
+                "A collection of more desktop games including 80 popular card games, Mahjongg, Mines and Sudoku."
+            ],
+            "alternate-to": null,
+            "subcategory": "Card and Board Games",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/action/show/Attic/Games",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "hedgewars": {
             "name": "Hedgewars",
             "img": "hedgewars",
