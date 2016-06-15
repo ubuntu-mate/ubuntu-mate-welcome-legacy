@@ -986,6 +986,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'codecs')
             dynamicapps.update_app_status(self, 'firmware')
             dynamicapps.update_app_status(self, 'hp-printer')
+            dynamicapps.update_app_status(self, 'solaar')
             dynamicapps.update_app_status(self, 'keyboard-chinese')
             dynamicapps.update_app_status(self, 'keyboard-japanese')
             dynamicapps.update_app_status(self, 'keyboard-korean')
