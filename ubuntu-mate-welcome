@@ -942,42 +942,6 @@ class AppView(WebKit2.WebView):
             else:
                 app.update_page('#update-notification', 'hide')
 
-            # Disable confetti on machines that may suffer performance issues.
-            if systemstate.arch == 'armhf':
-                self.run_javascript('var disable_confetti = true;')
-            elif systemstate.arch == 'powerpc':
-                self.run_javascript('var disable_confetti = true;')
-            else:
-                self.run_javascript('var disable_confetti = false;')
-
-            # Special event strings.
-            self.run_javascript('var days_in = "&zwnj;in&zwnj;"')
-            self.run_javascript('var future_days = "&zwnj;days.&zwnj;"')
-            self.run_javascript('var days_ago = "&zwnj;days ago.&zwnj;"')
-            self.run_javascript('var yesterday = "&zwnj;yesterday.&zwnj;"')
-            self.run_javascript('var tomorrow = "&zwnj;tomorrow.&zwnj;"')
-            self.run_javascript('var years_ago = "&zwnj;years ago today.&zwnj;"')
-            self.run_javascript('var today_string = "&zwnj;today.&zwnj;"')
-            self.run_javascript('var years_old = "&zwnj;years old&zwnj;"')
-
-            self.run_javascript('var flavour_anniversary_future  = "&zwnj;Ubuntu MATE\'s official flavour anniversary&zwnj;"')
-            self.run_javascript('var flavour_anniversary_present = "&zwnj;Ubuntu MATE become an official flavour&zwnj;"')
-            self.run_javascript('var flavour_anniversary_past    = "&zwnj;Ubuntu MATE\'s official flavour anniversary was&zwnj;"')
-
-            self.run_javascript('var project_birthday_future  = "&zwnj;Ubuntu MATE will be&zwnj;"')
-            self.run_javascript('var project_birthday_present = "&zwnj;Ubuntu MATE is&zwnj;"')
-            self.run_javascript('var project_birthday_past    = "&zwnj;Ubuntu MATE turned&zwnj;"')
-
-            self.run_javascript('var project_birthday         = "&zwnj;Happy Birthday!&zwnj;"')
-            self.run_javascript('var celebrate_new_year       = "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;"')
-
-            self.run_javascript('var project_release_future   = "&zwnj;will be released&zwnj;"')
-            self.run_javascript('var project_release_present  = "&zwnj;is released today!&zwnj;"')
-            self.run_javascript('var project_release_past     = "&zwnj;was released&zwnj;"')
-            self.run_javascript('var project_release_thanks   = "&zwnj;Thank you for testing&zwnj;"')
-
-            self.run_javascript('checkDates();')
-
         ### Splash ###
         if app.current_page == 'splash.html':
             self.do_smooth_footer = True
