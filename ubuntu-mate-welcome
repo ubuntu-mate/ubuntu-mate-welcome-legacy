@@ -867,33 +867,6 @@ class AppView(WebKit2.WebView):
 
     def _push_config(self):
         ### Global - On all pages ###
-        if systemstate.session_type == 'live':
-            # If this is a Live session (booted from ISO) show the
-            # 'Install OS' button, if running on an installed system show
-            # the 'Install Software' button.
-            app.update_page('#install', 'hide')
-            app.update_page('#software', 'hide')
-            app.update_page('.live-session', 'hide')
-            app.update_page('.live-session-only', 'show')
-        else:
-            app.update_page('#install', 'hide')
-            app.update_page('#software', 'show')
-            app.update_page('.live-session', 'show')
-            app.update_page('.live-session-only', 'hide')
-
-        # If started from a Raspberry Pi.
-        if systemstate.session_type == 'pi':
-            app.update_page('.rpi-only', 'show')
-        else:
-            app.update_page('.rpi-only', 'hide')
-
-        # Display warnings if the user is not connected to the internet.
-        if systemstate.is_online:
-            app.update_page('.offline', 'hide')
-            app.update_page('.online', 'show')
-        else:
-            app.update_page('.offline', 'show')
-            app.update_page('.online', 'hide')
 
         # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
@@ -903,6 +876,27 @@ class AppView(WebKit2.WebView):
         # Do not show the Close button in Boutique mode.
         if not arg.jump_software_page:
             app.update_page('#footer-global-right', 'html', app.footer_close)
+
+        # If this is a live session, adapt the UI.
+        if systemstate.session_type == 'live':
+            if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
+                app.update_page('#install', 'hide')
+                app.update_page('#software', 'hide')
+                app.update_page('.live-session', 'hide')
+                app.update_page('.live-session-only', 'show')
+        else:
+            app.update_page('#install', 'hide')
+            app.update_page('#software', 'show')
+            app.update_page('.live-session', 'show')
+            app.update_page('.live-session-only', 'hide')
+
+        # Display warnings if the user is not connected to the internet.
+        if systemstate.is_online:
+            app.update_page('.offline', 'hide')
+            app.update_page('.online', 'show')
+        else:
+            app.update_page('.offline', 'show')
+            app.update_page('.online', 'hide')
 
         # Smoothly fade in the footer links between pages.
         #   splash → index
@@ -919,7 +913,7 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'index.html':
             app.update_page('#os_version', 'html', systemstate.os_version)
 
-            # Show Welcome at logon state
+            # Show Welcome at login state
             if systemstate.autostart:
                 app.update_page('#autostart', 'addClass', 'fa-check-square')
                 app.update_page('#autostart', 'removeClass', 'fa-square')
@@ -933,6 +927,12 @@ class AppView(WebKit2.WebView):
                 app.update_page('#software', 'hide')
                 app.update_page('#introduction', 'addClass', 'btn-success')
                 app.update_page('#community', 'addClass', 'btn-success')
+
+            # Show Raspberry Pi menu button.
+            if systemstate.session_type == 'pi':
+                app.update_page('.rpi-only', 'show')
+            else:
+                app.update_page('.rpi-only', 'hide')
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
             app.update_page('#update-subscribing', 'hide')
