@@ -1009,6 +1009,13 @@ class AppView(WebKit2.WebView):
             # Pass 'Servers' variable used for one-click server links.
             self.run_javascript('var server_string = "' + _("Servers") + '"')
 
+            # Are we running on a non-Ubuntu MATE system?
+            # Show a warning on the first visit.
+            if not systemstate.apt_cache['ubuntu-mate-desktop'].is_installed or not systemstate.apt_cache['ubuntu-mate-core'].is_installed:
+                if not pref.get("boutique-warning-seen", False):
+                    self._do_command('message?boutique-on-other-distro')
+                    pref.set("boutique-warning-seen", True)
+
             # Dynamically load application lists.
             dynamicapps.populate_categories(self)
             dynamicapps.update_all_app_status(self)
@@ -1053,6 +1060,37 @@ class AppView(WebKit2.WebView):
             self.run_javascript('short_oct = "' + _("Oct") + '"')
             self.run_javascript('short_nov = "' + _("Nov") + '"')
             self.run_javascript('short_dec = "' + _("Dec") + '"')
+
+        ### Message ###
+        if app.current_page == 'message.html':
+            """ Displays one-time information. """
+            msg_id = app.msg_to_display
+            # Which message to display?
+            if not msg_id:
+                dbg.stdout("Welcome", "No message ID set! Returning to main menu.", 0, 1)
+                app.webkit.run_javascript("smoothPageFade('index.html')")
+                return
+            elif msg_id == "boutique-on-other-distro":
+                nav_title = _("Unsupported Distribution")
+                body_title = _("Your mileage may wary.")
+                body_text = _("Software Boutique is designed for Ubuntu MATE, but it appears you are " + \
+                       "running a different distribution.") + '</p><p>' + _("While a large selection of software " + \
+                       "will work on other Ubuntu-based distributions, we cannot guarantee " + \
+                       "our featured picks will work flawlessly on your system.") + '</p><p>' + \
+                       '<span class="fa fa-info-circle"></span> ' + _("This message will not be shown again.")
+                image = "img/welcome/boutique-on-other-distro.png"
+                target = "software.html"
+            else:
+                dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
+                app.webkit.run_javascript("smoothPageFade('index.html')")
+                return
+
+            # Push message contents to page.
+            app.update_page('#navigation-title', 'html', nav_title)
+            app.update_page('#message-title', 'html', body_title)
+            app.update_page('#message-body', 'html', body_text)
+            app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
+            app.update_page('#message-link', 'html', "<a class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</a>".format(target, _("Continue")))
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
@@ -1204,6 +1242,9 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('clipboard'):
             var = cmd.split('?')[1]
             systemstate.copy_to_clipboard(var)
+        elif cmd.startswith('message'):
+            app.msg_to_display = cmd.split('?')[1]
+            self.run_javascript("smoothPageFade('message.html')")
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
