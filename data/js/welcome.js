@@ -532,13 +532,13 @@ if ( current_page == 'splash-boutique.html' ) {
       $('#Text1').hide();
       $('#Text1').css('opacity','');
       $('#Text1').fadeIn(750);
-    }, 150);
+    }, 100);
 
     setTimeout(function(){
       $('#Text2').hide();
       $('#Text2').css('opacity','');
       $('#Text2').fadeIn(750);
-    }, 450);
+    }, 200);
 }
 
 
