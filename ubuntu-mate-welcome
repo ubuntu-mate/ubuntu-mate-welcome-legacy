@@ -85,7 +85,6 @@ def goodbye(a=None, b=None):
         # Be quite forceful, particularly those child screenshot windows.
         exit()
 
-
 def set_proc_title(name=None):
     '''Set the process title'''
 
@@ -102,7 +101,6 @@ def set_proc_title(name=None):
 
     return ret
 
-
 def whereami():
     """ Determine data source """
     current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
@@ -117,12 +115,20 @@ def whereami():
         sys.exit(1)
     return data_path
 
-
 def notify_send(title, description, icon_path):
     # Sends a system notification to the user.
     Notify.init(title)
     notification=Notify.Notification.new(title, description, icon_path)
     notification.show()
+
+def run_external_command(command, with_shell=False):
+    # Runs external commands and cleans up the output.
+    if with_shell:
+        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
+    else:
+        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
+    output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","\n")
+    return output
 
 
 ##################################
@@ -1680,15 +1686,6 @@ class SystemState(object):
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
             app.update_page('#spec'+element, 'html', html_tag)
-
-        # Collect basic system information
-        def run_external_command(command, with_shell=False):
-            if with_shell:
-                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
-            else:
-                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
-            output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","")
-            return output
 
         ## Distro
         try:
