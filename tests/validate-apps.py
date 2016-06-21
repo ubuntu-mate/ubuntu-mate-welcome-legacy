@@ -38,11 +38,18 @@ categories.sort()
 for category in categories:
     category_items = list(index[category].keys())
     category_items.sort()
+
     for program_id in category_items:
         app = index[category][program_id]
 
+        # Known Repositories listing contains minimal data.
+        if category == 'KnownRepos':
+            required_vars = ["name", "img", "pre-install"]
+        else:
+            required_vars = ['name', 'img', 'main-package', 'description', 'subcategory', 'open-source', 'url-info', 'arch', 'releases', 'working']
+
         # Check for required variables.
-        for variable in ['name', 'img', 'main-package', 'description', 'subcategory', 'open-source', 'url-info', 'arch', 'releases', 'working']:
+        for variable in required_vars:
             try:
                 app[variable]
             except:
@@ -59,6 +66,30 @@ for category in categories:
 
         if program_id[-1:] == '-':
             test.error('ID cannot end with dash: "' + program_id + '"')
+
+        # Does an icon exist for notifications?
+        try:
+            img = app['img']
+        except:
+            img = 'null'
+
+        path = os.path.join(test.repo_root, 'data/img/applications/', img + '.png' )
+        if not os.path.exists(path):
+            test.error('Missing icon: "' + path + '" for Program ID "' + program_id + '"')
+
+        # Is there pre-install info?
+        try:
+            app['pre-install']
+            try:
+                app['pre-install']['all']
+            except:
+                test.error('Missing pre-install data for Program ID "' + program_id + '". "all": { "method": "skip" } must be explicitly stated. ')
+        except:
+            test.error('Missing pre-install information for Program ID "' + program_id + '!"')
+
+        ### If this is the "KnownRepos" category, that's all.
+        if category == "KnownRepos":
+            continue
 
         # Check data types are consistent for strings.
         for variable in ['name', 'img', 'main-package', 'install-packages', 'remove-packages', 'subcategory', 'arch', 'releases']:
@@ -84,26 +115,6 @@ for category in categories:
                         test.error('Data must be list: "' + variable + '" for Program ID "' + program_id + '"')
                 except:
                     pass
-
-        # Does an icon exist for notifications?
-        try:
-            img = app['img']
-        except:
-            img = 'null'
-
-        path = os.path.join(test.repo_root, 'data/img/applications/', img + '.png' )
-        if not os.path.exists(path):
-            test.error('Missing icon: "' + path + '" for Program ID "' + program_id + '"')
-
-        # Is there pre-install info?
-        try:
-            app['pre-install']
-            try:
-                app['pre-install']['all']
-            except:
-                test.error('Missing pre-install data for Program ID "' + program_id + '". "all": { "method": "skip" } must be explicitly stated. ')
-        except:
-            test.error('Missing pre-install information for Program ID "' + program_id + '!"')
 
         # Check that there is a valid arch specified for applications.
         arch_check = app['arch'].split(',')
