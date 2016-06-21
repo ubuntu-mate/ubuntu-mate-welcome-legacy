@@ -5404,5 +5404,29 @@
             },
             "working": true
         }
+    },
+    "KnownRepos": {
+        "mate-14": {
+            "name": "MATE 1.14 Upgrade for Xenial",
+            "img": "system",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntu-mate-dev/xenial-mate",
+                    "source-file": ""
+                }
+            }
+        },
+        "ubuntu-wine": {
+            "name": "Ubuntu Wine Repository",
+            "img": "wine",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntu-wine/ppa",
+                    "source-file": ""
+                }
+            }
+        }
     }
 }

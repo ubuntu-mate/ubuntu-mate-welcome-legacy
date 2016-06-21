@@ -797,11 +797,18 @@ class Strings(object):
         self.website = str(_("Website"))
         self.screenshot = str(_("Screenshot"))
         self.source = str(_("Source"))
+        self.repo_main = str(_("Ubuntu Repository"))
+        self.repo_universe = str(_("Ubuntu Community Maintained Repository"))
+        self.repo_restricted = str(_("Ubuntu Proprietary Drivers Repository"))
+        self.repo_multiverse = str(_("Ubuntu Non-Free Repository"))
         self.repo_partner = str(_("Canonical Partner Repository"))
-        self.repo_multiverse = str(_("Ubuntu Multiverse Repository"))
-        self.repo_ubuntu = str(_("Ubuntu Repository"))
         self.unknown = str(_('Unknown'))
         self.undo = str(_("Undo Changes"))
+
+        # Repository Listings
+        self.repo_unknown = str(_("External Repository"))
+        self.head_software = str(_("Software"))
+        self.head_source = str(_("Source"))
 
         # Applying Changes
         self.install_text = str(_("Installing..."))
@@ -1296,6 +1303,8 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('message'):
             app.msg_to_display = cmd.split('?')[1]
             self.run_javascript("smoothPageFade('message.html')")
+        elif cmd == 'list-repos':
+            dynamicapps.populate_repos()
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
@@ -2041,6 +2050,18 @@ class SystemState(object):
         clipboard.store()
         dbg.stdout('Clipboard', 'Copied contents of: ' + var, 1, 2)
 
+    def get_system_repository_state(self, repo):
+        # Used to determine if a system repository is enabled.
+        # E.g. "main", "multiverse".
+        raw = run_external_command("grep '" + self.codename + " " + repo + "' /etc/apt/sources.list | grep -v 'deb-src' | grep -v 'cdrom'", True)
+        # Check for a commented line.
+        if raw[:1] != '#':
+            dbg.stdout("Repository", "Checked: '" + repo + "' = Enabled", 2, 3)
+            return True
+        else:
+            dbg.stdout("Repository", "Checked: '" + repo + "' = Disabled", 2, 3)
+            return False
+
 
 class DynamicApps(object):
     def __init__(self):
@@ -2143,7 +2164,7 @@ class DynamicApps(object):
         source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
         source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_partner
         source_multiverse = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_multiverse
-        source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_ubuntu
+        source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_main
 
         # "Normal" packages that can be installed/removed by the user.
         if self.app_open_source:
@@ -2812,6 +2833,134 @@ class DynamicApps(object):
             # If non-free filtering is enabled, inform of how many apps were hidden.
             if self.hide_non_free and hidden_results > 0:
                 app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</a>')
+
+    def populate_repos(self):
+        app.webkit.run_javascript('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
+        app.update_page('#repo-table', 'hide')
+        app.update_page('#repo-table', 'html', '')
+        app.update_page('#repo-busy', 'slideDown')
+
+        def repo_thread(self):
+            raw_repo = run_external_command("egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*", True)
+            html_buffer = ' '
+            url_index = {}
+
+            # Gather a list of applications and their URLs.
+            categories = list(self.index.keys())
+            categories += ["KnownRepos"]
+            for category in categories:
+                items = list(self.index[category].keys())
+                for program_id in items:
+                    try:
+                        releases = list(self.index[category][program_id]['pre-install'].keys())
+                    except:
+                        continue
+
+                    for release in releases:
+                        methods = self.index[category][program_id]['pre-install'][release]['method'].split(',')
+                        for method in methods:
+                            url = ""
+
+                            # Extract the URL if an apt source
+                            if method == 'manual' or method == 'ppa+manual':
+                                apt_source_list = str(self.index[category][program_id]['pre-install'][release]['apt-sources'])
+                                apt_source_parts = apt_source_list.split(' ')
+                                for part in apt_source_parts:
+                                    if part.startswith('http'):
+                                        url = part
+                                        url_index[program_id] = url
+                                        continue
+
+                            # Generate Launchpad URL if a PPA
+                            elif method == 'ppa':
+                                ppa = self.index[category][program_id]['pre-install'][release]['enable-ppa']
+                                ppa_author = ppa.split('ppa:')[1].split('/')[0]
+                                ppa_name = ppa.split('ppa:')[1].split('/')[1]
+                                url = "http://ppa.launchpad.net/{0}/{1}/ubuntu".format(ppa_author, ppa_name)
+
+                            else:
+                                continue
+
+                            # Add this to the collection
+                            url_index[program_id] = url
+
+            # Function to add to HTML buffer
+            def add_to_table(software, source, img_path):
+                append_this = "<tr><td><img src='" + img_path + "' width='24px' height='24px'/> " + software + "</td><td>" + source + "</td></tr>"
+                return append_this
+
+            # Add table headers
+            headers = '<tr><th style="width:40%">' + string.head_software + '</th><th style="width:60%">' + string.head_source + '</th></tr>'
+            app.update_page('#repo-table', 'append', headers)
+
+            # Add system repositories to the top of the list.
+            sys_icon = trans.res_dir + 'img/logos/ubuntu.png'
+
+            if systemstate.get_system_repository_state('main') == True:
+                html_buffer += add_to_table(string.repo_main, 'main', sys_icon)
+
+            if systemstate.get_system_repository_state('universe') == True:
+                html_buffer += add_to_table(string.repo_universe, 'universe', sys_icon)
+
+            if systemstate.get_system_repository_state('main restricted') == True:
+                html_buffer += add_to_table(string.repo_restricted, 'restricted', sys_icon)
+
+            if systemstate.get_system_repository_state('multiverse') == True:
+                html_buffer += add_to_table(string.repo_multiverse, 'multiverse', sys_icon)
+
+            if systemstate.get_system_repository_state('partner') == True:
+                html_buffer += add_to_table(string.repo_partner, 'partner', sys_icon)
+
+            # Parse sources list, prevent duplicate URLs.
+            source_urls = {}
+            for line in raw_repo.split('\n'):
+                parts = line.split(' ')
+                url = parts[1]
+
+                # Ignore if a system or the partner repository.
+                if url.find("ubuntu.com/") != -1:
+                    continue
+                if url.find("canonical.com/") != -1:
+                    continue
+
+                # Except if [arch=amd64] is specified.
+                if url[:4] != 'http':
+                    url = parts[2]
+                    if url[:4] != 'http':
+                        # Give up. Malformed URL or line.
+                        continue
+                    else:
+                        source_urls[url] = 1
+                else:
+                    source_urls[url] = 1
+
+            # Compare programs with the Boutique for pretty icons.
+            source_urls = list(source_urls)
+            source_urls.sort()
+            for url in source_urls:
+                # Initially presume this is outside of the Boutique.
+                software = string.repo_unknown
+                img = 'unknown'
+                source = url
+
+                # Is there a match?
+                for program_id in list(url_index.keys()):
+                    if url_index[program_id] == url:
+                        software = dynamicapps.get_attribute_for_app(program_id, 'name')
+                        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+                        source = url
+
+                # Add this to the table.
+                img_path = trans.res_dir + 'img/applications/' + img + '.png'
+                html_buffer += add_to_table(software, source, img_path)
+
+            # Done - Now append.
+            app.update_page('#repo-table tr:last', 'after', html_buffer)
+            app.update_page('#repo-busy', 'slideUp')
+            app.update_page('#repo-table', 'slideDown')
+
+        thread = Thread(target=repo_thread, args=[self])
+        thread.start()
 
 
 class ChangesQueue(object):

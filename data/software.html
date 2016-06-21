@@ -375,12 +375,16 @@
           <h2>&zwnj;Preferences&zwnj;</h2>
           <p>&zwnj;Fine-tune the Software Boutique to suit your preferred behaviors.&zwnj;</p>
           <table id="pref-table" class="table">
+
+            <!-- Boutique Options -->
             <tr>
               <th width="40%">&zwnj;Boutique Selection&zwnj;</th>
               <td width="60%">
                 <a onclick="toggleNonFree();"><i id="pref-non-free" class="fa fa-square fa-va"></i> &zwnj;Hide proprietary applications.&zwnj;</a>
               </td>
             </tr>
+
+            <!-- Installation Options -->
             <tr>
               <th rowspan=2>&zwnj;Installation&zwnj;</th>
               <td>
@@ -392,6 +396,15 @@
               <td>
                 <a onclick="cmd('toggle-pref?hide-apt-progress');"><i id="pref-hide-apt-progress" class="fa fa-square fa-va"></i> &zwnj;Suppress Progress Dialog&zwnj;</a>
                 <p class="pref-info">&zwnj;Install/remove applications in the background.&zwnj;</p>
+              </td>
+            </tr>
+
+            <!-- Advanced Options -->
+            <tr>
+              <th>&zwnj;Advanced&zwnj;</th>
+              <td>
+                <a class="btn btn-default" onclick="cmd('list-repos')"><span class="fa fa-list-ul"></span> &zwnj;Show Software Sources&zwnj;</a>
+                <a class="btn btn-default" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</a>
               </td>
             </tr>
           </table>
@@ -424,6 +437,23 @@
           <div id="queue-empty">&zwnj;Nothing to see here -- There's no software in the queue yet.&zwnj;</div>
 
         </div>
+
+        <div id="PrettyRepos" hidden>
+          <h2>&zwnj;Software Sources&zwnj;</h2>
+          <p>&zwnj;Your system and applications are obtained and kept up-to-date via the following repositories.&zwnj;</p>
+          <div id="repo-busy" class="alert alert-warning">
+            <h5><img src="img/welcome/processing.gif"/> &zwnj;Parsing lists...&zwnj;</h5>
+          </div>
+          <table id="repo-table" class="table table-hover" style="width:100%" hidden>
+            <!-- Generated via Python -->
+          </table>
+
+          <hr class="soften"/>
+          <a class="btn btn-inverse" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</a>
+          <a class="btn btn-inverse" onclick="cmd('apt-update'); switchCategory('#PrettyRepos', '#Preferences', '&zwnj;Preferences&zwnj;', true)"><span class="fa fa-download"></span> &zwnj;Update Package Lists&zwnj;</a>
+
+        </div>
+
       </div>
     </div>
     <div id="footer" class="bottom">
