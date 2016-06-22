@@ -3687,6 +3687,33 @@
             },
             "working": true
         },
+        "cheese": {
+            "name": "Cheese",
+            "img": "cheese",
+            "main-package": "cheese",
+            "launch-command": "cheese",
+            "install-packages": "cheese",
+            "remove-packages": "cheese, cheese-common",
+            "description": [
+                "An application that allows you to take pictures or record video using",
+                "your webcam. You can also apply fancy visual effects, fine-tune image",
+                "settings as well as the Multi-Burst mode and countdown timer for photos."
+            ],
+            "alternate-to": null,
+            "subcategory": "Photography",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Apps/Cheese",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,powerpc,armhf",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "clementine": {
             "name": "Clementine",
             "img": "clementine",
