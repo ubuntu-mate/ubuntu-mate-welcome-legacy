@@ -2915,7 +2915,16 @@ class DynamicApps(object):
             source_urls = {}
             for line in raw_repo.split('\n'):
                 parts = line.split(' ')
+                list_file = parts[0].split(':deb')[0]
                 url = parts[1]
+
+                # Ignore any saved entries.
+                if list_file[-5:] == '.save':
+                    continue
+
+                # Ignore the file if it's 0 bytes.
+                if not os.path.getsize(list_file) > 0:
+                    continue
 
                 # Ignore if a system or the partner repository.
                 if url.find("ubuntu.com/") != -1:
