@@ -21,14 +21,15 @@ function cmd(instruction) {
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
-    $('.entire-page-fade').fadeIn('medium');
+    $('.entire-page-fade').jAnimate('pageIn');
+    $('.entire-page-fade').show();
     $('#navigation-right').hide();
     $('#navigation-right').fadeIn('medium');
 });
 
 // Smoothly fade out of the page.
 function smoothPageFade(target_href) {
-    $('.entire-page-fade').fadeOut('medium');
+    $('.entire-page-fade').jAnimate('pageOut');
     $('#navigation-title').fadeOut('medium');
     $('#navigation-right').fadeOut('medium');
     $('.navigation-button').fadeOut('medium');
