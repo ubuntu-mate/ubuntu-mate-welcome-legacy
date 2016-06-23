@@ -57,6 +57,39 @@
             },
             "working": true
         },
+        "antiviral": {
+            "name": "Antiviral",
+            "img": "antiviral",
+            "main-package": "antiviral",
+            "install-packages": "antiviral-for-caja",
+            "remove-packages": "antiviral-for-caja,antiviral,clamav",
+            "launch-command": "/opt/extras.ubuntu.com/antiviral/bin/antiviral",
+            "description": [
+                "A front end utility for the ClamAV antivirus software.",
+                "While Ubuntu is highly unlikely to get an infection, any files",
+                "shared with Windows users could potentially spread an infection on to them.",
+                "The likelihood of spreading an infected file is very low, but some businesses",
+                "and individuals may require such utility to ensure clean files.",
+                "</p><p><a onclick=\"cmd('link?https://help.ubuntu.com/community/Antivirus')\">",
+                "<span class='fa fa-question-circle'></span> Learn more about antivirus in Ubuntu.</a>"
+            ],
+            "alternate-to": null,
+            "subcategory": "Antivirus",
+            "open-source": true,
+            "url-info": "http://www.atareao.es/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:atareao/antiviral",
+                    "source-file": "atareao-ubuntu-antiviral-CODENAME"
+                }
+            },
+            "working": true
+        },
         "convertall": {
             "name": "ConvertAll",
             "img": "convertall",
