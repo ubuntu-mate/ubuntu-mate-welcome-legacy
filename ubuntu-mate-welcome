@@ -940,12 +940,12 @@ class AppView(WebKit2.WebView):
             if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
                 app.update_page('#install', 'hide')
                 app.update_page('#software', 'hide')
-                app.update_page('.live-session', 'hide')
+                app.update_page('.live-session-hide', 'hide')
                 app.update_page('.live-session-only', 'show')
         else:
             app.update_page('#install', 'hide')
             app.update_page('#software', 'show')
-            app.update_page('.live-session', 'show')
+            app.update_page('.live-session-hide', 'show')
             app.update_page('.live-session-only', 'hide')
 
         # Display warnings if the user is not connected to the internet.
