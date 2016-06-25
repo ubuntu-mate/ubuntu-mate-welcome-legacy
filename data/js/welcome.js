@@ -118,13 +118,10 @@ function setCursorNormal() {
 if ( current_page == 'index.html' ) {
 
   // Animate elements of the page
-  $('#main-menu-logo').jAnimateOnce('rotateIn');
-  $('.main-menu-text').fadeIn('slow');
+  $('.main-menu-text').fadeIn('medium');
   $('#open-at-start').jAnimateOnce('fadeIn');
-  setTimeout(function(){
-    $('#mate-blur').jAnimateOnce('zoomIn');
-    $('#mate-blur').show();
-  }, 50);
+  $('#mate-blur').jAnimateOnce('zoomIn');
+  $('#mate-blur').show();
 
   function exitMenu(target) {
       // Show a "wait" cursor for the Software page, as there is a slight delay.
@@ -135,21 +132,6 @@ if ( current_page == 'index.html' ) {
       $('#mate-blur').jAnimateOnce('zoomOut');
       smoothPageFade(target)
   }
-
-  // Have we greeted the user already?
-  if ( document.cookie == 'greeted=yes' ) {
-
-    $(document).ready(function () {
-      $(".fade").removeClass("fade");
-      $(".fade-1s").removeClass("fade-1s");
-      $(".fade-2s").removeClass("fade-2s");
-      $(".fade-3s").removeClass("fade-3s");
-      $(".fade-4s").removeClass("fade-4s");
-      $(".fade-5s").removeClass("fade-5s");
-    });
-  }
-
-  document.cookie = 'greeted=yes';
 
   // Enable tooltips
   $(document).ready(function() {
@@ -239,12 +221,12 @@ if ( current_page == 'software.html' ) {
         }
 
         // Animate out, then animate in next category.
-        $(now).fadeOut('fast');
+        $(now).jAnimate('pageOut');
         setTimeout(function() {
           $(now).hide();
           currentCategory = next;
           $(next).show();
-          $(next).jAnimateOnce('fadeInDown');
+          $(next).jAnimate('pageIn');
         }, 250);
 
         // Show all apps again, in case the previous page was filtered.

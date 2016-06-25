@@ -938,13 +938,9 @@ class AppView(WebKit2.WebView):
         # If this is a live session, adapt the UI.
         if systemstate.session_type == 'live':
             if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
-                app.update_page('#install', 'hide')
-                app.update_page('#software', 'hide')
                 app.update_page('.live-session-hide', 'hide')
                 app.update_page('.live-session-only', 'show')
         else:
-            app.update_page('#install', 'hide')
-            app.update_page('#software', 'show')
             app.update_page('.live-session-hide', 'show')
             app.update_page('.live-session-only', 'hide')
 
@@ -971,6 +967,12 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'index.html':
             app.update_page('#os_version', 'html', systemstate.os_version)
 
+            # Buttons (IDs) to be displayed
+            btns = [ 'introduction', 'features', 'gettingstarted',
+                     'getinvolved', 'shop', 'donate',
+                     'community', 'chatroom', 'software'
+                   ]
+
             # Show Welcome at login state
             if systemstate.autostart:
                 app.update_page('#autostart', 'addClass', 'fa-check-square')
@@ -981,16 +983,25 @@ class AppView(WebKit2.WebView):
 
             # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
-                app.update_page('#gettingstarted', 'hide')
-                app.update_page('#software', 'hide')
+                btns.remove('gettingstarted')
+                btns.remove('software')
                 app.update_page('#introduction', 'addClass', 'btn-success')
                 app.update_page('#community', 'addClass', 'btn-success')
 
-            # Show Raspberry Pi menu button.
+            # Raspberry Pi button
             if systemstate.session_type == 'pi':
-                app.update_page('.rpi-only', 'show')
-            else:
-                app.update_page('.rpi-only', 'hide')
+                btns.append('raspberry-pi')
+
+            # Swap software for install button in live sessions.
+            if systemstate.session_type == 'live':
+                btns.remove('gettingstarted')
+                btns.remove('software')
+                btns.append('install-guide')
+                btns.append('install')
+
+            # Fade in the menu buttons.
+            for btn_id in btns:
+                app.update_page('#'+btn_id, 'fadeIn')
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
             app.update_page('#update-subscribing', 'hide')
