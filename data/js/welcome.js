@@ -194,7 +194,7 @@ if ( current_page == 'software.html' ) {
 
     // Show the first category.
     currentCategory = '#Intro';
-    $(currentCategory).jAnimateOnce('zoomInLeft');
+    $(currentCategory).jAnimateOnce('pageIn');
     $(currentCategory).show();
 
     // Switch to another category.
@@ -221,12 +221,11 @@ if ( current_page == 'software.html' ) {
         }
 
         // Animate out, then animate in next category.
-        $(now).jAnimate('pageOut');
+        $(now).fadeOut();
         setTimeout(function() {
           $(now).hide();
           currentCategory = next;
-          $(next).show();
-          $(next).jAnimate('pageIn');
+          $(next).fadeIn();
         }, 250);
 
         // Show all apps again, in case the previous page was filtered.
