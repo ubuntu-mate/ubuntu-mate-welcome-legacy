@@ -2848,7 +2848,7 @@ class DynamicApps(object):
     def populate_repos(self):
         app.webkit.run_javascript('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
         app.update_page('#repo-table', 'hide')
-        app.update_page('#repo-table', 'html', '')
+        app.update_page('#repo-table', 'html', ' ')
         app.update_page('#repo-busy', 'slideDown')
 
         def repo_thread(self):
