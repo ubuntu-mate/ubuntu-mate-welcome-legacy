@@ -2703,7 +2703,7 @@ class DynamicApps(object):
         # Begin generating the HTML to append.
         news_buffer = '<hr class="soften">'
         news_versions = list(self.news.keys())
-        news_versions.sort(reverse=True)
+        news_versions = sorted( news_versions, reverse=True, key=lambda news_versions: int(news_versions.split(".")[-1]) )
         for version in news_versions:
             news_buffer = news_buffer + '<h4>' + version + '</h4><div class="news-list-version">'
 
