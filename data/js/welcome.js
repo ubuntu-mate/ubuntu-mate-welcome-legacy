@@ -187,15 +187,15 @@ if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
 // Software Page Only = Categories for Apps
 if ( current_page == 'software.html' ) {
 
+    // Do not show navigation elements
+    $('#menu-button').hide();
+    $('#navigation-title').hide();
+    $('#navigation-right').hide();
+
     // Initial variables.
-    var currentCategory;
+    var currentCategory = '#boutique-loading';
     var hideNonFree = false;
     var system_info = '';
-
-    // Show the first category.
-    currentCategory = '#Intro';
-    $(currentCategory).jAnimateOnce('pageIn');
-    $(currentCategory).show();
 
     // Switch to another category.
     function switchCategory(now, next, subtitle, hideCheckmarks=false) {

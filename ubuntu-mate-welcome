@@ -42,6 +42,7 @@ import signal
 import socket
 import subprocess
 import sys
+import time
 import webbrowser
 
 import urllib.error
@@ -1068,46 +1069,63 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'software.html':
             dynamicapps.toggle_non_free()
             self.do_smooth_footer = True
+            app.update_page('#navigation-right', 'addClass', 'always-hidden')
 
-            # If loading a minimal "Get More Software" only page.
-            if arg.jump_software_page:
-                app.update_page('#menu-button', 'hide')
-                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + string.boutique + "</span>")
-                app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
+            def load_thread(self):
 
-            # Pass 'Servers' variable used for one-click server links.
-            self.run_javascript('var server_string = "' + _("Servers") + '"')
+                # Allows smooth animations
+                time.sleep(1)
 
-            # Are we running on a non-Ubuntu MATE system?
-            # Show a warning on the first visit.
-            if not systemstate.apt_cache['ubuntu-mate-desktop'].is_installed or not systemstate.apt_cache['ubuntu-mate-core'].is_installed:
-                if not pref.get("boutique-warning-seen", False):
-                    self._do_command('message?boutique-on-other-distro')
-                    pref.set("boutique-warning-seen", True)
+                # If loading a minimal "Get More Software" only page.
+                if arg.jump_software_page:
+                    app.update_page('#menu-button', 'hide')
+                    app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + string.boutique + "</span>")
+                    app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
 
-            # Dynamically load application lists.
-            dynamicapps.populate_categories(self)
-            dynamicapps.update_all_app_status(self)
-            dynamicapps.populate_featured_apps(self)
-            dynamicapps.populate_news(self)
+                # Pass 'Servers' variable used for one-click server links.
+                self.run_javascript('var server_string = "' + _("Servers") + '"')
 
-            # Show a different footer in the Boutique.
-            app.update_page('#footer-global-left', 'html', app.boutique_footer)
+                # Are we running on a non-Ubuntu MATE system?
+                # Show a warning on the first visit.
+                if not systemstate.apt_cache['ubuntu-mate-desktop'].is_installed or not systemstate.apt_cache['ubuntu-mate-core'].is_installed:
+                    if not pref.get("boutique-warning-seen", False):
+                        self._do_command('message?boutique-on-other-distro')
+                        pref.set("boutique-warning-seen", True)
 
-            # Set version and subscription details.
-            app.update_page('#boutique-version', 'html', systemstate.welcome_version)
-            if systemstate.updates_subscribed:
-                app.update_page('#update-subscribed', 'show')
-            else:
-                app.update_page('#update-notification', 'show')
+                # Dynamically load application lists.
+                dynamicapps.populate_categories(self)
+                dynamicapps.update_all_app_status(self)
+                dynamicapps.populate_featured_apps(self)
+                dynamicapps.populate_news(self)
 
-            # Refresh preferences page
-            pref.refresh_pref_page('enable-queue')
-            pref.refresh_pref_page('hide-apt-progress')
+                # Show a different footer in the Boutique.
+                app.update_page('#footer-global-left', 'html', app.boutique_footer)
 
-            # Is the queue enabled?
-            queue.refresh_page_state()
-            queue.clear()
+                # Set version and subscription details.
+                app.update_page('#boutique-version', 'html', systemstate.welcome_version)
+                if systemstate.updates_subscribed:
+                    app.update_page('#update-subscribed', 'show')
+                else:
+                    app.update_page('#update-notification', 'show')
+
+                # Refresh preferences page
+                pref.refresh_pref_page('enable-queue')
+                pref.refresh_pref_page('hide-apt-progress')
+
+                # Is the queue enabled?
+                queue.refresh_page_state()
+                queue.clear()
+
+                # Smoothly fade to introduction page.
+                app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
+                app.update_page('#category-tabs', 'show')
+                app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
+                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.boutique + "', true) }, 500);")
+                app.update_page('#navigation-right', 'removeClass', 'always-hidden')
+
+            # Finish loading the Boutique.
+            thread = Thread(target=load_thread, args=[self])
+            thread.start()
 
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':

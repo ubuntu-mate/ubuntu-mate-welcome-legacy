@@ -1019,6 +1019,32 @@ blockquote.terminal {
 }
 
 /************************
+ * Boutique General
+*************************/
+#boutique-loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 250px;
+  height: 130px;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 100;
+}
+
+#boutique-loading > p {
+  color: gray;
+  margin-top: 16px;
+}
+
+.always-hidden {
+  display: none !important;
+}
+
+/************************
  * Boutique News
 *************************/
 .news-list-version {
