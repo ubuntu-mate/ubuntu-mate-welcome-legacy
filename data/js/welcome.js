@@ -82,11 +82,11 @@ function smoothFade(from, to) {
 // Smoothly fade the navigation sub-title
 function changeSubtitle(textToDisplay) {
   // Smoothly fade subtitle
-  $('#navigation-sub-title').fadeOut();
+  $('#navigation-sub-title').fadeOut('fast');
   setTimeout(function() {
     $('#navigation-sub-title').html(textToDisplay);
-    $('#navigation-sub-title').fadeIn();
-  }, 400);
+    $('#navigation-sub-title').fadeIn('fast');
+  }, 200);
 }
 
 // For pages that depend on an internet connection, but Welcome couldn't connect.
