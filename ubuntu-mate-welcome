@@ -3441,6 +3441,9 @@ class Arguments(object):
         self.jump_to = None
         self.font_dpi_override = None
 
+        archs = ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']
+        sessions = ['guest', 'live', 'pi', 'vbox']
+
         for arg in sys.argv:
           if arg == '--help' or arg == '-h':
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
@@ -3451,12 +3454,12 @@ class Arguments(object):
               print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
               print('  -h, --help                   Show this help text.')
               print('  --force-arch=ARCH            Simulate a specific architecture.')
-              print('                                -- Options: i386, amd64, armhf, powerpc')
+              print('                                -- Examples: i386, amd64, powerpc, armhf')
               print('  --force-codename=CODENAME    Simulate a specific release.')
               print('                                -- Examples: trusty, wily, xenial')
               print('  --force-net                  Simulate a working internet connection.')
               print('  --force-no-net               Simulate no internet connection.')
-              print('  --force-session=TYPE         Simulate a specific architecture.')
+              print('  --force-session=TYPE         Simulate a specific type of session.')
               print('                                -- Options: guest, live, pi, vbox')
               print('  --jump-to=PAGE               Open a specific page, excluding *.html')
               print('  --locale=CODE                Locale to use. e.g. fr_FR.')
@@ -3475,25 +3478,27 @@ class Arguments(object):
           if arg.startswith('--force-arch'):
               try:
                   self.simulate_arch = arg.split('--force-arch=')[1]
-                  if self.simulate_arch not in ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']:
+                  if self.simulate_arch not in archs:
                       dbg.stdout('Debug', 'Unrecognised architecture: ' + self.simulate_arch, 0, 1)
                       exit()
                   else:
                       dbg.stdout('Debug', 'Simulating architecture: ' + self.simulate_arch, 0, 0)
               except:
                   dbg.stdout('Debug', 'Invalid arguments for "--force-arch"', 0, 1)
+                  dbg.stdout('Debug', 'Available Options: ' + str(archs), 0, 1)
                   exit()
 
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
-                  if self.simulate_session not in ['guest', 'live', 'pi', 'vbox']:
+                  if self.simulate_session not in sessions:
                       dbg.stdout('Debug', 'Unrecognised session type: ' + self.simulate_session, 0, 1)
                       exit()
                   else:
                       dbg.stdout('Debug', 'Simulating session: ' + self.simulate_session, 0, 0)
               except:
                   dbg.stdout('Debug', 'Invalid arguments for "--force-session"', 0, 1)
+                  dbg.stdout('Debug', 'Available Options: ' + str(sessions), 0, 1)
                   exit()
 
           if arg.startswith('--force-codename'):
