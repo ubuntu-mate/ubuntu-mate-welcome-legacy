@@ -201,7 +201,7 @@ if ( current_page == 'software.html' ) {
     function switchCategory(now, next, subtitle, hideCheckmarks=false) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
-        $('#content').animate({ scrollTop: 0 }, 0)
+        $('#content').animate({ scrollTop: 0 }, 500)
 
         // Remove any other current page highlights
         $('#navigation-queue').removeClass('active');
