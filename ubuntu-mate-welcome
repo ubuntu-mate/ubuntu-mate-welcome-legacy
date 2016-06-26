@@ -1076,12 +1076,6 @@ class AppView(WebKit2.WebView):
                 # Allows smooth animations
                 time.sleep(1)
 
-                # If loading a minimal "Get More Software" only page.
-                if arg.jump_software_page:
-                    app.update_page('#menu-button', 'hide')
-                    app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + string.boutique + "</span>")
-                    app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
-
                 # Pass 'Servers' variable used for one-click server links.
                 self.run_javascript('var server_string = "' + _("Servers") + '"')
 
@@ -1120,8 +1114,18 @@ class AppView(WebKit2.WebView):
                 app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
                 app.update_page('#category-tabs', 'show')
                 app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
-                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.boutique + "', true) }, 500);")
+                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
                 app.update_page('#navigation-right', 'removeClass', 'always-hidden')
+
+                # If loading a minimal "Get More Software" only page.
+                if arg.jump_software_page:
+                    app.update_page('#navigation-title', 'fadeIn')
+                    app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'></span>")
+                    app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
+                else:
+                    app.update_page('#menu-button', 'fadeIn')
+                    app.update_page('#navigation-title', 'fadeIn')
+
 
             # Finish loading the Boutique.
             thread = Thread(target=load_thread, args=[self])
