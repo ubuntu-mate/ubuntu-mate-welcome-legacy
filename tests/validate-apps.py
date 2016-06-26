@@ -21,7 +21,7 @@ valid_distro_codenames = [
                           'wily', 'xenial', 'yakkety'
                          ]
 
-valid_arch = ['i386', 'amd64', 'powerpc', 'armhf', 'arm64']
+valid_arch = ['i386', 'amd64', 'powerpc', 'armhf', 'arm64', 'ppc64el']
 
 # Load Applications JSON
 json_path = os.path.join(test.repo_root, 'data/js/applications.json' )
