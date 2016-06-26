@@ -16,6 +16,9 @@ $(window).on("error", function(evt) {
 // Pass commands to Python
 function cmd(instruction) {
   document.title = instruction;
+  setTimeout(function(){
+    document.title = 'null';
+  }, 10);
 }
 
 // Global across all pages

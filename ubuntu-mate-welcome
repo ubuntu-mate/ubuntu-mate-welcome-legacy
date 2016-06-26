@@ -871,7 +871,6 @@ class AppView(WebKit2.WebView):
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
 
-
         # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
         dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
@@ -1186,8 +1185,9 @@ class AppView(WebKit2.WebView):
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
-        dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
-        self._do_command(title)
+        if title != 'null':
+            dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
+            self._do_command(title)
 
     def _load_changed_cb(self, view, frame):
         uri = str(self.get_uri())
