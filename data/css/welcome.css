@@ -559,10 +559,25 @@ hr.soften-light {
   opacity: 0.2;
 }
 
-/* Proprietary Software Tooltip */
-.popover-title {
-  background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+/* Proprietary Toggle Help Card */
+#nonfree-info-popup {
+  position: fixed;
+  width: 400px;
+  height: auto;
+  right: 4px;
+  bottom: 68px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#nonfree-info-popup > .title {
+  background-color: #3F4140;
   color: #fff;
+  padding: 6px;
+}
+
+#nonfree-info-popup > .body {
+  padding: 6px;
 }
 
 /* Featured Apps Grid */

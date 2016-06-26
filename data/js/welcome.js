@@ -270,12 +270,6 @@ if ( current_page == 'software.html' ) {
     $(document).ready(function() {
       $("body").tooltip({ selector: '[data-toggle=tooltip]' });
     });
-    $('[rel=freedominfo]').popover({
-        html : true,
-        content: function() {
-          return $('#popover_content_wrapper').html();
-        }
-    });
 
     // Filtering applications by subcategory and/or proprietary software.
     selected_filter = 'none';

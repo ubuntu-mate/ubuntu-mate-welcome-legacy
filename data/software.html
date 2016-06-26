@@ -480,7 +480,9 @@
           <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <a id="non-free-toggle" onclick="toggleNonFree();" data-trigger="hover" rel="freedominfo" data-original-title="&zwnj;Filter by Software License&zwnj;" hidden data-placement="top">
+          <a id="non-free-toggle" onclick="toggleNonFree();"
+              onmouseover="$('#nonfree-info-popup').fadeIn('fast')"
+              onmouseout="$('#nonfree-info-popup').fadeOut('fast')" hidden>
             <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> &zwnj;Hide Proprietary Software&zwnj;
           </a>
           <a id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>
@@ -488,14 +490,17 @@
         </div>
       </div>
     </div>
-    <div id="popover_content_wrapper" style="display: none;">
-      <p><span class="fa fa-lock"></span> <b>&zwnj;Proprietary Software&zwnj;</b>
-      &zwnj;is owned by an individual or company. There may be restrictions on its
-      usage (like a license agreement), and provides no access to the source code.&zwnj;</p>
+    <div id="nonfree-info-popup" hidden>
+      <div class="title">&zwnj;About Proprietary Software&zwnj;</div>
+      <div class="body">
+        <p><span class="fa fa-lock"></span> <b>&zwnj;Proprietary Software&zwnj;</b>
+        &zwnj;is owned by an individual or company. There may be restrictions on its
+        usage (like a license agreement), and provides no access to the source code.&zwnj;</p>
 
-      <p><span class="fa fa-heart"></span> <b>&zwnj;Free and Open Source Software&zwnj;</b>
-      &zwnj;grants the user the freedom to share, study and modify the software without
-      restriction. For instance, the GPL is an example of a 'Free Software' license.&zwnj;</p>
+        <p><span class="fa fa-heart"></span> <b>&zwnj;Free and Open Source Software&zwnj;</b>
+        &zwnj;grants the user the freedom to share, study and modify the software without
+        restriction. For instance, the GPL is an example of a 'Free Software' license.&zwnj;</p>
+      </div>
     </div>
   </div>
   <script src="js/jquery-2.1.4.js"></script>
