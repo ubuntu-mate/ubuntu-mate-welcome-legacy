@@ -21,6 +21,8 @@ valid_distro_codenames = [
                           'wily', 'xenial', 'yakkety'
                          ]
 
+valid_arch = ['i386', 'amd64', 'powerpc', 'armhf', 'arm64']
+
 # Load Applications JSON
 json_path = os.path.join(test.repo_root, 'data/js/applications.json' )
 try:
@@ -119,13 +121,7 @@ for category in categories:
         # Check that there is a valid arch specified for applications.
         arch_check = app['arch'].split(',')
         for arch in arch_check:
-            if arch == 'i386':
-                pass
-            elif arch == 'amd64':
-                pass
-            elif arch == 'armhf':
-                pass
-            elif arch == 'powerpc':
+            if arch in valid_arch:
                 pass
             else:
                 test.error('Unknown architecture: "{0}" for Program ID "{1}"'.format(arch, program_id))

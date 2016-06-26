@@ -3452,7 +3452,7 @@ class Arguments(object):
           if arg.startswith('--force-arch'):
               try:
                   self.simulate_arch = arg.split('--force-arch=')[1]
-                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf' and not self.simulate_arch == 'powerpc':
+                  if self.simulate_arch not in ['i386', 'amd64', 'armhf', 'arm64', 'powerpc']:
                       dbg.stdout('Debug', 'Unrecognised architecture: ' + self.simulate_arch, 0, 1)
                       exit()
                   else:
@@ -3464,7 +3464,7 @@ class Arguments(object):
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
-                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi' and not self.simulate_session == 'vbox':
+                  if self.simulate_session not in ['guest', 'live', 'pi', 'vbox']:
                       dbg.stdout('Debug', 'Unrecognised session type: ' + self.simulate_session, 0, 1)
                       exit()
                   else:
