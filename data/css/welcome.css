@@ -821,6 +821,16 @@ blockquote.terminal {
 /************************
  * Splash Screen
 *************************/
+#white-start {
+  background: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+}
+
 #splash-logo {
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto;
@@ -896,6 +906,17 @@ blockquote.terminal {
 .mateRoll {
   -webkit-animation-name: splashRollIn;
   -webkit-animation-duration: 3s;
+}
+
+#skip-btn {
+  position: fixed;
+  right: 8px;
+  bottom: 20px;
+  width: 48px;
+  height: 10px;
+  text-align: center;
+  vertical-align: right;
+  color: #C0C0C0;
 }
 
 /************************

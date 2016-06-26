@@ -1025,6 +1025,7 @@ class AppView(WebKit2.WebView):
             else:
                 self.run_javascript('var splashNextPage = "index"')
                 self.run_javascript('var quick_splash = false')
+                app.update_page('#skip-btn', 'fadeIn', 'fast')
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True

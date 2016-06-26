@@ -480,19 +480,17 @@ if ( current_page == 'splash.html' ) {
 
   function continueToPage(skipped) {
     if ( skipped == true ) {
-      $('#white-start').fadeOut('fast');
       $('#splash-logo').fadeOut('fast');
-      $('#splash-text').fadeOut('fast');
-      $('#splash-welcome').fadeOut('fast');
+      $('#white-start').fadeOut('fast');
+      $('#header').fadeIn('fast');
+      $('#footer').fadeIn('fast');
       setTimeout(function(){
           smoothPageFade(splashNextPage + '.html');
-      }, 500);
+      }, 100);
     } else {
       smoothPageFade(splashNextPage + '.html');
     }
-
   }
-
 }
 
 
