@@ -51,8 +51,12 @@ function backToTop() {
 $(document).ready(function() {
   // Animate navigation elements on page load
   if ( current_page != 'splash-boutique.html' ) {
-    $('#menu-button').jAnimateOnce('fadeInLeft');
-    $('#navigation-title').jAnimateOnce('fadeInDown');
+    if ( current_page != 'software.html') {
+      $('#menu-button').show();
+      $('#menu-button').jAnimateOnce('pageIn');
+      $('#navigation-title').show();
+      $('#navigation-title').jAnimateOnce('pageIn');
+    }
   }
 
   // Show back to top button on page scroll
@@ -564,7 +568,7 @@ if ( current_page == 'gettingstarted.html' ) {
   // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
   setTimeout(function() { indexOpen(); }, 500);
-  $('#index-open').jAnimateOnce('fadeInDown');
+  $('#index-open').jAnimateOnce('pageIn');
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();
