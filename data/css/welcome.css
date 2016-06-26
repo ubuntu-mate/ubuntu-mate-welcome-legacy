@@ -477,6 +477,7 @@ hr.soften-light {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  color: white;
 }
 
 .slogan-text {
@@ -492,6 +493,31 @@ hr.soften-light {
   text-align: center;
   margin-bottom: 8px;
 }
+
+/* Animation to indicate to scroll down */
+#scroll-down-hint {
+  position: relative;
+  display: list-item;
+  top: -24px;
+  opacity: 0;
+  -webkit-animation-name: scroll-down-hinter;
+  -webkit-animation-duration: 2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 10;
+  -webkit-animation-delay: 2s;
+}
+
+@-webkit-keyframes scroll-down-hinter {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 50px);
+  }
+}
+
 
 /************************
  * Software Page / Boutique
