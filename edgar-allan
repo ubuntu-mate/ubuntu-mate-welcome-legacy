@@ -8,6 +8,9 @@ import re
 import shutil
 import sys
 
+# Pages that do not require translations
+excluded_pages = ['message.html']
+
 try:
     import polib
 except:
@@ -244,6 +247,11 @@ def create_all_pot_files(slide_dir, po_dir, verbose):
             print ("Created %s directory" %po_dir)
 
     template_slides = glob.glob(os.path.join(slide_dir, '*.html'))
+
+    # exclude any that do not require translations
+    for page in excluded_pages:
+        print("Excluding: " + page)
+        template_slides.remove(os.path.join(slide_dir, page))
 
     # create a list of tuples containing the full slide path and filename, and the slide
     # names minus the .html extension

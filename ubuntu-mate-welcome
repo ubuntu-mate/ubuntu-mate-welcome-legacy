@@ -687,6 +687,9 @@ class PreInstallation(object):
 ##################################
 class Translations(object):
     def __init__(self, data_path):
+        # Pages that do not want to be translated.
+        self.excluded_pages = ['message.html']
+
         # Determine which locale to use
         if arg.locale:
             self.locale = arg.locale
@@ -729,8 +732,9 @@ class Translations(object):
                     if os.path.exists(os.path.join(self.pages_dir, page)):
                         dbg.stdout('i18n', 'Page Verified: ' + page, 2, 2)
                     else:
-                        page_was_lost = True
-                        dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
+                        if page not in self.excluded_pages:
+                            page_was_lost = True
+                            dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
         if page_was_lost:
             dbg.stdout('i18n', 'One or more translation pages are missing! Falling back to "en_US".', 0, 1)
             self.pages_dir = data_path
