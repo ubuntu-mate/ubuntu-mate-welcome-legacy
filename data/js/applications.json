@@ -884,6 +884,31 @@
             },
             "working": true
         },
+        "aisleriot": {
+            "name": "Desktop Games",
+            "img": "aisleriot",
+            "main-package": "gnome-cards-data",
+            "launch-command": null,
+            "install-packages": "aisleriot,gnome-cards-data,gnome-mahjongg,gnome-mines,gnome-sudoku,branding-ubuntu",
+            "remove-packages": "aisleriot,gnome-cards-data,gnome-mahjongg,gnome-mines,gnome-sudoku,branding-ubuntu",
+            "description": [
+                "A collection of more desktop games including 80 popular card games, Mahjongg, Mines and Sudoku."
+            ],
+            "alternate-to": null,
+            "subcategory": "Card and Board Games",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/action/show/Attic/Games",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "hedgewars": {
             "name": "Hedgewars",
             "img": "hedgewars",
@@ -1960,6 +1985,34 @@
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
             "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "firefox": {
+            "name": "Firefox",
+            "img": "firefox",
+            "main-package": "firefox",
+            "launch-command": "firefox",
+            "install-packages": "firefox",
+            "remove-packages": "firefox",
+            "description": [
+                "Firefox delivers safe, easy web browsing. A familiar user",
+                "interface, enhanced security features including protection",
+                "from online identity theft, and integrated search let you",
+                "get the most out of the web."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": true,
+            "url-info": "https://www.mozilla.org/firefox",
+            "url-android": "https://play.google.com/store/apps/details?id=org.mozilla.firefox",
+            "url-ios": "https://itunes.apple.com/us/app/firefox-web-browser/id989804926",
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "precise,trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
