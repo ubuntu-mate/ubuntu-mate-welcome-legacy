@@ -1937,6 +1937,34 @@
             },
             "working": true
         },
+        "firefox": {
+            "name": "Firefox",
+            "img": "firefox",
+            "main-package": "firefox",
+            "launch-command": "firefox",
+            "install-packages": "firefox",
+            "remove-packages": "firefox",
+            "description": [
+                "Firefox delivers safe, easy web browsing. A familiar user",
+                "interface, enhanced security features including protection",
+                "from online identity theft, and integrated search let you",
+                "get the most out of the web."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": true,
+            "url-info": "https://www.mozilla.org/firefox",
+            "url-android": "https://play.google.com/store/apps/details?id=org.mozilla.firefox",
+            "url-ios": "https://itunes.apple.com/us/app/firefox-web-browser/id989804926",
+            "arch": "i386,amd64,armhf,powerpc",
+            "releases": "precise,trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "gajim": {
             "name": "Gajim",
             "img": "gajim",
