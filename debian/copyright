@@ -22,6 +22,7 @@ Files: edgar-allan
        clean.sh
        tests/*       
        tools/*
+       perform-tests.sh
        regenerate-pots.sh
        welcome-po.py
 Copyright: 2016 Robin Thompson
@@ -31,7 +32,6 @@ License: GPL-3+
 
 Files: data/css/welcome.css
        data/img/welcome/*.gif
-       data/img/welcome/*.jpg
        data/img/welcome/*.png
        data/img/welcome/*.svg
        data/js/welcome.js
