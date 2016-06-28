@@ -5290,11 +5290,15 @@
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "all": {
+                "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:daniel.pavel/solaar",
                     "source-file": "daniel_pavel-ubuntu-solaar-CODENAME"
                 }
+                "all": {
+                    "method": "skip"
+                },
+
             },
             "working": true
         },
