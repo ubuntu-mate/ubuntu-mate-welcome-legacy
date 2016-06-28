@@ -1,3 +1,63 @@
+ubuntu-mate-welcome (16.10.4) yakkety; urgency=medium
+
+  [ Luke Horwell ]
+  * Welcome
+    - Discontinue confetti and project notifications.
+    - (Re)animate the scroll to top.
+    - Allow terminal commands to be selected.
+    - Adapts to other default Ubuntu MATE themes.
+    - Switch and smoothed to a glide page transition.
+    - Splash - Add "Skip" button (only on installed systems)
+    - Index - Change string for updating welcome.
+    - Index - Smooth button appearances.
+    - Introduction - Change "wow" animations when scrolling down page.
+    - Introduction - Replace "What is.." button with animation hint.
+    - Getting Started - New utilities section.
+    - Getting Started - Add Logitech Solaar to utilities.
+  * Internal Code
+    - Re-jiggled around in some places.
+    - Rename class "live-session" => "live-session-hide"
+    - animate.css = Removed non-webkit elements. Saved 43.7 kB (~40%)
+    - Update argument processing.
+  * Bug Fixes
+    - Correct news sorting - 10 after 9.
+    - Prevent navigation text flashes when entering some pages.
+    - Allow the same link to be clicked again.
+  * Boutique
+    - Use new apt 'full-upgrade' command.
+    - Show warning when Boutique is ran on other distributions.
+    - Slightly faster splash animation.
+    - Add a "pretty" repository listing feature.
+    - Change page transition to a simple fade.
+    - Fix bug where multiple pages get clumped together due to double clicks.
+    - Rename "More" button to "Details".
+    - Show a loading message prior to entering the Boutique.
+    - Quicker fades for navigation "subtitle".
+    - Re-implementation of proprietary popover.
+  * Software Changes
+    - Add Cheese.
+    - Add Antiviral.
+    - Add WineHQ Development builds.
+    - PlayOnLinux only installs itself, not Wine too.
+    - Use a system application icon for updates.
+    - Use a keyboard icon for layouts.
+    - Hide unstable "Hide Apt Progress" toggle and a hidden, unimplemented option.
+    - Whitespace clean-up in applications.json.
+    - Add Boutique listings for "arm64".
+    - Add Boutique listings for "ppc64el".
+    - Updated news.
+  * Translations
+    - Add splash-boutique page for translation.
+    - Re-synced translations.
+    - Pages that do not want translating (message.html) are ignored.
+    - Translations now work as new pages now generate.
+  * Tests
+    - Move non-CI tests to separate folder.
+    - PPA Testing = Ping the actual PPA repository URL (for Launchpad)
+    - Re-shuffle required checks for known repositories.
+
+ -- Martin Wimpress <code@flexion.org>  Tue, 28 Jun 2016 08:41:30 +0100
+
 ubuntu-mate-welcome (16.10.3) yakkety; urgency=medium
 
   [ Luke Horwell ]
