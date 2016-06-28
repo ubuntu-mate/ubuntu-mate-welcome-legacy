@@ -70,7 +70,7 @@ for category in categories:
                 ppa = app['pre-install'][distro]['enable-ppa']
                 ppa_author = ppa.split('ppa:')[1].split('/')[0]
                 ppa_name = ppa.split('ppa:')[1].split('/')[1]
-                url = "https://launchpad.net/~{0}/+archive/ubuntu/{1}".format(ppa_author, ppa_name)
+                url = "http://ppa.launchpad.net/{0}/{1}/ubuntu/".format(ppa_author, ppa_name)
                 urls[url] = 1
 
             # Extract the URL if an apt source

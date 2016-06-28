@@ -39,16 +39,17 @@ and testing purposes, the following can be specified:
 
 ```
 Usage: ubuntu-mate-welcome [arguments]
-  -d, --dev, --debug           Alias for --verbose and no locale.
+  -d, --dev, --debug           Disables locales and is very verbose
+                               intended for development purposes.
   --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.
   -h, --help                   Show this help text.
   --force-arch=ARCH            Simulate a specific architecture.
-                                -- Options: i386, amd64, armhf, powerpc
+                                -- Examples: i386, amd64, powerpc, armhf
   --force-codename=CODENAME    Simulate a specific release.
                                 -- Examples: trusty, wily, xenial
   --force-net                  Simulate a working internet connection.
   --force-no-net               Simulate no internet connection.
-  --force-session=TYPE         Simulate a specific architecture.
+  --force-session=TYPE         Simulate a specific type of session.
                                 -- Options: guest, live, pi, vbox
   --jump-to=PAGE               Open a specific page, excluding *.html
   --locale=CODE                Locale to use. e.g. fr_FR.
@@ -56,7 +57,7 @@ Usage: ubuntu-mate-welcome [arguments]
                                modifying the system.
   -b, -boutique,               Open Welcome only for the software selections.
   --software-only
-  -v, --verbose                Show more details to stdout (for debugging).
+  -v, --verbose                Show more details to stdout (for diagnosis).
 
 ```
 

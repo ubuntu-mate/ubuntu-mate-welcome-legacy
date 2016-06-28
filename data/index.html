@@ -12,22 +12,25 @@
   <div id="mate-blur" class="menu-bkgnd" hidden></div>
   <div class="container-fluid">
     <div id="navigation">
-      <div id="navigation-title" hidden>&zwnj;Main Menu&zwnj;</div>
-      <div id="navigation-right">
-        <div hidden id="update-notification" class="heads-up entire-page-fade">
-          <a onclick="cmd('subscribe-updates')" class="btn btn-inverse" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Ensures Welcome's documentation, translations and software picks are always up-to-date.&zwnj;">
+      <div id="navigation-title" style="display:none">&zwnj;Main Menu&zwnj;</div>
+      <div id="navigation-right" class="entire-page-fade">
+        <div id="update-notification" class="heads-up">
+          <a onclick="cmd('subscribe-updates')" class="btn btn-inverse"  style="display:none" data-toggle="tooltip" data-placement="bottom"
+              title="&zwnj;Ensures Welcome's documentation, translations and software picks are always up-to-date.&zwnj;">
             &zwnj;Subscribe to Welcome updates&zwnj; &nbsp;<span class="fa fa-arrow-circle-up"></span>
           </a>
         </div>
       </div>
-      <div hidden id="update-subscribing"  class="heads-up entire-page-fade">&zwnj;Welcome will automatically restart in a few moments...&zwnj; <img src="img/welcome/processing-dark.gif"/></div>
+      <div id="update-subscribing" class="heads-up" style="display:none">
+        <small>&zwnj;This Welcome application and the Boutique are being updated and will re-open shortly.&zwnj;</small>
+        <img src="img/welcome/processing-dark.gif"/>
+      </div>
       <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
     </div>
   </div>
   <img id="main-menu-logo" class="entire-page-fade main-menu-logo" src="img/welcome/ubuntu-mate-icon.svg" width="50%" height="50%" hidden>
-  <span id="special"></span>
   <div class="entire-page-fade" id="wrapper" hidden>
-    <div id="header" class="container-fluid fade fade-1s" style="padding-top: 64px">
+    <div id="header" class="container-fluid" style="padding-top: 64px">
       <div class="row-fluid">
         <div class="span12 center splash-version">
           <img src="img/welcome/um-text-ubuntu.svg" width="107px" height="28px">
@@ -41,21 +44,21 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid fade fade-2s">
+    <div class="container-fluid">
       <div class="row-fluid divider">
         <div class="span4 btn-showcase">
           <!-- Documentation -->
-          <a id="introduction"   class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('introduction.html')"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; &zwnj;Introduction&zwnj;</a>
-          <a id="features"       class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('features.html')"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; &zwnj;Features&zwnj;</a>
-          <a id="gettingstarted" class="btn btn-block btn-success fade fade-5s live-session" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; &zwnj;Getting Started&zwnj;</a>
-          <a id="install-guide"  class="btn btn-block btn-success fade fade-5s live-session-only" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; &zwnj;Installation Help&zwnj;</a>
+          <a style="display:none" id="introduction"   class="btn btn-block btn-default" onclick="exitMenu('introduction.html')"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; &zwnj;Introduction&zwnj;</a>
+          <a style="display:none" id="features"       class="btn btn-block btn-default" onclick="exitMenu('features.html')"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; &zwnj;Features&zwnj;</a>
+          <a style="display:none" id="gettingstarted" class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; &zwnj;Getting Started&zwnj;</a>
+          <a style="display:none" id="install-guide"  class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; &zwnj;Installation Help&zwnj;</a>
         </div>
         <div class="span4 btn-showcase"></div>
         <div class="span4 btn-showcase">
           <!-- Project -->
-          <a id="getinvolved" class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('getinvolved.html')"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; &zwnj;Get Involved&zwnj;</a>
-          <a id="shop"        class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('shop.html')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; &zwnj;Shop&zwnj;</a>
-          <a id="donate"      class="btn btn-block btn-success fade fade-5s" onclick="exitMenu('donate.html')"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; &zwnj;Donate&zwnj;</a>
+          <a style="display:none" id="getinvolved" class="btn btn-block btn-default" onclick="exitMenu('getinvolved.html')"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; &zwnj;Get Involved&zwnj;</a>
+          <a style="display:none" id="shop"        class="btn btn-block btn-default" onclick="exitMenu('shop.html')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; &zwnj;Shop&zwnj;</a>
+          <a style="display:none" id="donate"      class="btn btn-block btn-success" onclick="exitMenu('donate.html')"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; &zwnj;Donate&zwnj;</a>
         </div>
       </div>
       <br>
@@ -63,15 +66,15 @@
         <div class="span4 btn-showcase">
           <br>
           <!-- Support -->
-          <a id="community"   class="btn btn-block btn-default fade fade-3s" onclick="exitMenu('community.html')"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; &zwnj;Community&zwnj;</a>
-          <a id="chatroom"    class="btn btn-block btn-default fade fade-4s" onclick="exitMenu('chatroom.html')"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; &zwnj;Chat Room&zwnj;</a>
-          <a id="software"    class="btn btn-block btn-success fade fade-5s" onclick="exitMenu('software.html');$('#footer-left').fadeOut()"><img src="img/welcome/boutique-mono.svg">&nbsp; &zwnj;Software&zwnj;</a>
-          <a id="install"     class="btn btn-block btn-success fade fade-5s" href="cmd://install"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; &zwnj;Install Now&zwnj;</a>
+          <a style="display:none" id="community"   class="btn btn-block btn-default" onclick="exitMenu('community.html')"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; &zwnj;Community&zwnj;</a>
+          <a style="display:none" id="chatroom"    class="btn btn-block btn-default" onclick="exitMenu('chatroom.html')"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; &zwnj;Chat Room&zwnj;</a>
+          <a style="display:none" id="software"    class="btn btn-block btn-success" onclick="exitMenu('software.html');$('#footer-left').fadeOut()"><img src="img/welcome/boutique-mono.svg">&nbsp; &zwnj;Software&zwnj;</a>
+          <a style="display:none" id="install"     class="btn btn-block btn-success" href="cmd://install"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; &zwnj;Install Now&zwnj;</a>
         </div>
         <div class="span4 btn-showcase"></div>
         <br>
         <div class="span4 btn-showcase">
-          <a class="btn btn-block btn-rpi fade fade-5s rpi-only" onclick="exitMenu('rpi.html')" style="height: 95px; padding-top:10px;">
+          <a style="display:none" id="raspberry-pi" class="btn btn-block btn-rpi" onclick="exitMenu('rpi.html')" style="height: 95px; padding-top:10px;">
             <img src="img/logos/raspberry-pi-mono.png"/>
             <br>&zwnj;Raspberry Pi Information&zwnj;
           </a>
@@ -95,7 +98,6 @@
   <script src="js/jquery-2.1.4.js"></script>
   <script src="js/bootstrap-2.3.2.js"></script>
   <script src="js/janimate.js"></script>
-  <script src="js/confetti.js"></script>   <!-- Confetti only appears on special events -->
   <script src="js/welcome.js"></script>
 </body>
 </html>

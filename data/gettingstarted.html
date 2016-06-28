@@ -12,11 +12,11 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="indexClose(); smoothPageFade('index.html')">
+        <a id="menu-button" class="navigation-button" onclick="indexClose(); smoothPageFade('index.html')" style="display:none">
           <span class="fa fa-chevron-left"></span>
         </a>
         <a id="index-open" onclick="indexOpen()" class="navigation-button"><span class="fa fa-bars"></span></a>
-        <div id="navigation-title" hidden>&zwnj;Getting Started&zwnj; - <span id="navigation-sub-title"> </span></div>
+        <div id="navigation-title" style="display:none">&zwnj;Getting Started&zwnj; - <span id="navigation-sub-title"> </span></div>
         <div id="navigation-right"></div>
         <img id="navigation-divider" src="img/welcome/header-shadow.png" width="100%" height="11px">
       </div>
@@ -34,11 +34,11 @@
 
       <!-- Shown when installed -->
       <br class="live-session-only"/>
-      <span class="live-session"><h5>&zwnj;Post-Installation&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("updates","&zwnj;Updates & Extras&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Updates & Extras&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("languageInput","&zwnj;Language & Input&zwnj;")'>    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session"      onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
+      <span class="live-session-hide"><h5>&zwnj;Post-Installation&zwnj;</h5></span>
+      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("updates","&zwnj;Updates & Extras&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Updates & Extras&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("languageInput","&zwnj;Language & Input&zwnj;")'>    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
+      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
 
       <br><h5>&zwnj;Familiarity&zwnj;</h5>
       <a class="btn btn-inverse index-btn"                   onclick='changePage("customize","&zwnj;Customization&zwnj;")'>           <span class="fa fa-adjust"></span>        &zwnj;Customization&zwnj;</a>
@@ -622,8 +622,13 @@
               <span class="fa fa-globe"></span> &zwnj;Read more on
               printing&zwnj;</a>.</p>
 
-              <hr class="soften"/>
+            </div>
 
+            <!-- Software Utilities for Drivers -->
+            <a onclick="toggleSub('utility-section','utility-arrow');"><h3 class="sub-collapse"><span class="fa fa-chevron-down" id="utility-arrow"></span> &zwnj;Software Utilities for Peripherals&zwnj;</h3></a>
+            <div id="utility-section" hidden>
+
+              <!-- HP Printer -->
               <div class="row-fluid">
                 <div class="span2 center-inside">
                   <img src="img/applications/hplip.png" width="64px" height="64px"/>
@@ -639,6 +644,25 @@
                   <p class="text-right">
                     <a class="btn btn-inverse hp-printer-remove" onclick="cmd('launch-appid?hp-printer')"><img src="img/applications/hplip.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
                     <a class="btn btn-success hp-printer-install" onclick="cmd('install-appid?hp-printer')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
+                  </p>
+                </div>
+              </div>
+              <hr class="soften"/>
+
+              <!-- Logitech Solaar -->
+              <div class="row-fluid">
+                <div class="span2 center-inside">
+                  <img src="img/applications/solaar.png" width="64px" height="64px"/>
+                  <span class="fa fa-check-circle fa-2x installed-check solaar-remove"></span>
+                </div>
+                <div class="span10">
+                  <p><b>&zwnj;Solaar&zwnj;</b></p>
+                  <p>&zwnj;A device manager for Logitech’s Unifying Receiver peripherals.
+                  This enables features like managing paired devices and reading battery status.&zwnj;</p>
+                  <p class="text-right">
+                    <a class="btn" onclick="cmd('link?http://pwr.github.io/Solaar/')"><span class="fa fa-info-circle"></span>&nbsp; &zwnj;Learn More&zwnj;</a>
+                    <a class="btn btn-inverse solaar-remove" onclick="cmd('launch-appid?solaar')"><img src="img/applications/solaar.png" width="20px" height="20px"/>&nbsp; &zwnj;Open&zwnj;</a>
+                    <a class="btn btn-success solaar-install" onclick="cmd('install-appid?solaar')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</a>
                   </p>
                 </div>
               </div>
@@ -1454,7 +1478,7 @@
             <img class="specs-icon" hidden id="specs-device-rpi" src="img/logos/raspberry-pi.png"/>
             <img class="specs-icon" hidden id="specs-device-vbox" src="img/logos/virtualbox-vbox.png"/>
             <img class="specs-icon" hidden id="specs-device-powerpc" src="img/logos/powerpc.png"/>
-            <img class="specs-icon" hidden id="specs-live-session" src="img/welcome/live-session-image.png"/>
+            <img class="specs-icon" hidden id="specs-live-session-hide" src="img/welcome/live-session-image.png"/>
           </div>
           <div id="specs-box">
             <h4><span class="fa fa-cog"></span> &zwnj;System&zwnj;</h4>

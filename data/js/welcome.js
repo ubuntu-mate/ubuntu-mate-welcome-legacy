@@ -16,19 +16,23 @@ $(window).on("error", function(evt) {
 // Pass commands to Python
 function cmd(instruction) {
   document.title = instruction;
+  setTimeout(function(){
+    document.title = 'null';
+  }, 10);
 }
 
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
-    $('.entire-page-fade').fadeIn('medium');
+    $('.entire-page-fade').jAnimate('pageIn');
+    $('.entire-page-fade').show();
     $('#navigation-right').hide();
     $('#navigation-right').fadeIn('medium');
 });
 
 // Smoothly fade out of the page.
 function smoothPageFade(target_href) {
-    $('.entire-page-fade').fadeOut('medium');
+    $('.entire-page-fade').jAnimate('pageOut');
     $('#navigation-title').fadeOut('medium');
     $('#navigation-right').fadeOut('medium');
     $('.navigation-button').fadeOut('medium');
@@ -50,8 +54,12 @@ function backToTop() {
 $(document).ready(function() {
   // Animate navigation elements on page load
   if ( current_page != 'splash-boutique.html' ) {
-    $('#menu-button').jAnimateOnce('fadeInLeft');
-    $('#navigation-title').jAnimateOnce('fadeInDown');
+    if ( current_page != 'software.html') {
+      $('#menu-button').show();
+      $('#menu-button').jAnimateOnce('pageIn');
+      $('#navigation-title').show();
+      $('#navigation-title').jAnimateOnce('pageIn');
+    }
   }
 
   // Show back to top button on page scroll
@@ -81,11 +89,11 @@ function smoothFade(from, to) {
 // Smoothly fade the navigation sub-title
 function changeSubtitle(textToDisplay) {
   // Smoothly fade subtitle
-  $('#navigation-sub-title').fadeOut();
+  $('#navigation-sub-title').fadeOut('fast');
   setTimeout(function() {
     $('#navigation-sub-title').html(textToDisplay);
-    $('#navigation-sub-title').fadeIn();
-  }, 400);
+    $('#navigation-sub-title').fadeIn('fast');
+  }, 200);
 }
 
 // For pages that depend on an internet connection, but Welcome couldn't connect.
@@ -117,13 +125,10 @@ function setCursorNormal() {
 if ( current_page == 'index.html' ) {
 
   // Animate elements of the page
-  $('#main-menu-logo').jAnimateOnce('rotateIn');
-  $('.main-menu-text').fadeIn('slow');
+  $('.main-menu-text').fadeIn('medium');
   $('#open-at-start').jAnimateOnce('fadeIn');
-  setTimeout(function(){
-    $('#mate-blur').jAnimateOnce('zoomIn');
-    $('#mate-blur').show();
-  }, 50);
+  $('#mate-blur').jAnimateOnce('zoomIn');
+  $('#mate-blur').show();
 
   function exitMenu(target) {
       // Show a "wait" cursor for the Software page, as there is a slight delay.
@@ -134,21 +139,6 @@ if ( current_page == 'index.html' ) {
       $('#mate-blur').jAnimateOnce('zoomOut');
       smoothPageFade(target)
   }
-
-  // Have we greeted the user already?
-  if ( document.cookie == 'greeted=yes' ) {
-
-    $(document).ready(function () {
-      $(".fade").removeClass("fade");
-      $(".fade-1s").removeClass("fade-1s");
-      $(".fade-2s").removeClass("fade-2s");
-      $(".fade-3s").removeClass("fade-3s");
-      $(".fade-4s").removeClass("fade-4s");
-      $(".fade-5s").removeClass("fade-5s");
-    });
-  }
-
-  document.cookie = 'greeted=yes';
 
   // Enable tooltips
   $(document).ready(function() {
@@ -189,142 +179,6 @@ if ( current_page == 'index.html' ) {
       $('#main-menu-logo').jAnimateOnce('zoomIn');
     }, 91000);
 
-    // Internally work with days, months and years as a number.
-    function dateAsNumber(day, month, year) {
-      // Assumes 'month' parameter is in base 0.
-      // day, month   = Required.
-      // year         = Optional, set to 'null' to use current year.
-      var then = new Date();
-      if ( year != null ) {
-        then.setYear(year);
-      }
-      then.setMonth(month-1);
-      then.setDate(day);
-      var finalNumber = Math.floor( then / (1000 * 60 * 60 * 24) );
-      //~ var dateInYears = current + todayAsNumber;
-      //~ console.log('** finalNumber: '+finalNumber)
-      //~ return dateInYears;
-      return finalNumber;
-    }
-
-    // Activate Confetti
-    function activateConfetti() {
-      if ( disable_confetti == false ) {
-        $('#special').html('<canvas id="confetti" width="100%" height="100%" style="z-index: -1000; position: absolute; top: 0px; left: 0px;"></canvas>');
-        startConfetti();
-        return
-      } else {
-        return
-      }
-    }
-
-    // Use 'dd', 'mm' and 'yyyy' variables to re-use code.
-    var today = new Date();
-    var dd = 0;  var mm = 0;  var yyyy = 0; var release = '';
-
-    // What is today?
-    var today = new Date();
-    var todayAsNumber = dateAsNumber(today.getDate(), today.getMonth()+1, null)
-
-    // Check dates for special events.
-    function specialEventCheck(dateNo, title_text, show_confetti, fa_icon) {
-      // dateNo        = dateAsNumber(dd, mm, yyyy) function.
-      // title_text    = Text to display when date matches.
-      // show_confetti = True / False = Celebrate when date matches.
-      // fa_icon       = FontAwesome icon to display. Usually 'bell' or 'calendar' or 'bug'.
-      var do_show_this = false;
-      if ( dateNo == todayAsNumber) {
-        // Today is the day!
-        var do_show_this = true;
-      }
-      if ( do_show_this == true ) {
-        $('.main-menu-text').hide();
-        $('.main-menu-text').fadeIn();
-        $('.main-menu-text').html("<span class='fa fa-" + fa_icon + "'></span>&nbsp;" + title_text);
-        if ( show_confetti == true ) {
-          activateConfetti();
-        }
-      }
-    }
-
-    // Dates to be checking for.
-    function checkDates() {
-      // String variables are passed via Python. See _push_config for "Special Event Strings".
-
-      // Official Flavour Status - 26/Feb/2015
-      var age = today.getFullYear() - 2015;
-      dd = 26; mm = 02; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, flavour_anniversary_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, flavour_anniversary_future + ' ' + days_in + ' 6 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, flavour_anniversary_future + ' ' + days_in + ' 5 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, flavour_anniversary_future + ' ' + days_in + ' 4 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, flavour_anniversary_future + ' ' + days_in + ' 3 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, flavour_anniversary_future + ' ' + days_in + ' 2 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, flavour_anniversary_future + ' ' + tomorrow, true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , flavour_anniversary_present + ' ' + age + ' ' + years_ago, true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, flavour_anniversary_past + ' ' + yesterday, true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, flavour_anniversary_past + ' 2 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, flavour_anniversary_past + ' 3 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, flavour_anniversary_past + ' 4 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, flavour_anniversary_past + ' 5 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, flavour_anniversary_past + ' 6 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, flavour_anniversary_past + ' 7 ' + days_ago, false, 'calendar');
-
-      // Project Birthday - 21/Jun/2014
-      var age = today.getFullYear() - 2014;
-      dd = 21; mm = 06; yyyy = null;
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 6 ' + future_days, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 5 ' + future_days, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 4 ' + future_days, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 3 ' + future_days, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + days_in + ' 2 ' + future_days, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, project_birthday_future + ' ' + age + ' ' + years_old + ' ' + tomorrow + ' ' + project_birthday, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , project_birthday_present + ' ' + age + ' ' + years_old + ' ' + today_string + ' ' + project_birthday, true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, project_birthday_past + ' ' + age + ' ' + years_old + ' ' + yesterday + ' ' + project_birthday, true, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, project_birthday_past + ' ' + age + ' ' + years_old + ', 2 ' + days_ago, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, project_birthday_past + ' ' + age + ' ' + years_old + ', 3 ' + days_ago, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, project_birthday_past + ' ' + age + ' ' + years_old + ', 4 ' + days_ago, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, project_birthday_past + ' ' + age + ' ' + years_old + ', 5 ' + days_ago, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, project_birthday_past + ' ' + age + ' ' + years_old + ', 6 ' + days_ago, false, 'birthday-cake');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, project_birthday_past + ' ' + age + ' ' + years_old + ', 7 ' + days_ago, false, 'calendar');
-
-      // Holiday Celebrations
-      specialEventCheck(dateAsNumber(31,12,null), celebrate_new_year, true, 'calendar');
-      specialEventCheck(dateAsNumber(01,01,null), celebrate_new_year, true, 'calendar');
-
-      // 16.04 Beta 2
-      dd = 24; mm = 03; yyyy = 2016;
-      release = 'Ubuntu MATE 16.04 Beta 2';
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, release + ' ' + project_release_future + ' ' + days_in + ' 3 ' + future_days, false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, release + ' ' + project_release_future + ' ' + days_in + ' 2 ' + future_days, false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, release + ' ' + project_release_future + ' ' + tomorrow, false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , release + ' ' + project_release_present, true, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, project_release_thanks + ' ' + release + '.', true, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, project_release_thanks + ' ' + release + '.', false, 'bug');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, project_release_thanks + ' ' + release + '.', false, 'bug');
-
-      // 16.04 Final Release
-      dd = 21; mm = 04; yyyy = 2016;
-      release = 'Ubuntu MATE 16.04 LTS';
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-7, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-6, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-5, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-4, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-3, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-2, release + ' ' + project_release_future + ' ' + days_in + ' 7 ' + future_days, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)-1, release + ' ' + project_release_future + ' ' + tomorrow, true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)  , release + ' ' + project_release_present, true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+1, release + ' ' + project_release_past + ' ' + yesterday, true, 'bell');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+2, release + ' ' + project_release_past + ' 2 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+3, release + ' ' + project_release_past + ' 3 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+4, release + ' ' + project_release_past + ' 4 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+5, release + ' ' + project_release_past + ' 5 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+6, release + ' ' + project_release_past + ' 6 ' + days_ago, false, 'calendar');
-      specialEventCheck(dateAsNumber(dd,mm,yyyy)+7, release + ' ' + project_release_past + ' 7 ' + days_ago, false, 'calendar');
-
-      // To-do as possible improvement: Retrieve events as a list from server.
-    }
 }
 
 
@@ -340,21 +194,21 @@ if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
 // Software Page Only = Categories for Apps
 if ( current_page == 'software.html' ) {
 
+    // Do not show navigation elements
+    $('#menu-button').hide();
+    $('#navigation-title').hide();
+    $('#navigation-right').hide();
+
     // Initial variables.
-    var currentCategory;
+    var currentCategory = '#boutique-loading';
     var hideNonFree = false;
     var system_info = '';
-
-    // Show the first category.
-    currentCategory = '#Intro';
-    $(currentCategory).jAnimateOnce('zoomInLeft');
-    $(currentCategory).show();
 
     // Switch to another category.
     function switchCategory(now, next, subtitle, hideCheckmarks=false) {
         // Smoothly fade subtitle
         changeSubtitle(subtitle);
-        $('#content').animate({ scrollTop: 0 }, 0)
+        $('#content').animate({ scrollTop: 0 }, 500)
 
         // Remove any other current page highlights
         $('#navigation-queue').removeClass('active');
@@ -374,12 +228,11 @@ if ( current_page == 'software.html' ) {
         }
 
         // Animate out, then animate in next category.
-        $(now).fadeOut('fast');
+        $(now).fadeOut();
         setTimeout(function() {
           $(now).hide();
           currentCategory = next;
-          $(next).show();
-          $(next).jAnimateOnce('fadeInDown');
+          $(next).fadeIn();
         }, 250);
 
         // Show all apps again, in case the previous page was filtered.
@@ -423,12 +276,6 @@ if ( current_page == 'software.html' ) {
     // Show the popover/tooltips on hover
     $(document).ready(function() {
       $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-    });
-    $('[rel=freedominfo]').popover({
-        html : true,
-        content: function() {
-          return $('#popover_content_wrapper').html();
-        }
     });
 
     // Filtering applications by subcategory and/or proprietary software.
@@ -636,19 +483,17 @@ if ( current_page == 'splash.html' ) {
 
   function continueToPage(skipped) {
     if ( skipped == true ) {
-      $('#white-start').fadeOut('fast');
       $('#splash-logo').fadeOut('fast');
-      $('#splash-text').fadeOut('fast');
-      $('#splash-welcome').fadeOut('fast');
+      $('#white-start').fadeOut('fast');
+      $('#header').fadeIn('fast');
+      $('#footer').fadeIn('fast');
       setTimeout(function(){
           smoothPageFade(splashNextPage + '.html');
-      }, 500);
+      }, 100);
     } else {
       smoothPageFade(splashNextPage + '.html');
     }
-
   }
-
 }
 
 
@@ -668,13 +513,13 @@ if ( current_page == 'splash-boutique.html' ) {
       $('#Text1').hide();
       $('#Text1').css('opacity','');
       $('#Text1').fadeIn(750);
-    }, 150);
+    }, 100);
 
     setTimeout(function(){
       $('#Text2').hide();
       $('#Text2').css('opacity','');
       $('#Text2').fadeIn(750);
-    }, 450);
+    }, 200);
 }
 
 
@@ -724,7 +569,7 @@ if ( current_page == 'gettingstarted.html' ) {
   // Show initial page and index pane on page load
   changePage('initial','Choose a Topic');
   setTimeout(function() { indexOpen(); }, 500);
-  $('#index-open').jAnimateOnce('fadeInDown');
+  $('#index-open').jAnimateOnce('pageIn');
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();

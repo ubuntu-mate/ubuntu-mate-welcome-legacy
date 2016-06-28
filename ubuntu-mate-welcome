@@ -42,6 +42,7 @@ import signal
 import socket
 import subprocess
 import sys
+import time
 import webbrowser
 
 import urllib.error
@@ -85,7 +86,6 @@ def goodbye(a=None, b=None):
         # Be quite forceful, particularly those child screenshot windows.
         exit()
 
-
 def set_proc_title(name=None):
     '''Set the process title'''
 
@@ -102,7 +102,6 @@ def set_proc_title(name=None):
 
     return ret
 
-
 def whereami():
     """ Determine data source """
     current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
@@ -117,12 +116,20 @@ def whereami():
         sys.exit(1)
     return data_path
 
-
 def notify_send(title, description, icon_path):
     # Sends a system notification to the user.
     Notify.init(title)
     notification=Notify.Notification.new(title, description, icon_path)
     notification.show()
+
+def run_external_command(command, with_shell=False):
+    # Runs external commands and cleans up the output.
+    if with_shell:
+        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
+    else:
+        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
+    output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","\n")
+    return output
 
 
 ##################################
@@ -680,6 +687,9 @@ class PreInstallation(object):
 ##################################
 class Translations(object):
     def __init__(self, data_path):
+        # Pages that do not want to be translated.
+        self.excluded_pages = ['message.html']
+
         # Determine which locale to use
         if arg.locale:
             self.locale = arg.locale
@@ -722,8 +732,9 @@ class Translations(object):
                     if os.path.exists(os.path.join(self.pages_dir, page)):
                         dbg.stdout('i18n', 'Page Verified: ' + page, 2, 2)
                     else:
-                        page_was_lost = True
-                        dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
+                        if page not in self.excluded_pages:
+                            page_was_lost = True
+                            dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
         if page_was_lost:
             dbg.stdout('i18n', 'One or more translation pages are missing! Falling back to "en_US".', 0, 1)
             self.pages_dir = data_path
@@ -779,7 +790,7 @@ class Strings(object):
         self.upgraded = str(_("This application is set to receive the latest updates."))
         self.alternate_to = str(_('Alternative to:'))
         self.hide = str(_("Hide"))
-        self.show = str(_("Show"))
+        self.show = str(_("Details"))
         self.install = str(_("Install"))
         self.reinstall = str(_("Reinstall"))
         self.remove = str(_("Remove"))
@@ -791,11 +802,18 @@ class Strings(object):
         self.website = str(_("Website"))
         self.screenshot = str(_("Screenshot"))
         self.source = str(_("Source"))
+        self.repo_main = str(_("Ubuntu Repository"))
+        self.repo_universe = str(_("Ubuntu Community Maintained Repository"))
+        self.repo_restricted = str(_("Ubuntu Proprietary Drivers Repository"))
+        self.repo_multiverse = str(_("Ubuntu Non-Free Repository"))
         self.repo_partner = str(_("Canonical Partner Repository"))
-        self.repo_multiverse = str(_("Ubuntu Multiverse Repository"))
-        self.repo_ubuntu = str(_("Ubuntu Repository"))
         self.unknown = str(_('Unknown'))
         self.undo = str(_("Undo Changes"))
+
+        # Repository Listings
+        self.repo_unknown = str(_("External Repository"))
+        self.head_software = str(_("Software"))
+        self.head_source = str(_("Source"))
 
         # Applying Changes
         self.install_text = str(_("Installing..."))
@@ -857,7 +875,6 @@ class AppView(WebKit2.WebView):
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
 
-
         # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
         dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
@@ -867,33 +884,6 @@ class AppView(WebKit2.WebView):
 
     def _push_config(self):
         ### Global - On all pages ###
-        if systemstate.session_type == 'live':
-            # If this is a Live session (booted from ISO) show the
-            # 'Install OS' button, if running on an installed system show
-            # the 'Install Software' button.
-            app.update_page('#install', 'hide')
-            app.update_page('#software', 'hide')
-            app.update_page('.live-session', 'hide')
-            app.update_page('.live-session-only', 'show')
-        else:
-            app.update_page('#install', 'hide')
-            app.update_page('#software', 'show')
-            app.update_page('.live-session', 'show')
-            app.update_page('.live-session-only', 'hide')
-
-        # If started from a Raspberry Pi.
-        if systemstate.session_type == 'pi':
-            app.update_page('.rpi-only', 'show')
-        else:
-            app.update_page('.rpi-only', 'hide')
-
-        # Display warnings if the user is not connected to the internet.
-        if systemstate.is_online:
-            app.update_page('.offline', 'hide')
-            app.update_page('.online', 'show')
-        else:
-            app.update_page('.offline', 'show')
-            app.update_page('.online', 'hide')
 
         # Do not show footer links on splash or software page.
         if not arg.jump_software_page:
@@ -903,6 +893,68 @@ class AppView(WebKit2.WebView):
         # Do not show the Close button in Boutique mode.
         if not arg.jump_software_page:
             app.update_page('#footer-global-right', 'html', app.footer_close)
+
+        # Adapt the header/footer if a different theme is in use.
+        def light_theme():
+            app.update_page('#navigation', 'css', 'color', 'black')
+            app.update_page('#navigation a', 'css', 'color', 'black')
+            app.update_page('#footer', 'css', 'color', 'black')
+            app.update_page('#footer a', 'css', 'color', 'black')
+            app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
+
+        if systemstate.theme == 'BlackMATE':
+            app.update_page('#navigation', 'css', 'background-color', '#3D3D3F')
+            app.update_page('#footer', 'css', 'background-color', '#3D3D3F')
+        elif systemstate.theme == 'BlueMenta':
+            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
+            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
+            light_theme()
+        elif systemstate.theme == 'Blue-Submarine':
+            app.update_page('#navigation', 'css', 'background-color', '#2C404F')
+            app.update_page('#footer', 'css', 'background-color', '#2C404F')
+        elif systemstate.theme == 'GreenLaguna':
+            app.update_page('#navigation', 'css', 'background-color', '#EAF0E8')
+            app.update_page('#footer', 'css', 'background-color', '#EAF0E8')
+            light_theme()
+        elif systemstate.theme == 'ContrastHigh':
+            app.update_page('#navigation', 'css', 'background-color', 'white')
+            app.update_page('#footer', 'css', 'background-color', 'white')
+            light_theme()
+        elif systemstate.theme == 'ContrastHighInverse':
+            app.update_page('#navigation', 'css', 'background-color', 'black')
+            app.update_page('#footer', 'css', 'background-color', 'black')
+        elif systemstate.theme == 'Menta':
+            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
+            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
+            light_theme()
+        elif systemstate.theme == 'Radiant-MATE':
+            app.update_page('#navigation', 'css', 'background-color', '#DFD7CF')
+            app.update_page('#footer', 'css', 'background-color', '#DFD7CF')
+            light_theme()
+        elif systemstate.theme == 'TraditionalGreen' or systemstate.theme == 'TraditionalOk':
+            app.update_page('#navigation', 'css', 'background-color', '#E7E6E5')
+            app.update_page('#footer', 'css', 'background-color', '#E7E6E5')
+            light_theme()
+        elif systemstate.theme == 'TraditionalOkTest':
+            app.update_page('#navigation', 'css', 'background-color', '#868883')
+            app.update_page('#footer', 'css', 'background-color', '#868883')
+
+        # If this is a live session, adapt the UI.
+        if systemstate.session_type == 'live':
+            if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
+                app.update_page('.live-session-hide', 'hide')
+                app.update_page('.live-session-only', 'show')
+        else:
+            app.update_page('.live-session-hide', 'show')
+            app.update_page('.live-session-only', 'hide')
+
+        # Display warnings if the user is not connected to the internet.
+        if systemstate.is_online:
+            app.update_page('.offline', 'hide')
+            app.update_page('.online', 'show')
+        else:
+            app.update_page('.offline', 'show')
+            app.update_page('.online', 'hide')
 
         # Smoothly fade in the footer links between pages.
         #   splash → index
@@ -919,7 +971,13 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'index.html':
             app.update_page('#os_version', 'html', systemstate.os_version)
 
-            # Show Welcome at logon state
+            # Buttons (IDs) to be displayed
+            btns = [ 'introduction', 'features', 'gettingstarted',
+                     'getinvolved', 'shop', 'donate',
+                     'community', 'chatroom', 'software'
+                   ]
+
+            # Show Welcome at login state
             if systemstate.autostart:
                 app.update_page('#autostart', 'addClass', 'fa-check-square')
                 app.update_page('#autostart', 'removeClass', 'fa-square')
@@ -929,10 +987,25 @@ class AppView(WebKit2.WebView):
 
             # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
-                app.update_page('#gettingstarted', 'hide')
-                app.update_page('#software', 'hide')
+                btns.remove('gettingstarted')
+                btns.remove('software')
                 app.update_page('#introduction', 'addClass', 'btn-success')
                 app.update_page('#community', 'addClass', 'btn-success')
+
+            # Raspberry Pi button
+            if systemstate.session_type == 'pi':
+                btns.append('raspberry-pi')
+
+            # Swap software for install button in live sessions.
+            if systemstate.session_type == 'live':
+                btns.remove('gettingstarted')
+                btns.remove('software')
+                btns.append('install-guide')
+                btns.append('install')
+
+            # Fade in the menu buttons.
+            for btn_id in btns:
+                app.update_page('#'+btn_id, 'fadeIn')
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
             app.update_page('#update-subscribing', 'hide')
@@ -941,42 +1014,6 @@ class AppView(WebKit2.WebView):
                     app.update_page('#update-notification', 'fadeIn', 'slow')
             else:
                 app.update_page('#update-notification', 'hide')
-
-            # Disable confetti on machines that may suffer performance issues.
-            if systemstate.arch == 'armhf':
-                self.run_javascript('var disable_confetti = true;')
-            elif systemstate.arch == 'powerpc':
-                self.run_javascript('var disable_confetti = true;')
-            else:
-                self.run_javascript('var disable_confetti = false;')
-
-            # Special event strings.
-            self.run_javascript('var days_in = "&zwnj;in&zwnj;"')
-            self.run_javascript('var future_days = "&zwnj;days.&zwnj;"')
-            self.run_javascript('var days_ago = "&zwnj;days ago.&zwnj;"')
-            self.run_javascript('var yesterday = "&zwnj;yesterday.&zwnj;"')
-            self.run_javascript('var tomorrow = "&zwnj;tomorrow.&zwnj;"')
-            self.run_javascript('var years_ago = "&zwnj;years ago today.&zwnj;"')
-            self.run_javascript('var today_string = "&zwnj;today.&zwnj;"')
-            self.run_javascript('var years_old = "&zwnj;years old&zwnj;"')
-
-            self.run_javascript('var flavour_anniversary_future  = "&zwnj;Ubuntu MATE\'s official flavour anniversary&zwnj;"')
-            self.run_javascript('var flavour_anniversary_present = "&zwnj;Ubuntu MATE become an official flavour&zwnj;"')
-            self.run_javascript('var flavour_anniversary_past    = "&zwnj;Ubuntu MATE\'s official flavour anniversary was&zwnj;"')
-
-            self.run_javascript('var project_birthday_future  = "&zwnj;Ubuntu MATE will be&zwnj;"')
-            self.run_javascript('var project_birthday_present = "&zwnj;Ubuntu MATE is&zwnj;"')
-            self.run_javascript('var project_birthday_past    = "&zwnj;Ubuntu MATE turned&zwnj;"')
-
-            self.run_javascript('var project_birthday         = "&zwnj;Happy Birthday!&zwnj;"')
-            self.run_javascript('var celebrate_new_year       = "&zwnj;Happy New Year from Ubuntu MATE!&zwnj;"')
-
-            self.run_javascript('var project_release_future   = "&zwnj;will be released&zwnj;"')
-            self.run_javascript('var project_release_present  = "&zwnj;is released today!&zwnj;"')
-            self.run_javascript('var project_release_past     = "&zwnj;was released&zwnj;"')
-            self.run_javascript('var project_release_thanks   = "&zwnj;Thank you for testing&zwnj;"')
-
-            self.run_javascript('checkDates();')
 
         ### Splash ###
         if app.current_page == 'splash.html':
@@ -991,6 +1028,7 @@ class AppView(WebKit2.WebView):
             else:
                 self.run_javascript('var splashNextPage = "index"')
                 self.run_javascript('var quick_splash = false')
+                app.update_page('#skip-btn', 'fadeIn', 'fast')
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
@@ -1022,6 +1060,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'codecs')
             dynamicapps.update_app_status(self, 'firmware')
             dynamicapps.update_app_status(self, 'hp-printer')
+            dynamicapps.update_app_status(self, 'solaar')
             dynamicapps.update_app_status(self, 'keyboard-chinese')
             dynamicapps.update_app_status(self, 'keyboard-japanese')
             dynamicapps.update_app_status(self, 'keyboard-korean')
@@ -1034,39 +1073,67 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'software.html':
             dynamicapps.toggle_non_free()
             self.do_smooth_footer = True
+            app.update_page('#navigation-right', 'addClass', 'always-hidden')
 
-            # If loading a minimal "Get More Software" only page.
-            if arg.jump_software_page:
-                app.update_page('#menu-button', 'hide')
-                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'>" + string.boutique + "</span>")
-                app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
+            def load_thread(self):
 
-            # Pass 'Servers' variable used for one-click server links.
-            self.run_javascript('var server_string = "' + _("Servers") + '"')
+                # Allows smooth animations
+                time.sleep(1)
 
-            # Dynamically load application lists.
-            dynamicapps.populate_categories(self)
-            dynamicapps.update_all_app_status(self)
-            dynamicapps.populate_featured_apps(self)
-            dynamicapps.populate_news(self)
+                # Pass 'Servers' variable used for one-click server links.
+                self.run_javascript('var server_string = "' + _("Servers") + '"')
 
-            # Show a different footer in the Boutique.
-            app.update_page('#footer-global-left', 'html', app.boutique_footer)
+                # Are we running on a non-Ubuntu MATE system?
+                # Show a warning on the first visit.
+                if not systemstate.apt_cache['ubuntu-mate-desktop'].is_installed or not systemstate.apt_cache['ubuntu-mate-core'].is_installed:
+                    if not pref.get("boutique-warning-seen", False):
+                        self._do_command('message?boutique-on-other-distro')
+                        pref.set("boutique-warning-seen", True)
 
-            # Set version and subscription details.
-            app.update_page('#boutique-version', 'html', systemstate.welcome_version)
-            if systemstate.updates_subscribed:
-                app.update_page('#update-subscribed', 'show')
-            else:
-                app.update_page('#update-notification', 'show')
+                # Dynamically load application lists.
+                dynamicapps.populate_categories(self)
+                dynamicapps.update_all_app_status(self)
+                dynamicapps.populate_featured_apps(self)
+                dynamicapps.populate_news(self)
 
-            # Refresh preferences page
-            pref.refresh_pref_page('enable-queue')
-            pref.refresh_pref_page('hide-apt-progress')
+                # Show a different footer in the Boutique.
+                app.update_page('#footer-global-left', 'html', app.boutique_footer)
 
-            # Is the queue enabled?
-            queue.refresh_page_state()
-            queue.clear()
+                # Set version and subscription details.
+                app.update_page('#boutique-version', 'html', systemstate.welcome_version)
+                if systemstate.updates_subscribed:
+                    app.update_page('#update-subscribed', 'show')
+                else:
+                    app.update_page('#update-notification', 'show')
+
+                # Refresh preferences page
+                pref.refresh_pref_page('enable-queue')
+                pref.refresh_pref_page('hide-apt-progress')
+
+                # Is the queue enabled?
+                queue.refresh_page_state()
+                queue.clear()
+
+                # Smoothly fade to introduction page.
+                app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
+                app.update_page('#category-tabs', 'show')
+                app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
+                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
+                app.update_page('#navigation-right', 'removeClass', 'always-hidden')
+
+                # If loading a minimal "Get More Software" only page.
+                if arg.jump_software_page:
+                    app.update_page('#navigation-title', 'fadeIn')
+                    app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'></span>")
+                    app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
+                else:
+                    app.update_page('#menu-button', 'fadeIn')
+                    app.update_page('#navigation-title', 'fadeIn')
+
+
+            # Finish loading the Boutique.
+            thread = Thread(target=load_thread, args=[self])
+            thread.start()
 
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
@@ -1089,10 +1156,42 @@ class AppView(WebKit2.WebView):
             self.run_javascript('short_nov = "' + _("Nov") + '"')
             self.run_javascript('short_dec = "' + _("Dec") + '"')
 
+        ### Message ###
+        if app.current_page == 'message.html':
+            """ Displays one-time information. """
+            msg_id = app.msg_to_display
+            # Which message to display?
+            if not msg_id:
+                dbg.stdout("Welcome", "No message ID set! Returning to main menu.", 0, 1)
+                app.webkit.run_javascript("smoothPageFade('index.html')")
+                return
+            elif msg_id == "boutique-on-other-distro":
+                nav_title = _("Unsupported Distribution")
+                body_title = _("Your mileage may wary.")
+                body_text = _("Software Boutique is designed for Ubuntu MATE, but it appears you are " + \
+                       "running a different distribution.") + '</p><p>' + _("While a large selection of software " + \
+                       "will work on other Ubuntu-based distributions, we cannot guarantee " + \
+                       "our featured picks will work flawlessly on your system.") + '</p><p>' + \
+                       '<span class="fa fa-info-circle"></span> ' + _("This message will not be shown again.")
+                image = "img/welcome/boutique-on-other-distro.png"
+                target = "software.html"
+            else:
+                dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
+                app.webkit.run_javascript("smoothPageFade('index.html')")
+                return
+
+            # Push message contents to page.
+            app.update_page('#navigation-title', 'html', nav_title)
+            app.update_page('#message-title', 'html', body_title)
+            app.update_page('#message-body', 'html', body_text)
+            app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
+            app.update_page('#message-link', 'html', "<a class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</a>".format(target, _("Continue")))
+
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
-        dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
-        self._do_command(title)
+        if title != 'null':
+            dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
+            self._do_command(title)
 
     def _load_changed_cb(self, view, frame):
         uri = str(self.get_uri())
@@ -1239,6 +1338,11 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('clipboard'):
             var = cmd.split('?')[1]
             systemstate.copy_to_clipboard(var)
+        elif cmd.startswith('message'):
+            app.msg_to_display = cmd.split('?')[1]
+            self.run_javascript("smoothPageFade('message.html')")
+        elif cmd == 'list-repos':
+            dynamicapps.populate_repos()
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
@@ -1498,6 +1602,13 @@ class SystemState(object):
         self.dpi = font_dpi
         self.zoom_level = zoom_level
 
+        # For adjusting the colours for other default themes.
+        try:
+            dconf = Gio.Settings.new('org.mate.interface')
+            self.theme = str(dconf.get_value('gtk-theme')).strip("'")
+        except:
+            self.theme = 'Ambiant-MATE'
+
     def reload_cache(self):
         dbg.stdout('Apt', 'Reloading cache...', 0, 3)
         self.apt_cache.close()
@@ -1622,15 +1733,6 @@ class SystemState(object):
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
             app.update_page('#spec'+element, 'html', html_tag)
-
-        # Collect basic system information
-        def run_external_command(command, with_shell=False):
-            if with_shell:
-                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
-            else:
-                raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
-            output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","")
-            return output
 
         ## Distro
         try:
@@ -1986,6 +2088,18 @@ class SystemState(object):
         clipboard.store()
         dbg.stdout('Clipboard', 'Copied contents of: ' + var, 1, 2)
 
+    def get_system_repository_state(self, repo):
+        # Used to determine if a system repository is enabled.
+        # E.g. "main", "multiverse".
+        raw = run_external_command("grep '" + self.codename + " " + repo + "' /etc/apt/sources.list | grep -v 'deb-src' | grep -v 'cdrom'", True)
+        # Check for a commented line.
+        if raw[:1] != '#':
+            dbg.stdout("Repository", "Checked: '" + repo + "' = Enabled", 2, 3)
+            return True
+        else:
+            dbg.stdout("Repository", "Checked: '" + repo + "' = Disabled", 2, 3)
+            return False
+
 
 class DynamicApps(object):
     def __init__(self):
@@ -2088,7 +2202,7 @@ class DynamicApps(object):
         source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
         source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_partner
         source_multiverse = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_multiverse
-        source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_ubuntu
+        source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_main
 
         # "Normal" packages that can be installed/removed by the user.
         if self.app_open_source:
@@ -2616,7 +2730,7 @@ class DynamicApps(object):
         # Begin generating the HTML to append.
         news_buffer = '<hr class="soften">'
         news_versions = list(self.news.keys())
-        news_versions.sort(reverse=True)
+        news_versions = sorted( news_versions, reverse=True, key=lambda news_versions: int(news_versions.split(".")[-1]) )
         for version in news_versions:
             news_buffer = news_buffer + '<h4>' + version + '</h4><div class="news-list-version">'
 
@@ -2757,6 +2871,143 @@ class DynamicApps(object):
             # If non-free filtering is enabled, inform of how many apps were hidden.
             if self.hide_non_free and hidden_results > 0:
                 app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</a>')
+
+    def populate_repos(self):
+        app.webkit.run_javascript('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
+        app.update_page('#repo-table', 'hide')
+        app.update_page('#repo-table', 'html', ' ')
+        app.update_page('#repo-busy', 'slideDown')
+
+        def repo_thread(self):
+            raw_repo = run_external_command("egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*", True)
+            html_buffer = ' '
+            url_index = {}
+
+            # Gather a list of applications and their URLs.
+            categories = list(self.index.keys())
+            categories += ["KnownRepos"]
+            for category in categories:
+                items = list(self.index[category].keys())
+                for program_id in items:
+                    try:
+                        releases = list(self.index[category][program_id]['pre-install'].keys())
+                    except:
+                        continue
+
+                    for release in releases:
+                        methods = self.index[category][program_id]['pre-install'][release]['method'].split(',')
+                        for method in methods:
+                            url = ""
+
+                            # Extract the URL if an apt source
+                            if method == 'manual' or method == 'ppa+manual':
+                                apt_source_list = str(self.index[category][program_id]['pre-install'][release]['apt-sources'])
+                                apt_source_parts = apt_source_list.split(' ')
+                                for part in apt_source_parts:
+                                    if part.startswith('http'):
+                                        url = part
+                                        url_index[program_id] = url
+                                        continue
+
+                            # Generate Launchpad URL if a PPA
+                            elif method == 'ppa':
+                                ppa = self.index[category][program_id]['pre-install'][release]['enable-ppa']
+                                ppa_author = ppa.split('ppa:')[1].split('/')[0]
+                                ppa_name = ppa.split('ppa:')[1].split('/')[1]
+                                url = "http://ppa.launchpad.net/{0}/{1}/ubuntu".format(ppa_author, ppa_name)
+
+                            else:
+                                continue
+
+                            # Add this to the collection
+                            url_index[program_id] = url
+
+            # Function to add to HTML buffer
+            def add_to_table(software, source, img_path):
+                append_this = "<tr><td><img src='" + img_path + "' width='24px' height='24px'/> " + software + "</td><td>" + source + "</td></tr>"
+                return append_this
+
+            # Add table headers
+            headers = '<tr><th style="width:40%">' + string.head_software + '</th><th style="width:60%">' + string.head_source + '</th></tr>'
+            app.update_page('#repo-table', 'append', headers)
+
+            # Add system repositories to the top of the list.
+            sys_icon = trans.res_dir + 'img/logos/ubuntu.png'
+
+            if systemstate.get_system_repository_state('main') == True:
+                html_buffer += add_to_table(string.repo_main, 'main', sys_icon)
+
+            if systemstate.get_system_repository_state('universe') == True:
+                html_buffer += add_to_table(string.repo_universe, 'universe', sys_icon)
+
+            if systemstate.get_system_repository_state('main restricted') == True:
+                html_buffer += add_to_table(string.repo_restricted, 'restricted', sys_icon)
+
+            if systemstate.get_system_repository_state('multiverse') == True:
+                html_buffer += add_to_table(string.repo_multiverse, 'multiverse', sys_icon)
+
+            if systemstate.get_system_repository_state('partner') == True:
+                html_buffer += add_to_table(string.repo_partner, 'partner', sys_icon)
+
+            # Parse sources list, prevent duplicate URLs.
+            source_urls = {}
+            for line in raw_repo.split('\n'):
+                parts = line.split(' ')
+                list_file = parts[0].split(':deb')[0]
+                url = parts[1]
+
+                # Ignore any saved entries.
+                if list_file[-5:] == '.save':
+                    continue
+
+                # Ignore the file if it's 0 bytes.
+                if not os.path.getsize(list_file) > 0:
+                    continue
+
+                # Ignore if a system or the partner repository.
+                if url.find("ubuntu.com/") != -1:
+                    continue
+                if url.find("canonical.com/") != -1:
+                    continue
+
+                # Except if [arch=amd64] is specified.
+                if url[:4] != 'http':
+                    url = parts[2]
+                    if url[:4] != 'http':
+                        # Give up. Malformed URL or line.
+                        continue
+                    else:
+                        source_urls[url] = 1
+                else:
+                    source_urls[url] = 1
+
+            # Compare programs with the Boutique for pretty icons.
+            source_urls = list(source_urls)
+            source_urls.sort()
+            for url in source_urls:
+                # Initially presume this is outside of the Boutique.
+                software = string.repo_unknown
+                img = 'unknown'
+                source = url
+
+                # Is there a match?
+                for program_id in list(url_index.keys()):
+                    if url_index[program_id] == url:
+                        software = dynamicapps.get_attribute_for_app(program_id, 'name')
+                        img = dynamicapps.get_attribute_for_app(program_id, 'img')
+                        source = url
+
+                # Add this to the table.
+                img_path = trans.res_dir + 'img/applications/' + img + '.png'
+                html_buffer += add_to_table(software, source, img_path)
+
+            # Done - Now append.
+            app.update_page('#repo-table tr:last', 'after', html_buffer)
+            app.update_page('#repo-busy', 'slideUp')
+            app.update_page('#repo-table', 'slideDown')
+
+        thread = Thread(target=repo_thread, args=[self])
+        thread.start()
 
 
 class ChangesQueue(object):
@@ -3194,6 +3445,9 @@ class Arguments(object):
         self.jump_to = None
         self.font_dpi_override = None
 
+        archs = ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']
+        sessions = ['guest', 'live', 'pi', 'vbox']
+
         for arg in sys.argv:
           if arg == '--help' or arg == '-h':
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
@@ -3204,12 +3458,12 @@ class Arguments(object):
               print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
               print('  -h, --help                   Show this help text.')
               print('  --force-arch=ARCH            Simulate a specific architecture.')
-              print('                                -- Options: i386, amd64, armhf, powerpc')
+              print('                                -- Examples: i386, amd64, powerpc, armhf')
               print('  --force-codename=CODENAME    Simulate a specific release.')
               print('                                -- Examples: trusty, wily, xenial')
               print('  --force-net                  Simulate a working internet connection.')
               print('  --force-no-net               Simulate no internet connection.')
-              print('  --force-session=TYPE         Simulate a specific architecture.')
+              print('  --force-session=TYPE         Simulate a specific type of session.')
               print('                                -- Options: guest, live, pi, vbox')
               print('  --jump-to=PAGE               Open a specific page, excluding *.html')
               print('  --locale=CODE                Locale to use. e.g. fr_FR.')
@@ -3228,25 +3482,27 @@ class Arguments(object):
           if arg.startswith('--force-arch'):
               try:
                   self.simulate_arch = arg.split('--force-arch=')[1]
-                  if not self.simulate_arch == 'i386' and not self.simulate_arch == 'amd64' and not self.simulate_arch == 'armhf' and not self.simulate_arch == 'powerpc':
+                  if self.simulate_arch not in archs:
                       dbg.stdout('Debug', 'Unrecognised architecture: ' + self.simulate_arch, 0, 1)
                       exit()
                   else:
                       dbg.stdout('Debug', 'Simulating architecture: ' + self.simulate_arch, 0, 0)
               except:
                   dbg.stdout('Debug', 'Invalid arguments for "--force-arch"', 0, 1)
+                  dbg.stdout('Debug', 'Available Options: ' + str(archs), 0, 1)
                   exit()
 
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
-                  if not self.simulate_session == 'guest' and not self.simulate_session == 'live' and not self.simulate_session == 'pi' and not self.simulate_session == 'vbox':
+                  if self.simulate_session not in sessions:
                       dbg.stdout('Debug', 'Unrecognised session type: ' + self.simulate_session, 0, 1)
                       exit()
                   else:
                       dbg.stdout('Debug', 'Simulating session: ' + self.simulate_session, 0, 0)
               except:
                   dbg.stdout('Debug', 'Invalid arguments for "--force-session"', 0, 1)
+                  dbg.stdout('Debug', 'Available Options: ' + str(sessions), 0, 1)
                   exit()
 
           if arg.startswith('--force-codename'):

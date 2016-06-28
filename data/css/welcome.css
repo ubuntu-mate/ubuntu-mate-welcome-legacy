@@ -88,7 +88,6 @@ body, button, input {
 *************************/
 #header {
   padding: 8px 0;
-  background-color: rgba(208, 208, 208, 0.25);
 }
 
 #header .logo {
@@ -277,7 +276,7 @@ a {
  * Footer
 *************************/
 #footer {
-  background: url("../img/welcome/footer-bg.jpg");
+  background-color: #3F4140;
   position: fixed;
   bottom: 0;
   height: 64px;
@@ -399,19 +398,6 @@ hr.soften-light {
   font-size: 12px;
 }
 
-/** Fade elements on Main Menu **/
-.fade { opacity: 0 }
-.fade-1s { -webkit-animation: fadeIn 1000ms forwards 10ms;   animation: fadeIn 1000ms forwards 10ms; }   /** Header **/
-.fade-2s { -webkit-animation: fadeIn 1000ms forwards 400ms;  animation: fadeIn 1000ms forwards 400ms; }  /** Subheadings **/
-.fade-3s { -webkit-animation: fadeIn 1000ms forwards 600ms;  animation: fadeIn 1000ms forwards 600ms; }  /** Row 1 Buttons **/
-.fade-4s { -webkit-animation: fadeIn 1000ms forwards 800ms;  animation: fadeIn 1000ms forwards 800ms; }  /** Row 2 Buttons **/
-.fade-5s { -webkit-animation: fadeIn 1000ms forwards 1000ms; animation: fadeIn 1000ms forwards 1000ms; }  /** Row 3 Buttons **/
-
-@-webkit-keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
 .success-text {
   color: #477301;
 }
@@ -435,6 +421,43 @@ hr.soften-light {
 }
 
 /************************
+** Page Transitions
+*************************/
+/* Page Entry - Glide In */
+@-webkit-keyframes pageIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.9, .9, .9);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.pageIn {
+  -webkit-animation-name: pageIn;
+  -webkit-animation-duration: 0.5s;
+}
+
+/* Page Exit - Glide Out */
+@-webkit-keyframes pageOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  }
+}
+
+.pageOut {
+  -webkit-animation-name: pageOut;
+  -webkit-animation-duration: 0.5s;
+}
+
+/************************
  * Introduction Page
 *************************/
 .slogan-box {
@@ -454,6 +477,7 @@ hr.soften-light {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  color: white;
 }
 
 .slogan-text {
@@ -469,6 +493,31 @@ hr.soften-light {
   text-align: center;
   margin-bottom: 8px;
 }
+
+/* Animation to indicate to scroll down */
+#scroll-down-hint {
+  position: relative;
+  display: list-item;
+  top: -24px;
+  opacity: 0;
+  -webkit-animation-name: scroll-down-hinter;
+  -webkit-animation-duration: 2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 10;
+  -webkit-animation-delay: 2s;
+}
+
+@-webkit-keyframes scroll-down-hinter {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 50px);
+  }
+}
+
 
 /************************
  * Software Page / Boutique
@@ -536,10 +585,25 @@ hr.soften-light {
   opacity: 0.2;
 }
 
-/* Proprietary Software Tooltip */
-.popover-title {
-  background: url('../img/welcome/footer-bg.jpg') repeat-x top center;
+/* Proprietary Toggle Help Card */
+#nonfree-info-popup {
+  position: fixed;
+  width: 400px;
+  height: auto;
+  right: 4px;
+  bottom: 68px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+#nonfree-info-popup > .title {
+  background-color: #3F4140;
   color: #fff;
+  padding: 6px;
+}
+
+#nonfree-info-popup > .body {
+  padding: 6px;
 }
 
 /* Featured Apps Grid */
@@ -757,6 +821,16 @@ blockquote.terminal {
 /************************
  * Splash Screen
 *************************/
+#white-start {
+  background: white;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+}
+
 #splash-logo {
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto;
@@ -832,6 +906,17 @@ blockquote.terminal {
 .mateRoll {
   -webkit-animation-name: splashRollIn;
   -webkit-animation-duration: 3s;
+}
+
+#skip-btn {
+  position: fixed;
+  right: 8px;
+  bottom: 20px;
+  width: 48px;
+  height: 10px;
+  text-align: center;
+  vertical-align: right;
+  color: #C0C0C0;
 }
 
 /************************
@@ -963,7 +1048,7 @@ blockquote.terminal {
   margin: 4px;
 }
 
-#specs-inxi, .specs-sel-text {
+#specs-inxi, .specs-sel-text, blockquote.terminal {
   -webkit-user-select: text;
 }
 
@@ -993,6 +1078,32 @@ blockquote.terminal {
 .hello p {
   padding-top: 8px;
   padding-bottom: 8px;
+}
+
+/************************
+ * Boutique General
+*************************/
+#boutique-loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 250px;
+  height: 130px;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 100;
+}
+
+#boutique-loading > p {
+  color: gray;
+  margin-top: 16px;
+}
+
+.always-hidden {
+  display: none !important;
 }
 
 /************************
