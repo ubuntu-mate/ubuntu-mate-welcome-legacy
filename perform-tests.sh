@@ -20,5 +20,7 @@ done
 echo -e "\n-------- End of Testing  --------\n"
 
 if [ "$success" == true ]; then
+    exit 0
+else
     exit 1
 fi
