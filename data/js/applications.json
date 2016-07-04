@@ -5566,6 +5566,17 @@
                     "source-file": ""
                 }
             }
+        },
+        "ubuntu-mate-welcome-dev": {
+            "name": "Ubuntu MATE Welcome Development Packages",
+            "img": "system",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:lah7/ubuntu-mate-welcome-dev",
+                    "source-file": ""
+                }
+            }
         }
     }
 }
