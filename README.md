@@ -92,6 +92,7 @@ check the application for consistency and may even catch bugs early.
   * python3-aptdaemon
   * python3-aptdaemon.gtk3widgets
   * python3-gi
+  * python3-setproctitle
   * software-properties-common
   * inxi
   * humanity-icon-theme
