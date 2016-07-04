@@ -50,7 +50,10 @@ for category in categories:
     for program_id in category_items:
         app = index[category][program_id]
 
-        if app['working'] == False:
+        try:
+            if app['working'] == False:
+                continue
+        except:
             continue
 
         skipped = False
@@ -84,7 +87,7 @@ for category in categories:
                         break
 
                 if not url.startswith('http'):
-                    error('No source URL found for "{0}"!'.format(program_id))
+                    test.error('No source URL found for "{0}"!'.format(program_id))
 
 
 # Compile the list of URLs
@@ -95,12 +98,14 @@ checklist.sort()
 for url in checklist:
     url = url.replace('OSVERSION', default_version)
     url = url.replace('CODENAME', default_codename)
-    print("Requesting: " + url + '...', end='')
+    test.warning("Requesting: " + url)
     r = requests.get(url)
     code = r.status_code
-    print(str(code))
     if code == 404:
-        test.error("Repository not available: " + url)
+        test.success("ERROR: " + str(code))
+        test.error("Repository is no longer available: " + url)
+    else:
+        test.success("OK: " + str(code))
 
 ###############################################
 # END OF TEST
