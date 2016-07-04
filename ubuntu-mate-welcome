@@ -38,6 +38,7 @@ import locale
 import os
 import platform
 import random
+import setproctitle
 import signal
 import socket
 import subprocess
@@ -85,22 +86,6 @@ def goodbye(a=None, b=None):
         Gtk.main_quit()
         # Be quite forceful, particularly those child screenshot windows.
         exit()
-
-def set_proc_title(name=None):
-    '''Set the process title'''
-
-    if not name:
-        name = os.path.basename(sys.argv[0])
-
-    libc = cdll.LoadLibrary('libc.so.6')
-    buff = create_string_buffer(len(name)+1)
-    buff.value = name.encode("UTF-8")
-    ret = libc.prctl(15, byref(buff), 0, 0, 0)
-
-    if ret != 0:
-        dbg.stdout('Welcome', 'Failed to set process title', 0, 1)
-
-    return ret
 
 def whereami():
     """ Determine data source """
@@ -3573,7 +3558,7 @@ if __name__ == "__main__":
     arg = Arguments()
 
     # Application Initialisation
-    set_proc_title()
+    setproctitle.setproctitle('ubuntu-mate-welcome')
     data_path = whereami()
 
     # Set up translations and strings
