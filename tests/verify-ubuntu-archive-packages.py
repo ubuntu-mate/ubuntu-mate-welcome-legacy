@@ -96,6 +96,15 @@ def check_category(category):
             test.warning(progress() + "Skipped ID: " + program_id)
             continue
 
+        # Skip if we mark it as broken.
+        try:
+            if index.data[category][program_id]['working'] == False:
+                test.warning(progress() + "Skipped ID: " + program_id + " (marked as not working)")
+                continue
+        except:
+            # Known Repos and Unlisted entries may not have this.
+            continue
+
         # Get packages from that listing.
         try:
             for this in index.data[category][program_id]['install-packages'].split(','):
