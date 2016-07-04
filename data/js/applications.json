@@ -467,13 +467,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
-                "trusty,wily,xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:peterlevi/ppa",
-                    "source-file": "peterlevi-ubuntu-ppa-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -573,7 +568,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1882,7 +1877,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.twitter.android",
             "url-ios": "https://itunes.apple.com/gb/app/twitter/id333903271",
             "arch": "i386,amd64",
-            "releases": "wily,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "wily,xenial": {
                     "method": "ppa",
@@ -2040,7 +2035,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "trusty,wily,xenial",
             "pre-install": {
                 "trusty,wily": {
                     "method": "ppa",
@@ -2485,7 +2480,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "precise,trusty,utopic,vivid,wily,xenial,yakkety",
+            "releases": "precise,trusty,vivid,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2853,13 +2848,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
-                "trusty,wily": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wireshark-dev/stable",
-                    "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -3601,7 +3591,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "trusty,wily,xenial": {
                     "method": "ppa",
@@ -4082,15 +4072,12 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
-                "trusty,wily,xenial": {
+                "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:team-xbmc/ppa",
                     "source-file": "team-xbmc-ubuntu-ppa-CODENAME"
-                },
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
@@ -4573,13 +4560,10 @@
             "arch": "i386,amd64",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty,wily,xenial": {
+                "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:vikoadi/ppa",
                     "source-file": "vikoadi-ubuntu-ppa-CODENAME"
-                },
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
@@ -4767,7 +4751,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "trusty,wily,xenial": {
                     "method": "ppa",
@@ -4860,7 +4844,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5288,7 +5272,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "trusty": {
                     "method": "ppa",
