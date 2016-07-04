@@ -31,18 +31,21 @@ def error(reason):
         print('\033[91m -- ' + reason + '\033[0m')
     else:
         print('ERROR: ' + reason)
+    sys.stdout.flush()
 
 def warning(message):
     if sys.stdout.isatty():
         print('\033[93m -- ' + message + '\033[0m')
     else:
         print('WARNING: ' + message)
+    sys.stdout.flush()
 
 def success(message):
     if sys.stdout.isatty():
         print('\033[92m -- ' + message + '\033[0m')
     else:
         print(message)
+    sys.stdout.flush()
 
 def end():
     global name

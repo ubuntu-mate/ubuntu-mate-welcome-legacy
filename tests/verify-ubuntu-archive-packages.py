@@ -13,8 +13,11 @@ import common.testing as test
 test.name = 'Verify Packages in Official Ubuntu Archive'
 
 import os
+import sys
 import json
 import subprocess
+import time
+from threading import Thread
 
 ###############################################
 # START OF TEST
@@ -25,7 +28,7 @@ test.start()
 # ... A hint of Yorkshire dialect ;)
 test.warning("Ar' Madison takes 'er time. This test may take a few minutes to complete.")
 
-# For 'wen we need to call ar Madison (rmadison)
+# Miss Madison, look this up please!
 def run_this_madison(package):
     cmd = 'rmadison ' + package
 
@@ -41,22 +44,56 @@ def grep(data_list, grep):
             return str(line)
     return None
 
+# Function to output current progress
+current = 0
+total = 0
+def progress():
+    global current, total
+    current = current + 1
+    percent = int((current / total) * 100)
+    return "[{0}%] - {1} / {2} - ".format(percent, current, total)
+
 ###############################################
 
 # Prepare the index
 import common.index as index
 
-# Check each application in the Ubuntu archive.
+# Counts up all the packages for tracking progress.
+counter = 0
+names = []
 for category in index.categories:
-    for program_id in list(index.data[category].keys()):
+    category_items = list(index.data[category].keys())
+    for program_id in category_items:
+        try:
+            for this in index.data[category][program_id]['install-packages'].split(','):
+                if this != '':
+                    names.append(this)
+            for this in index.data[category][program_id]['remove-packages'].split(','):
+                if this != '':
+                    names.append(this)
+        except:
+            continue
+
+    unique_names = list(set(names))
+    counter =+ len(unique_names)
+    total =+ counter
+
+# Procedure for validating an application.
+def check_category(category):
+    global current
+    category_items = list(index.data[category].keys())
+    category_items.sort()
+    for program_id in category_items:
         packages = []
 
         # rmadison can only check things in the official archive.
         try:
             if not index.data[category][program_id]['pre-install']['all']['method'] == 'skip':
+                test.warning(progress() + "Skipped ID: " + program_id)
                 continue
         except:
             # Cannot be checked, next!
+            test.warning(progress() + "Skipped ID: " + program_id)
             continue
 
         # Get packages from that listing.
@@ -71,6 +108,7 @@ for category in index.categories:
             packaged_releases = index.data[category][program_id]['releases'].split(',')
         except:
             # Not all listings have packages listed.
+            test.warning(progress() + "Skipped ID: " + program_id)
             continue
 
         # Merge package lists together.
@@ -83,7 +121,7 @@ for category in index.categories:
 
             # Give up if no data was received.
             if output.strip() == '':
-                test.warning(package + " = No data received. Could be a network error or no longer exists.")
+                test.error(progress() + "FAILED: {0} = No data received!'")
                 continue
 
             # Check each code name specified is available for our distribution.
@@ -92,7 +130,7 @@ for category in index.categories:
 
                 # If that's empty, then it doesn't exist.
                 if pkg_info == None:
-                    test.error("FAILED: {0} = No package for '{1}'.".format(package, codename))
+                    test.error(progress() + "FAILED: {0} = No package for '{1}'.".format(package, codename))
                     failed = True
                     continue
 
@@ -105,12 +143,29 @@ for category in index.categories:
 
                     if pkg_arch.find(arch) == -1:
                         # This package doesn't have a package for that arch!
-                        test.error("FAILED: {0} = No package found for '{1}' (built for '{2}')".format(package, arch, codename))
+                        test.error(progress() + "FAILED: {0} = No package found for '{1}' (built for '{2}')".format(package, arch, codename))
                         failed = True
                         continue
 
             if not failed:
-                test.success("Passed: " + package)
+                test.success(progress() + "Passed: " + package)
+
+# To speed things up, check each category in its own thread.
+def check_thread(category):
+    thread = Thread(target=check_category, args=[category])
+    thread.start()
+    threads.append(thread)
+
+# Check each application in the Ubuntu archive.
+threads = []
+for category in index.categories:
+    check_thread(category)
+    # Wait a bit between each request.
+    time.sleep(1.5)
+
+# Wait for each thread to finish.
+for thread in threads:
+    thread.join()
 
 ###############################################
 # END OF TEST
