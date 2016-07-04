@@ -38,6 +38,12 @@ def warning(message):
     else:
         print('WARNING: ' + message)
 
+def success(message):
+    if sys.stdout.isatty():
+        print('\033[92m -- ' + message + '\033[0m')
+    else:
+        print(message)
+
 def end():
     global name
     global failed
