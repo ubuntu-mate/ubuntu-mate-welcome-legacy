@@ -13,6 +13,27 @@ base_package="ubuntu-mate-welcome"
 # Create temporary building area
 cd $build_path
 
+# Which distro to build?
+if [ "$1" == "yakkety" ]; then
+    target_branch="master"
+    target_name="daily-yakkety"
+    target_release="yakkety"
+    target_package="ubuntu-mate-welcome-dev"
+
+elif [ "$1" == "xenial" ]; then
+    target_branch="xenial-ppa"
+    target_name="daily-xenial"
+    target_release="xenial"
+    target_package="ubuntu-mate-welcome-dev"
+
+else
+    echo "Unknown build specified. Aborting!"
+    exit 1
+fi
+
+echo "Preparing a build for '$1'..."
+
+
 #####################################
 # Functions
 #####################################
@@ -129,8 +150,7 @@ function build_branch() {
 #####################################
 # Packages to Build
 #####################################
-build_branch "master" "daily-yakkety" "ubuntu-mate-welcome-dev" "yakkety" "Development Build"
-build_branch "xenial-ppa" "daily-xenial" "ubuntu-mate-welcome-dev" "xenial" "Development Build"
+build_branch "$target_branch" "$target_name" "$target_package" "$target_release" "Development Build"
 
 #####################################
 # Upload to Launchpad
