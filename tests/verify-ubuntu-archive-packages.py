@@ -146,13 +146,13 @@ def check_category(category):
                 # Check each architecture has a package for that release.
                 pkg_arch = pkg_info.split('|')[3]
                 for arch in packaged_arches:
-                    if pkg_arch.find('all'):
+                    if pkg_arch.find('all') != -1:
                         # Packages that are not dependent on architecture.
                         break
 
                     if pkg_arch.find(arch) == -1:
                         # This package doesn't have a package for that arch!
-                        test.error(progress() + "FAILED: {0} = No package found for '{1}' (built for '{2}')".format(package, arch, codename))
+                        test.error(progress() + "FAILED: {0} = No package found for '{1}' (on '{2}')".format(package, arch, codename))
                         failed = True
                         continue
 
