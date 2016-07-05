@@ -600,7 +600,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -644,13 +644,10 @@
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
-                "trusty,wily,xenial": {
+                "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:stellarium/stellarium-releases",
                     "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
-                },
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
@@ -837,7 +834,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -930,7 +927,7 @@
             "url-info": "http://www.hedgewars.org",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,powerpc",
+            "arch": "i386,amd64",
             "releases": "trusty,wily,xenial",
             "pre-install": {
                 "all": {
@@ -1213,7 +1210,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "precise,trusty,vivid,wily,xenial",
+            "releases": "trusty,vivid,wily,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1312,7 +1309,7 @@
             "url-info": "https://www.teeworlds.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
+            "arch": "i386,amd64,armhf,arm64,powerpc",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
@@ -2007,7 +2004,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.mozilla.firefox",
             "url-ios": "https://itunes.apple.com/us/app/firefox-web-browser/id989804926",
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "precise,trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2245,7 +2242,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily",
+            "releases": "wily",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2480,7 +2477,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "precise,trusty,vivid,wily,xenial,yakkety",
+            "releases": "trusty,vivid,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2876,7 +2873,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "trusty,wily,xenial,yakkety": {
                     "method": "ppa",
@@ -3165,7 +3162,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3757,7 +3754,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3983,7 +3980,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4620,7 +4617,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4685,7 +4682,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "wily,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5322,7 +5319,7 @@
             "url-info": "",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
+            "arch": "i386,amd64,armhf",
             "releases": "trusty,wily,xenial,yakkety",
             "pre-install": {
                 "all": {
