@@ -145,6 +145,12 @@ def check_category(category):
 
                 # Check each architecture has a package for that release.
                 pkg_arch = pkg_info.split('|')[3]
+
+                # Ignore source only lines.
+                if pkg_arch.strip() == 'source':
+                    break
+
+
                 for arch in packaged_arches:
                     if pkg_arch.find('all') != -1:
                         # Packages that are not dependent on architecture.
