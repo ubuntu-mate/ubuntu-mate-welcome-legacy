@@ -55,7 +55,6 @@ from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
 import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
-from ctypes import cdll, byref, create_string_buffer
 from threading import Thread
 
 
