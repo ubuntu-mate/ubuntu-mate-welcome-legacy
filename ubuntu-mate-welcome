@@ -1552,14 +1552,18 @@ class SystemState(object):
         if arg.font_dpi_override:
             font_dpi = arg.font_dpi_override
         else:
-            try:
-                font_gsettings = Gio.Settings.new('org.mate.font-rendering')
-                font_value = font_gsettings.get_value('dpi')
-                font_dpi = int(float(str(font_value)))
-                dbg.stdout('Welcome', 'Font DPI is: ' + str(font_dpi), 1, 0)
-            except:
+            if self.is_ubuntu_mate:
+                try:
+                    font_gsettings = Gio.Settings.new('org.mate.font-rendering')
+                    font_value = font_gsettings.get_value('dpi')
+                    font_dpi = int(float(str(font_value)))
+                    dbg.stdout('Welcome', 'Font DPI is: ' + str(font_dpi), 1, 0)
+                except:
+                    font_dpi = 96
+                    dbg.stdout('Welcome', "Couldn't retrieve font DPI. Using default value of " + str(font_dpi), 0, 1)
+            else:
                 font_dpi = 96
-                dbg.stdout('Welcome', "Couldn't retrieve font DPI. Using default value of " + str(font_dpi), 0, 1)
+                dbg.stdout('Welcome', "Refusing to retrieve font DPI on non-Ubuntu MATE system. Using default.", 1, 1)
 
         if font_dpi < 50:
             dbg.stdout('Welcome', 'DPI below 50. Out of range..', 0, 1)
