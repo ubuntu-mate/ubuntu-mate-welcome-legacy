@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-06 21:19+0000\n"
-"Last-Translator: Moo\n"
+"PO-Revision-Date: 2016-07-25 19:38+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -389,7 +389,7 @@ msgstr "iš komandinės eilutės, kad patikrintumėte ar failų sistemoje yra kl
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Naudojant GParted ar įdiegimo programos \"Pasirinktinę\" parinktį."
 
-#: gettingstarted.html236, 1683
+#: gettingstarted.html236, 1687
 msgid "GParted"
 msgstr "GParted"
 
@@ -401,7 +401,7 @@ msgstr "yra prieinama tik pristatomojo seanso metu."
 msgid "It is located under the"
 msgstr "Ją galima rasti meniu punkte"
 
-#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1461
+#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1460
 msgid "System"
 msgstr "Sistema"
 
@@ -559,7 +559,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Naujesnės Windows versijos pateikia įrankį, skirtą sumažinti NTFS tomą Windows sistemoje. Tai yra saugesnis sprendimas, jeigu yra būtina, kad besinaudojant Ubuntu MATE, vis dar būtų paleidžiama ir Windows sistema."
 
-#: gettingstarted.html286, 640, 1654, 1671, 1687, 1703, 1719, 1735
+#: gettingstarted.html286, 640, 1658, 1675, 1691, 1707, 1723, 1739
 msgid "Open"
 msgstr "Atverti"
 
@@ -703,8 +703,8 @@ msgstr "Kodekų pakete yra pilnas, daugiaplatformis garso ir vaizdo dekodavimo, 
 msgid "Applying Changes..."
 msgstr "Taikomi pakeitimai..."
 
-#: gettingstarted.html392, 410, 430, 449, 641, 755, 1655, 1672, 1688, 1704,
-#: 1720, 1736
+#: gettingstarted.html392, 410, 430, 449, 641, 755, 1659, 1676, 1692, 1708,
+#: 1724, 1740
 msgid "Install"
 msgstr "Įdiegimas"
 
@@ -1127,17 +1127,22 @@ msgid "Network Shares"
 msgstr "Tinklo viešiniai"
 
 #: gettingstarted.html:743
-msgid ""
-"Need to access files and folders with multiple computers? </p> <p><img "
-"src=\"img/applications/caja-share.png\" width=\"20px\" height=\"20px\"/> "
-"<b>Samba</b>"
-msgstr "Reikia prieigos prie failų ir aplankų keliuose kompiuteriuose? </p> <p><img src=\"img/applications/caja-share.png\" width=\"20px\" height=\"20px\"/> <b>Samba</b>"
+msgid "Need to access files and folders with multiple computers?"
+msgstr "Reikia kelių kompiuterių prieigos prie failų ir aplankų?"
 
-#: gettingstarted.html:747
+#: gettingstarted.html:746
+msgid "Samba"
+msgstr "Samba"
+
+#: gettingstarted.html:746
 msgid ""
-"</p> <span class=\"caja-share-remove\"> <span class=\"fa fa-check-"
-"circle\"></span>"
-msgstr "</p> <span class=\"caja-share-remove\"> <span class=\"fa fa-check-circle\"></span>"
+"is available to install, which integrates with the Caja File Manager, "
+"allowing you to seamless retrieve data stored on another computer."
+msgstr "yra prieinama įdiegti, ir integruojasi į Caja failų tvarkytuvę, taip leisdama jums lengvai gauti kitame kompiuteryje talpinamus duomenis."
+
+#: gettingstarted.html:751
+msgid "Samba is installed."
+msgstr "Samba yra įdiegta."
 
 #: gettingstarted.html:752
 msgid "Choose a folder and select \"Sharing Options\"."
@@ -1655,253 +1660,297 @@ msgid ""
 "hardware and software works on your machine."
 msgstr "Jūsų kompiuteris yra sudarytas iš įvairių tarpusavyje sąveikaujančių komponentų. Ši informacija yra naudinga, teikiant palaikymą, kad būtų užtikrinta, jog aparatinė ir programinė įranga veikia jūsų kompiuteryje."
 
-#: gettingstarted.html:1445
-msgid "Please wait while the information is being populated..."
-msgstr "Prašome palaukti, kol yra renkama informacija..."
-
-#: gettingstarted.html:1447
+#: gettingstarted.html:1446
 msgid "Basic"
 msgstr "Pagrindiniai"
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1447
 msgid "Detailed"
 msgstr "Išsamūs"
 
-#: gettingstarted.html:1449
+#: gettingstarted.html:1448
 msgid "Utilities"
 msgstr "Paslaugų programos"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1463
 msgid "Distribution:"
 msgstr "Distribucija:"
 
-#: gettingstarted.html:1468
+#: gettingstarted.html:1467
 msgid "Kernel:"
 msgstr "Branduolys:"
 
-#: gettingstarted.html:1471
+#: gettingstarted.html:1470
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Linux branduolys yra Ubuntu širdis."
 
-#: gettingstarted.html:1477
+#: gettingstarted.html:1476
 msgid "Motherboard:"
 msgstr "Pagrindinė plokštė:"
 
-#: gettingstarted.html:1481
+#: gettingstarted.html:1480
 msgid "Boot Mode:"
 msgstr "Paleidimo veiksena:"
 
-#: gettingstarted.html:1484
+#: gettingstarted.html:1483
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Rodo veikseną, kurioje Ubuntu MATE susisiekia su programine aparatine įranga."
 
-#: gettingstarted.html:1492
+#: gettingstarted.html:1491
 msgid "Processor"
 msgstr "Procesorius"
 
-#: gettingstarted.html:1495
+#: gettingstarted.html:1494
 msgid "Model:"
 msgstr "Modelis:"
 
-#: gettingstarted.html:1499
+#: gettingstarted.html:1498
 msgid "Speed:"
 msgstr "Greitis:"
 
-#: gettingstarted.html:1503
+#: gettingstarted.html:1502
 msgid "Architecture in use:"
 msgstr "Naudojama architektūra:"
 
-#: gettingstarted.html:1506
+#: gettingstarted.html:1505
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "Naudojama operacinės sistemos architektūra. Pavyzdžiui, i386 = 32-bitų."
 
-#: gettingstarted.html:1512
+#: gettingstarted.html:1511
 msgid "Architecture(s) supported:"
 msgstr "Palaikoma architektūra(-os):"
 
-#: gettingstarted.html:1515
+#: gettingstarted.html:1514
 msgid "Architectures that are supported by this processor."
 msgstr "Šio procesoriaus palaikomos architektūros."
 
-#: gettingstarted.html:1523
+#: gettingstarted.html:1522
 msgid "Components"
 msgstr "Komponentai"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1525
 msgid "Memory (RAM):"
 msgstr "Atmintis (RAM):"
 
-#: gettingstarted.html:1529
+#: gettingstarted.html:1528
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Daugiau RAM leidžia vienu metu veikti didesniam programų skaičiui."
 
-#: gettingstarted.html:1535
+#: gettingstarted.html:1534
 msgid "Graphics:"
 msgstr "Grafika:"
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1538
 msgid "Internet Access:"
 msgstr "Interneto prieiga:"
 
-#: gettingstarted.html:1541
+#: gettingstarted.html:1540
 msgid "Connected"
 msgstr "Prisijungta"
 
-#: gettingstarted.html:1542
+#: gettingstarted.html:1541
 msgid "Not Connected"
 msgstr "Neprisijungta"
 
-#: gettingstarted.html:1549
+#: gettingstarted.html:1548
 msgid "Storage"
 msgstr "Kaupiklis"
 
-#: gettingstarted.html:1553
+#: gettingstarted.html:1552
 msgid "Root File System:"
 msgstr "Šaknies failų sistema:"
 
-#: gettingstarted.html:1556
+#: gettingstarted.html:1555
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Failų sistema, kurioje yra įdiegta Ubuntu MATE."
 
-#: gettingstarted.html:1562
+#: gettingstarted.html:1561
 msgid "Entire Disk Capacity:"
 msgstr "Viso disko talpa:"
 
-#: gettingstarted.html:1567
+#: gettingstarted.html:1566
 msgid "Ubuntu MATE Usage"
 msgstr "Ubuntu MATE naudojimas"
 
-#: gettingstarted.html:1576
+#: gettingstarted.html:1575
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Priskirta Ubuntu MATE sistemai:"
 
-#: gettingstarted.html:1579
+#: gettingstarted.html:1578
 msgid "The size of your operating system partition."
 msgstr "Jūsų operacinės sistemos skaidinio dydis."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1584
 msgid "Used Space:"
 msgstr "Panaudota vieta:"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1590
 msgid "Free Space:"
 msgstr "Laisva vieta:"
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1596
 msgid "Other Usage:"
 msgstr "Kito naudojimo:"
 
-#: gettingstarted.html:1600
+#: gettingstarted.html:1599
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Rezervuota sistemos, kiti skaidiniai, nepanaudota ar sukeitimų skaidinio vieta."
 
-#: gettingstarted.html:1608
+#: gettingstarted.html:1607
 msgid "Why do I see two units?"
 msgstr "Kodėl aš matau po du matavimo vienetus?"
 
-#: gettingstarted.html:1614
+#: gettingstarted.html:1613
 msgid "SI or IEC Units?"
 msgstr "SI ar IEC vienetai?"
 
-#: gettingstarted.html:1616
+#: gettingstarted.html:1615
 msgid "Decimal (SI Standard)"
 msgstr "Dešimtainiai (SI standartiniai)"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1617
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 baitų"
 
-#: gettingstarted.html:1619
+#: gettingstarted.html:1618
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "Tariama kaip \"ga\" - taip kaip \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1620
+#: gettingstarted.html:1619
 msgid "Common in every day applications and file storage."
 msgstr "Paprastai naudojami kasdienėse programose ir failų kaupikliuose."
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1623
 msgid "Binary (IEC Standard)"
 msgstr "Dvejetainiai (IEC standartiniai)"
 
-#: gettingstarted.html:1626
+#: gettingstarted.html:1625
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 baitai"
 
-#: gettingstarted.html:1627
+#: gettingstarted.html:1626
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Tariama kaip \"bi\" - taip kaip \"Mebi\", \"Gibi\"."
 
-#: gettingstarted.html:1628
+#: gettingstarted.html:1627
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Paprastai naudojami RAM, diskuose ir skaidiniuose, įskaitant tokius įrankius kaip GParted."
 
-#: gettingstarted.html:1637
-msgid "The following information is retrieved directly from the"
-msgstr "Ši informacija yra gaunama tiesiogiai iš"
+#: gettingstarted.html:1636
+msgid ""
+"The following information is retrieved directly from the inxi command line "
+"program."
+msgstr "Ši informacija yra gaunama tiesiogiai iš inxi komandų eilutės programos."
 
 #: gettingstarted.html:1637
-msgid "command line program."
-msgstr "komandų eilutės programos."
+msgid "Gathering data..."
+msgstr "Renkami duomenys..."
 
 #: gettingstarted.html:1638
-msgid "Could not gather data."
-msgstr "Nepavyko surinkti duomenų."
+msgid "Sorry, there was a problem gathering this information."
+msgstr "Atsiprašome, renkant šią informaciją, atsirado problemų."
 
-#: gettingstarted.html:1650
+#: gettingstarted.html:1654
 msgid "System Profiler and Benchmark"
 msgstr "Sistemos profilio matuoklis ir parametrų įvertinimas"
 
-#: gettingstarted.html:1651
+#: gettingstarted.html:1655
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Matykite konkretesnę sistemos informaciją grafiniame lange, įskaitant prijungtus USB, PCI įrenginius bei paprastą CPU parametrų įvertinimą."
 
-#: gettingstarted.html:1666
+#: gettingstarted.html:1670
 msgid "Disks"
 msgstr "Diskai ir laikmenos"
 
-#: gettingstarted.html:1667
+#: gettingstarted.html:1671
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
 msgstr "Iš anksto įdiegta paslaugų programa, leidžianti atlikti pagrindinę jūsų diskų ir skaidinių konfigūraciją, įskaitant formatavimą, skaidymą, prijungimą, S.M.A.R.T duomenų peržiūrą bei atvaizdžių įrašymą į SD korteles/USB diskus."
 
-#: gettingstarted.html:1684
+#: gettingstarted.html:1688
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Išplėstinis įrankis, skirtas skaidinių peržiūrai, kūrimui, modifikavimui bei trynimui. Jame taip pat yra failų sistemų išplėtimo/sumažinimo ypatybės, be to šis įrankis palaiko daugybę formatų."
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1703
 msgid "Disk Usage Analyser"
 msgstr "Disko naudojimo analizatorius"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1704
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Grafinis failų sistemų ar atskirų aplankų tyrinėjimo įrankis, skirtas nustatyti kiek yra naudojama vietos."
 
-#: gettingstarted.html:1715
+#: gettingstarted.html:1719
 msgid "System Monitor"
 msgstr "Sistemos monitorius"
 
-#: gettingstarted.html:1716
+#: gettingstarted.html:1720
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Rodo šiuo metu vykdomus procesus, išteklių naudojimą, o taip pat panaudotą ir laisvą, šiuo metu prijungtų failų sistemų, vietą."
 
-#: gettingstarted.html:1731
+#: gettingstarted.html:1735
 msgid "Psensor"
 msgstr "Psensor"
 
-#: gettingstarted.html:1732
+#: gettingstarted.html:1736
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "Rodo ir vaizduoja esamą, prie sistemos prijungtų komponentų, temperatūrą. Įskaitant: Pagrindinę plokštę, centrinį procesorių, GPU bei standžiuosius diskus."
+
+#: gettingstarted.html:628
+msgid "Software Utilities for Peripherals"
+msgstr "Programinės įrangos paslaugų programos išoriniams įrenginiams"
+
+#: gettingstarted.html:659
+msgid "Solaar"
+msgstr "Solaar"
+
+#: gettingstarted.html:660
+msgid ""
+"A device manager for Logitech’s Unifying Receiver peripherals. This enables "
+"features like managing paired devices and reading battery status."
+msgstr "Įrenginių tvarkytuvė, skirta Logitech vienijančio imtuvo išoriniams įrenginiams. Tai įjungia tokias ypatybes kaip suporuoti įrenginiai ir baterijos būsenos skaitymas."
+
+#: gettingstarted.html:663
+msgid "Learn More"
+msgstr "Sužinoti daugiau"
+
+#: gettingstarted.html:71
+msgid "Pentium M 1.0 gigahertz (GHz)"
+msgstr ""
+
+#: gettingstarted.html:72
+msgid "1 gigabyte (GB) of RAM"
+msgstr ""
+
+#: gettingstarted.html:73
+msgid "9 gigabytes (GB) of disk space"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "unable to review and improve their code"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "which means that you'll have to rely on the manufacturer for support."
+msgstr ""
+
+#: gettingstarted.html:851
+msgid "layout is similar to Microsoft Windows, while the"
+msgstr ""
+
+#: gettingstarted.html:852
+msgid "layout is similar to Apple Mac OS X."
+msgstr ""

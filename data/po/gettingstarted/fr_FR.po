@@ -2,13 +2,14 @@
 # Translators:
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
-# Matthieu S <utybo@users.noreply.github.com>, 2016
+# utybo <utybo@users.noreply.github.com>, 2016
+# utybo <utybo@users.noreply.github.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-10 21:27+0000\n"
-"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
+"PO-Revision-Date: 2016-07-25 19:38+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -391,7 +392,7 @@ msgstr "à partir de l'invite de commandes et pour vérifier s'il y a des erreur
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Utilisez GParted ou le mode \"Manuel\" de l'installeur."
 
-#: gettingstarted.html236, 1683
+#: gettingstarted.html236, 1687
 msgid "GParted"
 msgstr "GParted"
 
@@ -403,7 +404,7 @@ msgstr "est seulement disponible durant une session live."
 msgid "It is located under the"
 msgstr "Il se trouve sous le menu"
 
-#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1461
+#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1460
 msgid "System"
 msgstr "Système"
 
@@ -561,7 +562,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Les nouvelles versions de Windows contiennent un utilitaire pour diminuer la taille du volume NTFS pendant que votre système est en marche. Ce qui est plus sûr s'il est essentiel que Windows puisse toujours démarrer sur votre ordinateur alors que vous faites l'expérience d'Ubuntu MATE."
 
-#: gettingstarted.html286, 640, 1654, 1671, 1687, 1703, 1719, 1735
+#: gettingstarted.html286, 640, 1658, 1675, 1691, 1707, 1723, 1739
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -705,8 +706,8 @@ msgstr "Le paquet \"codecs\" inclut une solution multi-plateformes pour décoder
 msgid "Applying Changes..."
 msgstr "Application des changements..."
 
-#: gettingstarted.html392, 410, 430, 449, 641, 755, 1655, 1672, 1688, 1704,
-#: 1720, 1736
+#: gettingstarted.html392, 410, 430, 449, 641, 755, 1659, 1676, 1692, 1708,
+#: 1724, 1740
 msgid "Install"
 msgstr "Installer"
 
@@ -1129,17 +1130,22 @@ msgid "Network Shares"
 msgstr "Partages Réseau"
 
 #: gettingstarted.html:743
-msgid ""
-"Need to access files and folders with multiple computers? </p> <p><img "
-"src=\"img/applications/caja-share.png\" width=\"20px\" height=\"20px\"/> "
-"<b>Samba</b>"
-msgstr "Besoin d'accéder à des fichiers et dossiers depuis plusieurs ordinateurs? </p> <p><img src=\"img/applications/caja-share.png\" width=\"20px\" height=\"20px\"/> <b>Samba</b>"
+msgid "Need to access files and folders with multiple computers?"
+msgstr "Vous avez besoin d'accéder à des fichiers et des dossiers avec plusieurs ordinateurs ?"
 
-#: gettingstarted.html:747
+#: gettingstarted.html:746
+msgid "Samba"
+msgstr "Samba"
+
+#: gettingstarted.html:746
 msgid ""
-"</p> <span class=\"caja-share-remove\"> <span class=\"fa fa-check-"
-"circle\"></span>"
-msgstr "</p> <span class=\"caja-share-remove\"> <span class=\"fa fa-check-circle\"></span>"
+"is available to install, which integrates with the Caja File Manager, "
+"allowing you to seamless retrieve data stored on another computer."
+msgstr "est disponible à l'installation, il s'intègre avec le Gestionnaire de Fichiers Caja, et vous permet de récupérer sans effort des données stoquées sur un autre ordinateur."
+
+#: gettingstarted.html:751
+msgid "Samba is installed."
+msgstr "Samba est installé."
 
 #: gettingstarted.html:752
 msgid "Choose a folder and select \"Sharing Options\"."
@@ -1657,253 +1663,297 @@ msgid ""
 "hardware and software works on your machine."
 msgstr "Votre ordinateur est fait de nombreux composants interagissant entre eux. Cette information est utile au moment ou vous voulez demander de l'aide, pour s'assurer que le matériel et les logiciels fonctionnent sur votre machine."
 
-#: gettingstarted.html:1445
-msgid "Please wait while the information is being populated..."
-msgstr "Veuillez attendre pendant que la fenêtre d'information se charge..."
-
-#: gettingstarted.html:1447
+#: gettingstarted.html:1446
 msgid "Basic"
 msgstr "Basique"
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1447
 msgid "Detailed"
 msgstr "Détaillé"
 
-#: gettingstarted.html:1449
+#: gettingstarted.html:1448
 msgid "Utilities"
 msgstr "Utilitaires"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1463
 msgid "Distribution:"
 msgstr "Distribution :"
 
-#: gettingstarted.html:1468
+#: gettingstarted.html:1467
 msgid "Kernel:"
 msgstr "Noyau :"
 
-#: gettingstarted.html:1471
+#: gettingstarted.html:1470
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Le Noyau Linux est le cœur d'Ubuntu."
 
-#: gettingstarted.html:1477
+#: gettingstarted.html:1476
 msgid "Motherboard:"
 msgstr "Carte Mère :"
 
-#: gettingstarted.html:1481
+#: gettingstarted.html:1480
 msgid "Boot Mode:"
 msgstr "Mode de Démarrage :"
 
-#: gettingstarted.html:1484
+#: gettingstarted.html:1483
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Affiche le mode qu'utilise Ubuntu MATE pour communiquer avec le micrologiciel."
 
-#: gettingstarted.html:1492
+#: gettingstarted.html:1491
 msgid "Processor"
 msgstr "Processeur"
 
-#: gettingstarted.html:1495
+#: gettingstarted.html:1494
 msgid "Model:"
 msgstr "Modèle :"
 
-#: gettingstarted.html:1499
+#: gettingstarted.html:1498
 msgid "Speed:"
 msgstr "Vitesse :"
 
-#: gettingstarted.html:1503
+#: gettingstarted.html:1502
 msgid "Architecture in use:"
 msgstr "Architecture utilisée :"
 
-#: gettingstarted.html:1506
+#: gettingstarted.html:1505
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "L'architecture du système d'exploitation utilisé. Par exemple i386 = 32-bit."
 
-#: gettingstarted.html:1512
+#: gettingstarted.html:1511
 msgid "Architecture(s) supported:"
 msgstr "Architecture(s) supportées :"
 
-#: gettingstarted.html:1515
+#: gettingstarted.html:1514
 msgid "Architectures that are supported by this processor."
 msgstr "Les architectures supportées par ce processeur."
 
-#: gettingstarted.html:1523
+#: gettingstarted.html:1522
 msgid "Components"
 msgstr "Composants"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1525
 msgid "Memory (RAM):"
 msgstr "Mémoire (RAM) :"
 
-#: gettingstarted.html:1529
+#: gettingstarted.html:1528
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Plus de mémoire vive (RAM) permet de lancer plus d'applications simultanément."
 
-#: gettingstarted.html:1535
+#: gettingstarted.html:1534
 msgid "Graphics:"
 msgstr "Carte(s) Graphique(s) :"
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1538
 msgid "Internet Access:"
 msgstr "Accès Internet :"
 
-#: gettingstarted.html:1541
+#: gettingstarted.html:1540
 msgid "Connected"
 msgstr "Connecté"
 
-#: gettingstarted.html:1542
+#: gettingstarted.html:1541
 msgid "Not Connected"
 msgstr "Déconnecté"
 
-#: gettingstarted.html:1549
+#: gettingstarted.html:1548
 msgid "Storage"
 msgstr "Stockage"
 
-#: gettingstarted.html:1553
+#: gettingstarted.html:1552
 msgid "Root File System:"
 msgstr "Système de Fichiers Administrateur (Root) :"
 
-#: gettingstarted.html:1556
+#: gettingstarted.html:1555
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Le système de fichier sur lequel Ubuntu MATE est installé."
 
-#: gettingstarted.html:1562
+#: gettingstarted.html:1561
 msgid "Entire Disk Capacity:"
 msgstr "Capacité Totale du Disque :"
 
-#: gettingstarted.html:1567
+#: gettingstarted.html:1566
 msgid "Ubuntu MATE Usage"
 msgstr "Utilisation Ubuntu MATE"
 
-#: gettingstarted.html:1576
+#: gettingstarted.html:1575
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Alloué pour Ubuntu MATE :"
 
-#: gettingstarted.html:1579
+#: gettingstarted.html:1578
 msgid "The size of your operating system partition."
 msgstr "La taille de la partition de votre système d'exploitation."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1584
 msgid "Used Space:"
 msgstr "Espace Utilisé:"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1590
 msgid "Free Space:"
 msgstr "Espace Libre :"
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1596
 msgid "Other Usage:"
 msgstr "Autre Utilisation:"
 
-#: gettingstarted.html:1600
+#: gettingstarted.html:1599
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Réservé au système, autres partitions, allouées ou swap."
 
-#: gettingstarted.html:1608
+#: gettingstarted.html:1607
 msgid "Why do I see two units?"
 msgstr "Pourquoi vois-je deux unités ?"
 
-#: gettingstarted.html:1614
+#: gettingstarted.html:1613
 msgid "SI or IEC Units?"
 msgstr "Unités SI ou IEC ?"
 
-#: gettingstarted.html:1616
+#: gettingstarted.html:1615
 msgid "Decimal (SI Standard)"
 msgstr "Décimal (Standard SI)"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1617
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1619
+#: gettingstarted.html:1618
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "Prononcé \"ga\" comme \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1620
+#: gettingstarted.html:1619
 msgid "Common in every day applications and file storage."
 msgstr "Il est souvent employé dans les applications de tous les jours et de stoquage de fichiers."
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1623
 msgid "Binary (IEC Standard)"
 msgstr "Binaire (Standard IEC)"
 
-#: gettingstarted.html:1626
+#: gettingstarted.html:1625
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1627
+#: gettingstarted.html:1626
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Prononcé \"bi\" comme \"Mebi, \"Gibi\"."
 
-#: gettingstarted.html:1628
+#: gettingstarted.html:1627
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Il est souvent employé pour se référer à la taille de la Mémoire Vive (RAM), des disques durs et des partitions, ainsi que dans des outils comme GParted."
 
-#: gettingstarted.html:1637
-msgid "The following information is retrieved directly from the"
-msgstr "Les informations suivantes sont obtenues directement à partir du programme en ligne de commandes "
+#: gettingstarted.html:1636
+msgid ""
+"The following information is retrieved directly from the inxi command line "
+"program."
+msgstr "Les informations suivantes sont obtenues directement à partir du programme en ligne de comande inxi."
 
 #: gettingstarted.html:1637
-msgid "command line program."
-msgstr "."
+msgid "Gathering data..."
+msgstr "Collecte des données en cours..."
 
 #: gettingstarted.html:1638
-msgid "Could not gather data."
-msgstr "Impossible de rassembler les données."
+msgid "Sorry, there was a problem gathering this information."
+msgstr "Désolé, il y a eu un problème pendant la collecte des données."
 
-#: gettingstarted.html:1650
+#: gettingstarted.html:1654
 msgid "System Profiler and Benchmark"
 msgstr "Système de Profilage et d'Évaluation"
 
-#: gettingstarted.html:1651
+#: gettingstarted.html:1655
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Afficher des informations système plus spécifiques dans une fenêtre graphique, y-compris les périphériques USB connectés, le matériel PCI ainsi qu'un simple test Processeur (CPU)."
 
-#: gettingstarted.html:1666
+#: gettingstarted.html:1670
 msgid "Disks"
 msgstr "Disques"
 
-#: gettingstarted.html:1667
+#: gettingstarted.html:1671
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
 msgstr "Un utilitaire pré-installé permettant de configurer, formater, partitioner, monter, et visualiser vos disques et partitions, et qui permet également l'écriture d'images disque sur cartes SD et disques USB."
 
-#: gettingstarted.html:1684
+#: gettingstarted.html:1688
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Un utilitaire avancé pour afficher, créer, modifier, et supprimer des partitions. Il permet aussi d'étendre ou de rapetisser les systèmes de fichiers et supporte une large palette de formats."
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1703
 msgid "Disk Usage Analyser"
 msgstr "Logiciel d'Analyse de Taux d'Utilisation des Disques"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1704
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Un outil graphique pour explorer votre système de fichier ainsi que des dossiers individuels afin de déterminer la quantité d'espace disque étant actuellement utilisée."
 
-#: gettingstarted.html:1715
+#: gettingstarted.html:1719
 msgid "System Monitor"
 msgstr "Surveillance du Système"
 
-#: gettingstarted.html:1716
+#: gettingstarted.html:1720
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Affiche les processus, l'utilisation de ressource, ainsi que la quantité d'espace disque utilisé et libre sur les systèmes de fichiers montés."
 
-#: gettingstarted.html:1731
+#: gettingstarted.html:1735
 msgid "Psensor"
 msgstr "Sonde de température Psensor"
 
-#: gettingstarted.html:1732
+#: gettingstarted.html:1736
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "Affiche et dessine des graphiques de la température des composants attachés au système. Ce qui inclue : Carte Mère, Processeur, Carte Graphique et disques durs."
+
+#: gettingstarted.html:628
+msgid "Software Utilities for Peripherals"
+msgstr "Utilitaires pour les Périphériques"
+
+#: gettingstarted.html:659
+msgid "Solaar"
+msgstr "Solaar"
+
+#: gettingstarted.html:660
+msgid ""
+"A device manager for Logitech’s Unifying Receiver peripherals. This enables "
+"features like managing paired devices and reading battery status."
+msgstr "Un gestionnaire d'appareils pour l'Unifying Receiver des périphériques Logitech. Il permet beaucoup de choses comme de gérer des appareils appareillés ou de lire le statut des batteries."
+
+#: gettingstarted.html:663
+msgid "Learn More"
+msgstr "En savoir plus"
+
+#: gettingstarted.html:71
+msgid "Pentium M 1.0 gigahertz (GHz)"
+msgstr ""
+
+#: gettingstarted.html:72
+msgid "1 gigabyte (GB) of RAM"
+msgstr ""
+
+#: gettingstarted.html:73
+msgid "9 gigabytes (GB) of disk space"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "unable to review and improve their code"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "which means that you'll have to rely on the manufacturer for support."
+msgstr ""
+
+#: gettingstarted.html:851
+msgid "layout is similar to Microsoft Windows, while the"
+msgstr ""
+
+#: gettingstarted.html:852
+msgid "layout is similar to Apple Mac OS X."
+msgstr ""

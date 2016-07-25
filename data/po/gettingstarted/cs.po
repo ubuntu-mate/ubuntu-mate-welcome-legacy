@@ -1,12 +1,13 @@
 # 
 # Translators:
+# Petr Marak <marak.petr@outlook.com>, 2016
 # Petr Šimáček <petr.simacek@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-07 06:22+0000\n"
-"Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
+"PO-Revision-Date: 2016-07-25 19:38+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +50,7 @@ msgstr "Po instalaci"
 
 #: gettingstarted.html38, 38, 350, 649, 650
 msgid "Updates & Extras"
-msgstr ""
+msgstr "Aktualizace a doplňky"
 
 #: gettingstarted.html39, 39, 464, 465, 475, 695, 696
 msgid "Drivers"
@@ -156,7 +157,7 @@ msgstr "Ubuntu MATE má relativně jednoduché nastavení, ať už hledáte jak 
 
 #: gettingstarted.html:107
 msgid "Microsoft Windows or another"
-msgstr "Microsoft Windows nebo jiná"
+msgstr "Microsoft Windows nebo jiné"
 
 #: gettingstarted.html:108
 msgid "GNU/Linux distribution."
@@ -164,29 +165,29 @@ msgstr "distribuce GNU/Linuxu."
 
 #: gettingstarted.html:110
 msgid "For the best results:"
-msgstr "Pro nejlepší výsledky:"
+msgstr "Pro dosažení nejlepších výsledků:"
 
 #: gettingstarted.html112, 187
 msgid "Back up"
-msgstr "Zálohovat"
+msgstr "Zálohujte"
 
 #: gettingstarted.html:112
 msgid "any important data to another storage device."
-msgstr "všechna důležitá data na jiném paměťovém zařízení."
+msgstr "všechna důležitá data na jiné paměťové zařízení."
 
 #: gettingstarted.html:113
 msgid ""
 "Connect to the Internet to install all available updates during "
 "installation."
-msgstr "Díky připojení k Internetu se během instalace nainstalují všechny dostupné aktualizace."
+msgstr "Připojte se k Internetu a nainstalujte všechny dostupné aktualizace během instalace."
 
 #: gettingstarted.html:114
 msgid "Stay connected to the Internet to install all available updates."
-msgstr "Díky připojení k internetu se nainstalují všechny dostupné aktualizace."
+msgstr "Zůstaňte připojení k Internetu nainstalujte všechny další dostupné aktualizace."
 
 #: gettingstarted.html:115
 msgid "Plug in your device to the mains if it is running on battery power."
-msgstr "Připojte zařízení k síti, pokud je počítač napájen z baterie."
+msgstr "Připojte zařízení k napájecí síti, pokud je počítač napájen z baterie."
 
 #: gettingstarted.html:120
 msgid ""
@@ -195,7 +196,7 @@ msgid ""
 "of your peripherals are working as intended before committing to installing "
 "it on your machine. Once you are ready, double click the installation icon "
 "from the desktop."
-msgstr "Live relace, kterou právě používáte, je vynikající příležitostí vyzkoušet si Ubuntu MATE bez změn ve vašem počítači. Můžete například otestovat, jak pracují všechna vaše připojená zařízení. Jakmile se rozhodnete pro instalaci, poklepejte na ikonu na ploše."
+msgstr "Živé sezení (live session), které právě používáte, je vynikající příležitostí vyzkoušet si Ubuntu MATE bez změn ve vašem počítači. Můžete například otestovat, jak pracují všechna vaše připojená zařízení. Jakmile se rozhodnete pro instalaci, poklepejte na ikonu na ploše."
 
 #: gettingstarted.html:127
 msgid "Modern UEFI-based computers"
@@ -205,7 +206,7 @@ msgstr "Moderní počítače na bázi UEFI"
 msgid ""
 "If you have a modern PC that uses the Unified Extended Firmware Interface "
 "(UEFI), you may need to disable"
-msgstr ""
+msgstr "Pokud máte moderní počítač, který využívá Unified Extended Firmware Interface (UEFI), bude možná nutné vypnout"
 
 #: gettingstarted.html:129
 msgid "Secure Boot"
@@ -213,17 +214,17 @@ msgstr "Secure Boot"
 
 #: gettingstarted.html:129
 msgid "(or enable the"
-msgstr "(a nebo povolit"
+msgstr "(nebo povolit volbu"
 
 #: gettingstarted.html:129
 msgid "Unlock Bootloader"
-msgstr "Odemknout zavaděč"
+msgstr "Unlock Bootloader"
 
 #: gettingstarted.html:130
 msgid ""
 "option) prior to installation, particularly if an operating system was pre-"
 "installed."
-msgstr "volba) před instalací, zejména pokud byl předinstalován operační systém."
+msgstr " [odemknout zavaděč]) před instalací, zejména pokud byl operační systém předinstalován."
 
 #: gettingstarted.html:132
 msgid "If you are using a legacy BIOS machine, you do not need to do this."
@@ -237,19 +238,19 @@ msgstr "Zvlášť při duálním bootování je důležité restartovat systém 
 
 #: gettingstarted.html:136
 msgid "64-bit image"
-msgstr "64-bit obraz"
+msgstr "64bitový obraz"
 
 #: gettingstarted.html:136
 msgid ""
 ", as you cannot boot an operating system installed in BIOS mode after "
 "installing a UEFI-enabled operating system or vice versa."
-msgstr ""
+msgstr ", protože není možné zavést operační systém nainstalovaný v BIOS režimu poté, co byl instalován operační systém s podporou UEFI a naopak."
 
 #: gettingstarted.html:141
 msgid ""
 "Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also "
 "show a \"protection layer\"."
-msgstr ""
+msgstr "Při zavádění v BIOS režimu na UEFI systému s diskem formátovaným s GPT bude také zobrazena \"ochranná vrstva\"."
 
 #: gettingstarted.html:142
 msgid "Do not worry,"
@@ -261,15 +262,15 @@ msgstr "vaše data nejsou ztracena nebo poškozena!"
 
 #: gettingstarted.html:146
 msgid "Your system is currently running in"
-msgstr ""
+msgstr "Váš systém v současné době běží v"
 
 #: gettingstarted.html:146
 msgid "mode"
-msgstr ""
+msgstr "režimu"
 
 #: gettingstarted.html:151
 msgid "Swap"
-msgstr "Swap"
+msgstr "Odkládací prostor (Swap)"
 
 #: gettingstarted.html:152
 msgid ""
@@ -277,14 +278,14 @@ msgid ""
 "will start swapping to disk. Known as a \"paging file\" in Windows. "
 "Performance will decrease when running low on memory and could possibly "
 "freeze if you completely run out of memory without anywhere to swap."
-msgstr ""
+msgstr "U počítačů, kterým začíná docházet paměť (RAM), začne operační systém odkládat (také stránkovat či nesprávně swapovat) na disk. To je ve Windows znamé jako \"stránkovací soubor\". Když dochází paměť, výkon se bude snižovat, a to by mohlo způsobit zamrzání systému, pokud jste zcela vyčerpali paměť, aniž byste využili odkládací prostor."
 
 #: gettingstarted.html:156
 msgid ""
 "By default, a swap partition is created based on the size of your RAM. For "
 "example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
 "reserved for swap at the end of the drive."
-msgstr ""
+msgstr "Ve výchozím nastavení je odkládací oblast vytvořena na základě velikosti paměti RAM. Například, pokud máte 2 GiB paměti RAM, pak 2 GiB místa na pevném disku budou vyhrazeny na konci disku jako odkládací prostor."
 
 #: gettingstarted.html162, 340, 650, 696, 813, 854, 1428
 msgid "Previous:"
@@ -295,19 +296,19 @@ msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr ""
+msgstr "Pokud chcete nainstalovat Ubuntu MATE vedle vašeho stávajícího operačního systému, vaše stávající diskové oddíly bude potřeba zmenšit. To povede k rozdělení vašeho pevného disku mezi více operačních systémů."
 
 #: gettingstarted.html:181
 msgid "I'm dual booting with"
-msgstr ""
+msgstr "Mám duální bootování systému s"
 
 #: gettingstarted.html:184
 msgid "To minimize the risk of data loss or failure, ensure that:"
-msgstr ""
+msgstr "Aby se minimalizovalo riziko ztráty dat nebo selhání, zajistěte že:"
 
 #: gettingstarted.html:186
 msgid "There is enough free space. 10 GB minimum is recommended."
-msgstr "Není zde dostatek místa. 10 GB je doporučené minimum."
+msgstr "Je k dispozici dostatek volného místa. 10 GB je doporučené minimum."
 
 #: gettingstarted.html:187
 msgid "important data to another drive."
@@ -315,15 +316,15 @@ msgstr "důležitá data na jiný disk."
 
 #: gettingstarted.html:188
 msgid "Defragment the hard drive."
-msgstr "Defragmentace pevného disku."
+msgstr "Proveďte defragmentaci pevného disku."
 
 #: gettingstarted.html:189
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
-msgstr "Ujistěte se, že Windows byla vypnuta (ne hibernována)."
+msgstr "Ujistěte se, že Windows byla čistě vypnuta (ne hibernována)."
 
 #: gettingstarted.html:193
 msgid "Which approach would you prefer?"
-msgstr "Jakému přístupu byste dali přednost?"
+msgstr "Jakému postupu byste dali přednost?"
 
 #: gettingstarted.html195, 279
 msgid "Simple"
@@ -345,111 +346,111 @@ msgstr "Nejjednodušší metodou je použít instalátor."
 msgid ""
 "The installer scans your disks for existing operating systems and provides a"
 " choice on what you'd like to do."
-msgstr ""
+msgstr "Instalátor vyhledá stávající operační systémy na vašich pevných discích  a nabídne možnost volby o tom, co byste chtěli dělat."
 
 #: gettingstarted.html:207
 msgid "You will see an option similar to this:"
-msgstr ""
+msgstr "Uvidíte možnosti podobné těmto:"
 
 #: gettingstarted.html:211
 msgid "Followed by:"
-msgstr ""
+msgstr "Následované těmito:"
 
 #: gettingstarted.html:217
 msgid "Do not interrupt or power off the computer during a resize operation."
-msgstr ""
+msgstr "Nepřerušujte nebo nevypínejte počítač během operace změny velikosti."
 
 #: gettingstarted.html:219
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr ""
+msgstr "Pokud tak učiníte, mohlo by dojít ke ztrátě dat nebo poškození tabulky oddílů. Před pokračováním prosím pečlivě překontrolujte své změny."
 
 #: gettingstarted.html:221
 msgid "The installer may show a"
-msgstr ""
+msgstr "Instalátor může zobrazovat"
 
 #: gettingstarted.html:221
 msgid ""
 "spinner cursor for a long period of time, depending on the size of your disk"
-msgstr ""
+msgstr "rotující kurzor po dlouhou dobu, v závislosti na velikosti vašeho disku"
 
 #: gettingstarted.html:225
 msgid "When you next boot Windows, run"
-msgstr ""
+msgstr "Při příštím spuštění systému Windows, spusťte"
 
 #: gettingstarted.html:226
 msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr ""
+msgstr "z příkazového řádku,  což zajistí kontrolu souborového systému na chyby. Systém Windows toto může naplánovat automaticky. To zajistí konzistenci souborového systému NTFS."
 
 #: gettingstarted.html:233
 msgid "Use GParted or the installer's \"Custom\" option."
-msgstr ""
+msgstr "Za použití GParted nebo možnosti instalátoru \"Vlastní\"."
 
-#: gettingstarted.html236, 1683
+#: gettingstarted.html236, 1687
 msgid "GParted"
-msgstr ""
+msgstr "GParted"
 
 #: gettingstarted.html:236
 msgid "is available during the live session only."
-msgstr ""
+msgstr "je k dispozici pouze v průběhu živého sezení."
 
 #: gettingstarted.html:237
 msgid "It is located under the"
-msgstr ""
+msgstr "Aplikace se nachází v nabídce"
 
-#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1461
+#: gettingstarted.html237, 368, 495, 615, 671, 730, 780, 804, 835, 848, 1460
 msgid "System"
-msgstr ""
+msgstr "Systém"
 
 #: gettingstarted.html238, 368, 495, 616, 804
 msgid "Administration"
-msgstr ""
+msgstr "Správa"
 
 #: gettingstarted.html:238
 msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr ""
+msgstr ". GParted poskytuje plnou flexibilitu nad vašimi diskovými oddíly, a to především pro pokročilé uživatele, kteří vědí, jak chtějí uspořádat své disky. Tato metoda provádí změny v diskových oddílech před zahájením instalace."
 
 #: gettingstarted.html:246
 msgid ""
 "After completing operations to your disk, you can leave the remaining space "
 "unallocated,"
-msgstr ""
+msgstr "Po dokončení operací na vašem disku můžete ponechat zbývající prostor nepřidělený,"
 
 #: gettingstarted.html:247
 msgid ""
 "whereby the installer will detect this unused space to install Ubuntu MATE "
 "to."
-msgstr ""
+msgstr "instalační program rozpozná tento nevyužitý prostor a použije ho k instalaci Ubuntu MATE."
 
 #: gettingstarted.html:249
 msgid "Using the Installer's \"Custom\" option."
-msgstr ""
+msgstr "Použití možnosti instalátoru \"Vlastní\"."
 
 #: gettingstarted.html:250
 msgid "Instead or in addition to GParted, the"
-msgstr ""
+msgstr "Namísto toho nebo jako doplnění ke GParted, pomocí volby"
 
 #: gettingstarted.html:250
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: gettingstarted.html:250
 msgid ""
 "option during the installation wizard can also configure and resize your "
 "partitions as well as choose mount points. Dividing your disks can make it "
 "somewhat easier to re-install the operating system later if desired."
-msgstr ""
+msgstr "lze během instalačního procesu také nastavit a měnit velikost diskových oddílů, stejně jako vybrat přípojné body. Rozdělení disků může o něco zjednodušit případnou pozdější reinstalaci operačního systému."
 
 #: gettingstarted.html:255
 msgid "You can specify these mount points:"
-msgstr ""
+msgstr "Můžete určit tyto přípojné body:"
 
 #: gettingstarted.html:257
 msgid "The base for Ubuntu MATE"
@@ -502,11 +503,11 @@ msgstr "jako například"
 #: gettingstarted.html:267
 msgid ""
 "Creating separate partitions for all above mount points is not necessary."
-msgstr "Vytvoření samostatných oddílů pro všechny výše přípojené body není nutné."
+msgstr "Vytvoření samostatných diskových oddílů pro všechny výše uvedené přípojné body není nutné."
 
 #: gettingstarted.html:268
 msgid "The commonly partitioned directories being"
-msgstr ""
+msgstr "Běžně oddělené adresáře jsou"
 
 #: gettingstarted.html:269
 msgid "and"
@@ -514,27 +515,27 @@ msgstr "a"
 
 #: gettingstarted.html:269
 msgid "These mount points can also be set across different"
-msgstr "Tyto přípojené body lze nastavit také v rámci různých"
+msgstr "Tyto přípojné body lze také nastavit napříč různými"
 
 #: gettingstarted.html:270
 msgid "physical disks, for instance, if you'd like the OS"
-msgstr "fyzických disků, například pokud byste chtěli OS"
+msgstr "fyzickými disky, například pokud byste chtěli OS"
 
 #: gettingstarted.html:270
 msgid "on an SSD,"
-msgstr "na SSD"
+msgstr "mít na SSD,"
 
 #: gettingstarted.html:271
 msgid "but your personal files"
-msgstr "ale vaše osobní soubory"
+msgstr "ale své osobní soubory"
 
 #: gettingstarted.html:271
 msgid "on a mechanical hard drive."
-msgstr "na mechanický hard disk."
+msgstr "na mechanickém pevném disku."
 
 #: gettingstarted.html:275
 msgid "Shrink your system disk within Windows."
-msgstr "Zmenšit systémový disk ve Windows."
+msgstr "Zmenšete svůj systémový disk ve Windows."
 
 #: gettingstarted.html:277
 msgid "Applies to Windows Vista and later."
@@ -557,11 +558,11 @@ msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "Novější verze systému Windows poskytují nástroj pro zmenšovaní NTFS svazku přímo z Windows. Toto je nejbezpečnější způsob, pokud je nezbytné, abyste Windows stále mohli spouštět na vašem počítači, během seznamování se s Ubuntu MATE."
 
-#: gettingstarted.html286, 640, 1654, 1671, 1687, 1703, 1719, 1735
+#: gettingstarted.html286, 640, 1658, 1675, 1691, 1707, 1723, 1739
 msgid "Open"
-msgstr "Otevřít"
+msgstr "Otevřete"
 
 #: gettingstarted.html:286
 msgid "Disk Management"
@@ -569,7 +570,7 @@ msgstr "Správa disků"
 
 #: gettingstarted.html:286
 msgid "from the start menu."
-msgstr "ze startovacího menu."
+msgstr "z nabídky Start."
 
 #: gettingstarted.html:291
 msgid "Right click your desired drive and choose"
@@ -577,7 +578,7 @@ msgstr "Klikněte pravým tlačítkem myši na požadovanou jednotku a zvolte"
 
 #: gettingstarted.html:291
 msgid "Shrink Partition"
-msgstr "zmenšení oddílu"
+msgstr "Zmenšit svazek"
 
 #: gettingstarted.html:291
 msgid "from the context menu."
@@ -585,11 +586,11 @@ msgstr "z kontextového menu."
 
 #: gettingstarted.html:296
 msgid "Enter the amount to shrink your system partition by."
-msgstr ""
+msgstr "Zadejte množství, o které se má zmenšit systémový diskový oddíl."
 
 #: gettingstarted.html:302
 msgid "Remember, Ubuntu MATE needs at minimum 8 GB of disk space."
-msgstr ""
+msgstr "Nezapomeňte, že Ubuntu MATE potřebuje minimálně 8 GB místa na disku."
 
 #: gettingstarted.html:307
 msgid "Further Reading"
@@ -599,23 +600,23 @@ msgstr "Další čtení"
 msgid ""
 "For further information on the best practices to modify partitions "
 "containing Windows, see the following"
-msgstr ""
+msgstr "Další informace o osvědčených postupech ke změně diskových oddílů které obsahují Windows, naleznete v následujícím"
 
 #: gettingstarted.html:311
 msgid "help article"
-msgstr ""
+msgstr "článku nápovědy"
 
 #: gettingstarted.html:311
 msgid "online"
-msgstr ""
+msgstr "on-line"
 
 #: gettingstarted.html:315
 msgid "Repairing Boot Problems"
-msgstr "Opravit problémy při bootování"
+msgstr "Oprava problémů při bootování"
 
 #: gettingstarted.html:317
 msgid "Linux distributions use a boot loader known as"
-msgstr ""
+msgstr "Linuxové distribuce používají zavaděč známý jako"
 
 #: gettingstarted.html:318
 msgid ""
@@ -623,31 +624,31 @@ msgid ""
 " systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
-msgstr ""
+msgstr "který hledá a zavádí operační systém. Nicméně, některé operační systémy (například Windows) nespolupracují s existujícím zavaděčem a budou ho chtít přepsat tak, že byste mohli dočasně ztratit přístup k  Ubuntu MATE."
 
 #: gettingstarted.html:323
 msgid "Fortunately, you can use the"
-msgstr ""
+msgstr "Naštěstí můžete použít nástroj"
 
 #: gettingstarted.html:323
 msgid "Boot Repair"
-msgstr ""
+msgstr "Boot Repair"
 
 #: gettingstarted.html:323
 msgid "tool to repair common problems caused by other operating systems."
-msgstr ""
+msgstr " (Oprava zavaděče) který opraví běžné problémy způsobené jinými operačními systémy."
 
 #: gettingstarted.html:328
 msgid "Requires downloading a package."
-msgstr ""
+msgstr "Vyžaduje stažení balíku."
 
 #: gettingstarted.html:329
 msgid "Please connect to the Internet to download and use this utility."
-msgstr ""
+msgstr "Prosím, připojte se k Internetu, stáhněte a použijte tento nástroj."
 
 #: gettingstarted.html:330
 msgid "Sorry, Welcome was unable to establish a connection."
-msgstr ""
+msgstr "Je nám líto, aplikace Vítejte nebyla schopna navázat spojení."
 
 #: gettingstarted.html:331
 msgid "Retry"
@@ -655,56 +656,56 @@ msgstr "Zkusit znovu"
 
 #: gettingstarted.html:334
 msgid "Download Boot Repair"
-msgstr ""
+msgstr "Stáhnout Boot Repair"
 
 #: gettingstarted.html:335
 msgid "Open Boot-Repair"
-msgstr ""
+msgstr "Otevřít Boot Repair"
 
 #: gettingstarted.html:340
 msgid "Install Preparations"
-msgstr ""
+msgstr "Přípravy instalace"
 
 #: gettingstarted.html:353
 msgid "An Internet connection is required to download and install updates."
-msgstr ""
+msgstr "Pro stažení a instalaci aktualizací je nutné  připojení k Internetu."
 
 #: gettingstarted.html361, 367
 msgid "Software Updater"
-msgstr ""
+msgstr "Správce aktualizací"
 
 #: gettingstarted.html:362
 msgid ""
 "Ubuntu MATE periodically will check to see if new software and security "
 "updates are available for your computer. If you have just installed Ubuntu "
 "MATE, you might want to do this now."
-msgstr ""
+msgstr "Ubuntu MATE pravidelně zkontroluje, zda jsou k dispozici pro váš počítač nové aktualizace softwaru a zabezpečení. Pokud jste právě Ubuntu MATE nainstalovali, možná to budete chtít udělat nyní."
 
 #: gettingstarted.html367, 494, 670, 729, 779, 803, 834
 msgid "can be found later in"
-msgstr ""
+msgstr "lze nalézt později v nabídce"
 
 #: gettingstarted.html:373
 msgid "Check for Updates"
-msgstr ""
+msgstr "Zkontrolovat aktualizace"
 
 #: gettingstarted.html:385
 msgid "Additional Codecs"
-msgstr ""
+msgstr "Dodatečné kodeky"
 
 #: gettingstarted.html:386
 msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "Balíček kodeků obsahuje kompletní, multiplatformní řešení pro dekódování, kódování, záznam, převod a streamování audia a videa. To zahrnuje také audio dekodér MP3, který umožňuje přehrávání MPEG 1 audio layer III (MP3)."
 
 #: gettingstarted.html391, 409, 429, 448
 msgid "Applying Changes..."
-msgstr ""
+msgstr "Provádění změn..."
 
-#: gettingstarted.html392, 410, 430, 449, 641, 755, 1655, 1672, 1688, 1704,
-#: 1720, 1736
+#: gettingstarted.html392, 410, 430, 449, 641, 755, 1659, 1676, 1692, 1708,
+#: 1724, 1740
 msgid "Install"
 msgstr "Instalovat"
 
@@ -714,18 +715,18 @@ msgstr "Odstranit"
 
 #: gettingstarted.html:404
 msgid "DVD Playback Support"
-msgstr ""
+msgstr "Podpora přehrávání DVD"
 
 #: gettingstarted.html:405
 msgid ""
 "is a simple library designed for accessing DVDs like a block device without "
 "having to bother about the decryption. It will enable playback of DVD video "
 "in VLC."
-msgstr ""
+msgstr "je jednoduchá knihovna určená pro přístup k DVD jako k blokovému zařízení, bez nutnosti starat se o dešifrování. To umožní přehrávání DVD videa v přehrávači VLC."
 
 #: gettingstarted.html:422
 msgid "Additional Screen Savers"
-msgstr ""
+msgstr "Další šetřiče obrazovky"
 
 #: gettingstarted.html:423
 msgid ""
@@ -733,36 +734,36 @@ msgid ""
 "periods of time. Screen savers were originally created to reduce burn-in for"
 " cathode ray tube (CRT) monitors displaying the same image for long periods "
 "of time."
-msgstr ""
+msgstr "Nainstaluje více než 200 šetřičů obrazovky pro chvíle, kdy je váš počítač nečinný po dlouhou dobu. Šetřiče obrazovky byly původně vytvořeny, aby snížily vypalování (opotřebování) katodové trubice (CRT) monitorů zobrazujících stejný obraz po dlouhou dobu."
 
 #: gettingstarted.html:432
 msgid "Change Screen Saver"
-msgstr ""
+msgstr "Změnit šetřič obrazovky"
 
 #: gettingstarted.html:443
 msgid "Additional Community Wallpapers"
-msgstr ""
+msgstr "Další komunitní pozadí plochy"
 
 #: gettingstarted.html:444
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr ""
+msgstr "Komunita kolem Ubuntu MATE  v průběhu let přispěla desítkami pozadí pracovní plochy. Proč je nezkusit nainstalovat a najít něco, co vyhovuje vašemu vkusu?"
 
 #: gettingstarted.html:451
 msgid "Change Appearance"
-msgstr ""
+msgstr "Změnit vzhled"
 
 #: gettingstarted.html:456
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Budete potřebovat databázi Blu-ray AACS, abyste mohli přehrát AACS šifrované nebo BD+ chráněné disky."
 
 #: gettingstarted.html:459
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "Nainstalovat Blu-ray AACS databázi"
 
 #: gettingstarted.html:476
 msgid ""
@@ -770,33 +771,33 @@ msgid ""
 "some components and peripherals that require proprietary drivers to function"
 " properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
-msgstr ""
+msgstr "Zatímco široká škála hardware je s Ubuntu MATE kompatibilní, jsou zde některé komponenty a periférie, které pro svou správnou funkci vyžadují proprietární ovladače. Pro správnou funkci některých zařízení, typicky Bluetooth a Wi-Fi, je často nutná instalace balíčku s firmware. "
 
 #: gettingstarted.html:482
 msgid "An Internet connection is required to download and install drivers."
-msgstr ""
+msgstr "Pro stažení a instalaci ovladačů je nutné  připojení k Internetu."
 
 #: gettingstarted.html486, 494, 564
 msgid "Additional Drivers"
-msgstr ""
+msgstr "Dodatečné ovladače"
 
 #: gettingstarted.html:489
 msgid "Install Firmware Package"
-msgstr ""
+msgstr "Nainstalovat balík s firmware"
 
 #: gettingstarted.html:499
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: gettingstarted.html:503
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr ""
+msgstr "Je nám líto, aplikace Vítejte nebyla schopna automaticky identifikovat dodavatele grafiky na tomto systému."
 
 #: gettingstarted.html504, 510, 518, 524
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Karta/Chipset:"
 
 #: gettingstarted.html504, 510, 518, 524
 msgid "Unknown"
@@ -804,141 +805,141 @@ msgstr "Neznámý"
 
 #: gettingstarted.html508, 514
 msgid "Graphics Card Detected."
-msgstr ""
+msgstr "Grafická karta detekována."
 
 #: gettingstarted.html:509
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
 "applications and games as well as deliver improvements to power management."
-msgstr ""
+msgstr "mohou mít ovladače pro vaši kartu, které mohou zvýšit výkon 3D aplikací a her, stejně jako dodat vylepšené řízení spotřeby."
 
 #: gettingstarted.html:515
 msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "Ovladače AMD již nejsou v Ubuntu podporovány. Open source ovladače, které v současné době používáte, dodají vaší kartě nejstabilnější výkon."
 
 #: gettingstarted.html:522
 msgid "You're already good to go."
-msgstr ""
+msgstr "Již jste připraveni."
 
 #: gettingstarted.html:523
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "Ovladače Intel jsou open source a jsou udržovány/aktualizovány v jádře."
 
 #: gettingstarted.html:528
 msgid "VirtualBox Guest Additions"
-msgstr ""
+msgstr "VirtualBox Přídavky pro hosta"
 
 #: gettingstarted.html:529
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "Pro akcelerovaný grafický výkon uvnitř virtuálního počítače je nutné nainstalovat Přídavky pro hosta."
 
 #: gettingstarted.html:533
 msgid "Proprietary or Open Source Drivers?"
-msgstr ""
+msgstr "Proprietární nebo open source ovladače?"
 
 #: gettingstarted.html:534
 msgid "Proprietary drivers come directly from the manufacturer."
-msgstr ""
+msgstr "Proprietární ovladače pocházejí přímo od výrobce."
 
 #: gettingstarted.html:535
 msgid "As they are not open source, Ubuntu developers are"
-msgstr ""
+msgstr "Protože se nejedná o open source, vývojáři Ubuntu"
 
 #: gettingstarted.html:535
 msgid "unable review and improve code"
-msgstr ""
+msgstr "nemohou přezkoumat a vylepšit kód. "
 
 #: gettingstarted.html:535
 msgid "meaning you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "To znamená, že se budete muset spoléhat na podporu od výrobce."
 
 #: gettingstarted.html:538
 msgid "In addition, proprietary drivers can"
-msgstr ""
+msgstr "Kromě toho, proprietární ovladače mohou"
 
 #: gettingstarted.html:538
 msgid "significantly improve graphics performance"
-msgstr ""
+msgstr "výrazně zlepšit grafický výkon"
 
 #: gettingstarted.html:538
 msgid "and as a result,"
-msgstr ""
+msgstr "a jako výsledek toho"
 
 #: gettingstarted.html:539
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr ""
+msgstr "i celý systém. Uživatelé si mohou přát nainstalovat tyto ovladače pro:"
 
 #: gettingstarted.html:541
 msgid "Run 3D applications and games."
-msgstr ""
+msgstr "Spouštění 3D aplikací a her."
 
 #: gettingstarted.html:542
 msgid "Use Compiz's window effects."
-msgstr ""
+msgstr "Používání okenních efektů Compiz."
 
 #: gettingstarted.html:543
 msgid ""
 "Improve power management, particularly if the device experiences overheating"
 " problems under open source drivers."
-msgstr ""
+msgstr "Zlepšení správy napájení, a to zejména v případě, že přístroj zaznamená problémy s přehříváním pod open source ovladači."
 
 #: gettingstarted.html:544
 msgid "Improve support for high resolutions and multiple monitors."
-msgstr ""
+msgstr "Zlepšenou podporu pro vysoké rozlišení a více monitorů."
 
 #: gettingstarted.html:545
 msgid "Fix blank screen issues."
-msgstr ""
+msgstr "Opravu problémů s prázdnou obrazovkou."
 
 #: gettingstarted.html:548
 msgid ""
 "Proprietary drivers are known as \"binary blobs\". Certain hardware may "
 "experience worse behavior,"
-msgstr ""
+msgstr "Proprietární ovladače jsou známé jako \"binární bloby\". U určitého hardwaru může dojít k horšímu chování,"
 
 #: gettingstarted.html:549
 msgid "causing more issues then the open source drivers, such as:"
-msgstr ""
+msgstr " což způsobuje více problémů než s open source ovladači, jako:"
 
 #: gettingstarted.html:551
 msgid "Failing to boot to the graphical desktop."
-msgstr ""
+msgstr "Selhání při zavádění systému do grafického pracovního prostředí."
 
 #: gettingstarted.html:552
 msgid "Broken drivers after an upgrade."
-msgstr ""
+msgstr "Rozbité ovladače po povýšení systému."
 
 #: gettingstarted.html:553
 msgid "Severe graphical glitches."
-msgstr ""
+msgstr "Závažné grafické závady."
 
 #: gettingstarted.html:554
 msgid "Problems with applications/games requiring hardware acceleration."
-msgstr ""
+msgstr "Problémy s aplikacemi/hrami, které vyžadují hardwarovou akceleraci."
 
 #: gettingstarted.html:558
 msgid "is the open source driver for your card."
-msgstr ""
+msgstr "je open source ovladač pro vaši kartu."
 
 #: gettingstarted.html:563
 msgid "What about the latest NVIDIA drivers?"
-msgstr ""
+msgstr "A co nejnovější ovladače NVIDIA?"
 
 #: gettingstarted.html:564
 msgid "fetches the latest tested driver from the Ubuntu repositories."
-msgstr ""
+msgstr "přináší nejnovější testovaný ovladač z repozitářů Ubuntu."
 
 #: gettingstarted.html:565
 msgid ""
 "Advanced users and gamers who would like newer versions may wish to consider"
 " adding the"
-msgstr ""
+msgstr "Zkušení uživatelé a hráči, kteří by chtěli novější verze mohou zvážit přidání"
 
 #: gettingstarted.html:566
 msgid "Ubuntu Graphics Driver PPA"
@@ -948,41 +949,41 @@ msgstr ""
 msgid ""
 "which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
 "not as thoroughly tested."
-msgstr ""
+msgstr "který přínáší balíčky nejnovějších NVIDIA ovladačů pro Ubuntu. Tyto balíčky nejsou tak důkladně testovány."
 
 #: gettingstarted.html:569
 msgid ""
 "This only applies for actively supported cards, and not older cards using "
 "the legacy driver."
-msgstr ""
+msgstr "To platí pouze pro aktivně podporované karty, nikoli pro starší karty používající 'legacy' ovladače pro starší karty."
 
 #: gettingstarted.html:572
 msgid "Add Repository"
-msgstr ""
+msgstr "Přidat repozitář"
 
 #: gettingstarted.html:575
 msgid ""
 "To add the repository to the system, open a terminal and type the following:"
-msgstr ""
+msgstr "Chcete-li přidat repozitář do systému, otevřete terminál a zadejte následující:"
 
 #: gettingstarted.html:580
 msgid "After the PPA is added, newer versions are presented to install in"
-msgstr ""
+msgstr "Po přidání PPA budou nabízeny k instalaci novější verze ovladačů na kartě:"
 
 #: gettingstarted.html:581
 msgid "Additional Drivers:"
-msgstr ""
+msgstr "Dodatečné ovladače:"
 
 #: gettingstarted.html:588
 msgid "Wireless, Bluetooth and Other Devices"
-msgstr ""
+msgstr "Bezdrátová, bluetooth a další zařízení"
 
 #: gettingstarted.html:590
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr ""
+msgstr "Pokud nebudou nalezeny další ovladače hardwaru, ani instalace balíčků firmwaru nepomůže, možná budete muset zjistit své zařízení a najít k němu odpovídající ovladač."
 
 #: gettingstarted.html:594
 msgid ""
@@ -990,53 +991,53 @@ msgid ""
 "hasn't provided any source code for developers to freely use, or there is "
 "insufficient documentation to create drivers for your particular brand and "
 "model."
-msgstr ""
+msgstr "Bohužel, toto je způsobeno tím, že výrobce pro váš hardware neposkytl žádný volně použitelný zdrojový kód pro vývojáře, nebo je nedostatečná dokumentace k vytvoření ovladače pro konkrétní značku a model."
 
 #: gettingstarted.html:600
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr ""
+msgstr "Někteří výrobci mohou poskytovat přímo své uzavřené ovladače. Pokud budete potřebovat pomoc, neváhejte"
 
 #: gettingstarted.html:602
 msgid "ask the community"
-msgstr ""
+msgstr "zeptat se komunity"
 
 #: gettingstarted.html:605
 msgid "Read more on troubleshooting wireless hardware."
-msgstr ""
+msgstr "Přečtěte si více o řešení problémů bezdrátového hardwaru."
 
 #: gettingstarted.html609, 614
 msgid "Printers"
-msgstr ""
+msgstr "Tiskárny"
 
 #: gettingstarted.html:611
 msgid "When you set up a printer in the"
-msgstr ""
+msgstr "Při nastavování tiskárny přes nástroj"
 
 #: gettingstarted.html:615
 msgid "utility"
-msgstr ""
+msgstr " "
 
 #: gettingstarted.html:615
 msgid "under"
-msgstr ""
+msgstr "v nabídce"
 
 #: gettingstarted.html:616
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr ""
+msgstr "vám bude nabídnut seznam ovladačů, které jsou k dispozici pro používání, pokud jsou vhodné."
 
 #: gettingstarted.html:619
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
-msgstr ""
+msgstr "Někteří výrobci mohou poskytovat své vlastní ovladače a vyžadovat, abyste si je stáhli z jejich internetových stránek."
 
 #: gettingstarted.html:622
 msgid "Read more on printing"
-msgstr ""
+msgstr "Přečtěte si více o tisku"
 
 #: gettingstarted.html:633
 msgid "HP Linux Printing and Imaging System"
@@ -1048,455 +1049,460 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "Je doporučený, pokud máte tiskárnu HP, protože poskytuje plnou podporu pro tisk na většině HP SFP (single function peripheral) inkoustových tiskáren a mnoha laserových tiskárnách LaserJets a pro skenování, odesílání faxů a pro přístup k foto-kartám na většině HP MFP (multi-function peripheral) tiskáren."
 
 #: gettingstarted.html651, 652, 812, 813
 msgid "Language Input"
-msgstr ""
+msgstr "Jazykový vstup"
 
 #: gettingstarted.html662, 667, 670
 msgid "Language Support"
-msgstr ""
+msgstr "Jazyková podpora"
 
 #: gettingstarted.html:663
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
-msgstr ""
+msgstr "Váš počítač může vyžadovat aktualizace vašich jazykových a lokalizačních nastavení, nebo můžete chtít nainstalovat podporu dalších jazyků."
 
 #: gettingstarted.html671, 730, 780, 835
 msgid "Preferences"
-msgstr ""
+msgstr "Předvolby"
 
 #: gettingstarted.html672, 731
 msgid "Personal"
-msgstr ""
+msgstr "Osobní"
 
 #: gettingstarted.html:678
 msgid "Complex Input"
-msgstr ""
+msgstr "Komplexní vstup"
 
 #: gettingstarted.html:679
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Některé regiony světa vyžadují komplexní vstupy."
 
 #: gettingstarted.html:684
 msgid "Chinese"
-msgstr ""
+msgstr "Čínština"
 
 #: gettingstarted.html:687
 msgid "Japanese"
-msgstr ""
+msgstr "Japonština"
 
 #: gettingstarted.html:690
 msgid "Korean"
-msgstr ""
+msgstr "Korejština"
 
 #: gettingstarted.html:706
 msgid "Backup, Firewall and User Management"
-msgstr ""
+msgstr "Zálohování, firewall a správa uživatelů"
 
 #: gettingstarted.html:707
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
-msgstr ""
+msgstr "Ubuntu MATE poskytuje nástroje pro zálohování vašich souborů, přichází s předinstalovaným firewallem  a podporuje více uživatelských účtů."
 
 #: gettingstarted.html718, 729
 msgid "Backups"
-msgstr ""
+msgstr "Zálohy"
 
 #: gettingstarted.html:719
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
-msgstr ""
+msgstr "Nic není důležitější, než mít zálohu osobních souborů v případě, když se stane něco špatného s vaším počítačem."
 
 #: gettingstarted.html:723
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
-msgstr ""
+msgstr "je dodáván předinstalovaný a podporuje zálohování na místní zařízení,  stejně jako na on-line cloudové služby."
 
 #: gettingstarted.html:726
 msgid "Configure Backup"
-msgstr ""
+msgstr "Nastavit zálohování"
 
 #: gettingstarted.html:742
 msgid "Network Shares"
-msgstr ""
+msgstr "Sdílení v síti"
 
 #: gettingstarted.html:743
-msgid ""
-"Need to access files and folders with multiple computers? </p> <p><img "
-"src=\"img/applications/caja-share.png\" width=\"20px\" height=\"20px\"/> "
-"<b>Samba</b>"
-msgstr ""
+msgid "Need to access files and folders with multiple computers?"
+msgstr "Potřebujete mít přístup k souborům a složkám s více počítači?"
 
-#: gettingstarted.html:747
+#: gettingstarted.html:746
+msgid "Samba"
+msgstr "Samba"
+
+#: gettingstarted.html:746
 msgid ""
-"</p> <span class=\"caja-share-remove\"> <span class=\"fa fa-check-"
-"circle\"></span>"
-msgstr ""
+"is available to install, which integrates with the Caja File Manager, "
+"allowing you to seamless retrieve data stored on another computer."
+msgstr "je k dispozici pro instalaci, integruje se se správcem souborů Caja a umožní vám bezproblémové načtení dat uložených na jiném počítači."
+
+#: gettingstarted.html:751
+msgid "Samba is installed."
+msgstr "Samba je nainstalována."
 
 #: gettingstarted.html:752
 msgid "Choose a folder and select \"Sharing Options\"."
-msgstr ""
+msgstr "Vyberte si složku a zvolte\"Možnosti sdílení\"."
 
 #: gettingstarted.html:756
 msgid "Samba is available from the Software Boutique under \"Servers\"."
-msgstr ""
+msgstr "Samba je k dispozici  v Softwarovém butiku v sekci \"Servery\"."
 
 #: gettingstarted.html:767
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: gettingstarted.html:768
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
-msgstr ""
+msgstr "Brána firewall chrání váš počítač před škodlivými příchozími a odchozími spojeními. Ve výchozím nastavení je brána firewall vypnuta,"
 
 #: gettingstarted.html:770
 msgid "learn more about firewalls"
-msgstr ""
+msgstr "zjistěte si více o firewallech"
 
 #: gettingstarted.html:772
 msgid "provides a graphical frontend to"
-msgstr ""
+msgstr "poskytuje grafický frontend pro"
 
 #: gettingstarted.html:773
 msgid "Uncomplicated Firewall"
-msgstr ""
+msgstr "Uncomplicated Firewall  [nekomplikovaný firewall]"
 
 #: gettingstarted.html:773
 msgid "If security is important to you, there are"
-msgstr ""
+msgstr "Pokud je pro vás bezpečnost důležitá, zde je"
 
 #: gettingstarted.html:774
 msgid "more ways to stay secure too"
-msgstr ""
+msgstr "více cest, jak zůstat v bezpečí"
 
 #: gettingstarted.html:776
 msgid "Configure Firewall"
-msgstr ""
+msgstr "Nastavit firewall"
 
 #: gettingstarted.html:779
 msgid "Firewall Configuration"
-msgstr ""
+msgstr "Nastavení firewallu"
 
 #: gettingstarted.html:781
 msgid "Internet and Network"
-msgstr ""
+msgstr "Internet a síť"
 
 #: gettingstarted.html:792
 msgid "Users"
-msgstr ""
+msgstr "Uživatelé"
 
 #: gettingstarted.html:794
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
-msgstr ""
+msgstr "Sdílíte svůj počítač s ostatními? Zřiďte samostatný uživatelský účet každému uživateli a ochraňte soukromí každého jednotlivého uživatele sdílejícího stejný počítač."
 
 #: gettingstarted.html:797
 msgid "You can also log in to a"
-msgstr ""
+msgstr "Můžete se také přihlásit k"
 
 #: gettingstarted.html:797
 msgid "Guest Session"
-msgstr ""
+msgstr "Sezení hosta"
 
 #: gettingstarted.html:797
 msgid "if someone is using your computer as a one-off."
-msgstr ""
+msgstr ", pokud někdo používá váš počítač jednorázově."
 
 #: gettingstarted.html:800
 msgid "Configure Users"
-msgstr ""
+msgstr "Nastavit uživatele"
 
 #: gettingstarted.html803, 805
 msgid "Users and Groups"
-msgstr ""
+msgstr "Uživatelé a skupiny"
 
 #: gettingstarted.html823, 831
 msgid "User Interface"
-msgstr ""
+msgstr "Uživatelské rozhraní"
 
 #: gettingstarted.html:824
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr ""
+msgstr "Ubuntu MATE poskytuje jedinečný nástroj pro transformaci uživatelského rozhraní. Může být použit k rychlému nastavení uživatelského rozhraní do podoby ve značné míře odrážející vzhled a chování dalších populárních operačních systémů. Například"
 
 #: gettingstarted.html:827
 msgid "layouts are most similar to Microsoft Windows while"
-msgstr ""
+msgstr "rozvržení je nejpodobnější na Microsoft Windows, zatímco"
 
 #: gettingstarted.html:828
 msgid "layouts are most similar to Apple Mac OS X."
-msgstr ""
+msgstr "rozvržení je nejpodobnější na Apple Mac OS X."
 
 #: gettingstarted.html:834
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: gettingstarted.html:836
 msgid "Look and Feel"
-msgstr ""
+msgstr "Vzhled a chování"
 
 #: gettingstarted.html839, 844, 847
 msgid "Control Center"
-msgstr ""
+msgstr "Ovládací centrum"
 
 #: gettingstarted.html:840
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
-msgstr ""
+msgstr "Nástroje zmíněné výše jsou součástí rozsáhlého ovládacího centra, které Ubuntu MATE poskytuje. Přes Ovládací centrum můžete nastavit téměř každý aspekt svého počítače."
 
 #: gettingstarted.html:847
 msgid "can be found later in the"
-msgstr ""
+msgstr "lze nalézt později v nabídce"
 
 #: gettingstarted.html:848
 msgid "menu."
-msgstr ""
+msgstr "menu."
 
 #: gettingstarted.html:867
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
-msgstr ""
+msgstr "Ubuntu MATE má mnoho klávesových zkratek, které pomohou učinit váš počítač efektivnějším."
 
 #: gettingstarted.html:871
 msgid "The"
-msgstr ""
+msgstr "Klávesa"
 
 #: gettingstarted.html:871
 msgid "Super"
-msgstr ""
+msgstr "Super"
 
 #: gettingstarted.html:871
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
-msgstr ""
+msgstr "je vaše klávesa Windows. U klávesnice Mac to je klávesa ⌘ Command."
 
 #: gettingstarted.html:874
 msgid "Common application shortcuts"
-msgstr ""
+msgstr "Společné zkratky aplikací "
 
 #: gettingstarted.html:875
 msgid "These shortcuts apply in most applications."
-msgstr ""
+msgstr "Tyto zkratky platí ve většině aplikací."
 
 #: gettingstarted.html880, 888, 896, 904, 912, 920, 928, 936, 944, 952, 960,
 #: 968, 976, 984, 1037, 1047, 1057, 1095, 1111, 1121, 1131, 1143, 1218, 1228,
 #: 1238, 1248, 1258, 1268, 1278, 1312, 1323, 1332
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: gettingstarted.html:884
 msgid "Copy the selected text/object"
-msgstr ""
+msgstr "Zkopírovat vybraný text/objekt"
 
 #: gettingstarted.html:892
 msgid "Cut the selected text/object"
-msgstr ""
+msgstr "Vyjmout vybraný text/objekt"
 
 #: gettingstarted.html:900
 msgid "Paste/insert the selected text/object"
-msgstr ""
+msgstr "Vložit/nahradit vybraný text/objekt"
 
 #: gettingstarted.html:908
 msgid "Select all text"
-msgstr ""
+msgstr "Vybrat všechen text"
 
 #: gettingstarted.html:916
 msgid "Find and replace words"
-msgstr ""
+msgstr "Najít a nahradit slova"
 
 #: gettingstarted.html:924
 msgid "Make the selected text bold"
-msgstr ""
+msgstr "Udělat vybraný text tučný"
 
 #: gettingstarted.html:932
 msgid "Make the selected text italic"
-msgstr ""
+msgstr "Udělat vybraný text kurzívou"
 
 #: gettingstarted.html:940
 msgid "Underline the selected text"
-msgstr ""
+msgstr "Podtrhnout vybraný text"
 
 #: gettingstarted.html:948
 msgid "Open a new document or window"
-msgstr ""
+msgstr "Otevřít nový dokument nebo okno"
 
 #: gettingstarted.html:956
 msgid "Save the current document"
-msgstr ""
+msgstr "Uložit aktuální dokument"
 
 #: gettingstarted.html:964
 msgid "Open another document"
-msgstr ""
+msgstr "Otevřít jiný dokument"
 
 #: gettingstarted.html:972
 msgid "Print the current document"
-msgstr ""
+msgstr "Vytisknout aktuální dokument"
 
 #: gettingstarted.html:980
 msgid "Undo the last change you made"
-msgstr ""
+msgstr "Vrátit poslední provedenou změnu"
 
 #: gettingstarted.html:990
 msgid "Redo a change that you just undid"
-msgstr ""
+msgstr "Znovu provést změnu, kterou jste právě odvolali"
 
 #: gettingstarted.html:996
 msgid "Toggle the current application between full-screen and windowed"
-msgstr ""
+msgstr "Přepínat aktuální aplikaci mezi celou obrazovkou a oknem"
 
 #: gettingstarted.html:1000
 msgid "Desktop shortcuts"
-msgstr ""
+msgstr "Zkratky pro pracovní plochu"
 
 #: gettingstarted.html:1001
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
-msgstr ""
+msgstr "Tato část uvádí běžné klávesové zkratky, které můžete použít k ovládání částí pracovní plochy."
 
 #: gettingstarted.html:1011
 msgid "Open the Applications menu"
-msgstr ""
+msgstr "Zobrazit nabídku Aplikace"
 
 #: gettingstarted.html:1019
 msgid "Run an application by typing its name in the box which appears"
-msgstr ""
+msgstr "Spustit aplikaci zadáním jejího názvu do textového pole, které se objeví"
 
 #: gettingstarted.html:1023
 msgid "Prt Sc"
-msgstr ""
+msgstr "Prt Sc"
 
 #: gettingstarted.html:1025
 msgid "Take a screenshot of the whole screen"
-msgstr ""
+msgstr "Pořídit snímek celé obrazovky"
 
 #: gettingstarted.html:1033
 msgid "Take a screenshot of the current window"
-msgstr ""
+msgstr "Pořídit snímek aktuálního okna"
 
 #: gettingstarted.html:1041
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #: gettingstarted.html:1043
 msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr ""
+msgstr "Otevřít dialogové okno pro vypnutí, restartování nebo uspání."
 
 #: gettingstarted.html:1053
 msgid "Lock your screen."
-msgstr ""
+msgstr "Zamknout obrazovku."
 
 #: gettingstarted.html:1063
 msgid "Open a terminal."
-msgstr ""
+msgstr "Otevřít terminál."
 
 #: gettingstarted.html1069, 1343, 1351, 1359, 1369, 1377, 1385, 1393
 msgid "Super Key"
-msgstr ""
+msgstr "Klávesa Super"
 
 #: gettingstarted.html:1073
 msgid "Screen reader enable/disable."
-msgstr ""
+msgstr "Povolení/zakázání čtečky obrazovky."
 
 #: gettingstarted.html:1077
 msgid "Window shortcuts"
-msgstr ""
+msgstr "Okenní zkratky"
 
 #: gettingstarted.html:1082
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: gettingstarted.html:1085
 msgid "Switch between currently-open windows."
-msgstr ""
+msgstr "Přepínat mezi aktuálně otevřenými okny."
 
 #: gettingstarted.html:1087
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
-msgstr ""
+msgstr "Stiskněte Alt + Tab a pak uvolněte Tab (ale i nadále držte Alt)."
 
 #: gettingstarted.html1088, 1104
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
-msgstr ""
+msgstr "Opakovaně stiskněte klávesu Tab a procházejte seznam dostupných oken, který se objeví na obrazovce."
 
 #: gettingstarted.html:1089
 msgid "Release the Alt key to switch to the selected window."
-msgstr ""
+msgstr "Uvolněte klávesu Alt a přepnete se do vybraného okna."
 
 #: gettingstarted.html:1102
 msgid "Switch between currently-open windows in all Workspaces."
-msgstr ""
+msgstr "Přepínat mezi aktuálně otevřenými okny na všech pracovních plochách."
 
 #: gettingstarted.html:1105
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
-msgstr ""
+msgstr "Uvolněte klávesy Ctrl a Alt a přepnete se do vybraného okna."
 
 #: gettingstarted.html1115, 1137
 msgid "Left"
-msgstr ""
+msgstr "šipka vlevo "
 
 #: gettingstarted.html:1117
 msgid "Switch to the previous workspace."
-msgstr ""
+msgstr "Přepnout na předchozí pracovní plochu."
 
 #: gettingstarted.html1125, 1148
 msgid "Right"
-msgstr ""
+msgstr "šipka vpravo "
 
 #: gettingstarted.html:1127
 msgid "Switch to the next workspace."
-msgstr ""
+msgstr "Přepnout na další pracovní plochu."
 
 #: gettingstarted.html1135, 1146, 1361
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
 #: gettingstarted.html:1139
 msgid "Move the current window to the previous workspace."
-msgstr ""
+msgstr "Přesunout aktuální okno na předchozí pracovní plochu."
 
 #: gettingstarted.html:1150
 msgid "Move the current window to the next workspace."
-msgstr ""
+msgstr "Přesunout aktuální okno na další pracovní plochu."
 
 #: gettingstarted.html:1158
 msgid "Closes window."
-msgstr ""
+msgstr "Zavřít okno."
 
 #: gettingstarted.html:1166
 msgid "Returns window to 'normal' or previous size."
-msgstr ""
+msgstr "Vrátit okno do \"normální\" nebo předchozí velikosti."
 
 #: gettingstarted.html:1174
 msgid "Moves the current window (can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Posunout aktuální okno (lze pohybovat pomocí myši nebo klávesnice)."
 
 #: gettingstarted.html:1182
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Změnit velikost aktuálního okna (opět lze pohybovat pomocí myši nebo klávesnice)."
 
 #: gettingstarted.html:1190
 msgid "Minimizes current window."
-msgstr ""
+msgstr "Minimalizovat aktuální okno."
 
 #: gettingstarted.html:1198
 msgid "Maximizes current window."
-msgstr ""
+msgstr "Maximalizovat aktuální okno."
 
 #: gettingstarted.html:1206
 msgid "Pulldown Terminal."
@@ -1504,78 +1510,78 @@ msgstr ""
 
 #: gettingstarted.html:1212
 msgid "Space"
-msgstr ""
+msgstr "Mezerník"
 
 #: gettingstarted.html:1214
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
-msgstr ""
+msgstr "Zobrazit nabídku okna s možnostmi jako je 'Vždy navrchu' a 'Minimalizovat' a 'Maximalizovat' a s příkazy zmíněnými výše."
 
 #: gettingstarted.html1222, 1232, 1242, 1252, 1262, 1272, 1282
 msgid "Numpad"
-msgstr ""
+msgstr "Numerická klávesnice"
 
 #: gettingstarted.html:1224
 msgid "Place window in top left corner of screen."
-msgstr ""
+msgstr "Okno umístit v levém horním rohu obrazovky."
 
 #: gettingstarted.html:1234
 msgid "Place window in top half of screen."
-msgstr ""
+msgstr "Okno umístit v horní polovině obrazovky."
 
 #: gettingstarted.html:1244
 msgid "Place window in top right corner of screen."
-msgstr ""
+msgstr "Okno umístit v pravém horním rohu obrazovky."
 
 #: gettingstarted.html:1254
 msgid "Center/Maximize the window in the middle of the screen."
-msgstr ""
+msgstr "Vystředit/maximalizovat okno uprostřed obrazovky."
 
 #: gettingstarted.html:1264
 msgid "Place window in the bottom left corner of the screen."
-msgstr ""
+msgstr "Okno umístit v levém dolním rohu obrazovky."
 
 #: gettingstarted.html:1274
 msgid "Place window in the bottom half of the screen."
-msgstr ""
+msgstr "Okno umístit v dolní polovině obrazovky."
 
 #: gettingstarted.html:1284
 msgid "Place window in the bottom right corner of the screen."
-msgstr ""
+msgstr "Okno umístit v pravém dolním rohu obrazovky."
 
 #: gettingstarted.html:1288
 msgid "Mouse Shortcuts"
-msgstr ""
+msgstr "Zkratky pro myš"
 
 #: gettingstarted.html:1294
 msgid "Left-click while dragging mouse"
-msgstr ""
+msgstr "Kliknutí levým tlačítkem při přetahování myší"
 
 #: gettingstarted.html:1296
 msgid "Moves the window."
-msgstr ""
+msgstr "Přesunout okno."
 
 #: gettingstarted.html:1302
 msgid "Right-click while dragging mouse"
-msgstr ""
+msgstr "Kliknutí pravým tlačítkem při přetahování myší"
 
 #: gettingstarted.html:1304
 msgid "Resizes the window (closest window edge)."
-msgstr ""
+msgstr "Změnit velikost okna (nejbližší okraj okna)."
 
 #: gettingstarted.html:1308
 msgid "Compiz Effects Shortcuts"
-msgstr ""
+msgstr "Zkratky efektů Compiz"
 
 #: gettingstarted.html:1309
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "Všechny zkratky uvedené v této části vyžadují zapnutý Compiz."
 
 #: gettingstarted.html:1318
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "Přepíná 'Zobrazit plochu'."
 
 #: gettingstarted.html:1329
 msgid ""
@@ -1593,315 +1599,359 @@ msgstr ""
 
 #: gettingstarted.html:1347
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "Oddálit, zobrazit přepínač pracovních ploch."
 
 #: gettingstarted.html:1355
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Povolit 'škálovací' efekt, zobrazit všechna okna z aktuální pracovní plochy."
 
 #: gettingstarted.html:1365
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Povolit 'škálovací' efekt, zobrazit všechna okna ze všech pracovních ploch."
 
 #: gettingstarted.html:1373
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Invertovat barvy aktivního okna."
 
 #: gettingstarted.html:1381
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "Invertovat barvy celé obrazovky."
 
 #: gettingstarted.html:1387
 msgid "Scroll Wheel"
-msgstr ""
+msgstr "Rolovat kolečkem myši"
 
 #: gettingstarted.html:1389
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "Přiblížit obsah okna."
 
 #: gettingstarted.html1395, 1411
 msgid "Middle Click"
-msgstr ""
+msgstr "Kliknutí prostředním tlačítkem myši"
 
 #: gettingstarted.html:1397
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "Vybrat oblast přiblížení, pomocí obdélníku."
 
 #: gettingstarted.html:1403
 msgid "Left Click"
-msgstr ""
+msgstr "Kliknutí levým tlačítkem myši"
 
 #: gettingstarted.html:1405
 msgid "Move focused window."
-msgstr ""
+msgstr "Přesunout zaměřené okno."
 
 #: gettingstarted.html:1413
 msgid "Resize focused window."
-msgstr ""
+msgstr "Změnit velikost zaměřeného okna."
 
 #: gettingstarted.html:1419
 msgid "Right Click"
-msgstr ""
+msgstr "Kliknutí pravým tlačítkem myši"
 
 #: gettingstarted.html:1421
 msgid "Show window menu."
-msgstr ""
+msgstr "Zobrazit nabídku okna."
 
 #: gettingstarted.html:1439
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr ""
+msgstr "Vaše zařízení se skládá z různých součástí, které spolu vzájemně reagují. Tyto informace jsou užitečné při poskytování podpory pro zajištění hardwarové a softwarové práce na vašem počítači."
 
-#: gettingstarted.html:1445
-msgid "Please wait while the information is being populated..."
-msgstr ""
+#: gettingstarted.html:1446
+msgid "Basic"
+msgstr "Základní"
 
 #: gettingstarted.html:1447
-msgid "Basic"
-msgstr ""
+msgid "Detailed"
+msgstr "Podrobný"
 
 #: gettingstarted.html:1448
-msgid "Detailed"
-msgstr ""
-
-#: gettingstarted.html:1449
 msgid "Utilities"
-msgstr ""
+msgstr "Nástroje"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1463
 msgid "Distribution:"
-msgstr ""
+msgstr "Distribuce:"
 
-#: gettingstarted.html:1468
+#: gettingstarted.html:1467
 msgid "Kernel:"
-msgstr ""
+msgstr "Jádro:"
 
-#: gettingstarted.html:1471
+#: gettingstarted.html:1470
 msgid "The Linux kernel is the heart of Ubuntu."
-msgstr ""
+msgstr "Linuxové jádro je srdcem Ubuntu."
 
-#: gettingstarted.html:1477
+#: gettingstarted.html:1476
 msgid "Motherboard:"
-msgstr ""
+msgstr "Základní deska:"
 
-#: gettingstarted.html:1481
+#: gettingstarted.html:1480
 msgid "Boot Mode:"
-msgstr ""
+msgstr "Režim spouštění:"
 
-#: gettingstarted.html:1484
+#: gettingstarted.html:1483
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
-msgstr ""
+msgstr "Zobrazuje režim ve kterém Ubuntu MATE komunikuje s firmwarem."
 
-#: gettingstarted.html:1492
+#: gettingstarted.html:1491
 msgid "Processor"
-msgstr ""
+msgstr "Procesor"
 
-#: gettingstarted.html:1495
+#: gettingstarted.html:1494
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
-#: gettingstarted.html:1499
+#: gettingstarted.html:1498
 msgid "Speed:"
-msgstr ""
+msgstr "Rychlost:"
 
-#: gettingstarted.html:1503
+#: gettingstarted.html:1502
 msgid "Architecture in use:"
-msgstr ""
+msgstr "Používaná architektura:"
 
-#: gettingstarted.html:1506
+#: gettingstarted.html:1505
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
-msgstr ""
+msgstr "Používaná architektura operačních systémů. Například,  i386 = 32bitová."
 
-#: gettingstarted.html:1512
+#: gettingstarted.html:1511
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "Podporovaná architektura(y):"
 
-#: gettingstarted.html:1515
+#: gettingstarted.html:1514
 msgid "Architectures that are supported by this processor."
-msgstr ""
+msgstr "Architektury, které jsou podporované tímto procesorem."
 
-#: gettingstarted.html:1523
+#: gettingstarted.html:1522
 msgid "Components"
-msgstr ""
+msgstr "Komponenty"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1525
 msgid "Memory (RAM):"
-msgstr ""
+msgstr "Paměť (RAM):"
 
-#: gettingstarted.html:1529
+#: gettingstarted.html:1528
 msgid "More RAM allows more applications to run simultaneously."
-msgstr ""
+msgstr "Více RAM umožňuje více aplikacím běžet současně."
 
-#: gettingstarted.html:1535
+#: gettingstarted.html:1534
 msgid "Graphics:"
-msgstr ""
+msgstr "Grafika:"
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1538
 msgid "Internet Access:"
-msgstr ""
+msgstr "Přístup na internet:"
+
+#: gettingstarted.html:1540
+msgid "Connected"
+msgstr "Připojeno"
 
 #: gettingstarted.html:1541
-msgid "Connected"
-msgstr ""
-
-#: gettingstarted.html:1542
 msgid "Not Connected"
-msgstr ""
+msgstr "Nepřipojeno"
 
-#: gettingstarted.html:1549
+#: gettingstarted.html:1548
 msgid "Storage"
-msgstr ""
+msgstr "Úložiště"
 
-#: gettingstarted.html:1553
+#: gettingstarted.html:1552
 msgid "Root File System:"
-msgstr ""
+msgstr "Kořenový souborový systém:"
 
-#: gettingstarted.html:1556
+#: gettingstarted.html:1555
 msgid "The file system where Ubuntu MATE is installed."
-msgstr ""
+msgstr "Souborový systém, kde je Ubuntu MATE nainstalováno."
 
-#: gettingstarted.html:1562
+#: gettingstarted.html:1561
 msgid "Entire Disk Capacity:"
-msgstr ""
+msgstr "Kapacita celého disku:"
 
-#: gettingstarted.html:1567
+#: gettingstarted.html:1566
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "Používá Ubuntu MATE"
 
-#: gettingstarted.html:1576
+#: gettingstarted.html:1575
 msgid "Allocated for Ubuntu MATE:"
-msgstr ""
+msgstr "Přiděleno pro Ubuntu MATE:"
 
-#: gettingstarted.html:1579
+#: gettingstarted.html:1578
 msgid "The size of your operating system partition."
-msgstr ""
+msgstr "Velikost vašeho diskového oddílu s operačním systémem."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1584
 msgid "Used Space:"
-msgstr ""
+msgstr "Použité místo:"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1590
 msgid "Free Space:"
-msgstr ""
+msgstr "Volný prostor:"
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1596
 msgid "Other Usage:"
-msgstr ""
+msgstr "Jiné použití:"
 
-#: gettingstarted.html:1600
+#: gettingstarted.html:1599
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "Vyhrazeno systémem, jinými oddíly, nepřiděleno nebo odkládací prostor (swap)."
 
-#: gettingstarted.html:1608
+#: gettingstarted.html:1607
 msgid "Why do I see two units?"
-msgstr ""
+msgstr "Proč vidím dvě jednotky?"
 
-#: gettingstarted.html:1614
+#: gettingstarted.html:1613
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "Jednotky SI nebo IEC?"
 
-#: gettingstarted.html:1616
+#: gettingstarted.html:1615
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "Desítková (SI standard)"
+
+#: gettingstarted.html:1617
+msgid "1 KB = 1000 bytes"
+msgstr "1 KB = 1000 bajtů"
 
 #: gettingstarted.html:1618
-msgid "1 KB = 1000 bytes"
-msgstr ""
+msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
+msgstr "Vyslovováno jako \"ga\" - například \"Mega\", \"Giga\"."
 
 #: gettingstarted.html:1619
-msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
-
-#: gettingstarted.html:1620
 msgid "Common in every day applications and file storage."
-msgstr ""
+msgstr "Obvyklé u všedních aplikací a úložišť souborů."
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1623
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "Binární (IEC standard)"
+
+#: gettingstarted.html:1625
+msgid "1 KiB = 1024 bytes"
+msgstr "1 KiB = 1024 bajtů"
 
 #: gettingstarted.html:1626
-msgid "1 KiB = 1024 bytes"
-msgstr ""
+msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
+msgstr "Vyslovováno jako \"bi\" - například \"Mebi\", \"Gibi\"."
 
 #: gettingstarted.html:1627
-msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
-
-#: gettingstarted.html:1628
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr ""
+msgstr "Obvyklé u RAM, disků a diskových oddílů, včetně nástrojů jako je GParted."
+
+#: gettingstarted.html:1636
+msgid ""
+"The following information is retrieved directly from the inxi command line "
+"program."
+msgstr "Následující informace jsou získány přímo z programu příkazového řádku inxi."
 
 #: gettingstarted.html:1637
-msgid "The following information is retrieved directly from the"
-msgstr ""
-
-#: gettingstarted.html:1637
-msgid "command line program."
-msgstr ""
+msgid "Gathering data..."
+msgstr "Shromažďování dat..."
 
 #: gettingstarted.html:1638
-msgid "Could not gather data."
-msgstr "Nemohla se shromažďovat data."
+msgid "Sorry, there was a problem gathering this information."
+msgstr "Je nám líto, došlo k potížím při shromažďování těchto informací."
 
-#: gettingstarted.html:1650
+#: gettingstarted.html:1654
 msgid "System Profiler and Benchmark"
 msgstr ""
 
-#: gettingstarted.html:1651
+#: gettingstarted.html:1655
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
-msgstr ""
+msgstr "Prohlédněte si konkrétnější informace o systému v grafickém okně, včetně připojených USB, PCI zařízení a jednoduchého výkonnostního testu CPU."
 
-#: gettingstarted.html:1666
+#: gettingstarted.html:1670
 msgid "Disks"
-msgstr ""
+msgstr "Disky"
 
-#: gettingstarted.html:1667
+#: gettingstarted.html:1671
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
-msgstr ""
+msgstr "Předinstalovaný nástroj, který umožňuje základní nastavení vašich disků a diskových oddílů, včetně formátování, dělení disků, připojování oddílů, zobrazení S.M.A.R.T  dat a zapisování obrazů disku na SD kartu/USB disky."
 
-#: gettingstarted.html:1684
+#: gettingstarted.html:1688
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
-msgstr ""
+msgstr "Pokročilý nástroj pro prohlížení, vytváření, úpravu a mazání diskových oddílů. Má také funkce pro zvětšování/zmenšování souborových systémů a podporuje širokou škálu formátů."
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1703
 msgid "Disk Usage Analyser"
-msgstr ""
+msgstr "Analyzátor využití disku"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1704
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
-msgstr ""
+msgstr "Grafický nástroj pro zkoumání souborového systému nebo jednotlivých složek, za účelem zjištění, kolik místa je používáno."
 
-#: gettingstarted.html:1715
+#: gettingstarted.html:1719
 msgid "System Monitor"
-msgstr ""
+msgstr "Sledování systému"
 
-#: gettingstarted.html:1716
+#: gettingstarted.html:1720
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
-msgstr ""
+msgstr "Zobrazení aktuálně spuštěných procesů, využití zdrojů, a množství použitého a dostupného místa aktuálně připojených souborových systémů."
 
-#: gettingstarted.html:1731
+#: gettingstarted.html:1735
 msgid "Psensor"
-msgstr ""
+msgstr "Psensor"
 
-#: gettingstarted.html:1732
+#: gettingstarted.html:1736
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
+msgstr "Pohledy a grafy s aktuální teplotou komponent připojených k systému. Včetně základní desky, procesoru, grafické karty a pevných disků."
+
+#: gettingstarted.html:628
+msgid "Software Utilities for Peripherals"
+msgstr "Softwarové nástroje pro periferie"
+
+#: gettingstarted.html:659
+msgid "Solaar"
+msgstr "Solaar"
+
+#: gettingstarted.html:660
+msgid ""
+"A device manager for Logitech’s Unifying Receiver peripherals. This enables "
+"features like managing paired devices and reading battery status."
+msgstr "Správce zařízení pro přislušenství Logitech využívající Unifying Receiver přijímač. To umožňuje funkce, jako je správa spárovaných přístrojů a kontrolu stavu baterie."
+
+#: gettingstarted.html:663
+msgid "Learn More"
+msgstr "Více informací"
+
+#: gettingstarted.html:71
+msgid "Pentium M 1.0 gigahertz (GHz)"
+msgstr ""
+
+#: gettingstarted.html:72
+msgid "1 gigabyte (GB) of RAM"
+msgstr ""
+
+#: gettingstarted.html:73
+msgid "9 gigabytes (GB) of disk space"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "unable to review and improve their code"
+msgstr ""
+
+#: gettingstarted.html:535
+msgid "which means that you'll have to rely on the manufacturer for support."
+msgstr ""
+
+#: gettingstarted.html:851
+msgid "layout is similar to Microsoft Windows, while the"
+msgstr ""
+
+#: gettingstarted.html:852
+msgid "layout is similar to Apple Mac OS X."
 msgstr ""
