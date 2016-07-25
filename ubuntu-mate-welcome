@@ -1069,7 +1069,7 @@ class AppView(WebKit2.WebView):
 
                 # Are we running on a non-Ubuntu MATE system?
                 # Show a warning on the first visit.
-                if not systemstate.apt_cache['ubuntu-mate-desktop'].is_installed or not systemstate.apt_cache['ubuntu-mate-core'].is_installed:
+                if not systemstate.is_ubuntu_mate:
                     if not pref.get("boutique-warning-seen", False):
                         self._do_command('message?boutique-on-other-distro')
                         pref.set("boutique-warning-seen", True)
@@ -1510,6 +1510,11 @@ class SystemState(object):
         # Get current version / codename of Ubuntu MATE in use.
         self.os_version = platform.dist()[1]    # → 14.04, 15.10, 16.04
         self.codename = platform.dist()[2]      # → trusty, wily, xenial
+
+        # Are we running in Ubuntu MATE?
+        self.is_ubuntu_mate = True
+        if not self.apt_cache['ubuntu-mate-desktop'].is_installed or not self.apt_cache['ubuntu-mate-core'].is_installed:
+            self.is_ubuntu_mate = False
 
         # Determine which type of session we are in.
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
