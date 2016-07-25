@@ -1596,10 +1596,13 @@ class SystemState(object):
         self.zoom_level = zoom_level
 
         # For adjusting the colours for other default themes.
-        try:
-            dconf = Gio.Settings.new('org.mate.interface')
-            self.theme = str(dconf.get_value('gtk-theme')).strip("'")
-        except:
+        if self.is_ubuntu_mate:
+            try:
+                dconf = Gio.Settings.new('org.mate.interface')
+                self.theme = str(dconf.get_value('gtk-theme')).strip("'")
+            except:
+                self.theme = 'Ambiant-MATE'
+        else:
             self.theme = 'Ambiant-MATE'
 
     def reload_cache(self):
