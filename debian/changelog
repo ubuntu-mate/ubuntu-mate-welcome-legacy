@@ -1,3 +1,14 @@
+ubuntu-mate-welcome (16.10.7) yakkety; urgency=medium
+
+  [ Luke Horwell ]
+  * Set variable whether running on an Ubuntu MATE system.
+  * Do not adapt the colours on non-Ubuntu MATE systems.
+  * Do not check font DPI on non-Ubuntu MATE systems.
+  * Autofocus the search box.
+  * Sync Translations.
+
+ -- Martin Wimpress <code@flexion.org>  Tue, 26 Jul 2016 22:34:57 +0100
+
 ubuntu-mate-welcome (16.10.6) yakkety; urgency=medium
 
   [ Martin Wimpress ]
