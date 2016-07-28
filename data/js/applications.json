@@ -4347,6 +4347,37 @@
             },
             "working": true
         },
+        "rhythmbox": {
+            "name": "Rhythmbox",
+            "img": "rhythmbox",
+            "main-package": "rhythmbox",
+            "launch-command": "rhythmbox",
+            "install-packages": "rhythmbox",
+            "remove-packages": "rhythmbox,rhythmbox-data",
+            "description": [
+                "Rhythmbox is a very easy to use music playing and",
+                "management program which supports a wide range of",
+                "audio formats (including mp3 and ogg). Originally",
+                "inspired by Apple's iTunes, the current version also",
+                "supports Internet Radio, iPod integration and generic",
+                "portable audio player support, Audio CD burning, Audio",
+                "CD playback, music sharing, and Podcasts."
+            ],
+            "alternate-to": "Apple iTunes",
+            "subcategory": "Media Playbox",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Apps/Rhythmbox",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "trusty,utopic,vivid,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "simplescreenrecorder": {
             "name": "SimpleScreenRecorder",
             "img": "simplescreenrecorder",
