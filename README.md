@@ -4,9 +4,9 @@ The Ubuntu MATE Welcome application to greet both new and returning users on the
 
 ## Builds
 
-[![Build Status](https://semaphoreci.com/api/v1/lah7/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/lah7/ubuntu-mate-welcome) for **Yakkety**
+[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Yakkety**
 
-[![Build Status](https://semaphoreci.com/api/v1/lah7/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/lah7/ubuntu-mate-welcome) for **Xenial**
+[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Xenial**
 
 
 ## Features
