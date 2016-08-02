@@ -4,9 +4,21 @@ The Ubuntu MATE Welcome application to greet both new and returning users on the
 
 ## Builds
 
+### Status
 [![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Yakkety**
 
 [![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Xenial**
+
+
+### Daily Builds
+Testers wanting the latest builds should use the [Daily PPA](https://launchpad.net/~lah7/+archive/ubuntu/ubuntu-mate-welcome-dev):
+
+    sudo add-apt-repository ppa:lah7/ubuntu-mate-welcome-dev
+    sudo apt update
+    sudo apt remove ubuntu-mate-welcome
+    sudo apt install ubuntu-mate-welcome-dev
+
+Only **ubuntu-mate-welcome** or **ubuntu-mate-welcome-dev** may be present at the same time.
 
 
 ## Features
