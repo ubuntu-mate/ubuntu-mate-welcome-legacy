@@ -1028,6 +1028,10 @@ class AppView(WebKit2.WebView):
 
         ### Getting Started Page ###
         if app.current_page == 'gettingstarted.html':
+            # Rename the page title when running in a live session.
+            if systemstate.session_type == "live":
+                app.update_page("#navigation-title", "html", _("Installation Guide"))
+
             # Display information tailored to graphics vendor (Getting Started / Drivers)
             self.run_javascript('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
             self.run_javascript('var graphicsGrep = "' + systemstate.graphics_grep + '";')
