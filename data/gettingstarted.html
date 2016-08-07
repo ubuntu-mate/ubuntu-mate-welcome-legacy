@@ -12,58 +12,96 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="indexClose(); smoothPageFade('index.html')" style="display:none">
+        <a id="menu-button" class="navigation-button" onclick="exitPage();" style="display:none">
           <span class="fa fa-chevron-left"></span>
         </a>
-        <a id="index-open" onclick="indexOpen()" class="navigation-button"><span class="fa fa-bars"></span></a>
-        <div id="navigation-title" style="display:none">&zwnj;Getting Started&zwnj; - <span id="navigation-sub-title"> </span></div>
+        <div id="navigation-title" style="display:none">&zwnj;Getting Started&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
+      <div id="topic-subheading" style="display:none">
+        <img id="current-topic-icon" src="img/welcome/ubuntu-mate-gray.svg" hidden/>
+        <div class="left" hidden>
+          &nbsp;<span id="current-topic">&zwnj;Topic Selection&zwnj;</span>
+        </div>
+        <div class="right" hidden>
+          <a id="topic-prev" class="navigation-button with-text disabled" onclick="changePage(prevPage)"><span class="fa fa-caret-left"></span>&nbsp;&nbsp;&zwnj;Previous&zwnj;</a>
+          <a id="topic-next" class="navigation-button with-text disabled" onclick="changePage(nextPage)"><span class="fa fa-caret-right"></span>&nbsp;&nbsp;&zwnj;Next&zwnj;</a>
+          <a id="topic-list" class="navigation-button with-text"          onclick="changePage('initial')"><span class="fa fa-book"></span>&nbsp;&nbsp;&zwnj;Topics&zwnj;</a>
+        </div>
+      </div>
     </div>
-    <a id="index-overlay" onclick="indexClose()" hidden></a>
-    <div id="index-menu" hidden>
-      <a id="index-close" onclick="indexClose();"><span class="fa fa-close"></span></a>
 
-      <!-- Shown in live session only -->
-      <span class="live-session-only"><h5>&zwnj;Prerequisites&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("sysreq","&zwnj;System Requirements&zwnj;")'>        <span class="fa fa-laptop"></span>        &zwnj;System Requirements&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("prepare","&zwnj;Installation Preparations&zwnj;")'> <span class="fa fa-hdd-o"></span>         &zwnj;Installation Preparation&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-only" onclick='changePage("dualboot","&zwnj;Dual Booting&zwnj;")'>             <span class="fa fa-retweet"></span>       &zwnj;Dual Booting&zwnj;</a>
-      <a class="btn btn-success index-btn live-session-only" onclick="cmd('install')">                                                <span class="fa fa-download"></span>      &zwnj;Install Now&zwnj;</a>
-
-      <!-- Shown when installed -->
-      <br class="live-session-only"/>
-      <span class="live-session-hide"><h5>&zwnj;Post-Installation&zwnj;</h5></span>
-      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("updates","&zwnj;Updates & Extras&zwnj;")'>          <span class="fa fa-refresh"></span>       &zwnj;Updates & Extras&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("drivers","&zwnj;Drivers&zwnj;")'>                   <span class="fa fa-gear"></span>          &zwnj;Drivers&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("languageInput","&zwnj;Language & Input&zwnj;")'>    <span class="fa fa-globe"></span>         &zwnj;Language & Input&zwnj;</a>
-      <a class="btn btn-inverse index-btn live-session-hide"      onclick='changePage("tasks","&zwnj;Optional Tasks&zwnj;")'>              <span class="fa fa-check-square"></span>  &zwnj;Optional Tasks&zwnj;</a>
-
-      <br><h5>&zwnj;Familiarity&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"                   onclick='changePage("customize","&zwnj;Customization&zwnj;")'>           <span class="fa fa-adjust"></span>        &zwnj;Customization&zwnj;</a>
-      <a class="btn btn-inverse index-btn"                   onclick='changePage("shortcuts","&zwnj;Keyboard Shortcuts&zwnj;")'>      <span class="fa fa-keyboard-o"></span>    &zwnj;Keyboard Shortcuts&zwnj;</a>
-
-      <!-- Shown in either session -->
-      <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
-      <a class="btn btn-inverse index-btn"     onclick='changePage("specs","&zwnj;System Specifications&zwnj;"); InitSystemInfo()'> <span class="fa fa-laptop"></span>        &zwnj;System Specifications&zwnj;</a>
-
-    </div>
-    <div id="content" class="container-fluid entire-page-fade" hidden>
+    <div id="content" class="container-fluid entire-page-fade with-sub-heading" hidden>
 
       <!-- Topics -->
-      <div id="initial" class="row-fluid topicContents" hidden>
+      <div id="initial" class="row-fluid topicContents" data-title="&zwnj;Topic Selection&zwnj;" data-prev="none" data-next="none">
         <div class="span12">
-          <h4 class="center">&zwnj;Please choose a topic to get started.&zwnj;</h4>
+          <h2>&zwnj;Topic Selection&zwnj;</h2>
+
+          <!-- Pre-Installation Topics -->
+          <div class="live-session-only">
+            <h5>&zwnj;Prerequisites&zwnj;</h5>
+            <a class="btn btn-inverse index-btn" onclick='changePage("sysreq")'>
+              <span class="fa fa-laptop"></span> &zwnj;System Requirements&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn" onclick='changePage("prepare")'>
+              <span class="fa fa-hdd-o"></span> &zwnj;Installation Preparation&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn" onclick='changePage("dualboot")'>
+              <span class="fa fa-retweet"></span> &zwnj;Dual Booting&zwnj;
+            </a>
+
+            <a class="btn btn-success index-btn" onclick="cmd('install')">
+              <span class="fa fa-download"></span> &zwnj;Install Now&zwnj;
+            </a>
+          </div>
+
+          <!-- Post-Installation Topics -->
+          <div class="live-session-hide">
+            <h5>&zwnj;Post-Installation&zwnj;</h5>
+            <a class="btn btn-inverse index-btn" onclick='changePage("updates")'>
+              <span class="fa fa-refresh"></span> &zwnj;Updates & Extras&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn"  onclick='changePage("drivers")'>
+              <span class="fa fa-gear"></span> &zwnj;Drivers&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn" onclick='changePage("languageInput")'>
+              <span class="fa fa-globe"></span> &zwnj;Language & Input&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn" onclick='changePage("tasks")'>
+              <span class="fa fa-check-square"></span> &zwnj;Optional Tasks&zwnj;
+            </a>
+
+            <br><h5>&zwnj;Familiarity&zwnj;</h5>
+            <a class="btn btn-inverse index-btn" onclick='changePage("customize")'>
+              <span class="fa fa-adjust"></span> &zwnj;Customization&zwnj;
+            </a>
+
+            <a class="btn btn-inverse index-btn" onclick='changePage("shortcuts")'>
+              <span class="fa fa-keyboard-o"></span> &zwnj;Keyboard Shortcuts&zwnj;
+            </a>
+
+            <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
+            <a class="btn btn-inverse index-btn" onclick='changePage("specs"); InitSystemInfo()'>
+              <span class="fa fa-laptop"></span> &zwnj;System Specifications&zwnj;
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- System Requirements (shown in guest session only) -->
-      <div id="sysreq" class="topicContents" hidden>
+      <!-- *** LIVE SESSION ONLY *** -->
+      <!-- System Requirements -->
+      <div id="sysreq" class="topicContents" hidden data-title="&zwnj;System Requirements&zwnj;" data-prev="none" data-next="prepare">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Modest System Requirements&zwnj;</h2>
             <p>&zwnj;Ubuntu MATE works well on both high-end to slow computers,
-	    optimized to be functional, while light on system resources.&zwnj;</p>
+               optimized to be functional, while light on system resources.&zwnj;</p>
 
             <h5>&zwnj;Minimum&zwnj;</h5>
             <ul>
@@ -83,7 +121,9 @@
             computer meets or surpasses the recommended requirements.&zwnj;</p>
 
             <div class="center">
-              <a onclick='changePage("specs","&zwnj;System Specifications&zwnj;"); InitSystemInfo()' class="btn btn-inverse"><span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;</a>
+              <a onclick='changePage("specs", true); InitSystemInfo()' class="btn btn-inverse">
+                <span class="fa fa-question-circle"></span>&nbsp; &zwnj;What's inside my computer?&zwnj;
+              </a>
             </div>
 
             <div class="center">
@@ -95,8 +135,8 @@
         </div>
       </div>
 
-      <!-- Installation Preparations (shown in guest session only) -->
-      <div id="prepare" class="topicContents" hidden>
+      <!-- Installation Preparations -->
+      <div id="prepare" class="topicContents" hidden data-title="&zwnj;Installation Preparations&zwnj;" data-prev="sysreq" data-next="dualboot">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Preparing to Install&zwnj;</h2>
@@ -166,8 +206,8 @@
         </div>
       </div>
 
-      <!-- Advise on Dual Booting (shown in guest session only) -->
-      <div id="dualboot" class="topicContents" hidden>
+      <!-- Advise on Dual Booting -->
+      <div id="dualboot" class="topicContents" hidden data-title="&zwnj;Dual Booting&zwnj;" data-prev="prepare" data-next="none">
         <div class="row-fluid">
           <div class="span12">
             <h3>&zwnj;Dual Booting&zwnj;</h3>
@@ -342,8 +382,9 @@
         </div>
       </div>
 
+      <!-- *** INSTALLED SYSTEMS ONLY *** -->
       <!-- Updates & Extras -->
-      <div id="updates" class="topicContents" hidden>
+      <div id="updates" class="topicContents" hidden data-title="&zwnj;Updates and Extras&zwnj;" data-prev="none" data-next="drivers">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Updates & Extras&zwnj;</h2>
@@ -468,7 +509,7 @@
       </div>
 
       <!-- Drivers -->
-      <div id="drivers" class="topicContents" hidden>
+      <div id="drivers" class="topicContents" hidden data-title="&zwnj;Drivers&zwnj;" data-prev="updates" data-next="languageInput">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Drivers&zwnj;</h2>
@@ -679,7 +720,7 @@
       </div>
 
       <!-- Language & Input Support -->
-      <div id="languageInput" class="topicContents" hidden>
+      <div id="languageInput" class="topicContents" hidden data-title="&zwnj;Language and Input&zwnj;" data-prev="drivers" data-next="tasks">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Language Support&zwnj;</h2>
@@ -723,7 +764,7 @@
       </div>
 
       <!-- Additional Tasks - Backups / Firewall / Users -->
-      <div id="tasks" class="topicContents" hidden>
+      <div id="tasks" class="topicContents" hidden data-title="&zwnj;Optional Tasks&zwnj;" data-prev="languageInput" data-next="customize">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Backup, Firewall and User Management&zwnj;</h2>
@@ -840,7 +881,7 @@
       </div>
 
       <!-- Customizing the Experience -->
-      <div id="customize" class="topicContents" hidden>
+      <div id="customize" class="topicContents" hidden data-title="&zwnj;Customisation&zwnj;" data-prev="tasks" data-next="shortcuts">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;User Interface&zwnj;</h2>
@@ -883,7 +924,7 @@
       </div>
 
       <!-- Keyboard Shortcuts -->
-      <div id="shortcuts" class="topicContents" hidden>
+      <div id="shortcuts" class="topicContents" hidden data-title="&zwnj;Keyboard and Mouse Shortcuts&zwnj;" data-prev="customize" data-next="specs">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Keyboard Shortcuts&zwnj;</h2>
@@ -1455,7 +1496,7 @@
       </div>
 
       <!-- What's inside my computer? -->
-      <div id="specs" class="topicContents" hidden>
+      <div id="specs" class="topicContents" hidden data-title="&zwnj;System Specifications&zwnj;" data-prev="shortcuts" data-next="none">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;What's inside my computer?&zwnj;</h2>
@@ -1463,6 +1504,7 @@
             interact with one another. This information is useful
             when providing support to ensure hardware and software
             works on your machine.&zwnj;</p>
+            <p class="live-session-only"><a onclick="changePage('sysreq', true)"><span class="fa fa-question-circle"></span>&nbsp;&zwnj;View System Requirements&zwnj;</a></p>
           </div>
         </div>
         <ul id="specs-tabs" class="nav nav-pills" data-tabs="tabs">

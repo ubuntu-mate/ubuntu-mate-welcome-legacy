@@ -525,51 +525,55 @@ if ( current_page == 'splash-boutique.html' ) {
 
 // Getting Started Only - Index Pane for Selecting Topics
 if ( current_page == 'gettingstarted.html' ) {
+  var nextPage = "initial";
+  var prevPage = "initial";
 
-  function indexOpen() {
-    // Is the index already open?
-    if ($('#index-menu').is(':visible')) {
-      indexClose();
-    } else {
-      // Open the Index
-      $('#index-open').addClass('disabled');
-      $('#index-open').prop('disabled', true);
-      $("#index-overlay").fadeIn();
-      $("#index-menu").show();
-      $('#index-menu').jAnimateOnce('fadeInLeft');
-    }
-  }
-
-  function indexClose() {
-    $('#index-open').removeClass('disabled');
-    $('#index-open').prop('disabled', false);
-    if ($('#index-menu').is(':visible')) {
-      $("#index-overlay").fadeOut();
-      $('#index-menu').jAnimateOnce('fadeOutLeft',function(){
-        $("#index-menu").hide();
-      });
-    }
-  }
-
-  function changePage(id,humanText) {
+  function changePage(id, do_not_update_btn_state) {
     // 'id' is one used for <div>.
-    // 'humanText' is displayed on navigation's sub title.
-    indexClose();
-    $('.topicContents').fadeOut();
-    $('#navigation-sub-title').fadeOut();
+    var id = '#' + id;
+    var title = $(id).data("title");
 
     // Smoothly fade between topics
+    $('.topicContents').fadeOut();
+    $('#current-topic').fadeOut();
     setTimeout(function() {
-    $('#navigation-sub-title').html(humanText);
-    $('#navigation-sub-title').fadeIn();
-    $('#'+id).fadeIn();
+      $('#current-topic').html(title);
+      $('#current-topic').fadeIn();
+      $(id).fadeIn();
     }, 500);
+
+    // Update prev/next button states
+    if ( do_not_update_btn_state == null ) {
+      prevPage = $(id).data("prev");
+      nextPage = $(id).data("next");
+      if ( prevPage == "none" ) {
+        $("#topic-prev").addClass("disabled");
+      } else {
+        $("#topic-prev").removeClass("disabled");
+      }
+
+      if ( nextPage == "none" ) {
+        $("#topic-next").addClass("disabled");
+      } else {
+        $("#topic-next").removeClass("disabled");
+      }
+
+      // Gather system specs if applicable.
+      if ( id == "#specs" ) {
+        InitSystemInfo();
+      }
+    }
   }
 
-  // Show initial page and index pane on page load
-  changePage('initial','Choose a Topic');
-  setTimeout(function() { indexOpen(); }, 500);
-  $('#index-open').jAnimateOnce('pageIn');
+  // On page entry, animate the topic subheading.
+  $('#topic-subheading').show().jAnimateOnce('fadeInDown');
+  $("#topic-subheading").children().fadeIn('fast');
+
+  function exitPage() {
+    $("#topic-subheading").children().fadeOut('fast');
+    $('#topic-subheading').slideUp();
+    smoothPageFade('index.html');
+  }
 
   // Show additional information on the page based on checkbox state.
   $('.dualBootWin').hide();
