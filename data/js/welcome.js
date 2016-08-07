@@ -616,11 +616,11 @@ if ( current_page == 'gettingstarted.html' ) {
   // Expand / Collapse sub-sections to keep it tidy.
   function toggleSub(divID,arrowID) {
     if ( $('#'+divID).is(":visible") ) {
-      $('#'+divID).fadeOut();
+      $('#'+divID).slideUp('fast');
       $('#'+arrowID).removeClass('fa-chevron-up');
       $('#'+arrowID).addClass('fa-chevron-down');
     } else {
-      $('#'+divID).fadeIn();
+      $('#'+divID).slideDown('fast');
       $('#'+arrowID).removeClass('fa-chevron-down');
       $('#'+arrowID).addClass('fa-chevron-up');
     }

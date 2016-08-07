@@ -1217,12 +1217,12 @@ class AppView(WebKit2.WebView):
             appid = cmd.split('?')[1]
             app.update_page('.info-show-'+appid, 'hide')
             app.update_page('.info-hide-'+appid, 'show')
-            app.update_page('.details-'+appid, 'fadeIn', 'fast')
+            app.update_page('.details-'+appid, 'slideDown', 'fast')
         elif cmd.startswith('app-info-hide?'):
             appid = cmd.split('?')[1]
             app.update_page('.info-show-'+appid, 'show')
             app.update_page('.info-hide-'+appid, 'hide')
-            app.update_page('.details-'+appid, 'fadeOut', 'fast')
+            app.update_page('.details-'+appid, 'slideUp', 'fast')
         elif cmd.startswith('screenshot?'):
             filename = cmd.split('?')[1]
             dynamicapps.show_screenshot(filename)
