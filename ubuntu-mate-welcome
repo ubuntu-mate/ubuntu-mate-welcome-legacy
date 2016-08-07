@@ -878,51 +878,6 @@ class AppView(WebKit2.WebView):
         if not arg.jump_software_page:
             app.update_page('#footer-global-right', 'html', app.footer_close)
 
-        # Adapt the header/footer if a different theme is in use.
-        def light_theme():
-            app.update_page('#navigation', 'css', 'color', 'black')
-            app.update_page('#navigation a', 'css', 'color', 'black')
-            app.update_page('#footer', 'css', 'color', 'black')
-            app.update_page('#footer a', 'css', 'color', 'black')
-            app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
-
-        if systemstate.theme == 'BlackMATE':
-            app.update_page('#navigation', 'css', 'background-color', '#3D3D3F')
-            app.update_page('#footer', 'css', 'background-color', '#3D3D3F')
-        elif systemstate.theme == 'BlueMenta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Blue-Submarine':
-            app.update_page('#navigation', 'css', 'background-color', '#2C404F')
-            app.update_page('#footer', 'css', 'background-color', '#2C404F')
-        elif systemstate.theme == 'GreenLaguna':
-            app.update_page('#navigation', 'css', 'background-color', '#EAF0E8')
-            app.update_page('#footer', 'css', 'background-color', '#EAF0E8')
-            light_theme()
-        elif systemstate.theme == 'ContrastHigh':
-            app.update_page('#navigation', 'css', 'background-color', 'white')
-            app.update_page('#footer', 'css', 'background-color', 'white')
-            light_theme()
-        elif systemstate.theme == 'ContrastHighInverse':
-            app.update_page('#navigation', 'css', 'background-color', 'black')
-            app.update_page('#footer', 'css', 'background-color', 'black')
-        elif systemstate.theme == 'Menta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Radiant-MATE':
-            app.update_page('#navigation', 'css', 'background-color', '#DFD7CF')
-            app.update_page('#footer', 'css', 'background-color', '#DFD7CF')
-            light_theme()
-        elif systemstate.theme == 'TraditionalGreen' or systemstate.theme == 'TraditionalOk':
-            app.update_page('#navigation', 'css', 'background-color', '#E7E6E5')
-            app.update_page('#footer', 'css', 'background-color', '#E7E6E5')
-            light_theme()
-        elif systemstate.theme == 'TraditionalOkTest':
-            app.update_page('#navigation', 'css', 'background-color', '#868883')
-            app.update_page('#footer', 'css', 'background-color', '#868883')
-
         # If this is a live session, adapt the UI.
         if systemstate.session_type == 'live':
             if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
@@ -1184,6 +1139,54 @@ class AppView(WebKit2.WebView):
     def _load_changed_cb(self, view, frame):
         uri = str(self.get_uri())
         app.current_page = uri.rsplit('/', 1)[1]
+
+        ### Tweaks to execute before fully loading the page. Prevents flicker in some cases. ###
+        # Adapt the header/footer if a different theme is in use.
+        def light_theme():
+            app.update_page('#navigation', 'css', 'color', 'black')
+            app.update_page('#navigation a', 'css', 'color', 'black')
+            app.update_page('#footer', 'css', 'color', 'black')
+            app.update_page('#footer a', 'css', 'color', 'black')
+            app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
+
+        if systemstate.theme == 'BlackMATE':
+            app.update_page('#navigation', 'css', 'background-color', '#3D3D3F')
+            app.update_page('#footer', 'css', 'background-color', '#3D3D3F')
+        elif systemstate.theme == 'BlueMenta':
+            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
+            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
+            light_theme()
+        elif systemstate.theme == 'Blue-Submarine':
+            app.update_page('#navigation', 'css', 'background-color', '#2C404F')
+            app.update_page('#footer', 'css', 'background-color', '#2C404F')
+        elif systemstate.theme == 'GreenLaguna':
+            app.update_page('#navigation', 'css', 'background-color', '#EAF0E8')
+            app.update_page('#footer', 'css', 'background-color', '#EAF0E8')
+            light_theme()
+        elif systemstate.theme == 'ContrastHigh':
+            app.update_page('#navigation', 'css', 'background-color', 'white')
+            app.update_page('#footer', 'css', 'background-color', 'white')
+            light_theme()
+        elif systemstate.theme == 'ContrastHighInverse':
+            app.update_page('#navigation', 'css', 'background-color', 'black')
+            app.update_page('#footer', 'css', 'background-color', 'black')
+        elif systemstate.theme == 'Menta':
+            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
+            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
+            light_theme()
+        elif systemstate.theme == 'Radiant-MATE':
+            app.update_page('#navigation', 'css', 'background-color', '#DFD7CF')
+            app.update_page('#footer', 'css', 'background-color', '#DFD7CF')
+            light_theme()
+        elif systemstate.theme == 'TraditionalGreen' or systemstate.theme == 'TraditionalOk':
+            app.update_page('#navigation', 'css', 'background-color', '#E7E6E5')
+            app.update_page('#footer', 'css', 'background-color', '#E7E6E5')
+            light_theme()
+        elif systemstate.theme == 'TraditionalOkTest':
+            app.update_page('#navigation', 'css', 'background-color', '#868883')
+            app.update_page('#footer', 'css', 'background-color', '#868883')
+
+        # Push contents to page when finished loading.
         if not self.is_loading():
             dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
             self._push_config()
