@@ -986,6 +986,20 @@ blockquote.terminal {
   font-size: 2em;
 }
 
+.topic-card > img {
+  float: left;
+  margin-right: 6px;
+  width: 36px;
+  height: 36px;
+  top: -4px;
+  position: relative;
+}
+
+.topic-card:hover > img,
+.topic-card:focus > img {
+  -webkit-filter: brightness(1.1);
+}
+
 .topic-card > p {
   float: left;
   padding-top: 4px;
