@@ -536,33 +536,51 @@ if ( current_page == 'gettingstarted.html' ) {
     // Smoothly fade between topics
     $('.topicContents').fadeOut();
     $('#current-topic').fadeOut();
+    $('#bottom-navigation').fadeOut();
+
     setTimeout(function() {
       $('#current-topic').html(title);
       $('#current-topic').fadeIn();
       $(id).fadeIn();
+
+      // Hide bottom navigation if topics page.
+      if ( id == "#initial" ) {
+        $('#bottom-navigation').fadeOut();
+      } else {
+        $('#bottom-navigation').fadeIn();
+      }
+
+      // Update prev/next button states
+      if ( do_not_update_btn_state == null ) {
+        prevPage = $(id).data("prev");
+        prevText = $('#'+prevPage).data("title");
+        nextPage = $(id).data("next");
+        nextText = $('#'+nextPage).data("title");
+
+        if ( prevPage == "none" ) {
+          $("#topic-prev").addClass("disabled");
+          $("#bottom-topic-prev").hide();
+        } else {
+          $("#topic-prev").removeClass("disabled");
+          $("#bottom-topic-prev").show();
+          $("#bottom-topic-prev").attr("title", prevText);
+        }
+
+        if ( nextPage == "none" ) {
+          $("#topic-next").addClass("disabled");
+          $("#bottom-topic-next").hide();
+        } else {
+          $("#topic-next").removeClass("disabled");
+          $("#bottom-topic-next").show();
+          $("#bottom-topic-next").attr("title", nextText);
+        }
+
+        // Gather system specs if applicable.
+        if ( id == "#specs" ) {
+          InitSystemInfo();
+        }
+      }
     }, 500);
-
-    // Update prev/next button states
-    if ( do_not_update_btn_state == null ) {
-      prevPage = $(id).data("prev");
-      nextPage = $(id).data("next");
-      if ( prevPage == "none" ) {
-        $("#topic-prev").addClass("disabled");
-      } else {
-        $("#topic-prev").removeClass("disabled");
-      }
-
-      if ( nextPage == "none" ) {
-        $("#topic-next").addClass("disabled");
-      } else {
-        $("#topic-next").removeClass("disabled");
-      }
-
-      // Gather system specs if applicable.
-      if ( id == "#specs" ) {
-        InitSystemInfo();
-      }
-    }
   }
 
   // On page entry, animate the topic subheading.
