@@ -954,6 +954,44 @@ blockquote.terminal {
   top: 90px;
 }
 
+.topic-card-container {
+  float: left;
+  width: 100%;
+  min-height: 64px;
+  height: auto;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.topic-card {
+  float: left;
+  min-width: 200px;
+  width: auto;
+  height: 28px;
+  background-color: white;
+  box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
+  padding: 8px;
+  margin: 8px;
+  color: black;
+}
+
+.topic-card:hover,
+.topic-card:focus {
+  text-decoration: none;
+}
+
+.topic-card > span {
+  float: left;
+  margin-right: 6px;
+  font-size: 2em;
+}
+
+.topic-card > p {
+  float: left;
+  padding-top: 4px;
+  padding-right: 24px;
+}
+
 /************************
  * Getting Started - System Specifications
 *************************/

@@ -41,56 +41,75 @@
           <!-- Pre-Installation Topics -->
           <div class="live-session-only">
             <h5>&zwnj;Prerequisites&zwnj;</h5>
-            <a class="btn btn-inverse index-btn" onclick='changePage("sysreq")'>
-              <span class="fa fa-laptop"></span> &zwnj;System Requirements&zwnj;
-            </a>
+            <div class="topic-card-container">
+              <a class="topic-card" onclick='changePage("sysreq")'>
+                <span class="fa fa-laptop"></span>
+                <p>&zwnj;System Requirements&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn" onclick='changePage("prepare")'>
-              <span class="fa fa-hdd-o"></span> &zwnj;Installation Preparation&zwnj;
-            </a>
+              <a class="topic-card" onclick='changePage("prepare")'>
+                <span class="fa fa-hdd-o"></span>
+                <p>&zwnj;Installation Preparation&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn" onclick='changePage("dualboot")'>
-              <span class="fa fa-retweet"></span> &zwnj;Dual Booting&zwnj;
-            </a>
+              <a class="topic-card" onclick='changePage("dualboot")'>
+                <span class="fa fa-retweet"></span>
+                <p>&zwnj;Dual Booting&zwnj;</p>
+              </a>
 
-            <a class="btn btn-success index-btn" onclick="cmd('install')">
-              <span class="fa fa-download"></span> &zwnj;Install Now&zwnj;
-            </a>
+              <a class="topic-card" onclick="cmd('install')">
+                <span class="fa fa-download"></span>
+                <p>&zwnj;Install Now&zwnj;</p>
+              </a>
+            </div>
           </div>
 
           <!-- Post-Installation Topics -->
           <div class="live-session-hide">
             <h5>&zwnj;Post-Installation&zwnj;</h5>
-            <a class="btn btn-inverse index-btn" onclick='changePage("updates")'>
-              <span class="fa fa-refresh"></span> &zwnj;Updates & Extras&zwnj;
-            </a>
+            <div class="topic-card-container">
+              <a class="topic-card" onclick='changePage("updates")'>
+                <span class="fa fa-refresh"></span>
+                <p>&zwnj;Updates & Extras&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn"  onclick='changePage("drivers")'>
-              <span class="fa fa-gear"></span> &zwnj;Drivers&zwnj;
-            </a>
+              <a class="topic-card"  onclick='changePage("drivers")'>
+                <span class="fa fa-gear"></span>
+                <p>&zwnj;Drivers&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn" onclick='changePage("languageInput")'>
-              <span class="fa fa-globe"></span> &zwnj;Language & Input&zwnj;
-            </a>
+              <a class="topic-card" onclick='changePage("languageInput")'>
+                <span class="fa fa-globe"></span>
+                <p>&zwnj;Language & Input&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn" onclick='changePage("tasks")'>
-              <span class="fa fa-check-square"></span> &zwnj;Optional Tasks&zwnj;
-            </a>
+              <a class="topic-card" onclick='changePage("tasks")'>
+                <span class="fa fa-check-square"></span>
+                <p> &zwnj;Optional Tasks&zwnj;</p>
+              </a>
+            </div>
 
             <br><h5>&zwnj;Familiarity&zwnj;</h5>
-            <a class="btn btn-inverse index-btn" onclick='changePage("customize")'>
-              <span class="fa fa-adjust"></span> &zwnj;Customization&zwnj;
-            </a>
+            <div class="topic-card-container">
+              <a class="topic-card" onclick='changePage("customize")'>
+                <span class="fa fa-adjust"></span>
+                <p>&zwnj;Customization&zwnj;</p>
+              </a>
 
-            <a class="btn btn-inverse index-btn" onclick='changePage("shortcuts")'>
-              <span class="fa fa-keyboard-o"></span> &zwnj;Keyboard Shortcuts&zwnj;
-            </a>
+              <a class="topic-card" onclick='changePage("shortcuts")'>
+                <span class="fa fa-keyboard-o"></span>
+                <p>&zwnj;Keyboard Shortcuts&zwnj;</p>
+              </a>
+            </div>
 
             <br><h5>&zwnj;Troubleshooting&zwnj;</h5>
-            <a class="btn btn-inverse index-btn" onclick='changePage("specs"); InitSystemInfo()'>
-              <span class="fa fa-laptop"></span> &zwnj;System Specifications&zwnj;
-            </a>
+            <div class="topic-card-container">
+              <a class="topic-card" onclick='changePage("specs"); InitSystemInfo()'>
+                <span class="fa fa-laptop"></span>
+                <p>&zwnj;System Specifications&zwnj;</p>
+              </a>
           </div>
+        </div>
         </div>
       </div>
 
@@ -384,7 +403,7 @@
 
       <!-- *** INSTALLED SYSTEMS ONLY *** -->
       <!-- Updates & Extras -->
-      <div id="updates" class="topicContents" hidden data-title="&zwnj;Updates and Extras&zwnj;" data-prev="none" data-next="drivers">
+      <div id="updates" class="topicContents" hidden data-title="&zwnj;Updates & Extras&zwnj;" data-prev="none" data-next="drivers">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Updates & Extras&zwnj;</h2>
@@ -720,7 +739,7 @@
       </div>
 
       <!-- Language & Input Support -->
-      <div id="languageInput" class="topicContents" hidden data-title="&zwnj;Language and Input&zwnj;" data-prev="drivers" data-next="tasks">
+      <div id="languageInput" class="topicContents" hidden data-title="&zwnj;Language & Input&zwnj;" data-prev="drivers" data-next="tasks">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Language Support&zwnj;</h2>
@@ -924,7 +943,7 @@
       </div>
 
       <!-- Keyboard Shortcuts -->
-      <div id="shortcuts" class="topicContents" hidden data-title="&zwnj;Keyboard and Mouse Shortcuts&zwnj;" data-prev="customize" data-next="specs">
+      <div id="shortcuts" class="topicContents" hidden data-title="&zwnj;Keyboard & Mouse Shortcuts&zwnj;" data-prev="customize" data-next="specs">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Keyboard Shortcuts&zwnj;</h2>
