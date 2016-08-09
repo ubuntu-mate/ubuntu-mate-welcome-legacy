@@ -73,11 +73,6 @@ $(document).ready(function() {
           $('#scroll-top-always-show').addClass('disabled');
       }
   });
-
-  // Boutique uses its own custom scroll-top button:
-  if ( current_page != 'software.html' ) {
-    $('#navigation-right').append('<a id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none"><span class="fa fa-chevron-up"></span></a>')
-  }
 });
 
 // Smoothly fade between two elements (by ID)

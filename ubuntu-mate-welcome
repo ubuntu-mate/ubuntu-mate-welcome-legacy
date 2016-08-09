@@ -878,6 +878,10 @@ class AppView(WebKit2.WebView):
         if not arg.jump_software_page:
             app.update_page('#footer-global-right', 'html', app.footer_close)
 
+        # Show the "Scroll to Top" button, excluding the Boutique which has its own button.
+        if not app.current_page == "software.html":
+            app.update_page("#navigation-right", "append", '<a id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none" title="' + _("Scroll Up") + '"><span class="fa fa-chevron-up"></span></a>')
+
         # If this is a live session, adapt the UI.
         if systemstate.session_type == 'live':
             if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
