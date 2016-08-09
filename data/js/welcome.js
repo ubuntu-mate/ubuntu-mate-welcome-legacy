@@ -527,16 +527,22 @@ if ( current_page == 'gettingstarted.html' ) {
     // 'id' is one used for <div>.
     var id = '#' + id;
     var title = $(id).data("title");
+    var icon  = $(id).data("icon");
 
     // Smoothly fade between topics
     $('.topicContents').fadeOut();
     $('#current-topic').fadeOut();
+    $('#current-icon').fadeOut();
     $('#bottom-navigation').fadeOut();
 
     setTimeout(function() {
       $('#current-topic').html(title);
       $('#current-topic').fadeIn();
+      $('#current-icon').fadeIn();
       $(id).fadeIn();
+
+      $("#current-icon").removeClass();
+      $("#current-icon").addClass("fa").addClass(icon);
 
       // Hide bottom navigation if topics page.
       if ( id == "#initial" ) {

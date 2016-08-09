@@ -19,9 +19,8 @@
         <div id="navigation-right"></div>
       </div>
       <div id="topic-subheading" style="display:none">
-        <img id="current-topic-icon" src="img/welcome/ubuntu-mate-gray.svg" hidden/>
         <div class="left" hidden>
-          &nbsp;<span id="current-topic">&zwnj;Topic Selection&zwnj;</span>
+          &nbsp;<span id="current-icon" class="fa fa-book"></span>&nbsp;&nbsp;<span id="current-topic">&zwnj;Topic Selection&zwnj;</span>
         </div>
         <div class="right" hidden>
           <a id="topic-prev" class="navigation-button with-text disabled" onclick="changePage(prevPage)"><span class="fa fa-caret-left"></span>&nbsp;&nbsp;&zwnj;Previous&zwnj;</a>
@@ -34,7 +33,7 @@
     <div id="content" class="container-fluid entire-page-fade with-sub-heading" hidden>
 
       <!-- Topics -->
-      <div id="initial" class="row-fluid topicContents" data-title="&zwnj;Topic Selection&zwnj;" data-prev="none" data-next="none">
+      <div id="initial" class="row-fluid topicContents" data-title="&zwnj;Topic Selection&zwnj;" data-prev="none" data-next="none" data-icon="fa-book">
         <div class="span12">
           <h2>&zwnj;Topic Selection&zwnj;</h2>
 
@@ -130,7 +129,7 @@
 
       <!-- *** LIVE SESSION ONLY *** -->
       <!-- System Requirements -->
-      <div id="sysreq" class="topicContents" hidden data-title="&zwnj;System Requirements&zwnj;" data-prev="none" data-next="prepare">
+      <div id="sysreq" class="topicContents" hidden data-title="&zwnj;System Requirements&zwnj;" data-prev="none" data-next="prepare" data-icon="fa-laptop">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Modest System Requirements&zwnj;</h2>
@@ -164,7 +163,7 @@
       </div>
 
       <!-- Installation Preparations -->
-      <div id="prepare" class="topicContents" hidden data-title="&zwnj;Installation Preparations&zwnj;" data-prev="sysreq" data-next="dualboot">
+      <div id="prepare" class="topicContents" hidden data-title="&zwnj;Installation Preparations&zwnj;" data-prev="sysreq" data-next="dualboot" data-icon="fa-hdd-o">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Preparing to Install&zwnj;</h2>
@@ -227,7 +226,7 @@
       </div>
 
       <!-- Advise on Dual Booting -->
-      <div id="dualboot" class="topicContents" hidden data-title="&zwnj;Dual Booting&zwnj;" data-prev="prepare" data-next="none">
+      <div id="dualboot" class="topicContents" hidden data-title="&zwnj;Dual Booting&zwnj;" data-prev="prepare" data-next="none" data-icon="fa-retweet">
         <div class="row-fluid">
           <div class="span12">
             <h3>&zwnj;Dual Booting&zwnj;</h3>
@@ -398,7 +397,7 @@
 
       <!-- *** INSTALLED SYSTEMS ONLY *** -->
       <!-- Updates & Extras -->
-      <div id="updates" class="topicContents" hidden data-title="&zwnj;Updates & Extras&zwnj;" data-prev="none" data-next="drivers">
+      <div id="updates" class="topicContents" hidden data-title="&zwnj;Updates & Extras&zwnj;" data-prev="none" data-next="drivers" data-icon="fa-refresh">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Updates & Extras&zwnj;</h2>
@@ -517,7 +516,7 @@
       </div>
 
       <!-- Drivers -->
-      <div id="drivers" class="topicContents" hidden data-title="&zwnj;Drivers&zwnj;" data-prev="updates" data-next="languageInput">
+      <div id="drivers" class="topicContents" hidden data-title="&zwnj;Drivers&zwnj;" data-prev="updates" data-next="languageInput" data-icon="fa-gear">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Drivers&zwnj;</h2>
@@ -720,7 +719,7 @@
       </div>
 
       <!-- Language & Input Support -->
-      <div id="languageInput" class="topicContents" hidden data-title="&zwnj;Language & Input&zwnj;" data-prev="drivers" data-next="tasks">
+      <div id="languageInput" class="topicContents" hidden data-title="&zwnj;Language & Input&zwnj;" data-prev="drivers" data-next="tasks" data-icon="fa-globe">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Language Support&zwnj;</h2>
@@ -757,7 +756,7 @@
       </div>
 
       <!-- Additional Tasks - Backups / Firewall / Users -->
-      <div id="tasks" class="topicContents" hidden data-title="&zwnj;Optional Tasks&zwnj;" data-prev="languageInput" data-next="customize">
+      <div id="tasks" class="topicContents" hidden data-title="&zwnj;Optional Tasks&zwnj;" data-prev="languageInput" data-next="customize" data-icon="fa-check-square">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Backup, Firewall and User Management&zwnj;</h2>
@@ -866,7 +865,7 @@
       </div>
 
       <!-- Customizing the Experience -->
-      <div id="customize" class="topicContents" hidden data-title="&zwnj;Customisation&zwnj;" data-prev="tasks" data-next="shortcuts">
+      <div id="customize" class="topicContents" hidden data-title="&zwnj;Customisation&zwnj;" data-prev="tasks" data-next="shortcuts" data-icon="fa-adjust">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;User Interface&zwnj;</h2>
@@ -901,7 +900,7 @@
       </div>
 
       <!-- Keyboard Shortcuts -->
-      <div id="shortcuts" class="topicContents" hidden data-title="&zwnj;Keyboard & Mouse Shortcuts&zwnj;" data-prev="customize" data-next="specs">
+      <div id="shortcuts" class="topicContents" hidden data-title="&zwnj;Keyboard & Mouse Shortcuts&zwnj;" data-prev="customize" data-next="specs" data-icon="fa-keyboard-o">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;Keyboard Shortcuts&zwnj;</h2>
@@ -1468,7 +1467,7 @@
       </div>
 
       <!-- What's inside my computer? -->
-      <div id="specs" class="topicContents" hidden data-title="&zwnj;System Specifications&zwnj;" data-prev="shortcuts" data-next="none">
+      <div id="specs" class="topicContents" hidden data-title="&zwnj;System Specifications&zwnj;" data-prev="shortcuts" data-next="none" data-icon="fa-laptop">
         <div class="row-fluid">
           <div class="span12">
             <h2>&zwnj;What's inside my computer?&zwnj;</h2>
