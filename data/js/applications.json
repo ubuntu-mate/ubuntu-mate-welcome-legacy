@@ -4538,6 +4538,37 @@
             },
             "working": true
         },
+        "brasero": {
+            "name": "Brasero",
+            "img": "brasero",
+            "main-package": "brasero",
+            "launch-command": "brasero",
+            "install-packages": "brasero",
+            "remove-packages": "brasero,brasero-cdrkit,brasero-common",
+            "description": [
+                "Brasero is a simple application to burn, copy and erase CD",
+                "and DVD media: audio, video or data. It features among other",
+                "things:",
+                "<ul><li>On-the-fly burning</li>",
+                "<li>Multisession support</li>",
+                "<li>On-the-fly conversion of music playlists in all formats",
+                "supported by GStreamer</li></ul>"
+            ],
+            "alternate-to": null,
+            "subcategory": "CD/DVD Burning",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Apps/Brasero",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,arm64,armhf,powerpc,ppc64el",
+            "releases": "trusty,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "hardinfo": {
             "name": "System Profiler and Benchmark",
             "img": "hardinfo",
