@@ -4569,6 +4569,33 @@
             },
             "working": true
         },
+        "deja-dup": {
+            "name": "Déjà Dup",
+            "img": "deja-dup",
+            "main-package": "deja-dup",
+            "launch-command": "deja-dup-preferences",
+            "install-packages": "deja-dup,deja-dup-backend-cloudfiles,deja-dup-backend-gvfs,deja-dup-backend-s3,deja-dup-caja",
+            "remove-packages": "deja-dup,deja-dup-backend-cloudfiles,deja-dup-backend-gvfs,deja-dup-backend-s3,deja-dup-caja",
+            "description": [
+                "Déjà Dup is a simple backup tool. It hides the complexity of",
+                "backing up the Right Way (encrypted, off-site, and regular)",
+                "and uses duplicity as the backend."
+            ],
+            "alternate-to": null,
+            "subcategory": "Maintenance",
+            "open-source": true,
+            "url-info": "https://launchpad.net/deja-dup",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,arm64,armhf,powerpc,ppc64el",
+            "releases": "trusty,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "hardinfo": {
             "name": "System Profiler and Benchmark",
             "img": "hardinfo",
