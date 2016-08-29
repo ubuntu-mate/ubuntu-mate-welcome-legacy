@@ -1355,11 +1355,11 @@ class WelcomeApp(object):
 
         ## Social Links ##
         self.footer_left = '<div id="social" class="pull-left"> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="ubuntu-mate.org"><img src="' + trans.res_dir + 'img/welcome/ubuntu-mate-icon.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="Ubuntu MATE Website"><img src="' + trans.res_dir + 'img/welcome/ubuntu-mate-icon.svg"></a> \
         <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
         <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
         <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="ubuntu-mate.org/donate/"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></a> \
+        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="Donate to Ubuntu MATE"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></a> \
         </div>'
         self.footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</a>'
 
