@@ -2853,7 +2853,39 @@
             },
             "working": true
         },
-        "x2goclient": {
+        "Gns3": {
+            "name": "Gns3",
+            "img": "Gns3",
+            "main-package": "gns3",
+            "launch-command": "gns3",
+            "install-packages": "gns3-gui",
+            "remove-packages": "gns3-gui",
+            "description": [
+                "What is GNS3?",
+                "Build, Design and Test your network in a risk-free virtual environment,",
+                "and access the largest networking community to help. Whether you are",
+                "studying for your first networking exam or building out a state-wide",
+                "telecommunications network, GNS3 offers an easy way to design and build",
+                "networks of any size without the need for hardware.".
+            ],
+            "alternate-to": "Cisco: PachetTracer",
+            "subcategory": "Graphical Network Simulator",
+            "open-source": true,
+            "url-info": "https://gns3.com",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "trusty,wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                  "method": "ppa",
+                  "enable-ppa": "ppa:gns3/ppa",
+                  "source-file": "gns3-ubuntu-stable-CODENAME"
+                }
+            },
+            "working": true
+        },
+        "x2goclient":{
             "name": "X2Go Client",
             "img": "x2go",
             "main-package": "x2goclient",
