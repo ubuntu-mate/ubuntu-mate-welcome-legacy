@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-03-19 13:32+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-06-25 12:45+0000\n"
+"Last-Translator: ToMáš Marný\n"
 "Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,248 +14,248 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: rpi.html:17
+#: rpi.html:18
 msgid "Raspberry Pi Information"
-msgstr ""
-
-#: rpi.html:26
-msgid "A few important notes."
-msgstr ""
+msgstr "Informace k Raspberry Pi"
 
 #: rpi.html:27
+msgid "A few important notes."
+msgstr "Několik důležitých poznámek."
+
+#: rpi.html:28
 msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
-msgstr ""
+msgstr "Zatímco vizuální zkušenost je  podobná desktopovému vydání Ubuntu MATE, základní architektura je velmi odlišná. Tato stránka upozorní na některé z těchto rozdílů."
 
-#: rpi.html:33
+#: rpi.html:34
 msgid "Resizing the file system"
-msgstr ""
+msgstr "Změna velikosti souborového systému"
 
-#: rpi.html:36
+#: rpi.html:37
 msgid "Your file system has already been resized."
-msgstr ""
+msgstr "Váš souborový systém již změnil velikost."
 
-#: rpi.html:39
+#: rpi.html:40
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr ""
+msgstr "Po prvotním nahrání Ubuntu MATE na vaše Raspberry Pi, bude systém souborů omezen na velikost původního obrazu disku, což je asi 3,9 GB. Pomocí tohoto tlačítka lze změnit velikost a vyplnit celou Micro-SD kartu."
 
-#: rpi.html:43
+#: rpi.html:44
 msgid "Resize Now"
-msgstr ""
+msgstr "Změnit velikost nyní"
 
-#: rpi.html:47
+#: rpi.html:48
 msgid ""
 "To complete the resize of your Raspberry Pi file system, please close all "
 "open windows and restart now."
-msgstr ""
+msgstr "Chcete-li dokončit změnu velikosti souborového systému Raspberry Pi, zavřete prosím všechna otevřená okna a restartujte nyní."
 
-#: rpi.html:49
+#: rpi.html:50
 msgid "Reboot"
-msgstr ""
-
-#: rpi.html:53
-msgid "Incompatible Software"
-msgstr ""
+msgstr "Restartovat"
 
 #: rpi.html:54
+msgid "Incompatible Software"
+msgstr "Nekompatibilní software"
+
+#: rpi.html:55
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
-msgstr ""
+msgstr "Některé balíky dostupné pro Ubuntu byly psané a zkompilované pouze pro architekturu"
 
-#: rpi.html55, 110
+#: rpi.html56, 111
 msgid "or"
 msgstr "nebo"
 
-#: rpi.html:56
-msgid "architecture. As the Raspberry Pi is based on"
-msgstr ""
-
 #: rpi.html:57
+msgid "architecture. As the Raspberry Pi is based on"
+msgstr ". Vzhledem k tomu, že Raspberry Pi je založeno na"
+
+#: rpi.html:58
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
-msgstr ""
+msgstr "tyto balíky nebudou k dispozici pro instalaci. V závislosti na konkrétním balíku, může být možné sestavit si tyto svépomocí nebo použít existující port."
 
-#: rpi.html:64
+#: rpi.html:65
 msgid "Incompatible:"
-msgstr ""
+msgstr "Nevyhovující:"
 
-#: rpi.html:73
+#: rpi.html:74
 msgid "Compatible:"
-msgstr ""
+msgstr "Vyhovující:"
 
-#: rpi.html:86
+#: rpi.html:87
 msgid "Upgrades"
-msgstr ""
-
-#: rpi.html:87
-msgid "Please"
-msgstr ""
-
-#: rpi.html:87
-msgid "do not"
-msgstr ""
-
-#: rpi.html:87
-msgid "attempt to"
-msgstr ""
-
-#: rpi.html:87
-msgid "upgrade"
-msgstr ""
+msgstr "Povýšení (upgrade)"
 
 #: rpi.html:88
+msgid "Please"
+msgstr "Prosíme,"
+
+#: rpi.html:88
+msgid "do not"
+msgstr "nepokoušejte"
+
+#: rpi.html:88
+msgid "attempt to"
+msgstr "se"
+
+#: rpi.html:88
+msgid "upgrade"
+msgstr "povýšit"
+
+#: rpi.html:89
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
-msgstr ""
+msgstr "své Raspberry Pi na novější vydání distribuce (například z 15.04 na 15.10), protože použité jádro systému"
 
-#: rpi.html:90
+#: rpi.html:91
 msgid "not designed"
-msgstr ""
+msgstr "k tomu není navrženo."
 
-#: rpi.html:90
+#: rpi.html:91
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
-msgstr ""
+msgstr "Tento proces bude potřebovat velmi dlouhou dobu k dokončení, zatímco potenciálně může zaplnit vaši SD kartu do bodu, kdy na ní nebude dostatek volného místa."
 
-#: rpi.html:95
+#: rpi.html:96
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
-msgstr ""
+msgstr "Je bezpečnější zazálohovat všechna data, která si přejete zachovat, a přepsat kartu novým obrazem disku. Pokoušení se o povýšení (upgrade) by mohlo vést k poškození SD karty, zabránění úspěšnému zavedení, nebo způsobit vážné závady."
 
-#: rpi.html:99
+#: rpi.html:100
 msgid "You can, however, install"
-msgstr ""
+msgstr "Můžete však nainstalovat"
 
-#: rpi.html:99
+#: rpi.html:100
 msgid "regular updates"
-msgstr ""
+msgstr "pravidelné aktualizace"
 
-#: rpi.html:99
+#: rpi.html:100
 msgid "via the"
-msgstr ""
+msgstr "přes"
 
-#: rpi.html101, 110
+#: rpi.html102, 111
 msgid "Software Updater"
-msgstr ""
+msgstr "Správce aktualizací"
 
-#: rpi.html:101
+#: rpi.html:102
 msgid "utility for your installed software."
-msgstr ""
-
-#: rpi.html:104
-msgid "Kernel Updates"
-msgstr ""
+msgstr "- nástroj pro váš nainstalovaný software."
 
 #: rpi.html:105
-msgid "The same kernel provided by the"
-msgstr ""
+msgid "Kernel Updates"
+msgstr "Aktualizace jádra"
 
 #: rpi.html:106
-msgid "Raspberry Pi foundation"
-msgstr ""
+msgid "The same kernel provided by the"
+msgstr "To samé jádro, které poskytuje"
 
 #: rpi.html:107
+msgid "Raspberry Pi foundation"
+msgstr "nadace Raspberry Pi,"
+
+#: rpi.html:108
 msgid ""
 "is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
 "\"firmware\" blob, updates are not distributed via the"
-msgstr ""
+msgstr "je použito v tomto vydání Ubuntu MATE. Vzhledem k tomu, že jádro je dodáváno jako \"firmware\" blob, aktualizace nejsou distribuovány prostřednictvím"
 
-#: rpi.html:112
+#: rpi.html:113
 msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr ""
+msgstr "Místo toho, pro aktualizování jádra, otevřete terminál a spusťte:"
 
-#: rpi.html:116
+#: rpi.html:117
 msgid "Hardware Acceleration"
-msgstr ""
-
-#: rpi.html:117
-msgid "Currently, hardware accelerated applications are"
-msgstr ""
-
-#: rpi.html:117
-msgid "not supported"
-msgstr ""
+msgstr "Hardwarová akcelerace"
 
 #: rpi.html:118
-msgid "unlike"
-msgstr ""
+msgid "Currently, hardware accelerated applications are"
+msgstr "V současné době, hardwarově akcelerované aplikace"
+
+#: rpi.html:118
+msgid "not supported"
+msgstr "nejsou podporovány"
 
 #: rpi.html:119
+msgid "unlike"
+msgstr "na rozdíl od"
+
+#: rpi.html:120
 msgid ""
 "Applications that depend on OpenGL ES libraries or require the GPU will fail"
 " to start."
-msgstr ""
+msgstr "Aplikace, které jsou závislé na OpenGL ES knihovnách nebo vyžadují GPU se nepodaří spustit."
 
-#: rpi.html:122
+#: rpi.html:123
 msgid "For playing videos, the application"
-msgstr ""
+msgstr "Při přehrávání videa je  schopna akcelerace aplikace"
 
-#: rpi.html:122
+#: rpi.html:123
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
-msgstr ""
-
-#: rpi.html:124
-msgid "you will need MPEG-2 and/or VC-1 licenses from the"
-msgstr ""
+msgstr ", která je předinstalována. Pokud hledáte něco pro přehrávání MPEG-2 nebo VC-1 video souborů, pak"
 
 #: rpi.html:125
+msgid "you will need MPEG-2 and/or VC-1 licenses from the"
+msgstr "budete potřebovat MPEG-2 a/nebo VC-1 licence z"
+
+#: rpi.html:126
 msgid "Raspberry Pi Store."
-msgstr ""
+msgstr "Raspberry Pi Store."
 
-#: rpi.html:128
+#: rpi.html:129
 msgid "Enable/Disable X11"
-msgstr ""
+msgstr "Zapnutí/vypnutí X11"
 
-#: rpi.html:129
+#: rpi.html:130
 msgid "For users who are looking to create their own headless"
-msgstr ""
+msgstr "Pro uživatele, kteří se snaží vytvořit svůj vlastní headless (bezobslužný)"
 
-#: rpi.html:129
+#: rpi.html:130
 msgid "\"server\""
-msgstr ""
+msgstr "\"server\""
 
-#: rpi.html:129
+#: rpi.html:130
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
-msgstr ""
+msgstr "pomocí Ubuntu MATE, je zde nástroj pro přepínání grafického prostředí."
 
-#: rpi.html:132
+#: rpi.html:133
 msgid "To disable X11 and login via the console:"
-msgstr ""
+msgstr "Chcete-li zakázat X11 a přihlášení přes konzoli:"
 
-#: rpi.html:136
+#: rpi.html:137
 msgid "To enable X11 to restore the Ubuntu MATE desktop:"
-msgstr ""
+msgstr "Chcete-li povolit X11 a obnovit Ubuntu MATE desktop:"
 
-#: rpi.html:139
+#: rpi.html:140
 msgid "Changes take effect after a reboot."
-msgstr ""
-
-#: rpi.html:143
-msgid "Release Notes"
-msgstr ""
+msgstr "Změny se projeví po restartu."
 
 #: rpi.html:144
+msgid "Release Notes"
+msgstr "Poznámky k vydání"
+
+#: rpi.html:145
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
-msgstr ""
+msgstr "Chcete-li si nastudovat poznámky k vydání a změny v této verzi,  zavítejte na webové stránky Ubuntu MATE."
 
-#: rpi.html:151
+#: rpi.html:152
 msgid "Raspberry Pi is a trademark of the"
-msgstr ""
+msgstr "Raspberry Pi je ochranná známka"

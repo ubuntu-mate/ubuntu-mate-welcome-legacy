@@ -2,13 +2,14 @@
 # Translators:
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
-# Matthieu S <utybo@users.noreply.github.com>, 2016
+# utybo <utybo@users.noreply.github.com>, 2016
+# utybo <utybo@users.noreply.github.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-11 01:36+0000\n"
-"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
+"PO-Revision-Date: 2016-07-15 18:06+0000\n"
+"Last-Translator: utybo <utybo@users.noreply.github.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -507,72 +508,127 @@ msgstr "Activer la file d'attente"
 
 #: software.html:388
 msgid ""
-"When enabled, applications wait to be installed/removed, allowing you to "
-"continue browsing."
-msgstr "Quand elle est activée, les applications attendent avant d'être installées/désinstallées, ce qui vous permet de continuer à naviguer"
+"Applications wait to be installed/removed, allowing you to continue "
+"browsing."
+msgstr "Les applications seront installées/désinstallées quand vous aurez terminé de feuilleter la boutique."
 
-#: software.html:395
+#: software.html:393
+msgid "Suppress Progress Dialog"
+msgstr "Masquer la boîte de dialogue de progression."
+
+#: software.html:394
+msgid "Install/remove applications in the background."
+msgstr "Installer / désinstaller les applications en arrière-plan."
+
+#: software.html:401
 msgid "Your Queued Changes"
 msgstr "Changements en attente"
 
-#: software.html:396
+#: software.html:402
 msgid ""
 "Decide which software to add or remove without committing straight away."
 msgstr "Décider quels logiciels ajouter ou enlever sans appliquer les changements tout de suite"
 
-#: software.html:400
+#: software.html:406
 msgid "Apply Changes"
 msgstr "Appliquer les changements"
 
-#: software.html:401
+#: software.html:407
 msgid "Clear"
 msgstr "Tout supprimer"
 
-#: software.html:402
+#: software.html:408
 msgid "Finished"
 msgstr "Finis"
 
-#: software.html:413
+#: software.html:419
 msgid "Not all changes could be applied."
 msgstr "Tous les changements n'ont pas pu être appliqués."
 
-#: software.html:414
+#: software.html:420
 msgid "Please review the error dialog for further details."
 msgstr "Merci de regarder la boîte de dialogue d'erreur pour plus de détails"
 
-#: software.html:418
+#: software.html:424
 msgid "Nothing to see here -- There's no software in the queue yet."
 msgstr "Rien à voir ici -- Il n'y a pas encore de logiciels dans la file d'attente"
 
-#: software.html:429
+#: software.html:435
 msgid "Filter by Software License"
 msgstr "Filtrer par Licence Logiciel"
 
-#: software.html:430
+#: software.html:436
 msgid "Hide Proprietary Software"
 msgstr "Masquer les Logiciels Propriétaires"
 
-#: software.html:432
+#: software.html:438
 msgid "Show Terminal Commands"
 msgstr "Afficher les Commandes Terminal"
 
-#: software.html:438
+#: software.html:444
 msgid "Proprietary Software"
 msgstr "Les Logiciels Propriétaires"
 
-#: software.html:439
+#: software.html:445
 msgid ""
 "is owned by an individual or company. There may be restrictions on its usage"
 " (like a license agreement), and provides no access to the source code."
 msgstr "sont des logiciels dont les droits sont possédés par un individu ou une société. Leur utilisation peut être soumise à une restriction (par exemple un accord de licence), et leur code source non-accessible."
 
-#: software.html:442
+#: software.html:448
 msgid "Free and Open Source Software"
 msgstr "Les Gratuiciels et Logiciels Open Source"
 
-#: software.html:443
+#: software.html:449
 msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
 msgstr "donnent à l'utilisateur la liberté de partager, étudier et modifier leur code sans restriction. Concrètement, GPL est un exemple de licence \"Logiciel Libre\"."
+
+#: software.html:49
+msgid "Stocking the Boutique..."
+msgstr "Chargement de la Boutique..."
+
+#: software.html413, 415
+msgid "Advanced"
+msgstr "Avancé"
+
+#: software.html:417
+msgid "Show technical package details."
+msgstr "Voir les détails techniques des paquets"
+
+#: software.html:418
+msgid ""
+"Displays an estimated install size, packages and the type of application"
+msgstr "Montre une estimation de la taille après installation, les paquets et le type d'application."
+
+#: software.html:424
+msgid "Show Software Sources"
+msgstr "Montrer les Sources des Logiciels"
+
+#: software.html425, 470
+msgid "Manage Repositories"
+msgstr "Gérer les Dépôts"
+
+#: software.html:460
+msgid "Software Sources"
+msgstr "Sources de Logiciels"
+
+#: software.html:461
+msgid ""
+"Your system and applications are obtained and kept up-to-date via the "
+"following repositories."
+msgstr "Votre système et ses applications sont obtenus et mis à jour via les dépôts suivant"
+
+#: software.html:463
+msgid "Parsing lists..."
+msgstr "Lecture des listes..."
+
+#: software.html:471
+msgid "Update Package Lists"
+msgstr "Mettre à jour les Listes de Paquets"
+
+#: software.html:494
+msgid "About Proprietary Software"
+msgstr "A propos des logiciels propriétaires..."

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-06 16:10+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2016-06-27 16:30+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,79 +15,91 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: software.html:17
+#: software.html:18
 msgid "Software"
 msgstr "Softver"
 
-#: software.html:17
+#: software.html:18
 msgid "Boutique"
 msgstr "Butik"
 
-#: software.html20, 20
+#: software.html21, 21
+msgid "Bulk Queue"
+msgstr ""
+
+#: software.html:22
+msgid "Bulk Queue Disabled"
+msgstr ""
+
+#: software.html23, 23
 msgid "Search"
 msgstr ""
 
-#: software.html23, 23, 343
+#: software.html24, 24, 344
 msgid "Boutique News"
 msgstr ""
 
-#: software.html32, 32, 138
+#: software.html25, 25, 375
+msgid "Preferences"
+msgstr "Postavke"
+
+#: software.html33, 33, 139
 msgid "Accessories"
 msgstr "Dodatni alati"
 
-#: software.html33, 33, 151
+#: software.html34, 34, 152
 msgid "Education"
 msgstr "Obrazovanje"
 
-#: software.html34, 34, 164
+#: software.html35, 35, 165
 msgid "Games"
 msgstr "Igre"
 
-#: software.html35, 35, 177
+#: software.html36, 36, 178
 msgid "Graphics"
 msgstr "Grafika"
 
-#: software.html36, 36, 190
+#: software.html37, 37, 191
 msgid "Internet"
 msgstr "Internet"
 
-#: software.html37, 37, 203
+#: software.html38, 38, 204
 msgid "Office"
 msgstr "Kancelarija"
 
-#: software.html38, 38, 216
+#: software.html39, 39, 217
 msgid "Programming"
 msgstr "Programiranje"
 
-#: software.html39, 39, 229
+#: software.html40, 40, 230
 msgid "Sound & Video"
 msgstr "Zvuk i video"
 
-#: software.html40, 40, 242
+#: software.html41, 41, 243
 msgid "System Tools"
 msgstr "Sistemski alati"
 
-#: software.html41, 41, 255
+#: software.html42, 42, 256
 msgid "Universal Access"
 msgstr "Univerzalni pristup"
 
-#: software.html42, 42, 265
+#: software.html43, 43, 266
 msgid "Servers"
 msgstr "Serveri"
 
-#: software.html43, 43
+#: software.html44, 44
 msgid "More Software"
 msgstr "Još softvera"
 
-#: software.html44, 44
+#: software.html45, 45
 msgid "Fixes"
 msgstr "Ispravke"
 
-#: software.html:53
+#: software.html:54
 msgid "Software Boutique"
 msgstr "Softver butik"
 
-#: software.html:54
+#: software.html:55
 msgid ""
 "There is an abundance of software available for Ubuntu MATE and some people "
 "find that choice overwhelming. The Boutique is a carefully curated selection"
@@ -96,303 +108,303 @@ msgid ""
 "experience."
 msgstr "Kako za Ubuntu MATE postoji puno različitog softvera pojedini ljudi se nalaze pred problemom preobimnog izbora. Softver Butik je pažljivo odabrana lista najboljih u svojoj kategoriji biranih po kriterijumu: odlične integracije, logičnog proširenja gde je Ubuntu MATE kratak i ostavljene mogućnosti da korisnik sam nametne svoj stil."
 
-#: software.html:61
+#: software.html:62
 msgid "If you can't find what you're looking for, install one of the"
 msgstr "Ako imate problem da nađete softver po Vašoj meri, probajte da instalirate neki od"
 
-#: software.html62, 360
+#: software.html63, 361
 msgid "Get More Apps"
 msgstr ""
 
-#: software.html:63
+#: software.html:64
 msgid "software centers"
 msgstr "menadžera softverskih paketa"
 
-#: software.html:64
+#: software.html:65
 msgid "to explore the complete Ubuntu software catalog."
 msgstr "i istražite kompletan katalog Ubuntu softvera."
 
-#: software.html:68
+#: software.html:69
 msgid "More Apps Await."
 msgstr "Čeka Vas obilje aplikacija."
 
-#: software.html:69
+#: software.html:70
 msgid ""
 "Connect your computer to the Internet to explore a wide selection of "
 "applications for Ubuntu MATE."
 msgstr "Povežite Vaš kompjuter na Internet kako bi istražili obimnu selekciju aplikacija za Ubuntu MATE."
 
-#: software.html:71
+#: software.html:72
 msgid ""
 "Once online, you'll be able to download and install tried & tested software "
-"right here in Welcome. Our picks ensure that the software featured "
-"integrates well the Ubuntu MATE desktop."
-msgstr "Nakon povezivanja, bićete u mogućnosti da preuzmete i instalirate već oproban softver direktno iz Welcome aplikacije. Izbor je prividno sužen na softver koji je testiran i korektno se uklapa u Ubuntu MATE okruženje."
+"right here. Our picks ensure that the featured software integrates well on "
+"the Ubuntu MATE desktop."
+msgstr ""
 
-#: software.html:77
+#: software.html:78
 msgid ""
 "Sorry, Welcome could not establish a connection to the Ubuntu repository "
 "server. Please check your connection and try again."
 msgstr "Žao nam je ali Welcome aplikacija nije uspela da uspostavi vezu sa serverima koji nose Ubuntu repozitorijum. Molim Vas proverite vezu prema Internet-u i pokušajte ponovo."
 
-#: software.html:82
+#: software.html:83
 msgid "Retry Connection"
 msgstr "Ponovi uspostavu veze"
 
-#: software.html:85
+#: software.html:86
 msgid "Connection Troubleshooting"
 msgstr ""
 
-#: software.html:86
+#: software.html:87
 msgid "Connection Help"
 msgstr "Pomoć za uspostavu veze"
 
-#: software.html:92
+#: software.html:93
 msgid "Get Connected."
 msgstr "Uspostavi vezu."
 
-#: software.html:93
+#: software.html:94
 msgid ""
 "Here's a few things you can check, depending on the type of connection you "
 "have:"
 msgstr "Par stvari koje bi valjalo proveriti u zavisnosti od tipa veze koju imate:"
 
-#: software.html:94
+#: software.html:95
 msgid "Wired Connection"
 msgstr "Žična veza"
 
-#: software.html:96
+#: software.html:97
 msgid "Is the cable securely plugged in?"
 msgstr "Da li su krajevi kabla korektno utaknuti - čvrsto stoje u svojim ležištima?"
 
-#: software.html:97
+#: software.html:98
 msgid ""
 "Is the router online and can other devices access the network? Try "
 "restarting the router."
 msgstr "Da li je Vaš ruter aktivan? Da li i drugi uređaji na mreži imaju problem da pristupe Internet-u? Probajte da restartujete ruter."
 
-#: software.html:100
+#: software.html:101
 msgid "Wireless Connection"
 msgstr "Bežična veza"
 
-#: software.html:101
+#: software.html:102
 msgid "Have you entered the correct wireless password from the"
 msgstr "Da li ste uneli ispravnu šifru za bežičnu mrežu u"
 
-#: software.html:101
+#: software.html:102
 msgid "network indicator"
 msgstr "indikator mreže"
 
-#: software.html:101
+#: software.html:102
 msgid "in the upper-right?"
 msgstr "koji se nalazi u gornjem desnom uglu ekrana?"
 
-#: software.html:103
+#: software.html:104
 msgid "When disconnected, the applet looks like this:"
 msgstr "Kada niste povezani na bežičnu mrežu indikator mreže izgleda ovako:"
 
-#: software.html:105
+#: software.html:106
 msgid ""
 "Is there a physical switch that may have accidentally switched off wireless "
 "functionality?"
 msgstr "Da li možda postoji fizički prekidač koji može slučajno da se prebaci i isključi bežičnu vezu?"
 
-#: software.html:107
+#: software.html:108
 msgid "Is there a soft (keyboard) switch that toggles it off?"
 msgstr "Da li možda postoji dugme na tastaturi (ili zaseban taster) kojim može da se uključi/isključi bežična veza?"
 
-#: software.html:109
+#: software.html:110
 msgid "You may need to hold the FN key while pressing the function key."
 msgstr "Moguće je da mora da se drži pritisnut taster FN u kombinaciji sa tasterom za uklj/isklj bežične veze."
 
-#: software.html:110
+#: software.html:111
 msgid "Here's an example:"
 msgstr "Primer:"
 
-#: software.html:114
+#: software.html:115
 msgid "Not working at all or experiencing sluggish connections?"
 msgstr "Veza radi previše sporo ili ne radi uopšte?"
 
-#: software.html:115
+#: software.html:116
 msgid ""
 "Sorry to hear that. You will need a temporary wired connection to install "
 "working drivers."
 msgstr "Žao nam je ali moraćete privremeno da uspostavite žičnu vezu kako bi mogli da instalirate dodatne drajvere."
 
-#: software.html:117
+#: software.html:118
 msgid "The"
 msgstr "U"
 
-#: software.html:117
+#: software.html:118
 msgid "Additional Drivers"
 msgstr "Dodatni drajveri"
 
-#: software.html:117
+#: software.html:118
 msgid "tab may have them available for your system."
 msgstr "se možda već nalazi odgovarajući za vaš sistem."
 
-#: software.html:118
+#: software.html:119
 msgid ""
 "Otherwise, you will need to manually install third party drivers for your "
 "hardware, or a download specific package containing the firmware. See"
 msgstr "U preostalom slučaju moraćete ručno da dodate drajvere od trećeg lica za konkretan model koji se nalazi u vašem sistemu ili eventualno instalirate već spreman paket od strane trećeg lica. Pogledajte"
 
-#: software.html:119
+#: software.html:120
 msgid "Drivers"
 msgstr "Drajveri"
 
-#: software.html:119
+#: software.html:120
 msgid "in the"
 msgstr "u sekciji"
 
-#: software.html:119
+#: software.html:120
 msgid "Getting Started"
 msgstr "Prvi koraci"
 
-#: software.html:120
+#: software.html:121
 msgid "section for more details."
 msgstr "za više detalja."
 
-#: software.html:121
+#: software.html:122
 msgid "Feel free to"
 msgstr "Slobodno"
 
-#: software.html:121
+#: software.html:122
 msgid "ask the community"
 msgstr "postavite pitanje zajednici"
 
-#: software.html:121
+#: software.html:122
 msgid "if you need assistance."
 msgstr "ako Vam je potrebna pomoć."
 
-#: software.html:125
+#: software.html:126
 msgid "Our Picks"
 msgstr ""
 
-#: software.html:126
+#: software.html:127
 msgid "OK"
 msgstr "Potvrdi"
 
-#: software.html140, 153, 166, 179, 192, 205, 218, 231, 244
+#: software.html141, 154, 167, 180, 193, 206, 219, 232, 245
 msgid "No Filter"
 msgstr "Bez filtriranja"
 
-#: software.html:142
+#: software.html:143
 msgid "Handy utilities for your computing needs."
 msgstr "Zgodni alati za svakodnevnu upotrebu."
 
-#: software.html:155
+#: software.html:156
 msgid "For study and children."
 msgstr "Za učenje i decu."
 
-#: software.html:168
+#: software.html:169
 msgid "A selection of 2D and 3D games for your enjoyment."
 msgstr "Neke od 2D i 3D igara za Vaše uživanje."
 
-#: software.html:181
+#: software.html:182
 msgid "For producing and editing works of art."
 msgstr "Za izradu i doradu vizuelnih umetničkih dela."
 
-#: software.html:194
+#: software.html:195
 msgid "For staying connected and enjoying the features of your own cloud."
 msgstr "Za uživanje u povezanosti sa drugima."
 
-#: software.html:207
+#: software.html:208
 msgid "For more then just documents and spreadsheets."
 msgstr "Kada je potrebno više od običnih dokumenata i tabela."
 
-#: software.html:220
+#: software.html:221
 msgid "For the developers and system administrators out there."
 msgstr "Za izradu softvera i administratore kompjuterskih sistema."
 
-#: software.html:233
+#: software.html:234
 msgid "Multimedia software for listening and production."
 msgstr "Za reprodukciju i stvaranje multimedijalnog sadržaja."
 
-#: software.html:246
+#: software.html:247
 msgid "Software that makes the most out of your system resources."
 msgstr "Za praćenje i upravljanje sistemskim resursima."
 
-#: software.html:256
+#: software.html:257
 msgid "Software that makes your computer more accessible."
 msgstr "Softver koji čini Vaš kompjuter lakšim za upotrebu osobama sa invaliditetom."
 
-#: software.html:266
+#: software.html:267
 msgid "One-click installations for serving the network."
 msgstr "Instalacije mrežnih servisa na jedan klik."
 
-#: software.html:275
+#: software.html:276
 msgid "Discover More Software"
 msgstr "Istraži još softvera"
 
-#: software.html:276
+#: software.html:277
 msgid ""
 "Graphical interfaces to browse a wide selection of software available for "
 "your operating system."
 msgstr "Grafičke aplikacije za pretragu i instalaciju dodatnog softvera."
 
-#: software.html:284
+#: software.html:285
 msgid "Miscellaneous Fixes"
 msgstr "Selotejp i WD40"
 
-#: software.html:285
+#: software.html:286
 msgid ""
 "This section contains operations that can fix common problems should you "
 "encounter an error while upgrading or installing new software."
 msgstr "Rešenja za uobičajne probleme koji mogu da se pojave prilikom ažuriranja starog ili instalacije novog softvera."
 
-#: software.html:292
+#: software.html:293
 msgid "Outdated Package Lists?"
 msgstr "Zastarela lista softverskih paketa?"
 
-#: software.html:293
+#: software.html:294
 msgid "Your repository lists may be out of date, which can cause"
 msgstr "Lista repozitorijuma može da zastari. Manifestuje se greškama "
 
-#: software.html:293
+#: software.html:294
 msgid "Not Found"
 msgstr "Not Found"
 
-#: software.html:293
+#: software.html:294
 msgid "errors and"
 msgstr "i"
 
-#: software.html:293
+#: software.html:294
 msgid "outdated version"
 msgstr "outdated version"
 
-#: software.html:294
+#: software.html:295
 msgid ""
 "information when trying to install new or newer versions of software. This "
 "is particularly the case when Ubuntu MATE connects online for the first time"
 " after installation."
 msgstr "prilikom ažuriranja postojećeg ili instalacije novog softvera. Najčešći slučaj je prilikom prvog povezivanja na Internet sveže instaliranog Ubuntu MATE operativnog sistema."
 
-#: software.html:297
+#: software.html:298
 msgid "Update the repository lists:"
 msgstr "Ažurira listu repozitorijuma:"
 
-#: software.html:301
+#: software.html:302
 msgid "Update Sources List"
 msgstr "Ažuriraj Sources listu"
 
-#: software.html:302
+#: software.html:303
 msgid "Upgrade Installed Packages"
 msgstr "Ažuriraj instalirane pakete"
 
-#: software.html:306
+#: software.html:307
 msgid "Broken Packages?"
 msgstr "Oštećeni paketi?"
 
-#: software.html:307
+#: software.html:308
 msgid "When a previous installation or removal was interrupted"
 msgstr "Kada se instalacija ili uklanjanje paketa prekine"
 
-#: software.html:308
+#: software.html:309
 msgid "(for instance, due to power failure or loss of Internet connection)"
 msgstr "(npr. zbog nestanka struje ili gubitka veze sa Internet-om)"
 
-#: software.html:309
+#: software.html:310
 msgid ""
 "further software cannot be added or removed without properly re-configuring "
 "these broken packages. If necessary, you may need to also resolve "
@@ -400,106 +412,220 @@ msgid ""
 "run properly."
 msgstr "dalja manipulacija sa paketima nije moguća dok se oštećeni paketi ne dovedu u konzistentno stanje. Da bi softver radio korektno ponekada je potrebno instalirati zavisne ili dodatne pakete."
 
-#: software.html:315
+#: software.html:316
 msgid "Configure packages that were unpacked but not configured:"
 msgstr "Konfiguriše pakete koji su raspakovani ali nisu prošli proces konfiguracije:"
 
-#: software.html:319
+#: software.html:320
 msgid "Download and install broken dependencies:"
 msgstr "Preuzima i instalira oštećene zavisne pakete:"
 
-#: software.html:323
+#: software.html:324
 msgid "Configure Interrupted Packages"
 msgstr "Konfiguriši prekinute pakete"
 
-#: software.html:324
+#: software.html:325
 msgid "Resolve Broken Packages"
 msgstr "Ispravi oštećene pakete"
 
-#: software.html:328
+#: software.html:329
 msgid ""
 "In addition, listed below are terminal equivalent commands that otherwise "
 "appear in the"
 msgstr "Kao dodatak, ispod se nalaze komande koje su ekvivalentne funkcijama grafičkog alata"
 
-#: software.html:329
+#: software.html:330
 msgid "Software Updater"
 msgstr "Software Updater"
 
-#: software.html:331
+#: software.html:332
 msgid "Upgrade all packages that have a new version available:"
 msgstr "Ažurira sve pakete koji su dostupni u novijoj verziji:"
 
-#: software.html:335
+#: software.html:336
 msgid "Upgrade to a new release of Ubuntu MATE:"
 msgstr "Ažurira sistem na novo izdanje Ubuntu MATE-a:"
 
-#: software.html:344
+#: software.html:345
 msgid ""
 "Keeping you informed of the changes made to Ubuntu MATE's Software Boutique."
 msgstr ""
 
-#: software.html:349
+#: software.html:350
 msgid "Search for Applications"
 msgstr ""
 
-#: software.html:350
+#: software.html:351
 msgid "Enter a keyword to search the Software Boutique."
 msgstr ""
 
-#: software.html:352
+#: software.html:353
 msgid "Name of Application"
 msgstr ""
 
-#: software.html:357
+#: software.html:358
 msgid "No software matched your key words."
 msgstr ""
 
-#: software.html:359
+#: software.html:360
 msgid "The Boutique is just a collection of software."
 msgstr ""
 
-#: software.html:361
+#: software.html:362
 msgid "Install a software center"
 msgstr ""
 
-#: software.html:363
+#: software.html:364
 msgid "to explore the entire Ubuntu catalogue."
 msgstr ""
 
-#: software.html:366
+#: software.html:367
 msgid "Search again and include proprietary software."
 msgstr ""
 
-#: software.html:380
+#: software.html:376
+msgid "Fine-tune the Software Boutique to suit your preferred behaviors."
+msgstr ""
+
+#: software.html:379
+msgid "Boutique Selection"
+msgstr ""
+
+#: software.html:381
+msgid "Hide proprietary applications."
+msgstr ""
+
+#: software.html:385
+msgid "Installation"
+msgstr ""
+
+#: software.html:387
+msgid "Enable the Bulk Queue."
+msgstr ""
+
+#: software.html:388
+msgid ""
+"Applications wait to be installed/removed, allowing you to continue "
+"browsing."
+msgstr ""
+
+#: software.html:393
+msgid "Suppress Progress Dialog"
+msgstr ""
+
+#: software.html:394
+msgid "Install/remove applications in the background."
+msgstr ""
+
+#: software.html:401
+msgid "Your Queued Changes"
+msgstr ""
+
+#: software.html:402
+msgid ""
+"Decide which software to add or remove without committing straight away."
+msgstr ""
+
+#: software.html:406
+msgid "Apply Changes"
+msgstr ""
+
+#: software.html:407
+msgid "Clear"
+msgstr ""
+
+#: software.html:408
+msgid "Finished"
+msgstr ""
+
+#: software.html:419
+msgid "Not all changes could be applied."
+msgstr ""
+
+#: software.html:420
+msgid "Please review the error dialog for further details."
+msgstr ""
+
+#: software.html:424
+msgid "Nothing to see here -- There's no software in the queue yet."
+msgstr ""
+
+#: software.html:435
 msgid "Filter by Software License"
 msgstr "Filtriranje po Softverskoj Licenci"
 
-#: software.html:381
+#: software.html:436
 msgid "Hide Proprietary Software"
 msgstr "Ne prikazuj vlasnički softver"
 
-#: software.html:383
+#: software.html:438
 msgid "Show Terminal Commands"
 msgstr "Prikaži komande za terminal"
 
-#: software.html:389
+#: software.html:444
 msgid "Proprietary Software"
 msgstr "Vlasnički softver"
 
-#: software.html:390
+#: software.html:445
 msgid ""
 "is owned by an individual or company. There may be restrictions on its usage"
 " (like a license agreement), and provides no access to the source code."
 msgstr "je u vlasništvu individue ili kompanije. Moguće je da postoje ograničenja prilikom njegovog korišćenja (npr. poseban ugovor o licenciranju) kao i ne postojanje mogućnosti pristupa source kodu."
 
-#: software.html:393
+#: software.html:448
 msgid "Free and Open Source Software"
 msgstr "Besplatan softver otvorenog koda"
 
-#: software.html:394
+#: software.html:449
 msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
 msgstr "garantuje korisniku prava da deli, proučava i menja softver bez ikakvih ograničenja. GPL je dobar primer jedne od 'Free Software' licenci."
+
+#: software.html:49
+msgid "Stocking the Boutique..."
+msgstr ""
+
+#: software.html413, 415
+msgid "Advanced"
+msgstr "Napredan"
+
+#: software.html:417
+msgid "Show technical package details."
+msgstr ""
+
+#: software.html:418
+msgid ""
+"Displays an estimated install size, packages and the type of application"
+msgstr ""
+
+#: software.html:424
+msgid "Show Software Sources"
+msgstr ""
+
+#: software.html425, 470
+msgid "Manage Repositories"
+msgstr ""
+
+#: software.html:460
+msgid "Software Sources"
+msgstr ""
+
+#: software.html:461
+msgid ""
+"Your system and applications are obtained and kept up-to-date via the "
+"following repositories."
+msgstr ""
+
+#: software.html:463
+msgid "Parsing lists..."
+msgstr ""
+
+#: software.html:471
+msgid "Update Package Lists"
+msgstr ""
+
+#: software.html:494
+msgid "About Proprietary Software"
+msgstr ""

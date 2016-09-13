@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Petr Šimáček <petr.simacek@gmail.com>, 2016
 msgid ""
@@ -9,22 +9,20 @@ msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 18:20+0100\n"
-"PO-Revision-Date: 2016-06-06 16:10+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
-"Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
-"welcome/language/cs/)\n"
-"Language: cs\n"
+"PO-Revision-Date: 2016-07-08 14:23+0000\n"
+"Last-Translator: ToMáš Marný\n"
+"Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ubuntu-mate-welcome:71
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr ""
-"Probíhají softwarové změny. Nechte je dokončit než zavřete program Vítejte. "
+msgstr "Probíhají softwarové změny. Nechte je dokončit než zavřete aplikaci Vítejte."
 
 #: ubuntu-mate-welcome:72 ubuntu-mate-welcome:2489
 msgid "OK"
@@ -32,178 +30,165 @@ msgstr "OK"
 
 #: ubuntu-mate-welcome:159 ubuntu-mate-welcome:169
 msgid "Successfully performed fix."
-msgstr ""
+msgstr "Úspěšně provedená oprava."
 
 #: ubuntu-mate-welcome:159
 msgid "Any previously incomplete installations have been finished."
-msgstr ""
+msgstr "Jakékoliv předešlé neúplné instalace byly dokončeny."
 
 #: ubuntu-mate-welcome:162 ubuntu-mate-welcome:172
 msgid "Failed to perform fix."
-msgstr ""
+msgstr "Nepodařilo se provést opravu."
 
 #: ubuntu-mate-welcome:162
 msgid "Errors occurred while finishing an incomplete installation."
-msgstr ""
+msgstr "Došlo k chybám při dokončování nekompletní instalace."
 
 #: ubuntu-mate-welcome:169
 msgid "Packages with broken dependencies have been resolved."
-msgstr ""
+msgstr "Balíky se špatnými závislostmi byly vyřešeny."
 
 #: ubuntu-mate-welcome:172
 msgid "Packages may still have broken dependencies."
-msgstr ""
+msgstr "Balíky mohou stále mít poškozené závislosti."
 
 #: ubuntu-mate-welcome:181
 msgid "Successfully updated cache."
-msgstr ""
+msgstr "Úspěšně aktualizována mezipaměť."
 
 #: ubuntu-mate-welcome:181
 msgid "Software is now ready to install."
-msgstr ""
+msgstr "Software je nyní připraven k instalaci."
 
 #: ubuntu-mate-welcome:184
 msgid "Failed to update cache."
-msgstr ""
+msgstr "Nepodařilo se aktualizovat mezipaměť."
 
 #: ubuntu-mate-welcome:184
 msgid "There may be a problem with your repository configuration."
-msgstr ""
+msgstr "Může být problém s vašim nastavením repozitářů."
 
 #: ubuntu-mate-welcome:240
 msgid "Welcome will stay up-to-date."
-msgstr ""
+msgstr "Aplikace Vítejte zůstane aktuální."
 
 #: ubuntu-mate-welcome:241
-#, fuzzy
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
-msgstr "Tato aplikace je nastavena na příjem nejnovějších aktualizací."
+msgstr "Aplikace Vítejte i Softwarový butik jsou nastaveny pro příjem nejnovějších aktualizací."
 
 #: ubuntu-mate-welcome:247
 msgid "Everything is up-to-date"
-msgstr ""
+msgstr "Všechno je aktuální"
 
 #: ubuntu-mate-welcome:248
 msgid "All packages have been upgraded to the latest versions."
-msgstr ""
+msgstr "Všechny balíky byly povýšeny na nejnovější verze."
 
 #: ubuntu-mate-welcome:253
-#, fuzzy
 msgid "Installed"
-msgstr "Instalovat"
+msgstr "Nainstalován"
 
 #: ubuntu-mate-welcome:254
-#, fuzzy
 msgid "The application is now ready to use."
-msgstr "Tato aplikace je nastavena na příjem nejnovějších aktualizací."
+msgstr "Aplikace je nyní připravena k použití."
 
 #: ubuntu-mate-welcome:256
-#, fuzzy
 msgid "was not installed."
-msgstr "Přeinstalovat"
+msgstr "nebyla nainstalována."
 
 #: ubuntu-mate-welcome:257 ubuntu-mate-welcome:267 ubuntu-mate-welcome:298
 #: ubuntu-mate-welcome:308
 msgid "The operation was cancelled."
-msgstr ""
+msgstr "Operace byla zrušena."
 
 #: ubuntu-mate-welcome:259
-#, fuzzy
 msgid "failed to install"
-msgstr "Přeinstalovat"
+msgstr "se nepodařilo nainstalovat"
 
 #: ubuntu-mate-welcome:260
 msgid "There was a problem installing this application."
-msgstr ""
+msgstr "Došlo k potížím při instalaci této aplikace."
 
 #: ubuntu-mate-welcome:263 ubuntu-mate-welcome:827
 msgid "Removed"
-msgstr ""
+msgstr "Odebráno"
 
 #: ubuntu-mate-welcome:264
-#, fuzzy
 msgid "The application has been uninstalled."
-msgstr "Velikost oddílu root byla změněna."
+msgstr "Aplikace byla odinstalována."
 
 #: ubuntu-mate-welcome:266
-#, fuzzy
 msgid "was not removed."
-msgstr "Odstranit"
+msgstr "nebyl odstraněn."
 
 #: ubuntu-mate-welcome:269
 msgid "failed to remove"
-msgstr ""
+msgstr "se nepodařilo odstranit"
 
 #: ubuntu-mate-welcome:270
 msgid "A problem is preventing this application from being removed."
-msgstr ""
+msgstr "Nějaký problém zabránil tuto aplikaci odstranit."
 
 #: ubuntu-mate-welcome:273
-#, fuzzy
 msgid "Upgraded"
-msgstr "Aktualizace"
+msgstr "Aktualizován"
 
 #: ubuntu-mate-welcome:274
-#, fuzzy
 msgid "This application is set to use the latest version."
-msgstr "Tato aplikace je nastavena na příjem nejnovějších aktualizací."
+msgstr "Tato aplikace je nastavena k používání nejnovější verze."
 
 #: ubuntu-mate-welcome:276
-#, fuzzy
 msgid "was not upgraded."
-msgstr "Aktualizace"
+msgstr "nebyl aktualizován."
 
 #: ubuntu-mate-welcome:277
-#, fuzzy
 msgid "The application will continue to use the stable version."
-msgstr "Tato aplikace je nastavena na příjem nejnovějších aktualizací."
+msgstr "Aplikace bude i nadále používat stabilní verzi."
 
 #: ubuntu-mate-welcome:279
 msgid "failed to upgrade"
-msgstr ""
+msgstr "nepodařilo se aktualizovat"
 
 #: ubuntu-mate-welcome:280
-#, fuzzy
 msgid "A problem is preventing this application from being upgraded."
-msgstr "Počkejte prosím, než se aplikace aktualizuje..."
+msgstr "Nějaký problém zabránil tuto aplikaci povýšit."
 
 #: ubuntu-mate-welcome:294
 msgid "applications have been installed"
-msgstr ""
+msgstr "aplikací bylo nainstalováno "
 
 #: ubuntu-mate-welcome:295
 msgid "Your newly installed applications are ready to use."
-msgstr ""
+msgstr "Vaše nově nainstalované aplikace jsou připraveny k použití."
 
 #: ubuntu-mate-welcome:297
 msgid "Some applications were not installed."
-msgstr ""
+msgstr "Některé aplikace nebyly nainstalovány."
 
 #: ubuntu-mate-welcome:300
 msgid "Some applications failed to install."
-msgstr ""
+msgstr "Některé aplikace se nepodařilo nainstalovat."
 
 #: ubuntu-mate-welcome:301 ubuntu-mate-welcome:311
 msgid "Software Boutique encountered a problem with one of the applications."
-msgstr ""
+msgstr "Softwarový butik se setkal s problémem u jedné z aplikací."
 
 #: ubuntu-mate-welcome:304
-#, fuzzy
 msgid "applications have been removed"
-msgstr "Velikost oddílu root byla změněna."
+msgstr "aplikace byly odstraněny"
 
 #: ubuntu-mate-welcome:305
 msgid "These applications are no longer present on your system."
-msgstr ""
+msgstr "Tyto aplikace již nejsou ve vašem systému."
 
 #: ubuntu-mate-welcome:307
 msgid "Some applications were not removed."
-msgstr ""
+msgstr "Některé aplikace nebyly odstraněny."
 
 #: ubuntu-mate-welcome:310
 msgid "Some applications failed to remove."
-msgstr ""
+msgstr "Některé aplikace se nepodařilo odstranit."
 
 #: ubuntu-mate-welcome:477
 msgid "Blu-ray AACS database install succeeded"
@@ -235,7 +220,7 @@ msgstr "Vítejte"
 
 #: ubuntu-mate-welcome:768
 msgid "Software Boutique"
-msgstr "Software Boutique"
+msgstr "Softwarový butik"
 
 #: ubuntu-mate-welcome:769
 msgid "Close"
@@ -243,7 +228,7 @@ msgstr "Zavřít"
 
 #: ubuntu-mate-welcome:770
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: ubuntu-mate-welcome:773
 msgid "Set to retrieve the latest software listings."
@@ -326,9 +311,8 @@ msgid "Canonical Partner Repository"
 msgstr "Partnerský repozitář Canonicalu"
 
 #: ubuntu-mate-welcome:795
-#, fuzzy
 msgid "Ubuntu Multiverse Repository"
-msgstr "Repozitář Ubuntu"
+msgstr "Ubuntu Multiverse repozitář"
 
 #: ubuntu-mate-welcome:796
 msgid "Ubuntu Repository"
@@ -340,7 +324,7 @@ msgstr "Neznámý"
 
 #: ubuntu-mate-welcome:798
 msgid "Undo Changes"
-msgstr ""
+msgstr "Vrátit změny"
 
 #: ubuntu-mate-welcome:801
 msgid "Installing..."
@@ -356,11 +340,11 @@ msgstr "Aktualizuje se..."
 
 #: ubuntu-mate-welcome:806
 msgid "Accessories"
-msgstr ""
+msgstr "Příslušenství"
 
 #: ubuntu-mate-welcome:807
 msgid "Education"
-msgstr ""
+msgstr "Vzdělávání"
 
 #: ubuntu-mate-welcome:808
 msgid "Games"
@@ -368,119 +352,115 @@ msgstr "Hry"
 
 #: ubuntu-mate-welcome:809
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: ubuntu-mate-welcome:810
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ubuntu-mate-welcome:811
 msgid "Office"
-msgstr ""
+msgstr "Kancelář"
 
 #: ubuntu-mate-welcome:812
 msgid "Programming"
-msgstr ""
+msgstr "Programování"
 
 #: ubuntu-mate-welcome:813
 msgid "Sound & Video"
-msgstr ""
+msgstr "Zvuk a video"
 
 #: ubuntu-mate-welcome:814
 msgid "System Tools"
-msgstr ""
+msgstr "Systémové nástroje"
 
 #: ubuntu-mate-welcome:815
 msgid "Universal Access"
-msgstr ""
+msgstr "Univerzální přístup"
 
 #: ubuntu-mate-welcome:816
 msgid "Server One-Click Installation"
-msgstr ""
+msgstr "Instalace serveru na jedno kliknutí"
 
 #: ubuntu-mate-welcome:817
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 #: ubuntu-mate-welcome:820
 msgid "Search"
-msgstr ""
+msgstr "Hledat"
 
 #: ubuntu-mate-welcome:821
 msgid "Please enter a keyword to begin."
-msgstr ""
+msgstr "Chcete-li začít, zadejte prosím klíčové slovo."
 
 #: ubuntu-mate-welcome:822
 msgid "Please enter at least 3 characters."
-msgstr ""
+msgstr "Zadejte prosím alespoň 3 znaky."
 
 #: ubuntu-mate-welcome:825
 msgid "Added"
-msgstr ""
+msgstr "Přidáno"
 
 #: ubuntu-mate-welcome:826
 msgid "Fixed"
-msgstr ""
+msgstr "Opraveno"
 
 #: ubuntu-mate-welcome:830
 msgid "Queued for installation."
-msgstr ""
+msgstr "Ve frontě pro instalaci."
 
 #: ubuntu-mate-welcome:831
 msgid "Queued for removal."
-msgstr ""
+msgstr "Ve frontě pro odstranění."
 
 #: ubuntu-mate-welcome:832
 msgid "Preparing to remove:"
-msgstr ""
+msgstr "Připraveno k odstranění:"
 
 #: ubuntu-mate-welcome:833
 msgid "Preparing to install:"
-msgstr ""
+msgstr "Připraveno k instalaci:"
 
 #: ubuntu-mate-welcome:834
-#, fuzzy
 msgid "Removing:"
-msgstr "Odstraňuje se..."
+msgstr "Odstranění:"
 
 #: ubuntu-mate-welcome:835
-#, fuzzy
 msgid "Installing:"
-msgstr "Instaluje se..."
+msgstr "Instalace:"
 
 #: ubuntu-mate-welcome:836
 msgid "Updating cache..."
-msgstr ""
+msgstr "Aktualizace mezipaměti..."
 
 #: ubuntu-mate-welcome:837
 msgid "Verifying software changes..."
-msgstr ""
+msgstr "Ověřování softwarových změn..."
 
 #: ubuntu-mate-welcome:838
 msgid "Successfully Installed"
-msgstr ""
+msgstr "Úspěšně nainstalováno"
 
 #: ubuntu-mate-welcome:839
 msgid "Failed to Install"
-msgstr ""
+msgstr "Nepodařilo se nainstalovat"
 
 #: ubuntu-mate-welcome:840
 msgid "Successfully Removed"
-msgstr ""
+msgstr "Úspěšně odebráno"
 
 #: ubuntu-mate-welcome:841
 msgid "Failed to Remove"
-msgstr ""
+msgstr "Nepodařilo se odstranit"
 
 #: ubuntu-mate-welcome:842
-#, fuzzy
 msgid "To be installed"
-msgstr "Přeinstalovat"
+msgstr "Má být instalováno"
 
 #: ubuntu-mate-welcome:843
-#, fuzzy
 msgid "To be removed"
-msgstr "Odstranit"
+msgstr "Má být odstraněno"
 
 #: ubuntu-mate-welcome:1051
 msgid "Servers"
@@ -552,7 +532,7 @@ msgstr "GiB"
 
 #: ubuntu-mate-welcome:1627
 msgid "Could not gather data."
-msgstr "Nemohla se shromažďovat data."
+msgstr "Nelze shromáždit data."
 
 #: ubuntu-mate-welcome:1926
 msgid "Raspberry Pi Partition Resize"
@@ -581,8 +561,7 @@ msgstr "není SD karta."
 
 #: ubuntu-mate-welcome:1953
 msgid "Your partition layout is not currently supported by this tool."
-msgstr ""
-"Vaše rozvržení oddílu není v současné době podporováno tímto nástrojem."
+msgstr "Vaše rozvržení oddílu není v současné době podporováno tímto nástrojem."
 
 #: ubuntu-mate-welcome:1955
 msgid "is not the last partition."
@@ -590,15 +569,15 @@ msgstr "není poslední oddíl."
 
 #: ubuntu-mate-welcome:1957
 msgid "Failed to run resize script."
-msgstr ""
+msgstr "Nepodařilo se spustit skript změny velikosti."
 
 #: ubuntu-mate-welcome:1957
 msgid "The returned error code is:"
-msgstr ""
+msgstr "Vrácený kód chyby je:"
 
 #: ubuntu-mate-welcome:2160
 msgid "Open Source"
-msgstr "Open Source"
+msgstr "Otevřený software"
 
 #: ubuntu-mate-welcome:2162
 msgid "Proprietary"
@@ -608,9 +587,7 @@ msgstr "Proprietární"
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr ""
-"Promiňte, Vítejte nemohl mají žádný software pro tuto kategorii, která je "
-"kompatibilní s tímto systémem."
+msgstr "Promiňte, Vítejte nemohl mají žádný software pro tuto kategorii, která je kompatibilní s tímto systémem."
 
 #: ubuntu-mate-welcome:2490
 msgid ""
@@ -624,67 +601,48 @@ msgstr "Příkaz:"
 
 #: ubuntu-mate-welcome:2573
 msgid "Uses a new or updated source."
-msgstr ""
+msgstr "Používá nový nebo aktualizovaný zdroj."
 
 #: ubuntu-mate-welcome:2575
 msgid "Now works for various versions of Ubuntu."
-msgstr ""
+msgstr "Nyní pracuje pro různé verze Ubuntu."
 
 #: ubuntu-mate-welcome:2577
 msgid "Now a snappy package."
-msgstr ""
+msgstr "Nyní je snappy balíček."
 
 #: ubuntu-mate-welcome:2579
 msgid "General maintenance."
-msgstr ""
+msgstr "Obecná údržba."
 
 #: ubuntu-mate-welcome:2581
 msgid "Broken or problematic source."
-msgstr ""
+msgstr "Poškozený nebo problematický zdroj."
 
 #: ubuntu-mate-welcome:2583
 msgid "Not yet available for some releases."
-msgstr ""
+msgstr "Není k dispozici pro některá vydání."
 
 #: ubuntu-mate-welcome:2585
 msgid "No longer works for some releases."
-msgstr ""
+msgstr "Již nefunguje  pro některá vydání."
 
 #: ubuntu-mate-welcome:2587
 msgid "Not suitable for production machines."
-msgstr ""
+msgstr "Nevhodné pro produkční stroje."
 
 #: ubuntu-mate-welcome:2589
 msgid "Requires further testing."
-msgstr ""
+msgstr "Vyžaduje další testování."
 
 #: ubuntu-mate-welcome:2591
 msgid "Does not meet our standards to be featured."
-msgstr ""
+msgstr "Nevyhovuje našim standardům pro zařazení."
 
 #: ubuntu-mate-welcome:2762
 msgid "applications found."
-msgstr ""
+msgstr "aplikací nalezeno."
 
 #: ubuntu-mate-welcome:2766
 msgid "proprietary applications are hidden."
-msgstr ""
-
-#, fuzzy
-#~ msgid "Removing software..."
-#~ msgstr "Odstraňuje se..."
-
-#, fuzzy
-#~ msgid "Installing software..."
-#~ msgstr "Instaluje se..."
-
-#, fuzzy
-#~ msgid "Installation of "
-#~ msgstr "Instaluje se..."
-
-#, fuzzy
-#~ msgid "Upgrade of "
-#~ msgstr "Aktualizace"
-
-#~ msgid "Skip"
-#~ msgstr "Přeskočit"
+msgstr "proprietární aplikace jsou skryté."

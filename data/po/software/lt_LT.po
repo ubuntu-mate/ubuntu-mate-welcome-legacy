@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-06 22:21+0000\n"
+"PO-Revision-Date: 2016-08-30 12:32+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +25,11 @@ msgstr "Butikas"
 
 #: software.html21, 21
 msgid "Bulk Queue"
-msgstr ""
+msgstr "Masinė eilė"
 
 #: software.html:22
 msgid "Bulk Queue Disabled"
-msgstr ""
+msgstr "Masinė eilė išjungta"
 
 #: software.html23, 23
 msgid "Search"
@@ -279,7 +279,7 @@ msgstr ", jeigu jums reikia pagalbos."
 
 #: software.html:126
 msgid "Our Picks"
-msgstr ""
+msgstr "Mūsų parinkimai"
 
 #: software.html:127
 msgid "OK"
@@ -449,7 +449,7 @@ msgstr "Naujinti į naują Ubuntu MATE laidą:"
 #: software.html:345
 msgid ""
 "Keeping you informed of the changes made to Ubuntu MATE's Software Boutique."
-msgstr ""
+msgstr "Palaikome jus informuotais apie pakeitimus Ubuntu MATE programinės įrangos butike."
 
 #: software.html:350
 msgid "Search for Applications"
@@ -481,15 +481,15 @@ msgstr "kad išžvalgytumėte visą Ubuntu katalogą."
 
 #: software.html:367
 msgid "Search again and include proprietary software."
-msgstr ""
+msgstr "Ieškoti dar kartą ir įtraukti nuosavybinę programinę įrangą."
 
 #: software.html:376
 msgid "Fine-tune the Software Boutique to suit your preferred behaviors."
-msgstr ""
+msgstr "Suderinkite programinės įrangos butiką, kad pritaikytumėte jį savo pageidaujamai elgsenai."
 
 #: software.html:379
 msgid "Boutique Selection"
-msgstr ""
+msgstr "Butiko pasirinkimas"
 
 #: software.html:381
 msgid "Hide proprietary applications."
@@ -501,76 +501,131 @@ msgstr "Įdiegimas"
 
 #: software.html:387
 msgid "Enable the Bulk Queue."
-msgstr ""
+msgstr "Įjungti masinę eilę."
 
 #: software.html:388
 msgid ""
-"When enabled, applications wait to be installed/removed, allowing you to "
-"continue browsing."
-msgstr "Kai įjungta, programos lauks įdiegimo/šalinimo, taip leisdamos jums tęsti naršymą."
+"Applications wait to be installed/removed, allowing you to continue "
+"browsing."
+msgstr "Programos laukia, kol bus įdiegtos/pašalintos, leisdamos jums tęsti naršymą."
 
-#: software.html:395
+#: software.html:393
+msgid "Suppress Progress Dialog"
+msgstr "Nerodyti eigos dialogo lango"
+
+#: software.html:394
+msgid "Install/remove applications in the background."
+msgstr "Įdiegti/šalinti programas fone."
+
+#: software.html:401
 msgid "Your Queued Changes"
-msgstr ""
+msgstr "Eilėje laukiantys pakeitimai"
 
-#: software.html:396
+#: software.html:402
 msgid ""
 "Decide which software to add or remove without committing straight away."
-msgstr ""
+msgstr "Spręskite kurią programinę įrangą pridėti ar šalinti, neatlikdami veiksmų iš karto."
 
-#: software.html:400
+#: software.html:406
 msgid "Apply Changes"
 msgstr "Taikyti pakeitimus"
 
-#: software.html:401
+#: software.html:407
 msgid "Clear"
 msgstr "Išvalyti"
 
-#: software.html:402
+#: software.html:408
 msgid "Finished"
 msgstr "Užbaigta"
 
-#: software.html:413
+#: software.html:419
 msgid "Not all changes could be applied."
 msgstr "Ne visus pakeitimus pavyko pritaikyti."
 
-#: software.html:414
+#: software.html:420
 msgid "Please review the error dialog for further details."
 msgstr "Išsamesnei informacijai, prašome peržvelgti klaidos dialogą."
 
-#: software.html:418
+#: software.html:424
 msgid "Nothing to see here -- There's no software in the queue yet."
-msgstr ""
+msgstr "Nėra ką matyti -- Kol kas eilėje nėra jokios programinės įrangos."
 
-#: software.html:429
+#: software.html:435
 msgid "Filter by Software License"
 msgstr "Filtruoti pagal programinės įrangos licenciją"
 
-#: software.html:430
+#: software.html:436
 msgid "Hide Proprietary Software"
 msgstr "Slėpti nuosavybinę programinę įrangą"
 
-#: software.html:432
+#: software.html:438
 msgid "Show Terminal Commands"
 msgstr "Rodyti terminalo komandas"
 
-#: software.html:438
+#: software.html:444
 msgid "Proprietary Software"
 msgstr "Nuosavybinė programinė įranga"
 
-#: software.html:439
+#: software.html:445
 msgid ""
 "is owned by an individual or company. There may be restrictions on its usage"
 " (like a license agreement), and provides no access to the source code."
 msgstr "priklauso individui ar kompanijai. Gali būti apribojimų, susijusių su jos naudojimu (pvz., licencijos sutartis), be to ji nesuteikia prieigos prie šaltinio kodo."
 
-#: software.html:442
+#: software.html:448
 msgid "Free and Open Source Software"
 msgstr "Laisvoji bei atviro kodo programinė įranga"
 
-#: software.html:443
+#: software.html:449
 msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
 msgstr "suteikia naudotojui laisvę be apribojimų dalintis, studijuoti ir modifikuoti programinę įrangą. Pavyzdžiui, GPL yra \"Laisvosios programinės įrangos\" licencijos pavyzdys."
+
+#: software.html:49
+msgid "Stocking the Boutique..."
+msgstr "Aprūpinamas butikas..."
+
+#: software.html413, 415
+msgid "Advanced"
+msgstr "Išplėstiniam"
+
+#: software.html:417
+msgid "Show technical package details."
+msgstr "Rodyti techninę paketo informaciją."
+
+#: software.html:418
+msgid ""
+"Displays an estimated install size, packages and the type of application"
+msgstr "Rodo apskaičiuotą įdiegimo dydį, paketus ir programos tipą"
+
+#: software.html:424
+msgid "Show Software Sources"
+msgstr "Rodyti programinės įrangos šaltinius"
+
+#: software.html425, 470
+msgid "Manage Repositories"
+msgstr "Tvarkyti saugyklas"
+
+#: software.html:460
+msgid "Software Sources"
+msgstr "Programinės įrangos šaltiniai"
+
+#: software.html:461
+msgid ""
+"Your system and applications are obtained and kept up-to-date via the "
+"following repositories."
+msgstr "Jūsų sistema ir programos yra gaunamos ir palaikomos atnaujintomis per šias saugyklas."
+
+#: software.html:463
+msgid "Parsing lists..."
+msgstr "Nagrinėjami sąrašai..."
+
+#: software.html:471
+msgid "Update Package Lists"
+msgstr "Atnaujinti paketų sąrašus"
+
+#: software.html:494
+msgid "About Proprietary Software"
+msgstr "Apie nuosavybinę programinę įranga"
