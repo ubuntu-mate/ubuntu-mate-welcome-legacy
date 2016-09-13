@@ -3281,13 +3281,13 @@
                 "folders. It also features unrivalled extensibility."
             ],
             "alternate-to": "Microsoft&reg; Outlook",
-            "subcategory": "Office Applications",
+            "subcategory": "Internet",
             "open-source": true,
             "url-info": "https://www.mozilla.org/en-US/thunderbird/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4480,7 +4480,7 @@
             "img": "youtube-dlg",
             "main-package": "youtube-dlg",
             "launch-command": "youtube-dl-gui",
-            "install-packages": "youtube-dl,youtube-dlg,python-wxtools",
+            "install-packages": "youtube-dl,youtube-dlg",
             "remove-packages": "youtube-dl,youtube-dlg",
             "description": [
                 "A front-end GUI of the popular youtube-dl, which can download videos from",
