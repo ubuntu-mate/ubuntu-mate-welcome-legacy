@@ -2848,7 +2848,9 @@
             "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
-                    "method": "skip"
+                    "method": "ppa",
+                  "enable-ppa": "ppa:wireshark-dev/stable",
+                  "source-file": "wireshark-ubuntu-stable-CODENAME"
                 }
             },
             "working": true
