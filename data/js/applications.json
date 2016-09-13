@@ -4781,9 +4781,9 @@
             },
             "working": true
         },
-         "Gns3": {
-            "name": "Gns3",
-            "img": "Gns3",
+        "gns3": {
+            "name": "GNS3",
+            "img": "gns3",
             "main-package": "gns3",
             "launch-command": "gns3",
             "install-packages": "gns3-gui",
@@ -4794,7 +4794,7 @@
                 "and access the largest networking community to help. Whether you are",
                 "studying for your first networking exam or building out a state-wide",
                 "telecommunications network, GNS3 offers an easy way to design and build",
-                "networks of any size without the need for hardware.".
+                "networks of any size without the need for hardware."
             ],
             "alternate-to": "Cisco: PachetTracer",
             "subcategory": "Graphical Network Simulator",
@@ -4802,8 +4802,8 @@
             "url-info": "https://gns3.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64",
-            "releases": "trusty,wily,xenial,yakkety",
+            "arch": "i386,amd64,armhf",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                   "method": "ppa",
