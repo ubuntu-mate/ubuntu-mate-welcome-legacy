@@ -1,9 +1,18 @@
 ubuntu-mate-welcome (16.10.8) yakkety; urgency=medium
 
+  [ Martin Wimpress ]
+  * New upstream release.
+  * Sync translations.
+
   [ Luke Horwell ]
-  * Refine Getting Started index.
+  * Auto-focus search box. (LP: #1606361).
+  * Add installation utilities in Getting Started's live session.
+  * Refine Getting Started.
   * Reduce flickering under non Ambiant-MATE themes.
-  * Update installation packages for LibreOffice, VirtualBox and YouTube-DLG.
+  * Update installation packages for LibreOffice and VirtualBox.
+
+  [ Rob Loach ]
+  * Add Thunderbird, Deja-Dup and Brasero.
 
  -- Martin Wimpress <code@flexion.org>  Thu, 11 Aug 2016 21:41:14 +0100
 
