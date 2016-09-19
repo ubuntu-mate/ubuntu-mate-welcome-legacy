@@ -5579,6 +5579,31 @@
                 }
             },
             "working": true
+        },
+        "polychromatic": {
+            "name": "Polychromatic",
+            "img": "polychromatic",
+            "main-package": "polychromatic",
+            "launch-command": null,
+            "install-packages": "polychromatic",
+            "remove-packages": "polychromatic",
+            "description": "Front-end to manage Razer peripherals",
+            "alternate-to": null,
+            "subcategory": "null",
+            "open-source": true,
+            "url-info": "https://github.com/lah7/polychromatic",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:lah7/polychromatic",
+                    "source-file": "lah7-ubuntu-polychromatic-CODENAME"
+                }
+            },
+            "working": true
         }
     },
     "KnownRepos": {
