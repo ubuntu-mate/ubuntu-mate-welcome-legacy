@@ -5554,6 +5554,31 @@
                 }
             },
             "working": true
+        },
+        "razer-drivers": {
+            "name": "Razer Drivers for Linux",
+            "img": "razer-drivers",
+            "main-package": "razer-kernel-modules-dkms",
+            "launch-command": null,
+            "install-packages": "python3-razer,razer-kernel-modules-dkms,razer-daemon,razer-doc",
+            "remove-packages": "python3-razer,razer-kernel-modules-dkms,razer-daemon,razer-doc",
+            "description": "Community written drivers for many Razer peripherals",
+            "alternate-to": null,
+            "subcategory": "null",
+            "open-source": true,
+            "url-info": "https://terrycain.github.io/razer-drivers/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "wily,xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:terrz/razerutils",
+                    "source-file": "terrz-ubuntu-razerutils-CODENAME"
+                }
+            },
+            "working": true
         }
     },
     "KnownRepos": {
