@@ -4082,6 +4082,9 @@
             "arch": "i386,amd64",
             "releases": "xenial,yakkety",
             "pre-install": {
+                "yakkety": {
+                    "method": "skip"
+                },
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:team-xbmc/ppa",
