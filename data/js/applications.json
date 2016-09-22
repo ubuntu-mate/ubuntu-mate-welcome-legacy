@@ -496,7 +496,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -927,8 +927,8 @@
             "url-info": "http://www.hedgewars.org",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "arch": "i386,amd64,armhf",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1116,8 +1116,11 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
+                "yakkety": {
+                    "method": "skip"
+                },
                 "all": {
                     "method": "manual",
                     "apt-key-url": "http://deb.playonlinux.com/public.gpg",
@@ -1148,7 +1151,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1210,7 +1213,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,vivid,xenial",
+            "releases": "trusty,xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1933,7 +1936,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
             "url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
             "arch": "i386,amd64",
-            "releases": "trusty,wily",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2032,9 +2035,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
-                "trusty,wily": {
+                "trusty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:flexiondotorg/gajim",
                     "source-file": "flexiondotorg-ubuntu-gajim-CODENAME"
@@ -2202,7 +2205,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.hipchat&hl=en",
             "url-ios": "https://itunes.apple.com/us/app/hipchat-group-chat-video-file/id418168984?mt=8",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2219,33 +2222,6 @@
                     "apt-sources": [
                         "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client xenial main"
                     ]
-                }
-            },
-            "working": true
-        },
-        "icedtea-7-plugin": {
-            "name": "Iced Tea Plug-in",
-            "img": "icedtea",
-            "main-package": "icedtea-7-plugin",
-            "launch-command": null,
-            "install-packages": "icedtea-7-plugin",
-            "remove-packages": "icedtea-7-plugin",
-            "description": [
-                "A web browser plug-in to execute",
-                "Java applets, supporting LiveConnect/JavaScript. It is",
-                "targeted for browsers that support the NPAPI, such as Mozilla Firefox."
-            ],
-            "alternate-to": null,
-            "subcategory": "Plug-in",
-            "open-source": true,
-            "url-info": "http://icedtea.classpath.org/wiki/Main_Page",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "wily",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
@@ -3656,7 +3632,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3978,7 +3954,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "trusty": {
                     "method": "ppa",
@@ -4143,7 +4119,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "trusty,xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4218,8 +4194,11 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial",
+            "releases": "xenial,yakkety",
             "pre-install": {
+                "yakkety": {
+                    "method": "skip"
+                },
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:obsproject/obs-studio",
@@ -4713,7 +4692,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64,powerpc,ppc64el",
-            "releases": "trusty,wily",
+            "releases": "trusty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5028,7 +5007,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.mb.android",
             "url-ios": "https://itunes.apple.com/gb/app/emby/id992180193",
             "arch": "i386,amd64",
-            "releases": "trusty,wily",
+            "releases": "trusty,xenial",
             "pre-install": {
                 "all": {
                     "method": "manual",
