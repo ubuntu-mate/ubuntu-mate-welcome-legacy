@@ -2020,7 +2020,7 @@
             "img": "gajim",
             "main-package": "gajim",
             "launch-command": "gajim",
-            "install-packages": "gajim,python-appindicator,python-farstream,gstreamer1.0-plugins-bad",
+            "install-packages": "gajim,python-appindicator,python-farstream",
             "remove-packages": "gajim",
             "description": [
                 "A Jabber client with a tabbed user interface for normal",
@@ -2283,7 +2283,10 @@
                 "all": {
                     "method": "manual",
                     "source-file": "insync",
-                    "apt-key-url": "https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key",
+                    "apt-key-server": [
+                        "keyserver.ubuntu.com",
+                        "ACCAF35C"
+                    ],
                     "apt-sources": [
                         "deb http://apt.insynchq.com/ubuntu trusty non-free contrib"
                     ]
