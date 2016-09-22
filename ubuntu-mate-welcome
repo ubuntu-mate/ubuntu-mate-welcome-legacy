@@ -1243,7 +1243,6 @@ class AppView(WebKit2.WebView):
             update_repos()
             systemstate.apt_cache.close()
             systemstate.apt_cache = apt.Cache()
-            self._push_config()
         elif cmd == 'fix-incomplete-install':
             fix_incomplete_install()
             systemstate.apt_cache.close()
