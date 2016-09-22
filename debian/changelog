@@ -1,15 +1,16 @@
-ubuntu-mate-welcome (16.10.8~yakkety1.3) UNRELEASED; urgency=medium
+ubuntu-mate-welcome (16.10.8~yakkety1.3) yakkety; urgency=medium
 
   [ Martin Wimpress ]
   * New upstream release.
   * Fix Audio Recorder, Gajim, InSync, KDE Connect Indicator, Kodi,
     Hedgewars, HipChat, MakeMKV, OBS Studio, Play on Linux, Ubuntu SDK,
     Ubuntu Software, Veracrypt and Wine Devel for Yakkety.
-  * Update Emby for Xenial.
+  * Update Emby and Pithos for Xenial.
   * Sync translations.
 
   [ Luke Horwell ]
   * Auto-focus search box. (LP: #1606361).
+  * Fix app-index-debugger.py
   * Refine Getting Started.
   * Refine header/footer shadows and footer icons.
   * Reduce flickering under non Ambiant-MATE themes.
