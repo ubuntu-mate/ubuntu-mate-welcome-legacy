@@ -55,16 +55,15 @@ def list_all_apps():
         category_items = list(index[category].keys())
         category_items.sort()
         for program_id in category_items:
-            data = [
-                    category,
-                    index[category][program_id]['name'],
-                    index[category][program_id]['main-package'],
-                    index[category][program_id]['subcategory'],
-                    str(index[category][program_id]['open-source']),
-                    index[category][program_id]['arch'],
-                    index[category][program_id]['releases'],
-                    str(index[category][program_id]['working']),
-                  ]
+            data = [category]
+
+            for key in ["name", "main-package", "subcategory", "open-source", "arch", "releases", "working"]:
+                try:
+                    data.append(str(index[category][program_id][key]))
+                except:
+                    # Some categories are missing these fields (e.g. "KnownRepos")
+                    data.append("")
+
             t.add_row(data)
     print(t)
     return
@@ -75,6 +74,7 @@ def list_broken():
     t = PrettyTable(["Category", 'Program ID', 'Notes'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()
@@ -97,6 +97,7 @@ def list_no_screenshot():
     t = PrettyTable(["Category", 'Program ID', 'Filename'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()
@@ -120,6 +121,7 @@ def list_missing_arch(arch):
     t = PrettyTable(["Category", 'Program ID', 'Releases'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()
@@ -138,6 +140,7 @@ def list_missing_codename(codename):
     t = PrettyTable(["Category", 'Program ID', 'Releases'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()
@@ -156,6 +159,7 @@ def list_special_preinstall():
     t = PrettyTable(["Category", 'Program ID', 'Release', 'Methods'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()
@@ -183,6 +187,7 @@ def list_app_sources():
     t_utu = PrettyTable(["Category", 'Program ID'])
     categories = list(index.keys())
     categories.sort()
+    categories.remove("KnownRepos")
     for category in categories:
         category_items = list(index[category].keys())
         category_items.sort()

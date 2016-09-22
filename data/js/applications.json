@@ -2855,7 +2855,7 @@
             "pre-install": {
                 "yakkety": {
                     "method": "skip"
-                },                
+                },
                 "all": {
                   "method": "ppa",
                   "enable-ppa": "ppa:wireshark-dev/stable",
@@ -5723,7 +5723,8 @@
                     "enable-ppa": "ppa:ubuntu-mate-dev/xenial-mate",
                     "source-file": ""
                 }
-            }
+            },
+            "working": true
         },
         "ubuntu-wine": {
             "name": "Ubuntu Wine Repository",
@@ -5734,7 +5735,8 @@
                     "enable-ppa": "ppa:ubuntu-wine/ppa",
                     "source-file": ""
                 }
-            }
+            },
+            "working": true
         },
         "ubuntu-mate-welcome-dev": {
             "name": "Ubuntu MATE Welcome Development Packages",
@@ -5745,7 +5747,8 @@
                     "enable-ppa": "ppa:lah7/ubuntu-mate-welcome-dev",
                     "source-file": ""
                 }
-            }
+            },
+            "working": true
         }
     }
 }
