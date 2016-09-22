@@ -2553,6 +2553,41 @@
             },
             "working": true
         },
+        "skypeforlinux": {
+            "name": "Skype for Linux Alpha",
+            "img": "skypeforlinux",
+            "main-package": "skypeforlinux",
+            "launch-command": "skypeforlinux",
+            "install-packages": "skypeforlinux",
+            "remove-packages": "skypeforlinux",
+            "description": [
+                "Skype is software that enables the world&#8217;s",
+                "conversations. Millions of individuals and businesses use",
+                "Skype to make free video and voice calls, send instant",
+                "messages and share files with other Skype users. Every day,",
+                "people also use Skype to make low-cost calls to landlines and",
+                "mobiles."
+            ],
+            "alternate-to": null,
+            "subcategory": "Instant Messaging",
+            "open-source": false,
+            "url-info": "http://www.skype.com",
+            "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
+            "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
+            "arch": "amd64",
+            "releases": "xenial,yakkety",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "skype-stable",
+                    "apt-key-url": "https://repo.skype.com/data/SKYPE-GPG-KEY",
+                    "apt-sources": [
+                        "deb [arch=amd64] https://repo.skype.com/deb stable main"
+                    ]
+                }
+            },
+            "working": true
+        },        
         "sparkleshare": {
             "name": "SparkleShare",
             "img": "sparkleshare",
