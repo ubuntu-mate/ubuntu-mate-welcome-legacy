@@ -637,11 +637,12 @@ if ( current_page == 'gettingstarted.html' ) {
   }, 1000);
 
   // Expand / Collapse sub-sections to keep it tidy.
-  function toggleSub(divID,arrowID) {
-    $(".drivers-arrow").removeClass('fa-chevron-down').removeClass('fa-chevron-up');
+  function toggleSub(divID, arrowID) {
+    $(".sub-collapse > span").addClass('fa-chevron-down').removeClass('fa-chevron-up');
+    alreadyOpen = $("#"+divID).is(":visible");
     $(".drivers-section").slideUp("fast");
-    if ( $('#'+divID).is(":visible") == false ) {
-      $('#'+divID).slideDown('fast');
+    if ( alreadyOpen == false ) {
+      $("#"+divID).slideDown('fast');
       $('#'+arrowID).removeClass('fa-chevron-down');
       $('#'+arrowID).addClass('fa-chevron-up');
     }
