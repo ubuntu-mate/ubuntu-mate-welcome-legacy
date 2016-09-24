@@ -121,11 +121,11 @@ if ( current_page == 'index.html' ) {
 
   // Animate elements of the page
   $('.main-menu-text').fadeIn('medium');
-  $('#open-at-start').jAnimateOnce('fadeIn');
   $('#mate-blur').jAnimateOnce('zoomIn');
   $('#mate-blur').show();
 
   function exitMenu(target) {
+      $("#open-at-start").fadeOut();
       // Show a "wait" cursor for the Software page, as there is a slight delay.
       if ( target == 'software.html' ) {
           setCursorBusy()

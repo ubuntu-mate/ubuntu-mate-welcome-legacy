@@ -917,7 +917,7 @@ class AppView(WebKit2.WebView):
             # Buttons (IDs) to be displayed
             btns = [ 'introduction', 'features', 'gettingstarted',
                      'getinvolved', 'shop', 'donate',
-                     'community', 'chatroom', 'software'
+                     'community', 'chatroom', 'software', 'open-at-start'
                    ]
 
             # Show Welcome at login state
@@ -932,6 +932,7 @@ class AppView(WebKit2.WebView):
             if systemstate.session_type == 'guest':
                 btns.remove('gettingstarted')
                 btns.remove('software')
+                btns.remove('open-at-start')
                 app.update_page('#introduction', 'addClass', 'btn-success')
                 app.update_page('#community', 'addClass', 'btn-success')
 
@@ -943,6 +944,7 @@ class AppView(WebKit2.WebView):
             if systemstate.session_type == 'live':
                 btns.remove('gettingstarted')
                 btns.remove('software')
+                btns.remove('open-at-start')
                 btns.append('install-guide')
                 btns.append('install')
 
