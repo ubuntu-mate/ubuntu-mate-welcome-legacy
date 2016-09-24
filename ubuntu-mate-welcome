@@ -2449,7 +2449,8 @@ class DynamicApps(object):
         # Either:
         #   -   Queue the application for install/remove later. Only in Boutique.
         #   -   Perform a one click operation.
-        if queue.is_enabled() and app.current_page == 'software.html':
+        #   -   Upgrade a package (on an individual basis)
+        if queue.is_enabled() and app.current_page == 'software.html' and not action == "upgrade":
             queue.add_item(program_id, action)
 
         else:
