@@ -560,20 +560,14 @@ if ( current_page == 'gettingstarted.html' ) {
 
         if ( prevPage == "none" ) {
           $("#topic-prev").addClass("disabled");
-          $("#bottom-topic-prev").hide();
         } else {
           $("#topic-prev").removeClass("disabled");
-          $("#bottom-topic-prev").show();
-          $("#bottom-topic-prev").attr("title", prevText);
         }
 
         if ( nextPage == "none" ) {
           $("#topic-next").addClass("disabled");
-          $("#bottom-topic-next").hide();
         } else {
           $("#topic-next").removeClass("disabled");
-          $("#bottom-topic-next").show();
-          $("#bottom-topic-next").attr("title", nextText);
         }
 
         // Gather system specs if applicable.
