@@ -279,37 +279,6 @@ class SimpleApt(object):
                 else:
                     notify_send(title_error, descr_error, img_path)
 
-        # Notifications for bulk operations
-        else:
-            if self.action == 'install':
-                title_success   = str(len(queue.install_queue)) + ' ' + _("applications have been installed")
-                descr_success   = _("Your newly installed applications are ready to use.")
-
-                title_cancel    = _("Some applications were not installed.")
-                descr_cancel    = _("The operation was cancelled.")
-
-                title_error     = _("Some applications failed to install.")
-                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
-
-            elif self.action == 'remove':
-                title_success   = str(len(queue.remove_queue)) + ' ' + _("applications have been removed")
-                descr_success   = _("These applications are no longer present on your system.")
-
-                title_cancel    = _("Some applications were not removed.")
-                descr_cancel    = _("The operation was cancelled.")
-
-                title_error     = _("Some applications failed to remove.")
-                descr_error     = _("Software Boutique encountered a problem with one of the applications.")
-
-            # Do not show notifications when updating the cache
-            if self.action != 'update':
-                if status == 'exit-success':
-                    notify_send(title_success, descr_success, data_path + 'img/notify/bulk-success.svg')
-                elif status == 'exit-cancelled':
-                    notify_send(title_cancel, descr_cancel,  data_path + 'img/notify/bulk-warning.svg')
-                else:
-                    notify_send(title_error, descr_error,  data_path + 'img/notify/bulk-error.svg')
-
     def do_fix_incomplete_install(self):
         dynamicapps.operations_busy = True
         # Corresponds to: dpkg --configure -a
@@ -3159,19 +3128,28 @@ class ChangesQueue(object):
         def check_app_state(self, program_id, check_for_state):
             systemstate.reload_cache()
             installed = dynamicapps.is_app_installed(program_id)
+            name = dynamicapps.get_attribute_for_app(program_id, 'name')
+            img = dynamicapps.get_attribute_for_app(program_id, 'img')
+            img_path = os.path.join(data_path, 'img', 'applications', img + '.png')
+            if not os.path.exists(img_path):
+                img_path = 'package'
 
             if installed and check_for_state == 'install':
                 self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.install_success, 'success')
+                notify_send( name + ' ' + _('Installed'), _("The application is now ready to use."), img_path)
 
             elif not installed and check_for_state == 'install':
                 self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.install_fail, 'error')
+                notify_send( name + ' ' + _('failed to install'), _("There was a problem installing this application."), img_path)
                 self.bulk_all_good = False
 
             elif not installed and check_for_state == 'remove':
                 self.ui_update_card(program_id, '<span class="fa fa-check"></span> ' + string.remove_success, 'success')
+                notify_send( name + ' ' + _('Removed'), _("The application has been uninstalled."), img_path)
 
             elif installed and check_for_state == 'remove':
                 self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.remove_fail, 'error')
+                notify_send( name + ' ' + _('failed to install'), _("A problem is preventing this application from being removed."), img_path)
                 self.bulk_all_good = False
 
         # Uninstall applications first
