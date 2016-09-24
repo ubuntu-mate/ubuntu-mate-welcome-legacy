@@ -529,7 +529,7 @@
               <h5>&zwnj;An Internet connection is required to download and install drivers.&zwnj;</h5>
             </div>
             <div align="center">
-                <a class="btn btn-inverse" onclick="cmd('drivers')" onclick="smoothFade('','#drivers-hint')">
+                <a class="btn btn-inverse" onclick="cmd('drivers'); smoothFade('','#drivers-hint')">
                     <img src="img/applications/additional-drivers.png" width="32px" height="32px"/>&nbsp; &zwnj;Additional Drivers&zwnj;
                 </a>
                 <a class="btn btn-inverse" onclick="cmd('install-appid?firmware')">
@@ -762,7 +762,7 @@
             <p>&zwnj;Your computer may require updates to your language and
             localization settings, or you may want to install additional
             language support.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('language')" onclick="smoothFade('','#locale-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('language'); smoothFade('','#locale-hint')">
               <img src="img/applications/preferences-desktop-locale.png" width="32px" height="32px"/>&nbsp; &zwnj;Language Support&zwnj;
             </a></div>
             <span id="locale-hint" class="center" hidden><small>
@@ -813,7 +813,7 @@
             <p><img src="img/applications/deja-dup.png" width="20px" height="20px"/>
             <b>Deja-Dup</b> &zwnj;comes pre-installed and supports backups to
             local devices as well as online cloud-based services.&zwnj;</p>
-            <a class="btn btn-lg btn-inverse" onclick="cmd('backup')" onclick="smoothFade('','#backup-hint')">
+            <a class="btn btn-lg btn-inverse" onclick="cmd('backup'); smoothFade('','#backup-hint')">
               <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Backup&zwnj;
             </a>
             <span id="backup-hint" class="center" hidden><small>
@@ -862,7 +862,7 @@
               <b>Gufw</b> &zwnj;provides a graphical frontend to&zwnj; <code>ufw</code>
               (&zwnj;Uncomplicated Firewall&zwnj;). &zwnj;If security is important to you, there are&zwnj;
               <a onclick="cmd('link?https://wiki.ubuntu.com/BasicSecurity')">&zwnj;more ways to stay secure too&zwnj;</a>.</p>
-            <a class="btn btn-lg btn-inverse" onclick="cmd('firewall')" onclick="smoothFade('','#firewall-hint')">
+            <a class="btn btn-lg btn-inverse" onclick="cmd('firewall'); smoothFade('','#firewall-hint')">
               <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Firewall&zwnj;
             </a>
             <span id="firewall-hint" class="center" hidden><small>
@@ -885,7 +885,7 @@
             </p>
             <p>&zwnj;You can also log in to a&zwnj; <b>&zwnj;Guest Session&zwnj;</b> &zwnj;if someone
             is using your computer as a one-off.&zwnj;</p>
-            <a class="btn btn-lg btn-inverse" onclick="cmd('users')" onclick="smoothFade('','#users-hint')">
+            <a class="btn btn-lg btn-inverse" onclick="cmd('users'); smoothFade('','#users-hint')">
               <img src="img/applications/users.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Users&zwnj;
             </a>
             <span id="users-hint" class="center" hidden><small>
@@ -907,7 +907,7 @@
             and feel. The&zwnj; <b>Redmond</b> &zwnj;layout is similar to
             Microsoft Windows, while the&zwnj; <b>Cupertino</b> &zwnj;layout is
             similar to Apple Mac OS X.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('tweak')" onclick="smoothFade('','#tweak-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('tweak'); smoothFade('','#tweak-hint')">
               <img src="img/applications/control-centre.png" width="32px" height="32px"/>&nbsp; &zwnj;User Interface&zwnj;
             </a></div>
             <span id="tweak-hint" class="center" hidden><small>
@@ -919,7 +919,7 @@
             <p>&zwnj;The utilities mentioned above are all part of the extensive
             Control Center that Ubuntu MATE provides. You can configure
             just about every aspect of your computer from the Control Center.&zwnj;</p>
-            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('control')" onclick="smoothFade('','#control-hint')">
+            <div align="center"><a class="btn btn-lg btn-inverse" onclick="cmd('control')">
               <img src="img/applications/desktop.png" width="32px" height="32px"/>&nbsp; &zwnj;Control Center&zwnj;
             </a></div>
           </div>
