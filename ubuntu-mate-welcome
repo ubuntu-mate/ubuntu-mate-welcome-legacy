@@ -3000,7 +3000,7 @@ class ChangesQueue(object):
 
         # Card template
         self.card_template = '<div class="card-PROGRAM_ID queue-card">' + \
-                                 '<img class="icon" src="img/applications/PROGRAM_IMG.png"/>' + \
+                                 '<img class="icon" src="' + trans.res_dir + 'img/applications/PROGRAM_IMG.png"/>' + \
                                  '<span class="title">PROGRAM_NAME</span>' + \
                                  '<div class="status">' + \
                                      '<span class="status-PROGRAM_ID"> DEFAULT_TEXT </span> ' + \
@@ -3059,7 +3059,8 @@ class ChangesQueue(object):
 
         # Zoom the application into the queue.
         img = dynamicapps.get_attribute_for_app(program_id, 'img')
-        app.update_page('#navigation-right', 'append', '<img src="' + data_path + 'img/applications/' + img + '.png" class="queue-zoom-icon"/>')
+        img_path = 'file://' + os.path.join(data_path, "img/applications/", img + ".png")
+        app.update_page('#navigation-right', 'append', '<img src="' + img_path + '" class="queue-zoom-icon"/>')
 
     def drop_item(self, program_id):
         # User no longer wants changes to this program.
