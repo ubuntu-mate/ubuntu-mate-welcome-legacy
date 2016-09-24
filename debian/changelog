@@ -4,6 +4,16 @@ ubuntu-mate-welcome (16.10.9) UNRELEASED; urgency=medium
   * New upstream release.
   * Remove ocenaudio. (LP: #1613410)
 
+  [ Luke Horwell ]
+  * Minor string changes.
+  * Fix Getting Started sections not re-closing. (LP: #1626909)
+  * Fix broken images in bulk queue. (LP: #1626896)
+  * Fix notifications for bulk queue operations. (LP: #1626899)
+  * Fix "Upgrade Installed Packages" button. (LP: #1626907)
+  * Fix inoperable introduction links.
+  * Hide "open at login" checkbox for live and guest sessions.
+  * Fix Getting Started hints not appearing.
+
  -- Martin Wimpress <code@flexion.org>  Fri, 23 Sep 2016 09:54:10 +0100
 
 ubuntu-mate-welcome (16.10.8) yakkety; urgency=medium
