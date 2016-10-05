@@ -12,9 +12,9 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
           <span class="fa fa-chevron-left"></span>
-        </a>
+        </button>
         <div id="navigation-title" style="display:none">&zwnj;Donate&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
@@ -23,13 +23,13 @@
       <div class="row-fluid">
         <div class="span12">
           <ul id="tabs" class="nav nav-pills" data-tabs="tabs">
-            <li class="active"><a onclick="smoothFade('#supporters','#about')" data-toggle="tab" id="tabAbout">&zwnj;About Donations&zwnj;</a></li>
-            <li><a onclick="smoothFade('#about','#supporters')" data-toggle="tab" id="tabSupporters">&zwnj;Our Supporters&zwnj;</a></li>
+            <li class="active"><button onclick="smoothFade('#supporters','#about')" data-toggle="tab" id="tabAbout">&zwnj;About Donations&zwnj;</button></li>
+            <li><button onclick="smoothFade('#about','#supporters')" data-toggle="tab" id="tabSupporters">&zwnj;Our Supporters&zwnj;</button></li>
           </ul>
           <div class="alert alert-warning offline">
             <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
             <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-            <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+            <button onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</button>
           </div>
         </div>
       </div>
@@ -56,20 +56,20 @@
           </div>
           <div class="row-fluid">
             <div class="span4 center">
-              <a class="btn btn-warning btn-lg" onclick="cmd('link?http://www.patreon.com/ubuntu_mate')"><span class="fa fa-3x fa-usd fa-va"></span>&nbsp; &zwnj;Become a Patron&zwnj;</a>
+              <button class="btn btn-warning btn-lg" onclick="cmd('link?http://www.patreon.com/ubuntu_mate')"><span class="fa fa-3x fa-usd fa-va"></span>&nbsp; &zwnj;Become a Patron&zwnj;</button>
             </div>
             <div class="span4 center">
-              <a class="btn btn-warning btn-lg" onclick="cmd('link?https://ubuntu-mate.org/donate/')"><span class="fa fa-3x fa-paypal fa-va"></span>&nbsp; &zwnj;Donate with PayPal&zwnj;</a>
+              <button class="btn btn-warning btn-lg" onclick="cmd('link?https://ubuntu-mate.org/donate/')"><span class="fa fa-3x fa-paypal fa-va"></span>&nbsp; &zwnj;Donate with PayPal&zwnj;</button>
             </div>
             <div class="span4 center">
-              <a class="btn btn-warning btn-lg" onclick="cmd('link?https://ubuntu-mate.org/donate/')"><span class="fa fa-3x fa-bitcoin fa-va"></span>&nbsp; &zwnj;Donate with Bitcoin&zwnj;</a>
+              <button class="btn btn-warning btn-lg" onclick="cmd('link?https://ubuntu-mate.org/donate/')"><span class="fa fa-3x fa-bitcoin fa-va"></span>&nbsp; &zwnj;Donate with Bitcoin&zwnj;</button>
             </div>
           </div>
           <div class="row-fluid">
             <div class="span12">
               <hr class="soften" />
               <p><b>&zwnj;Commercial sponsorship&zwnj;</b> &zwnj;is also available. Click the&zwnj;
-              <a onclick="cmd('link?http://www.patreon.com/ubuntu_mate')">&zwnj;Become a Patron&zwnj;</a> &zwnj;button above to find out more.&zwnj;</p>
+              <button class="link" onclick="cmd('link?http://www.patreon.com/ubuntu_mate')">&zwnj;Become a Patron&zwnj;</button> &zwnj;button above to find out more.&zwnj;</p>
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@
             <div class="span12">
               <h4>&zwnj;Thank you!&zwnj;</h4>
               <p>&zwnj;Every month, we compile a list of our donations and detail how they are spent.&zwnj;</p>
-              <p>&zwnj;This information is published monthly to the&zwnj; <a onclick="cmd('link?http://ubuntu-mate.org/blog/')">&zwnj;Ubuntu MATE Blog&zwnj;</a>,
+              <p>&zwnj;This information is published monthly to the&zwnj; <button onclick="cmd('link?http://ubuntu-mate.org/blog/')">&zwnj;Ubuntu MATE Blog&zwnj;</button>,
               &zwnj;which you can take a look below.&zwnj;</p>
 
               <!-- Idea = Server side word graph that compiles names of all donators together - Higher donations = Larger names. -->

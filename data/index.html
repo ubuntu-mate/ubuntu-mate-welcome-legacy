@@ -15,10 +15,10 @@
       <div id="navigation-title" style="display:none">&zwnj;Main Menu&zwnj;</div>
       <div id="navigation-right" class="entire-page-fade">
         <div id="update-notification" class="heads-up">
-          <a onclick="cmd('subscribe-updates')" class="btn btn-inverse"  style="display:none" data-toggle="tooltip" data-placement="bottom"
+          <button onclick="cmd('subscribe-updates')" class="btn btn-inverse"  style="display:none" data-toggle="tooltip" data-placement="bottom"
               title="&zwnj;Ensures Welcome's documentation, translations and software picks are always up-to-date.&zwnj;">
             &zwnj;Subscribe to Welcome updates&zwnj; &nbsp;<span class="fa fa-arrow-circle-up"></span>
-          </a>
+          </button>
         </div>
       </div>
       <div id="update-subscribing" class="heads-up" style="display:none">
@@ -47,17 +47,17 @@
       <div class="row-fluid divider">
         <div class="span4 btn-showcase">
           <!-- Documentation -->
-          <a style="display:none" id="introduction"   class="btn btn-block btn-default" onclick="exitMenu('introduction.html')"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; &zwnj;Introduction&zwnj;</a>
-          <a style="display:none" id="features"       class="btn btn-block btn-default" onclick="exitMenu('features.html')"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; &zwnj;Features&zwnj;</a>
-          <a style="display:none" id="gettingstarted" class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; &zwnj;Getting Started&zwnj;</a>
-          <a style="display:none" id="install-guide"  class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; &zwnj;Installation Help&zwnj;</a>
+          <button style="display:none" id="introduction"   class="btn btn-block btn-default" onclick="exitMenu('introduction.html')"><span class="fa fa-2x fa-book fa-va"></span>&nbsp; &zwnj;Introduction&zwnj;</button>
+          <button style="display:none" id="features"       class="btn btn-block btn-default" onclick="exitMenu('features.html')"><span class="fa fa-2x fa-star fa-va"></span>&nbsp; &zwnj;Features&zwnj;</button>
+          <button style="display:none" id="gettingstarted" class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-info-circle fa-va"></span>&nbsp; &zwnj;Getting Started&zwnj;</button>
+          <button style="display:none" id="install-guide"  class="btn btn-block btn-success" onclick="exitMenu('gettingstarted.html')"><span class="fa fa-2x fa-laptop fa-va"></span>&nbsp; &zwnj;Installation Help&zwnj;</button>
         </div>
         <div class="span4 btn-showcase"></div>
         <div class="span4 btn-showcase">
           <!-- Project -->
-          <a style="display:none" id="getinvolved" class="btn btn-block btn-default" onclick="exitMenu('getinvolved.html')"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; &zwnj;Get Involved&zwnj;</a>
-          <a style="display:none" id="shop"        class="btn btn-block btn-default" onclick="exitMenu('shop.html')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; &zwnj;Shop&zwnj;</a>
-          <a style="display:none" id="donate"      class="btn btn-block btn-success" onclick="exitMenu('donate.html')"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; &zwnj;Donate&zwnj;</a>
+          <button style="display:none" id="getinvolved" class="btn btn-block btn-default" onclick="exitMenu('getinvolved.html')"><span class="fa fa-2x fa-code fa-va"></span>&nbsp; &zwnj;Get Involved&zwnj;</button>
+          <button style="display:none" id="shop"        class="btn btn-block btn-default" onclick="exitMenu('shop.html')"><span class="fa fa-2x fa-shopping-cart fa-va"></span>&nbsp; &zwnj;Shop&zwnj;</button>
+          <button style="display:none" id="donate"      class="btn btn-block btn-success" onclick="exitMenu('donate.html')"><span class="fa fa-2x fa-heart fa-va"></span>&nbsp; &zwnj;Donate&zwnj;</button>
         </div>
       </div>
       <br>
@@ -65,18 +65,18 @@
         <div class="span4 btn-showcase">
           <br>
           <!-- Support -->
-          <a style="display:none" id="community"   class="btn btn-block btn-default" onclick="exitMenu('community.html')"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; &zwnj;Community&zwnj;</a>
-          <a style="display:none" id="chatroom"    class="btn btn-block btn-default" onclick="exitMenu('chatroom.html')"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; &zwnj;Chat Room&zwnj;</a>
-          <a style="display:none" id="software"    class="btn btn-block btn-success" onclick="exitMenu('software.html');$('#footer-left').fadeOut()"><img src="img/welcome/boutique-mono.svg">&nbsp; &zwnj;Software&zwnj;</a>
-          <a style="display:none" id="install"     class="btn btn-block btn-success" onclick="cmd('install')"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; &zwnj;Install Now&zwnj;</a>
+          <button style="display:none" id="community"   class="btn btn-block btn-default" onclick="exitMenu('community.html')"><span class="fa fa-2x fa-group fa-va"></span>&nbsp; &zwnj;Community&zwnj;</button>
+          <button style="display:none" id="chatroom"    class="btn btn-block btn-default" onclick="exitMenu('chatroom.html')"><span class="fa fa-2x fa-comments fa-va"></span>&nbsp; &zwnj;Chat Room&zwnj;</button>
+          <button style="display:none" id="software"    class="btn btn-block btn-success" onclick="exitMenu('software.html');$('#footer-left').fadeOut()"><img src="img/welcome/boutique-mono.svg">&nbsp; &zwnj;Software&zwnj;</button>
+          <button style="display:none" id="install"     class="btn btn-block btn-success" onclick="cmd('install')"><span class="fa fa-2x fa-hdd-o fa-va"></span>&nbsp; &zwnj;Install Now&zwnj;</button>
         </div>
         <div class="span4 btn-showcase"></div>
         <br>
         <div class="span4 btn-showcase">
-          <a style="display:none" id="raspberry-pi" class="btn btn-block btn-rpi" onclick="exitMenu('rpi.html')" style="height: 95px; padding-top:10px;">
+          <button style="display:none" id="raspberry-pi" class="btn btn-block btn-rpi" onclick="exitMenu('rpi.html')" style="height: 95px; padding-top:10px;">
             <img src="img/logos/raspberry-pi-mono.png"/>
             <br>&zwnj;Raspberry Pi Information&zwnj;
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -87,9 +87,9 @@
         <span id="footer-global-left"></span>
       </div>
       <div id="footer-right" class="form">
-        <a id="open-at-start" onclick="cmd('autostart')" style="display:none">
+        <button id="open-at-start" onclick="cmd('autostart')" style="display:none">
           <span id="autostart" class="fa fa-square fa-va"></span> &zwnj;Open Welcome when I log on.&zwnj;
-        </a>
+        </button>
         <span id="footer-global-right"></span>
       </div>
     </div>

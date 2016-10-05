@@ -52,6 +52,28 @@ body, button, input {
   cursor: wait;
 }
 
+/* Buttons behave like anchors by default */
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  border: 1px solid transparent;
+  cursor: default !important;
+  color: #758A53;
+}
+
+button:focus {
+  cursor: default;
+  border: 1px solid #87A556;
+}
+
+.link:hover {
+  cursor: pointer !important;
+  text-decoration: underline;
+}
+
 /************************
  * Nicer Scroll Bar Integration
 *************************/
@@ -140,8 +162,8 @@ body, button, input {
 }
 
 .navigation-button {
-  width: 15px;
-  height: 21px;
+  width: 40px;
+  height: 30px;
 	color: #DED9CB;
   display: inline-block;
   padding: 4px 12px;
@@ -260,15 +282,16 @@ img, a {
 /* Collapsible Sub-Sections */
 .sub-collapse {
   cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.sub-collapse > h3 {
+  margin: 0;
 }
 
 .sub-collapse:hover {
   text-decoration: none;
-}
-
-/* Any link (href / onclick) shows the pointing cursor */
-a {
-  cursor: pointer;
 }
 
 /************************
@@ -289,19 +312,19 @@ a {
   padding: 16px;
 }
 
-#footer .form {
+.footer-content > div.form {
   display: inline-block;
   position: absolute;
-  right: 8px;
+  right: 16px;
 }
 
-#footer .form a {
+.footer-content > div.form > button {
   color: #fff;
   text-decoration: none;
   margin-right: 8px;
 }
 
-#footer label {
+.footer-content > div > label {
   display: inline-block;
   padding-left: 0;
   margin-bottom: 0;
@@ -318,7 +341,8 @@ a {
   width: 24px; height: 24px;
   position: relative;
   top: 0px;
-  margin-right: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
   opacity: 0.7;
 
   -webkit-filter: grayscale(1);
@@ -720,7 +744,7 @@ blockquote.terminal {
 }
 
 /* Preferences */
-#pref-table > tbody > tr > td > a {
+#pref-table > tbody > tr > td > button {
   color: black;
   text-decoration: none;
 }
@@ -914,9 +938,9 @@ blockquote.terminal {
 #skip-btn {
   position: fixed;
   right: 8px;
-  bottom: 20px;
+  bottom: 8px;
   width: 48px;
-  height: 10px;
+  height: 30px;
   text-align: center;
   vertical-align: right;
   color: #C0C0C0;
@@ -971,7 +995,7 @@ blockquote.terminal {
   float: left;
   min-width: 200px;
   width: auto;
-  height: 28px;
+  height: 44px;
   background-color: white;
   box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
   padding: 8px;

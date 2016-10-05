@@ -12,35 +12,35 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" style="display:none" onclick="smoothPageFade('index.html');$('#footer-left').fadeOut();$('#non-free-toggle').fadeOut();$('#show-misc-cmds').fadeOut()">
+        <button id="menu-button" class="navigation-button" style="display:none" onclick="smoothPageFade('index.html');$('#footer-left').fadeOut();$('#non-free-toggle').fadeOut();$('#show-misc-cmds').fadeOut()">
           <span class="fa fa-chevron-left"></span>
-        </a>
+        </button>
         <div id="navigation-title" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"></span></div>
         <div id="navigation-right" hidden>
-          <a id="navigation-queue" class="navigation-button" onclick="showQueue('&zwnj;Bulk Queue&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue&zwnj;">                  <span class="fa fa-clone"></span><div id="navigation-queue-count" class="empty">0</div></a>
-          <a id="navigation-queue-disabled" class="navigation-button" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue Disabled&zwnj;" style="display:none">                         <span class="fa fa-clone" style="opacity:0.5"></span></a>
-          <a id="navigation-search" class="navigation-button" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">                        <span class="fa fa-search"></span></a>
-          <a id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">              <span class="fa fa-newspaper-o"></span></a>
-          <a id="navigation-prefs" class="navigation-button" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">                <span class="fa fa-wrench"></span></a>
-          <a id="scroll-top-always-show" class="navigation-button disabled" onclick="backToTop()"><span class="fa fa-chevron-up"></span></a>
+          <button id="navigation-queue" class="navigation-button" onclick="showQueue('&zwnj;Bulk Queue&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue&zwnj;">                  <span class="fa fa-clone"></span><div id="navigation-queue-count" class="empty">0</div></button>
+          <button id="navigation-queue-disabled" class="navigation-button" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue Disabled&zwnj;" style="display:none">                         <span class="fa fa-clone" style="opacity:0.5"></span></button>
+          <button id="navigation-search" class="navigation-button" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">                        <span class="fa fa-search"></span></button>
+          <button id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">              <span class="fa fa-newspaper-o"></span></button>
+          <button id="navigation-prefs" class="navigation-button" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">                <span class="fa fa-wrench"></span></button>
+          <button id="scroll-top-always-show" class="navigation-button disabled" onclick="backToTop()"><span class="fa fa-chevron-up"></span></button>
         </div>
       </div>
     </div>
     <div id="category-tabs" hidden>
       <ul id="tabs" class="nav nav-pills" data-tabs="tabs" style="text-align: center">
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Accessories&zwnj;">      <a id="AccessoriesBtn" data-toggle="tab" onclick='changeCategoryTab("#Accessories", "&zwnj;Accessories&zwnj;");'>      <span class="fa fa-2x fa-va fa-scissors">       </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Education&zwnj;">        <a id="EducationBtn"   data-toggle="tab" onclick='changeCategoryTab("#Education",   "&zwnj;Education&zwnj;");'>        <span class="fa fa-2x fa-va fa-graduation-cap"> </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Games&zwnj;">            <a id="GamesBtn"       data-toggle="tab" onclick='changeCategoryTab("#Games",       "&zwnj;Games&zwnj;");'>            <span class="fa fa-2x fa-va fa-gamepad">        </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Graphics&zwnj;">         <a id="GraphicsBtn"    data-toggle="tab" onclick='changeCategoryTab("#Graphics",    "&zwnj;Graphics&zwnj;");'>         <span class="fa fa-2x fa-va fa-picture-o">      </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Internet&zwnj;">         <a id="InternetBtn"    data-toggle="tab" onclick='changeCategoryTab("#Internet",    "&zwnj;Internet&zwnj;");'>         <span class="fa fa-2x fa-va fa-globe">          </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Office&zwnj;">           <a id="OfficeBtn"      data-toggle="tab" onclick='changeCategoryTab("#Office",      "&zwnj;Office&zwnj;");'>           <span class="fa fa-2x fa-va fa-bar-chart">      </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Programming&zwnj;">      <a id="ProgrammingBtn" data-toggle="tab" onclick='changeCategoryTab("#Programming", "&zwnj;Programming&zwnj;");'>      <span class="fa fa-2x fa-va fa-code">           </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Sound & Video&zwnj;" >   <a id="MediaBtn"       data-toggle="tab" onclick='changeCategoryTab("#Media",       "&zwnj;Sound & Video&zwnj;");'>    <span class="fa fa-2x fa-va fa-film">           </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;System Tools&zwnj;">     <a id="SysToolsBtn"    data-toggle="tab" onclick='changeCategoryTab("#SysTools",    "&zwnj;System Tools&zwnj;");'>     <span class="fa fa-2x fa-va fa-cog">            </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Universal Access&zwnj;"> <a id="UnivAccessBtn"  data-toggle="tab" onclick='changeCategoryTab("#UnivAccess",  "&zwnj;Universal Access&zwnj;");'> <span class="fa fa-2x fa-va fa-wheelchair">     </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Servers&zwnj;">          <a id="ServersBtn"     data-toggle="tab" onclick='changeCategoryTab("#Servers",     "&zwnj;Servers&zwnj;");'>          <span class="fa fa-2x fa-va fa-server">         </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;More Software&zwnj;">    <a id="MoreAppsBtn"    data-toggle="tab" onclick='changeCategoryTab("#MoreApps",    "&zwnj;More Software&zwnj;");'>    <span class="fa fa-2x fa-va fa-download">       </span></a></li>
-        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <a id="MiscBtn"        data-toggle="tab" onclick='changeCategoryTab("#Misc",        "&zwnj;Fixes&zwnj;");'>            <span class="fa fa-2x fa-va fa-check-square-o"> </span></a></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Accessories&zwnj;">      <button id="AccessoriesBtn" data-toggle="tab" onclick='changeCategoryTab("#Accessories", "&zwnj;Accessories&zwnj;");'>      <span class="fa fa-2x fa-va fa-scissors">       </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Education&zwnj;">        <button id="EducationBtn"   data-toggle="tab" onclick='changeCategoryTab("#Education",   "&zwnj;Education&zwnj;");'>        <span class="fa fa-2x fa-va fa-graduation-cap"> </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Games&zwnj;">            <button id="GamesBtn"       data-toggle="tab" onclick='changeCategoryTab("#Games",       "&zwnj;Games&zwnj;");'>            <span class="fa fa-2x fa-va fa-gamepad">        </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Graphics&zwnj;">         <button id="GraphicsBtn"    data-toggle="tab" onclick='changeCategoryTab("#Graphics",    "&zwnj;Graphics&zwnj;");'>         <span class="fa fa-2x fa-va fa-picture-o">      </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Internet&zwnj;">         <button id="InternetBtn"    data-toggle="tab" onclick='changeCategoryTab("#Internet",    "&zwnj;Internet&zwnj;");'>         <span class="fa fa-2x fa-va fa-globe">          </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Office&zwnj;">           <button id="OfficeBtn"      data-toggle="tab" onclick='changeCategoryTab("#Office",      "&zwnj;Office&zwnj;");'>           <span class="fa fa-2x fa-va fa-bar-chart">      </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Programming&zwnj;">      <button id="ProgrammingBtn" data-toggle="tab" onclick='changeCategoryTab("#Programming", "&zwnj;Programming&zwnj;");'>      <span class="fa fa-2x fa-va fa-code">           </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Sound & Video&zwnj;" >   <button id="MediaBtn"       data-toggle="tab" onclick='changeCategoryTab("#Media",       "&zwnj;Sound & Video&zwnj;");'>    <span class="fa fa-2x fa-va fa-film">           </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;System Tools&zwnj;">     <button id="SysToolsBtn"    data-toggle="tab" onclick='changeCategoryTab("#SysTools",    "&zwnj;System Tools&zwnj;");'>     <span class="fa fa-2x fa-va fa-cog">            </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Universal Access&zwnj;"> <button id="UnivAccessBtn"  data-toggle="tab" onclick='changeCategoryTab("#UnivAccess",  "&zwnj;Universal Access&zwnj;");'> <span class="fa fa-2x fa-va fa-wheelchair">     </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Servers&zwnj;">          <button id="ServersBtn"     data-toggle="tab" onclick='changeCategoryTab("#Servers",     "&zwnj;Servers&zwnj;");'>          <span class="fa fa-2x fa-va fa-server">         </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;More Software&zwnj;">    <button id="MoreAppsBtn"    data-toggle="tab" onclick='changeCategoryTab("#MoreApps",    "&zwnj;More Software&zwnj;");'>    <span class="fa fa-2x fa-va fa-download">       </span></button></li>
+        <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <button id="MiscBtn"        data-toggle="tab" onclick='changeCategoryTab("#Misc",        "&zwnj;Fixes&zwnj;");'>            <span class="fa fa-2x fa-va fa-check-square-o"> </span></button></li>
       </ul>
     </div>
     <div id="boutique-loading" class="animated pageIn">
@@ -63,8 +63,8 @@
             experience.&zwnj;
             <br><br>
             &zwnj;If you can't find what you're looking for, install one of the&zwnj;
-            <a href="#" onclick='changeCategoryTab("#MoreApps","&zwnj;Get More Apps&zwnj;"); $("#MoreAppsBtn").tab("show");'>
-            <span class="fa fa-download"></span> &zwnj;software centers&zwnj;</a>
+            <button href="#" onclick='changeCategoryTab("#MoreApps","&zwnj;Get More Apps&zwnj;"); $("#MoreAppsBtn").tab("show");'>
+            <span class="fa fa-download"></span> &zwnj;software centers&zwnj;</button>
             &zwnj;to explore the complete Ubuntu software catalog.&zwnj;
           </div>
           <div class="offline">
@@ -83,11 +83,11 @@
               </div>
 
               <ul class="unstyled">
-                <li><a onclick="reconnectRetry()" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</a></li>
+                <li><button onclick="reconnectRetry()" class="btn btn-success"> <span class="fa fa-refresh"></span> &zwnj;Retry Connection&zwnj;</button></li>
               </ul>
               <ul class="unstyled" id="helpButton">
-                <li><a onclick='smoothFade("#offlineMessage","#helpMe"); changeSubtitle("&zwnj;Connection Troubleshooting&zwnj;"); smoothFade("#featured-grid","");' class="btn btn-default">
-                  <span class="fa fa-question-circle"></span> &zwnj;Connection Help&zwnj;</a>
+                <li><button onclick='smoothFade("#offlineMessage","#helpMe"); changeSubtitle("&zwnj;Connection Troubleshooting&zwnj;"); smoothFade("#featured-grid","");' class="btn btn-default">
+                  <span class="fa fa-question-circle"></span> &zwnj;Connection Help&zwnj;</button>
                 </li>
               </ul>
             </div>
@@ -118,16 +118,16 @@
               <h5>&zwnj;Not working at all or experiencing sluggish connections?&zwnj;</h5>
               <p>&zwnj;Sorry to hear that. You will need a temporary wired connection to install working drivers.&zwnj;</p>
               <ul>
-                <li>&zwnj;The&zwnj; <a onclick="cmd('drivers')">&zwnj;Additional Drivers&zwnj;</a> &zwnj;tab may have them available for your system.&zwnj;</li>
+                <li>&zwnj;The&zwnj; <button onclick="cmd('drivers')">&zwnj;Additional Drivers&zwnj;</button> &zwnj;tab may have them available for your system.&zwnj;</li>
                 <li>&zwnj;Otherwise, you will need to manually install third party drivers for your hardware, or a download specific
-                package containing the firmware. See&zwnj; <b>&zwnj;Drivers&zwnj;</b> &zwnj;in the&zwnj; <a onclick="smoothPageFade('gettingstarted.html')">&zwnj;Getting Started&zwnj;</a>
+                package containing the firmware. See&zwnj; <b>&zwnj;Drivers&zwnj;</b> &zwnj;in the&zwnj; <button onclick="smoothPageFade('gettingstarted.html')">&zwnj;Getting Started&zwnj;</button>
                 &zwnj;section for more details.&zwnj;</li>
-                <li>&zwnj;Feel free to&zwnj; <a onclick="smoothPageFade('community.html')">&zwnj;ask the community&zwnj;</a> &zwnj;if you need assistance.&zwnj;</li>
+                <li>&zwnj;Feel free to&zwnj; <button onclick="smoothPageFade('community.html')">&zwnj;ask the community&zwnj;</button> &zwnj;if you need assistance.&zwnj;</li>
               </ul>
               <br>
               <ul class="unstyled" id="helpButtonBack">
-                <li><a onclick='smoothFade("#helpMe","#offlineMessage"); changeSubtitle("&zwnj;Our Picks&zwnj;"); smoothFade("","#featured-grid");' class="btn btn-inverse">
-                  <span class="fa fa-check"></span> &zwnj;OK&zwnj;</a>
+                <li><button onclick='smoothFade("#helpMe","#offlineMessage"); changeSubtitle("&zwnj;Our Picks&zwnj;"); smoothFade("","#featured-grid");' class="btn btn-inverse">
+                  <span class="fa fa-check"></span> &zwnj;OK&zwnj;</button>
                 </li>
               </ul>
             </div>
@@ -302,8 +302,8 @@
                 <span class="fa fa-dollar"></span> sudo apt update
               </blockquote>
               <div class="text-right">
-                <a onclick="cmd('apt-update')" class="btn btn-inverse right"><span class="fa fa-refresh"></span> &zwnj;Update Sources List&zwnj;</a>
-                <a onclick="cmd('upgrade-appid?ubuntu-standard')" class="btn btn-inverse right"><span class="fa fa-level-up"></span> &zwnj;Upgrade Installed Packages&zwnj;</a>
+                <button onclick="cmd('apt-update')" class="btn btn-inverse right"><span class="fa fa-refresh"></span> &zwnj;Update Sources List&zwnj;</button>
+                <button onclick="cmd('upgrade-appid?ubuntu-standard')" class="btn btn-inverse right"><span class="fa fa-level-up"></span> &zwnj;Upgrade Installed Packages&zwnj;</button>
               </div>
               <hr class="soften"/>
 
@@ -324,13 +324,13 @@
                 <span class="fa fa-dollar"></span> sudo apt --fix-broken install
               </blockquote>
               <div class="text-right">
-                <a onclick="cmd('fix-incomplete-install')" class="btn btn-inverse right"><span class="fa fa-cube"></span> &zwnj;Configure Interrupted Packages&zwnj;</a>
-                <a onclick="cmd('fix-broken-depends')" class="btn btn-inverse right"><span class="fa fa-check"></span> &zwnj;Resolve Broken Packages&zwnj;</a>
+                <button onclick="cmd('fix-incomplete-install')" class="btn btn-inverse right"><span class="fa fa-cube"></span> &zwnj;Configure Interrupted Packages&zwnj;</button>
+                <button onclick="cmd('fix-broken-depends')" class="btn btn-inverse right"><span class="fa fa-check"></span> &zwnj;Resolve Broken Packages&zwnj;</button>
               </div>
               <hr class="soften"/>
 
               <p class="miscCmd"><b>&zwnj;In addition, listed below are terminal equivalent commands that
-              otherwise appear in the&zwnj; <a onclick="cmd('update')">&zwnj;Software Updater&zwnj;</a>.</b></p>
+              otherwise appear in the&zwnj; <button onclick="cmd('update')">&zwnj;Software Updater&zwnj;</button>.</b></p>
               <blockquote class="terminal miscCmd">
                 <b>&zwnj;Upgrade all packages that have a new version available:&zwnj;</b><br>
                 <span class="fa fa-dollar"></span> sudo apt full-upgrade
@@ -361,13 +361,13 @@
             <h5>&zwnj;No software matched your key words.&zwnj;</h5>
             <p>
               &zwnj;The Boutique is just a collection of software.&zwnj;
-              <a onclick='changeCategoryTab("#MoreApps","&zwnj;Get More Apps&zwnj;"); $("#MoreAppsBtn").tab("show");'>
+              <button onclick='changeCategoryTab("#MoreApps","&zwnj;Get More Apps&zwnj;"); $("#MoreAppsBtn").tab("show");'>
                 <span class="fa fa-download"></span> &zwnj;Install a software center&zwnj;
-              </a>
+              </button>
               &zwnj;to explore the entire Ubuntu catalogue.&zwnj;
               <span id="search-retry-nonfree" hidden>
                 <br><br>
-                <a onclick="searchAgainNonFree()"><span class="fa fa-search"></span> &zwnj;Search again and include proprietary software.&zwnj;</a>
+                <button onclick="searchAgainNonFree()"><span class="fa fa-search"></span> &zwnj;Search again and include proprietary software.&zwnj;</button>
               </span>
             </p>
           </div>
@@ -383,7 +383,7 @@
             <tr>
               <th width="40%">&zwnj;Boutique Selection&zwnj;</th>
               <td width="60%">
-                <a onclick="toggleNonFree();"><i id="pref-non-free" class="fa fa-square fa-va"></i> &zwnj;Hide proprietary applications.&zwnj;</a>
+                <button onclick="toggleNonFree();"><i id="pref-non-free" class="fa fa-square fa-va"></i> &zwnj;Hide proprietary applications.&zwnj;</button>
               </td>
             </tr>
 
@@ -394,14 +394,14 @@
               <th rowspan=2>&zwnj;Installation&zwnj;</th>
 -->
               <td>
-                <a onclick="cmd('toggle-pref?enable-queue');cmd('queue-refresh')"><i id="pref-enable-queue" class="fa fa-square fa-va"></i> &zwnj;Enable the Bulk Queue.&zwnj;</a>
+                <button onclick="cmd('toggle-pref?enable-queue');cmd('queue-refresh')"><i id="pref-enable-queue" class="fa fa-square fa-va"></i> &zwnj;Enable the Bulk Queue.&zwnj;</button>
                 <p class="pref-info">&zwnj;Applications wait to be installed/removed, allowing you to continue browsing.&zwnj;</p>
               </td>
             </tr>
 <!--
             <tr>
               <td>
-                <a onclick="cmd('toggle-pref?hide-apt-progress');"><i id="pref-hide-apt-progress" class="fa fa-square fa-va"></i> &zwnj;Suppress Progress Dialog&zwnj;</a>
+                <button onclick="cmd('toggle-pref?hide-apt-progress');"><i id="pref-hide-apt-progress" class="fa fa-square fa-va"></i> &zwnj;Suppress Progress Dialog&zwnj;</button>
                 <p class="pref-info">&zwnj;Install/remove applications in the background.&zwnj;</p>
               </td>
             </tr>
@@ -413,15 +413,15 @@
 <!--
               <th rowspan=2>&zwnj;Advanced&zwnj;</th>
               <td>
-                <a onclick="cmd('toggle-pref?show-advanced-info');"><i id="pref-show-advanced-info" class="fa fa-square fa-va"></i> &zwnj;Show technical package details.&zwnj;</a>
+                <button onclick="cmd('toggle-pref?show-advanced-info');"><i id="pref-show-advanced-info" class="fa fa-square fa-va"></i> &zwnj;Show technical package details.&zwnj;</button>
                 <p class="pref-info">&zwnj;Displays an estimated install size, packages and the type of application&zwnj;</p>
               </td>
             </tr>
             <tr>
 -->
               <td>
-                <a class="btn btn-default" onclick="cmd('list-repos')"><span class="fa fa-list-ul"></span> &zwnj;Show Software Sources&zwnj;</a>
-                <a class="btn btn-default" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</a>
+                <button class="btn btn-default" onclick="cmd('list-repos')"><span class="fa fa-list-ul"></span> &zwnj;Show Software Sources&zwnj;</button>
+                <button class="btn btn-default" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</button>
               </td>
             </tr>
           </table>
@@ -433,9 +433,9 @@
           <hr class="soften"/>
 
           <div id="queue-options" hidden>
-            <a id="queue-btn-apply" onclick="cmd('queue-start')" class="btn btn-success"><span class="fa fa-check"></span> &zwnj;Apply Changes&zwnj;</a>
-            <a id="queue-btn-clear" onclick="cmd('queue-clear')" class="btn"><span class="fa fa-trash"></span> &zwnj;Clear&zwnj;</a>
-            <a id="queue-btn-reset" onclick="cmd('queue-clear')" class="btn btn-inverse" style="display:none"><span class="fa fa-check"></span> &zwnj;Finished&zwnj;</a>
+            <button id="queue-btn-apply" onclick="cmd('queue-start')" class="btn btn-success"><span class="fa fa-check"></span> &zwnj;Apply Changes&zwnj;</button>
+            <button id="queue-btn-clear" onclick="cmd('queue-clear')" class="btn"><span class="fa fa-trash"></span> &zwnj;Clear&zwnj;</button>
+            <button id="queue-btn-reset" onclick="cmd('queue-clear')" class="btn btn-inverse" style="display:none"><span class="fa fa-check"></span> &zwnj;Finished&zwnj;</button>
           </div>
           <div id="queue-busy" class="alert alert-success" hidden>
             <h5><img src="img/welcome/processing.gif"/> <span id="queue-status">...</span></h5>
@@ -466,8 +466,8 @@
           </table>
 
           <hr class="soften"/>
-          <a class="btn btn-inverse" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</a>
-          <a class="btn btn-inverse" onclick="cmd('apt-update'); switchCategory('#PrettyRepos', '#Preferences', '&zwnj;Preferences&zwnj;', true)"><span class="fa fa-download"></span> &zwnj;Update Package Lists&zwnj;</a>
+          <button class="btn btn-inverse" onclick="cmd('run?software-properties-gtk')"><span class="fa fa-cubes"></span> &zwnj;Manage Repositories&zwnj;</button>
+          <button class="btn btn-inverse" onclick="cmd('apt-update'); switchCategory('#PrettyRepos', '#Preferences', '&zwnj;Preferences&zwnj;', true)"><span class="fa fa-download"></span> &zwnj;Update Package Lists&zwnj;</button>
 
         </div>
 
@@ -479,12 +479,12 @@
           <span id="footer-global-left"></span>
         </div>
         <div id="footer-right" class="form">
-          <a id="non-free-toggle" onclick="toggleNonFree();"
+          <button id="non-free-toggle" onclick="toggleNonFree();"
               onmouseover="$('#nonfree-info-popup').fadeIn('fast')"
               onmouseout="$('#nonfree-info-popup').fadeOut('fast')" hidden>
             <i id="nonFreeCheckBox" class="fa fa-square fa-va"></i> &zwnj;Hide Proprietary Software&zwnj;
-          </a>
-          <a id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</a>
+          </button>
+          <button id="show-misc-cmds" hidden><i id="MiscCheckbox" class="fa fa-square fa-va"></i> &zwnj;Show Terminal Commands&zwnj;</button>
           <span id="footer-global-right"></span>
         </div>
       </div>

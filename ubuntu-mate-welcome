@@ -828,6 +828,10 @@ class AppView(WebKit2.WebView):
         self.connect('notify::title', self._title_changed_cb)
         self.connect('context-menu', self._context_menu_cb)
 
+        # Enable keyboard navigation
+        self.get_settings().set_enable_spatial_navigation(True)
+        self.get_settings().set_enable_caret_browsing(True)
+
         # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
         dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
@@ -849,7 +853,7 @@ class AppView(WebKit2.WebView):
 
         # Show the "Scroll to Top" button, excluding the Boutique which has its own button.
         if not app.current_page == "software.html":
-            app.update_page("#navigation-right", "append", '<a id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none" title="' + _("Scroll Up") + '"><span class="fa fa-chevron-up"></span></a>')
+            app.update_page("#navigation-right", "append", '<button id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none" title="' + _("Scroll Up") + '"><span class="fa fa-chevron-up"></span></button>')
 
         # If this is a live session, adapt the UI.
         if systemstate.session_type == 'live':
@@ -1105,7 +1109,7 @@ class AppView(WebKit2.WebView):
             app.update_page('#message-title', 'html', body_title)
             app.update_page('#message-body', 'html', body_text)
             app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
-            app.update_page('#message-link', 'html', "<a class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</a>".format(target, _("Continue")))
+            app.update_page('#message-link', 'html', "button class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</button>".format(target, _("Continue")))
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
@@ -1327,17 +1331,17 @@ class WelcomeApp(object):
 
         ## Social Links ##
         self.footer_left = '<div id="social" class="pull-left"> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org\')" title="' + _("Ubuntu MATE Website") + '"><img src="' + trans.res_dir + 'img/welcome/ubuntu-mate-icon.svg"></a> \
-        <a onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></a> \
-        <a onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></a> \
-        <a onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></a> \
-        <a onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="' + _("Donate to Ubuntu MATE") + '"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></a> \
+        <button onclick="cmd(\'link?https://ubuntu-mate.org\')" title="' + _("Ubuntu MATE Website") + '"><img src="' + trans.res_dir + 'img/welcome/ubuntu-mate-icon.svg"></button> \
+        <button onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></button> \
+        <button onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></button> \
+        <button onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></button> \
+        <button onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="' + _("Donate to Ubuntu MATE") + '"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></button> \
         </div>'
-        self.footer_close = '<a onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</a>'
+        self.footer_close = '<button onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</button>'
 
         self.boutique_footer = '<div id="boutique-footer" class="pull-left"> \
         <p hidden id="update-subscribed"><span class="fa fa-check"></span> ' + string.subscribed + '</p> \
-        <p hidden id="update-notification"><a onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + string.subscribe_link + '</a></p> \
+        <p hidden id="update-notification"><button onclick="cmd(\'subscribe-updates\')"><span class="fa fa-exclamation-circle"></span> ' + string.subscribe_link + '</button></p> \
         <p hidden id="update-subscribing"><img src="' + trans.res_dir + 'img/welcome/processing-dark.gif" width="16px" height="16px"> ' + string.subscribing + '</p> \
         <p><b>' + string.version + '</b> <span id="boutique-version"></span></p> \
         </div>'
@@ -1708,7 +1712,7 @@ class SystemState(object):
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
         stat_error_msg = _("Could not gather data.")
-        html_tag = '<a data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></a>'
+        html_tag = '<button data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></button>'
         for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
                         'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
             app.update_page('#spec'+element, 'html', html_tag)
@@ -2178,7 +2182,7 @@ class DynamicApps(object):
 
         # Icons/text to show for source fields
         source_ppa = '<span class="fa fa-cube"></span>&nbsp;'
-        source_manual = '<span class="fa fa-globe"></span></a>&nbsp;'
+        source_manual = '<span class="fa fa-globe"></span></button>&nbsp;'
         source_partner = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_partner
         source_multiverse = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_multiverse
         source_skip = '<img src="' + trans.res_dir + 'img/logos/ubuntu-mono.png" width="16px" height="16px"/>&nbsp;' + string.repo_main
@@ -2215,28 +2219,28 @@ class DynamicApps(object):
         if not self.app_alternate_to == None:
             html_buffer += '<ul><li class="' + css_class + '-text"><b>' + string.alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
         html_buffer += '<p class="text-right">'
-        html_buffer += '<a class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + string.show + '</a>&nbsp;'
-        html_buffer += '<a hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + string.hide + '</a>&nbsp;'
+        html_buffer += '<button class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + string.show + '</button>&nbsp;'
+        html_buffer += '<button hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + string.hide + '</button>&nbsp;'
 
         # "Regular" packages - can be installed or removed with one-click by the user.
         if not self.app_upgrade_only:
             html_buffer += '<span class="' + css_class + '-applying"> <span class="' + css_class + '-applying-status"></span> &nbsp;<img src="' + trans.res_dir + 'img/welcome/processing.gif" width="24px" height="24px"/></span>'
-            html_buffer += '<a class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + string.install + '</a>&nbsp;'
-            html_buffer += '<a class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.reinstall + '"><span class="fa fa-refresh"></span></a>&nbsp;'
-            html_buffer += '<a class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.remove + '"><span class="fa fa-trash"></span></a>&nbsp;'
+            html_buffer += '<button class="' + css_class + '-install btn btn-success" onclick="cmd(\'install-appid?' + program_id + '\')"><span class="fa fa-download"></span>&nbsp; ' + string.install + '</button>&nbsp;'
+            html_buffer += '<button class="' + css_class + '-reinstall btn btn-warning" onclick="cmd(\'install-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.reinstall + '"><span class="fa fa-refresh"></span></button>&nbsp;'
+            html_buffer += '<button class="' + css_class + '-remove btn btn-danger" onclick="cmd(\'remove-appid?' + program_id + '\')" data-toggle="tooltip" data-placement="top" title="' + string.remove + '"><span class="fa fa-trash"></span></button>&nbsp;'
 
         # "Upgradable" packages - usually pre-installed but have a more up-to-date repository.
         if self.app_upgrade_only:
             dbg.stdout('Apps', 'Upgrade: ' + self.app_name, 2, 4)
             if not upgraded:
-                html_buffer += '<a class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + string.upgrade + '</a>&nbsp;'
+                html_buffer += '<button class="' + css_class + '-upgrade btn btn-warning" onclick="cmd(\'upgrade-appid?' + program_id + '\')"><span class="fa fa-level-up"></span>&nbsp; ' + string.upgrade + '</button>&nbsp;'
 
         # Add a button to undo an action in the queue.
-        html_buffer += '<a class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + string.undo + '</a>'
+        html_buffer += '<button class="' + css_class + '-undo btn btn-inverse" onclick="cmd(\'queue-drop?' + program_id + '\')" style="display:none"><span class="fa fa-undo"></span> ' + string.undo + '</button>'
 
         # Add a button to launch, depending on the app:
         if not self.app_launch_command == None:
-            html_buffer += '<a class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + string.launch + '</a>&nbsp;'
+            html_buffer += '<button class="' + css_class + '-launch btn btn-inverse" onclick="cmd(\'launch-appid?' + program_id + '\')"><img src="' + trans.res_dir + 'img/applications/' + self.app_img + '.png" width="20px" height="20px" />&nbsp; ' + string.launch + '</button>&nbsp;'
 
         # More details section.
         html_buffer += '</p><div hidden class="details-' + css_class + '">'
@@ -2261,10 +2265,10 @@ class DynamicApps(object):
 
         ## Add Android / iOS app links if necessary.
         if not self.app_url_android == None:
-            platform_string += '<a onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</a> &nbsp;&nbsp;'
+            platform_string += '<button onclick="cmd(\'link?' + self.app_url_android + '\')"><span class="fa fa-android"></span> Android</button> &nbsp;&nbsp;'
 
         if not self.app_url_ios == None:
-            platform_string += '<a onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</a> &nbsp;&nbsp;'
+            platform_string += '<button onclick="cmd(\'link?' + self.app_url_ios + '\')"><span class="fa fa-apple"></span> iOS</button> &nbsp;&nbsp;'
 
         ## Add details about the source of this file.
         try:
@@ -2299,7 +2303,7 @@ class DynamicApps(object):
                     ppa = preinstall[target]['enable-ppa']
                     ppa_author = ppa.split(':')[1].split('/')[0]
                     ppa_archive = ppa.split(':')[1].split('/')[1]
-                    self.source_info.insert(0, source_ppa + ' <a onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</a>')
+                    self.source_info.insert(0, source_ppa + ' <button onclick="cmd(\'link?https://launchpad.net/~' + ppa_author + '/+archive/ubuntu/' + ppa_archive + '\')">' + ppa + '</button>')
 
                 elif method == 'manual':
                     apt_source = ''.join(preinstall[target]['apt-sources'])
@@ -2322,7 +2326,7 @@ class DynamicApps(object):
 
         ## Add a website URL if there is one.
         if self.app_url_info:
-            html_buffer += '<tr><th>' + string.website + '</th><td><a onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</a></td></tr>'
+            html_buffer += '<tr><th>' + string.website + '</th><td><button onclick="cmd(\'link?' + self.app_url_info + '\')">' + self.app_url_info + '</button></td></tr>'
 
         ## Add the source for this application.
         if multiple_sources:
@@ -2342,7 +2346,7 @@ class DynamicApps(object):
             screenshot_img = 'img/applications/screenshots/' + self.app_img + '-' + str(screenshots) + '.jpg'
             screenshot_path = os.path.join(data_path, screenshot_img)
             if os.path.exists(screenshot_path):
-                screenshot_buffer = screenshot_buffer + '<a class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></a>'
+                screenshot_buffer = screenshot_buffer + '<button class="screenshot-link" onclick="cmd(\'screenshot?' + self.app_img + '-' + str(screenshots) + '\')"><img src="' + trans.res_dir + screenshot_img + '" class="screenshot"/></button>'
                 screenshots = screenshots + 1
             else:
                 screenshots_end = True
@@ -2850,7 +2854,7 @@ class DynamicApps(object):
 
             # If non-free filtering is enabled, inform of how many apps were hidden.
             if self.hide_non_free and hidden_results > 0:
-                app.update_page('#search-total', 'append', '&nbsp;<a onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</a>')
+                app.update_page('#search-total', 'append', '&nbsp;<button onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</button>')
 
     def populate_repos(self):
         app.webkit.run_javascript('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
@@ -3005,7 +3009,7 @@ class ChangesQueue(object):
                                  '<span class="title">PROGRAM_NAME</span>' + \
                                  '<div class="status">' + \
                                      '<span class="status-PROGRAM_ID"> DEFAULT_TEXT </span> ' + \
-                                     '<a class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + string.cancel + '"><span class="fa fa-times fa-2x"></span></a>' + \
+                                     '<button class="drop" onclick="cmd(\'queue-drop?PROGRAM_ID\')" data-toggle="tooltip" data-placement="top" title="' + string.cancel + '"><span class="fa fa-times fa-2x"></span></button>' + \
                                  '</div>' + \
                              '</div>'
 

@@ -632,7 +632,7 @@ if ( current_page == 'gettingstarted.html' ) {
 
   // Expand / Collapse sub-sections to keep it tidy.
   function toggleSub(divID, arrowID) {
-    $(".sub-collapse > span").addClass('fa-chevron-down').removeClass('fa-chevron-up');
+    $(".sub-collapse > h3 > span").addClass('fa-chevron-down').removeClass('fa-chevron-up');
     alreadyOpen = $("#"+divID).is(":visible");
     $(".drivers-section").slideUp("fast");
     if ( alreadyOpen == false ) {
@@ -682,7 +682,7 @@ if ( current_page == 'donate.html' ) {
       // Add a Month = (New Column)
       function addMonth(m,y) {
         cellID = y + '-' + m;
-        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><a onclick="cmd(\'link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/\')">' + numToShortMonth(m) + '</a></td>');
+        $('#donationTable tr:last').append('<td id="' + cellID + '" style="text-align:center;"><button class="link" onclick="cmd(\'link?https://ubuntu-mate.org/blog/ubuntu-mate-' + numToMonth(m) + '-' + y + '-supporters/\')">' + numToShortMonth(m) + '</button></td>');
       }
 
       // Add a Blank Month = (New Column, Empty)

@@ -12,9 +12,9 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <a id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
           <span class="fa fa-chevron-left"></span>
-        </a>
+        </button>
         <div id="navigation-title" style="display:none">&zwnj;Get Involved&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
@@ -29,31 +29,31 @@
       <div class="alert alert-warning offline">
         <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
         <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
-        <a onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</a>
+        <button onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</button>
       </div>
       <div class="row-fluid">
         <div class="span3">
           <div class="text-center social-large">
-            <a onclick="cmd('link?https://launchpad.net/ubuntu-mate/')" title="Ubuntu MATE Launchpad">
+            <button class="link" onclick="cmd('link?https://launchpad.net/ubuntu-mate/')" title="Ubuntu MATE Launchpad">
               <img class="center" src="img/logos/launchpad.png" alt="Ubuntu MATE Launchpad"/>
               <p><b>&zwnj;Ubuntu MATE Launchpad&zwnj;</b></p>
-            </a>
+            </button>
           </div>
         </div>
         <div class="span3">
           <div class="text-center social-large">
-            <a onclick="cmd('link?https://bitbucket.org/ubuntu-mate')" title="Ubuntu MATE Bitbucket">
+            <button class="link" onclick="cmd('link?https://bitbucket.org/ubuntu-mate')" title="Ubuntu MATE Bitbucket">
               <img class="center" src="img/logos/bitbucket.png" alt="Ubuntu MATE Bitbucket"/>
               <p><b>&zwnj;Ubuntu MATE Bitbucket&zwnj;</b></p>
-            </a>
+            </button>
           </div>
         </div>
         <div class="span3">
           <div class="text-center social-large">
-            <a onclick="cmd('link?https://github.com/mate-desktop/')" title="MATE Desktop GitHub">
+            <button class="link" onclick="cmd('link?https://github.com/mate-desktop/')" title="MATE Desktop GitHub">
               <img class="center" src="img/logos/github.png" alt="MATE Desktop GitHub"/>
               <p><b>&zwnj;MATE Desktop GitHub&zwnj;</b></p>
-            </a>
+            </button>
           </div>
         </div>
         <div class="span3">
@@ -61,14 +61,14 @@
             <img class="center" src="img/logos/transifex.jpg" alt="Transifex"/>
             <p><b>&zwnj;Translations&zwnj;</b></p>
             <p>
-              <a onclick="cmd('link?https://www.transifex.com/projects/p/MATE/')" title="MATE Desktop on Transifex">
+              <button class="link" onclick="cmd('link?https://www.transifex.com/projects/p/MATE/')" title="MATE Desktop on Transifex">
                 <b>&zwnj;MATE Desktop&zwnj;</b>
-              </a>
+              </button>
             </p>
             <p>
-              <a onclick="cmd('link?https://www.transifex.com/ubuntu-mate/public/')" title="Ubuntu MATE on Transifex">
+              <button class="link" onclick="cmd('link?https://www.transifex.com/ubuntu-mate/public/')" title="Ubuntu MATE on Transifex">
                 <b>&zwnj;Ubuntu MATE Applications&zwnj;</b>
-              </a>
+              </button>
             </p>
           </div>
         </div>

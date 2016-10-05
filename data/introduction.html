@@ -12,9 +12,9 @@
     <div id="wrapper">
       <div class="container-fluid">
         <div id="navigation">
-          <a id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+          <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
             <span class="fa fa-chevron-left"></span>
-          </a>
+          </button>
           <div id="navigation-title" style="display:none">&zwnj;Introduction&zwnj;</div>
           <div id="navigation-right"></div>
         </div>
@@ -51,12 +51,12 @@
           <div class="wow fadeIn">
             <p>&zwnj;Ubuntu MATE is an operating system -- the core software
             that runs your computer, similar to&zwnj;
-            &nbsp;<a onclick="cmd('link?http://www.microsoft.com')">
-            <span class="fa fa-windows"></span> &zwnj;Microsoft's Windows&zwnj;</a>,
-            &nbsp;<a onclick="cmd('link?http://www.apple.com')">
-            <span class="fa fa-apple"> </span> &zwnj;Apple's OS X&zwnj;</a> &zwnj;and&zwnj;
-            &nbsp;<a onclick="cmd('link?http://www.google.com/chrome')">
-            <span class="fa fa-chrome"></span> &zwnj;Google's Chrome OS&zwnj;</a>.
+            &nbsp;<button class="link" onclick="cmd('link?http://www.microsoft.com')">
+            <span class="fa fa-windows"></span> &zwnj;Microsoft's Windows&zwnj;</button>,
+            &nbsp;<button class="link" onclick="cmd('link?http://www.apple.com')">
+            <span class="fa fa-apple"> </span> &zwnj;Apple's OS X&zwnj;</button> &zwnj;and&zwnj;
+            &nbsp;<button class="link" onclick="cmd('link?http://www.google.com/chrome')">
+            <span class="fa fa-chrome"></span> &zwnj;Google's Chrome OS&zwnj;</button>.
 
             &zwnj;Ubuntu MATE is a desktop distribution (variation) of
             GNU/Linux -- a dependable, secure, capable, and modern computer
@@ -121,22 +121,22 @@
             <img src="img/logos/ubuntu.png" alt="Ubuntu" height="100px" width="100px"/>
           </div>
           <div class="span10">
-            <p><a onclick="cmd('link?http://www.ubuntu.com')">Ubuntu</a> &zwnj;is
-            one of, if not the, largest deployed&zwnj; <a
-            onclick="cmd('link?https://en.wikipedia.org/wiki/Linux')">Linux</a>
+            <p><button class="link" onclick="cmd('link?http://www.ubuntu.com')">Ubuntu</button> &zwnj;is
+            one of, if not the, largest deployed&zwnj; <button class="link"
+            onclick="cmd('link?https://en.wikipedia.org/wiki/Linux')">Linux</button>
             &zwnj;based desktop operating systems in the world. Linux is at
             the heart of Ubuntu and makes it possible to create secure,
             powerful and versatile operating systems, such as&zwnj; Ubuntu
-            &zwnj;and&zwnj; <a onclick="cmd('link?http://www.android.com/')"> Android</a>.
+            &zwnj;and&zwnj; <button class="link" onclick="cmd('link?http://www.android.com/')"> Android</button>.
             &zwnj;Android is now in the hands of billions of people around the
             world and it's also powered by Linux.&zwnj;</p>
 
             <p>&zwnj;Ubuntu is available in a number of different&zwnj;
             <em>&zwnj;flavors&zwnj;</em>, &zwnj;each coming with its own desktop
             environment. Ubuntu MATE takes the Ubuntu base operating
-            system and adds the&zwnj; <a
+            system and adds the&zwnj; <button class="link"
             onclick="cmd('link?http://mate-desktop.org')">&zwnj;MATE
-            Desktop&zwnj;</a>.</p>
+            Desktop&zwnj;</button>.</p>
           </div>
         </div>
 
@@ -148,9 +148,9 @@
             <img src="img/logos/mate.png" alt="MATE Desktop" height="100px" width="100px">
           </div>
           <div class="span10 wow fadeIn">
-            <p>&zwnj;Wikipedia says that a&zwnj; <a
+            <p>&zwnj;Wikipedia says that a&zwnj; <button class="link"
             onclick="cmd('link?http://en.wikipedia.org/wiki/Desktop_environment')">
-            &zwnj;Desktop Environment&zwnj;</a> &zwnj;is&zwnj;:</p>
+            &zwnj;Desktop Environment&zwnj;</button> &zwnj;is&zwnj;:</p>
 
             <blockquote>&zwnj;an implementation of the desktop metaphor made
             of a bundle of programs running on top of a computer
@@ -190,17 +190,17 @@
 
 
             &zwnj;All of which are highly customisable and
-            managed via the&zwnj; &nbsp;<a onclick="cmd('control')">
+            managed via the&zwnj; &nbsp;<button class="link" onclick="cmd('control')">
             <img src="img/applications/control-centre.png" height="16px" width="16px" style="vertical-align:middle"/>
-            &zwnj;Control Center&zwnj;</a>.</p>
+            &zwnj;Control Center&zwnj;</button>.</p>
 
             <p>&zwnj;MATE Desktop provides an intuitive and attractive
             desktop environment using traditional metaphors, which
             means if you've ever used&zwnj;
-            <a onclick="cmd('link?http://www.microsoft.com')">
-            &nbsp;<span class="fa fa-windows"></span> Windows</a> &zwnj;or&zwnj;
-            <a onclick="cmd('link?http://www.apple.com')">
-            &nbsp;<span class="fa fa-apple"> </span> OS X</a>,
+            <button class="link" onclick="cmd('link?http://www.microsoft.com')">
+            &nbsp;<span class="fa fa-windows"></span> Windows</button> &zwnj;or&zwnj;
+            <button class="link" onclick="cmd('link?http://www.apple.com')">
+            &nbsp;<span class="fa fa-apple"> </span> OS X</button>,
             &zwnj;it will feel very familiar.&zwnj;</p>
 
             <p>&zwnj;The MATE Desktop has a rich history and is the
@@ -244,9 +244,9 @@
             use the operating system to run their businesses, or
             include it within their products. Many of these
             corporations provide fixes and new features for Linux as
-            they use the software for their businesses.&zwnj; <a
+            they use the software for their businesses.&zwnj; <button class="link"
             onclick="cmd('link?http://www.linuxfoundation.org/news-media/infographics/who-writes-linux-2015')">
-            &zwnj;These improvements are given back&zwnj;</a>
+            &zwnj;These improvements are given back&zwnj;</button>
             &zwnj;to the Linux community and Ubuntu MATE improves as a result.
             This is how we can continually improve and grow without
             having to charge our users money.&zwnj;</p>
