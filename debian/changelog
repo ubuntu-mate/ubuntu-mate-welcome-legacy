@@ -1,10 +1,13 @@
-ubuntu-mate-welcome (16.10.10~yakkety1.0) yakkety; urgency=medium
+ubuntu-mate-welcome (16.10.10) yakkety; urgency=medium
 
   [ Luke Horwell ]
   * Correct description for Adobe Flash. (LP: 1630266)
   * Add keyboard navigation support. (LP: 1616203)
   * Minor fixes for Getting Started buttons.
   * Sync translations.
+
+  [ Martin Wimpress ]
+  * Fix Orca upgrade. The a11y PPA is not Yakkety enabled.
 
  -- Martin Wimpress <martin.wimpress@ubuntu.com>  Fri, 05 Oct 2016 22:18:13 +0100
 
