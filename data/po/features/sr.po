@@ -1,12 +1,14 @@
 # 
 # Translators:
 # Alert Aleksandar, 2016
+# Alert Aleksandar, 2016
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-25 20:34+0000\n"
-"Last-Translator: Alert Aleksandar\n"
+"PO-Revision-Date: 2016-10-04 19:00+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,11 +19,11 @@ msgstr ""
 
 #: features.html:18
 msgid "Features"
-msgstr ""
+msgstr "Могућности"
 
 #: features.html:27
 msgid "Modern and Full-Featured"
-msgstr ""
+msgstr "Савремен и потпуно функционалан"
 
 #: features.html:28
 msgid ""
@@ -31,11 +33,11 @@ msgid ""
 "the current release. The operating system is more secure, and better "
 "supported than operating systems that come pre-installed on most home "
 "computer hardware today."
-msgstr ""
+msgstr "Убунту Мејт је модеран оперативни систем, са атрактивним и лако разумљивим корисничким сучељем. Његов управник ажурирања не одржава само сам оперативни систем, већ и све његове инсталиране програме ажурираним на тренутном издању. Оперативни систем је много безбеднији и боље подржан од оперативних система који данас долазе унапред инсталирани на већини кућних рачунара."
 
 #: features.html:38
 msgid "Pre-Configured Yet Flexible"
-msgstr ""
+msgstr "Унапред подешен и прилагодљив"
 
 #: features.html:44
 msgid ""
@@ -44,7 +46,7 @@ msgid ""
 "applications you will need for your daily computing - or to change anything "
 "about the way it looks, the way it works, or the applications it runs to "
 "suit your taste."
-msgstr ""
+msgstr "Коришћење Убунту Мејта вам даје слободу да покренете комплетан, потпуно опремљен оперативни систем, са унапред подешеном већином програма, ако не и свим, који ће вам требати за ваш дневни рад на рачунару — или да измените било шта у његовом изгледу, начину рада, или програмима које покреће како бисте задовољили ваш укус."
 
 #: features.html:53
 msgid "Built-In Security"
@@ -58,7 +60,7 @@ msgid ""
 "Security updates for all of its installed applications are also provided on "
 "the same schedule. This ensures that you have the latest protection for all "
 "of your computer's software -- as soon as it's available!"
-msgstr ""
+msgstr "Убунту Мејт је осмишљен са сигурношћу на уму. За разлику од оперативних система који се ажурирају само једном месечно, Убунту Мејт прима ажурирања непрекидно. Исправке укључују безбедносне закрпе за Убунту Мејт и све његове компоненте. Безбедносне исправке за све његове инсталиране програме се такође обезбеђују по истом распореду. Ово осигурава да имате најновију заштиту за сав софтвер рачунара — чим је доступна!"
 
 #: features.html:75
 msgid ""
@@ -72,7 +74,7 @@ msgid ""
 "without conscious intervention by you, the user. Even if you do accidentally"
 " invite in an infection, chances are it's designed to attack Windows and "
 "won't do much, if any damage to Ubuntu MATE."
-msgstr ""
+msgstr "Убунту Мејт би могао закачити вирусе и друге инфекције... али до тога не долази. Брзе и правовремене исправке осигуравају да их има веома мало, ако уопште нека претња Линукс системима као што је Убунту Мејт и даље постоји у дивљини. У стварности, било је врло мало „јавних“ инфекције у последњих 10 година које би могле да утичу на Убунту Мејт. Оне више нису претња ни за кога ко данас инсталира или користи модерне Линукс дистрибуције. Убунту Мејт је осмишљен да вирусима, кртицама и другим злонамерним програмима отежа инсталацију и рад без вашег свесног уплитања. Чак и ако случајно закачите неку инфекцију, највероватније ће бити да је створена да нападне Виндоуз и неће направити велику, или никакву штету на Убунту Мејту."
 
 #: features.html:95
 msgid ""
@@ -80,7 +82,7 @@ msgid ""
 "not administrators by default. Administrators (\"root\" users) on any "
 "computer system have permission to do anything they want, including the "
 "ability to damage the system."
-msgstr ""
+msgstr "Још једна значајна одлика безбедности Убунту Мејта је да његови корисници нису администратори по основи. Администратори („супер“ корисници) на било ком рачунарском систему имају дозволу да раде шта желе, укључујући могућност да оштете систем."
 
 #: features.html:99
 msgid ""
@@ -94,29 +96,29 @@ msgid ""
 "program that will be run if you give it permission to continue. To be extra "
 "secure, Ubuntu MATE requires you to provide your administrator password "
 "before that permission is granted. Every single time."
-msgstr ""
+msgstr "На пример, други оперативни системи гледају назив датотеке да би одредили који би програм требало да је отвори, а затим одмах покушавају да је отворе. Такав дизајн олакшава уљезу да нападне рачунар. Убунту Мејт отвара датотеку на основу онога што датотека јесте, а не на основу њеног назива. Тако чак и ако злонамерни програм прерушава свој идентитет користећи назив „Задње завештање и тестамент.txt“ Убунту Мејт ће препознати датотеку као програм. Систем упозорава да датотека није текстуална датотека, већ да је то програм који ће се покренути ако му дате дозволу да настави. Зарад додатне безбедности, Убунту Мејт захтева од вас да доставите администраторску лозинку да би овлашћење било дато. Сваки пут."
 
 #: features.html:117
 msgid "Powerful Applications"
-msgstr ""
+msgstr "Моћни програми"
 
 #: features.html:118
 msgid ""
 "While MATE Desktop provides the essential user interfaces to control and use"
 " a computer, Ubuntu MATE adds a collection of additional applications to "
 "turn your computer into a truly powerful workstation."
-msgstr ""
+msgstr "Док Мејтова радна површ пружа основна корисничка сучеља за управљање и коришћење рачунара, Убунту Мејт додаје скуп додатних програма како би претворио ваш рачунар у заиста моћну радну станицу."
 
 #: features.html:123
 msgid "Productivity"
-msgstr ""
+msgstr "Учинковитост"
 
 #: features.html:132
 msgid ""
 "Firefox delivers safe, easy web browsing. A familiar user interface, "
 "enhanced security features including protection from online identity theft, "
 "and an integrated search to let you get the most out of the web."
-msgstr ""
+msgstr "Фајерфокс испоручује сигурно, једноставно разгледање веба. Познато корисничко сучеље, побољшане безбедносне функције укључујући заштиту од крађе идентитета на мрежи, и интегрисану претрагу како би вама омогућио да добијете што више од веба."
 
 #: features.html:144
 msgid ""
@@ -127,7 +129,7 @@ msgid ""
 "filter, advanced search and indexing capabilities, and offers easy "
 "organization of mails with tagging and virtual folders. It also features "
 "unrivalled extensibility."
-msgstr ""
+msgstr "Тандерберд је потпуно функционалан клијент за е-пошту, РСС и групу вести који чини рад са е-поштом сигурнијим, бржим и лакшим него икада раније. Подржава различите налоге поште (ПОП, ИМАП, Г-пошта), има једноставног чаробњака за подешавање налога поште, адресар на један клик, сучеље са језичцима, уграђени самоучиви филтер нежељене е-поште, напредне могућности претраживања и индексирања, и нуди једноставно разврставање поште означавањем и виртуелним фасциклама. Одликује га такође и могућност проширења без премца."
 
 #: features.html:160
 msgid ""
@@ -136,35 +138,35 @@ msgid ""
 "powerful tools let you unleash your creativity and grow your productivity. "
 "LibreOffice embeds several applications that make it the most powerful Free "
 "and Open Source Office suite on the market:"
-msgstr ""
+msgstr "Либреофис је потпуно опремљен пакет канцеларијске продуктивности који обезбеђује скоро потпуну замена за Мајкрософт(Р) Офис; његово чисто сучеље и моћни алати омогућавају вам да ослободите своју креативност и побољшате вашу учинковитост. Либреофис обједињује неколико апликација које га чине најмоћнијим канцеларијским пакетом слободног и отвореног кода на тржишту:"
 
 #: features.html:167
 msgid "Writer, the word processor."
-msgstr ""
+msgstr "Писац, обрађивач текста."
 
 #: features.html:168
 msgid "Calc, the spreadsheet application."
-msgstr ""
+msgstr "Рачун, програм унакрсних табела."
 
 #: features.html:169
 msgid "Impress, the presentation engine."
-msgstr ""
+msgstr "Импрес, погон презентација."
 
 #: features.html:170
 msgid "Draw, the drawing and flowcharting application."
-msgstr ""
+msgstr "Цртеж, програм за цртање и графиконе."
 
 #: features.html:171
 msgid "Base, the database and database frontend."
-msgstr ""
+msgstr "База, база података и челник базе података."
 
 #: features.html:172
 msgid "Math, for editing mathematics."
-msgstr ""
+msgstr "Матиш, за рад у математици."
 
 #: features.html:179
 msgid "Entertainment"
-msgstr ""
+msgstr "Забава"
 
 #: features.html:185
 msgid ""
@@ -173,7 +175,7 @@ msgid ""
 "inspired by Apple's iTunes, the current version also supports Internet "
 "Radio, iPod integration and generic portable audio player support, Audio CD "
 "burning, Audio CD playback, music sharing, and Podcasts."
-msgstr ""
+msgstr "Ритам машина је програм за управљање и пуштање музике који је врло једноставан који подржава широк спектар формата звука (укључујући мп3 и огг). Првобитно инспирисан Ејпловим иТјунсом, тренутна верзија такође подржава Интернет радио, иПод интеграцију и опште преносне музичке справице, нарезивање звучног ЦД-а, пуштање звучног ЦД-а, дељење музике и Подемисије."
 
 #: features.html:199
 msgid ""
@@ -181,38 +183,38 @@ msgid ""
 "disk or camera, organize them in various ways, view them in full-window or "
 "fullscreen mode, and export them to share with others. It is able to manage "
 "a lot of different image formats, also including raw CR2 files."
-msgstr ""
+msgstr "Фото-бунар је дигитални сређивач фотографија. Омогућава вам да увезете фотографије са диска или фото-апарата, разврстате их на разне начине, да их приказујете у пуном прозору или преко целог екрана, и да их извезете да бисте их поделили са другима. Може да управља великим бројем различитих формата слика, укључујући и сирове ЦР2 датотеке."
 
 #: features.html:212
 msgid ""
 "VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
 "DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
 "podcasts, and multimedia streams from various network sources."
-msgstr ""
+msgstr "ВЛЦ је програм за пуштање медијског садржаја са пројекта ВидеоЛАН-а. Пушта МПЕГ, МПЕГ-2, МПЕГ-4, ДивИкс, МОВ, ВМВ, КвикТајм, ВебМ, ФЛАЦ, МП3, Огг/Ворбис датотеке, ДВД, ВЦД, подепизоде, и мултимедијалне токове из различитих извора на мрежи."
 
 #: features.html:216
 msgid ""
 "VLC can also be used as a streaming server that duplicates the stream it "
 "reads and multicasts them through the network to other clients, or serves "
 "them through HTTP."
-msgstr ""
+msgstr "ВЛЦ може такође да се користи као сервер тока који удвостручава ток који чита и неколико пута га емитује кроз мрежу другим клијентима, или их сервира кроз ХТТП."
 
 #: features.html:219
 msgid ""
 "VLC has support for on-the-fly transcoding of audio and video formats, "
 "either for broadcasting purposes or for movie format transformations."
-msgstr ""
+msgstr "ВЛЦ има подршку за претварање звучних и видео формата у лету, било за потребе емитовања или за претварања формата филма."
 
 #: features.html:227
 msgid "... And a whole lot more!"
-msgstr ""
+msgstr "... И још много тога!"
 
 #: features.html:229
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
-msgstr ""
+msgstr "Наравно да ћете такође наћи мрежну баријеру, програм за резерве, скенер документата/фотографија и управљање штампачем у Убунту Мејту. А ово је само почетак."
 
 #: features.html:232
 msgid "Software"
@@ -222,34 +224,34 @@ msgstr "Софтвер"
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
-msgstr ""
+msgstr "одељак укључује програме најбоље у класи за већину задатака и инсталер на један клик"
 
 #: features.html:234
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
-msgstr ""
+msgstr "који ће вам дати приступ хиљадама програма погодних за било коју професионалну или рекреативну сврху."
 
 #: features.html:241
 msgid "Games"
-msgstr ""
+msgstr "Игре"
 
 #: features.html:247
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
-msgstr ""
+msgstr "У последњих неколико година Линукс је постао прворазредна играчка платформа захваљујући"
 
 #: features.html:250
 msgid "bringing the"
-msgstr ""
+msgstr "доношењем"
 
 #: features.html:252
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
-msgstr ""
+msgstr "платформе на Линукс. У време писања Стим има више од 1000 квалитетних независних и ААА наслова на доступних за Линукс. Убунту Мејт је потпуно компатибилан са Стимом за Линукс."
 
 #: features.html:257
 msgid ""
@@ -258,38 +260,38 @@ msgid ""
 "MATE. It doesn't matter if you like flight simulators, motor racing, first "
 "person shooters, jump and run or card games, you'll find something to keep "
 "you entertained."
-msgstr ""
+msgstr "Докје Стим велики корак напред за играње на Линуксу, има такође и много наслова игара високог квалитета отвореног кода доступних за Убунту Мејт. Није битно да ли више волите симулаторе лета, трке мотора, пуцачине у првом лицу, скокове и трчање или карташке игре, наћи ћете нешто што ће вас забављати."
 
 #: features.html:267
 msgid "Accessibility"
-msgstr ""
+msgstr "Приступачност"
 
 #: features.html:273
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
-msgstr ""
+msgstr "Стварање приступачног оперативног система је кључни приоритет када су оснивачи Убунту Мејта у почетку одређивали циљеве пројекта."
 
 #: features.html:277
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
-msgstr ""
+msgstr "Убунту Мејт никада неће бити у стању да понуди свеобухватну интеграцију помоћних технологија које"
 
 #: features.html:279
 msgid "Sonar GNU/Linux"
-msgstr ""
+msgstr "Сонар Гну/Линукс"
 
 #: features.html:280
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
-msgstr ""
+msgstr "обезбеђује. Али Убунту Мејт ће наставити да прати њихово вођство, тако да Убунту Мејт буде одрживо решење радне површи где приступ рачунару деле у домаћинству или на послу где се индивидуалне потребе разликују."
 
 #: features.html:288
 msgid "Mobile Integration"
-msgstr ""
+msgstr "Мобилна интеграција"
 
 #: features.html:294
 msgid ""
@@ -297,4 +299,4 @@ msgid ""
 "You can plug in a phone, media player or digital camera and the device is "
 "automatically detected and mounted. You can then access the files on it or "
 "sync its contents."
-msgstr ""
+msgstr "Тренутно Убунту Мејт има суштинску подршку мобилних уређаја коју бисте очекивали. Можете прикључити телефон, медијску справицу или дигитални фото-апарат и уређај се аутоматски открива и прикачиње. Онда можете да приступите датотекама на њему или да ускладите његов садржај."
