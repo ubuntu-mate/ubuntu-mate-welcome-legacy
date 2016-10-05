@@ -998,6 +998,7 @@ blockquote.terminal {
   height: 44px;
   background-color: white;
   box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
+  transition: all 0.1s linear;
   padding: 8px;
   margin: 8px;
   color: black;
@@ -1006,6 +1007,7 @@ blockquote.terminal {
 .topic-card:hover,
 .topic-card:focus {
   text-decoration: none;
+  box-shadow: 0px 0px 10px rgba(192,192,192,1);
 }
 
 .topic-card > span {
