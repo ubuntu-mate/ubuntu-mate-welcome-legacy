@@ -1113,7 +1113,7 @@ class AppView(WebKit2.WebView):
             app.update_page('#message-title', 'html', body_title)
             app.update_page('#message-body', 'html', body_text)
             app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
-            app.update_page('#message-link', 'html', "button class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</button>".format(target, _("Continue")))
+            app.update_page('#message-link', 'html', "<button class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</button>".format(target, _("Continue")))
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
