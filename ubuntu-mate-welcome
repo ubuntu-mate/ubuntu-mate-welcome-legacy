@@ -832,6 +832,10 @@ class AppView(WebKit2.WebView):
         self.get_settings().set_enable_spatial_navigation(True)
         self.get_settings().set_enable_caret_browsing(True)
 
+        # Show console messages in stdout if we're debugging.
+        if dbg.verbose_level == 2:
+            self.get_settings().set_enable_write_console_messages_to_stdout(True)
+
         # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
         dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
