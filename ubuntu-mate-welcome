@@ -2106,7 +2106,7 @@ class DynamicApps(object):
                 try:
                     systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
                 except AttributeError:
-                    stdout.vprint("Welcome", "Program is not installed. Version could not be detected.", 0, 1)
+                    dbg.stdout("Welcome", "Program is not installed. Version could not be detected.", 0, 1)
                     systemstate.welcome_version = "Unknown"
                 break
         dbg.stdout('Welcome', 'Version: ' + systemstate.welcome_version, 0, 0)
