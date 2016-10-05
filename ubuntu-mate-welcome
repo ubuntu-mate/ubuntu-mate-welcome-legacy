@@ -2103,7 +2103,11 @@ class DynamicApps(object):
         # Get the version of Welcome in use.
         for pkgname in systemstate.apt_cache.keys():
             if 'ubuntu-mate-welcome' in pkgname:
-                systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
+                try:
+                    systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
+                except AttributeError:
+                    stdout.vprint("Welcome", "Program is not installed. Version could not be detected.", 0, 1)
+                    systemstate.welcome_version = "Unknown"
                 break
         dbg.stdout('Welcome', 'Version: ' + systemstate.welcome_version, 0, 0)
 
