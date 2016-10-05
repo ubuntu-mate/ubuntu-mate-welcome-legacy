@@ -537,7 +537,6 @@ if ( current_page == 'gettingstarted.html' ) {
     $('.topicContents').fadeOut();
     $('#current-topic').fadeOut();
     $('#current-icon').fadeOut();
-    $('#bottom-navigation').fadeOut();
 
     setTimeout(function() {
       $('#current-topic').html(title);
@@ -547,13 +546,6 @@ if ( current_page == 'gettingstarted.html' ) {
 
       $("#current-icon").removeClass();
       $("#current-icon").addClass("fa").addClass(icon);
-
-      // Hide bottom navigation if topics page.
-      if ( id == "#initial" ) {
-        $('#bottom-navigation').fadeOut();
-      } else {
-        $('#bottom-navigation').fadeIn();
-      }
 
       // Update prev/next button states
       if ( do_not_update_btn_state == null ) {
