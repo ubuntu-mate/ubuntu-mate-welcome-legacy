@@ -529,6 +529,10 @@ if ( current_page == 'gettingstarted.html' ) {
     var title = $(id).data("title");
     var icon  = $(id).data("icon");
 
+    if ( id == "#none" ) {
+      return
+    }
+
     // Smoothly fade between topics
     $('.topicContents').fadeOut();
     $('#current-topic').fadeOut();
