@@ -114,6 +114,15 @@ function setCursorNormal() {
   $('a').removeClass('cursor-wait');
 }
 
+// Keyboard shortcuts
+$('body').bind('keypress', function(e) {
+	if ( e.keyCode == 27 ) {  // ESC
+    if ( current_page != "index.html" ) {
+      smoothPageFade("index.html")
+    }
+	}
+});
+
 ///////////////////////////////////////////////////////////////
 
 // Main Menu Only = Animation
