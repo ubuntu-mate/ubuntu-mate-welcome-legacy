@@ -1310,6 +1310,7 @@ class AppView(WebKit2.WebView):
             key = cmd.split('?')[1]
             pref.toggle(key)
             pref.refresh_pref_page(key)
+            queue.refresh_page_state()
         elif cmd.startswith('clipboard'):
             var = cmd.split('?')[1]
             systemstate.copy_to_clipboard(var)
