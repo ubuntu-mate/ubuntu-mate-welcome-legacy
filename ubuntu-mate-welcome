@@ -1117,7 +1117,7 @@ class AppView(WebKit2.WebView):
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
-        if title != 'null':
+        if title != 'null' and title != '':
             dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
             self._do_command(title)
 
