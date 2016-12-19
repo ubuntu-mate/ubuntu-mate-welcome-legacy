@@ -56,7 +56,7 @@ Usage: ubuntu-mate-welcome [arguments]
   --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.
   -h, --help                   Show this help text.
   --force-arch=ARCH            Simulate a specific architecture.
-                                -- Examples: i386, amd64, powerpc, armhf
+                                -- Examples: i386, amd64, armhf, arm64
   --force-codename=CODENAME    Simulate a specific release.
                                 -- Examples: trusty, wily, xenial
   --force-net                  Simulate a working internet connection.

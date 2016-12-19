@@ -229,7 +229,7 @@ def process_args():
             list_no_screenshot()
             for codename in ['xenial', 'yakkety']:
                 list_missing_codename(codename)
-            for arch in ['i386', 'amd64', 'powerpc', 'armhf']:
+            for arch in ['i386', 'amd64', 'arm64', 'armhf']:
                 list_missing_arch(arch)
             list_special_preinstall()
             list_app_sources()
