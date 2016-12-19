@@ -17,8 +17,7 @@ import json
 test.start()
 
 valid_distro_codenames = [
-                          'precise', 'trusty', 'utopic', 'vivid',
-                          'wily', 'xenial', 'yakkety'
+                          'trusty', 'xenial', 'yakkety', 'zesty'
                          ]
 
 valid_arch = ['i386', 'amd64', 'armhf', 'arm64']
