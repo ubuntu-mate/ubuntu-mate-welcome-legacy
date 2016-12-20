@@ -5540,16 +5540,16 @@
             "working": true
         },
         "libdvdcss2": {
-            "name": "DVD Playback Support",
+            "name": "Blu-ray and DVD Playback Support",
             "img": "dvd",
             "main-package": "libdvdcss2",
             "launch-command": null,
-            "install-packages": "libdvdcss2",
-            "remove-packages": "libdvdcss2",
+            "install-packages": "libdvdcss2,libaacs0,libbluray1,libbluray-bdj,libbluray-bin,libdvdnav4,libdvdread4",
+            "remove-packages": "libdvdcss2,libaacs0,libbluray1,libbluray-bdj,libbluray-bin,libdvdnav4,libdvdread4",
             "description": [
-                "<code>libdvdcss2</code> is a simple library designed for",
-                "accessing DVDs like a block device without having to bother",
-                "about the decryption. It will enable playback of DVD video in VLC."
+                "Installs libraries that enable Blu-ray and DVD playback in VLC.",
+                "After install this DVD will work but Blu-ray will need to put",
+                "http://www.labdv.com/aacs/KEYDB.cfg in ~/.config/aacs/KEYDB.cfg."                
             ],
             "alternate-to": null,
             "subcategory": "Codecs / Libraries",
