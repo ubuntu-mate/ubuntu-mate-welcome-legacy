@@ -2095,6 +2095,39 @@
             },
             "working": true
         },
+        "google-earth": {
+            "name": "Google Earth",
+            "img": "google-earth",
+            "main-package": "google-earth-stable",
+            "launch-command": "google-earth-stable",
+            "install-packages": "google-earth-stable",
+            "remove-packages": "google-earth-stable",
+            "description": [
+                "Explore, search and discover the planet. Google Earth",
+                "lets you fly anywhere to see satellite imagery, 3D",
+                "buildings, 3D trees, terrain, Street View, planets and",
+                "much more."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": false,
+            "url-info": "https://www.google.com/earth/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.google.earth",
+            "url-ios": "https://itunes.apple.com/gb/app/google-earth/id293622097",
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "google-earth",
+                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+                    "apt-sources": [
+                        "deb http://dl.google.com/linux/earth/deb/ stable main"
+                    ]
+                }
+            },
+            "working": true
+        },
         "google-talkplugin": {
             "name": "Google Talk Plugin",
             "img": "google-talkplugin",
@@ -2110,7 +2143,7 @@
             "alternate-to": null,
             "subcategory": "Plug-in",
             "open-source": false,
-            "url-info": "https://www.google.com/tools/dlpage/hangoutplugin",
+            "url-info": "https://www.google.com/chat/video",
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.talk",
             "url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
             "arch": "i386,amd64",
@@ -2125,13 +2158,13 @@
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "google-musicmanager": {
             "name": "Google Music Manager",
             "img": "google-musicmanager",
             "main-package": "google-musicmanager-beta",
-            "launch-command": "google-musicmanager-beta",
+            "launch-command": "google-musicmanager",
             "install-packages": "google-musicmanager-beta",
             "remove-packages": "google-musicmanager-beta",
             "description": [
@@ -2146,7 +2179,7 @@
             "alternate-to": "Apple iTunes",
             "subcategory": "Cloud and Sync",
             "open-source": false,
-            "url-info": "https://music.google.com",
+            "url-info": "https://music.google.com/music/listen?#manager_pl",
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
             "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
             "arch": "i386,amd64",
@@ -2161,7 +2194,7 @@
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "hipchat": {
             "name": "HipChat",
