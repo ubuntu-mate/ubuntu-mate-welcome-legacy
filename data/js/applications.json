@@ -20,7 +20,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -49,7 +49,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -80,7 +80,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -111,7 +111,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -141,13 +141,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:diodon-team/stable",
-                    "source-file": "diodon-team-ubuntu-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -178,7 +173,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=io.enpass.app&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/enpass-password-manager/id455566716",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -215,7 +210,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -242,7 +237,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -270,7 +265,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -300,13 +295,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/keeypassx",
-                    "source-file": "flexiondotorg-ubuntu-keeypassx-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -335,7 +325,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -373,7 +363,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -403,7 +393,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -435,7 +425,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.subsurfacedivelog.mobile",
             "url-ios": "https://itunes.apple.com/gb/app/subsurface/id907870605?mt=8",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -496,7 +486,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -534,7 +524,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -598,7 +588,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -672,7 +662,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "zesty": {
                     "method": "skip"
@@ -705,7 +695,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -739,9 +729,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wfg/0ad",
                     "source-file": "wfg-ubuntu-0ad-CODENAME"
@@ -774,7 +764,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -804,7 +794,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -834,7 +824,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "xenial": {
                     "method": "ppa",
@@ -901,7 +891,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -926,7 +916,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -961,7 +951,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -988,7 +978,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -1027,7 +1017,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1059,7 +1049,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1089,7 +1079,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1122,7 +1112,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1149,12 +1139,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "yakkety": {
-                    "method": "skip"
-                },
-                "zesty": {
+                "yakkety,zesty": {
                     "method": "skip"
                 },
                 "all": {
@@ -1187,7 +1174,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1223,7 +1210,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1249,7 +1236,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1282,7 +1269,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "multiverse-repo"
@@ -1319,7 +1306,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1349,7 +1336,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1382,7 +1369,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1414,7 +1401,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1451,7 +1438,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1480,7 +1467,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1522,7 +1509,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1557,7 +1544,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1585,7 +1572,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1621,7 +1608,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1651,7 +1638,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1679,7 +1666,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1708,7 +1695,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1761,7 +1748,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1788,7 +1775,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1823,7 +1810,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1851,7 +1838,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.bittorrent.sync",
             "url-ios": "https://itunes.apple.com/gb/app/bittorrent-sync/id665156116",
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -1885,7 +1872,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1953,41 +1940,6 @@
             },
             "working": true
         },
-        "dropbox": {
-            "name": "Dropbox",
-            "img": "dropbox",
-            "main-package": "dropbox",
-            "launch-command": "dropbox",
-            "install-packages": "dropbox",
-            "remove-packages": "dropbox",
-            "description": [
-                "Lets you bring your photos, documents, and",
-                "videos anywhere into Dropbox&#8217;s cloud and",
-                "optionally share them with others easily."
-            ],
-            "alternate-to": null,
-            "subcategory": "Cloud and Sync",
-            "open-source": false,
-            "url-info": "https://www.dropbox.com/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
-            "url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
-            "arch": "i386,amd64",
-            "releases": "trusty",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "dropbox",
-                    "apt-key-server": [
-                        "pgp.mit.edu",
-                        "5044912E"
-                    ],
-                    "apt-sources": [
-                        "deb http://linux.dropbox.com/ubuntu CODENAME main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "filezilla": {
             "name": "FileZilla",
             "img": "filezilla",
@@ -2015,7 +1967,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2071,13 +2023,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/gajim",
-                    "source-file": "flexiondotorg-ubuntu-gajim-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -2106,13 +2053,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/gobby",
-                    "source-file": "flexiondotorg-ubuntu-gobby-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -2140,7 +2082,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.android.chrome",
             "url-ios": "https://itunes.apple.com/gb/app/chrome-web-browser-by-google/id535886823",
             "arch": "amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2172,7 +2114,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.talk",
             "url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2208,7 +2150,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
             "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2241,7 +2183,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.hipchat&hl=en",
             "url-ios": "https://itunes.apple.com/us/app/hipchat-group-chat-video-file/id418168984?mt=8",
             "arch": "amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2314,7 +2256,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs",
             "url-ios": "https://itunes.apple.com/gb/app/google-drive-free-online-storage/id507874739",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2358,7 +2300,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2392,9 +2334,9 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
             "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
@@ -2425,7 +2367,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.opera.browser",
             "url-ios": "https://itunes.apple.com/gb/app/opera-mini-web-browser/id363729560",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2459,7 +2401,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.owncloud.android",
             "url-ios": "https://itunes.apple.com/gb/app/owncloud/id543672169",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2492,7 +2434,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,vivid,xenial,yakkety,zesty",
+            "releases": "vivid,xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2521,7 +2463,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2551,7 +2493,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
             "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "partner-repo"
@@ -2625,7 +2567,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2656,7 +2598,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.spideroak.android",
             "url-ios": "https://itunes.apple.com/gb/app/spideroak/id360584371",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2691,7 +2633,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid",
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2731,7 +2673,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.telegram.messenger",
             "url-ios": "https://itunes.apple.com/gb/app/telegram-messenger/id686449807",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2827,7 +2769,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2854,7 +2796,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2922,7 +2864,7 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial,yakkety": {
+                "xenial,yakkety": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wireshark-dev/stable",
                     "source-file": "wireshark-dev-ubuntu-stable-CODENAME"
@@ -2953,7 +2895,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2993,7 +2935,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3021,7 +2963,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3054,7 +2996,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3084,7 +3026,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3119,7 +3061,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3150,7 +3092,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3179,7 +3121,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3240,7 +3182,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3268,13 +3210,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:rednotebook/stable",
-                    "source-file": "rednotebook-ubuntu-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -3302,7 +3239,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3333,7 +3270,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3363,7 +3300,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3392,7 +3329,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3424,7 +3361,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3453,7 +3390,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3483,7 +3420,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3513,7 +3450,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3541,7 +3478,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3574,7 +3511,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3605,7 +3542,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3669,7 +3606,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3705,7 +3642,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3742,7 +3679,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3772,7 +3709,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3828,7 +3765,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3855,9 +3792,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:me-davidsansome/clementine",
                     "source-file": "me-davidsansome-ubuntu-clementine-CODENAME"
@@ -3893,9 +3830,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mscore-ubuntu/mscore-stable",
                     "source-file": "mscore-ubuntu-mscore-stable-CODENAME"
@@ -3931,13 +3868,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:osmoma/audio-recorder",
-                    "source-file": "audio-recorder-ubuntu-ppa-CODENAME"
-                },
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:audio-recorder/ppa",
@@ -3997,7 +3929,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4025,7 +3957,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4099,7 +4031,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4204,7 +4136,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4236,9 +4168,9 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.pandora.android",
             "url-ios": "https://itunes.apple.com/en/app/pandora-radio/id284035177",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:pithos/ppa",
                     "source-file": "pithos-ubuntu-ppa-CODENAME"
@@ -4272,7 +4204,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4301,7 +4233,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4329,7 +4261,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4389,7 +4321,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4417,7 +4349,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.spotify.music",
             "url-ios": "https://itunes.apple.com/gb/app/spotify-music/id324684580",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4486,7 +4418,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4520,7 +4452,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4606,7 +4538,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4634,7 +4566,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4724,9 +4656,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:gnome-terminator/ppa",
                     "source-file": "gnome-terminator-ubuntu-ppa-CODENAME"
@@ -4823,7 +4755,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4861,7 +4793,7 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty,xenial": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:cesar-crea-si/eviacam",
                     "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
@@ -4893,7 +4825,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4923,7 +4855,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4984,7 +4916,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.mb.android",
             "url-ios": "https://itunes.apple.com/gb/app/emby/id992180193",
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -5017,7 +4949,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5047,9 +4979,9 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
             "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:mumble/release",
                     "source-file": "mumble-ubuntu-release-CODENAME"
@@ -5082,7 +5014,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5110,7 +5042,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5145,7 +5077,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "partner-repo+ppa",
@@ -5201,7 +5133,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5233,7 +5165,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5259,7 +5191,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5286,7 +5218,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5309,7 +5241,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5334,7 +5266,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5357,7 +5289,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5382,11 +5314,6 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "trusty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:daniel.pavel/solaar",
-                    "source-file": "daniel_pavel-ubuntu-solaar-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -5408,7 +5335,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5431,7 +5358,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5454,7 +5381,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5598,7 +5525,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "trusty,xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "manual",
