@@ -1,13 +1,14 @@
 # 
 # Translators:
-# Ibrahim Al-Darra <ibrahimaldarra@gmail.com>, 2016
+# Ibrahim al-Darra <ibrahimaldarra@gmail.com>, 2016
+# Ibrahim al-Darra <ibrahimaldarra@gmail.com>, 2016
 # Mubarak Qahtani <abu-q76@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-10-02 00:00+0000\n"
-"Last-Translator: Ibrahim Al-Darra <ibrahimaldarra@gmail.com>\n"
+"PO-Revision-Date: 2016-11-03 15:12+0000\n"
+"Last-Translator: Ibrahim al-Darra <ibrahimaldarra@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,18 +38,18 @@ msgstr "تغيير حجم نظام الملفات"
 
 #: rpi.html:37
 msgid "Your file system has already been resized."
-msgstr "قد تم إعادة تحجيم نظام ملفاتك للتو ."
+msgstr "لقد تم إعادة تحجيم نظام ملفاتك للتو ."
 
 #: rpi.html:40
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr "بعد تثبيتك لأبونتو ماتيه للمرة الأولى على الـ رازبيري باي الخاص بك ، نظام الملقات سيكون محدود بحجم النسخة الأصلية أي حوالي 3.9 ج.ب . استخدم هذا الزر لإعادة تحجيمه ليملأ كامل مساحة بطاقة الذاكرة الخارجية ."
+msgstr "بعد تثبيتك لأبونتو ماتيه للمرة الأولى على الـ رازبيري باي الخاص بك ، نظام الملقات سيكون محدود بحجم النسخة الأصلية أي حوالي 3.9 جيجا بايت . استخدم هذا الزر لإعادة تحجيمه ليملأ كامل مساحة بطاقة الذاكرة الخارجية ."
 
 #: rpi.html:44
 msgid "Resize Now"
-msgstr ""
+msgstr "أعد التحجيم الآن"
 
 #: rpi.html:48
 msgid ""
@@ -68,7 +69,7 @@ msgstr "برامج غير متوافقة"
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
-msgstr "بعض الحزم المتوفرة لأبونتو قد كتبت و بنيت خصيصاً لتكون لـ"
+msgstr "بعض الحزم المتوفرة لأبونتو قد كتبت و بنيت خصيصاً لتكون لمعمارية"
 
 #: rpi.html56, 111
 msgid "or"
@@ -76,21 +77,21 @@ msgstr "أو"
 
 #: rpi.html:57
 msgid "architecture. As the Raspberry Pi is based on"
-msgstr ""
+msgstr "و بما أن الرازبيري باي مبنية على"
 
 #: rpi.html:58
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
-msgstr ""
+msgstr "فلن تكون هذه الحزم متوافرة للتثبيت . اعتمادا على الحزمة ، قد يكون من الممكن ان تقوم ببناء هذه الحزم بنفسك او ان تقوم بالاعتماد على منفذ ما ."
 
 #: rpi.html:65
 msgid "Incompatible:"
-msgstr "غير متوافقة:"
+msgstr "الغير متوافق :"
 
 #: rpi.html:74
 msgid "Compatible:"
-msgstr "متوافقة:"
+msgstr "المتوافق :"
 
 #: rpi.html:87
 msgid "Upgrades"
@@ -98,15 +99,15 @@ msgstr "ترقية"
 
 #: rpi.html:88
 msgid "Please"
-msgstr "من فضلك"
+msgstr "فضلا ،"
 
 #: rpi.html:88
 msgid "do not"
-msgstr "لا تفعل"
+msgstr "لا تقم"
 
 #: rpi.html:88
 msgid "attempt to"
-msgstr ""
+msgstr "بحاولة"
 
 #: rpi.html:88
 msgid "upgrade"
@@ -116,45 +117,45 @@ msgstr "ترقية"
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
-msgstr ""
+msgstr "ترقية الرازبيري باي خاصتك لنسخة احدث من التوزيعة ، (مثلا من 15.04 إلى 15.10) حيث أن النواة "
 
 #: rpi.html:91
 msgid "not designed"
-msgstr ""
+msgstr "غير مصممة"
 
 #: rpi.html:91
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
-msgstr ""
+msgstr "للقيام بهذا . هذه العملية ستتطلب وقتا طويلا جدا و في نفس الوقت ستملأ كرت الذاكرة الخاص بك الى ان تنعدم المساحة الفارغة فيه ."
 
 #: rpi.html:96
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
-msgstr ""
+msgstr "من الآمن أن تقوم بنسخ بياناتك التي تود الحفاظ عليها احتياطيا و بعدها تقوم بإعادة تثبيت النسخة الجديدة . الترقية قد تؤدي إلى عطب بطاقة الذاكرة خاصتك أو تؤدي إلى عدم قدرة الجهاز على الإقلاع ، أو تسبب بعض الأخطاء ."
 
 #: rpi.html:100
 msgid "You can, however, install"
-msgstr ""
+msgstr "لكن يمكنك ، بأي حال ، تثبيت"
 
 #: rpi.html:100
 msgid "regular updates"
-msgstr ""
+msgstr "التحديثات الدورية"
 
 #: rpi.html:100
 msgid "via the"
-msgstr ""
+msgstr "عبر"
 
 #: rpi.html102, 111
 msgid "Software Updater"
-msgstr "مُحَدِثُ البرمجيات"
+msgstr "مُحدِّث البرمجيات"
 
 #: rpi.html:102
 msgid "utility for your installed software."
-msgstr ""
+msgstr "لبرامجك المثبتة ."
 
 #: rpi.html:105
 msgid "Kernel Updates"
@@ -162,11 +163,11 @@ msgstr "تحديثات النواة"
 
 #: rpi.html:106
 msgid "The same kernel provided by the"
-msgstr ""
+msgstr "النواة المستخدمة هي نفسها المزودة من"
 
 #: rpi.html:107
 msgid "Raspberry Pi foundation"
-msgstr ""
+msgstr "مؤسسة رازبيري باي"
 
 #: rpi.html:108
 msgid ""
@@ -188,7 +189,7 @@ msgstr "حالياً ، خبارات تسارع العتاد هي :"
 
 #: rpi.html:118
 msgid "not supported"
-msgstr "لا يدعم"
+msgstr "غير مدعومة"
 
 #: rpi.html:119
 msgid "unlike"
@@ -220,7 +221,7 @@ msgstr "متجر الرازبيري باي"
 
 #: rpi.html:129
 msgid "Enable/Disable X11"
-msgstr "تفعيل / تعطيل واجهة المستخدم الرسومية (X11)"
+msgstr "تفعيل / تعطيل خادم العرض X11"
 
 #: rpi.html:130
 msgid "For users who are looking to create their own headless"
