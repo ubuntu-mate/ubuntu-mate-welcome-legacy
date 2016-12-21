@@ -4524,6 +4524,33 @@
             },
             "working": true
         },
+        "dconf-editor": {
+            "name": "dconf-editor",
+            "img": "dconf-editor",
+            "main-package": "dconf-editor",
+            "launch-command": "dconf-editor",
+            "install-packages": "dconf-editor",
+            "remove-packages": "dconf-editor",
+            "description": [
+                "Simple configuration graphical editor for DConf, a ",
+                "low-level key/value database designed for storing desktop",
+                "environment settings."
+            ],
+            "alternate-to": null,
+            "subcategory": "Debugger",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Projects/dconf",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "deja-dup": {
             "name": "Déjà Dup",
             "img": "deja-dup",
