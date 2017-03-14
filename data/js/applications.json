@@ -2147,7 +2147,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.talk",
             "url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2256,7 +2256,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2526,7 +2526,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
             "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "partner-repo"
@@ -2535,7 +2535,7 @@
             "working": true
         },
         "skypeforlinux": {
-            "name": "Skype for Linux Alpha",
+            "name": "Skype for Linux Beta",
             "img": "skypeforlinux",
             "main-package": "skypeforlinux",
             "launch-command": "skypeforlinux",
