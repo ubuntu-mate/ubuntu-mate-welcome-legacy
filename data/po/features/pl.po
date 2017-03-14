@@ -1,19 +1,19 @@
 # 
 # Translators:
 # Marcin Sedlak <fdmarcin@gmail.com>, 2016
-# Paweł Pańczyk <pawelppanczyk@gmail.com>, 2016
+# Paweł Pańczyk <pawelppanczyk@gmail.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-09-30 20:19+0000\n"
+"PO-Revision-Date: 2017-02-05 20:14+0000\n"
 "Last-Translator: Paweł Pańczyk <pawelppanczyk@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: features.html:18
@@ -73,7 +73,7 @@ msgid ""
 "without conscious intervention by you, the user. Even if you do accidentally"
 " invite in an infection, chances are it's designed to attack Windows and "
 "won't do much, if any damage to Ubuntu MATE."
-msgstr ""
+msgstr "Ubuntu MATE w teorii może zostać zawirusowane… ale tak się nie stanie. Błyskawiczne i dostarczane na czas aktualizacje dają pewność, że zagrożeń dla systemów Linux takich jak Ubuntu MATE jest bardzo niewiele lub nie ma ich wcale. Przez ostatnie 10 lat zanotowano niezwykle mało „ogólnodostępnych” infekcji zagrażających Ubuntu MATE. Nie stanowią one już zagrożenia dla osób korzystających z nowych dystrybucji Linuksa. Ubuntu MATE zaprojektowane jest tak, aby utrudnić wirusom i innym niechcianym programom instalację i działanie bez świadomego udziału użytkownika. Nawet jeśli przypadkowo zainstalujesz wirusa, prawdopodobnie jest on przeznaczony dla systemu Windows i nie uszkodzi Ubuntu MATE."
 
 #: features.html:95
 msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "not administrators by default. Administrators (\"root\" users) on any "
 "computer system have permission to do anything they want, including the "
 "ability to damage the system."
-msgstr ""
+msgstr "Innym ważnym mechanizmem ochronnym Ubuntu MATE jest to, że użytkownicy nie są domyślnie administratorami. Administratorzy (użytkownicy „root”) w każdym systemie operacyjnym uprawnieni są do zrobienia wszystkiego, łącznie z możliwością uszkodzenia systemu."
 
 #: features.html:99
 msgid ""
@@ -99,14 +99,14 @@ msgstr ""
 
 #: features.html:117
 msgid "Powerful Applications"
-msgstr ""
+msgstr "Wydajne programy"
 
 #: features.html:118
 msgid ""
 "While MATE Desktop provides the essential user interfaces to control and use"
 " a computer, Ubuntu MATE adds a collection of additional applications to "
 "turn your computer into a truly powerful workstation."
-msgstr ""
+msgstr "Podczas gdy pulpit MATE zapewnia podstawowy interfejs użytkownika potrzebny do kontroli i używania komputera, Ubuntu MATE dodaje do niego kolekcję aplikacji, aby uczynić z komputera naprawdę wydajną stację roboczą."
 
 #: features.html:123
 msgid "Productivity"
@@ -117,7 +117,7 @@ msgid ""
 "Firefox delivers safe, easy web browsing. A familiar user interface, "
 "enhanced security features including protection from online identity theft, "
 "and an integrated search to let you get the most out of the web."
-msgstr ""
+msgstr "Firefox umożliwia bezpieczne i łatwe przeglądanie Sieci. Przyjazny interfejs, rozszerzone bezpieczeństwo zapewniające ochronę przed kradzieżą danych osobowych oraz wbudowane wyszukiwanie pozwala ci wykorzystać pełnię potencjału Internetu."
 
 #: features.html:144
 msgid ""
@@ -128,7 +128,7 @@ msgid ""
 "filter, advanced search and indexing capabilities, and offers easy "
 "organization of mails with tagging and virtual folders. It also features "
 "unrivalled extensibility."
-msgstr ""
+msgstr "Thunderbird jest bogatym w funkcje klientem poczty e-mail, RSS i grup dyskusyjnych, czyniącym pisanie e-maili bezpieczniejszym, szybszym i łatwiejszym. Wspiera różne konta mailowe (POP, IMAP, Gmail), ma łatwy kreator konfiguracji konta, książkę adresową, interfejs w kartach, wbudowane filtrowanie spamu, zaawansowane funkcje wyszukiwania i indeksowania i oferuje prostą organizację maili z tagowaniem i folderami. Posiada też bezkonkurencyjną możliwość dodawania rozszerzeń."
 
 #: features.html:160
 msgid ""

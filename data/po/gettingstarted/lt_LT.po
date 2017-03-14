@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-08-30 12:50+0000\n"
+"PO-Revision-Date: 2016-12-27 14:48+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
 "MIME-Version: 1.0\n"
@@ -213,7 +213,7 @@ msgstr "Saugųjį paleidimą"
 
 #: gettingstarted.html:129
 msgid "(or enable the"
-msgstr "(arba įjungti"
+msgstr "(arba BIOS nustatymuose įjungti"
 
 #: gettingstarted.html:129
 msgid "Unlock Bootloader"
@@ -445,7 +445,7 @@ msgid ""
 "option during the installation wizard can also configure and resize your "
 "partitions as well as choose mount points. Dividing your disks can make it "
 "somewhat easier to re-install the operating system later if desired."
-msgstr "parinktis irgi gali konfigūruoti ir keisti jūsų skaidinių dydžius, o taip pat pasirinkti prijungimo taškus. Diskų atskyrimas, vėliau, reikalui esant, padaro jūsų operacinės sistemos įdiegimą iš naujo lengvesnį."
+msgstr "parinktis irgi gali konfigūruoti ir keisti jūsų skaidinių dydžius, o taip pat pasirinkti prijungimo taškus. Diskų atskyrimas, vėliau, reikalui esant, padaro jūsų operacinės sistemos įdiegimą iš naujo, lengvesnį."
 
 #: gettingstarted.html:255
 msgid "You can specify these mount points:"
@@ -1954,3 +1954,124 @@ msgstr "išdėstymas yra panašus į Microsoft Windows, tuo tarpu"
 #: gettingstarted.html:852
 msgid "layout is similar to Apple Mac OS X."
 msgstr "išdėstymas yra panašus į Apple Mac OS X."
+
+#: gettingstarted.html23, 36, 38
+msgid "Topic Selection"
+msgstr "Temos pasirinkimas"
+
+#: gettingstarted.html:26
+msgid "Previous"
+msgstr "Ankstesnė"
+
+#: gettingstarted.html:27
+msgid "Next"
+msgstr "Kita"
+
+#: gettingstarted.html28, 1786
+msgid "Topics"
+msgstr "Temos"
+
+#: gettingstarted.html:60
+msgid "Installation"
+msgstr "Įdiegimas"
+
+#: gettingstarted.html:72
+msgid "Disks (Simple Partition Editor)"
+msgstr "Diskai (Paprastas skaidinių redaktorius)"
+
+#: gettingstarted.html:76
+msgid "GParted (Advanced Partition Editor)"
+msgstr "GParted (Išplėstinis skaidinių redaktorius)"
+
+#: gettingstarted.html:181
+msgid ""
+"Plug your device into a power source if it is running on battery power."
+msgstr "Jeigu jūsų įrenginys veikia, naudodamas baterijos energiją, įjunkite jį į elektros maitinimo lizdą."
+
+#: gettingstarted.html:186
+msgid ""
+"The live session you are currently in right now is a good opportunity to "
+"test Ubuntu MATE without modifying your computer, allowing you to test that "
+"all of your peripherals are working as intended before committing to "
+"installing it on your machine. Once you are ready, double click the "
+"installation icon on the desktop."
+msgstr "Pristatomasis seansas, kuriame jūs šiuo metu esate, yra puiki galimybė išbandyti Ubuntu MATE neatliekant jokių pakeitimų savo kompiuteryje. Šis seansas, prieš jums įdiegiant sistemą į savo kompiuterį, leidžia jums išbandyti ar visi išoriniai įrenginiai veikia taip kaip numatyta. Kai būsite pasirengę, du kartus spustelėkite darbalaukyje esančią įdiegimo piktogramą."
+
+#: gettingstarted.html:196
+msgid ""
+"option) in the BIOS prior to installation, particularly if an operating "
+"system was pre-installed."
+msgstr "parinktį), ypač tuo atveju, jei operacinė sistema buvo įdiegta iš anksto."
+
+#: gettingstarted.html:218
+msgid ""
+"For computers that start to run low on memory (RAM), the operating system "
+"will start swapping content from memory to the hard disk. This is known as a"
+" \"paging file\" in Windows. Performance will decrease when running low on "
+"memory and could possibly freeze if you completely run out of memory without"
+" anywhere to swap."
+msgstr "Kompiuteriuose, kuriuose pritrūks atminties (RAM), operacinė sistema pradės vykdyti turinio mainus iš atminties į standųjį diską. Windows sistemoje tai yra žinoma kaip \"perkrauties\" ar \"sukeitimų failas\". Pritrūkus atminties, našumas gali mažėti arba, jeigu jums visai pritrūks atminties ir nebus galimybės atlikti kur nors mainus, našumas gali visai sustoti."
+
+#: gettingstarted.html:868
+msgid "Customisation"
+msgstr "Tinkinimas"
+
+#: gettingstarted.html:903
+msgid "Keyboard & Mouse Shortcuts"
+msgstr "Klaviatūros ir pelės trumpiniai"
+
+#: gettingstarted.html:1478
+msgid "View System Requirements"
+msgstr "Rodyti sistemos reikalavimus"
+
+#: gettingstarted.html:1786
+msgid "Return to the topic index."
+msgstr "Grįžti į temų rodyklę."
+
+#: gettingstarted.html:1787
+msgid "Previous Topic"
+msgstr "Ankstesnė tema"
+
+#: gettingstarted.html:1788
+msgid "Next Topic"
+msgstr "Kita tema"
+
+#: gettingstarted.html:224
+msgid ""
+"Swap space that's the size of your RAM is also required if you would like to"
+" hibernate the system (as known as suspending to disk)."
+msgstr "Taip pat reikalinga jūsų RAM dydžio sukeitimų skaidinio vieta, jeigu norite turėti galimybę užmigdyti sistemą (taip pat žinoma kaip pristabdymas į diską)."
+
+#: gettingstarted.html:723
+msgid "Razer Drivers for Linux"
+msgstr "Razer tvarkyklės, skirtos Linux"
+
+#: gettingstarted.html:724
+msgid ""
+"A community-driven driver and daemon that utilities the full functionality "
+"of many Razer peripherals ranging from keyboards, mice and mouse mats."
+msgstr "Bendruomenės vedama tvarkyklė ir tarnyba, kuri išnaudoja visą, daugelio Razer išorinių įrenginių, tokių kaip, klaviatūros, pelės ir pelės kilimėliai, funkcionalumą."
+
+#: gettingstarted.html:742
+msgid ""
+"A front-end for managing Razer devices, with support for application "
+"profiles, setting effects and enabling features of the keyboard."
+msgstr "Naudotojo sąsaja, skirta Razer įrenginių tvarkymui, su programos profilių, efektų nustatymo ir klaviatūros ypatybių įjungimo palaikymu."
+
+#: gettingstarted.html:743
+msgid "Requires Razer Drivers for Linux to be installed first."
+msgstr "Reikalauja, kad, iš pradžių, būtų įdiegtos Razer tvarkyklės, skirtos Linux."
+
+#: gettingstarted.html:459
+msgid "Blu-ray and DVD Playback Support"
+msgstr "Blu-ray ir DVD atkūrimo palaikymas"
+
+#: gettingstarted.html:460
+msgid ""
+"Installs libraries that enable Blu-ray and DVD playback in VLC. After "
+"install DVDs will work but for Blu-ray you will need to download"
+msgstr "Įdiegia bibliotekas, kurios įgalina Blu-ray ir DVD atkūrimą VLC programoje. Po įdiegimo DVD veiks, tačiau norint atkurti Blu-ray, jums reikės atsisiųsti"
+
+#: gettingstarted.html:463
+msgid "and save it to"
+msgstr "ir įrašyti ją į"

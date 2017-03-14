@@ -12,34 +12,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: shop.html:17
+#: shop.html:18
 msgid "Shop"
 msgstr "Sklep"
 
-#: shop.html:22
+#: shop.html:24
 msgid "Buy from the Boutique"
 msgstr "Kupuj w Boutique"
 
-#: shop.html:39
+#: shop.html:41
 msgid ""
 "The Ubuntu MATE Boutique sells everything from computers that come pre-"
 "installed with Ubuntu MATE to clothing and apparel that are all Ubuntu MATE "
 "branded. Every item sold pays a small commission to the Ubuntu MATE project."
 msgstr "Sklep Ubuntu MATE Boutique oferuje wszystko: od komputerów prekonfigurowanych z Ubuntu MATE, do ubrań z motywami Ubuntu MATE. Część dochodów z każdego produktu przeznaczana jest na projekt Ubuntu MATE."
 
-#: shop.html:44
+#: shop.html:46
 msgid ""
 "It appears you are not connected to the Internet. Please check your "
 "connection to access this content."
 msgstr "Wygląda na to, że nie masz aktywnego połączenia z internetem. Sprawdź swoje połączenie."
 
-#: shop.html:45
+#: shop.html:47
 msgid "Sorry, Welcome was unable to establish a connection."
 msgstr "Przepraszamy, program Welcome nie mógł uzyskać połączenia."
 
-#: shop.html:46
+#: shop.html:48
 msgid "Retry"
 msgstr "Spróbuj ponownie"
