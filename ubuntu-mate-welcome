@@ -3292,7 +3292,7 @@ class ChangesQueue(object):
             app.update_page('#navigation-queue-count', 'removeClass', 'empty')
 
     def is_enabled(self):
-        enabled = pref.get('enable-queue', False)
+        enabled = pref.get('enable-queue', True)
         if enabled:
             return True
         else:
