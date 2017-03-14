@@ -125,7 +125,7 @@ We are on Transifex!
 
 ## Syncing Translations
 
-    tx pull -a
+    tx pull -a --minimum-perc=5 -f
     ./welcome-po.py --update-pos
     ./edgar-allan create-all-pots
     ./edgar-allan translate-all
