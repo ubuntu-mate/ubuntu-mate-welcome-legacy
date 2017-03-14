@@ -425,7 +425,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.subsurfacedivelog.mobile",
             "url-ios": "https://itunes.apple.com/gb/app/subsurface/id907870605?mt=8",
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -486,7 +486,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2802,7 +2802,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3639,7 +3639,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3674,8 +3674,8 @@
             "url-info": "http://anoise.tuxfamily.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3901,7 +3901,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4064,7 +4064,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4169,7 +4169,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial",
+            "releases": "xenial,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4451,7 +4451,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4976,8 +4976,16 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.mb.android",
             "url-ios": "https://itunes.apple.com/gb/app/emby/id992180193",
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
+                "zesty": {
+                    "method": "manual",
+                    "source-file": "emby-server",
+                    "apt-key-url": "http://download.opensuse.org/repositories/home:emby/xUbuntu_Next/Release.key",
+                    "apt-sources": [
+                        "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_Next/ /"
+                    ]
+                },
                 "all": {
                     "method": "manual",
                     "source-file": "emby-server",
