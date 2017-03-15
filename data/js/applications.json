@@ -1153,7 +1153,7 @@
                     ]
                 }
             },
-            "working": true
+            "working": false
         },
         "wine-devel": {
             "name": "Wine Development Builds",
@@ -1251,7 +1251,7 @@
             "img": "steam",
             "main-package": "steam:i386",
             "launch-command": "steam",
-            "install-packages": "steam:i386",
+            "install-packages": "steam:i386,steam-devices",
             "remove-packages": "steam:i386",
             "description": [
                 "The ultimate entertainment platform. Play",
@@ -3675,7 +3675,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4139,7 +4139,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4451,7 +4451,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5579,7 +5579,7 @@
             "img": "dvd",
             "main-package": "libdvdcss2",
             "launch-command": null,
-            "install-packages": "libdvdcss2,libaacs0,libbluray1,libbluray-bdj,libdvdnav4,libdvdread4",
+            "install-packages": "libdvdcss2,libaacs0,libbluray-bdj,libdvdnav4,libdvdread4",
             "remove-packages": "libdvdcss2,libbluray-bdj",
             "description": [
                 "Installs libraries that enable Blu-ray and DVD playback in VLC.",
