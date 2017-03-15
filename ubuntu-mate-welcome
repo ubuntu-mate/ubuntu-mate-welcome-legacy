@@ -101,10 +101,15 @@ def whereami():
     return data_path
 
 def notify_send(title, description, icon_path):
-    # Sends a system notification to the user.
-    Notify.init(title)
-    notification=Notify.Notification.new(title, description, icon_path)
-    notification.show()
+    """
+    Send system notification to the user.
+    """
+    try:
+        Notify.init(title)
+        notification=Notify.Notification.new(title, description, icon_path)
+        notification.show()
+    except Exception as e:
+        stdout.error("Exception while sending notification: " + str(e))
 
 def run_external_command(command, with_shell=False):
     # Runs external commands and cleans up the output.
