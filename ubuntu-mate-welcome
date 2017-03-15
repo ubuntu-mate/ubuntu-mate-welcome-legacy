@@ -318,6 +318,10 @@ class SimpleApt(object):
         else:
             apt_update = self.client.update_cache()
         apt_update.connect("finished",self.on_finished_update)
+        try:
+            apt_update.connect("finished",self.on_finished_update)
+        except AttributeError:
+            return
 
         if pref.get('hide-apt-progress', False):
             apt_update.run()
@@ -3211,11 +3215,13 @@ class ChangesQueue(object):
 
             # Update the cache (in case of repository changes)
             if self.must_update_cache:
-                self.ui_update_progress(string.updating_cache)
-                update_repos()
+                self.ui_update_progress(string.updating_cache, 0)
+                client = AptClient()
+                client.update_cache(wait=True)
+                client = None
                 systemstate.reload_cache()
 
-            # Remove each application's packages
+            # Install each application's packages
             current = 0
             total = len(self.install_queue)
             for program_id in self.install_queue:
@@ -3245,10 +3251,10 @@ class ChangesQueue(object):
         if not current == 0:
             percent = str(int((current / total) * 100)) + '%'
             app.update_page('#queue-bar', 'width', percent)
-            app.update_page('#queue-bar', 'fadeIn', 'fast')
+            app.update_page('#bulk-queue-progress', 'fadeIn', 'fast')
         else:
             percent = '--%'
-            app.update_page('#queue-bar', 'fadeOut', 'fast')
+            app.update_page('#bulk-queue-progress', 'fadeOut', 'fast')
         dbg.stdout('Queue', 'Progress updated: "' + string + '" (' + percent + ')', 1, 4)
 
     def ui_add_card(self, program_id, status):
