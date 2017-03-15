@@ -109,7 +109,7 @@ def notify_send(title, description, icon_path):
         notification=Notify.Notification.new(title, description, icon_path)
         notification.show()
     except Exception as e:
-        stdout.error("Exception while sending notification: " + str(e))
+        dbg.stdout("Notify", "Exception while sending notification: " + str(e), 0, 1)
 
 def run_external_command(command, with_shell=False):
     # Runs external commands and cleans up the output.
