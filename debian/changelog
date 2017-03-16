@@ -1,3 +1,10 @@
+ubuntu-mate-welcome (17.04.4) zesty; urgency=medium
+
+  * Wait for Apt cache to finish updating before installing apps in bulk.
+  * Catch exception when notifications fail to send.
+
+ -- Martin Wimpress <martin@ubuntu-mate.org>  Wed, 15 Mar 2017 23:15:48 +0000
+
 ubuntu-mate-welcome (17.04.3) zesty; urgency=medium
 
   * Fix Blu-ray and DVD Playback Support installer.
