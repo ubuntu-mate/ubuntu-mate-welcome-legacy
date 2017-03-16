@@ -420,6 +420,17 @@ if ( current_page == 'software.html' ) {
       $('#navigation-queue').addClass('active');
     }
 
+    // Start processing queue
+    function startQueue() {
+        $('#navigation-right').addClass('disabled');
+        $('#category-tabs').addClass('disabled');
+        smoothFade("#queue-options","#queue-busy");
+        $('#queue-error').fadeOut();
+        $('.drop').hide();
+        setTimeout(function() {
+            cmd("queue-start");
+        }, 1000);
+    }
 }
 
 

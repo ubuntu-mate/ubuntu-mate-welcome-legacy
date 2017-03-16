@@ -433,13 +433,13 @@
           <hr class="soften"/>
 
           <div id="queue-options" hidden>
-            <button id="queue-btn-apply" onclick="cmd('queue-start')" class="btn btn-success"><span class="fa fa-check"></span> &zwnj;Apply Changes&zwnj;</button>
+            <button id="queue-btn-apply" onclick="startQueue()" class="btn btn-success"><span class="fa fa-check"></span> &zwnj;Apply Changes&zwnj;</button>
             <button id="queue-btn-clear" onclick="cmd('queue-clear')" class="btn"><span class="fa fa-trash"></span> &zwnj;Clear&zwnj;</button>
             <button id="queue-btn-reset" onclick="cmd('queue-clear')" class="btn btn-inverse" style="display:none"><span class="fa fa-check"></span> &zwnj;Finished&zwnj;</button>
           </div>
           <div id="queue-busy" class="alert alert-success" hidden>
-            <h5><img src="img/welcome/processing.gif"/> <span id="queue-status">...</span></h5>
-            <p>Your changes are being applied.</p>
+            <h5><img src="img/welcome/processing.gif"/> <span id="queue-status">&zwnj;Preparing to start...&zwnj;</span></h5>
+            <p>&zwnj;Your changes are being applied.&zwnj;</p>
             <div id="bulk-queue-progress" class="progress progress-striped progress-success active">
               <div id="queue-bar" class="bar" style="width: 40%;"></div>
             </div>

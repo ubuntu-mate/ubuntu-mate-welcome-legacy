@@ -3140,13 +3140,6 @@ class ChangesQueue(object):
         # Priority:     Remove first -->  Install
         dbg.stdout('Queue', 'Applying changes...', 0, 3)
 
-        # Lock/Update UI
-        app.update_page('#navigation-right', 'addClass', 'disabled')
-        app.update_page('#category-tabs', 'addClass', 'disabled')
-        app.webkit.run_javascript('smoothFade("#queue-options","#queue-busy")')
-        app.update_page('#queue-error', 'fadeOut')
-        app.update_page('.drop', 'hide')
-
         # Function to check whether an application's change was successful.
         self.bulk_all_good = True
         def check_app_state(self, program_id, check_for_state):
