@@ -5138,7 +5138,6 @@
                 "in the Ubuntu archives. Or purchase additional apps via",
                 "Ubuntu One. Complete with ratings, reviews and screenshots."
             ],
-            "alternate-to": "Ubuntu Software Center",
             "subcategory": "Software Center",
             "open-source": false,
             "url-info": "http://www.appgrid.org/",
@@ -5165,7 +5164,6 @@
             "description": [
                 "Software lets you install and update applications and system extensions."
             ],
-            "alternate-to": "Ubuntu Software Center",
             "subcategory": "Software Center",
             "open-source": true,
             "url-info": "https://wiki.gnome.org/Apps/Software",
@@ -5179,36 +5177,6 @@
                 }
             },
             "working": true
-        },
-        "3-usc": {
-            "name": "Ubuntu Software Center",
-            "img": "ubuntu-software-center",
-            "main-package": "software-center",
-            "launch-command": "software-center",
-            "install-packages": "software-center,app-install-data-partner,ubuntu-sso-client-qt",
-            "remove-packages": "software-center,app-install-data-partner,ubuntu-sso-client-qt",
-            "description": [
-                "Lets you browse and install",
-                "thousands of free and paid applications available for Ubuntu.",
-                "You can view available software by category, or search",
-                "quickly by name or description. You can also examine the",
-                "software already installed, and remove items you no longer need."
-            ],
-            "alternate-to": null,
-            "subcategory": "Software Center",
-            "open-source": true,
-            "url-info": "https://apps.ubuntu.com/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true,
-            "notes": "Last release this is support is Xenial."
         },
         "4-synaptic": {
             "name": "Synaptic Package Manager",
