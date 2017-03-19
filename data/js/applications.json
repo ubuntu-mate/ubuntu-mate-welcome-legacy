@@ -3998,6 +3998,38 @@
             },
             "working": true
         },
+        "kdenlive": {
+            "name": "kdenlive",
+            "img": "kdenlive",
+            "main-package": "kdenlive",
+            "launch-command": "kdenlive",
+            "install-packages": "kdenlive,breeze-icon-theme",
+            "remove-packages": "kdenlive",
+            "description": [
+                "A non-linear video editing suite, which supports DV, HDV and",
+                "many more formats. Its main features are:",
+                "<ul><li>Guides and marker for organizing timelines</li>",
+                "<li>Copy and paste support for clips, effects and transitions</li>",
+                "<li>Real time changes</li>",
+                "<li>FireWire and Video4Linux capture</li>",
+                "<li>Screen grabbing</li>",
+                "<li>Exporting to any by FFMPEG supported format</li>"
+            ],
+            "alternate-to": "Adobe&reg; Premiere Pro",
+            "subcategory": "Video Production",
+            "open-source": true,
+            "url-info": "http://www.kdenlive.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "kodi": {
             "name": "Kodi",
             "img": "kodi",
@@ -4208,37 +4240,6 @@
                     "enable-ppa": "ppa:pithos/ppa",
                     "source-file": "pithos-ubuntu-ppa-CODENAME"
                 },
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
-        "pitivi": {
-            "name": "Pitivi",
-            "img": "pitivi",
-            "main-package": "pitivi",
-            "launch-command": "pitivi",
-            "install-packages": "pitivi",
-            "remove-packages": "pitivi",
-            "description": [
-                "Non-linear audio/video editor based on",
-                "graphs of filters which operate on media data. Pitivi allows",
-                "users to easily edit audio/video projects and provides",
-                "several ways of creating and modifying a timeline.  Ranging",
-                "from a simple synopsis view (a-la iMovie) to the full-blown",
-                "editing view (aka Complex View) which puts you in complete",
-                "control of your editing."
-            ],
-            "alternate-to": "Adobe&reg; Premiere Elements",
-            "subcategory": "Video Production",
-            "open-source": true,
-            "url-info": "http://www.pitivi.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,yakkety,zesty",
-            "pre-install": {
                 "all": {
                     "method": "skip"
                 }
