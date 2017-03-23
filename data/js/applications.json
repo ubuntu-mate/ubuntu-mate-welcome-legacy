@@ -671,7 +671,7 @@
                     "method": "ppa",
                     "enable-ppa": "ppa:stellarium/stellarium-releases",
                     "source-file": "stellarium-ubuntu-stellarium-releases-CODENAME"
-                }                
+                }
             },
             "working": true
         },
@@ -3607,13 +3607,10 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "xenial,yakkety": {
+                "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
                     "source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
-                },
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
