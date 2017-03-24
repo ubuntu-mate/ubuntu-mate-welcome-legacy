@@ -90,6 +90,36 @@
             },
             "working": false
         },
+        "caffeine": {
+            "name": "Caffeine",
+            "img": "caffeine",
+            "main-package": "caffeine",
+            "install-packages": "caffeine",
+            "remove-packages": "caffeine",
+            "launch-command": "caffeine-indicator",
+            "description": [
+                "Prevents the desktop from becoming idle when an application is",
+                "running full-screen. A desktop indicator <code>caffeine-indicator</code>",
+                "supplies a manual toggle, and the command <code>caffeinate</code> can",
+                "be used to prevent idleness for the duration of any command."
+            ],
+            "alternate-to": null,
+            "subcategory": "Desktop Management",
+            "open-source": true,
+            "url-info": "https://launchpad.net/caffeine",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:caffeine-developers/ppa",
+                    "source-file": "caffeine-developers-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": false
+        },
         "convertall": {
             "name": "ConvertAll",
             "img": "convertall",
