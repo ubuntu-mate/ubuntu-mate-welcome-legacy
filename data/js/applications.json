@@ -1821,7 +1821,7 @@
             "main-package": "flashplugin-installer",
             "launch-command": null,
             "install-packages": "flashplugin-installer,libhal1-flash",
-            "remove-packages": "flashplugin-installer,libhal1-flash",
+            "remove-packages": "flashplugin-installer",
             "description": [
                 "A cross-platform, browser-based application runtime that",
                 "provides uncompromised viewing of expressive applications, content, and videos",
@@ -4382,9 +4382,12 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "all": {
+                "zesty": {
+                    "method": "skip"
+                },
+                "xenial,yakkety": {
                     "method": "ppa",
                     "enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
                     "source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME"
