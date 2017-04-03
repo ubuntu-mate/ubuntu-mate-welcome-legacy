@@ -178,11 +178,14 @@ def translate_file(in_file, in_po, out_file, verbose):
 
                     if (entry.msgstr !=""):
 
+                        # ensure some characters HTML safe to prevent JavaScript errors
+                        entry.msgstr = entry.msgstr.replace("'", "&#145;")
+
                         # replace the English text with the tranlated text.
                         # NOTE: ALL occurrences of the English text are replaced throughout the entire
                         # file
-
                         content = content.replace("%s%s%s" %("&zwnj;", translatable[1], "&zwnj;"), entry.msgstr)
+
                         if verbose:
                             print ("Translated %s >> %s" %(trim_text, entry.msgstr))
                     else:
