@@ -56,6 +56,7 @@ import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from threading import Thread
+from shutil import which
 
 
 ##################################
@@ -946,6 +947,10 @@ class AppView(WebKit2.WebView):
             else:
                 app.update_page('#update-notification', 'hide')
 
+            # Disable install button on installed systems.
+            if not which("ubiquity"):
+                app.update_page("#install", "prop", "disabled", "true")
+
         ### Splash ###
         if app.current_page == 'splash.html':
             self.do_smooth_footer = True
@@ -1249,7 +1254,10 @@ class AppView(WebKit2.WebView):
             systemstate.autostart_toggle()
             self._push_config()
         elif cmd == 'install':
-            subprocess.Popen(['ubiquity','gtk_ui'])
+            if not which("ubiquity"):
+                print("Installation cannot be started as Ubiquity is missing.")
+            else:
+                subprocess.Popen(['ubiquity', 'gtk_ui'])
         elif cmd == 'backup':
             subprocess.Popen(['deja-dup-preferences'])
         elif cmd == 'chatroom':
