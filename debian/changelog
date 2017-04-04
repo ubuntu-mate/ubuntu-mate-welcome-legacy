@@ -1,6 +1,8 @@
-ubuntu-mate-welcome (17.04.11~zesty1.0) zesty; urgency=medium
+ubuntu-mate-welcome (17.04.11) zesty; urgency=medium
 
-  * Fix incorrect quoting of URIs. (LP: #1679280)
+  * Fix incorrect quoting of URIs which prevent some locales from
+    installing software. (LP: #1679280)
+  * Disable the Install button if Ubiquity is not avaliable. (LP: #1678582)
 
  -- Martin Wimpress <martin@ubuntu-mate.org>  Mon, 03 Apr 2017 22:35:50 +0100
 
