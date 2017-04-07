@@ -3222,6 +3222,38 @@
             },
             "working": true
         },
+        "texworks": {
+            "name": "TexWorks",
+            "img": "texworks",
+            "main-package": "texworks",
+            "launch-command": "texworks",
+            "install-packages": "texworks",
+            "remove-packages": "texworks",
+            "description": [
+                "An environment for authoring TeX (LaTeX, ConTeXt, etc) documents, with",
+                "a Unicode-based, TeX-aware editor, integrated PDF viewer, and a clean,",
+                "simple interface accessible to casual and non-technical users.",
+                "TeXworks is inspired by Dick Koch's award-winning TeXShop program for",
+                "Mac OS X, which has made quality typesetting through TeX accessible to",
+                "a wider community of users, without a technical or intimidating face.",
+                "The goal of TeXworks is to deliver a similarly integrated, easy-to-use",
+                "environment for users on other platforms, especially GNU/Linux and Windows."
+            ],
+            "alternate-to": null,
+            "subcategory": "Office Applications",
+            "open-source": true,
+            "url-info": "http://www.tug.org/texworks",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "planner": {
             "name": "Planner",
             "img": "planner",
