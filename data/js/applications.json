@@ -4384,13 +4384,16 @@
             "arch": "i386,amd64",
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
-                "zesty": {
-                    "method": "skip"
-                },
                 "xenial,yakkety": {
                     "method": "ppa",
                     "enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
                     "source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME"
+                },
+                "zesty": {
+                    "method": "skip"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
@@ -5702,18 +5705,6 @@
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntu-wine/ppa",
-                    "source-file": ""
-                }
-            },
-            "working": true
-        },
-        "ubuntu-mate-welcome-dev": {
-            "name": "Ubuntu MATE Welcome Development Packages",
-            "img": "system",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:lah7/ubuntu-mate-welcome-dev",
                     "source-file": ""
                 }
             },
