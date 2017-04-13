@@ -24,6 +24,11 @@ from threading import Thread
 ###############################################
 test.start()
 
+# Is 'rmadison' installed?
+if os.system('which rmadison') != 0:
+    test.error("'rmadison' is not installed.")
+    test.end()
+
 # This test could take a while due to 'rmadison'.
 # ... A hint of Yorkshire dialect ;)
 test.warning("Ar' Madison takes 'er time. This test may take a few minutes to complete.")
