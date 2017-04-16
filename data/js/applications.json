@@ -1207,9 +1207,12 @@
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wine/wine-builds",
-                    "source-file": "wine-ubuntu-wine-builds-CODENAME"
+                    "method": "manual",
+                    "source-file": "wine-builds",
+                    "apt-key-url": "https://dl.winehq.org/wine-builds/Release.key",
+                    "apt-sources": [
+                        "deb https://dl.winehq.org/wine-builds/ubuntu/ CODENAME main"
+                    ]
                 }
             },
             "working": true
