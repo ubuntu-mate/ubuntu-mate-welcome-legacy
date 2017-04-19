@@ -1,3 +1,15 @@
+ubuntu-mate-welcome (17.04.12) zesty; urgency=medium
+
+  * Add missing entries for Aptik, KDE Connect, Lutris, Nuvola Player,
+    OBS Studio, RetroArch, Virtualbox and Wine which now all have Zesty
+    builds. (LP: #1684309)
+  * Fix broken applications.json which needs "all" explictly stated for
+    all entries, which Simple Screen Recorder was missing. (LP: #1684311)
+  * Drop Red Notebook, no longer in the archive. (LP: #1682757)
+  * Fix test suite.
+
+ -- Martin Wimpress <martin@ubuntu-mate.org>  Wed, 19 Apr 2017 23:24:50 +0100
+
 ubuntu-mate-welcome (17.04.11) zesty; urgency=medium
 
   * Fix incorrect quoting of URIs which prevent some locales from
