@@ -4659,16 +4659,16 @@
             "alternate-to": null,
             "subcategory": "Connectivity",
             "open-source": true,
-            "url-info": "https://github.com/vikoadi/indicator-kdeconnect",
+            "url-info": "https://github.com/Bajoja/indicator-kdeconnect",
             "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial",
+            "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:vikoadi/ppa",
-                    "source-file": "vikoadi-ubuntu-ppa-CODENAME"
+                    "enable-ppa": "ppa:webupd8team/indicator-kdeconnect",
+                    "source-file": "webupd8team-ubuntu-indicator-kdeconnect-CODENAME"
                 }
             },
             "working": true
