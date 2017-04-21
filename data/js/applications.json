@@ -3249,7 +3249,9 @@
             "releases": "xenial,yakkety,zesty",
             "pre-install": {
                 "all": {
-                    "method": "skip"
+                    "method": "ppa",
+                    "enable-ppa": "ppa:texworks/stable",
+                    "source-file": "texworks-ubuntu-stable-CODENAME"
                 }
             },
             "working": true
