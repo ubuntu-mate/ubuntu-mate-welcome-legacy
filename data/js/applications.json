@@ -163,7 +163,7 @@
                 "cards, IDs, passport, driving licenses etc. Everything is",
                 "saved locally on user\u2019s device and optionally he can sync",
                 "through other devices using his accounts of Dropbox, Box,",
-                "Google Drive, OneDrive and ownCloud.",
+                "Google Drive, OneDrive, Nextcloud and ownCloud.",
                 "<ul><li><b>Browser Extensions Available: </b><i>Enpass <a onclick=\"cmd('link?https://enpass.io/enpass-browser-extension/')\">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>"
             ],
             "alternate-to": null,
@@ -2324,13 +2324,41 @@
             },
             "working": false
         },
+        "nextcloud-client": {
+            "name": "Nextcloud Client",
+            "img": "nextcloud",
+            "main-package": "nextcloud-client-caja",
+            "launch-command": "nextcloud",
+            "install-packages": "nextcloud-client,nextcloud-client-caja",
+            "remove-packages": "nextcloud-client,nextcloud-client-caja",
+            "description": [
+                "A tool to synchronize files from",
+                "a Nextcloud Server with your computer."
+            ],
+            "alternate-to": null,
+            "subcategory": "Cloud and Sync",
+            "open-source": true,
+            "url-info": "https://nextcloud.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.nextcloud.client",
+            "url-ios": "https://itunes.apple.com/gb/app/nextcloud/id1125420102",
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:nextcloud-devs/client",
+                    "source-file": "nextcloud-devs-ubuntu-client-CODENAME"
+                }
+            },
+            "working": true
+        },
         "owncloud-client": {
             "name": "ownCloud Client",
             "img": "owncloud",
-            "main-package": "owncloud-client",
+            "main-package": "owncloud-client-caja",
             "launch-command": "owncloud",
-            "install-packages": "owncloud-client",
-            "remove-packages": "owncloud-client",
+            "install-packages": "owncloud-client,owncloud-client-caja",
+            "remove-packages": "owncloud-client,owncloud-client-caja",
             "description": [
                 "A tool to synchronize files from",
                 "an ownCloud Server with your computer."
