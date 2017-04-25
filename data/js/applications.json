@@ -2172,33 +2172,6 @@
             },
             "working": true
         },
-        "icedtea-8-plugin": {
-            "name": "Iced Tea Plug-in",
-            "img": "icedtea",
-            "main-package": "icedtea-8-plugin",
-            "launch-command": null,
-            "install-packages": "icedtea-8-plugin",
-            "remove-packages": "icedtea-8-plugin",
-            "description": [
-                "A web browser plug-in to execute",
-                "Java applets, supporting LiveConnect/JavaScript. It is",
-                "targeted for browsers that support the NPAPI, such as Mozilla Firefox."
-            ],
-            "alternate-to": null,
-            "subcategory": "Plug-in",
-            "open-source": true,
-            "url-info": "http://icedtea.classpath.org/wiki/Main_Page",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "insync": {
             "name": "Insync",
             "img": "insync",
