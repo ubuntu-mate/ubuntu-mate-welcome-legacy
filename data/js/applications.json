@@ -1820,39 +1820,6 @@
             },
             "working": true
         },
-        "btsync": {
-            "name": "BitTorrent Sync",
-            "img": "btsync",
-            "main-package": "btsync-gui",
-            "launch-command": "btsync-gui",
-            "install-packages": "btsync-gui",
-            "remove-packages": "btsync-gui",
-            "description": [
-                "A simple tool that applies P2P protocol for direct livefolder sync",
-                "with maximum security network speed and storage capacity."
-            ],
-            "alternate-to": null,
-            "subcategory": "Cloud and Sync",
-            "open-source": false,
-            "url-info": "https://www.getsync.com/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.bittorrent.sync",
-            "url-ios": "https://itunes.apple.com/gb/app/bittorrent-sync/id665156116",
-            "arch": "i386,amd64,armhf",
-            "releases": "xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "btsync",
-                    "apt-key-url": "http://debian.yeasoft.net/btsync.key",
-                    "apt-sources": [
-                        "# YeaSoft's BitTorrent Sync Packaging Repository",
-                        "deb http://debian.yeasoft.net/btsync unstable main",
-                        "deb-src http://debian.yeasoft.net/btsync unstable main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "chromium": {
             "name": "Chromium",
             "img": "chromium",
