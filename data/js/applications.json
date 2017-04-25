@@ -1820,6 +1820,39 @@
             },
             "working": true
         },
+        "brave": {
+            "name": "Brave",
+            "img": "brave",
+            "main-package": "brave",
+            "launch-command": "brave",
+            "install-packages": "brave",
+            "remove-packages": "brave",
+            "description": [
+                "Browse faster and safer with Brave.",
+                "The new Brave browser automatically blocks ads and trackers,",
+                "making it faster and safer than your current browser.",
+                "Start supporting publishers today with our new Brave Payments system."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": true,
+            "url-info": "https://brave.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.brave.browser",
+            "url-ios": "https://itunes.apple.com/us/app/brave-web-browser-fast-with-built-in-adblock/id1052879175",
+            "arch": "amd64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "brave",
+                    "apt-key-url": "https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc",
+                    "apt-sources": [
+                        "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt CODENAME main"
+                    ]
+                }
+            },
+            "working": true
+        },
         "chromium": {
             "name": "Chromium",
             "img": "chromium",
@@ -3396,6 +3429,42 @@
             "pre-install": {
                 "all": {
                     "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "vscode": {
+            "name": "Microsoft Visual Studio Code",
+            "img": "vscode",
+            "main-package": "code",
+            "launch-command": "code",
+            "install-packages": "code",
+            "remove-packages": "code",
+            "description": [
+                "Visual Studio Code is a lightweight but powerful",
+                "source code editor which runs on your desktop and",
+                "is available for Windows, macOS and Linux. It comes",
+                "with built-in support for JavaScript, TypeScript and",
+                "Node.js and has a rich ecosystem of extensions for",
+                "other languages (such as C++, C#, Python, PHP, Go)",
+                "and runtimes (such as .NET and Unity)."
+            ],
+            "alternate-to": null,
+            "subcategory": "IDEs",
+            "open-source": true,
+            "url-info": "https://code.visualstudio.com/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "vscode",
+                    "apt-key-url": "https://packages.microsoft.com/keys/microsoft.asc",
+                    "apt-sources": [
+                        "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+                    ]
                 }
             },
             "working": true
