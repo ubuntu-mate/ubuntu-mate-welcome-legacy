@@ -2095,38 +2095,6 @@
             },
             "working": true
         },
-        "google-talkplugin": {
-            "name": "Google Talk Plugin",
-            "img": "google-talkplugin",
-            "main-package": "google-talkplugin",
-            "launch-command": "google-talkplugin",
-            "install-packages": "google-talkplugin",
-            "remove-packages": "google-talkplugin",
-            "description": [
-                "A browser plugin, for Firefox",
-                "and Google Chrome, that enables you to have voice and video",
-                "conversations from your computer."
-            ],
-            "alternate-to": null,
-            "subcategory": "Plug-in",
-            "open-source": false,
-            "url-info": "https://www.google.com/chat/video",
-            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.talk",
-            "url-ios": "https://itunes.apple.com/gb/app/hangouts/id643496868",
-            "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "google-talkplugin",
-                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
-                    "apt-sources": [
-                        "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "google-musicmanager": {
             "name": "Google Music Manager",
             "img": "google-musicmanager",
