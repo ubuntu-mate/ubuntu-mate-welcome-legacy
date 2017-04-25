@@ -1,7 +1,7 @@
 {
    "17.10.1": {
         "del": {
-            "antiviral": "not-nice"
+            "antiviral": "not-nice",
             "btsync": "bad-source",
             "google-talkplugin": "broken",
             "google-musicmanager": "bad-source",
@@ -9,91 +9,6 @@
             "opera-browser": "bad-source",
             "ubuntu-sdk": "not-nice",
             "gnome-schedule": "no-source"
-        }
-    }
-   "17.04.12": {
-        "fix": {
-            "aptik": "new-source",
-            "kdeconnect": "new-source",
-            "lutris": "new-source",
-            "nuvolaplayer": "new-source",
-            "obs-studio": "new-source",
-            "retroarch": "new-source",
-            "virtualbox": "new-source",
-            "wine-devel": "new-source"
-        },
-        "del": {
-            "rednotebook": "no-source"
-        }
-   },
-   "17.04.10": {
-        "add": [
-            "simplescreenrecorder"
-        ]
-   },
-   "17.04.8": {
-        "add": [
-            "caffeine"
-        ]
-   },
-   "17.04.7": {
-        "add": [
-            "kdenlive"
-        ],
-        "del": {
-            "pitivi": "not-nice"
-        }
-   },
-   "17.04.3": {
-        "del": {
-            "anoise": "broken",
-            "obs-studio": "broken",
-            "playonlinux": "broken"
-        }
-   },
-   "17.04.2": {
-        "add": [
-            "audio-recorder",
-            "emby",
-            "makemkv",
-            "openshot-qt",
-            "subsurface",
-            "ubuntu-sdk",
-            "uget",
-            "veracrypt"
-        ],
-        "del": {
-            "google-talkplugin": "broken",
-            "icedtea-8-plugin": "broken",
-            "opera-browser": "bad-source",
-            "skype": "not-nice"
-        }
-    },
-    "17.04.0": {
-        "add": [
-            "dconf-editor",
-            "google-talkplugin",
-            "obs-studio"
-        ],
-        "del": {
-            "aptik": "no-source",
-            "audio-recorder": "no-source",
-            "btsync": "no-source",
-            "diodon": "no-source",
-            "emby": "no-source",
-            "lutris": "no-source",
-            "makemkv": "no-source",
-            "nuvolaplayer": "no-source",
-            "owncloud-client": "no-source",
-            "playonlinux": "no-source",
-            "recentnotifications": "no-source",
-            "retroarch": "no-source",
-            "simplescreenrecorder": "no-source",
-            "subsurface": "no-source",
-            "ubuntu-sdk": "no-source",
-            "uget": "no-source",
-            "veracrypt": "no-source",
-            "virtualbox": "no-source"
         }
     }
 }
