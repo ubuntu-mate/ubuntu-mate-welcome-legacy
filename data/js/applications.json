@@ -2412,36 +2412,6 @@
             },
             "working": true
         },
-        "skype": {
-            "name": "Skype",
-            "img": "skype",
-            "main-package": "skype",
-            "launch-command": "skype",
-            "install-packages": "skype",
-            "remove-packages": "skype,skype-bin:i386",
-            "description": [
-                "Skype is software that enables the world&#8217;s",
-                "conversations. Millions of individuals and businesses use",
-                "Skype to make free video and voice calls, send instant",
-                "messages and share files with other Skype users. Every day,",
-                "people also use Skype to make low-cost calls to landlines and",
-                "mobiles."
-            ],
-            "alternate-to": null,
-            "subcategory": "Instant Messaging",
-            "open-source": false,
-            "url-info": "http://www.skype.com",
-            "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
-            "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
-            "arch": "i386,amd64",
-            "releases": "xenial,yakkety",
-            "pre-install": {
-                "all": {
-                    "method": "partner-repo"
-                }
-            },
-            "working": true
-        },
         "skypeforlinux": {
             "name": "Skype for Linux Beta",
             "img": "skypeforlinux",
