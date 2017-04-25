@@ -4278,6 +4278,38 @@
             },
             "working": true
         },
+        "peek": {
+            "name": "Peek",
+            "img": "peek",
+            "main-package": "peek",
+            "launch-command": "peek",
+            "install-packages": "peek",
+            "remove-packages": "peek",
+            "description": [
+                "Simple animated GIF screen recorder with an easy to use interface.",
+                "Peek creates animated GIF screencasts using FFmpeg and ImageMagick.",
+                "It was built for the specific use case of recording screen areas,",
+                "e.g., for easily showing UI features of your own apps or for showing",
+                "a bug in bug reports. It is not a general purpose screencast app",
+                "with extended features and it never will be."
+            ],
+            "alternate-to": null,
+            "subcategory": "Video Production",
+            "open-source": true,
+            "url-info": "https://github.com/phw/peek",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:peek-developers/stable",
+                    "source-file": "peek-developers-ubuntu-stable-CODENAME"
+                }
+            },
+            "working": true
+        },
         "kazam": {
             "name": "Kazam",
             "img": "kazam",
