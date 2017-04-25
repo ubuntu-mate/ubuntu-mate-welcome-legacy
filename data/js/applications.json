@@ -4405,6 +4405,33 @@
             },
             "working": true
         },
+        "vlc": {
+            "name": "VLC",
+            "img": "vlc",
+            "main-package": "vlc",
+            "launch-command": "vlc",
+            "install-packages": "vlc",
+            "remove-packages": "vlc",
+            "description": [
+                "VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4,",
+                "DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs,",
+                "podcasts, and multimedia streams from various network sources."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "http://www.videolan.org/",
+            "url-android": "https://play.google.com/store/apps/details?id=org.videolan.vlc",
+            "url-ios": "https://itunes.apple.com/gb/app/vlc-for-mobile/id650377962",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "youtube-dlg": {
             "name": "YouTube Downloader",
             "img": "youtube-dlg",
