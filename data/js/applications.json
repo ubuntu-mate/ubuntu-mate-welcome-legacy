@@ -2164,6 +2164,34 @@
             },
             "working": false
         },
+        "hexchat": {
+            "name": "Hexchat",
+            "img": "hexchat",
+            "main-package": "hexchat",
+            "launch-command": "hexchat",
+            "install-packages": "hexchat",
+            "remove-packages": "hexchat",
+            "description": [
+                "HexChat is a graphical IRC client with a GTK+ GUI. Features",
+                "include Python and Perl scripting support, a plugin API,",
+                "multiple server/channel windows, spell checking, multiple",
+                "authentication methods including SASL, and customizable notifications."
+            ],
+            "alternate-to": null,
+            "subcategory": "Instant Messaging",
+            "open-source": true,
+            "url-info": "https://hexchat.github.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "hipchat": {
             "name": "HipChat",
             "img": "hipchat",
