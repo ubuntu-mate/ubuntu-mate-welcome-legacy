@@ -3492,37 +3492,6 @@
                 }
             },
             "working": true
-        },
-        "ubuntu-sdk": {
-            "name": "Ubuntu SDK",
-            "img": "ubuntu-sdk",
-            "main-package": "ubuntu-sdk",
-            "launch-command": "/usr/bin/ubuntu-sdk-ide",
-            "install-packages": "ubuntu-sdk",
-            "remove-packages": "ubuntu-sdk",
-            "description": [
-                "The Ubuntu SDK is your full-featured integrated",
-                "development environment (IDE) for writing Ubuntu apps. Based",
-                "on QtCreator, the Ubuntu SDK provides all the tools you need",
-                "to get up and running and super productive developing Ubuntu",
-                "apps of all types, with QML, HTML5 and C++."
-            ],
-            "alternate-to": null,
-            "subcategory": "IDEs",
-            "open-source": true,
-            "url-info": "https://developer.ubuntu.com/en/start/ubuntu-sdk/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf",
-            "releases": "xenial,yakkety,zesty",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:ubuntu-sdk-team/ppa",
-                    "source-file": "ubuntu-sdk-team-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
         }
     },
     "Media": {
