@@ -2748,6 +2748,34 @@
             },
             "working": true
         },
+        "transmission": {
+            "name": "Transmission",
+            "img": "transmission",
+            "main-package": "transmission-gtk",
+            "launch-command": "transmission-gtk",
+            "install-packages": "transmission-gtk",
+            "remove-packages": "transmission-gtk",
+            "description": [
+                "Transmission is a set of lightweight BitTorrent",
+                "clients (in GUI, CLI and daemon form). All its",
+                "incarnations feature a very simple, intuitive",
+                "interface on top on an efficient, cross-platform back-end."
+            ],
+            "alternate-to": null,
+            "subcategory": "Download Manager",
+            "open-source": true,
+            "url-info": "https://transmissionbt.com/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "uget": {
             "name": "uGet",
             "img": "uget",
