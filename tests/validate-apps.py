@@ -16,10 +16,7 @@ import json
 ###############################################
 test.start()
 
-valid_distro_codenames = [
-                          'trusty', 'xenial', 'yakkety', 'zesty'
-                         ]
-
+valid_distro_codenames = ['trusty', 'xenial', 'yakkety', 'zesty', 'artful']
 valid_arch = ['i386', 'amd64', 'armhf', 'arm64']
 
 # Load Applications JSON

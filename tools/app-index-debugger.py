@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2016 Luke Horwell <lukehorwell37+code@gmail.com>
+# Copyright 2016 Luke Horwell <luke@ubuntu-mate.org>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
@@ -227,7 +227,7 @@ def process_args():
             list_all_apps()
             list_broken()
             list_no_screenshot()
-            for codename in ['xenial', 'yakkety', 'zesty']:
+            for codename in ['xenial', 'yakkety', 'zesty', 'artful']:
                 list_missing_codename(codename)
             for arch in ['i386', 'amd64', 'arm64', 'armhf']:
                 list_missing_arch(arch)
