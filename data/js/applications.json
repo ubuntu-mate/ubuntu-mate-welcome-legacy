@@ -4484,40 +4484,6 @@
             },
             "working": true
         },
-        "gnome-schedule": {
-            "name": "Scheduled Tasks",
-            "img": "gnome-schedule",
-            "main-package": "gnome-schedule",
-            "launch-command": "gnome-schedule",
-            "install-packages": "gnome-schedule",
-            "remove-packages": "gnome-schedule",
-            "description": [
-                "A UI for configuring a users&#8217;",
-                "<code>crontab</code> so that tasks run at set intervals. It",
-                "has templates support so that you won&#8217;t have to create the",
-                "same task again and again. If run as root, you can edit any",
-                "user&#8217;s <code>crontab</code> and <code>at</code> tasks.",
-                "Intervals are human readable strings like <i>Every hour",
-                "instead</i> of <code>0 * * * *</code>. There is an Advanced",
-                "mode for <code>crontab</code> experts. A calendar allows you",
-                "to choose the day you want a task executed."
-            ],
-            "alternate-to": null,
-            "subcategory": "Automation",
-            "open-source": true,
-            "url-info": "http://gnome-schedule.sourceforge.net/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "trusty",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "notes": "package not available in xenial",
-            "working": true
-        },
         "psensor": {
             "name": "Psensor",
             "img": "psensor",
