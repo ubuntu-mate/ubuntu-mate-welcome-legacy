@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# dragnadh <dragnadh@gmail.com>, 2017
 # Robbie Deighton <deightonrobbie@gmail.com>, 2016
-# Ronald van Zuijlen, 2016
+# Ronald van Zuijlen, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-14 18:20+0100\n"
-"PO-Revision-Date: 2016-12-09 20:19+0000\n"
-"Last-Translator: Ronald van Zuijlen\n"
+"PO-Revision-Date: 2017-04-17 20:20+0000\n"
+"Last-Translator: dragnadh <dragnadh@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/ubuntu-mate/"
 "ubuntu-mate-welcome/language/nl_NL/)\n"
 "Language: nl_NL\n"
@@ -34,52 +35,56 @@ msgstr "OK"
 
 #: ubuntu-mate-welcome:159 ubuntu-mate-welcome:169
 msgid "Successfully performed fix."
-msgstr ""
+msgstr "Reparatie is succesvol uitgevoerd."
 
 #: ubuntu-mate-welcome:159
 msgid "Any previously incomplete installations have been finished."
-msgstr ""
+msgstr "Alle eerdere onvolledige installaties zijn afgerond."
 
 #: ubuntu-mate-welcome:162 ubuntu-mate-welcome:172
 msgid "Failed to perform fix."
-msgstr ""
+msgstr "Reparatie kon niet uitgevoerd worden."
 
 #: ubuntu-mate-welcome:162
 msgid "Errors occurred while finishing an incomplete installation."
 msgstr ""
+"Er zijn fouten opgetreden tijdens het voltooien van een onvolledige "
+"installatie."
 
 #: ubuntu-mate-welcome:169
 msgid "Packages with broken dependencies have been resolved."
-msgstr ""
+msgstr "Pakketten met defecte afhankelijkheden zijn verholpen."
 
 #: ubuntu-mate-welcome:172
 msgid "Packages may still have broken dependencies."
-msgstr ""
+msgstr "Pakketten kunnen nog steeds defecte afhankelijkheden hebben."
 
 #: ubuntu-mate-welcome:181
 msgid "Successfully updated cache."
-msgstr ""
+msgstr "Cache is succesvol ge-update."
 
 #: ubuntu-mate-welcome:181
 msgid "Software is now ready to install."
-msgstr ""
+msgstr "Programma's zijn klaar om geinstalleerd te worden."
 
 #: ubuntu-mate-welcome:184
 msgid "Failed to update cache."
-msgstr ""
+msgstr "Cache kon niet worden ge-update."
 
 #: ubuntu-mate-welcome:184
 msgid "There may be a problem with your repository configuration."
-msgstr ""
+msgstr "Er is mogelijk een probleem met de configuratie van uw pakketbronnen."
 
 #: ubuntu-mate-welcome:240
 msgid "Welcome will stay up-to-date."
-msgstr ""
+msgstr "Welkom zal up-to-date blijven."
 
 #: ubuntu-mate-welcome:241
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
 msgstr ""
+"Welkom en de Software Boetiek zijn ingesteld om de meest recente updates te "
+"ontvangen."
 
 #: ubuntu-mate-welcome:247
 msgid "Everything is up-to-date"
@@ -87,7 +92,7 @@ msgstr "Alles is up-to-date"
 
 #: ubuntu-mate-welcome:248
 msgid "All packages have been upgraded to the latest versions."
-msgstr ""
+msgstr "Alle programma's zijn ge-update naar de laatste versies."
 
 #: ubuntu-mate-welcome:253
 msgid "Installed"
@@ -99,16 +104,16 @@ msgstr "Het programma is klaar om te gebruiken."
 
 #: ubuntu-mate-welcome:256
 msgid "was not installed."
-msgstr ""
+msgstr "werd niet geïnstalleerd."
 
 #: ubuntu-mate-welcome:257 ubuntu-mate-welcome:267 ubuntu-mate-welcome:298
 #: ubuntu-mate-welcome:308
 msgid "The operation was cancelled."
-msgstr ""
+msgstr "De actie werd geannuleerd."
 
 #: ubuntu-mate-welcome:259
 msgid "failed to install"
-msgstr ""
+msgstr "installatie mislukt"
 
 #: ubuntu-mate-welcome:260
 msgid "There was a problem installing this application."
@@ -124,11 +129,11 @@ msgstr "Het programma is verwijderd."
 
 #: ubuntu-mate-welcome:266
 msgid "was not removed."
-msgstr ""
+msgstr "werd niet verwijderd."
 
 #: ubuntu-mate-welcome:269
 msgid "failed to remove"
-msgstr ""
+msgstr "verwijderen mislukt"
 
 #: ubuntu-mate-welcome:270
 msgid "A problem is preventing this application from being removed."
@@ -137,31 +142,32 @@ msgstr ""
 
 #: ubuntu-mate-welcome:273
 msgid "Upgraded"
-msgstr ""
+msgstr "Geupdate."
 
 #: ubuntu-mate-welcome:274
 msgid "This application is set to use the latest version."
-msgstr ""
+msgstr "Deze applicatie is ingesteld om de nieuwste versie te gebruiken."
 
 #: ubuntu-mate-welcome:276
 msgid "was not upgraded."
-msgstr ""
+msgstr "werd niet opgewaardeerd."
 
 #: ubuntu-mate-welcome:277
 msgid "The application will continue to use the stable version."
-msgstr ""
+msgstr "De toepassing zal gebruik blijven maken van de stabiele versie."
 
 #: ubuntu-mate-welcome:279
 msgid "failed to upgrade"
-msgstr ""
+msgstr "Opwaarderen mislukt"
 
 #: ubuntu-mate-welcome:280
 msgid "A problem is preventing this application from being upgraded."
 msgstr ""
+"Een probleem zorgt ervoor dat deze applicatie niet opgewaardeerd kan worden."
 
 #: ubuntu-mate-welcome:294
 msgid "applications have been installed"
-msgstr ""
+msgstr "Het programma is geïnstalleerd."
 
 #: ubuntu-mate-welcome:295
 msgid "Your newly installed applications are ready to use."
@@ -177,11 +183,11 @@ msgstr "Sommige programma's konden niet geïnstalleerd worden."
 
 #: ubuntu-mate-welcome:301 ubuntu-mate-welcome:311
 msgid "Software Boutique encountered a problem with one of the applications."
-msgstr ""
+msgstr "De Software Boetiek heeft een probleem met één van de applicaties."
 
 #: ubuntu-mate-welcome:304
 msgid "applications have been removed"
-msgstr ""
+msgstr "Het programma is verwijderd."
 
 #: ubuntu-mate-welcome:305
 msgid "These applications are no longer present on your system."
@@ -237,15 +243,15 @@ msgstr "Annuleren"
 
 #: ubuntu-mate-welcome:773
 msgid "Set to retrieve the latest software listings."
-msgstr ""
+msgstr "Stel in dat de nieuwste software lijsten worden opgehaald."
 
 #: ubuntu-mate-welcome:774
 msgid "Retrieve the latest software listings."
-msgstr ""
+msgstr "De nieuwste software lijsten ophalen."
 
 #: ubuntu-mate-welcome:775
 msgid "Please wait while the application is being updated..."
-msgstr ""
+msgstr "Een ogenblik geduld terwijl de applicatie wordt bijgewerkt..."
 
 #: ubuntu-mate-welcome:776
 msgid "Version:"
@@ -253,7 +259,7 @@ msgstr "Versie:"
 
 #: ubuntu-mate-welcome:779
 msgid "This application is set to receive the latest updates."
-msgstr ""
+msgstr "Deze applicatie is ingesteld om de meest recente updates te ontvangen."
 
 #: ubuntu-mate-welcome:780
 msgid "Alternative to:"
@@ -281,7 +287,7 @@ msgstr "Verwijder"
 
 #: ubuntu-mate-welcome:786
 msgid "Upgrade"
-msgstr ""
+msgstr "Opwaarderen"
 
 #: ubuntu-mate-welcome:787
 msgid "Launch"
@@ -313,15 +319,15 @@ msgstr "Bron"
 
 #: ubuntu-mate-welcome:794
 msgid "Canonical Partner Repository"
-msgstr ""
+msgstr "Pakketbronnen van partners van Canonical "
 
 #: ubuntu-mate-welcome:795
 msgid "Ubuntu Multiverse Repository"
-msgstr ""
+msgstr "Pakketbronnen van de Ubuntu Multiverse"
 
 #: ubuntu-mate-welcome:796
 msgid "Ubuntu Repository"
-msgstr ""
+msgstr "Pakketbronnen van Ubuntu"
 
 #: ubuntu-mate-welcome:797
 msgid "Unknown"
@@ -385,7 +391,7 @@ msgstr "Universele toegang"
 
 #: ubuntu-mate-welcome:816
 msgid "Server One-Click Installation"
-msgstr ""
+msgstr "Server installatie aan de hand van één-klik"
 
 #: ubuntu-mate-welcome:817
 msgid "Miscellaneous"
@@ -421,11 +427,11 @@ msgstr "Gemarkeerd om te verwijderen."
 
 #: ubuntu-mate-welcome:832
 msgid "Preparing to remove:"
-msgstr ""
+msgstr "Voorbereiden voor het verwijderen van:"
 
 #: ubuntu-mate-welcome:833
 msgid "Preparing to install:"
-msgstr ""
+msgstr "Voorbereiden voor het installeren van:"
 
 #: ubuntu-mate-welcome:834
 msgid "Removing:"
@@ -437,7 +443,7 @@ msgstr "Installeren:"
 
 #: ubuntu-mate-welcome:836
 msgid "Updating cache..."
-msgstr ""
+msgstr "Cache wordt geupdate..."
 
 #: ubuntu-mate-welcome:837
 msgid "Verifying software changes..."
@@ -537,48 +543,51 @@ msgstr "GiB"
 
 #: ubuntu-mate-welcome:1627
 msgid "Could not gather data."
-msgstr ""
+msgstr "Data kon niet worden geladen."
 
 #: ubuntu-mate-welcome:1926
 msgid "Raspberry Pi Partition Resize"
-msgstr ""
+msgstr "Partitie formaat Raspberry Pi wijzigen"
 
 #: ubuntu-mate-welcome:1943
 msgid "Root partition has been resized."
-msgstr ""
+msgstr "Het formaat van de root partitie is gewijzigd."
 
 #: ubuntu-mate-welcome:1943
 msgid "The filesystem will be enlarged upon the next reboot."
 msgstr ""
+"Het bestandssysteem wordt vergroot wanneer de computer opnieuw wordt opstart."
 
 #: ubuntu-mate-welcome:1949 ubuntu-mate-welcome:1951 ubuntu-mate-welcome:1953
 #: ubuntu-mate-welcome:1955
 msgid "Don't know how to expand."
-msgstr ""
+msgstr "Weet niet hoe uit te breiden."
 
 #: ubuntu-mate-welcome:1949
 msgid "does not exist or is not a symlink."
-msgstr ""
+msgstr "bestaat niet of is geen symlink."
 
 #: ubuntu-mate-welcome:1951
 msgid "is not an SD card."
-msgstr ""
+msgstr "is niet een SD-kaart."
 
 #: ubuntu-mate-welcome:1953
 msgid "Your partition layout is not currently supported by this tool."
 msgstr ""
+"Dit hulpprogramma ondersteund uw partitie indeling op dit moment niet. "
 
 #: ubuntu-mate-welcome:1955
 msgid "is not the last partition."
-msgstr ""
+msgstr "is niet de laatste partitie."
 
 #: ubuntu-mate-welcome:1957
 msgid "Failed to run resize script."
 msgstr ""
+"Het script waarmee de formaat gewijzigd wordt kon niet uitgevoerd worden."
 
 #: ubuntu-mate-welcome:1957
 msgid "The returned error code is:"
-msgstr ""
+msgstr "De foutcode is:"
 
 #: ubuntu-mate-welcome:2160
 msgid "Open Source"
@@ -586,7 +595,7 @@ msgstr "Open Source"
 
 #: ubuntu-mate-welcome:2162
 msgid "Proprietary"
-msgstr ""
+msgstr "Gepatenteerd"
 
 #: ubuntu-mate-welcome:2278
 msgid ""
@@ -601,6 +610,8 @@ msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
 msgstr ""
+"Tijdens het uitvoeren van PROGRAM_NAME is een fout opgetreden. U kunt "
+"overwegen om de applicatie opnieuw te installeren."
 
 #: ubuntu-mate-welcome:2491
 msgid "Command:"
@@ -608,7 +619,7 @@ msgstr "Commando:"
 
 #: ubuntu-mate-welcome:2573
 msgid "Uses a new or updated source."
-msgstr ""
+msgstr "Maakt gebruik van een nieuwe of bijgewerkte bron."
 
 #: ubuntu-mate-welcome:2575
 msgid "Now works for various versions of Ubuntu."
@@ -616,15 +627,15 @@ msgstr "Werkt nu voor verschillende versies van Ubuntu."
 
 #: ubuntu-mate-welcome:2577
 msgid "Now a snappy package."
-msgstr ""
+msgstr "Nu een snappy pakket."
 
 #: ubuntu-mate-welcome:2579
 msgid "General maintenance."
-msgstr ""
+msgstr "Algemeen onderhoud."
 
 #: ubuntu-mate-welcome:2581
 msgid "Broken or problematic source."
-msgstr ""
+msgstr "Defecte of problematische bron."
 
 #: ubuntu-mate-welcome:2583
 msgid "Not yet available for some releases."
@@ -644,7 +655,7 @@ msgstr "Verder testen benodigd."
 
 #: ubuntu-mate-welcome:2591
 msgid "Does not meet our standards to be featured."
-msgstr ""
+msgstr "Voldoet niet aan onze standaarden om vermeld te worden."
 
 #: ubuntu-mate-welcome:2762
 msgid "applications found."
@@ -652,4 +663,4 @@ msgstr "programma's gevonden."
 
 #: ubuntu-mate-welcome:2766
 msgid "proprietary applications are hidden."
-msgstr ""
+msgstr "Gepatenteerde applicaties zijn verborgen."
