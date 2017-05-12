@@ -2907,6 +2907,37 @@
             },
             "working": true
         },
+        "wire-desktop": {
+            "name": "Wire",
+            "img": "wire-desktop",
+            "main-package": "wire-desktop",
+            "launch-command": "wire-desktop",
+            "install-packages": "wire-desktop",
+            "remove-packages": "wire-desktop",
+            "description": [
+                "Modern communication. Full privacy. Crystal clear voice",
+                "and video calls. Chats full of pics, movies, GIFs, music,",
+                "sketches and more. Always private and secure with end-to-end",
+                "encryption."
+            ],
+            "alternate-to": "WhatsApp",
+            "subcategory": "Instant Messaging",
+            "open-source": true,
+            "url-info": "https://wire.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.wire",
+            "url-ios": "https://itunes.apple.com/gb/app/wire-private-messenger/id930944768",
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "wire-desktop.list",
+                    "apt-key-url": "https://wire-app.wire.com/linux/releases.key",
+                    "apt-sources": ["deb https://wire-app.wire.com/linux/debian stable main"]
+                }
+            },
+            "working": true
+        },        
         "wireshark": {
             "name": "Wireshark",
             "img": "wireshark",
