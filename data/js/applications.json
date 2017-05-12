@@ -2446,15 +2446,11 @@
                     "method": "manual",
                     "source-file": "opera-stable",
                     "apt-key-url": "https://deb.opera.com/archive.key",
-                    "apt-sources": [
-                        "# This file makes sure that Opera Browser is kept up-to-date",
-                        "# as part of regular system upgrades",
-                        "",
-                        "deb http://deb.opera.com/opera-stable/ stable non-free #Opera Browser (final releases)"
+                    "apt-sources": ["deb https://deb.opera.com/opera-stable/ stable non-free"
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "nextcloud-client": {
             "name": "Nextcloud Client",
