@@ -4403,6 +4403,34 @@
             },
             "working": true
         },
+        "soundconverter": {
+            "name": "Sound Converter",
+            "img": "soundconverter",
+            "main-package": "soundconverter",
+            "launch-command": "soundconverter",
+            "install-packages": "soundconverter,gstreamer1.0-plugins-ugly",
+            "remove-packages": "soundconverter",
+            "description": [
+                "SoundConverter is a simple sound converter application",
+                "It reads sound files in any format supported by GStreamer",
+                "and outputs them in Ogg Vorbis, FLAC, or WAV format, or MP3",
+                "format."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Conversion",
+            "open-source": true,
+            "url-info": "http://soundconverter.org",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,arm64,armhf",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },        
         "spotify": {
             "name": "Spotify",
             "img": "spotify",
