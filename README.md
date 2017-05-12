@@ -1,25 +1,7 @@
 # ubuntu-mate-welcome
 
-The Ubuntu MATE Welcome application to greet both new and returning users on their first login.
-
-## Builds
-
-### Status
-[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Yakkety**
-
-[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Xenial**
-
-
-### Daily Builds
-Testers wanting the latest builds should use the [Daily PPA](https://launchpad.net/~lah7/+archive/ubuntu/ubuntu-mate-welcome-dev):
-
-    sudo add-apt-repository ppa:lah7/ubuntu-mate-welcome-dev
-    sudo apt update
-    sudo apt remove ubuntu-mate-welcome
-    sudo apt install ubuntu-mate-welcome-dev
-
-Only **ubuntu-mate-welcome** or **ubuntu-mate-welcome-dev** may be present at the same time.
-
+The Ubuntu MATE Welcome application to greet and assist new and
+returning users.
 
 ## Features
 
@@ -73,23 +55,6 @@ Usage: ubuntu-mate-welcome [arguments]
 
 ```
 
-
-#### tools/app-index-debugger.py
-
-This tool is for making queries on the Software Boutique's JSON database.
-
-  * `--list-index`  =  List applications in the index.
-  * `--list-broken`  =  List applications that are not working.
-  * `--list-missing-codename=<RELEASE>`  =  List applications not present in a release.
-  * `--list-missing-arch=<ARCH>`  =  List applications not present for an architecture.
-  * `--list-special`  =  List applications that pre-install differently on releases.
-  * `--list-sources`  =  List each application\'s source (eg. PPA, Ubuntu Archives)
-
-## Tests
-
-To perform tests against the application, see the `tests/` folder. These scripts
-check the application for consistency and may even catch bugs early.
-
 ## Dependencies
 
   * gir1.2-gtk-3.0
@@ -109,13 +74,44 @@ check the application for consistency and may even catch bugs early.
   * inxi
   * humanity-icon-theme
 
+## Builds
+
+### Status
+[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Artful**
+
+[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Xenial**
+
+### Daily Builds
+
+Testers wanting the latest builds should use the [Daily PPA](https://launchpad.net/~ubuntu-mate-dev/+archive/ubuntu/welcome-daily):
+
+    sudo add-apt-repository ppa:ubuntu-mate-dev/welcome-daily
+    sudo apt update
+    sudo apt upgrade
+
+## Tests
+
+To perform tests against the application, see the `tests/` folder. These scripts
+check the application for consistency and may even catch bugs early.
+
+#### tools/app-index-debugger.py
+
+This tool is for making queries on the Software Boutique's JSON database.
+
+  * `--list-index`  =  List applications in the index.
+  * `--list-broken`  =  List applications that are not working.
+  * `--list-missing-codename=<RELEASE>`  =  List applications not present in a release.
+  * `--list-missing-arch=<ARCH>`  =  List applications not present for an architecture.
+  * `--list-special`  =  List applications that pre-install differently on releases.
+  * `--list-sources`  =  List each application\'s source (eg. PPA, Ubuntu Archives)
+
 # Translations
 
 ## Translators
 
 We are on Transifex!
 
-* https://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/
+  * https://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/
 
 ## Testing Translations
 
@@ -125,7 +121,7 @@ We are on Transifex!
 
 ## Syncing Translations
 
-    tx pull -a --minimum-perc=5 -f
+    tx pull -a --minimum-perc=5
     ./welcome-po.py --update-pos
     ./edgar-allan create-all-pots
     ./edgar-allan translate-all
