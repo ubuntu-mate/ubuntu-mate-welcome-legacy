@@ -1517,6 +1517,39 @@
             },
             "working": true
         },
+        "entangle": {
+            "name": "Entangle",
+            "img": "entangle",
+            "main-package": "entangle",
+            "launch-command": "entangle",
+            "install-packages": "entangle",
+            "remove-packages": "entangle",
+            "description": [
+                "Tethered camera control & capture. Entangle provides a",
+                "graphical interface for <i>tethered shooting</i>, aka",
+                "taking photographs with a digital camera completely",
+                "controlled from the computer. With a sufficiently capable",
+                "digital SLR camera Entangle allows:<ul>",
+                "<li>Trigger the shutter from the computer</li>",
+                "<li>Live preview of scene before shooting</li>",
+                "<li>Automatic download and display of photos as they are shot</li>",
+                "<li>Control of all camera settings from computer</li></ul>"
+            ],
+            "alternate-to": null,
+            "subcategory": "Photography",
+            "open-source": true,
+            "url-info": "https://entangle-photo.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,arm64,armhf",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },        
         "gimp": {
             "name": "GIMP",
             "img": "gimp",
@@ -4430,7 +4463,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "spotify": {
             "name": "Spotify",
             "img": "spotify",
