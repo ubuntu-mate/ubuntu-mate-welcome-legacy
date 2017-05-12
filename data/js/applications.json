@@ -1649,6 +1649,44 @@
             },
             "working": true
         },
+        "luminance-hdr": {
+            "name": "Luminance HDR",
+            "img": "luminance-hdr",
+            "main-package": "luminance-hdr",
+            "launch-command": "luminance-hdr",
+            "install-packages": "luminance-hdr",
+            "remove-packages": "luminance-hdr",
+            "description": [
+                "An open source graphical user interface application that",
+                "aims to provide a workflow for HDR imaging, such as:<ul>",
+                "<li>Create an HDR file from a set of images (formats: JPEG, TIFF 8bit and 16bit, RAW) of the same scene taken at different exposure setting</li>",
+                "<li>Save load HDR images</li>",
+                "<li>Rotate, resize and crop HDR images</li>",
+                "<li>Tonemap HDR images</li>",
+                "<li>Copy exif data between sets of images</li></ul>",
+                "Supported HDR formats are OpenEXR (extension: exr),",
+                "Radiance RGBE (extension: hdr), Tiff formats: 16bit, 32bit (float)",
+                "and LogLuv (extension: tiff), Raw image formats (extension: various)",
+                "and PFS native format (extension: pfs) plus then following LDR",
+                "formats JPEG; PNG; PPM; PBM; TIFF (8/16 bits)."
+            ],
+            "alternate-to": "Photomatix",
+            "subcategory": "Photography",
+            "open-source": true,
+            "url-info": "http://qtpfsgui.sourceforge.net/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:dhor/myway",
+                    "source-file": "dhor-ubuntu-myway-CODENAME"
+                }
+            },
+            "working": true
+        },        
         "mypaint": {
             "name": "MyPaint",
             "img": "mypaint",
