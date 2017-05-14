@@ -1524,7 +1524,8 @@ class SystemState(object):
         # Are we running in Ubuntu MATE?
         self.is_ubuntu_mate = True
         if not self.apt_cache['ubuntu-mate-desktop'].is_installed or not self.apt_cache['ubuntu-mate-core'].is_installed:
-            self.is_ubuntu_mate = False
+            if os.environ.get('DESKTOP_SESSION') != "mate":
+                self.is_ubuntu_mate = False
 
         # Determine which type of session we are in.
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
