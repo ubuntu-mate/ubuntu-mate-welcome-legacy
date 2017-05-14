@@ -4801,6 +4801,38 @@
             },
             "working": true
         },
+        "etcher": {
+            "name": "Etcher",
+            "img": "etcher",
+            "main-package": "etcher-electron",
+            "launch-command": "etcher-electron",
+            "install-packages": "etcher-electron",
+            "remove-packages": "etcher-electron",
+            "description": [
+                "Etcher is a cross-platform tool for writing images to USB drives",
+                "and SD cards, aiming to be really simple to prevent accidental",
+                "damage to hard drives while checking every bit of data was written correctly."
+            ],
+            "alternate-to": "GNOME Disks",
+            "subcategory": "USB Writer",
+            "open-source": true,
+            "url-info": "https://etcher.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "etcher",
+                    "apt-key-server": ["hkp://pgp.mit.edu:80", "379CE192D401AB61"],
+                    "apt-sources": [
+                        "deb https://dl.bintray.com/resin-io/debian stable etcher"
+                    ]
+                }
+            },
+            "working": true
+        },
         "hardinfo": {
             "name": "System Profiler and Benchmark",
             "img": "hardinfo",
