@@ -2746,6 +2746,40 @@
             },
             "working": true
         },
+        "slack": {
+            "name": "Slack",
+            "img": "slack",
+            "main-package": "slack-desktop",
+            "launch-command": "slack-desktop",
+            "install-packages": "slack-desktop",
+            "remove-packages": "slack-desktop",
+            "description": [
+                "Slack brings team communication and collaboration into",
+                "one place so you can get more work done, whether you belong",
+                "to a large enterprise or a small business. Check off your",
+                "to-do list and move your projects forward by bringing the",
+                "right people, conversations, tools, and information you need together."
+            ],
+            "alternate-to": null,
+            "subcategory": "Collaboration",
+            "open-source": false,
+            "url-info": "https://slack.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.Slack&hl=en",
+            "url-ios": "https://itunes.apple.com/gb/app/slack/id803453959?mt=12",
+            "arch": "amd64",
+            "releases": "xenial,yakkety,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "slack",
+                    "apt-key-url": "https://packagecloud.io/slacktechnologies/slack/gpgkey",
+                    "apt-sources": [
+                        "deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main"
+                    ]
+                }
+            },
+            "working": true
+        },
         "syncthing": {
             "name": "Syncthing",
             "img": "syncthing",
