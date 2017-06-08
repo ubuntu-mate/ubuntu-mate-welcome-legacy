@@ -3177,7 +3177,7 @@ class ChangesQueue(object):
 
             elif installed and check_for_state == 'remove':
                 self.ui_update_card(program_id, '<span class="fa fa-warning"></span> ' + string.remove_fail, 'error')
-                notify_send( name + ' ' + _('failed to install'), _("A problem is preventing this application from being removed."), img_path)
+                notify_send( name + ' ' + _('failed to remove'), _("A problem is preventing this application from being removed."), img_path)
                 self.bulk_all_good = False
 
         # Uninstall applications first
