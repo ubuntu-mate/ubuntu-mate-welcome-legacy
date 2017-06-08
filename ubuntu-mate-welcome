@@ -516,10 +516,11 @@ class PreInstallation(object):
             return
         dbg.stdout('Pre-Install', 'Available configurations: ' + str(codenames), 1, 0)
         target = None
-        for name in codenames:
-            if name == self.codename:
-                target = name
-                break
+        for codename in codenames:
+            for name in codename.split(","):
+                if name == self.codename:
+                    target = codename
+                    break
         if not target:
                 target = 'all'
                 dbg.stdout('Pre-Install', 'Using "all" pre-configuration.', 1, 0)
