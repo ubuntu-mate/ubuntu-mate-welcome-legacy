@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 #
-#  Validates the applications saved in the Boutique database.
+#  Checks that the pages on Transifex have templates.
 #
-#  (C) Luke Horwell, Revised Jun 2016
+#  (C) Luke Horwell, Revised Jun 2017
 #
 
 import common.testing as test
@@ -25,10 +25,12 @@ pages = glob.glob(page_dir + '*.html')
 
 # Only get the page name, no paths or extensions
 html_pages = []
+excluded_pages = ["message"]
 for page in pages:
     page = page.split('/')[-1]
     page = page.split('.html')[0]
-    html_pages.append(page)
+    if page not in excluded_pages:
+        html_pages.append(page)
 
 # Check each page has a template
 for page in html_pages:
