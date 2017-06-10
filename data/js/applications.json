@@ -1283,6 +1283,37 @@
             "img": "steam",
             "main-package": "steam:i386",
             "launch-command": "steam",
+            "install-packages": "steam:i386",
+            "remove-packages": "steam:i386",
+            "description": [
+                "The ultimate entertainment platform. Play",
+                "games, connect with friends, even create and share content of",
+                "your own. Join 50 million of your closest friends on Steam.",
+                "Enjoy exclusive deals, automatic game updates, and",
+                "cross-platform multiplayer. Plus, now you take advantage of",
+                "Big Picture mode, designed for use with your TV and game",
+                "controller."
+            ],
+            "alternate-to": null,
+            "subcategory": "Game Management",
+            "open-source": false,
+            "url-info": "http://store.steampowered.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
+            "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
+            "arch": "i386,amd64",
+            "releases": "xenial",
+            "pre-install": {
+                "all": {
+                    "method": "multiverse-repo"
+                }
+            },
+            "working": true
+        },
+        "steam-devices": {
+            "name": "Steam",
+            "img": "steam",
+            "main-package": "steam-devices",
+            "launch-command": "steam",
             "install-packages": "steam:i386,steam-devices",
             "remove-packages": "steam:i386",
             "description": [
@@ -1301,14 +1332,14 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty,artful",
+            "releases": "yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "multiverse-repo"
                 }
             },
             "working": true
-        },
+        },        
         "supertuxkart": {
             "name": "SuperTuxKart",
             "img": "supertuxkart",
