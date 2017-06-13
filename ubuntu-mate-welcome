@@ -658,7 +658,11 @@ class Translations(object):
         if arg.locale:
             self.locale = arg.locale
         else:
-            self.locale = str(locale.getlocale()[0])
+            try:
+                self.locale = str(locale.getlocale()[0])
+            except Exception:
+                dbg.stdout("i18n", "Could not get system locale information! Falling back to 'en_US'.")
+                self.locale = "en_US"
 
         # Determine if localized pages exist, or fallback to original pages.
         def get_pages_path():
