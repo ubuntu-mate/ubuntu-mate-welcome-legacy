@@ -52,15 +52,10 @@ function backToTop() {
 
 // When page first opens
 $(document).ready(function() {
-  // Animate navigation elements on page load
-  if ( current_page != 'splash-boutique.html' ) {
-    if ( current_page != 'software.html') {
-      $('#menu-button').show();
-      $('#menu-button').jAnimateOnce('pageIn');
-      $('#navigation-title').show();
-      $('#navigation-title').jAnimateOnce('pageIn');
-    }
-  }
+  $('#menu-button').show();
+  $('#menu-button').jAnimateOnce('pageIn');
+  $('#navigation-title').show();
+  $('#navigation-title').jAnimateOnce('pageIn');
 
   // Show back to top button on page scroll
   $('#content').scroll(function () {
@@ -135,11 +130,6 @@ if ( current_page == 'index.html' ) {
 
   function exitMenu(target) {
       $("#open-at-start").fadeOut();
-      // Show a "wait" cursor for the Software page, as there is a slight delay.
-      if ( target == 'software.html' ) {
-          setCursorBusy()
-      }
-
       $('#mate-blur').jAnimateOnce('zoomOut');
       smoothPageFade(target)
   }
@@ -193,246 +183,6 @@ if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
     scrollContainer: '#content'
   }).init();
 }
-
-
-// Software Page Only = Categories for Apps
-if ( current_page == 'software.html' ) {
-
-    // Do not show navigation elements
-    $('#menu-button').hide();
-    $('#navigation-title').hide();
-    $('#navigation-right').hide();
-
-    // Initial variables.
-    var currentCategory = '#boutique-loading';
-    var hideNonFree = false;
-    var system_info = '';
-
-    // Switch to another category.
-    function switchCategory(now, next, subtitle, hideCheckmarks=false) {
-        // Smoothly fade subtitle
-        changeSubtitle(subtitle);
-        $('#content').animate({ scrollTop: 0 }, 500)
-
-        // Remove any other current page highlights
-        $('#navigation-queue').removeClass('active');
-        $('#navigation-search').removeClass('active');
-        $('#navigation-news').removeClass('active');
-        $('#navigation-prefs').removeClass('active');
-
-        // Fade in non-free toggle as it starts hidden, except on the Misc. page,
-        // where it's replaced by a command visibility toggle.
-        if ( next == '#Misc' ) {
-          smoothFade('#non-free-toggle','#show-misc-cmds');
-        } else if ( hideCheckmarks == true ) {
-          $('#non-free-toggle').fadeOut();
-          $('#show-misc-cmds').fadeOut();
-        } else {
-          smoothFade('#show-misc-cmds','#non-free-toggle');
-        }
-
-        // Animate out, then animate in next category.
-        $(now).fadeOut();
-        setTimeout(function() {
-          $(now).hide();
-          currentCategory = next;
-          $(next).fadeIn();
-        }, 250);
-
-        // Show all apps again, in case the previous page was filtered.
-        $('.app-entry').fadeIn();
-
-        // Reset filters
-        selected_filter = 'none';
-        $('.filter-box').val('none');
-        applyFilter();
-
-        return currentCategory;
-    }
-
-    // Display Boutique tab tooltips properly on the page.
-    $('[data-toggle=tooltip]').tooltip({container: 'body'});
-
-    // A category tab is clicked.
-    function changeCategoryTab(id,humanText) {
-      switchCategory(currentCategory, id, humanText);
-      $('#categoryHover').fadeOut()
-    }
-
-    function jumpOneClickServers(appno) {
-      // Python passes 'server_string' variable to allow translation.
-      changeCategoryTab('#Servers', server_string);
-      $('#ServersBtn').tab('show');
-      $('#content').animate({ scrollTop: 0 }, 100)
-
-      // WORKAROUND = Cannot use ' or " strings, use numbers to get target div ID:
-      if ( appno == 1 ) {  targetDiv = 'minecraft-server';  }
-      if ( appno == 2 ) {  targetDiv = 'x2go-server';  }
-      if ( appno == 3 ) {  targetDiv = 'murmur';  }
-
-      setTimeout(function(){
-          $('#content').animate({
-              scrollTop: $('#'+targetDiv).offset().top - 100
-          }, 1000);
-      }, 1000);
-    }
-
-    // Show the popover/tooltips on hover
-    $(document).ready(function() {
-      $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-    });
-
-    // Filtering applications by subcategory and/or proprietary software.
-    selected_filter = 'none';
-
-    $("select").change(function(){
-        selected_filter = $(this).val();
-        applyFilter();
-    });
-
-    function applyFilter() {
-        cmd('filter-apps?' + selected_filter + '?');
-    }
-
-    function toggleNonFree() {
-        cmd('filter-apps?' + selected_filter + '?toggle');
-    }
-
-    // Featured Grid - Set classes to create a semi-circle fade effect.
-    function initGrid() {
-        $('#appIcon1').addClass('grid-outer');
-        $('#appIcon2').addClass('grid-outer');
-        $('#appIcon3').addClass('grid-outer');
-        $('#appIcon4').addClass('grid-outer');
-        $('#appIcon5').addClass('grid-outer');
-        $('#appIcon8').addClass('grid-outer');
-        $('#appIcon9').addClass('grid-outer');
-        $('#appIcon12').addClass('grid-outer');
-        $('#appIcon13').addClass('grid-outer');
-        $('#appIcon14').addClass('grid-outer');
-        $('#appIcon15').addClass('grid-outer');
-        $('#appIcon16').addClass('grid-outer');
-
-        $('#appIcon6').addClass('grid-inner');
-        $('#appIcon7').addClass('grid-inner');
-        $('#appIcon10').addClass('grid-inner');
-        $('#appIcon11').addClass('grid-inner');
-
-        // Gently fade the icons into view.
-        setTimeout(function(){ $('#appIcon1').removeClass('grid-hidden'); }, 800 );
-
-        setTimeout(function(){ $('#appIcon2').removeClass('grid-hidden'); }, 850 );
-        setTimeout(function(){ $('#appIcon5').removeClass('grid-hidden'); }, 850 );
-        setTimeout(function(){ $('#appIcon6').removeClass('grid-hidden'); }, 850 );
-
-        setTimeout(function(){ $('#appIcon3').removeClass('grid-hidden'); }, 900 );
-        setTimeout(function(){ $('#appIcon6').removeClass('grid-hidden'); }, 900 );
-        setTimeout(function(){ $('#appIcon9').removeClass('grid-hidden'); }, 900 );
-
-        setTimeout(function(){ $('#appIcon4').removeClass('grid-hidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon7').removeClass('grid-hidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon10').removeClass('grid-hidden'); }, 950 );
-        setTimeout(function(){ $('#appIcon13').removeClass('grid-hidden'); }, 950 );
-
-        setTimeout(function(){ $('#appIcon8').removeClass('grid-hidden'); }, 1000 );
-        setTimeout(function(){ $('#appIcon11').removeClass('grid-hidden'); }, 1000 );
-        setTimeout(function(){ $('#appIcon14').removeClass('grid-hidden'); }, 1000 );
-
-        setTimeout(function(){ $('#appIcon12').removeClass('grid-hidden'); }, 1050 );
-        setTimeout(function(){ $('#appIcon15').removeClass('grid-hidden'); }, 1050 );
-
-        setTimeout(function(){ $('#appIcon16').removeClass('grid-hidden'); }, 1100 );
-    }
-
-    // Misc Tab - Show commands if user wishes to know them.
-    var showMiscCommands = false;
-    $('.miscCmd').hide();
-
-    $('#show-misc-cmds').click(function() {
-      if ( showMiscCommands == false ) {
-        // Show the terminal commands.
-        showMiscCommands = true;
-        $('.miscCmd').fadeIn();
-        $("#MiscCheckbox").removeClass("fa-square");
-        $("#MiscCheckbox").addClass("fa-check-square");
-      } else {
-        // Hide the terminal commands.
-        showMiscCommands = false;
-        $('.miscCmd').fadeOut();
-        $("#MiscCheckbox").addClass("fa-square");
-        $("#MiscCheckbox").removeClass("fa-check-square");
-      }
-    });
-
-    // Smooth transition for footer.
-    $('#footer-left').hide();
-    $('#footer-left').fadeIn();
-
-    // Toggling right navigation "tabs"
-    function resetNavTabs() {
-      $('#tabs li').removeClass('active');
-      $('#non-free-toggle').fadeOut();
-      $('#show-misc-cmds').fadeOut();
-    }
-
-    // Toggling to show the Boutique News
-    function showNews(subtitle) {
-      switchCategory(currentCategory, '#News', subtitle, true);
-      resetNavTabs();
-      $('#navigation-news').addClass('active');
-    }
-
-    // Toggling to show the Search Page
-    function showSearch(subtitle) {
-      switchCategory(currentCategory, '#Search', subtitle, true)
-      resetNavTabs();
-      $('#navigation-search').addClass('active');
-      $('#search-results').html('');
-      $('#search-results').hide();
-      $('#search-empty').hide();
-      $('#search-total').hide();
-      $('#search-terms').val('');
-    }
-
-    // Perform a search
-    function searchNow() {
-      keywords = $('#search-terms').val();
-      cmd('search?' + keywords)
-    }
-
-    // Search again but include non-free matches.
-    function searchAgainNonFree() {
-      toggleNonFree()
-      searchNow()
-    }
-
-    // Toggling to show the Preferences page
-    function showPrefs(subtitle) {
-      switchCategory(currentCategory, '#Preferences', subtitle, true)
-      resetNavTabs();
-      $('#navigation-prefs').addClass('active');
-    }
-
-    // Toggling to show the Queue page
-    function showQueue(subtitle) {
-      switchCategory(currentCategory, '#Queue', subtitle, true)
-      resetNavTabs();
-      $('#navigation-queue').addClass('active');
-    }
-
-    // Start processing queue
-    function startQueue() {
-        $('#navigation-right').addClass('disabled');
-        $('#category-tabs').addClass('disabled');
-        smoothFade("#queue-options","#queue-busy");
-        $('#queue-error').fadeOut();
-        $('.drop').hide();
-        setTimeout(function() {
-            cmd("queue-start");
-        }, 1000);
-    }
-}
-
 
 // Splash Only - Animation Sequence
 if ( current_page == 'splash.html' ) {
@@ -509,32 +259,6 @@ if ( current_page == 'splash.html' ) {
       smoothPageFade(splashNextPage + '.html');
     }
   }
-}
-
-
-// Splash for Entering Boutique
-if ( current_page == 'splash-boutique.html' ) {
-    setCursorBusy();
-    setTimeout(function() {
-      $('#boutique-splash').jAnimate('zoomOutInverse');
-    }, 1000);
-
-    $('#Text1').css('opacity','0');
-    $('#Text2').css('opacity','0');
-    $('#Text1').show();
-    $('#Text2').show();
-
-    setTimeout(function(){
-      $('#Text1').hide();
-      $('#Text1').css('opacity','');
-      $('#Text1').fadeIn(750);
-    }, 100);
-
-    setTimeout(function(){
-      $('#Text2').hide();
-      $('#Text2').css('opacity','');
-      $('#Text2').fadeIn(750);
-    }, 200);
 }
 
 
