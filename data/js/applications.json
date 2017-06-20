@@ -1977,8 +1977,16 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.brave.browser",
             "url-ios": "https://itunes.apple.com/us/app/brave-web-browser-fast-with-built-in-adblock/id1052879175",
             "arch": "amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
+                "artful": {
+                    "method": "manual",
+                    "source-file": "brave-zesty",
+                    "apt-key-url": "https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc",
+                    "apt-sources": [
+                        "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt zesty main"
+                    ]
+                },
                 "all": {
                     "method": "manual",
                     "source-file": "brave-CODENAME",
