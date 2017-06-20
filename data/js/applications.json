@@ -760,7 +760,7 @@
             "arch": "i386,amd64",
             "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
-                "xenial,yakkety": {
+                "xenial,yakkety,zesty": {
                     "method": "ppa",
                     "enable-ppa": "ppa:wfg/0ad",
                     "source-file": "wfg-ubuntu-0ad-CODENAME"
@@ -1170,9 +1170,6 @@
             "arch": "i386,amd64",
             "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
-                "yakkety,zesty,artful": {
-                    "method": "skip"
-                },
                 "all": {
                     "method": "manual",
                     "apt-key-url": "http://deb.playonlinux.com/public.gpg",
@@ -1182,7 +1179,7 @@
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "wine-devel": {
             "name": "Wine Development Builds",
@@ -3100,7 +3097,7 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
-                "zesty,artful": {
+                "artful": {
                     "method": "skip"
                 },
                 "all": {
@@ -3696,10 +3693,7 @@
                     "method": "ppa",
                     "enable-ppa": "ppa:git-core/ppa",
                     "source-file": "git-core-ubuntu-ppa-CODENAME"
-                },
-		"artful": {
-                    "method": "skip"
-		}
+                }
             },
             "working": true
         },
@@ -3918,9 +3912,9 @@
                     "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
                     "source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
                 },
-		"artful": {
+                "artful": {
                     "method": "skip"
-		}
+                }
             },
             "working": true
         }
@@ -6008,7 +6002,7 @@
     },
     "KnownRepos": {
         "mate-14": {
-            "name": "MATE 1.14 Upgrade for Xenial",
+            "name": "MATE 1.16 Upgrade for Xenial",
             "img": "system",
             "pre-install": {
                 "all": {
