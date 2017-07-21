@@ -518,7 +518,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1336,7 +1336,7 @@
                 }
             },
             "working": true
-        },        
+        },
         "supertuxkart": {
             "name": "SuperTuxKart",
             "img": "supertuxkart",
@@ -2604,7 +2604,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty,artful",            
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2616,7 +2616,7 @@
                 }
             },
             "working": false
-        },        
+        },
         "owncloud-client": {
             "name": "ownCloud Client",
             "img": "owncloud",
