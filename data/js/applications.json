@@ -1634,7 +1634,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4508,12 +4508,15 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:obsproject/obs-studio",
                     "source-file": "obsproject-ubuntu-obs-studio-CODENAME"
+                },
+                "artful": {
+                    "method": "skip"
                 }
             },
             "working": true
