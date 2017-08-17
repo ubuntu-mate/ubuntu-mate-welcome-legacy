@@ -1573,6 +1573,8 @@ class SystemState(object):
                     font_gsettings = Gio.Settings.new('org.mate.font-rendering')
                     font_value = font_gsettings.get_value('dpi')
                     font_dpi = int(float(str(font_value)))
+                    if font_dpi == 0:
+                        font_dpi = 96
                     dbg.stdout('Welcome', 'Font DPI is: ' + str(font_dpi), 1, 0)
                 except:
                     font_dpi = 96
