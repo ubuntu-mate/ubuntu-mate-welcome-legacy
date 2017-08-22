@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Dražen M. <drazen@ubuntu.si>, 2016-2017
 # Helena S <ele@tutamail.com>, 2016-2017
@@ -9,641 +9,716 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-14 18:20+0100\n"
+"POT-Creation-Date: 2017-05-27 15:22+0100\n"
 "PO-Revision-Date: 2017-05-14 20:33+0000\n"
 "Last-Translator: Helena S <ele@tutamail.com>\n"
-"Language-Team: Slovenian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sl/)\n"
+"Language-Team: Slovenian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
+"welcome/language/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
-#: ubuntu-mate-welcome:71
+#: ubuntu-mate-welcome:73
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr "Spremembe programa so v teku. Dovolite, da se končajo preden zaprete Welcome."
+msgstr ""
+"Spremembe programa so v teku. Dovolite, da se končajo preden zaprete Welcome."
 
-#: ubuntu-mate-welcome:72 ubuntu-mate-welcome:2489
+#: ubuntu-mate-welcome:74 ubuntu-mate-welcome:2608
 msgid "OK"
 msgstr "V redu"
 
-#: ubuntu-mate-welcome:159 ubuntu-mate-welcome:169
+#: ubuntu-mate-welcome:156 ubuntu-mate-welcome:166
 msgid "Successfully performed fix."
 msgstr "Uspešno izvedeno popravilo."
 
-#: ubuntu-mate-welcome:159
+#: ubuntu-mate-welcome:156
 msgid "Any previously incomplete installations have been finished."
 msgstr "Vse predhodno nedokončane namestitve so končane."
 
-#: ubuntu-mate-welcome:162 ubuntu-mate-welcome:172
+#: ubuntu-mate-welcome:159 ubuntu-mate-welcome:169
 msgid "Failed to perform fix."
 msgstr "Poskus popravka spodletel."
 
-#: ubuntu-mate-welcome:162
+#: ubuntu-mate-welcome:159
 msgid "Errors occurred while finishing an incomplete installation."
 msgstr "Napake so se zgodile med poskusom dokončanja nedokončane namestitve."
 
-#: ubuntu-mate-welcome:169
+#: ubuntu-mate-welcome:166
 msgid "Packages with broken dependencies have been resolved."
 msgstr "Napake paketov z okvarjenimi odvisnostmi so bile odpravljene."
 
-#: ubuntu-mate-welcome:172
+#: ubuntu-mate-welcome:169
 msgid "Packages may still have broken dependencies."
 msgstr "Paketi lahko še vedno imajo pokvarjene odvisnosti."
 
-#: ubuntu-mate-welcome:181
+#: ubuntu-mate-welcome:178
 msgid "Successfully updated cache."
 msgstr "Uspešno posodobljen predpomnilnik."
 
-#: ubuntu-mate-welcome:181
+#: ubuntu-mate-welcome:178
 msgid "Software is now ready to install."
 msgstr "Program je zdaj na voljo za namestitev."
 
-#: ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:181
 msgid "Failed to update cache."
 msgstr "Neuspešna posodobitev predpomnilnika."
 
-#: ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:181
 msgid "There may be a problem with your repository configuration."
 msgstr "Morda je težava v nastavitvi skladišča."
 
-#: ubuntu-mate-welcome:240
+#: ubuntu-mate-welcome:237
 msgid "Welcome will stay up-to-date."
 msgstr "Welcome bo ostal posodobljen."
 
-#: ubuntu-mate-welcome:241
+#: ubuntu-mate-welcome:238
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
-msgstr "Welcome in Trgovina programov sta nastavljena za prejem najnovejših posodobitev."
+msgstr ""
+"Welcome in Trgovina programov sta nastavljena za prejem najnovejših "
+"posodobitev."
 
-#: ubuntu-mate-welcome:247
+#: ubuntu-mate-welcome:244
 msgid "Everything is up-to-date"
 msgstr "Vse je posodobljeno"
 
-#: ubuntu-mate-welcome:248
+#: ubuntu-mate-welcome:245
 msgid "All packages have been upgraded to the latest versions."
 msgstr "Vsi paketi so bili posodobljeni na zadnje različice."
 
-#: ubuntu-mate-welcome:253
+#: ubuntu-mate-welcome:250 ubuntu-mate-welcome:3166
 msgid "Installed"
 msgstr "Nameščen"
 
-#: ubuntu-mate-welcome:254
+#: ubuntu-mate-welcome:251 ubuntu-mate-welcome:3166
 msgid "The application is now ready to use."
 msgstr "Ta program je zdaj pripravljen za uporabo."
 
-#: ubuntu-mate-welcome:256
+#: ubuntu-mate-welcome:253
 msgid "was not installed."
 msgstr "ni bil nameščen."
 
-#: ubuntu-mate-welcome:257 ubuntu-mate-welcome:267 ubuntu-mate-welcome:298
-#: ubuntu-mate-welcome:308
+#: ubuntu-mate-welcome:254 ubuntu-mate-welcome:264
 msgid "The operation was cancelled."
 msgstr "Dejanje je bilo preklicano."
 
-#: ubuntu-mate-welcome:259
+#: ubuntu-mate-welcome:256 ubuntu-mate-welcome:3170 ubuntu-mate-welcome:3179
 msgid "failed to install"
 msgstr "se ni namestil"
 
-#: ubuntu-mate-welcome:260
+#: ubuntu-mate-welcome:257 ubuntu-mate-welcome:3170
 msgid "There was a problem installing this application."
 msgstr " Pri namestitvi tega programa je prišlo je do napake."
 
-#: ubuntu-mate-welcome:263 ubuntu-mate-welcome:827
+#: ubuntu-mate-welcome:260 ubuntu-mate-welcome:808 ubuntu-mate-welcome:3175
 msgid "Removed"
 msgstr "Odstranjen"
 
-#: ubuntu-mate-welcome:264
+#: ubuntu-mate-welcome:261 ubuntu-mate-welcome:3175
 msgid "The application has been uninstalled."
 msgstr "Ta program je bil odstranjen."
 
-#: ubuntu-mate-welcome:266
+#: ubuntu-mate-welcome:263
 msgid "was not removed."
 msgstr "ni bil odstranjen."
 
-#: ubuntu-mate-welcome:269
+#: ubuntu-mate-welcome:266
 msgid "failed to remove"
 msgstr "se ni odstranil"
 
-#: ubuntu-mate-welcome:270
+#: ubuntu-mate-welcome:267 ubuntu-mate-welcome:3179
 msgid "A problem is preventing this application from being removed."
 msgstr "Nekaj je preprečilo temu programu, da bi bil odstranjen."
 
-#: ubuntu-mate-welcome:273
+#: ubuntu-mate-welcome:270
 msgid "Upgraded"
 msgstr "Nadgrajen"
 
-#: ubuntu-mate-welcome:274
+#: ubuntu-mate-welcome:271
 msgid "This application is set to use the latest version."
 msgstr "Ta programje nastavljen na najnovejšo različico."
 
-#: ubuntu-mate-welcome:276
+#: ubuntu-mate-welcome:273
 msgid "was not upgraded."
 msgstr "ni bil nadgrajen."
 
-#: ubuntu-mate-welcome:277
+#: ubuntu-mate-welcome:274
 msgid "The application will continue to use the stable version."
 msgstr "Program bo še naprej uporabljal stabilno različico."
 
-#: ubuntu-mate-welcome:279
+#: ubuntu-mate-welcome:276
 msgid "failed to upgrade"
 msgstr "se ni nadgradil"
 
-#: ubuntu-mate-welcome:280
+#: ubuntu-mate-welcome:277
 msgid "A problem is preventing this application from being upgraded."
 msgstr "Nekaj je preprečilo temu programu, da bi se nadgradil."
 
-#: ubuntu-mate-welcome:294
-msgid "applications have been installed"
-msgstr "program se je namestil"
-
-#: ubuntu-mate-welcome:295
-msgid "Your newly installed applications are ready to use."
-msgstr "Najnovejši nameščeni programi so pripravljeni na uporabo."
-
-#: ubuntu-mate-welcome:297
-msgid "Some applications were not installed."
-msgstr "Nekateri programi niso bili nameščeni."
-
-#: ubuntu-mate-welcome:300
-msgid "Some applications failed to install."
-msgstr "Nekateri programi se niso namestili."
-
-#: ubuntu-mate-welcome:301 ubuntu-mate-welcome:311
-msgid "Software Boutique encountered a problem with one of the applications."
-msgstr "V Trgovini programov je prišlo do napake z enim od programov."
-
-#: ubuntu-mate-welcome:304
-msgid "applications have been removed"
-msgstr "programi so bili odstranjeni"
-
-#: ubuntu-mate-welcome:305
-msgid "These applications are no longer present on your system."
-msgstr "Teh programov ni več na računalniku."
-
-#: ubuntu-mate-welcome:307
-msgid "Some applications were not removed."
-msgstr "Nekateri programi niso bili odstranjeni."
-
-#: ubuntu-mate-welcome:310
-msgid "Some applications failed to remove."
-msgstr "Nekaterih programov ni uspelo odstraniti."
-
-#: ubuntu-mate-welcome:477
+#: ubuntu-mate-welcome:447
 msgid "Blu-ray AACS database install succeeded"
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je bila uspešna"
 
-#: ubuntu-mate-welcome:478
+#: ubuntu-mate-welcome:448
 msgid "Successfully installed the Blu-ray AACS database."
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je bila uspešna."
 
-#: ubuntu-mate-welcome:478
+#: ubuntu-mate-welcome:448
 msgid "Installation of the Blu-ray AACS database was successful."
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je bila uspešna."
 
-#: ubuntu-mate-welcome:481
+#: ubuntu-mate-welcome:451
 msgid "Blu-ray AACS database install failed"
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je spodletelo"
 
-#: ubuntu-mate-welcome:482
+#: ubuntu-mate-welcome:452
 msgid "Failed to install the Blu-ray AACS database."
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je spodletelo."
 
-#: ubuntu-mate-welcome:482
+#: ubuntu-mate-welcome:452
 msgid "Installation of the Blu-ray AACS database failed."
 msgstr "Namestitev zbirke podatkov za Blu-ray AACS je spodletelo."
 
-#: ubuntu-mate-welcome:767
+#: ubuntu-mate-welcome:741
 msgid "Welcome"
 msgstr "Welcome"
 
-#: ubuntu-mate-welcome:768
+#: ubuntu-mate-welcome:742
 msgid "Software Boutique"
 msgstr "Trgovina programov"
 
-#: ubuntu-mate-welcome:769
+#: ubuntu-mate-welcome:743
 msgid "Close"
 msgstr "Zapri"
 
-#: ubuntu-mate-welcome:770
+#: ubuntu-mate-welcome:744
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: ubuntu-mate-welcome:773
+#: ubuntu-mate-welcome:747
 msgid "Set to retrieve the latest software listings."
 msgstr "Nastavljen za pridobivanje najnovejšega seznama programov."
 
-#: ubuntu-mate-welcome:774
+#: ubuntu-mate-welcome:748
 msgid "Retrieve the latest software listings."
 msgstr "Pridobivanje najnovejšega seznama programov."
 
-#: ubuntu-mate-welcome:775
+#: ubuntu-mate-welcome:749
 msgid "Please wait while the application is being updated..."
 msgstr "Počakajte, medtem ko se program posodablja ..."
 
-#: ubuntu-mate-welcome:776
+#: ubuntu-mate-welcome:750
 msgid "Version:"
 msgstr "Različica:"
 
-#: ubuntu-mate-welcome:779
+#: ubuntu-mate-welcome:753
 msgid "This application is set to receive the latest updates."
 msgstr "Ta program je nastavljen za prejemanje najnovejših posodobitev."
 
-#: ubuntu-mate-welcome:780
+#: ubuntu-mate-welcome:754
 msgid "Alternative to:"
 msgstr "Nadomestitev za:"
 
-#: ubuntu-mate-welcome:781
+#: ubuntu-mate-welcome:755
 msgid "Hide"
 msgstr "Skrij"
 
-#: ubuntu-mate-welcome:782
-msgid "Show"
-msgstr "Prikaži"
+#: ubuntu-mate-welcome:756
+msgid "Details"
+msgstr ""
 
-#: ubuntu-mate-welcome:783
+#: ubuntu-mate-welcome:757
 msgid "Install"
 msgstr "Namesti"
 
-#: ubuntu-mate-welcome:784
+#: ubuntu-mate-welcome:758
 msgid "Reinstall"
 msgstr "Ponovno namesti"
 
-#: ubuntu-mate-welcome:785
+#: ubuntu-mate-welcome:759
 msgid "Remove"
 msgstr "Odstrani"
 
-#: ubuntu-mate-welcome:786
+#: ubuntu-mate-welcome:760
 msgid "Upgrade"
 msgstr "Nadgradi"
 
-#: ubuntu-mate-welcome:787
+#: ubuntu-mate-welcome:761
 msgid "Launch"
 msgstr "Zaženi"
 
-#: ubuntu-mate-welcome:788
+#: ubuntu-mate-welcome:762
 msgid "License"
 msgstr "Licenca"
 
-#: ubuntu-mate-welcome:789
+#: ubuntu-mate-welcome:763
 msgid "Platform"
 msgstr "Okolje"
 
-#: ubuntu-mate-welcome:790
+#: ubuntu-mate-welcome:764
 msgid "Category"
 msgstr "Kategorija"
 
-#: ubuntu-mate-welcome:791
+#: ubuntu-mate-welcome:765
 msgid "Website"
 msgstr "Spletna stran"
 
-#: ubuntu-mate-welcome:792
+#: ubuntu-mate-welcome:766
 msgid "Screenshot"
 msgstr "Zaslonska slika"
 
-#: ubuntu-mate-welcome:793
+#: ubuntu-mate-welcome:767 ubuntu-mate-welcome:779
 msgid "Source"
 msgstr "Vir"
 
-#: ubuntu-mate-welcome:794
-msgid "Canonical Partner Repository"
-msgstr "Canonical partnersko skladišče"
-
-#: ubuntu-mate-welcome:795
-msgid "Ubuntu Multiverse Repository"
-msgstr "Ubuntu skladišče multiverse"
-
-#: ubuntu-mate-welcome:796
+#: ubuntu-mate-welcome:768
 msgid "Ubuntu Repository"
 msgstr "Ubuntu skladišče"
 
-#: ubuntu-mate-welcome:797
+#: ubuntu-mate-welcome:769
+#, fuzzy
+msgid "Ubuntu Community Maintained Repository"
+msgstr "Ubuntu skladišče multiverse"
+
+#: ubuntu-mate-welcome:770
+#, fuzzy
+msgid "Ubuntu Proprietary Drivers Repository"
+msgstr "Ubuntu skladišče multiverse"
+
+#: ubuntu-mate-welcome:771
+#, fuzzy
+msgid "Ubuntu Non-Free Repository"
+msgstr "Ubuntu skladišče"
+
+#: ubuntu-mate-welcome:772
+msgid "Canonical Partner Repository"
+msgstr "Canonical partnersko skladišče"
+
+#: ubuntu-mate-welcome:773
 msgid "Unknown"
 msgstr "Neznano"
 
-#: ubuntu-mate-welcome:798
+#: ubuntu-mate-welcome:774
 msgid "Undo Changes"
 msgstr "Razveljavi spremembe"
 
-#: ubuntu-mate-welcome:801
+#: ubuntu-mate-welcome:777
+#, fuzzy
+msgid "External Repository"
+msgstr "Ubuntu skladišče"
+
+#: ubuntu-mate-welcome:778
+#, fuzzy
+msgid "Software"
+msgstr "Trgovina programov"
+
+#: ubuntu-mate-welcome:782
 msgid "Installing..."
 msgstr "Nameščanje ..."
 
-#: ubuntu-mate-welcome:802
+#: ubuntu-mate-welcome:783
 msgid "Removing..."
 msgstr "Odstranjevanje ..."
 
-#: ubuntu-mate-welcome:803
+#: ubuntu-mate-welcome:784
 msgid "Upgrading..."
 msgstr "Nadgrajevanje ..."
 
-#: ubuntu-mate-welcome:806
+#: ubuntu-mate-welcome:787
 msgid "Accessories"
 msgstr "Pripomočki"
 
-#: ubuntu-mate-welcome:807
+#: ubuntu-mate-welcome:788
 msgid "Education"
 msgstr "Izobraževanje"
 
-#: ubuntu-mate-welcome:808
+#: ubuntu-mate-welcome:789
 msgid "Games"
 msgstr "Igre"
 
-#: ubuntu-mate-welcome:809
+#: ubuntu-mate-welcome:790
 msgid "Graphics"
 msgstr "Grafika"
 
-#: ubuntu-mate-welcome:810
+#: ubuntu-mate-welcome:791
 msgid "Internet"
 msgstr "Internet"
 
-#: ubuntu-mate-welcome:811
+#: ubuntu-mate-welcome:792
 msgid "Office"
 msgstr "Pisarna"
 
-#: ubuntu-mate-welcome:812
+#: ubuntu-mate-welcome:793
 msgid "Programming"
 msgstr "Programiranje"
 
-#: ubuntu-mate-welcome:813
+#: ubuntu-mate-welcome:794
 msgid "Sound & Video"
 msgstr "Zvok in video "
 
-#: ubuntu-mate-welcome:814
+#: ubuntu-mate-welcome:795
 msgid "System Tools"
 msgstr "Sistemska orodja"
 
-#: ubuntu-mate-welcome:815
+#: ubuntu-mate-welcome:796
 msgid "Universal Access"
 msgstr "Univerzalni dostop"
 
-#: ubuntu-mate-welcome:816
+#: ubuntu-mate-welcome:797
 msgid "Server One-Click Installation"
 msgstr "Namestitev strežnika z enim klikom"
 
-#: ubuntu-mate-welcome:817
+#: ubuntu-mate-welcome:798
 msgid "Miscellaneous"
 msgstr "Razno"
 
-#: ubuntu-mate-welcome:820
+#: ubuntu-mate-welcome:801
 msgid "Search"
 msgstr "Išči"
 
-#: ubuntu-mate-welcome:821
+#: ubuntu-mate-welcome:802
 msgid "Please enter a keyword to begin."
 msgstr "Vnesite ključno besedo za začetek."
 
-#: ubuntu-mate-welcome:822
+#: ubuntu-mate-welcome:803
 msgid "Please enter at least 3 characters."
 msgstr "Vnesite vsaj 3 znake."
 
-#: ubuntu-mate-welcome:825
+#: ubuntu-mate-welcome:806
 msgid "Added"
 msgstr "Dodano"
 
-#: ubuntu-mate-welcome:826
+#: ubuntu-mate-welcome:807
 msgid "Fixed"
 msgstr "Popravljeno"
 
-#: ubuntu-mate-welcome:830
+#: ubuntu-mate-welcome:811
 msgid "Queued for installation."
 msgstr "V vrsti za namestitev."
 
-#: ubuntu-mate-welcome:831
+#: ubuntu-mate-welcome:812
 msgid "Queued for removal."
 msgstr "V vrsti za odstranitev."
 
-#: ubuntu-mate-welcome:832
+#: ubuntu-mate-welcome:813
 msgid "Preparing to remove:"
 msgstr "Priprava za odstranitev:"
 
-#: ubuntu-mate-welcome:833
+#: ubuntu-mate-welcome:814
 msgid "Preparing to install:"
 msgstr "Priprava za namestitev:"
 
-#: ubuntu-mate-welcome:834
+#: ubuntu-mate-welcome:815
 msgid "Removing:"
 msgstr "Odstranjevanje:"
 
-#: ubuntu-mate-welcome:835
+#: ubuntu-mate-welcome:816
 msgid "Installing:"
 msgstr "Nameščanje:"
 
-#: ubuntu-mate-welcome:836
+#: ubuntu-mate-welcome:817
 msgid "Updating cache..."
 msgstr "Posodabljanje predpomnilnika ..."
 
-#: ubuntu-mate-welcome:837
+#: ubuntu-mate-welcome:818
 msgid "Verifying software changes..."
 msgstr "Preverjanje sprememb programske opreme ..."
 
-#: ubuntu-mate-welcome:838
+#: ubuntu-mate-welcome:819
 msgid "Successfully Installed"
 msgstr "Uspešno nameščeno"
 
-#: ubuntu-mate-welcome:839
+#: ubuntu-mate-welcome:820
 msgid "Failed to Install"
 msgstr "Namestitev ni uspela"
 
-#: ubuntu-mate-welcome:840
+#: ubuntu-mate-welcome:821
 msgid "Successfully Removed"
 msgstr "Uspešno odstranjeno"
 
-#: ubuntu-mate-welcome:841
+#: ubuntu-mate-welcome:822
 msgid "Failed to Remove"
 msgstr "Odstranitev ni uspelo"
 
-#: ubuntu-mate-welcome:842
+#: ubuntu-mate-welcome:823
 msgid "To be installed"
 msgstr "Za namestitev"
 
-#: ubuntu-mate-welcome:843
+#: ubuntu-mate-welcome:824
 msgid "To be removed"
 msgstr "Za odstranitev"
 
-#: ubuntu-mate-welcome:1051
+#: ubuntu-mate-welcome:870
+msgid "Scroll Up"
+msgstr ""
+
+#: ubuntu-mate-welcome:985
+#, fuzzy
+msgid "Installation Guide"
+msgstr "Nameščanje:"
+
+#: ubuntu-mate-welcome:1027
 msgid "Servers"
 msgstr "Strežniki"
 
-#: ubuntu-mate-welcome:1085
+#: ubuntu-mate-welcome:1089
 msgid "Jan"
 msgstr "Jan"
 
-#: ubuntu-mate-welcome:1086
+#: ubuntu-mate-welcome:1090
 msgid "Feb"
 msgstr "Feb"
 
-#: ubuntu-mate-welcome:1087
+#: ubuntu-mate-welcome:1091
 msgid "Mar"
 msgstr "Mar"
 
-#: ubuntu-mate-welcome:1088
+#: ubuntu-mate-welcome:1092
 msgid "Apr"
 msgstr "Apr"
 
-#: ubuntu-mate-welcome:1089
+#: ubuntu-mate-welcome:1093
 msgid "May"
 msgstr "Maj"
 
-#: ubuntu-mate-welcome:1090
+#: ubuntu-mate-welcome:1094
 msgid "Jun"
 msgstr "Jun"
 
-#: ubuntu-mate-welcome:1091
+#: ubuntu-mate-welcome:1095
 msgid "Jul"
 msgstr "Jul"
 
-#: ubuntu-mate-welcome:1092
+#: ubuntu-mate-welcome:1096
 msgid "Aug"
 msgstr "Avg"
 
-#: ubuntu-mate-welcome:1093
+#: ubuntu-mate-welcome:1097
 msgid "Sep"
 msgstr "Sep"
 
-#: ubuntu-mate-welcome:1094
+#: ubuntu-mate-welcome:1098
 msgid "Oct"
 msgstr "Okt"
 
-#: ubuntu-mate-welcome:1095
+#: ubuntu-mate-welcome:1099
 msgid "Nov"
 msgstr "Nov"
 
-#: ubuntu-mate-welcome:1096
+#: ubuntu-mate-welcome:1100
 msgid "Dec"
 msgstr "Dec"
 
-#: ubuntu-mate-welcome:1616
+#: ubuntu-mate-welcome:1112
+msgid "Unsupported Distribution"
+msgstr ""
+
+#: ubuntu-mate-welcome:1113
+msgid "Your mileage may wary."
+msgstr ""
+
+#: ubuntu-mate-welcome:1114
+msgid ""
+"Software Boutique is designed for Ubuntu MATE, but it appears you are "
+"running a different distribution."
+msgstr ""
+
+#: ubuntu-mate-welcome:1115
+msgid ""
+"While a large selection of software will work on other Ubuntu-based "
+"distributions, we cannot guarantee our featured picks will work flawlessly "
+"on your system."
+msgstr ""
+
+#: ubuntu-mate-welcome:1118
+msgid "This message will not be shown again."
+msgstr ""
+
+#: ubuntu-mate-welcome:1131
+msgid "Continue"
+msgstr ""
+
+#: ubuntu-mate-welcome:1357
+#, fuzzy
+msgid "Ubuntu MATE Website"
+msgstr "Ubuntu skladišče"
+
+#: ubuntu-mate-welcome:1361
+msgid "Donate to Ubuntu MATE"
+msgstr ""
+
+#: ubuntu-mate-welcome:1727
 msgid "MB"
 msgstr "MB"
 
-#: ubuntu-mate-welcome:1617
+#: ubuntu-mate-welcome:1728
 msgid "MiB"
 msgstr "MiB"
 
-#: ubuntu-mate-welcome:1618
+#: ubuntu-mate-welcome:1729
 msgid "GB"
 msgstr "GB"
 
-#: ubuntu-mate-welcome:1619
+#: ubuntu-mate-welcome:1730
 msgid "GiB"
 msgstr "GiB"
 
-#: ubuntu-mate-welcome:1627
+#: ubuntu-mate-welcome:1738
 msgid "Could not gather data."
 msgstr "Podatkov ni bilo mogoče zbrati."
 
-#: ubuntu-mate-welcome:1926
+#: ubuntu-mate-welcome:2028
 msgid "Raspberry Pi Partition Resize"
 msgstr "Spremeni velikost razdelka Raspberry Pi"
 
-#: ubuntu-mate-welcome:1943
+#: ubuntu-mate-welcome:2045
 msgid "Root partition has been resized."
 msgstr "Korenski razdelek je bil spremenjen"
 
-#: ubuntu-mate-welcome:1943
+#: ubuntu-mate-welcome:2045
 msgid "The filesystem will be enlarged upon the next reboot."
 msgstr "Datotečni sistem se bo povečal ob naslednjem zagonu."
 
-#: ubuntu-mate-welcome:1949 ubuntu-mate-welcome:1951 ubuntu-mate-welcome:1953
-#: ubuntu-mate-welcome:1955
+#: ubuntu-mate-welcome:2051 ubuntu-mate-welcome:2053 ubuntu-mate-welcome:2055
+#: ubuntu-mate-welcome:2057
 msgid "Don't know how to expand."
 msgstr "Ne znam razširiti."
 
-#: ubuntu-mate-welcome:1949
+#: ubuntu-mate-welcome:2051
 msgid "does not exist or is not a symlink."
 msgstr "ne obstaja ali ni simbolna povezava."
 
-#: ubuntu-mate-welcome:1951
+#: ubuntu-mate-welcome:2053
 msgid "is not an SD card."
 msgstr "ni kartica SD."
 
-#: ubuntu-mate-welcome:1953
+#: ubuntu-mate-welcome:2055
 msgid "Your partition layout is not currently supported by this tool."
 msgstr "Vaša postavitev razdelkov trenutno ni podprta s tem orodjem."
 
-#: ubuntu-mate-welcome:1955
+#: ubuntu-mate-welcome:2057
 msgid "is not the last partition."
 msgstr "ni zadnji razdelek."
 
-#: ubuntu-mate-welcome:1957
+#: ubuntu-mate-welcome:2059
 msgid "Failed to run resize script."
 msgstr "Spodletel zagon skripta za spreminjanje velikosti."
 
-#: ubuntu-mate-welcome:1957
+#: ubuntu-mate-welcome:2059
 msgid "The returned error code is:"
 msgstr "Napaka je:"
 
-#: ubuntu-mate-welcome:2160
+#: ubuntu-mate-welcome:2278
 msgid "Open Source"
 msgstr "Odprtokoden"
 
-#: ubuntu-mate-welcome:2162
+#: ubuntu-mate-welcome:2280
 msgid "Proprietary"
 msgstr "Lastniško"
 
-#: ubuntu-mate-welcome:2278
+#: ubuntu-mate-welcome:2396
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr "Oprostite, Welcome ni mogel prikazati nobenega programa za to kategorijo, ki je združljiva na tem sistemu."
+msgstr ""
+"Oprostite, Welcome ni mogel prikazati nobenega programa za to kategorijo, ki "
+"je združljiva na tem sistemu."
 
-#: ubuntu-mate-welcome:2490
+#: ubuntu-mate-welcome:2609
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr "Med zagonom PROGRAM_NAME je prišlo do napake. Ponovno namestite program."
+msgstr ""
+"Med zagonom PROGRAM_NAME je prišlo do napake. Ponovno namestite program."
 
-#: ubuntu-mate-welcome:2491
+#: ubuntu-mate-welcome:2610
 msgid "Command:"
 msgstr "Ukaz:"
 
-#: ubuntu-mate-welcome:2573
+#: ubuntu-mate-welcome:2692
 msgid "Uses a new or updated source."
 msgstr "Uporablja nov ali posodobljen vir."
 
-#: ubuntu-mate-welcome:2575
+#: ubuntu-mate-welcome:2694
 msgid "Now works for various versions of Ubuntu."
 msgstr "Zdaj deluje na različnih različicah Ubuntu-ja."
 
-#: ubuntu-mate-welcome:2577
+#: ubuntu-mate-welcome:2696
 msgid "Now a snappy package."
 msgstr "Sedaj paket snappy."
 
-#: ubuntu-mate-welcome:2579
+#: ubuntu-mate-welcome:2698
 msgid "General maintenance."
 msgstr "Splošno vzdrževanje."
 
-#: ubuntu-mate-welcome:2581
+#: ubuntu-mate-welcome:2700
 msgid "Broken or problematic source."
 msgstr "Pokvarjen ali problematični vir."
 
-#: ubuntu-mate-welcome:2583
+#: ubuntu-mate-welcome:2702
 msgid "Not yet available for some releases."
 msgstr "V nekaterih različicah še ni na voljo."
 
-#: ubuntu-mate-welcome:2585
+#: ubuntu-mate-welcome:2704
 msgid "No longer works for some releases."
 msgstr "Na nekaterih različicah ne deluje več."
 
-#: ubuntu-mate-welcome:2587
+#: ubuntu-mate-welcome:2706
 msgid "Not suitable for production machines."
 msgstr "Ni primerno za produkcijsko okolje."
 
-#: ubuntu-mate-welcome:2589
+#: ubuntu-mate-welcome:2708
 msgid "Requires further testing."
 msgstr "Potrebna so nadaljnja testiranja."
 
-#: ubuntu-mate-welcome:2591
+#: ubuntu-mate-welcome:2710
 msgid "Does not meet our standards to be featured."
 msgstr "Ne zadošča našim standardom."
 
-#: ubuntu-mate-welcome:2762
+#: ubuntu-mate-welcome:2881
 msgid "applications found."
 msgstr "najdenih programov."
 
-#: ubuntu-mate-welcome:2766
+#: ubuntu-mate-welcome:2885
 msgid "proprietary applications are hidden."
 msgstr "lastniški programi je skritih."
+
+#: ubuntu-mate-welcome:2888
+#, fuzzy
+msgid "Software Sources"
+msgstr "Trgovina programov"
+
+#~ msgid "applications have been installed"
+#~ msgstr "program se je namestil"
+
+#~ msgid "Your newly installed applications are ready to use."
+#~ msgstr "Najnovejši nameščeni programi so pripravljeni na uporabo."
+
+#~ msgid "Some applications were not installed."
+#~ msgstr "Nekateri programi niso bili nameščeni."
+
+#~ msgid "Some applications failed to install."
+#~ msgstr "Nekateri programi se niso namestili."
+
+#~ msgid ""
+#~ "Software Boutique encountered a problem with one of the applications."
+#~ msgstr "V Trgovini programov je prišlo do napake z enim od programov."
+
+#~ msgid "applications have been removed"
+#~ msgstr "programi so bili odstranjeni"
+
+#~ msgid "These applications are no longer present on your system."
+#~ msgstr "Teh programov ni več na računalniku."
+
+#~ msgid "Some applications were not removed."
+#~ msgstr "Nekateri programi niso bili odstranjeni."
+
+#~ msgid "Some applications failed to remove."
+#~ msgstr "Nekaterih programov ni uspelo odstraniti."
+
+#~ msgid "Show"
+#~ msgstr "Prikaži"
