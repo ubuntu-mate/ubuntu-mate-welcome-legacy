@@ -55,7 +55,6 @@ from aptdaemon.gtk3widgets import AptErrorDialog, AptConfirmDialog, \
 import aptdaemon.errors
 from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
-from threading import Thread
 from shutil import which
 
 
@@ -1023,65 +1022,55 @@ class AppView(WebKit2.WebView):
             self.do_smooth_footer = True
             app.update_page('#navigation-right', 'addClass', 'always-hidden')
 
-            def load_thread(self):
+            # Pass 'Servers' variable used for one-click server links.
+            self.run_javascript('var server_string = "' + _("Servers") + '"')
 
-                # Allows smooth animations
-                time.sleep(1)
+            # Are we running on a non-Ubuntu MATE system?
+            # Show a warning on the first visit.
+            if not systemstate.is_ubuntu_mate:
+                if not pref.get("boutique-warning-seen", False):
+                    self._do_command('message?boutique-on-other-distro')
+                    pref.set("boutique-warning-seen", True)
 
-                # Pass 'Servers' variable used for one-click server links.
-                self.run_javascript('var server_string = "' + _("Servers") + '"')
+            # Dynamically load application lists.
+            dynamicapps.populate_categories(self)
+            dynamicapps.update_all_app_status(self)
+            dynamicapps.populate_featured_apps(self)
+            dynamicapps.populate_news(self)
 
-                # Are we running on a non-Ubuntu MATE system?
-                # Show a warning on the first visit.
-                if not systemstate.is_ubuntu_mate:
-                    if not pref.get("boutique-warning-seen", False):
-                        self._do_command('message?boutique-on-other-distro')
-                        pref.set("boutique-warning-seen", True)
+            # Show a different footer in the Boutique.
+            app.update_page('#footer-global-left', 'html', app.boutique_footer)
 
-                # Dynamically load application lists.
-                dynamicapps.populate_categories(self)
-                dynamicapps.update_all_app_status(self)
-                dynamicapps.populate_featured_apps(self)
-                dynamicapps.populate_news(self)
+            # Set version and subscription details.
+            app.update_page('#boutique-version', 'html', systemstate.welcome_version)
+            if systemstate.updates_subscribed:
+                app.update_page('#update-subscribed', 'show')
+            else:
+                app.update_page('#update-notification', 'show')
 
-                # Show a different footer in the Boutique.
-                app.update_page('#footer-global-left', 'html', app.boutique_footer)
+            # Refresh preferences page
+            pref.refresh_pref_page('enable-queue')
+            pref.refresh_pref_page('hide-apt-progress')
 
-                # Set version and subscription details.
-                app.update_page('#boutique-version', 'html', systemstate.welcome_version)
-                if systemstate.updates_subscribed:
-                    app.update_page('#update-subscribed', 'show')
-                else:
-                    app.update_page('#update-notification', 'show')
+            # Is the queue enabled?
+            queue.refresh_page_state()
+            queue.clear()
 
-                # Refresh preferences page
-                pref.refresh_pref_page('enable-queue')
-                pref.refresh_pref_page('hide-apt-progress')
+            # Smoothly fade to introduction page.
+            app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
+            app.update_page('#category-tabs', 'show')
+            app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
+            app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
+            app.update_page('#navigation-right', 'removeClass', 'always-hidden')
 
-                # Is the queue enabled?
-                queue.refresh_page_state()
-                queue.clear()
-
-                # Smoothly fade to introduction page.
-                app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
-                app.update_page('#category-tabs', 'show')
-                app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
-                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
-                app.update_page('#navigation-right', 'removeClass', 'always-hidden')
-
-                # If loading a minimal "Get More Software" only page.
-                if arg.jump_software_page:
-                    app.update_page('#navigation-title', 'fadeIn')
-                    app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'></span>")
-                    app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
-                else:
-                    app.update_page('#menu-button', 'fadeIn')
-                    app.update_page('#navigation-title', 'fadeIn')
-
-
-            # Finish loading the Boutique.
-            thread = Thread(target=load_thread, args=[self])
-            thread.start()
+            # If loading a minimal "Get More Software" only page.
+            if arg.jump_software_page:
+                app.update_page('#navigation-title', 'fadeIn')
+                app.update_page('#navigation-title', 'html', "<span id='navigation-sub-title'></span>")
+                app.update_page('#navigation-sub-title', 'css', 'color', '#DED9CB')
+            else:
+                app.update_page('#menu-button', 'fadeIn')
+                app.update_page('#navigation-title', 'fadeIn')
 
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
@@ -1552,11 +1541,8 @@ class SystemState(object):
         else:
             self.boot_mode = 'BIOS'
 
-        # Multithread to prevent holding up program execution.
-        thread1 = Thread(target=self.check_internet_connection)
-        thread2 = Thread(target=self.detect_graphics)
-        thread1.start()
-        thread2.start()
+        self.check_internet_connection()
+        self.detect_graphics()
 
         # Check whether Welcome is subscribed for updates.
         self.welcome_ppa_file = '/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'
@@ -1737,9 +1723,7 @@ class SystemState(object):
         gib_prefix = _("GiB")
 
         # Start collecting advanced system information in the background.
-        # (Runs in own thread to prevent holding up screen)
-        inxi_thread = Thread(target=self.get_inxi_info)
-        inxi_thread.start()
+        self.get_inxi_info()
 
         # Append a failure symbol beforehand in event something goes horribly wrong.
         stat_error_msg = _("Could not gather data.")
@@ -2897,136 +2881,133 @@ class DynamicApps(object):
         app.update_page('#repo-table', 'html', ' ')
         app.update_page('#repo-busy', 'slideDown')
 
-        def repo_thread(self):
-            raw_repo = run_external_command("egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*", True)
-            html_buffer = ' '
-            url_index = {}
+        raw_repo = run_external_command("egrep -v '^#|^ *$' /etc/apt/sources.list /etc/apt/sources.list.d/*", True)
+        html_buffer = ' '
+        url_index = {}
 
-            # Gather a list of applications and their URLs.
-            categories = list(self.index.keys())
-            categories += ["KnownRepos"]
-            for category in categories:
-                items = list(self.index[category].keys())
-                for program_id in items:
-                    try:
-                        releases = list(self.index[category][program_id]['pre-install'].keys())
-                    except:
-                        continue
-
-                    for release in releases:
-                        methods = self.index[category][program_id]['pre-install'][release]['method'].split(',')
-                        for method in methods:
-                            url = ""
-
-                            # Extract the URL if an apt source
-                            if method == 'manual' or method == 'ppa+manual':
-                                apt_source_list = str(self.index[category][program_id]['pre-install'][release]['apt-sources'])
-                                apt_source_parts = apt_source_list.split(' ')
-                                for part in apt_source_parts:
-                                    if part.startswith('http'):
-                                        url = part
-                                        url_index[program_id] = url
-                                        continue
-
-                            # Generate Launchpad URL if a PPA
-                            elif method == 'ppa':
-                                ppa = self.index[category][program_id]['pre-install'][release]['enable-ppa']
-                                ppa_author = ppa.split('ppa:')[1].split('/')[0]
-                                ppa_name = ppa.split('ppa:')[1].split('/')[1]
-                                url = "http://ppa.launchpad.net/{0}/{1}/ubuntu".format(ppa_author, ppa_name)
-
-                            else:
-                                continue
-
-                            # Add this to the collection
-                            url_index[program_id] = url
-
-            # Function to add to HTML buffer
-            def add_to_table(software, source, img_path):
-                append_this = "<tr><td><img src='" + img_path + "' width='24px' height='24px'/> " + software + "</td><td>" + source + "</td></tr>"
-                return append_this
-
-            # Add table headers
-            headers = '<tr><th style="width:40%">' + string.head_software + '</th><th style="width:60%">' + string.head_source + '</th></tr>'
-            app.update_page('#repo-table', 'append', headers)
-
-            # Add system repositories to the top of the list.
-            sys_icon = trans.res_dir + 'img/logos/ubuntu.png'
-
-            if systemstate.get_system_repository_state('main') == True:
-                html_buffer += add_to_table(string.repo_main, 'main', sys_icon)
-
-            if systemstate.get_system_repository_state('universe') == True:
-                html_buffer += add_to_table(string.repo_universe, 'universe', sys_icon)
-
-            if systemstate.get_system_repository_state('main restricted') == True:
-                html_buffer += add_to_table(string.repo_restricted, 'restricted', sys_icon)
-
-            if systemstate.get_system_repository_state('multiverse') == True:
-                html_buffer += add_to_table(string.repo_multiverse, 'multiverse', sys_icon)
-
-            if systemstate.get_system_repository_state('partner') == True:
-                html_buffer += add_to_table(string.repo_partner, 'partner', sys_icon)
-
-            # Parse sources list, prevent duplicate URLs.
-            source_urls = {}
-            for line in raw_repo.split('\n'):
-                parts = line.split(' ')
-                list_file = parts[0].split(':deb')[0]
-                url = parts[1]
-
-                # Ignore any saved entries.
-                if list_file[-5:] == '.save':
+        # Gather a list of applications and their URLs.
+        categories = list(self.index.keys())
+        categories += ["KnownRepos"]
+        for category in categories:
+            items = list(self.index[category].keys())
+            for program_id in items:
+                try:
+                    releases = list(self.index[category][program_id]['pre-install'].keys())
+                except:
                     continue
 
-                # Ignore the file if it's 0 bytes.
-                if not os.path.getsize(list_file) > 0:
-                    continue
+                for release in releases:
+                    methods = self.index[category][program_id]['pre-install'][release]['method'].split(',')
+                    for method in methods:
+                        url = ""
 
-                # Ignore if a system or the partner repository.
-                if url.find("ubuntu.com/") != -1:
-                    continue
-                if url.find("canonical.com/") != -1:
-                    continue
+                        # Extract the URL if an apt source
+                        if method == 'manual' or method == 'ppa+manual':
+                            apt_source_list = str(self.index[category][program_id]['pre-install'][release]['apt-sources'])
+                            apt_source_parts = apt_source_list.split(' ')
+                            for part in apt_source_parts:
+                                if part.startswith('http'):
+                                    url = part
+                                    url_index[program_id] = url
+                                    continue
 
-                # Except if [arch=amd64] is specified.
+                        # Generate Launchpad URL if a PPA
+                        elif method == 'ppa':
+                            ppa = self.index[category][program_id]['pre-install'][release]['enable-ppa']
+                            ppa_author = ppa.split('ppa:')[1].split('/')[0]
+                            ppa_name = ppa.split('ppa:')[1].split('/')[1]
+                            url = "http://ppa.launchpad.net/{0}/{1}/ubuntu".format(ppa_author, ppa_name)
+
+                        else:
+                            continue
+
+                        # Add this to the collection
+                        url_index[program_id] = url
+
+        # Function to add to HTML buffer
+        def add_to_table(software, source, img_path):
+            append_this = "<tr><td><img src='" + img_path + "' width='24px' height='24px'/> " + software + "</td><td>" + source + "</td></tr>"
+            return append_this
+
+        # Add table headers
+        headers = '<tr><th style="width:40%">' + string.head_software + '</th><th style="width:60%">' + string.head_source + '</th></tr>'
+        app.update_page('#repo-table', 'append', headers)
+
+        # Add system repositories to the top of the list.
+        sys_icon = trans.res_dir + 'img/logos/ubuntu.png'
+
+        if systemstate.get_system_repository_state('main') == True:
+            html_buffer += add_to_table(string.repo_main, 'main', sys_icon)
+
+        if systemstate.get_system_repository_state('universe') == True:
+            html_buffer += add_to_table(string.repo_universe, 'universe', sys_icon)
+
+        if systemstate.get_system_repository_state('main restricted') == True:
+            html_buffer += add_to_table(string.repo_restricted, 'restricted', sys_icon)
+
+        if systemstate.get_system_repository_state('multiverse') == True:
+            html_buffer += add_to_table(string.repo_multiverse, 'multiverse', sys_icon)
+
+        if systemstate.get_system_repository_state('partner') == True:
+            html_buffer += add_to_table(string.repo_partner, 'partner', sys_icon)
+
+        # Parse sources list, prevent duplicate URLs.
+        source_urls = {}
+        for line in raw_repo.split('\n'):
+            parts = line.split(' ')
+            list_file = parts[0].split(':deb')[0]
+            url = parts[1]
+
+            # Ignore any saved entries.
+            if list_file[-5:] == '.save':
+                continue
+
+            # Ignore the file if it's 0 bytes.
+            if not os.path.getsize(list_file) > 0:
+                continue
+
+            # Ignore if a system or the partner repository.
+            if url.find("ubuntu.com/") != -1:
+                continue
+            if url.find("canonical.com/") != -1:
+                continue
+
+            # Except if [arch=amd64] is specified.
+            if url[:4] != 'http':
+                url = parts[2]
                 if url[:4] != 'http':
-                    url = parts[2]
-                    if url[:4] != 'http':
-                        # Give up. Malformed URL or line.
-                        continue
-                    else:
-                        source_urls[url] = 1
+                    # Give up. Malformed URL or line.
+                    continue
                 else:
                     source_urls[url] = 1
+            else:
+                source_urls[url] = 1
 
-            # Compare programs with the Boutique for pretty icons.
-            source_urls = list(source_urls)
-            source_urls.sort()
-            for url in source_urls:
-                # Initially presume this is outside of the Boutique.
-                software = string.repo_unknown
-                img = 'unknown'
-                source = url
+        # Compare programs with the Boutique for pretty icons.
+        source_urls = list(source_urls)
+        source_urls.sort()
+        for url in source_urls:
+            # Initially presume this is outside of the Boutique.
+            software = string.repo_unknown
+            img = 'unknown'
+            source = url
 
-                # Is there a match?
-                for program_id in list(url_index.keys()):
-                    if url_index[program_id] == url:
-                        software = dynamicapps.get_attribute_for_app(program_id, 'name')
-                        img = dynamicapps.get_attribute_for_app(program_id, 'img')
-                        source = url
+            # Is there a match?
+            for program_id in list(url_index.keys()):
+                if url_index[program_id] == url:
+                    software = dynamicapps.get_attribute_for_app(program_id, 'name')
+                    img = dynamicapps.get_attribute_for_app(program_id, 'img')
+                    source = url
 
-                # Add this to the table.
-                img_path = trans.res_dir + 'img/applications/' + img + '.png'
-                html_buffer += add_to_table(software, source, img_path)
+            # Add this to the table.
+            img_path = trans.res_dir + 'img/applications/' + img + '.png'
+            html_buffer += add_to_table(software, source, img_path)
 
-            # Done - Now append.
-            app.update_page('#repo-table tr:last', 'after', html_buffer)
-            app.update_page('#repo-busy', 'slideUp')
-            app.update_page('#repo-table', 'slideDown')
+        # Done - Now append.
+        app.update_page('#repo-table tr:last', 'after', html_buffer)
+        app.update_page('#repo-busy', 'slideUp')
+        app.update_page('#repo-table', 'slideDown')
 
-        thread = Thread(target=repo_thread, args=[self])
-        thread.start()
 
 
 class ChangesQueue(object):
