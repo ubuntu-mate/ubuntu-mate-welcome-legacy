@@ -1124,6 +1124,15 @@ class AppView(WebKit2.WebView):
             app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
             app.update_page('#message-link', 'html', "<button class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</button>".format(target, _("Continue")))
 
+        ### Introduction ###
+        if app.current_page == 'introduction.html':
+            for path in ["/usr/share/backgrounds/ubuntu-mate-common/Green-Wall.png",
+                        "/usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Cold-no-logo.png",
+                        "/usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold-no-logo.jpg"]:
+                if os.path.exists(path):
+                    app.update_page(".slogan-box", "attr", "style", "background:url(" + path + ")")
+                    break
+
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
         if title != 'null' and title != '' and title != None:
