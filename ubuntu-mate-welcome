@@ -858,6 +858,20 @@ class AppView(WebKit2.WebView):
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
 
+    def run_js(self, function):
+        """
+        Runs a JavaScript function on the page, regardless of which thread it is called from.
+        GTK+ operations must be performed on the same thread to prevent crashes.
+        """
+        GLib.idle_add(self._run_js, function)
+
+    def _run_js(self, function):
+        """
+        Runs a JavaScript function on the page when invoked from run_js()
+        """
+        self.run_javascript(function)
+        return GLib.SOURCE_REMOVE
+
     def _push_config(self):
         ### Global - On all pages ###
 
@@ -961,14 +975,14 @@ class AppView(WebKit2.WebView):
             self.do_smooth_footer = True
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
-                self.run_javascript('var splashNextPage = "hellolive"')
-                self.run_javascript('var quick_splash = true')
+                self.run_js('var splashNextPage = "hellolive"')
+                self.run_js('var quick_splash = true')
             elif systemstate.session_type == 'guest':
-                self.run_javascript('var splashNextPage = "helloguest"')
-                self.run_javascript('var quick_splash = true')
+                self.run_js('var splashNextPage = "helloguest"')
+                self.run_js('var quick_splash = true')
             else:
-                self.run_javascript('var splashNextPage = "index"')
-                self.run_javascript('var quick_splash = false')
+                self.run_js('var splashNextPage = "index"')
+                self.run_js('var quick_splash = false')
                 app.update_page('#skip-btn', 'fadeIn', 'fast')
 
             # Smoothly fade footer when entering main menu.
@@ -990,8 +1004,8 @@ class AppView(WebKit2.WebView):
                 app.update_page("#navigation-title", "html", _("Installation Guide"))
 
             # Display information tailored to graphics vendor (Getting Started / Drivers)
-            self.run_javascript('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
-            self.run_javascript('var graphicsGrep = "' + systemstate.graphics_grep + '";')
+            self.run_js('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
+            self.run_js('var graphicsGrep = "' + systemstate.graphics_grep + '";')
             app.update_page('#boot-mode', 'html', systemstate.boot_mode)
 
             # Update any applications featured on these pages.
@@ -1029,7 +1043,7 @@ class AppView(WebKit2.WebView):
                 time.sleep(1)
 
                 # Pass 'Servers' variable used for one-click server links.
-                self.run_javascript('var server_string = "' + _("Servers") + '"')
+                self.run_js('var server_string = "' + _("Servers") + '"')
 
                 # Are we running on a non-Ubuntu MATE system?
                 # Show a warning on the first visit.
@@ -1066,7 +1080,7 @@ class AppView(WebKit2.WebView):
                 app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
                 app.update_page('#category-tabs', 'show')
                 app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
-                app.webkit.run_javascript("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
+                app.webkit.run_js("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
                 app.update_page('#navigation-right', 'removeClass', 'always-hidden')
 
                 # If loading a minimal "Get More Software" only page.
@@ -1091,18 +1105,18 @@ class AppView(WebKit2.WebView):
         ### Donate ###
         if app.current_page == 'donate.html':
             # Pass translatable short-hand month strings for the supporters grid.
-            self.run_javascript('short_jan = "' + _("Jan") + '"')
-            self.run_javascript('short_feb = "' + _("Feb") + '"')
-            self.run_javascript('short_mar = "' + _("Mar") + '"')
-            self.run_javascript('short_apr = "' + _("Apr") + '"')
-            self.run_javascript('short_may = "' + _("May") + '"')
-            self.run_javascript('short_jun = "' + _("Jun") + '"')
-            self.run_javascript('short_jul = "' + _("Jul") + '"')
-            self.run_javascript('short_aug = "' + _("Aug") + '"')
-            self.run_javascript('short_sep = "' + _("Sep") + '"')
-            self.run_javascript('short_oct = "' + _("Oct") + '"')
-            self.run_javascript('short_nov = "' + _("Nov") + '"')
-            self.run_javascript('short_dec = "' + _("Dec") + '"')
+            self.run_js('short_jan = "' + _("Jan") + '"')
+            self.run_js('short_feb = "' + _("Feb") + '"')
+            self.run_js('short_mar = "' + _("Mar") + '"')
+            self.run_js('short_apr = "' + _("Apr") + '"')
+            self.run_js('short_may = "' + _("May") + '"')
+            self.run_js('short_jun = "' + _("Jun") + '"')
+            self.run_js('short_jul = "' + _("Jul") + '"')
+            self.run_js('short_aug = "' + _("Aug") + '"')
+            self.run_js('short_sep = "' + _("Sep") + '"')
+            self.run_js('short_oct = "' + _("Oct") + '"')
+            self.run_js('short_nov = "' + _("Nov") + '"')
+            self.run_js('short_dec = "' + _("Dec") + '"')
 
         ### Message ###
         if app.current_page == 'message.html':
@@ -1111,7 +1125,7 @@ class AppView(WebKit2.WebView):
             # Which message to display?
             if not msg_id:
                 dbg.stdout("Welcome", "No message ID set! Returning to main menu.", 0, 1)
-                app.webkit.run_javascript("smoothPageFade('index.html')")
+                app.webkit.run_js("smoothPageFade('index.html')")
                 return
             elif msg_id == "boutique-on-other-distro":
                 nav_title = _("Unsupported Distribution")
@@ -1125,7 +1139,7 @@ class AppView(WebKit2.WebView):
                 target = "software.html"
             else:
                 dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
-                app.webkit.run_javascript("smoothPageFade('index.html')")
+                app.webkit.run_js("smoothPageFade('index.html')")
                 return
 
             # Push message contents to page.
@@ -1348,7 +1362,7 @@ class AppView(WebKit2.WebView):
             systemstate.copy_to_clipboard(var)
         elif cmd.startswith('message'):
             app.msg_to_display = cmd.split('?')[1]
-            self.run_javascript("smoothPageFade('message.html')")
+            self.run_js("smoothPageFade('message.html')")
         elif cmd == 'list-repos':
             dynamicapps.populate_repos()
         else:
@@ -1468,11 +1482,11 @@ class WelcomeApp(object):
         """ Runs a JavaScript jQuery function on the page,
             ensuring correctly parsed quotes. """
         if parm1 and parm2:
-            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
+            self.webkit.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
         if parm1:
-            self.webkit.run_javascript('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
+            self.webkit.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
         else:
-            self.webkit.run_javascript('$("' + element + '").' + function + '()')
+            self.webkit.run_js('$("' + element + '").' + function + '()')
 
 
 class Debug(object):
@@ -2010,7 +2024,7 @@ class SystemState(object):
         app.update_page('#specs-tabs', 'fadeIn', 'fast')
         app.update_page('#specs-basic', 'fadeIn', 'medium')
         app.update_page('#specs-busy-basic', 'fadeOut', 'fast')
-        webkit.run_javascript('setCursorNormal()')
+        webkit.run_js('setCursorNormal()')
 
     def get_inxi_info(self):
         dbg.stdout('Specs', 'Gathering advanced system information with "inxi"...', 1, 0)
@@ -2489,7 +2503,7 @@ class DynamicApps(object):
             random_img = possible_apps[no]
             dbg.stdout('Apps', str(no) + '. ' + random_img, 2, 4)
             app.update_page('#featured-grid', 'append', '<img src="' + trans.res_dir + 'img/applications/' + random_img + '.png" id="appIcon' + str(no) + '" class="grid-hidden" />')
-        webkit.run_javascript("initGrid();")
+        webkit.run_js("initGrid();")
         dbg.stdout('Apps', '------------------', 2, 4)
 
     def modify_app(self, webkit, action, program_id):
@@ -2901,7 +2915,7 @@ class DynamicApps(object):
                 app.update_page('#search-total', 'append', '&nbsp;<button onclick="searchAgainNonFree()">' + str(hidden_results) + ' ' + _("proprietary applications are hidden.") + '</button>')
 
     def populate_repos(self):
-        app.webkit.run_javascript('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
+        app.webkit.run_js('switchCategory("#Preferences", "#PrettyRepos", "' + _("Software Sources") + '", true)')
         app.update_page('#repo-table', 'hide')
         app.update_page('#repo-table', 'html', ' ')
         app.update_page('#repo-busy', 'slideDown')
@@ -3256,7 +3270,7 @@ class ChangesQueue(object):
                 current += 1
 
         # Update UI, but do not unlock until user acknowledges "Finished".
-        app.webkit.run_javascript('smoothFade("#queue-busy","#queue-options")')
+        app.webkit.run_js('smoothFade("#queue-busy","#queue-options")')
         app.update_page('#queue-btn-apply', 'hide')
         app.update_page('#queue-btn-clear', 'hide')
         app.update_page('#queue-btn-reset', 'show')
@@ -3312,7 +3326,7 @@ class ChangesQueue(object):
     def ui_remove_card(self, program_id):
         app.update_page('.card-' + program_id, 'slideUp')
         app.update_page('.card-' + program_id, 'attr', 'card-'+program_id, 'card-old-'+program_id)
-        app.webkit.run_javascript('setTimeout(function(){ $("#card-old-' + program_id + '").remove(); }, 500);')
+        app.webkit.run_js('setTimeout(function(){ $("#card-old-' + program_id + '").remove(); }, 500);')
 
     def ui_update_count(self):
         app.update_page('#navigation-queue-count', 'html', str(self.queue_count))
