@@ -2274,10 +2274,10 @@
         "google-earth": {
             "name": "Google Earth",
             "img": "google-earth",
-            "main-package": "google-earth-stable",
-            "launch-command": "google-earth",
-            "install-packages": "google-earth-stable",
-            "remove-packages": "google-earth-stable",
+            "main-package": "google-earth-ec-stable",
+            "launch-command": "google-earth-ec",
+            "install-packages": "google-earth-ec-stable",
+            "remove-packages": "google-earth-ec-stable",
             "description": [
                 "Explore, search and discover the planet. Google Earth",
                 "lets you fly anywhere to see satellite imagery, 3D",
@@ -3164,13 +3164,10 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
-                "xenial,yakkety,zesty": {
+                "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:x2go/stable",
                     "source-file": "x2go-ubuntu-stable-CODENAME"
-                },
-                "all": {
-                    "method": "skip"
                 }
             },
             "working": true
@@ -5507,7 +5504,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty",
+            "releases": "xenial,yakkety,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
