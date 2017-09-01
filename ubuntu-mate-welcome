@@ -1029,7 +1029,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'xthemes')
             dynamicapps.update_app_status(self, 'wallpapers')
             dynamicapps.update_app_status(self, 'polychromatic')
-            dynamicapps.update_app_status(self, 'razer-drivers')
+            dynamicapps.update_app_status(self, 'openrazer')
 
         ### Software Page ###
         if app.current_page == 'software.html':
