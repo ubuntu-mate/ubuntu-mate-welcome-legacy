@@ -3077,6 +3077,38 @@
             },
             "working": true
         },
+        "wavebox": {
+            "name": "Wavebox",
+            "img": "wavebox",
+            "main-package": "wavebox",
+            "launch-command": "/opt/wavebox/Wavebox",
+            "install-packages": "wavebox",
+            "remove-packages": "wavebox",
+            "description": [
+                "Join the wave of next generation web-desktop communication tools.",
+                "From web to desktop, in one neatly packaged app, Wavebox lets you",
+                "bring all your web tools together for faster, smarter working."
+            ],
+            "alternate-to": null,
+            "subcategory": "Instant Messaging",
+            "open-source": true,
+            "url-info": "https://wavebox.io",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "xenial,zesty,artful",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "wavebox",
+                    "apt-key-url": "https://wavebox.io/dl/client/repo/archive.key",
+                    "apt-sources": [
+                        "deb https://wavebox.io/dl/client/repo/ x86_64/"
+                    ]
+                }
+            },
+            "working": true
+        },
         "wire-desktop": {
             "name": "Wire",
             "img": "wire-desktop",
