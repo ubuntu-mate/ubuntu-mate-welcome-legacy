@@ -1288,7 +1288,10 @@ class AppView(WebKit2.WebView):
             else:
                 subprocess.Popen(['ubiquity', 'gtk_ui'])
         elif cmd == 'backup':
-            subprocess.Popen(['deja-dup-preferences'])
+            if system.codename in ["xenial", "yakkety", "zesty"]:
+                subprocess.Popen(['deja-dup-preferences'])
+            else:
+                subprocess.Popen(['deja-dup'])
         elif cmd == 'chatroom':
             subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
         elif cmd == 'control':
