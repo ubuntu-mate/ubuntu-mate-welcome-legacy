@@ -6079,8 +6079,8 @@
             "img": "openrazer",
             "main-package": "razer-kernel-modules-dkms",
             "launch-command": null,
-            "install-packages": "python3-razer,razer-kernel-modules-dkms,razer-daemon,razer-doc",
-            "remove-packages": "python3-razer,razer-kernel-modules-dkms,razer-daemon,razer-doc",
+            "install-packages": "openrazer-meta",
+            "remove-packages": "openrazer-meta,python3-openrazer,openrazer-kernel-modules-dkms,openrazer-daemon,openrazer-doc",
             "description": "Community written drivers for many Razer peripherals",
             "alternate-to": null,
             "subcategory": "null",
@@ -6089,7 +6089,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty,artful",
+            "releases": "xenial,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6106,7 +6106,7 @@
             "launch-command": "polychromatic-controller",
             "install-packages": "polychromatic",
             "remove-packages": "polychromatic",
-            "description": "Front-end to manage Razer peripherals",
+            "description": "Front-end to manage OpenRazer peripherals",
             "alternate-to": null,
             "subcategory": "null",
             "open-source": true,
@@ -6114,7 +6114,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,yakkety,zesty,artful",
+            "releases": "xenial,zesty,artful",
             "pre-install": {
                 "all": {
                     "method": "ppa",
