@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-04-04 02:23+0000\n"
+"PO-Revision-Date: 2017-09-22 21:37+0000\n"
 "Last-Translator: Kisbenedek Márton <kmarton815@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -20,244 +20,244 @@ msgstr ""
 msgid "Raspberry Pi Information"
 msgstr "Raspberry Pi információ"
 
-#: rpi.html:27
+#: rpi.html:26
 msgid "A few important notes."
 msgstr "Néhány fontos megjegyzés."
 
-#: rpi.html:28
+#: rpi.html:27
 msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
 msgstr "Bár látvány szempontjából hasonló az élmény, mint az Ubuntu MATE asztali kiadásában, a rendszer alapjául szolgáló felépítmény nagyon más. Ez az oldal kiemel néhány különbséget."
 
-#: rpi.html:34
+#: rpi.html:33
 msgid "Resizing the file system"
 msgstr "A fájlrendszer átméretezése"
 
-#: rpi.html:37
+#: rpi.html:36
 msgid "Your file system has already been resized."
 msgstr "A fájlrendszered már át lett méretezve."
 
-#: rpi.html:40
+#: rpi.html:39
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
 msgstr "Az Ubuntu MATE első beállítása után a Raspberry Pi-n, a fájlrendszer az eredeti kép méretére van korlátozva, ami úgy 3.9 GB. Használd ezt a gombot az átméretezéshez, az egész Micro-SD kártya felhasználásához."
 
-#: rpi.html:44
+#: rpi.html:43
 msgid "Resize Now"
 msgstr "Átméretezés most"
 
-#: rpi.html:48
+#: rpi.html:47
 msgid ""
 "To complete the resize of your Raspberry Pi file system, please close all "
 "open windows and restart now."
 msgstr "A Raspberry Pi fájlrendszered átméretezésének befejezéséhez kérjük zárj be minden ablakot és indítsd újra a rendszert."
 
-#: rpi.html:50
+#: rpi.html:49
 msgid "Reboot"
 msgstr "Újraindítás"
 
-#: rpi.html:54
+#: rpi.html:53
 msgid "Incompatible Software"
 msgstr "Nem kompatibilis szoftver"
 
-#: rpi.html:55
+#: rpi.html:54
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
 msgstr "Néhány az Ubuntuhoz elérhető csomag csak ehhez lett megírva és összeállítva:"
 
-#: rpi.html56, 111
+#: rpi.html55, 110
 msgid "or"
 msgstr "vagy"
 
-#: rpi.html:57
+#: rpi.html:56
 msgid "architecture. As the Raspberry Pi is based on"
 msgstr "architektúra. Mivel a Raspberry Pi alapja"
 
-#: rpi.html:58
+#: rpi.html:57
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
 msgstr "ezek a csomagok nem érhetők el telepítésre. A csomagtól függően lehetséges, hogy össze tudod állítani magadnak, vagy egy létező portot használhatsz."
 
-#: rpi.html:65
+#: rpi.html:64
 msgid "Incompatible:"
 msgstr "Nem kompatibilis:"
 
-#: rpi.html:74
+#: rpi.html:73
 msgid "Compatible:"
 msgstr "Kompatibilis:"
 
-#: rpi.html:87
+#: rpi.html:86
 msgid "Upgrades"
 msgstr "Frissítések"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "Please"
 msgstr "Kérlek"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "do not"
 msgstr "ne"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "attempt to"
 msgstr "próbálkozz"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "upgrade"
 msgstr "frissíteni"
 
-#: rpi.html:89
+#: rpi.html:88
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
 msgstr "a Raspberry Pi-t a disztribúció egy újabb verziójára (pl. 15.04-ről 15.10-re), mivel az alapjául szolgáló kernelt"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid "not designed"
 msgstr "nem arra tervezték"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
 msgstr "hogy ilyesmit végrehajtson. Ez a folyamat nagyon hosszú időt fog igénybe venni, mialatt valószínűleg megtölti az SD kártyádat addig, hogy nem marad szabad hely rajta."
 
-#: rpi.html:96
+#: rpi.html:95
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
 msgstr "Biztosabb , ha a kívánt adataidat elmented és újraírod  a kártyát egy új képfájllal. Kísérlet a  hibás SD kártya javítására megakadályozhatja a telepítő indítását és egyéb más hibákat is okozhat."
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "You can, however, install"
 msgstr "Azonban telepíthetsz"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "regular updates"
 msgstr "rendszeres frissítéseket"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "via the"
 msgstr "a"
 
-#: rpi.html102, 111
+#: rpi.html101, 110
 msgid "Software Updater"
 msgstr "Szoftverfrissítő"
 
-#: rpi.html:102
+#: rpi.html:101
 msgid "utility for your installed software."
 msgstr "segédprogrammal a telepített szoftvereidhez."
 
-#: rpi.html:105
+#: rpi.html:104
 msgid "Kernel Updates"
 msgstr "Kernel frissítések "
 
-#: rpi.html:106
+#: rpi.html:105
 msgid "The same kernel provided by the"
 msgstr "Ugyanazt a kernelt, amit biztosít a"
 
-#: rpi.html:107
+#: rpi.html:106
 msgid "Raspberry Pi foundation"
 msgstr "Raspberry Pi alapítvány"
 
-#: rpi.html:108
+#: rpi.html:107
 msgid ""
 "is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
 "\"firmware\" blob, updates are not distributed via the"
 msgstr "használja az Ubuntu MATE ezen kiadása. Mivel ez a kernel egyfajta \"firmware buborékként\" van kiadva, a frissítéseket nem terjeszti a"
 
-#: rpi.html:113
+#: rpi.html:112
 msgid "Instead, to update the kernel, open a terminal and run:"
 msgstr "Ehelyett a kernel frissítéséhez nyisd meg a parancssort és futtasd ezt:"
 
-#: rpi.html:117
+#: rpi.html:116
 msgid "Hardware Acceleration"
 msgstr "Hardveres gyorsítás"
 
-#: rpi.html:118
+#: rpi.html:117
 msgid "Currently, hardware accelerated applications are"
 msgstr "Pillanatnyilag a hardveres gyorsítással rendelkező programok"
 
-#: rpi.html:118
+#: rpi.html:117
 msgid "not supported"
 msgstr "nem támogatottak"
 
-#: rpi.html:119
+#: rpi.html:118
 msgid "unlike"
 msgstr "nem úgy mint a"
 
-#: rpi.html:120
+#: rpi.html:119
 msgid ""
 "Applications that depend on OpenGL ES libraries or require the GPU will fail"
 " to start."
 msgstr "Az OpenGL ES könyvtáraktól függő, vagy GPU-t igénylő alkalmazások nem tudnak elindulni."
 
-#: rpi.html:123
+#: rpi.html:122
 msgid "For playing videos, the application"
 msgstr "Videó lejátszáshoz használatos program"
 
-#: rpi.html:123
+#: rpi.html:122
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
 msgstr "képes lesz erre és előre van telepítve. Ha MPEG-2 vagy VC-1 videó fájlokat szeretnél lejátszani, akkor"
 
-#: rpi.html:125
+#: rpi.html:124
 msgid "you will need MPEG-2 and/or VC-1 licenses from the"
 msgstr "szükséged lesz egy MPEG-2-es és/vagy VC-1-es engedélyre a"
 
-#: rpi.html:126
+#: rpi.html:125
 msgid "Raspberry Pi Store."
 msgstr "Raspberry Pi Áruházból."
 
-#: rpi.html:129
+#: rpi.html:128
 msgid "Enable/Disable X11"
 msgstr "X11 engedélyezése/letiltása"
 
-#: rpi.html:130
+#: rpi.html:129
 msgid "For users who are looking to create their own headless"
 msgstr "Azoknak a felhasználóknak akik szeretnék létrehozni a saját fejetlen"
 
-#: rpi.html:130
+#: rpi.html:129
 msgid "\"server\""
 msgstr "\"szerverüket\""
 
-#: rpi.html:130
+#: rpi.html:129
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
 msgstr "az Ubuntu MATE használatával, van egy segédprogram a grafikus környezet váltásához."
 
-#: rpi.html:133
+#: rpi.html:132
 msgid "To disable X11 and login via the console:"
 msgstr "Az X11 kikapcsolása és belépés konzol segítségével:"
 
-#: rpi.html:137
+#: rpi.html:136
 msgid "To enable X11 to restore the Ubuntu MATE desktop:"
 msgstr "X11 engedélyezéséhez és az Ubuntu MATE asztal visszaállításához:"
 
-#: rpi.html:140
+#: rpi.html:139
 msgid "Changes take effect after a reboot."
 msgstr "A változások újraindítás után lépnek érvénybe."
 
-#: rpi.html:144
+#: rpi.html:143
 msgid "Release Notes"
 msgstr "Kiadási megjegyzések"
 
-#: rpi.html:145
+#: rpi.html:144
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
 msgstr "A kiadási naplókért és a verziónkénti változásokért keresd fel az Ubuntu MATE weboldalát."
 
-#: rpi.html:152
+#: rpi.html:151
 msgid "Raspberry Pi is a trademark of the"
 msgstr "A Raspberry Pi védjegy tulajdonosa a(z)"

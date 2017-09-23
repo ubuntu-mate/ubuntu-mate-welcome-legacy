@@ -1,81 +1,82 @@
 # 
 # Translators:
 # Marcin Sedlak <fdmarcin@gmail.com>, 2016
+# Robert Orzanna <robert@orzanna.de>, 2017
 # Paweł Pańczyk <pawelppanczyk@gmail.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-02-11 20:19+0000\n"
-"Last-Translator: Paweł Pańczyk <pawelppanczyk@gmail.com>\n"
+"PO-Revision-Date: 2017-09-22 21:42+0000\n"
+"Last-Translator: Robert Orzanna <robert@orzanna.de>\n"
 "Language-Team: Polish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: introduction.html:18
 msgid "Introduction"
 msgstr "Wprowadzenie"
 
-#: introduction.html:29
+#: introduction.html:28
 msgid "For a retrospective future."
-msgstr ""
+msgstr "Na retrospektywnej przyszłości."
 
-#: introduction.html32, 108
-msgid "What is Ubuntu MATE?"
-msgstr "Czym jest Ubuntu MATE?"
+#: introduction.html:31
+msgid "Scroll down to learn more."
+msgstr "Przewiń w dół, aby dowiedzieć się więcej."
 
-#: introduction.html:47
+#: introduction.html:52
 msgid ""
 "Ubuntu MATE is an operating system -- the core software that runs your "
 "computer, similar to"
 msgstr "Ubuntu MATE to system operacyjny - podstawowe oprogramowanie działające na komputerze, podobne do"
 
-#: introduction.html:50
+#: introduction.html:55
 msgid "Microsoft's Windows"
 msgstr "Microsoft Windows"
 
-#: introduction.html:52
+#: introduction.html:57
 msgid "Apple's OS X"
 msgstr "OS X od Apple"
 
-#: introduction.html52, 124
+#: introduction.html57, 130
 msgid "and"
 msgstr "oraz"
 
-#: introduction.html:54
+#: introduction.html:59
 msgid "Google's Chrome OS"
 msgstr "Chrome OS od Google"
 
-#: introduction.html:56
-msgid ""
-"Ubuntu MATE is a distribution (variation) of GNU/Linux. A dependable, "
-"secure, capable, and modern computer system that rivals all others in "
-"popularity and actual use."
-msgstr "Ubuntu MATE jest dystrybucją (rodzajem) systemu GNU/Linux. Zaufany, bezpieczny, rozbudowany i nowoczesny system konkurujący z innymi pod względem popularności i użytkowania."
-
-#: introduction.html:59
-msgid "Unlike other operating systems, Linux is a major one used:"
-msgstr "W przeciwieństwie do innych systemów, Linux jest najpopularniejszy:"
-
 #: introduction.html:61
+msgid ""
+"Ubuntu MATE is a desktop distribution (variation) of GNU/Linux -- a "
+"dependable, secure, capable, and modern computer system that rivals all "
+"others in popularity and usage."
+msgstr "Ubuntu MATE to dystrybucja komputerów stacjonarnych (odmiana) GNU / Linux - niezawodny, bezpieczny, wydajny i nowoczesny system komputerowy, który rywalizuje ze wszystkimi innymi popularnością i użytecznością."
+
+#: introduction.html:64
+msgid "Unlike other operating systems, Linux is used:"
+msgstr "W przeciwieństwie do innych systemów operacyjnych Linux jest używany:"
+
+#: introduction.html:66
 msgid "on most of the world's fastest and most powerful supercomputers"
 msgstr "na większości najszybszych i najpotężniejszych komputerów na świecie"
 
-#: introduction.html:63
+#: introduction.html:68
 msgid ""
-"on many of (if not most of) the computers that make up the backbone of "
+"on many of, if not most of, the computers that make up the backbone of "
 "Internet"
-msgstr "na wielu (jeśli nie na większości) komputerów stanowiących podstawę działania Internetu"
+msgstr "Na wielu, jeśli nie większość, komputerów, które tworzą szkielet Internetu"
 
-#: introduction.html:65
+#: introduction.html:70
 msgid "and on corporate servers that require stability and reliability"
 msgstr "oraz na serwerach korporacyjnych, wymagających stabilności i niezawodności."
 
-#: introduction.html:70
+#: introduction.html:75
 msgid ""
 "Ubuntu MATE is a stable, easy-to-use operating system with a configurable "
 "desktop environment. It is ideal for those who want the most out of their "
@@ -84,13 +85,13 @@ msgid ""
 "computers (such as the Raspberry Pi) and older hardware alike."
 msgstr "Ubuntu MATE to stabilny i łatwy w użytkowaniu system operacyjny z konfigurowalnym środowiskiem pulpitu. Jest idealny dla kogoś, kto chce w pełni wykorzystać swój komputer i preferuje tradycyjny wygląd interfejsu. Przy niewielkich wymaganiach sprzętowych jest odpowiedni dla komputerów, laptopów, jednoelementowych komputerów (jak Raspberry Pi) oraz dla starszego sprzętu."
 
-#: introduction.html:78
+#: introduction.html:83
 msgid ""
 "The operating system is more secure, and better supported than the operating"
 " system pre-installed on most home computer hardware today."
 msgstr "Ten system operacyjny jest bezpieczniejszy i lepiej wspierany niż systemy preinstalowane dziś na większości komputerów domowych."
 
-#: introduction.html:82
+#: introduction.html:87
 msgid ""
 "Using Ubuntu MATE provides you with the freedom to run a complete, full-"
 "featured operating system, pre-configured with most (if not all) of the "
@@ -99,186 +100,194 @@ msgid ""
 " taste."
 msgstr "Użytkowanie Ubuntu MATE daje ci wolność i możliwość działania na pełnym systemie operacyjnym, dostarczanym z większością programów, których potrzebujesz do codziennego korzystania z komputera. Zmień jego wygląd, działanie, lub też uruchamiane aplikacje, aby dostosować go do swoich upodobań."
 
-#: introduction.html:92
+#: introduction.html:97
 msgid "Objectives"
 msgstr "Cele"
 
-#: introduction.html:93
+#: introduction.html:98
 msgid "Ubuntu MATE has a number of guiding objectives and goals:"
 msgstr "Ubuntu MATE ma kilka głównych założeń i celów:"
 
-#: introduction.html:95
+#: introduction.html:100
 msgid "Accessible to all, regardless of language and physical ability."
 msgstr "Dostępny dla wszystkich, niezależnie od języka i stanu zdrowotnego."
 
-#: introduction.html:96
-msgid "Increase both Ubuntu and MATE Desktop user adoption."
-msgstr ""
-
-#: introduction.html:97
-msgid ""
-"Ubuntu alternative for computers that aren't powerful enough to run a "
-"composited desktop."
-msgstr ""
-
-#: introduction.html:98
-msgid ""
-"First choice Ubuntu platform for remote workstation solutions such as LTSP "
-"and X2Go."
-msgstr ""
-
-#: introduction.html:99
-msgid ""
-"Recreate the halcyon days of Ubuntu for users who prefer a traditional "
-"desktop metaphor."
-msgstr ""
-
-#: introduction.html:100
-msgid ""
-"Use themes and artwork similar to Ubuntu so that Ubuntu MATE is immediately "
-"familiar."
-msgstr ""
-
 #: introduction.html:101
-msgid ""
-"When possible contribute to Debian so both the Debian and Ubuntu communities"
-" benefit."
-msgstr ""
+msgid "Increase both Ubuntu and MATE Desktop user adoption."
+msgstr "Zwię kszanie akceptacji użytkownika Ubuntu i MATE Desktop."
 
 #: introduction.html:102
 msgid ""
-"Software selection will favor functionality and stability over lightness and"
-" whimsy."
-msgstr ""
+"Ubuntu alternative for computers that aren't powerful enough to run a "
+"composited desktop."
+msgstr "Ubuntu alternatywne dla komputerów, które nie są wystarczająco silne, aby uruchomić skomplikowany pulpit."
 
-#: introduction.html:118
+#: introduction.html:103
+msgid ""
+"First choice Ubuntu platform for remote workstation solutions such as LTSP "
+"and X2Go."
+msgstr "Pierwsza platforma Ubuntu dla zdalnych stacji roboczych, takich jak LTSP i X2Go."
+
+#: introduction.html:104
+msgid ""
+"Recreate the halcyon days of Ubuntu for users who prefer a traditional "
+"desktop metaphor."
+msgstr "Odtworzyć dni halcyonów Ubuntu dla użytkowników, którzy preferują tradycyjną metaforę pulpitu."
+
+#: introduction.html:105
+msgid ""
+"Use themes and artwork similar to Ubuntu so that Ubuntu MATE is immediately "
+"familiar."
+msgstr "Użyj motywów i grafiki podobnych do Ubuntu, aby Ubuntu MATE był natychmiast znany."
+
+#: introduction.html:106
+msgid ""
+"When possible, contribute to Debian so both the Debian and Ubuntu "
+"communities benefit."
+msgstr "Jeśli to możliwe, przyczynij się do systemu Debian, tak aby społeczności Debian i Ubuntu korzystały."
+
+#: introduction.html:107
+msgid ""
+"Software favors functionality and stability, as opposed to being fancy or "
+"light on features."
+msgstr "Oprogramowanie sprzyja funkcjonalności i stabilności, w przeciwieństwie do wymyślnych lub lekkich cech."
+
+#: introduction.html:113
+msgid "What is Ubuntu MATE?"
+msgstr "Czym jest Ubuntu MATE?"
+
+#: introduction.html:124
 msgid "is one of, if not the, largest deployed"
-msgstr ""
+msgstr "Jest jednym z, jeśli nie największy, wdrożony"
 
-#: introduction.html:121
+#: introduction.html:127
 msgid ""
 "based desktop operating systems in the world. Linux is at the heart of "
 "Ubuntu and makes it possible to create secure, powerful and versatile "
 "operating systems, such as"
-msgstr ""
+msgstr "Oparte na komputerach stacjonarnych systemy operacyjne na świecie. Linux leży w sercu Ubuntu i umożliwia tworzenie bezpiecznych, wydajnych i wszechstronnych systemów operacyjnych, takich jak"
 
-#: introduction.html:125
+#: introduction.html:131
 msgid ""
 "Android is now in the hands of billions of people around the world and it's "
 "also powered by Linux."
-msgstr ""
+msgstr "Android jest obecnie w rękach miliarda ludzi na całym świecie i jest zasilany przez system Linux."
 
-#: introduction.html:128
+#: introduction.html:134
 msgid "Ubuntu is available in a number of different"
-msgstr ""
+msgstr "Ubuntu jest dostępny w wielu różnych"
 
-#: introduction.html:129
+#: introduction.html:135
 msgid "flavors"
-msgstr ""
+msgstr "smaki"
 
-#: introduction.html:129
+#: introduction.html:135
 msgid ""
 "each coming with its own desktop environment. Ubuntu MATE takes the Ubuntu "
 "base operating system and adds the"
-msgstr ""
+msgstr "każdy przyjdzie z własnym środowiskiem komputerowym. Ubuntu MATE przyjmuje bazowy system operacyjny Ubuntu i dodaje"
 
-#: introduction.html132, 139
+#: introduction.html138, 144
 msgid "MATE Desktop"
 msgstr "środowisko graficzne MATE"
 
-#: introduction.html:140
-msgid "Wikipedia says that"
-msgstr ""
+#: introduction.html:151
+msgid "Wikipedia says that a"
+msgstr "Wikipedia mówi, że"
 
-#: introduction.html:142
-msgid "a Desktop Environment is"
-msgstr ""
+#: introduction.html:153
+msgid "Desktop Environment"
+msgstr "Środowisko pulpitu"
 
-#: introduction.html:144
+#: introduction.html:153
+msgid "is"
+msgstr "jest"
+
+#: introduction.html:155
 msgid ""
 "an implementation of the desktop metaphor made of a bundle of programs "
 "running on top of a computer operating system, which share a common "
 "graphical user interface (GUI). Desktop GUIs help the user to easily access "
 "and edit files."
-msgstr ""
+msgstr "Iiplementacja metafory pulpitowej złożonej z pakietu programów działających na szczycie systemu operacyjnego komputera, które mają wspólny graficzny interfejs użytkownika (GUI). Pulpity GUI ułatwiają użytkownikowi łatwy dostęp do plików i ich edycję."
 
-#: introduction.html:154
+#: introduction.html:161
 msgid ""
 "The MATE Desktop implements essential features that you'd expect in a "
 "desktop environment, such as:"
-msgstr ""
+msgstr "Pulpit MATE realizuje podstawowe funkcje, które można oczekiwać w środowisku komputerowym, na przykład:"
 
-#: introduction.html:167
+#: introduction.html:174
 msgid "File Browser"
 msgstr "Menedżer plików"
 
-#: introduction.html:168
+#: introduction.html:175
 msgid "Calculator"
 msgstr "Kalkulator"
 
-#: introduction.html:169
+#: introduction.html:176
 msgid "Archive Manager"
 msgstr "Menedżer archiwów"
 
-#: introduction.html:170
+#: introduction.html:177
 msgid "Image Viewer"
 msgstr "Przeglądarka obrazów"
 
-#: introduction.html:171
+#: introduction.html:178
 msgid "Document Viewer"
 msgstr "Przeglądarka dokumentów"
 
-#: introduction.html:172
+#: introduction.html:179
 msgid "MATE System Monitor"
-msgstr ""
+msgstr "MATE Monitor Systemu"
 
-#: introduction.html:173
+#: introduction.html:180
 msgid "MATE Terminal"
-msgstr ""
+msgstr "MATE Terminal"
 
-#: introduction.html:185
+#: introduction.html:192
 msgid "All of which are highly customisable and managed via the"
-msgstr ""
+msgstr "Wszystkie z nich są wysoce konfigurowalne i zarządzane przez"
 
-#: introduction.html:188
+#: introduction.html:195
 msgid "Control Center"
-msgstr ""
+msgstr "Centrum Kontroli"
 
-#: introduction.html:190
+#: introduction.html:197
 msgid ""
 "MATE Desktop provides an intuitive and attractive desktop environment using "
 "traditional metaphors, which means if you've ever used"
-msgstr ""
+msgstr "MATE Desktop zapewnia intuicyjne i atrakcyjne środowisko pulpitu przy użyciu tradycyjnych metafor, co oznacza, jeśli kiedykolwiek używane"
 
-#: introduction.html:194
+#: introduction.html:201
 msgid "or"
 msgstr "lub"
 
-#: introduction.html:197
+#: introduction.html:204
 msgid "it will feel very familiar."
-msgstr ""
+msgstr "będzie czuć się bardzo znajome."
 
-#: introduction.html:199
+#: introduction.html:206
 msgid ""
 "The MATE Desktop has a rich history and is the continuation of the GNOME 2 "
 "desktop, which was the default desktop environment on many Linux and Unix "
 "operating systems for over a decade. This means that MATE Desktop is tried, "
 "tested and very reliable."
-msgstr ""
+msgstr "Pulpit MATE ma bogatą historię i jest kontynuacją pulpitu GNOME 2, który od ponad dziesięciu lat stanowi domyślne środowisko komputerowe w wielu systemach operacyjnych Linux i Unix. Oznacza to, że MATE Desktop jest wypróbowany, przetestowany i bardzo niezawodny."
 
-#: introduction.html:211
+#: introduction.html:215
 msgid "Open Source"
 msgstr "Otwarte oprogramowanie"
 
-#: introduction.html:218
+#: introduction.html:222
 msgid ""
 "What Linux, Ubuntu and MATE Desktop all have in common is they are Open "
 "Source. This software can be freely used, changed, and shared (in modified "
 "or unmodified form) by anyone. In a nutshell Ubuntu MATE is free, in the "
 "truest sense of the word."
-msgstr ""
+msgstr "Na czym polega Linux, Ubuntu i MATE Desktop, są Open Source. To oprogramowanie może być dowolnie używane, zmieniane i udostępniane (w formie zmodyfikowanej lub niezmodyfikowanej). W skrócie, Ubuntu MATE jest darmowy, w prawdziwym tego słowa znaczeniu."
 
-#: introduction.html:224
+#: introduction.html:228
 msgid ""
 "Although you will find some distributions (variations) of Linux for "
 "purchase, the vast majority are provided free of charge, like Ubuntu MATE. "
@@ -291,35 +300,35 @@ msgid ""
 "into future versions. There is no guarantee that this will ever happen, but "
 "if you have made it better, then your changes just might be included in the "
 "next release of Ubuntu MATE."
-msgstr ""
+msgstr "Mimo, że można kupić wiele dystrybucji (odmian) Linuksa, zdecydowana większość jest bezpłatna, np. Ubuntu MATE. Dystrybucja jest licencjonowana w sposób, który pozwala każdemu oddać go bezpłatnie, bez żadnych ciągów. Na przykład licencja umożliwia każdemu członkowi społeczności użytkownika swobodę korzystania z Linuksa w dowolnym celu, dystrybucji, modyfikacji, redystrybucji lub nawet sprzedaży systemu operacyjnego. Jeśli modyfikujesz, a następnie redystrybucję Linuksa wraz z modyfikacjami, wymagane jest posiadanie licencji do przedłożenia modyfikacji w celu ewentualnego włączenia do przyszłych wersji. Nie ma gwarancji, że to się zdarzy, ale jeśli zrobiłeś to lepiej, twoje zmiany mogą być uwzględnione w następnym wydaniu Ubuntu MATE."
 
-#: introduction.html:239
+#: introduction.html:243
 msgid ""
 "Many of the users of Linux are corporations that use the operating system to"
 " run their businesses, or include it within their products. Many of these "
 "corporations provide fixes and new features for Linux as they use the "
 "software for their businesses."
-msgstr ""
+msgstr "Wielu użytkowników Linuksa to korporacje, które używają systemu operacyjnego do prowadzenia działalności lub włączania ich do swoich produktów. Wiele z tych korporacji dostarcza poprawki i nowe funkcje dla Linuksa, ponieważ korzystają one z oprogramowania dla swoich firm."
 
-#: introduction.html:245
+#: introduction.html:249
 msgid "These improvements are given back"
-msgstr ""
+msgstr "Te ulepszenia są zwracane"
 
-#: introduction.html:246
+#: introduction.html:250
 msgid ""
 "to the Linux community and Ubuntu MATE improves as a result. This is how we "
 "can continually improve and grow without having to charge our users money."
-msgstr ""
+msgstr "do społeczności Linux i Ubuntu MATE poprawia się. W ten sposób możemy bezustannie poprawiać i wzrastać bez konieczności pobierania opłat od użytkowników."
 
-#: introduction.html:250
+#: introduction.html:254
 msgid ""
 "Unlike Windows and OS X, Linux is not created and supported by just one "
 "company. It is supported by Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas"
 " Instruments, Google, Canonical, Oracle, AMD, and Microsoft. Over 4,000 "
 "developers contributed to Linux over the last 15 years."
-msgstr ""
+msgstr "W przeciwieństwie do systemu Windows i OS X Linux nie jest tworzony i obsługiwany przez jedną firmę. Jest obsługiwany przez firmy Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas Instruments, Google, Canonical, Oracle, AMD i Microsoft. W ciągu ostatnich 15 lat Linux wspierał ponad 4000 programistów."
 
-#: introduction.html:256
+#: introduction.html:260
 msgid ""
 "Whether you are a home user of Ubuntu MATE, an Ubuntu MATE software or "
 "application developer, or an employee of an organization that uses the "
@@ -330,49 +339,4 @@ msgid ""
 "cheapest netbook, from the newest Chromebook to some very old machines "
 "designed for Windows, and from the most powerful Internet servers to the "
 "smallest smart thermostat."
-msgstr ""
-
-#: introduction.html:32
-msgid "Scroll down to learn more."
-msgstr ""
-
-#: introduction.html:61
-msgid ""
-"Ubuntu MATE is a desktop distribution (variation) of GNU/Linux -- a "
-"dependable, secure, capable, and modern computer system that rivals all "
-"others in popularity and usage."
-msgstr ""
-
-#: introduction.html:64
-msgid "Unlike other operating systems, Linux is used:"
-msgstr ""
-
-#: introduction.html:68
-msgid ""
-"on many of, if not most of, the computers that make up the backbone of "
-"Internet"
-msgstr ""
-
-#: introduction.html:106
-msgid ""
-"When possible, contribute to Debian so both the Debian and Ubuntu "
-"communities benefit."
-msgstr ""
-
-#: introduction.html:107
-msgid ""
-"Software favors functionality and stability, as opposed to being fancy or "
-"light on features."
-msgstr ""
-
-#: introduction.html:151
-msgid "Wikipedia says that a"
-msgstr ""
-
-#: introduction.html:153
-msgid "Desktop Environment"
-msgstr ""
-
-#: introduction.html:153
-msgid "is"
-msgstr ""
+msgstr "Niezależnie od tego, czy jesteś domowym użytkownikiem Ubuntu MATE, oprogramowaniem lub aplikantem Ubuntu MATE, czy pracownikiem organizacji korzystającej z systemu operacyjnego, jesteś członkiem społeczności Linux i Open Source i korzystasz z wysiłków programistów, którzy Przyczyniać się do Ubuntu MATE i związanych z nią projektów: Linux, MATE i Ubuntu. Członkowie wspólnoty korzystają z Linuksa na prawie każdym sprzęcie, od najładniejszego Macbooka do najtańszej netbooka, od najnowszej Chromebooka do bardzo starych maszyn przeznaczonych dla Windows i od najpotężniejszych serwerów internetowych do najmniejszych inteligentnych termostatów."

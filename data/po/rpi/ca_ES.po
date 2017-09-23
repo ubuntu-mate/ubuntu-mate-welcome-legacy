@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-08-16 18:01+0000\n"
+"PO-Revision-Date: 2017-09-22 21:40+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -19,244 +19,244 @@ msgstr ""
 msgid "Raspberry Pi Information"
 msgstr "Informació quant a la Raspberry Pi"
 
-#: rpi.html:27
+#: rpi.html:26
 msgid "A few important notes."
 msgstr "Algunes notes importants."
 
-#: rpi.html:28
+#: rpi.html:27
 msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
 msgstr "Si bé l'experiència és visualment similar a l'edició d'escriptori d'Ubuntu MATE, l'arquitectura subjacent és molt diferent. Aquesta pàgina destacarà algunes d'aquestes diferències."
 
-#: rpi.html:34
+#: rpi.html:33
 msgid "Resizing the file system"
 msgstr "Redimensió del sistema de fitxers"
 
-#: rpi.html:37
+#: rpi.html:36
 msgid "Your file system has already been resized."
 msgstr "El vostre sistema de fitxers ja ha estat redimensionat."
 
-#: rpi.html:40
+#: rpi.html:39
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
 msgstr "Després de configurar Ubuntu MATE per primera vegada en la vostra Raspberry Pi, el sistema de fitxers es limitarà a la mida de la imatge original, que està al voltant dels 3,9 GB. Utilitzeu aquest botó per a redimensionar i omplir tota la targeta Micro-SD."
 
-#: rpi.html:44
+#: rpi.html:43
 msgid "Resize Now"
 msgstr "Redimensiona ara"
 
-#: rpi.html:48
+#: rpi.html:47
 msgid ""
 "To complete the resize of your Raspberry Pi file system, please close all "
 "open windows and restart now."
 msgstr "Per completar la redimensió del sistema de fitxers de la vostra Raspberry Pi, si us plau, tanqueu totes les finestres obertes i reinicieu ara."
 
-#: rpi.html:50
+#: rpi.html:49
 msgid "Reboot"
 msgstr "Reinicia"
 
-#: rpi.html:54
+#: rpi.html:53
 msgid "Incompatible Software"
 msgstr "Programari incompatible"
 
-#: rpi.html:55
+#: rpi.html:54
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
 msgstr "Alguns paquets disponibles per a Ubuntu només s'han escrit i compilat per l'arquitectura"
 
-#: rpi.html56, 111
+#: rpi.html55, 110
 msgid "or"
 msgstr "o"
 
-#: rpi.html:57
+#: rpi.html:56
 msgid "architecture. As the Raspberry Pi is based on"
 msgstr ". Ja que la Raspberry Pi està basada en"
 
-#: rpi.html:58
+#: rpi.html:57
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
 msgstr "aquests paquets no estaran disponibles per a instal·lar-se. Segons el paquet, podeu compilar vosaltres mateixos aquests paquets o utilitzar un port existent."
 
-#: rpi.html:65
+#: rpi.html:64
 msgid "Incompatible:"
 msgstr "Incompatible:"
 
-#: rpi.html:74
+#: rpi.html:73
 msgid "Compatible:"
 msgstr "Compatible:"
 
-#: rpi.html:87
+#: rpi.html:86
 msgid "Upgrades"
 msgstr "Actualitzacions"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "Please"
 msgstr "Si us plau,"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "do not"
 msgstr "no"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "attempt to"
 msgstr "intenteu"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "upgrade"
 msgstr "actualitzar"
 
-#: rpi.html:89
+#: rpi.html:88
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
 msgstr "la vostra Raspberry Pi a una versió més nova de la distribució (per exemple, de la versió 15.04 a la versió 15.10), ja que el kernel subjacent"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid "not designed"
 msgstr "no està dissenyat"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
 msgstr "a fer-ho. Aquest procés trigarà un temps molt llarg per completar-se mentre que principalment s'omple la vostra targeta SD a un punt en què no hi ha més espai lliure."
 
-#: rpi.html:96
+#: rpi.html:95
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
 msgstr "És més segur fer una còpia de seguretat de totes les dades que vulgueu mantenir i tornar a flashejar la targeta amb la nova imatge. L'intent d'actualització pot malmetre la targeta SD, impedir l'arrencada de la vostra instal·lació o provocar fallades greus."
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "You can, however, install"
 msgstr "Podeu, tanmateix, instal·lar"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "regular updates"
 msgstr "les actualitzacions regulars"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "via the"
 msgstr "a través de la utilitat de"
 
-#: rpi.html102, 111
+#: rpi.html101, 110
 msgid "Software Updater"
 msgstr "l'actualitzador de programari"
 
-#: rpi.html:102
+#: rpi.html:101
 msgid "utility for your installed software."
 msgstr "per al programari instal·lat."
 
-#: rpi.html:105
+#: rpi.html:104
 msgid "Kernel Updates"
 msgstr "Actualitzacions del kernel"
 
-#: rpi.html:106
+#: rpi.html:105
 msgid "The same kernel provided by the"
 msgstr "El mateix kernel proporcionat per la"
 
-#: rpi.html:107
+#: rpi.html:106
 msgid "Raspberry Pi foundation"
 msgstr "fundació Raspberry Pi"
 
-#: rpi.html:108
+#: rpi.html:107
 msgid ""
 "is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
 "\"firmware\" blob, updates are not distributed via the"
 msgstr "és utilitzat en aquesta edició d'Ubuntu MATE. A mesura que aquest kernel es lliura com una bombolla de \"microprogramari\", les actualitzacions no es distribueixen a través de"
 
-#: rpi.html:113
+#: rpi.html:112
 msgid "Instead, to update the kernel, open a terminal and run:"
 msgstr "En lloc seu, per actualitzar el kernel, obriu un terminal i executeu:"
 
-#: rpi.html:117
+#: rpi.html:116
 msgid "Hardware Acceleration"
 msgstr "Acceleració de maquinari"
 
-#: rpi.html:118
+#: rpi.html:117
 msgid "Currently, hardware accelerated applications are"
 msgstr "Actualment, les aplicacions accelerades per maquinari"
 
-#: rpi.html:118
+#: rpi.html:117
 msgid "not supported"
 msgstr "no són compatibles"
 
-#: rpi.html:119
+#: rpi.html:118
 msgid "unlike"
 msgstr "a diferència"
 
-#: rpi.html:120
+#: rpi.html:119
 msgid ""
 "Applications that depend on OpenGL ES libraries or require the GPU will fail"
 " to start."
 msgstr "de les aplicacions que depenen de les biblioteques OpenGL ES o exigir-ho a la GPU fallarà l'inici."
 
-#: rpi.html:123
+#: rpi.html:122
 msgid "For playing videos, the application"
 msgstr "Per a la reproducció de vídeos, l'aplicació"
 
-#: rpi.html:123
+#: rpi.html:122
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
 msgstr "serà capaç de fer-ho i està preinstal·lada. Si esteu buscant la reproducció de fitxers de vídeo MPEG-2 or VC-1, aleshores"
 
-#: rpi.html:125
+#: rpi.html:124
 msgid "you will need MPEG-2 and/or VC-1 licenses from the"
 msgstr "necessitareu la llicència MPEG-2 i/o la llicència VC-1 de la"
 
-#: rpi.html:126
+#: rpi.html:125
 msgid "Raspberry Pi Store."
 msgstr "botiga Raspberry Pi."
 
-#: rpi.html:129
+#: rpi.html:128
 msgid "Enable/Disable X11"
 msgstr "Habilita o inhabilita X11"
 
-#: rpi.html:130
+#: rpi.html:129
 msgid "For users who are looking to create their own headless"
 msgstr "Per als usuaris que estan buscant la creació del seu propi"
 
-#: rpi.html:130
+#: rpi.html:129
 msgid "\"server\""
 msgstr "\"servidor\""
 
-#: rpi.html:130
+#: rpi.html:129
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
 msgstr "sense perifèrics mitjançant Ubuntu MATE, hi ha una utilitat per alternar l'entorn gràfic."
 
-#: rpi.html:133
+#: rpi.html:132
 msgid "To disable X11 and login via the console:"
 msgstr "Per inhabilitar X11 i iniciar la sessió a través de la consola:"
 
-#: rpi.html:137
+#: rpi.html:136
 msgid "To enable X11 to restore the Ubuntu MATE desktop:"
 msgstr "Per habilitar X11 per a restaurar l'escriptori d'Ubuntu MATE:"
 
-#: rpi.html:140
+#: rpi.html:139
 msgid "Changes take effect after a reboot."
 msgstr "Els canvis tindran efecte després d'un reinici."
 
-#: rpi.html:144
+#: rpi.html:143
 msgid "Release Notes"
 msgstr "Notes del llançament"
 
-#: rpi.html:145
+#: rpi.html:144
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
 msgstr "Per llegir les notes i els canvis de la versió, visiteu el lloc web d'Ubuntu MATE."
 
-#: rpi.html:152
+#: rpi.html:151
 msgid "Raspberry Pi is a trademark of the"
 msgstr "Raspberry Pi és una marca registrada de"
