@@ -674,92 +674,115 @@ hr.soften-light {
   z-index: -1;
 }
 
+#triangles {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -10;
+}
+
+#triangles svg {
+    width: 100%;
+    height: 100%;
+}
+
+#splash-logo,
+#splash-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+
 #splash-logo {
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin: auto;
-  position: absolute;
-  padding-top: 4%;
-  width: auto;
-  height: 128px;
-  pointer-events: none;
-  text-align: center;
-  vertical-align: middle;
+    width: 14em;
+    height: 14em;
 }
 
 #splash-text {
-  display: inline;
-  font-family: "Ubuntu";
-  font-weight: 100;
-  font-size: 20px;
-  color: #5A6943;
+    color: white;
+    font-size: 3em;
+    height: 0.5em;
 }
 
-#splash-welcome {
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin: auto;
-  position: absolute;
-  width: auto;
-  height: 128px;
-  padding-top: 8%;
-  font-family: "Ubuntu";
-  font-weight: 100;
-  font-size: 48px;
-  color: #3B3A36;
-  text-align: center;
+#splash-logo.in {
+    animation: splash-logo 2.75s forwards;
 }
 
-@-webkit-keyframes entrance {
-  0% {
+#splash-text.in {
+    animation: splash-text 1s forwards;
+    animation-delay: 1s;
     opacity: 0;
-    -webkit-transform: scale3d(1.5, 1.5, 1.5);
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(.9, .9, .9);
-  }
 }
 
-/* Modified animate.css rollIn */
-@-webkit-keyframes splashRollIn {
-  00% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
-    transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
-  }
+@keyframes splash-logo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: grayscale(1) brightness(0.5);
+    }
 
-  30% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+        filter: grayscale(0) brightness(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(0.5) translateX(-165px) rotate(120deg);
+    }
 }
 
-.entrance {
-  -webkit-animation-name: entrance;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-timing-function: ease-in-out;
+@keyframes splash-text {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(65px);
+    }
 }
 
-/* Slower version from animate.css */
-.mateRoll {
-  -webkit-animation-name: splashRollIn;
-  -webkit-animation-duration: 3s;
+#splash-logo.out {
+    animation: splash-logo-out 1.5s forwards;
+    animation-timing-function: ease-in-out;
 }
 
-#skip-btn {
-  position: fixed;
-  right: 8px;
-  bottom: 8px;
-  width: 48px;
-  height: 30px;
-  text-align: center;
-  vertical-align: right;
-  color: #C0C0C0;
+@keyframes splash-logo-out {
+    0% {
+        transform: scale(0.5) translateX(-165px) rotate(120deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(20);
+        filter: grayscale(1) brightness(4) contrast(4);
+        opacity: 1;
+    }
+}
+
+#splash-text.out {
+    animation: splash-text-out 0.75s forwards;
+}
+
+@keyframes splash-text-out {
+    0% {
+        transform: translateX(65px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(165px);
+        opacity: 0;
+    }
 }
 
 /************************

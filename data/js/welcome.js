@@ -186,63 +186,6 @@ if ( current_page == 'introduction.html' || current_page == 'features.html' ) {
 
 // Splash Only - Animation Sequence
 if ( current_page == 'splash.html' ) {
-
-  // Scenes - Delayed elements to appear
-  $(document).ready(function()
-  {
-    $('body').show();
-    $('#splash-logo').show();
-    $('#splash-logo').jAnimateOnce('entrance');
-    $('#MATE-Logo').show();
-    $('#MATE-Logo').jAnimateOnce('mateRoll');
-
-    $('#MATE-Text1').css('opacity','0');
-    $('#MATE-Text2').css('opacity','0');
-    $('#MATE-Text1').show();
-    $('#MATE-Text2').show();
-
-    setTimeout(function(){
-      $('#MATE-Text1').hide();
-      $('#MATE-Text1').css('opacity','');
-      $('#MATE-Text1').fadeIn(1500);
-    }, 250);
-
-    setTimeout(function(){
-      $('#MATE-Text2').hide();
-      $('#MATE-Text2').css('opacity','');
-      $('#MATE-Text2').fadeIn(1500);
-    }, 600);
-
-    setTimeout(function(){
-      $('#header').show();
-      $('#footer').show();
-      $('#header').jAnimateOnce('fadeInDown');
-      $('#footer').jAnimateOnce('fadeInUp');
-    }, 2000);
-
-    setTimeout(function(){
-      $('#splash-logo').hide();
-      $('#skip-splash').fadeOut();
-      if ( quick_splash == true ) {
-        $('#white-start').fadeOut('fast');
-        continueToPage(false)
-      } else {
-        $('#splash-welcome').show();
-        $('#splash-welcome').jAnimateOnce('zoomInInverse');
-        $('#white-start').fadeOut('slow');
-      }
-    }, 3000);
-
-    setTimeout(function(){
-      $('#splash-welcome').fadeOut();
-    }, 4500);
-
-    setTimeout(function(){
-      continueToPage(false)
-    }, 5000);
-
-  });
-
   // In live sessions, show a "Hello" page instead to introduce ourselves.
   var splashNextPage = 'index'
 

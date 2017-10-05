@@ -189,6 +189,7 @@ class AppView(WebKit2.WebView):
         # WebKit2 Initalisation
         webkit = WebKit2
         webkit.WebView.__init__(self)
+        self.set_background_color(Gdk.RGBA(72, 72, 72, 0.28))
 
         # Connect signals to application
         self.connect('load-changed', self._load_changed_cb)
@@ -325,6 +326,7 @@ class AppView(WebKit2.WebView):
         ### Splash ###
         if app.current_page == 'splash.html':
             self.do_smooth_footer = True
+
             # Determine which screen to show after the splash screen.
             if systemstate.session_type == 'live':
                 self.run_js('var splashNextPage = "hellolive"')
@@ -336,6 +338,12 @@ class AppView(WebKit2.WebView):
                 self.run_js('var splashNextPage = "index"')
                 self.run_js('var quick_splash = false')
                 app.update_page('#skip-btn', 'fadeIn', 'fast')
+
+            # Load SVG
+            with open(data_path + "img/welcome/triangles.svg", "r") as f:
+                svg_data = f.read().replace("\n", "")
+            app.update_page('#triangles', 'html', svg_data)
+            app.webkit.run_js("runSplash();")
 
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
@@ -663,6 +671,7 @@ class WelcomeApp(object):
         w.set_position(Gtk.WindowPosition.CENTER)
         w.set_wmclass('ubuntu-mate-welcome', 'ubuntu-mate-welcome')
         w.set_title(title)
+        w.modify_bg(Gtk.StateType(0), Gdk.Color(72, 72, 72))
 
         # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
         s = Gdk.Screen.get_default()
