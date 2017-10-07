@@ -7,8 +7,7 @@
 # --extended
 #
 
-repo_root=$(dirname "$0")
-success=true
+repo_root=`realpath $(dirname "$0")/../`
 cd "$repo_root"
 
 # Determine which tests to run
@@ -30,6 +29,7 @@ else
 fi
 
 # Perform each test
+success=true
 echo -e "\n-------- Start of Testing --------"
 for test in $tests; do
     python3 "$repo_root"/tests/"$test"

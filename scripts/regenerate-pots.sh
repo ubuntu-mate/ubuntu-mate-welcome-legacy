@@ -4,10 +4,12 @@
 # Ubuntu MATE Welcome.
 #
 
-workingdir=$(pwd)
-for pot in $(ls $workingdir/data/po/)
+repo_root=`realpath $(dirname "$0")/../`
+cd "$repo_root"
+
+for pot in $(ls data/po/)
 do
-  rm $workingdir/data/po/$pot/$pot.pot -v
+  rm data/po/$pot/$pot.pot -v
 done
 rm po/ubuntu-mate-welcome.pot
 ./welcome-po.py --create-pot
