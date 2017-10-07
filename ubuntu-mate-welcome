@@ -52,6 +52,14 @@ from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from threading import Thread
 from shutil import which
 
+# Import Python modules shared with Software Boutique.
+try:
+    import pylib_boutique.preferences as Preferences
+    relative_path = True
+except ImportError:
+    import software_boutique.preferences as Preferences
+    relative_path = False
+
 
 ##################################
 #  Miscellaneous
@@ -593,7 +601,7 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('set-pref'):
             key = cmd.split('?')[1]
             value = cmd.split('?')[2]
-            pref.set(key, value)
+            pref.write(key, value)
         elif cmd.startswith('toggle-pref'):
             key = cmd.split('?')[1]
             pref.toggle(key)
@@ -1364,80 +1372,6 @@ class SystemState(object):
             dbg.stdout("Repository", "Checked: '" + repo + "' = Disabled", 2, 3)
             return False
 
-
-class Preferences(object):
-    def __init__(self):
-        self.folder = os.path.join(os.path.expanduser('~'), '.config/ubuntu-mate/welcome')
-        self.config = os.path.join(self.folder, 'preferences.json')
-        self.data = None
-        self.load_prefs()
-
-    def reset_prefs(self):
-        if os.path.exists(self.config):
-            os.remove(self.config)
-        stream = open(self.config, "w")
-        stream.write(json.dumps({}))
-        stream.close()
-        dbg.stdout('Config', 'Preferences reset.', 1, 2)
-
-    def load_prefs(self):
-        # Create configuration data if non-existent.
-        if not os.path.exists(self.folder):
-            dbg.stdout('Config', 'Config folder non-existent. Creating...', 1, 3)
-            os.makedirs(self.folder)
-
-        if not os.path.exists(self.config) or os.path.getsize(self.config) < 2:
-            dbg.stdout('Config', 'Preferences non-existent. Creating...', 1, 3)
-            self.reset_prefs()
-
-        load_error = False
-        with open(self.config) as stream:
-            try:
-                self.data = json.load(stream)
-            except Exception as e:
-                load_error = True
-                dbg.stdout('Config', 'Failed to load preferences. Reason: ' + str(e), 0, 1)
-
-        if load_error:
-            dbg.stdout('Config', 'Errors occurred while loading.', 0, 1)
-            self.reset_prefs()
-        else:
-            dbg.stdout('Queue', 'Preferences loaded from file.', 1, 2)
-
-    def write_prefs(self):
-        stream = open(self.config, "w+")
-        stream.write(json.dumps(self.data))
-        stream.close()
-        dbg.stdout('Queue', 'Preferences written to file.', 1, 2)
-
-    def set(self, key, data):
-        try:
-            dbg.stdout('Config', 'Write "' + key + '" => "' + str(data) + '"', 2, 4)
-            self.data[key] = data
-        except:
-            dbg.stdout('Config', 'Failed to write data! "' + key + '" => "' + str(data) + '"', 0, 1)
-        self.write_prefs()
-
-    def get(self, key, default):
-        try:
-            value = self.data[key]
-            dbg.stdout('Config', ' Read "' + key + '" => "' + str(value) + '"', 2, 4)
-            return value
-        except:
-            dbg.stdout('Config', ' Read "' + key + '" => "' + str(default) + '" (default)', 2, 4)
-            self.set(key, default)
-            return default
-
-    def toggle(self, key):
-        try:
-            value = self.data[key]
-            if value == True:
-                self.set(key, False)
-            else:
-                self.set(key, True)
-        except:
-            self.set(key, True)
-
     def refresh_pref_page(self, key):
         # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd('toggle-pref?xxx')"
         try:
@@ -1608,7 +1542,7 @@ if __name__ == "__main__":
     trans = Translations(data_path)
 
     # Welcome Features
-    pref = Preferences()
+    pref = Preferences.Preferences(dbg, "preferences", "ubuntu-mate-welcome")
     systemstate = SystemState()
     app = WelcomeApp()
 
