@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# This script compiles essential files needed before launching Ubuntu MATE Welcome
+# for development.
+#
+# To prepare the software for use (e.g. packaging), pass "--build-only".
+# To test the software, pass "--run-tests"
+#
+# Standard parameters can be passed.
+#
+params=$*
+
+# Print help with "--help".
+if [ "$1" == "--help" ]; then
+    echo "Ubuntu MATE Welcome Development Script"
+    echo "  <no parameters>         Start Welcome (dev version)"
+    echo "                            + Compiles CSS"
+    echo "  --build-only            Only build (for deployment)"
+    echo "  --run-tests             Run tests (for CI and local)"
+    echo "  --run-extended-tests    Run more rigorous tests (for package checks)"
+    exit 0
+fi
+
+# Any special operations for development
+if [ "$1" == "--build-only" ]; then
+    ./scripts/build-locales.sh
+    find . -name "__pycache__" -type d -exec rm -rf {} +
+    exit 0
+
+elif [ "$1" == "--run-tests" ]; then
+    ./tests/run-tests.sh --quick
+    exit 0
+
+elif [ "$1" == "--run-extended-tests" ]; then
+    ./tests/run-tests.sh --extended
+    exit 0
+
+else
+    # Run Welcome
+    cd `realpath $(dirname "$0")`
+    ./ubuntu-mate-welcome -d $params
+    fi
+fi
+

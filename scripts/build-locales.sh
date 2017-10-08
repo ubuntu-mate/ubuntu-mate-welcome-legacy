@@ -11,5 +11,6 @@ rm -rf ./locale/
 rm -rf ./data/i18n/
 mkdir ./locale/
 mkdir ./data/i18n/
+./welcome-po.py --update-pos
 ./welcome-po.py --install
 ./edgar-allan translate-all
