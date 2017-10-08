@@ -1,0 +1,35 @@
+@import "variables.less";
+
+/* Page Entry - Glide In */
+@-webkit-keyframes pageIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.9, .9, .9);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.pageIn {
+    -webkit-animation-name: pageIn;
+    -webkit-animation-duration: 0.5s;
+}
+
+/* Page Exit - Glide Out */
+@-webkit-keyframes pageOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    }
+}
+
+.pageOut {
+    -webkit-animation-name: pageOut;
+    -webkit-animation-duration: 0.5s;
+}

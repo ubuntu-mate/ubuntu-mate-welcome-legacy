@@ -1,0 +1,43 @@
+@import "variables.less";
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+    z-index: 100;
+    background: -webkit-linear-gradient(@scrollbar-top, @scrollbar-bottom);
+    border: 1px solid #CBC8C6;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 1px solid darken(@scrollbar-colour, 10%);
+    background-color: @scrollbar-colour;
+    background-clip: padding-box;
+    -webkit-border-radius: 0px;
+    z-index: 100;
+}
+
+::-webkit-scrollbar-button {
+    width: 13px;
+    height: 18px;
+    background: -webkit-linear-gradient(@scrollbar-top, @scrollbar-bottom);
+    border: 1px solid #c9c6c3;
+    z-index: 100;
+}
+
+::-webkit-scrollbar-button:start:decrement {
+    background: url(../img/welcome/scrollbar-up.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:end:increment {
+    background: url(../img/welcome/scrollbar-down.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+    z-index: 100;
+}

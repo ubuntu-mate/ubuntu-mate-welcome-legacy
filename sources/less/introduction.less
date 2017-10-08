@@ -1,0 +1,59 @@
+@import "variables.less";
+
+.slogan-box {
+    position: relative;
+    top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 530px;
+    background: #5C8F3A;
+    -webkit-mask-image: -webkit-gradient(linear, left 85%, left bottom, from(rgba(0,0,0,1)), to(rgba(244,244,244,0)));
+}
+
+.slogan-area {
+    display: block;
+    width: 100%;
+    padding-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+.slogan-text {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    display: block;
+    color: #FFF;
+    font-size: 32px;
+}
+
+.mate-table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* Animation to indicate to scroll down */
+#scroll-down-hint {
+    position: relative;
+    display: list-item;
+    top: -24px;
+    opacity: 0;
+    animation-name: scroll-down-hinter;
+    animation-duration: 2s;
+    transition-timing-function: ease-in-out;
+    animation-iteration-count: 10;
+    animation-delay: 2s;
+}
+
+@-webkit-keyframes scroll-down-hinter {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translate(0px, 50px);
+    }
+}

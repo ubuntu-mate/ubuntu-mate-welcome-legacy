@@ -1,0 +1,40 @@
+@import "variables.less";
+
+html {
+    overflow: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* Behave more like an application by
+    * preventing text highlighting / dragging. */
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+body, button, input {
+    font-family: @main-font, sans-serif;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.backdrop-simple {
+    background-color: @bg-white;
+    background: @bg-white url("../img/welcome/background.svg") no-repeat fixed right bottom;
+    background-position: calc(~'100% + 2px') calc(~'100% - 63px');
+    background-size: 50%;
+}
+
+.cursor-wait {
+    cursor: wait;
+}

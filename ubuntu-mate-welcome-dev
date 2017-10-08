@@ -21,6 +21,27 @@ if [ "$1" == "--help" ]; then
     exit 0
 fi
 
+# Build CSS from LESS.
+if [ "$(which lessc)" == "" ]; then
+    echo "'lessc' not installed. Please install 'node-less'."
+    exit 1
+else
+    echo -e "\033[94mCompiling CSS...\033[0m"
+    dest=./data/css/welcome.css
+    if [ -f "$dest" ]; then
+        rm "$dest"
+    fi
+
+    # Compile each one and merge into one file
+    touch "$dest"
+    for src in "./sources/less/"*.less;
+    do
+        lessc $src >> "$dest"
+        if [ ! -f "$dest" ]; then exit 1; fi
+    done
+    echo -e "\033[92mFinished compiling CSS.\033[0m\n"
+fi
+
 # Any special operations for development
 if [ "$1" == "--build-only" ]; then
     ./scripts/build-locales.sh
@@ -39,6 +60,4 @@ else
     # Run Welcome
     cd `realpath $(dirname "$0")`
     ./ubuntu-mate-welcome -d $params
-    fi
 fi
-
