@@ -55,9 +55,11 @@ from shutil import which
 # Import Python modules shared with Software Boutique.
 try:
     import pylib_boutique.preferences as Preferences
+    import pylib_boutique.common as Common
     relative_path = True
 except ImportError:
     import software_boutique.preferences as Preferences
+    import software_boutique.common as Common
     relative_path = False
 
 
@@ -71,10 +73,10 @@ def whereami():
         dbg.stdout('Welcome', 'Using relative path for data source. Non-production testing.', 1, 0)
         data_path = os.path.join(current_folder, 'data/')
     elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-        dbg.stdout('Welcome', 'Using /usr/share/ubuntu-mate-welcome/ path.', 1, 0)
+        dbg.stdout("Using /usr/share/ubuntu-mate-welcome/ path.", dbg.debug, 1)
         data_path = '/usr/share/ubuntu-mate-welcome/'
     else:
-        dbg.stdout('Welcome', 'Unable to source the ubuntu-mate-welcome data directory.', 0, 1)
+        dbg.stdout("Unable to source the ubuntu-mate-welcome data directory.", dbg.error, 1)
         sys.exit(1)
     return data_path
 
@@ -87,7 +89,7 @@ def notify_send(title, description, icon_path):
         notification=Notify.Notification.new(title, description, icon_path)
         notification.show()
     except Exception as e:
-        dbg.stdout("Notify", "Exception while sending notification: " + str(e), 0, 1)
+        dbg.stdout("Exception while sending notification: " + str(e), dbg.error)
 
 def run_external_command(command, with_shell=False):
     # Runs external commands and cleans up the output.
@@ -113,7 +115,7 @@ class Translations(object):
             try:
                 self.locale = str(locale.getlocale()[0])
             except Exception:
-                dbg.stdout("i18n", "Could not get system locale information! Falling back to 'en_US'.")
+                dbg.stdout("Could not get system locale! Falling back to 'en_US'.", dbg.warning)
                 self.locale = "en_US"
 
         # Determine if localized pages exist, or fallback to original pages.
@@ -121,17 +123,17 @@ class Translations(object):
             if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
                 self.localized = True
                 self.relative_i18n = True
-                dbg.stdout('i18n', 'Locale Set: ' + self.locale + ' (using relative path)', 1, 0)
+                dbg.stdout("Locale Set: " + self.locale + " (using relative path)", dbg.debug, 1)
                 return os.path.join(data_path, 'i18n', self.locale)
             elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
                 self.localized = True
                 self.relative_i18n = False
-                dbg.stdout('i18n', 'Locale Set: ' + self.locale + ' (using /usr/share/ path)', 1, 0)
+                dbg.stdout("Locale Set: " + self.locale + " (using /usr/share/ path)", dbg.debug, 1)
                 return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
             else:
                 self.localized = False
                 self.relative_i18n = False
-                dbg.stdout('i18n', 'Locale Not Available: ' + self.locale + ' (using en_US instead)', 1, 1)
+                dbg.stdout("Locale Not Available: " + self.locale + " (using en_US instead)", dbg.warning, 1)
                 return data_path
 
         self.pages_dir = get_pages_path()
@@ -150,17 +152,17 @@ class Translations(object):
             for page in os.listdir(data_path):
                 if page[-5:] == '.html':
                     if os.path.exists(os.path.join(self.pages_dir, page)):
-                        dbg.stdout('i18n', 'Page Verified: ' + page, 2, 2)
+                        dbg.stdout("Page OK: " + page, dbg.success, 2)
                     else:
                         if page not in self.excluded_pages:
                             page_was_lost = True
-                            dbg.stdout('i18n', 'Page Missing: ' + page, 2, 1)
+                            dbg.stdout("Page Missing: " + page, dbg.error, 2)
         if page_was_lost:
-            dbg.stdout('i18n', 'One or more translation pages are missing! Falling back to "en_US".', 0, 1)
+            dbg.stdout("One or more translation pages are missing! Falling back to en_US.", dbg.error, 1)
             self.pages_dir = data_path
             self.localized = False
         else:
-            dbg.stdout('i18n', 'All translated i18n pages found.', 1, 2)
+            dbg.stdout("All translated i18n pages found.", dbg.success, 1)
 
         # Sets the path for resources (img/css/js)
         if self.localized:
@@ -177,14 +179,14 @@ class Translations(object):
             i18n_path = os.path.join(data_path, 'locale/')
 
         global t, _
-        dbg.stdout('i18n', 'Using locale for gettext: ' + self.locale, 1, 0)
-        dbg.stdout('i18n', 'Using path for gettext: ' + i18n_path, 1, 0)
+        dbg.stdout("Using locale for gettext: " + self.locale, dbg.debug, 1)
+        dbg.stdout("Using path for gettext: " + i18n_path, dbg.debug, 1)
         try:
             t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale], fallback=True)
             _ = t.gettext
-            dbg.stdout('i18n', 'Translation found for gettext.', 1, 2)
+            dbg.stdout("Translation found for gettext.", dbg.success, 1)
         except:
-            dbg.stdout('i18n', 'No translation exists for gettext. Using default.', 1, 2)
+            dbg.stdout("No translation exists for gettext. Using default.", dbg.success, 1)
             t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/', fallback=True)
             _ = t.gettext
 
@@ -214,7 +216,7 @@ class AppView(WebKit2.WebView):
 
         # Set up zoom to match rest of system font
         self.set_zoom_level(systemstate.zoom_level)
-        dbg.stdout('Welcome', 'Setting zoom level to: ' + str(systemstate.zoom_level), 1, 0)
+        dbg.stdout("Setting zoom level to: " + str(systemstate.zoom_level), dbg.debug, 1)
 
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
@@ -426,7 +428,7 @@ class AppView(WebKit2.WebView):
             msg_id = app.msg_to_display
             # Which message to display?
             if not msg_id:
-                dbg.stdout("Welcome", "No message ID set! Returning to main menu.", 0, 1)
+                dbg.stdout("No message ID set! Returning to main menu.", dbg.error)
                 app.webkit.run_js("smoothPageFade('index.html')")
                 return
             elif msg_id == "boutique-on-other-distro":
@@ -440,7 +442,7 @@ class AppView(WebKit2.WebView):
                 image = "img/welcome/boutique-on-other-distro.png"
                 target = "software.html"
             else:
-                dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
+                dbg.stdout("Unknown message ID: '" + msg_id + "' - Returning to main menu.", dbg.error)
                 app.webkit.run_js("smoothPageFade('index.html')")
                 return
 
@@ -463,7 +465,7 @@ class AppView(WebKit2.WebView):
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
         if title != 'null' and title != '' and title != None:
-            dbg.stdout('Welcome', 'Command: ' + title, 2, 4)
+            dbg.stdout("=> Command: " + title, dbg.debug, 2)
             self._do_command(title)
 
     def _load_changed_cb(self, view, frame):
@@ -518,7 +520,7 @@ class AppView(WebKit2.WebView):
 
         # Push contents to page when finished loading.
         if not self.is_loading():
-            dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
+            dbg.stdout("Page: " + app.current_page + '\n      ' + uri, dbg.debug, 2)
             self._push_config()
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
@@ -580,17 +582,17 @@ class AppView(WebKit2.WebView):
         elif cmd == 'reboot-rpi':
             systemstate.rpi_resize('reboot')
         elif cmd == 'subscribe-updates':
-            dbg.stdout('Welcome', 'Subscribing to Ubuntu MATE Welcome Updates...', 0, 3)
+            dbg.stdout("Subscribing to Ubuntu MATE Welcome Updates...", dbg.action)
             app.update_page('#update-notification', 'hide')
             app.update_page('#update-subscribing', 'show')
             dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
             # Verify if the PPA was successfully added.
             if os.path.exists(systemstate.welcome_ppa_file):
                 if os.path.getsize(systemstate.welcome_ppa_file) > 0:
-                    dbg.stdout('Welcome', 'Success - Welcome PPA Added! Restarting application...', 0, 2)
+                    dbg.stdout("Success - Welcome PPA Added! Restarting application...", dbg.success)
                     os.execv(__file__, sys.argv)
             else:
-                dbg.stdout('Welcome', 'Failed - Welcome PPA not detected!', 0, 1)
+                dbg.stdout("Failed - Welcome PPA not detected!", dbg.error)
                 app.update_page('#update-subscribing', 'hide')
                 app.update_page('#update-notification', 'show')
         elif cmd == 'init-system-info':
@@ -616,7 +618,7 @@ class AppView(WebKit2.WebView):
         elif cmd == 'list-repos':
             dynamicapps.populate_repos()
         else:
-            dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
+            dbg.stdout("Unknown command: " + cmd, dbg.error, 1)
 
 
 ##################################
@@ -720,7 +722,7 @@ class WelcomeApp(object):
         Gtk.main()
 
     def close(self, window=None, event=None):
-        dbg.stdout('Welcome', 'Application Closed', 0, 0)
+        dbg.stdout("Application Closed", dbg.debug, 2)
         Gtk.main_quit()
         exit(0)
 
@@ -733,35 +735,6 @@ class WelcomeApp(object):
             self.webkit.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
         else:
             self.webkit.run_js('$("' + element + '").' + function + '()')
-
-
-class Debug(object):
-    def __init__(self):
-        self.verbose_level = 0
-
-    def stdout(self, item, info, verbosity=0, colour=0):
-        # Only colourise output if running in a real terminal.
-        if sys.stdout.isatty():
-            end = '\033[0m'
-            if colour == 1:            # Failure (Red)
-                start = '\033[91m'
-            elif colour == 2:          # Success (Green)
-                start = '\033[92m'
-            elif colour == 3:          # Action (Yellow)
-                start = '\033[93m'
-            elif colour == 4:          # Debug (Blue)
-                start = '\033[96m'
-            else:                      # Normal/Misc (White)
-                start = '\033[0m'
-
-        # Ignore colours when redirected or piped.
-        else:
-            start = ''
-            end   = ''
-
-        # Output the message depending how detailed it is.
-        if self.verbose_level >= verbosity:
-            print(start + '[' + item + '] ' + info, end)
 
 
 class SystemState(object):
@@ -839,19 +812,19 @@ class SystemState(object):
                     font_gsettings = Gio.Settings.new('org.mate.font-rendering')
                     font_value = font_gsettings.get_value('dpi')
                     font_dpi = int(float(str(font_value)))
-                    dbg.stdout('Welcome', 'Font DPI is: ' + str(font_dpi), 1, 0)
+                    dbg.stdout("Font DPI is: " + str(font_dpi), dbg.debug, 1)
                 except:
                     font_dpi = 96
-                    dbg.stdout('Welcome', "Couldn't retrieve font DPI. Using default value of " + str(font_dpi), 0, 1)
+                    dbg.stdout("Couldn't retrieve font DPI. Using default value of " + str(font_dpi), dbg.debug, 1)
             else:
                 font_dpi = 96
-                dbg.stdout('Welcome', "Refusing to retrieve font DPI on non-Ubuntu MATE system. Using default.", 1, 1)
+                dbg.stdout("Refusing to retrieve font DPI on non-Ubuntu MATE system. Using default.", dbg.debug, 1)
 
         if font_dpi < 50:
-            dbg.stdout('Welcome', 'DPI below 50. Out of range..', 0, 1)
+            dbg.stdout("DPI below 50. Out of range..", dbg.debug, 1)
             font_dpi = 96
         elif font_dpi > 500:
-            dbg.stdout('Welcome', 'DPI over 500. Out of range.', 0, 1)
+            dbg.stdout("DPI over 500. Out of range.", dbg.debug, 1)
             font_dpi = 96
 
         zoom_level = 1.0
@@ -893,7 +866,7 @@ class SystemState(object):
             try:
                 os.makedirs(self._autostart_dir)
             except OSError as err:
-                dbg.stdout('Welcome', 'Error while checking autostart directory: ' + str(err), 0, 1)
+                dbg.stdout("Error while checking autostart directory: " + str(err), dbg.error)
                 pass
 
         # Set boolean if the autostart file exists.
@@ -908,7 +881,7 @@ class SystemState(object):
             try:
                 os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
             except OSError as err:
-                dbg.stdout('Welcome', 'Error while enabling autostart: ' + str(err), 0, 1)
+                dbg.stdout("Error while enabling autostart: " + str(err), dbg.error)
                 pass
 
         elif os.path.exists(self._autostart_path):
@@ -916,25 +889,25 @@ class SystemState(object):
             try:
                 os.unlink(self._autostart_path)
             except OSError as err:
-                dbg.stdout('Welcome', 'Error while disabling autostart: ' + str(err), 0, 1)
+                dbg.stdout("Error while disabling autostart: " + str(err), dbg.error)
                 pass
 
         self.autostart = self.autostart_check()
-        dbg.stdout('Welcome', 'Auto start toggled to: ' + str(self.autostart), 1, 2)
+        dbg.stdout("Auto start toggled to: " + str(self.autostart), dbg.debug, 1)
 
     def check_internet_connection(self):
         url = "http://archive.ubuntu.com/"
-        dbg.stdout('Network Test', 'Establishing a connection test to "' + url + '"', 1, 3)
+        dbg.stdout("Establishing a connection test to: " + url, dbg.debug, 1)
 
         if arg.simulate_no_connection:
-            dbg.stdout('Network Test', 'Simulation flag: Forcing no connection presence. Retrying will reset this.', 0, 1)
+            dbg.stdout("Simulation flag: Forcing no connection presence. Retrying will reset this.", dbg.debug, 1)
             arg.simulate_no_connection = False
             self.is_online = False
             return
 
         if arg.simulate_force_connection:
-            dbg.stdout('Network Test', 'Simulation flag: Forcing a connection presence.', 0, 2)
-            dbg.stdout('Network Test', 'WARNING: Do not attempt to install/remove software offline as this may cause problems!', 0, 1)
+            dbg.stdout("Simulation flag: Forcing a connection presence.", dbg.debug, 1)
+            dbg.stdout("WARNING: Do not attempt to install/remove software offline as this may cause problems!", dbg.debug, 1)
             arg.simulate_connection = False
             self.is_online = True
             return
@@ -942,13 +915,13 @@ class SystemState(object):
         try:
             response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
         except socket.timeout:
-            dbg.stdout('Network Test', 'Failed. Socket timed out to URL: ' + url, 0, 1)
+            dbg.stdout("Failed. Socket timed out to URL: " + url, dbg.error, 1)
             self.is_online = False
         except:
-            dbg.stdout('Welcome', "Couldn't establish a connection: " + url, 0, 1)
+            dbg.stdout("Couldn't establish a connection: " + url, dbg.error, 1)
             self.is_online = False
         else:
-            dbg.stdout('Welcome', 'Successfully pinged: ' + url, 1, 2)
+            dbg.stdout("Successfully pinged: " + url, dbg.success, 1)
             self.is_online = True
 
     def detect_graphics(self):
@@ -959,13 +932,13 @@ class SystemState(object):
             return
 
         # TODO: Support dual graphic cards.
-        dbg.stdout('Specs', 'Detecting graphics vendor... ', 1, 3)
+        dbg.stdout("Detecting graphics vendor... ", dbg.action, 1)
         try:
             output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            dbg.stdout('Specs', "Couldn't detect a VGA Controller on this system.", 0, 1)
+            dbg.stdout("Couldn't detect a VGA Controller on this system.", dbg.error, 1)
             output = 'Unknown'
 
         # Scan for and set known brand name.
@@ -983,10 +956,10 @@ class SystemState(object):
         self.graphics_grep = repr(output)
         self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
         self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        dbg.stdout('Specs', 'Detected: ' + str(self.graphics_grep), 1, 2)
+        dbg.stdout("Detected: " + str(self.graphics_grep), dbg.debug, 1)
 
     def get_system_info(self, webkit):
-        dbg.stdout('Specs', 'Gathering system specifications...', 0, 3)
+        dbg.stdout("Gathering system specifications...", dbg.action, 1)
 
         # Prefixes for translation
         mb_prefix = _("MB")
@@ -1008,36 +981,36 @@ class SystemState(object):
 
         ## Distro
         try:
-            dbg.stdout('Specs', 'Gathering Data: Distribution', 1, 0)
+            dbg.stdout("Gathering Data: Distribution", dbg.action, 1)
             distro_description = run_external_command(['lsb_release','-d','-s'])
             distro_codename = run_external_command(['lsb_release','-c','-s'])
             app.update_page('#spec-distro', 'html', distro_description)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: Distribution', 0, 1)
+            dbg.stdout("Failed to gather data: Distribution", dbg.error, 1)
 
         ## Kernel
         try:
-            dbg.stdout('Specs', 'Gathering Data: Kernel', 1, 0)
+            dbg.stdout("Gathering Data: Kernel", dbg.action, 1)
             kernel = run_external_command(['uname','-r'])
             app.update_page('#spec-kernel', 'html', kernel)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: Kernel', 0, 1)
+            dbg.stdout("Failed to gather data: Kernel", dbg.error, 1)
 
         ## Motherboard
         try:
-            dbg.stdout('Specs', 'Gathering Data: Motherboard', 1, 0)
+            dbg.stdout("Gathering Data: Motherboard", dbg.action, 1)
             motherboard_name = run_external_command(['cat','/sys/devices/virtual/dmi/id/board_name'])
             app.update_page('#spec-motherboard', 'html', motherboard_name)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: Motherboard', 0, 1)
+            dbg.stdout("Failed to gather data: Motherboard", dbg.error, 1)
 
         ## CPU Details
-        dbg.stdout('Specs', 'Gathering Data: CPU', 1, 0)
+        dbg.stdout("Gathering Data: CPU", dbg.action, 1)
         try:
             cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
             app.update_page('#spec-cpu-model', 'html', cpu_model)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: CPU Model', 0, 1)
+            dbg.stdout("Failed to gather data: CPU Model", dbg.error, 1)
 
         try:
             try:
@@ -1049,7 +1022,7 @@ class SystemState(object):
 
             app.update_page('#spec-cpu-speed', 'html', str(cpu_speed) + ' MHz')
         except:
-            dbg.stdout('Specs', 'Failed to gather data: CPU Speed', 0, 1)
+            dbg.stdout("Failed to gather data: CPU Speed", dbg.error, 1)
 
         try:
             if self.arch == 'i386':
@@ -1060,20 +1033,20 @@ class SystemState(object):
                 cpu_arch_used = self.arch
             app.update_page('#spec-arch-use', 'html', cpu_arch_used)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: CPU Architecture', 0, 1)
+            dbg.stdout("Failed to gather data: CPU Architecture", dbg.error, 1)
 
         try:
             cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
             app.update_page('#spec-arch-supported', 'html', cpu_arch_supported)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: CPU Supported Architectures', 0, 1)
+            dbg.stdout("Failed to gather data: CPU Supported Architectures", dbg.error, 1)
 
         ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
         try:
             if self.session_type == 'live':
                 app.update_page('.spec-hide-live-session', 'hide')
             else:
-                dbg.stdout('Specs', 'Gathering Data: Storage', 1, 0)
+                dbg.stdout("Gathering Data: Storage", dbg.action, 1)
                 ## Gather entire disk data
                 root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
                 if root_partition[:-2] == "/dev/sd":            # /dev/sdXY
@@ -1085,7 +1058,7 @@ class SystemState(object):
                 else:
                     root_dev = root_partition[:-1]              # Generic
                 disk_dev_name = root_dev.split('/')[2]
-                dbg.stdout('Specs', 'Ubuntu MATE is installed on disk: ' + root_dev, 1, 4)
+                dbg.stdout("Ubuntu MATE is installed on disk: " + root_dev, dbg.debug, 1)
                 rootfs = os.statvfs('/')
                 root_size = rootfs.f_blocks * rootfs.f_frsize
                 root_free = rootfs.f_bavail * rootfs.f_frsize
@@ -1154,21 +1127,21 @@ class SystemState(object):
                 disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
                 disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
                 disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
-                dbg.stdout('Specs', ' Disk: ' + root_dev, 1, 4)
-                dbg.stdout('Specs', '  -- OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)', 1, 4)
-                dbg.stdout('Specs', '  -- OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)', 1, 4)
-                dbg.stdout('Specs', '  -- Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)', 1, 4)
+                dbg.stdout(' Disk: ' + root_dev, dbg.debug, 1)
+                dbg.stdout('  -- OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)', dbg.debug)
+                dbg.stdout('  -- OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)', dbg.debug, 1)
+                dbg.stdout('  -- Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)', dbg.debug, 1)
 
                 app.update_page('#disk-used', 'width', str(disk_percent_UM_used) + 'px')
                 app.update_page('#disk-free', 'width', str(disk_percent_UM_free) + 'px')
                 app.update_page('#disk-other', 'width', str(disk_percent_other) + 'px')
 
         except:
-            dbg.stdout('Specs', 'Failed to gather data: Storage', 0, 1)
+            dbg.stdout("Failed to gather data: Storage", dbg.error, 1)
 
         ## RAM
         try:
-            dbg.stdout('Specs', 'Gathering Data: RAM (Memory)', 1, 0)
+            dbg.stdout("Gathering Data: RAM (Memory)", dbg.action, 1)
             ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
             ram_bytes = float(ram_bytes.split()[1])
             if round(ram_bytes / 1024 / 1024) < 1024:
@@ -1180,7 +1153,7 @@ class SystemState(object):
             ram_string = ram_xb + ' <span class=\'secondary-value\'>(' + ram_xib + ')</span>'
             app.update_page('#spec-memory', 'html', ram_string)
         except:
-            dbg.stdout('Specs', 'Failed to gather data: RAM (Memory)', 0, 1)
+            dbg.stdout("Failed to gather data: RAM (Memory)", dbg.error, 1)
 
         ## Graphics
         app.update_page('#spec-graphics', 'html', self.graphics_grep)
@@ -1189,38 +1162,38 @@ class SystemState(object):
         if systemstate.arch == 'powerpc':
             ## Motherboard & Revision
             try:
-                dbg.stdout('Specs', 'Gathering Data: PowerPC Motherboard', 1, 0)
+                dbg.stdout('Gathering Data: PowerPC Motherboard', dbg.action, 1)
                 mb_model = run_external_command(['grep','motherboard','/proc/cpuinfo']).split(': ')[1]
                 mb_rev = run_external_command(['grep','revision','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-motherboard', 'html', mb_model + ' ' + mb_rev)
             except:
-                dbg.stdout('Specs', 'Failed to gather data: PowerPC Motherboard', 0, 1)
+                dbg.stdout('Failed to gather data: PowerPC Motherboard', dbg.error, 1)
 
             ## CPU and Clock Speed
             try:
-                dbg.stdout('Specs', 'Gathering Data: PowerPC CPU', 1, 0)
+                dbg.stdout('Gathering Data: PowerPC CPU', dbg.action, 1)
                 cpu_model = run_external_command(['grep','cpu','/proc/cpuinfo']).split(': ')[1]
                 cpu_speed = run_external_command(['grep','clock','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-cpu-model', 'html', cpu_model)
                 app.update_page('#spec-cpu-speed', 'html', str(cpu_speed))
             except:
-                dbg.stdout('Specs', 'Failed to gather data: PowerPC CPU', 0, 1)
+                dbg.stdout('Failed to gather data: PowerPC CPU', dbg.error, 1)
 
             ## Device Name
             try:
-                dbg.stdout('Specs', 'Gathering Data: PowerPC Model Name', 1, 0)
+                dbg.stdout('Gathering Data: PowerPC Model Name', dbg.action, 1)
                 mb_name = run_external_command(['grep','detected','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-motherboard', 'append', ' / ' + mb_name)
             except:
-                dbg.stdout('Specs', 'Failed to gather data: PowerPC Model Name', 0, 1)
+                dbg.stdout('Failed to gather data: PowerPC Model Name', dbg.error, 1)
 
             ## Boot Mode / PowerMac Generation
             try:
-                dbg.stdout('Specs', 'Gathering Data: PowerMac Generation', 1, 0)
+                dbg.stdout('Gathering Data: PowerMac Generation', dbg.action, 1)
                 mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
                 app.update_page('#spec-boot-mode', 'html', 'Yaboot (' + mac_generation + ')')
             except:
-                dbg.stdout('Specs', 'Failed to gather data: PowerMac Generation', 0, 1)
+                dbg.stdout('Failed to gather data: PowerMac Generation', dbg.error, 1)
 
         # Check internet connectivity status.
         if self.is_online:
@@ -1262,11 +1235,11 @@ class SystemState(object):
         webkit.run_js('setCursorNormal()')
 
     def get_inxi_info(self):
-        dbg.stdout('Specs', 'Gathering advanced system information with "inxi"...', 1, 0)
+        dbg.stdout('Gathering advanced system information with "inxi"...', dbg.action, 1)
         try:
             inxi_output = str(subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE).communicate()[0])
         except:
-            dbg.stdout('Specs', 'Failed to execute collect advanced information. Is "inxi" no longer installed?', 0, 1)
+            dbg.stdout('Failed to execute collect advanced information. Is "inxi" no longer installed?', dbg.error)
 
         # Append advanced system information
         try:
@@ -1279,9 +1252,9 @@ class SystemState(object):
             app.update_page('#specs-inxi', 'slideDown')
             app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
             app.update_page('#specs-inxi-copy', 'slideDown')
-            dbg.stdout('Specs', 'Successfully appended advanced system information.', 0, 2)
+            dbg.stdout('Successfully appended advanced system information.', dbg.success, 1)
         except:
-            dbg.stdout('Specs', 'Failed to append advanced system information or communicate with "inxi" process.', 0, 1)
+            dbg.stdout('Failed to append advanced system information or communicate with "inxi" process.', dbg.error)
             app.update_page('#specs-inxi-busy', 'slideUp')
             app.update_page('#specs-inxi-error', 'slideDown')
 
@@ -1322,7 +1295,7 @@ class SystemState(object):
                 notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
             else:
                 notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
-                dbg.stdout('Welcome', 'Unrecognised return code for Raspberry Pi resize: ' + str(status_code), 0, 1)
+                dbg.stdout('Unrecognised return code for Raspberry Pi resize: ' + str(status_code), dbg.error)
 
             app.webkit._push_config()
 
@@ -1352,13 +1325,12 @@ class SystemState(object):
         if var == 'inxi':
             contents = self.inxi
         else:
-            dbg.stdout('Clipboard', 'Unknown variable to copy: ' + var, 0, 1)
+            dbg.stdout("Clipboard - Unknown variable to copy: " + var, dbg.error)
             return
 
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         clipboard.set_text(contents, -1)
         clipboard.store()
-        dbg.stdout('Clipboard', 'Copied contents of: ' + var, 1, 2)
 
     def get_system_repository_state(self, repo):
         # Used to determine if a system repository is enabled.
@@ -1390,6 +1362,7 @@ class SystemState(object):
                 app.update_page('#pref-' + key, 'addClass', 'fa-square')
                 app.update_page('#pref-' + key, 'removeClass', 'fa-check-square')
 
+        dbg.stdout("Copied contents of: " + var, dbg.success, 1)
 
 class Arguments(object):
     '''Check arguments passed the application.'''
@@ -1437,76 +1410,76 @@ class Arguments(object):
               exit()
 
           if arg == '--verbose' or arg == '-v':
-              dbg.stdout('Debug', 'Verbose mode enabled.', 0, 0)
               dbg.verbose_level = 1
+              dbg.stdout("Verbose mode enabled.", dbg.action, 1)
 
           if arg.startswith('--force-arch'):
               try:
-                  self.simulate_arch = arg.split('--force-arch=')[1]
-                  if self.simulate_arch not in archs:
-                      dbg.stdout('Debug', 'Unrecognised architecture: ' + self.simulate_arch, 0, 1)
-                      exit()
-                  else:
-                      dbg.stdout('Debug', 'Simulating architecture: ' + self.simulate_arch, 0, 0)
+                self.simulate_arch = arg.split('--force-arch=')[1]
+                if self.simulate_arch not in archs:
+                    dbg.stdout("Unrecognised architecture: " + self.simulate_arch, dbg.error)
+                    exit()
+                else:
+                    dbg.stdout("Simulating architecture: " + self.simulate_arch, dbg.action)
               except:
-                  dbg.stdout('Debug', 'Invalid arguments for "--force-arch"', 0, 1)
-                  dbg.stdout('Debug', 'Available Options: ' + str(archs), 0, 1)
+                  dbg.stdout("Invalid arguments for --force-arch", dbg.error)
+                  dbg.stdout("Available options: " + str(archs), dbg.error)
                   exit()
 
           if arg.startswith('--force-session'):
               try:
                   self.simulate_session = arg.split('--force-session=')[1]
                   if self.simulate_session not in sessions:
-                      dbg.stdout('Debug', 'Unrecognised session type: ' + self.simulate_session, 0, 1)
+                      dbg.stdout("Unrecognised session type: " + self.simulate_session, dbg.error)
                       exit()
                   else:
-                      dbg.stdout('Debug', 'Simulating session: ' + self.simulate_session, 0, 0)
+                      dbg.stdout("Simulating session: " + self.simulate_session, dbg.action)
               except:
-                  dbg.stdout('Debug', 'Invalid arguments for "--force-session"', 0, 1)
-                  dbg.stdout('Debug', 'Available Options: ' + str(sessions), 0, 1)
+                  dbg.stdout("Invalid arguments for --force-session", dbg.error)
+                  dbg.stdout("Available options: " + str(sessions), dbg.error)
                   exit()
 
           if arg.startswith('--force-codename'):
               self.simulate_codename = arg.split('--force-codename=')[1]
-              dbg.stdout('Debug', 'Simulating Ubuntu release: ' + self.simulate_codename, 0, 0)
+              dbg.stdout("Simulating Ubuntu release: " + self.simulate_codename, dbg.action)
 
           if arg == '--force-no-net':
-              dbg.stdout('Debug', 'Simulating the application without an internet connection.', 0, 0)
+              dbg.stdout("Simulating the application without an internet connection.", dbg.action)
               self.simulate_no_connection = True
 
           if arg == '--force-net':
-              dbg.stdout('Debug', 'Forcing the application to think we\'re connected with an internet connection.', 0, 0)
+              dbg.stdout("Forcing the application to think we're connected with an internet connection.", dbg.action)
               self.simulate_force_connection = True
 
           if arg == '--software-only' or arg == '--boutique' or arg == '-b':
-                dbg.stdout('Welcome', 'Software Boutique is no longer part of Welcome.', 0, 3)
+                dbg.stdout("Software Boutique is no longer part of Welcome.", dbg.warning)
                 if os.path.exists("/usr/bin/software-boutique"):
-                    dbg.stdout('Welcome', "In future, launch with 'software-boutique' instead.", 0, 0)
+                    dbg.stdout("In future, launch with 'software-boutique' instead.", dbg.warning)
                     os.execv("/usr/bin/software-boutique", [""])
                 else:
-                    dbg.stdout('Welcome', 'Software Boutique not found. It may not be installed.', 0, 1)
+                    dbg.stdout("Software Boutique not found. It may not be installed.", dbg.error)
                     exit(1)
 
           if arg == '--dev' or arg == '--debug' or arg == '-d':
-              dbg.stdout('Debug', 'Running in debugging mode.', 0, 0)
+              dbg.stdout("Running in debugging mode.", dbg.action)
               dbg.verbose_level = 2
               self.locale = 'null'
 
           if arg.startswith('--locale='):
               self.locale = arg.split('--locale=')[1]
-              dbg.stdout('Debug', 'Setting locale to: ' + self.locale, 0, 0)
+              dbg.stdout("Forcing locale: " + self.locale, dbg.action)
 
           if arg.startswith('--jump-to='):
               self.jump_to = arg.split('--jump-to=')[1]
-              dbg.stdout('Debug', 'Opening page: ' + self.jump_to + '.html', 0, 0)
+              dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
 
           if arg.startswith('--font-dpi='):
               try:
                   self.font_dpi_override = int(arg.split('--font-dpi=')[1])
               except:
-                  dbg.stdout('Debug', 'Invalid Override Font DPI specified. Ignoring.', 0, 1)
+                  dbg.stdout("Invalid Override Font DPI specified. Ignoring.", dbg.error)
                   return
-              dbg.stdout('Debug', 'Overriding font DPI to ' + str(self.font_dpi_override) + '.', 0, 0)
+              dbg.stdout("Overriding font DPI to " + str(self.font_dpi_override), dbg.action)
 
     def override_arch(self):
         if not self.simulate_arch == None:
@@ -1531,7 +1504,7 @@ class Arguments(object):
 if __name__ == "__main__":
 
     # Process any parameters passed to the program.
-    dbg = Debug()
+    dbg = Common.Debugging()
     arg = Arguments()
 
     # Application Initialisation
@@ -1551,5 +1524,5 @@ if __name__ == "__main__":
     arg.override_session()
     arg.override_codename()
 
-    dbg.stdout('Welcome', 'Application Ready.', 0, 0)
+    dbg.stdout("Application Ready.", dbg.debug, 2)
     app.run()
