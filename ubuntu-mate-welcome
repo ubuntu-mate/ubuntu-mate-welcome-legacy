@@ -67,17 +67,28 @@ except ImportError:
 #  Miscellaneous
 ##################################
 def whereami():
-    """ Determine data source """
-    current_folder = os.path.dirname( os.path.abspath(inspect.getfile(inspect.currentframe())) )
-    if( os.path.exists( os.path.join(current_folder, 'data/' ) ) ):
-        dbg.stdout('Welcome', 'Using relative path for data source. Non-production testing.', 1, 0)
-        data_path = os.path.join(current_folder, 'data/')
-    elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
-        dbg.stdout("Using /usr/share/ubuntu-mate-welcome/ path.", dbg.debug, 1)
-        data_path = '/usr/share/ubuntu-mate-welcome/'
+    """
+    Get the data path, depending if a development build or
+    running from a system-wide installation.
+    """
+    global_data_path = "/usr/share/ubuntu-mate-welcome/"
+    if relative_path:
+        dbg.stdout("Using relative path for development testing.", dbg.debug, 1)
+        current_folder = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+        data_path = os.path.join(current_folder, "data/")
+
+        # Ensure LESS files are compiled
+        if not os.path.exists(os.path.join(data_path, "css", "welcome.css")):
+            dbg.stdout("Missing CSS! Please compile using ubuntu-mate-welcome-dev", dbg.error)
+            exit(1)
+
+    elif os.path.exists(global_data_path):
+        dbg.stdout("Using system-wide data directory: " + global_data_path, dbg.debug, 1)
+
     else:
-        dbg.stdout("Unable to source the ubuntu-mate-welcome data directory.", dbg.error, 1)
-        sys.exit(1)
+        dbg.stdout("Unable to source the data directory! Try re-installing the application.", dbg.error)
+        exit(1)
+
     return data_path
 
 def notify_send(title, description, icon_path):
