@@ -2870,10 +2870,13 @@ class DynamicApps(object):
             # Gather sources to search for each app in this category
             # Also search case insensitive
             for program_id in app_id:
-                name = self.index[category][program_id]['name'].lower()
+                name = self.index[category][program_id]['name']
+                name.lower()
                 desc = self.index[category][program_id]['description']
-                desc = ' '.join(desc).lower()
-                alto = str(self.index[category][program_id]['alternate-to']).lower()
+                desc = ' '.join(desc)
+                desc.lower()
+                alto = str(self.index[category][program_id]['alternate-to'])
+                alto.lower()
 
                 # Any matches? List them!
                 app_matched = False
@@ -2892,7 +2895,7 @@ class DynamicApps(object):
                     # Skip this if user doesn't want non-free software.
                     oss = self.index[category][program_id]['open-source']
                     if self.hide_non_free and not oss:
-                        hidden_results = hidden_results + 1
+                        hidden_results += 1
                         continue
 
                     # Display result to user, if it works on the system (return code 0)
