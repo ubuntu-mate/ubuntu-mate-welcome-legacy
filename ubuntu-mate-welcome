@@ -1288,7 +1288,7 @@ class AppView(WebKit2.WebView):
             else:
                 subprocess.Popen(['ubiquity', 'gtk_ui'])
         elif cmd == 'backup':
-            if system.codename in ["xenial", "yakkety", "zesty"]:
+            if systemstate.codename in ["xenial", "yakkety", "zesty"]:
                 subprocess.Popen(['deja-dup-preferences'])
             else:
                 subprocess.Popen(['deja-dup'])
