@@ -1173,6 +1173,7 @@ class AppView(WebKit2.WebView):
         def light_theme():
             app.update_page('#navigation', 'css', 'color', 'black')
             app.update_page('#navigation a', 'css', 'color', 'black')
+            app.update_page('#navigation button', 'css', 'color', 'black')
             app.update_page('#footer', 'css', 'color', 'black')
             app.update_page('#footer a', 'css', 'color', 'black')
             app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
