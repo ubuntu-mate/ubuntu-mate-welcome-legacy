@@ -29,6 +29,7 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("Notify", "0.7")
 gi.require_version("WebKit2", "4.0")
 
+import argparse
 import errno
 import gettext
 import inspect
@@ -115,13 +116,13 @@ def run_external_command(command, with_shell=False):
 #  Translations Framework & Strings
 ##################################
 class Translations(object):
-    def __init__(self, data_path):
+    def __init__(self, data_path, override_locale=None):
         # Pages that do not want to be translated.
         self.excluded_pages = ['message.html']
 
         # Determine which locale to use
-        if arg.locale:
-            self.locale = arg.locale
+        if override_locale:
+            self.locale = override_locale
         else:
             try:
                 self.locale = str(locale.getlocale()[0])
@@ -248,15 +249,6 @@ class AppView(WebKit2.WebView):
 
     def _push_config(self):
         ### Global - On all pages ###
-
-        # Do not show footer links on splash or software page.
-        if not arg.jump_software_page:
-            if not app.current_page == 'splash.html' and not app.current_page == 'software.html':
-                app.update_page('#footer-global-left', 'html', app.footer_left)
-
-        # Do not show the Close button in Boutique mode.
-        if not arg.jump_software_page:
-            app.update_page('#footer-global-right', 'html', app.footer_close)
 
         # Show the "Scroll to Top" button, excluding the Boutique which has its own button.
         if not app.current_page == "software.html":
@@ -654,17 +646,10 @@ class WelcomeApp(object):
         self.footer_close = '<button onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</button>'
 
     def load_app(self):
-        # Slightly different attributes if "--software-only" is activated.
-        if arg.jump_software_page:
-            title = string.boutique
-            width = 900
-            height = 600
-            load_file = 'splash-boutique.html'
-        else:
-            title = _("Welcome")
-            width = 800
-            height = 552
-            load_file = 'splash.html'
+        title = _("Welcome")
+        width = 800
+        height = 552
+        load_file = 'splash.html'
 
         # Enlarge the window should the text be any larger.
         if systemstate.zoom_level == 1.1:
@@ -684,8 +669,8 @@ class WelcomeApp(object):
             height = height + 120
 
         # Jump to a specific page for testing purposes.
-        if arg.jump_to:
-            load_file = arg.jump_to + '.html'
+        if args.jump_to:
+            load_file = args.jump_to + '.html'
 
         # Build window
         w = Gtk.Window()
@@ -910,16 +895,16 @@ class SystemState(object):
         url = "http://archive.ubuntu.com/"
         dbg.stdout("Establishing a connection test to: " + url, dbg.debug, 1)
 
-        if arg.simulate_no_connection:
+        if args.simulate_no_connection:
             dbg.stdout("Simulation flag: Forcing no connection presence. Retrying will reset this.", dbg.debug, 1)
-            arg.simulate_no_connection = False
+            args.simulate_no_connection = False
             self.is_online = False
             return
 
-        if arg.simulate_force_connection:
+        if args.simulate_force_connection:
             dbg.stdout("Simulation flag: Forcing a connection presence.", dbg.debug, 1)
             dbg.stdout("WARNING: Do not attempt to install/remove software offline as this may cause problems!", dbg.debug, 1)
-            arg.simulate_connection = False
+            args.simulate_connection = False
             self.is_online = True
             return
 
@@ -1375,126 +1360,76 @@ class SystemState(object):
 
         dbg.stdout("Copied contents of: " + var, dbg.success, 1)
 
+
 class Arguments(object):
-    '''Check arguments passed the application.'''
+    """
+    Checks arguments for diagnosis and testing.
+    """
 
     def __init__(self):
         self.verbose_enabled = False
-        self.simulate_arch = None
         self.simulate_session = None
-        self.simulate_codename = None
         self.simulate_no_connection = False
         self.simulate_force_connection = False
-        self.jump_software_page = False
         self.locale = None
         self.jump_to = None
-        self.font_dpi_override = None
 
-        archs = ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']
+        # TODO: New page architecture
+        #~ pages = ["mainmenu", "features"]
         sessions = ['guest', 'live', 'pi', 'vbox']
 
-        for arg in sys.argv:
-          if arg == '--help' or arg == '-h':
-              print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
-              print('\nUsage: ubuntu-mate-welcome [arguments]')
-              #     | Command                      | Help Text                                     |
-              print('  -d, --dev, --debug           Disables locales and is very verbose')
-              print('                               intended for development purposes.')
-              print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
-              print('  -h, --help                   Show this help text.')
-              print('  --force-arch=ARCH            Simulate a specific architecture.')
-              print('                                -- Examples: i386, amd64, armhf, amd64')
-              print('  --force-codename=CODENAME    Simulate a specific release.')
-              print('                                -- Examples: trusty, wily, xenial')
-              print('  --force-net                  Simulate a working internet connection.')
-              print('  --force-no-net               Simulate no internet connection.')
-              print('  --force-session=TYPE         Simulate a specific type of session.')
-              print('                                -- Options: guest, live, pi, vbox')
-              print('  --jump-to=PAGE               Open a specific page, excluding *.html')
-              print('  --locale=CODE                Locale to use. e.g. fr_FR.')
-              print('  --simulate-changes           Simulate software package changes without')
-              print('                               modifying the system.')
-              print('  -b, -boutique,               Open Welcome only for the software selections.')
-              print('  --software-only              ')
-              print('  -v, --verbose                Show more details to stdout (for diagnosis).')
-              print('')
-              exit()
+        parser = argparse.ArgumentParser(add_help=False)
+        parser._optionals.title = _("Optional arguments")
+        parser.add_argument("-h", "--help", help=_("Show this help message and exit"), action="help")
+        #~ parser.add_argument("--version", help=_("Print progran version and exit"), action="store_true")
+        parser.add_argument("-v", "--verbose", help=_("Be verbose to stdout"), action="store_true")
+        parser.add_argument("-vv", "-d", "--debug", help=_("Be very verbose (for debugging)"), action="store_true")
+        parser.add_argument("--locale", help=_("Force locale for interface"))
+        parser.add_argument("--force-net", help=_("Assume network capabilities"), action="store_true")
+        parser.add_argument("--force-no-net", help=_("Assume network is unreachable"), action="store_true")
+        parser.add_argument("--force-session", help=_("Show information for a specific environment."), choices=sessions)
+        #~ parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=pages)
+        parser.add_argument("-b", "--boutique", "--software-only", help=_("Opens the Software Boutique application"), action="store_true")
 
-          if arg == '--verbose' or arg == '-v':
-              dbg.verbose_level = 1
-              dbg.stdout("Verbose mode enabled.", dbg.action, 1)
+        arg = parser.parse_args()
 
-          if arg.startswith('--force-arch'):
-              try:
-                self.simulate_arch = arg.split('--force-arch=')[1]
-                if self.simulate_arch not in archs:
-                    dbg.stdout("Unrecognised architecture: " + self.simulate_arch, dbg.error)
-                    exit()
-                else:
-                    dbg.stdout("Simulating architecture: " + self.simulate_arch, dbg.action)
-              except:
-                  dbg.stdout("Invalid arguments for --force-arch", dbg.error)
-                  dbg.stdout("Available options: " + str(archs), dbg.error)
-                  exit()
+        if arg.verbose:
+          dbg.stdout("Running in verbose mode.", dbg.action)
+          dbg.verbose_level = 1
 
-          if arg.startswith('--force-session'):
-              try:
-                  self.simulate_session = arg.split('--force-session=')[1]
-                  if self.simulate_session not in sessions:
-                      dbg.stdout("Unrecognised session type: " + self.simulate_session, dbg.error)
-                      exit()
-                  else:
-                      dbg.stdout("Simulating session: " + self.simulate_session, dbg.action)
-              except:
-                  dbg.stdout("Invalid arguments for --force-session", dbg.error)
-                  dbg.stdout("Available options: " + str(sessions), dbg.error)
-                  exit()
+        if arg.debug:
+          dbg.stdout("Running in debugging mode.", dbg.action)
+          dbg.verbose_level = 2
+          self.locale = 'null'
 
-          if arg.startswith('--force-codename'):
-              self.simulate_codename = arg.split('--force-codename=')[1]
-              dbg.stdout("Simulating Ubuntu release: " + self.simulate_codename, dbg.action)
+        if arg.force_session:
+          self.simulate_session = arg.force_session
+          dbg.stdout("Running as session: " + self.simulate_session, dbg.action)
 
-          if arg == '--force-no-net':
-              dbg.stdout("Simulating the application without an internet connection.", dbg.action)
-              self.simulate_no_connection = True
+        if arg.force_no_net:
+          dbg.stdout("Running with internet connectivity features enabled.", dbg.action)
+          self.simulate_no_connection = True
 
-          if arg == '--force-net':
-              dbg.stdout("Forcing the application to think we're connected with an internet connection.", dbg.action)
-              self.simulate_force_connection = True
+        if arg.force_net:
+          dbg.stdout("Running without internet connectivity featured disabled.", dbg.action)
+          self.simulate_force_connection = True
 
-          if arg == '--software-only' or arg == '--boutique' or arg == '-b':
-                dbg.stdout("Software Boutique is no longer part of Welcome.", dbg.warning)
-                if os.path.exists("/usr/bin/software-boutique"):
-                    dbg.stdout("In future, launch with 'software-boutique' instead.", dbg.warning)
-                    os.execv("/usr/bin/software-boutique", [""])
-                else:
-                    dbg.stdout("Software Boutique not found. It may not be installed.", dbg.error)
-                    exit(1)
+        if arg.boutique:
+            dbg.stdout("Software Boutique is no longer part of Welcome.", dbg.warning)
+            if os.path.exists("/usr/bin/software-boutique"):
+                dbg.stdout("In future, launch with 'software-boutique' instead.", dbg.warning)
+                os.execv("/usr/bin/software-boutique", [""])
+            else:
+                dbg.stdout("Software Boutique not found. It may not be installed.", dbg.error)
+                exit(1)
 
-          if arg == '--dev' or arg == '--debug' or arg == '-d':
-              dbg.stdout("Running in debugging mode.", dbg.action)
-              dbg.verbose_level = 2
-              self.locale = 'null'
+        if arg.locale:
+            dbg.stdout("Forcing locale: " + arg.locale, dbg.action)
+            self.locale = arg.locale
 
-          if arg.startswith('--locale='):
-              self.locale = arg.split('--locale=')[1]
-              dbg.stdout("Forcing locale: " + self.locale, dbg.action)
-
-          if arg.startswith('--jump-to='):
-              self.jump_to = arg.split('--jump-to=')[1]
-              dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
-
-          if arg.startswith('--font-dpi='):
-              try:
-                  self.font_dpi_override = int(arg.split('--font-dpi=')[1])
-              except:
-                  dbg.stdout("Invalid Override Font DPI specified. Ignoring.", dbg.error)
-                  return
-              dbg.stdout("Overriding font DPI to " + str(self.font_dpi_override), dbg.action)
-
-    def override_arch(self):
-        if not self.simulate_arch == None:
-            systemstate.arch = self.simulate_arch
+        #~ if arg.jump_to:
+          #~ self.jump_to = arg.jump_to
+          #~ dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
 
     def override_session(self):
         if not self.simulate_session == None:
@@ -1504,26 +1439,23 @@ class Arguments(object):
             else:
                 systemstate.session_type = self.simulate_session
 
-    def override_codename(self):
-        if not self.simulate_codename == None:
-            systemstate.codename = self.simulate_codename
-
 
 ##################################
 #  Program Initialisation
 ##################################
 if __name__ == "__main__":
+    # Set up stdout and i18n
+    dbg = Common.Debugging()
+    data_path = whereami()
+    trans = Translations(data_path)
 
     # Process any parameters passed to the program.
-    dbg = Common.Debugging()
-    arg = Arguments()
+    args = Arguments()
+    if args.locale:
+        trans = Translations(data_path, args.locale)
 
     # Application Initialisation
     setproctitle.setproctitle('ubuntu-mate-welcome')
-    data_path = whereami()
-
-    # Set up translations and strings
-    trans = Translations(data_path)
 
     # Welcome Features
     pref = Preferences.Preferences(dbg, "preferences", "ubuntu-mate-welcome")
@@ -1531,9 +1463,7 @@ if __name__ == "__main__":
     app = WelcomeApp()
 
     # Argument Overrides
-    arg.override_arch()
-    arg.override_session()
-    arg.override_codename()
+    args.override_session()
 
     dbg.stdout("Application Ready.", dbg.debug, 2)
     app.run()
