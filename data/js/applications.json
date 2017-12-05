@@ -3998,7 +3998,7 @@
             "alternate-to": null,
             "subcategory": "Design and Tools",
             "open-source": true,
-            "url-info": "https://wiki.ubuntu.com/ubuntu-make",
+            "url-info": "https://github.com/ubuntu/ubuntu-make",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
@@ -4006,8 +4006,8 @@
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:ubuntu-desktop/ubuntu-make",
-                    "source-file": "ubuntu-desktop-ubuntu-ubuntu-make-CODENAME"
+                    "enable-ppa": "ppa:lyzardking/ubuntu-make",
+                    "source-file": "lyzardking-ubuntu-ubuntu-make-CODENAME"
                 },
                 "artful": {
                     "method": "skip"
