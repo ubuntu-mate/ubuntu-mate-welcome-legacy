@@ -21,202 +21,103 @@
 # along with Ubuntu MATE Welcome. If not, see <http://www.gnu.org/licenses/>.
 #
 
-""" Welcome screen for Ubuntu MATE """
+"""
+Welcome application for greeting the user on their initial boot or live session
+of the Ubuntu MATE operating system.
+"""
 
 import gi
 gi.require_version("Gdk", "3.0")
 gi.require_version("Gtk", "3.0")
-gi.require_version("Notify", "0.7")
 gi.require_version("WebKit2", "4.0")
+from gi.repository import GLib, Gdk, Gtk, WebKit2
 
 import argparse
-import errno
 import gettext
-import inspect
-import json
-import locale
 import os
 import platform
-import random
 import setproctitle
 import signal
-import socket
-import subprocess
-import sys
-import time
-import webbrowser
 
-import urllib.error
-import urllib.parse
-import urllib.request
-from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
-from threading import Thread
-from shutil import which
-
-# Import Python modules shared with Software Boutique.
+# Import modules shared with Software Boutique.
 try:
     import pylib_boutique.preferences as Preferences
-    import pylib_boutique.common as Common
-    relative_path = True
+    import pylib_boutique.common as BoutiqueCommon
 except ImportError:
     import software_boutique.preferences as Preferences
-    import software_boutique.common as Common
+    import software_boutique.common as BoutiqueCommon
+
+# Import Welcome pages
+try:
+    import pylib.pages as Pages
+    import pylib.Common as Common
+    relative_path = True
+except ImportError:
+    import ubuntu_mate_welcome.pages as Pages
+    import ubuntu_mate_welcome.Common as Common
     relative_path = False
 
 
-##################################
-#  Miscellaneous
-##################################
-def whereami():
-    """
-    Get the data path, depending if a development build or
-    running from a system-wide installation.
-    """
-    global_data_path = "/usr/share/ubuntu-mate-welcome/"
-    if relative_path:
-        dbg.stdout("Using relative path for development testing.", dbg.debug, 1)
-        current_folder = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-        data_path = os.path.join(current_folder, "data/")
+# Dictonary to store common variables throughout Welcome and its subpages
+variables = {
+    # Internals
+    "data_path": "",
+    "current_page": "",
+    "pages": {
+        "splash": Pages.Splash
+    },
+    "sessions": ["normal", "guest", "live", "pi", "vbox"],
+    "objects": {
+        "app": None,
+        "arg": None,
+        "pref": None,
+        "dbg": None,
+        "update_page": None,
+        "change_page": None
+    },
 
-        # Ensure LESS files are compiled
-        if not os.path.exists(os.path.join(data_path, "css", "welcome.css")):
-            dbg.stdout("Missing CSS! Please compile using ubuntu-mate-welcome-dev", dbg.error)
-            exit(1)
+    # UI
+    "welcome_version": "18.04",
+    "dark_mode": False,
+    "locale": "en_US",
+    "run_at_startup": False,
 
-    elif os.path.exists(global_data_path):
-        dbg.stdout("Using system-wide data directory: " + global_data_path, dbg.debug, 1)
+    # Features
+    "opted_updates": False,
+    "internet_detected": False,
 
-    else:
-        dbg.stdout("Unable to source the data directory! Try re-installing the application.", dbg.error)
-        exit(1)
+    # Session
+    "session_type": "normal",           # normal / live / guest / vbox / rpi,
+    "arch": "",                         # e.g. amd64 / i386 / powerpc / armhf / arm64
+    "os_name": platform.dist()[0],      # e.g. Ubuntu
+    "os_version": platform.dist()[1],   # e.g. 18.04
+    "os_codename": platform.dist()[2],  # e.g. bionic
+    "ubuntu_mate_detected": True,
+    "boot_mode": "BIOS",                # BIOS / UEFI / Yaboot / Raspberry Pi
 
-    return data_path
-
-def notify_send(title, description, icon_path):
-    """
-    Send system notification to the user.
-    """
-    try:
-        Notify.init(title)
-        notification=Notify.Notification.new(title, description, icon_path)
-        notification.show()
-    except Exception as e:
-        dbg.stdout("Exception while sending notification: " + str(e), dbg.error)
-
-def run_external_command(command, with_shell=False):
-    # Runs external commands and cleans up the output.
-    if with_shell:
-        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE, shell=True).communicate()[0])
-    else:
-        raw = str(subprocess.Popen(command, stdout=subprocess.PIPE).communicate()[0])
-    output = raw.replace("b'","").replace('b"',"").replace("\\n'","").replace("\\n","\n")
-    return output
-
-##################################
-#  Translations Framework & Strings
-##################################
-class Translations(object):
-    def __init__(self, data_path, override_locale=None):
-        # Pages that do not want to be translated.
-        self.excluded_pages = ['message.html']
-
-        # Determine which locale to use
-        if override_locale:
-            self.locale = override_locale
-        else:
-            try:
-                self.locale = str(locale.getlocale()[0])
-            except Exception:
-                dbg.stdout("Could not get system locale! Falling back to 'en_US'.", dbg.warning)
-                self.locale = "en_US"
-
-        # Determine if localized pages exist, or fallback to original pages.
-        def get_pages_path():
-            if os.path.exists(os.path.join(data_path, 'i18n', self.locale)):
-                self.localized = True
-                self.relative_i18n = True
-                dbg.stdout("Locale Set: " + self.locale + " (using relative path)", dbg.debug, 1)
-                return os.path.join(data_path, 'i18n', self.locale)
-            elif (os.path.exists(os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale))):
-                self.localized = True
-                self.relative_i18n = False
-                dbg.stdout("Locale Set: " + self.locale + " (using /usr/share/ path)", dbg.debug, 1)
-                return os.path.join('/usr/share/ubuntu-mate-welcome/i18n/', self.locale)
-            else:
-                self.localized = False
-                self.relative_i18n = False
-                dbg.stdout("Locale Not Available: " + self.locale + " (using en_US instead)", dbg.warning, 1)
-                return data_path
-
-        self.pages_dir = get_pages_path()
-
-        # Should this locale not exist, try a generic one. (e.g. "en_GB" → "en")
-        if self.pages_dir == data_path:
-            self.localized = False
-            self.locale = self.locale.split('_')[0]
-            self.pages_dir = get_pages_path()
-        else:
-            self.localized = True
-
-        # Validate all the i18n pages so we have the same structure as the original.
-        page_was_lost = False
-        if not self.pages_dir == data_path:
-            for page in os.listdir(data_path):
-                if page[-5:] == '.html':
-                    if os.path.exists(os.path.join(self.pages_dir, page)):
-                        dbg.stdout("Page OK: " + page, dbg.success, 2)
-                    else:
-                        if page not in self.excluded_pages:
-                            page_was_lost = True
-                            dbg.stdout("Page Missing: " + page, dbg.error, 2)
-        if page_was_lost:
-            dbg.stdout("One or more translation pages are missing! Falling back to en_US.", dbg.error, 1)
-            self.pages_dir = data_path
-            self.localized = False
-        else:
-            dbg.stdout("All translated i18n pages found.", dbg.success, 1)
-
-        # Sets the path for resources (img/css/js)
-        if self.localized:
-            # E.g. data/i18n/en_GB/*.html → data/
-            self.res_dir = '../../'
-        else:
-            # E.g. data/*.html → data/
-            self.res_dir = ''
-
-        # Initalise i18n for Python translations.
-        if self.relative_i18n:
-            i18n_path = '/usr/share/locale/'
-        else:
-            i18n_path = os.path.join(data_path, 'locale/')
-
-        global t, _
-        dbg.stdout("Using locale for gettext: " + self.locale, dbg.debug, 1)
-        dbg.stdout("Using path for gettext: " + i18n_path, dbg.debug, 1)
-        try:
-            t = gettext.translation('ubuntu-mate-welcome', localedir=i18n_path, languages=[self.locale], fallback=True)
-            _ = t.gettext
-            dbg.stdout("Translation found for gettext.", dbg.success, 1)
-        except:
-            dbg.stdout("No translation exists for gettext. Using default.", dbg.success, 1)
-            t = gettext.translation('ubuntu-mate-welcome', localedir='/usr/share/locale/', fallback=True)
-            _ = t.gettext
+    # Envrionment
+    "theme_name": "Ambiant-MATE",
+    "dpi": 96
+}
 
 
-##################################
-#  WebKit + Python Communications
-##################################
 class AppView(WebKit2.WebView):
+    """
+    WebView object used for presenting the HTML5-based application and
+    communicating back to the Python application.
+    """
     def __init__(self):
-        # WebKit2 Initalisation
+        """
+        Initalises WebKit2 WebView for rendering and displaying the page.
+        """
         webkit = WebKit2
         webkit.WebView.__init__(self)
         self.set_background_color(Gdk.RGBA(72, 72, 72, 0.28))
 
         # Connect signals to application
-        self.connect('load-changed', self._load_changed_cb)
-        self.connect('notify::title', self._title_changed_cb)
-        self.connect('context-menu', self._context_menu_cb)
+        self.connect("load-changed", self._load_changed_cb)
+        self.connect("notify::title", self._title_changed_cb)
+        self.connect("context-menu", self._context_menu_cb)
 
         # Enable keyboard navigation
         self.get_settings().set_enable_spatial_navigation(True)
@@ -232,13 +133,6 @@ class AppView(WebKit2.WebView):
             inspector = self.get_inspector()
             inspector.show()
 
-        # Set up zoom to match rest of system font
-        self.set_zoom_level(systemstate.zoom_level)
-        dbg.stdout("Setting zoom level to: " + str(systemstate.zoom_level), dbg.debug, 1)
-
-        # Perform a smooth transition for footer icons.
-        self.do_smooth_footer = False
-
     def run_js(self, function):
         """
         Runs a JavaScript function on the page, regardless of which thread it is called from.
@@ -253,436 +147,113 @@ class AppView(WebKit2.WebView):
         self.run_javascript(function)
         return GLib.SOURCE_REMOVE
 
-    def _push_config(self):
-        ### Global - On all pages ###
-
-        # Show the "Scroll to Top" button, excluding the Boutique which has its own button.
-        if not app.current_page == "software.html":
-            app.update_page("#navigation-right", "append", '<button id="scroll-top" class="navigation-button" onclick="backToTop()" style="display:none" title="' + _("Scroll Up") + '"><span class="fa fa-chevron-up"></span></button>')
-
-        # If this is a live session, adapt the UI.
-        if systemstate.session_type == 'live':
-            if app.current_page == 'index.html' or app.current_page == 'gettingstarted.html':
-                app.update_page('.live-session-hide', 'hide')
-                app.update_page('.live-session-only', 'show')
-        else:
-            app.update_page('.live-session-hide', 'show')
-            app.update_page('.live-session-only', 'hide')
-
-        # Display warnings if the user is not connected to the internet.
-        if systemstate.is_online:
-            app.update_page('.offline', 'hide')
-            app.update_page('.online', 'show')
-        else:
-            app.update_page('.offline', 'show')
-            app.update_page('.online', 'hide')
-
-        # Smoothly fade in the footer links between pages.
-        #   splash → index
-        #   index ← → software
-        if self.do_smooth_footer or app.current_page == 'software.html':
-            self.do_smooth_footer = False
-            app.update_page('#footer-left', 'hide')
-            app.update_page('#footer-left', 'fadeIn')
-            app.update_page('#navigation-right', 'hide')
-            app.update_page('#navigation-right', 'fadeIn')
-
-        # Individual Page Actions
-        ### Main Menu ###
-        if app.current_page == 'index.html':
-            app.update_page('#os_version', 'html', systemstate.os_version)
-
-            # Buttons (IDs) to be displayed
-            btns = [ 'introduction', 'features', 'gettingstarted',
-                     'getinvolved', 'shop', 'donate',
-                     'community', 'chatroom', 'software', 'open-at-start'
-                   ]
-
-            # Show Welcome at login state
-            if systemstate.autostart:
-                app.update_page('#autostart', 'addClass', 'fa-check-square')
-                app.update_page('#autostart', 'removeClass', 'fa-square')
-            else:
-                app.update_page('#autostart', 'removeClass', 'fa-check-square')
-                app.update_page('#autostart', 'addClass', 'fa-square')
-
-            # Disable features that are unavailable to guests.
-            if systemstate.session_type == 'guest':
-                btns.remove('gettingstarted')
-                btns.remove('software')
-                btns.remove('open-at-start')
-                app.update_page('#introduction', 'addClass', 'btn-success')
-                app.update_page('#community', 'addClass', 'btn-success')
-
-            # Raspberry Pi button
-            if systemstate.session_type == 'pi':
-                btns.append('raspberry-pi')
-
-            # Swap software for install button in live sessions.
-            if systemstate.session_type == 'live':
-                btns.remove('gettingstarted')
-                btns.remove('software')
-                btns.remove('open-at-start')
-                btns.append('install-guide')
-                btns.append('install')
-
-            # Fade in the menu buttons.
-            for btn_id in btns:
-                app.update_page('#'+btn_id, 'fadeIn')
-
-            # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
-            app.update_page('#update-subscribing', 'hide')
-            if not systemstate.updates_subscribed:
-                if systemstate.is_online:
-                    app.update_page('#update-notification', 'fadeIn', 'slow')
-            else:
-                app.update_page('#update-notification', 'hide')
-
-            # Disable install button on installed systems.
-            if not which("ubiquity"):
-                app.update_page("#install", "prop", "disabled", "true")
-
-        ### Splash ###
-        if app.current_page == 'splash.html':
-            self.do_smooth_footer = True
-
-            # Determine which screen to show after the splash screen.
-            if systemstate.session_type == 'live':
-                self.run_js('var splashNextPage = "hellolive"')
-                self.run_js('var quick_splash = true')
-            elif systemstate.session_type == 'guest':
-                self.run_js('var splashNextPage = "helloguest"')
-                self.run_js('var quick_splash = true')
-            else:
-                self.run_js('var splashNextPage = "index"')
-                self.run_js('var quick_splash = false')
-                app.update_page('#skip-btn', 'fadeIn', 'fast')
-
-            # Load SVG
-            with open(data_path + "img/welcome/triangles.svg", "r") as f:
-                svg_data = f.read().replace("\n", "")
-            app.update_page('#triangles', 'html', svg_data)
-            app.webkit.run_js("runSplash();")
-
-            # Smoothly fade footer when entering main menu.
-            self.splash_finished = True
-
-        ### Chat Page ###
-        if app.current_page == 'chatroom.html':
-            if os.path.exists("/usr/bin/hexchat"):
-                app.update_page('.hexchat', 'show')
-                app.update_page('.webchat', 'hide')
-            else:
-                app.update_page('.hexchat', 'hide')
-                app.update_page('.webchat', 'show')
-
-        ### Getting Started Page ###
-        if app.current_page == 'gettingstarted.html':
-            # Rename the page title when running in a live session.
-            if systemstate.session_type == "live":
-                app.update_page("#navigation-title", "html", _("Installation Guide"))
-
-            # Display information tailored to graphics vendor (Getting Started / Drivers)
-            self.run_js('var graphicsVendor = "' + systemstate.graphics_vendor + '";')
-            self.run_js('var graphicsGrep = "' + systemstate.graphics_grep + '";')
-            app.update_page('#boot-mode', 'html', systemstate.boot_mode)
-
-            # Update any applications featured on these pages.
-            dynamicapps.update_app_status(self, 'hardinfo')
-            dynamicapps.update_app_status(self, 'gparted')
-            dynamicapps.update_app_status(self, 'gnome-disk-utility')
-            dynamicapps.update_app_status(self, 'mate-disk-usage-analyzer')
-            dynamicapps.update_app_status(self, 'mate-system-monitor')
-            dynamicapps.update_app_status(self, 'psensor')
-            dynamicapps.update_app_status(self, 'boot-repair')
-            dynamicapps.update_app_status(self, 'codecs')
-            dynamicapps.update_app_status(self, 'firmware')
-            dynamicapps.update_app_status(self, 'hp-printer')
-            dynamicapps.update_app_status(self, 'solaar')
-            dynamicapps.update_app_status(self, 'keyboard-chinese')
-            dynamicapps.update_app_status(self, 'keyboard-japanese')
-            dynamicapps.update_app_status(self, 'keyboard-korean')
-            dynamicapps.update_app_status(self, 'caja-share')
-            dynamicapps.update_app_status(self, 'libdvdcss2')
-            dynamicapps.update_app_status(self, 'xscreensaver')
-            dynamicapps.update_app_status(self, 'xthemes')
-            dynamicapps.update_app_status(self, 'wallpapers')
-            dynamicapps.update_app_status(self, 'polychromatic')
-            dynamicapps.update_app_status(self, 'openrazer')
-
-        ### Raspberry Pi Page ###
-        if app.current_page == 'rpi.html':
-            # Check file system resize flag.
-            systemstate.rpi_resize('check', self)
-
-        ### Donate ###
-        if app.current_page == 'donate.html':
-            # Pass translatable short-hand month strings for the supporters grid.
-            self.run_js('short_jan = "' + _("Jan") + '"')
-            self.run_js('short_feb = "' + _("Feb") + '"')
-            self.run_js('short_mar = "' + _("Mar") + '"')
-            self.run_js('short_apr = "' + _("Apr") + '"')
-            self.run_js('short_may = "' + _("May") + '"')
-            self.run_js('short_jun = "' + _("Jun") + '"')
-            self.run_js('short_jul = "' + _("Jul") + '"')
-            self.run_js('short_aug = "' + _("Aug") + '"')
-            self.run_js('short_sep = "' + _("Sep") + '"')
-            self.run_js('short_oct = "' + _("Oct") + '"')
-            self.run_js('short_nov = "' + _("Nov") + '"')
-            self.run_js('short_dec = "' + _("Dec") + '"')
-
-        ### Message ###
-        if app.current_page == 'message.html':
-            """ Displays one-time information. """
-            msg_id = app.msg_to_display
-            # Which message to display?
-            if not msg_id:
-                dbg.stdout("No message ID set! Returning to main menu.", dbg.error)
-                app.webkit.run_js("smoothPageFade('index.html')")
-                return
-            elif msg_id == "boutique-on-other-distro":
-                nav_title = _("Unsupported Distribution")
-                body_title = _("Your mileage may wary.")
-                body_text = _("Software Boutique is designed for Ubuntu MATE, but it appears you are " + \
-                       "running a different distribution.") + '</p><p>' + _("While a large selection of software " + \
-                       "will work on other Ubuntu-based distributions, we cannot guarantee " + \
-                       "our featured picks will work flawlessly on your system.") + '</p><p>' + \
-                       '<span class="fa fa-info-circle"></span> ' + _("This message will not be shown again.")
-                image = "img/welcome/boutique-on-other-distro.png"
-                target = "software.html"
-            else:
-                dbg.stdout("Unknown message ID: '" + msg_id + "' - Returning to main menu.", dbg.error)
-                app.webkit.run_js("smoothPageFade('index.html')")
-                return
-
-            # Push message contents to page.
-            app.update_page('#navigation-title', 'html', nav_title)
-            app.update_page('#message-title', 'html', body_title)
-            app.update_page('#message-body', 'html', body_text)
-            app.update_page('#message-image', 'html', "<img src='{0}'/>".format(trans.res_dir + image))
-            app.update_page('#message-link', 'html', "<button class='btn btn-success' onclick=\"smoothPageFade(\'{0}\')\">{1}</button>".format(target, _("Continue")))
-
-        ### Introduction ###
-        if app.current_page == 'introduction.html':
-            for path in ["/usr/share/backgrounds/ubuntu-mate-common/Green-Wall.png",
-                        "/usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Cold-no-logo.png",
-                        "/usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold-no-logo.jpg"]:
-                if os.path.exists(path):
-                    app.update_page(".slogan-box", "attr", "style", "background:url(" + path + ")")
-                    break
-
     def _title_changed_cb(self, view, frame):
+        """
+        Callback when page title has changed.
+
+        This is used to communicate from the HTML page to Python.
+        """
         title = self.get_title()
         if title != 'null' and title != '' and title != None:
             dbg.stdout("=> Command: " + title, dbg.debug, 2)
             self._do_command(title)
 
     def _load_changed_cb(self, view, frame):
-        uri = str(self.get_uri())
-        app.current_page = uri.rsplit('/', 1)[1]
+        """
+        Callback when page URI has changed.
 
-        ### Tweaks to execute before fully loading the page. Prevents flicker in some cases. ###
-        # Adapt the header/footer if a different theme is in use.
-        def light_theme():
-            app.update_page('#navigation', 'css', 'color', 'black')
-            app.update_page('#navigation a', 'css', 'color', 'black')
-            app.update_page('#footer', 'css', 'color', 'black')
-            app.update_page('#footer a', 'css', 'color', 'black')
-            app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
-
-        if systemstate.theme == 'BlackMATE':
-            app.update_page('#navigation', 'css', 'background-color', '#3D3D3F')
-            app.update_page('#footer', 'css', 'background-color', '#3D3D3F')
-        elif systemstate.theme == 'BlueMenta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Blue-Submarine':
-            app.update_page('#navigation', 'css', 'background-color', '#2C404F')
-            app.update_page('#footer', 'css', 'background-color', '#2C404F')
-        elif systemstate.theme == 'GreenLaguna':
-            app.update_page('#navigation', 'css', 'background-color', '#EAF0E8')
-            app.update_page('#footer', 'css', 'background-color', '#EAF0E8')
-            light_theme()
-        elif systemstate.theme == 'ContrastHigh':
-            app.update_page('#navigation', 'css', 'background-color', 'white')
-            app.update_page('#footer', 'css', 'background-color', 'white')
-            light_theme()
-        elif systemstate.theme == 'ContrastHighInverse':
-            app.update_page('#navigation', 'css', 'background-color', 'black')
-            app.update_page('#footer', 'css', 'background-color', 'black')
-        elif systemstate.theme == 'Menta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Radiant-MATE':
-            app.update_page('#navigation', 'css', 'background-color', '#DFD7CF')
-            app.update_page('#footer', 'css', 'background-color', '#DFD7CF')
-            light_theme()
-        elif systemstate.theme == 'TraditionalGreen' or systemstate.theme == 'TraditionalOk':
-            app.update_page('#navigation', 'css', 'background-color', '#E7E6E5')
-            app.update_page('#footer', 'css', 'background-color', '#E7E6E5')
-            light_theme()
-        elif systemstate.theme == 'TraditionalOkTest':
-            app.update_page('#navigation', 'css', 'background-color', '#868883')
-            app.update_page('#footer', 'css', 'background-color', '#868883')
-
+        This loads the rest of the program once the initial HTML page is loaded.
+        """
         # Push contents to page when finished loading.
-        if not self.is_loading():
-            dbg.stdout("Page: " + app.current_page + '\n      ' + uri, dbg.debug, 2)
-            self._push_config()
+        if not self.is_loading() and self.get_uri() != "":
+            dbg.stdout("Page finished loading", dbg.success, 2)
+            self._finished_loading()
+            return
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
-        # Disable context menu.
+        """
+        Callback when right clicking in the area.
+
+        This just disables the context menu.
+        """
         return True
 
+    def _finished_loading(self):
+        """
+        Runs as soon as the initial page has loaded.
+        """
+        Common.spawn_thread(dbg, self.change_page, ["splash"])
+
     def _do_command(self, cmd):
-        if cmd == 'autostart':
-            systemstate.autostart_toggle()
-            self._push_config()
-        elif cmd == 'install':
-            if not which("ubiquity"):
-                print("Installation cannot be started as Ubiquity is missing.")
-            else:
-                subprocess.Popen(['ubiquity', 'gtk_ui'])
-        elif cmd == 'backup':
-            if system.codename in ["xenial", "yakkety", "zesty"]:
-                subprocess.Popen(['deja-dup-preferences'])
-            else:
-                subprocess.Popen(['deja-dup'])
-        elif cmd == 'chatroom':
-            subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
-        elif cmd == 'control':
-            subprocess.Popen(['mate-control-center'])
-        elif cmd == 'drivers':
-            subprocess.Popen(['software-properties-gtk','--open-tab=4'])
-        elif cmd == 'firewall':
-            subprocess.Popen(['gufw'])
-        elif cmd == 'language':
-            subprocess.Popen(['gnome-language-selector'])
-        elif cmd == 'users':
-            subprocess.Popen(['users-admin'])
-        elif cmd == 'quit':
+        """
+        Invoked from page - runs a command. Parameters are separated by '?'.
+
+        Commands are invoked from JavaScript using cmd('')
+        """
+        parameters = cmd.split('?')[1:]
+
+        # Try page specific commands.
+        if variables["pages"][variables["current_page"]].do_command(variables, cmd):
+            dbg.stdout("Successfully ran page command: " + cmd, dbg.success, 2)
+            return True
+
+        # Global commands
+        if cmd == "quit":
             app.close()
-        elif cmd == 'tweak':
-            subprocess.Popen(['mate-tweak'])
-        elif cmd == 'update':
-            subprocess.Popen(['update-manager'])
-        elif cmd == 'printers':
-            subprocess.Popen(['system-config-printer'])
-        elif cmd == 'gparted':
-            subprocess.Popen(['gparted-pkexec'])
-        elif cmd == 'sysmonitor':
-            subprocess.Popen(['mate-system-monitor'])
-        elif cmd.startswith('run?'):
-            subprocess.Popen([cmd[4:]])
-        elif cmd.startswith('link?'):
-            webbrowser.open_new_tab(cmd[5:])
-        elif cmd == 'checkInternetConnection':
-            systemstate.check_internet_connection()
-            if systemstate.is_online:
-                app.update_page('.offline', 'hide')
-                app.update_page('.online', 'show')
-            else:
-                app.update_page('.offline', 'show')
-                app.update_page('.online', 'hide')
-        elif cmd == 'resize-rpi':
-            systemstate.rpi_resize('do-resize', self)
-        elif cmd == 'reboot-rpi':
-            systemstate.rpi_resize('reboot')
-        elif cmd == 'subscribe-updates':
-            dbg.stdout("Subscribing to Ubuntu MATE Welcome Updates...", dbg.action)
-            app.update_page('#update-notification', 'hide')
-            app.update_page('#update-subscribing', 'show')
-            dynamicapps.modify_app(self, 'install', 'ubuntu-mate-welcome')
-            # Verify if the PPA was successfully added.
-            if os.path.exists(systemstate.welcome_ppa_file):
-                if os.path.getsize(systemstate.welcome_ppa_file) > 0:
-                    dbg.stdout("Success - Welcome PPA Added! Restarting application...", dbg.success)
-                    os.execv(__file__, sys.argv)
-            else:
-                dbg.stdout("Failed - Welcome PPA not detected!", dbg.error)
-                app.update_page('#update-subscribing', 'hide')
-                app.update_page('#update-notification', 'show')
-        elif cmd == 'init-system-info':
-            systemstate.get_system_info(self)
-        elif cmd.startswith('search'):
-            keywords = cmd.split('?')[1]
-            dynamicapps.perform_search(self, keywords)
-        elif cmd.startswith('set-pref'):
-            key = cmd.split('?')[1]
-            value = cmd.split('?')[2]
-            pref.write(key, value)
-        elif cmd.startswith('toggle-pref'):
-            key = cmd.split('?')[1]
-            pref.toggle(key)
-            pref.refresh_pref_page(key)
-            queue.refresh_page_state()
-        elif cmd.startswith('clipboard'):
-            var = cmd.split('?')[1]
-            systemstate.copy_to_clipboard(var)
-        elif cmd.startswith('message'):
-            app.msg_to_display = cmd.split('?')[1]
-            self.run_js("smoothPageFade('message.html')")
-        elif cmd == 'list-repos':
-            dynamicapps.populate_repos()
         else:
-            dbg.stdout("Unknown command: " + cmd, dbg.error, 1)
+            dbg.stdout("Unimplemented command: " + cmd, dbg.error)
+            return
 
+        dbg.stdout("Successfully ran global command: " + cmd, dbg.success, 2)
 
-##################################
-#  Welcome Main Application
-##################################
+    def update_page(self, element, function, parm1=None, parm2=None):
+        """
+        Runs a JavaScript jQuery function on the page,
+        ensuring correctly parsed quotes.
+        """
+        if parm1 and parm2:
+            self.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
+        if parm1:
+            self.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
+        else:
+            self.run_js('$("' + element + '").' + function + '()')
+
+    def change_page(self, new_page):
+        """
+        Transition in and out of pages.
+        """
+        current_page = variables["current_page"]
+
+        # Only execute the exit function if leaving a previous page.
+        # When the application first starts, this is blank.
+        if not current_page == "":
+            dbg.stdout("Leaving page: " + current_page, dbg.debug, 1)
+            variables["pages"][current_page].page_exit(variables)
+
+        variables["current_page"] = new_page
+        dbg.stdout("Entering page: " + new_page, dbg.debug, 1)
+        variables["pages"][new_page].page_enter(variables)
+
 
 class WelcomeApp(object):
+    """
+    Logic for building and bootstrapping the Welcome application window.
+    """
     def __init__(self):
-        # Set variables
-        self.current_page = ""
+        """
+        Prepares variables specific to Welcome's runtime.
+        """
         self.webkit = None
         self.load_app()
 
-        ## Social Links ##
-        self.footer_left = '<div id="social" class="pull-left"> \
-        <button onclick="cmd(\'link?https://ubuntu-mate.org\')" title="https://ubuntu-mate.org"><img src="' + trans.res_dir + 'img/welcome/website.svg"></button> \
-        <button onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></button> \
-        <button onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></button> \
-        <button onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></button> \
-        <button onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="' + _("Donate to Ubuntu MATE") + '"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></button> \
-        </div>'
-        self.footer_close = '<button onclick="cmd(\'quit\')" class="btn btn-inverse">' + _("Close") + '&zwnj;</button>'
-
     def load_app(self):
-        title = _("Welcome")
-        width = 800
-        height = 552
-        load_file = 'splash.html'
-
-        # Enlarge the window should the text be any larger.
-        if systemstate.zoom_level == 1.1:
-            width = width + 20
-            height = height + 20
-        elif systemstate.zoom_level == 1.2:
-            width = width + 60
-            height = height + 40
-        elif systemstate.zoom_level == 1.3:
-            width = width + 100
-            height = height + 60
-        elif systemstate.zoom_level == 1.4:
-            width = width + 130
-            height = height + 100
-        elif systemstate.zoom_level == 1.5:
-            width = width + 160
-            height = height + 120
-
-        # Jump to a specific page for testing purposes.
-        if args.jump_to:
-            load_file = args.jump_to + '.html'
-
-        # Build window
+        """
+        Builds the application's main window.
+        """
         w = Gtk.Window()
         w.set_position(Gtk.WindowPosition.CENTER)
-        w.set_wmclass('ubuntu-mate-welcome', 'ubuntu-mate-welcome')
-        w.set_title(title)
+        w.set_wmclass("ubuntu-mate-welcome", "ubuntu-mate-welcome")
+        w.set_title(_("Welcome"))
         w.modify_bg(Gtk.StateType(0), Gdk.Color(72, 72, 72))
 
         # http://askubuntu.com/questions/153549/how-to-detect-a-computers-physical-screen-size-in-gtk
@@ -690,18 +261,16 @@ class WelcomeApp(object):
         if s.get_height() <= 600:
             w.set_size_request(768, 528)
         else:
-            w.set_size_request(width, height)
+            w.set_size_request(800, 552)
 
-        icon_dir = os.path.join(data_path, 'img', 'welcome', 'ubuntu-mate-icon.svg')
+        icon_dir = os.path.join(variables["data_path"], 'img', 'welcome', 'ubuntu-mate-icon.svg')
         w.set_icon_from_file(icon_dir)
 
         # Build WebKit2 container
         self.webkit = AppView()
 
         # Load the starting page
-        path = os.path.abspath(os.path.join(trans.pages_dir, load_file))
-        uri = 'file://' + urllib.request.pathname2url(path)
-        self.webkit.load_uri(uri)
+        self.webkit.load_uri("file://" + os.path.join(variables["data_path"], "welcome.html"))
 
         # Build scrolled window widget and add our appview container
         sw = Gtk.ScrolledWindow()
@@ -718,715 +287,109 @@ class WelcomeApp(object):
         w.show_all()
 
         self._window = w
+        variables["objects"]["update_page"] = self.webkit.update_page
+        variables["objects"]["change_page"] = self.webkit.change_page
 
     def run(self):
+        """
+        Start the application.
+        """
         signal.signal(signal.SIGINT, signal.SIG_DFL)
         Gtk.main()
 
     def close(self, window=None, event=None):
+        """
+        Stop the application.
+        """
         dbg.stdout("Application Closed", dbg.debug, 2)
         Gtk.main_quit()
         exit(0)
 
-    def update_page(self, element, function, parm1=None, parm2=None):
-        """ Runs a JavaScript jQuery function on the page,
-            ensuring correctly parsed quotes. """
-        if parm1 and parm2:
-            self.webkit.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
-        if parm1:
-            self.webkit.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
-        else:
-            self.webkit.run_js('$("' + element + '").' + function + '()')
 
-
-class SystemState(object):
-    def __init__(self):
-        # Set default variables
-        self.is_online = False
-        self.updates_subscribed = False
-        self.rpi_resize_pending = False
-        self.welcome_version = 'Unknown'
-
-        # Get user details.
-        self.user_name = GLib.get_user_name()
-
-        # Full path to binary
-        self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
-
-        # User's autostart directory and full path to autostart symlink.
-        # Used for systemstate.autostart_toggle() function.
-        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
-        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
-        self.autostart = self.autostart_check()
-
-        # Get current architecture of system.
-        # Outputs 'i386', 'amd64', etc - Based on packages instead of kernel (eg. i686, x86_64).
-        self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
-
-        # Get current version / codename of Ubuntu MATE in use.
-        self.os_version = platform.dist()[1]    # → 14.04, 15.10, 16.04
-        self.codename = platform.dist()[2]      # → trusty, wily, xenial
-
-        # Are we running in Ubuntu MATE?
-        self.is_ubuntu_mate = True
-        #~ if not self.apt_cache['ubuntu-mate-desktop'].is_installed or not self.apt_cache['ubuntu-mate-core'].is_installed:
-            #~ if os.environ.get('DESKTOP_SESSION') != "mate":
-                #~ self.is_ubuntu_mate = False
-
-        # Determine which type of session we are in.
-        if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
-            self.session_type = 'live'
-        elif self.user_name[:6] == 'guest-':
-            self.session_type = 'guest'
-        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')):
-            self.session_type = 'pi'
-        else:
-            self.session_type = 'normal'
-
-        # To inform the user if they are running in BIOS or UEFI mode.
-        if os.path.exists("/sys/firmware/efi"):
-            self.boot_mode = 'UEFI'
-        elif self.session_type == 'pi':
-            self.boot_mode = 'Raspberry Pi'
-        elif self.arch == 'powerpc':
-            self.boot_mode = 'Yaboot'
-        else:
-            self.boot_mode = 'BIOS'
-
-        # Multithread to prevent holding up program execution.
-        thread1 = Thread(target=self.check_internet_connection)
-        thread2 = Thread(target=self.detect_graphics)
-        thread1.start()
-        thread2.start()
-
-        # Check whether Welcome is subscribed for updates.
-        self.welcome_ppa_file = '/etc/apt/sources.list.d/ubuntu-mate-dev-ubuntu-welcome-' + self.codename + '.list'
-        if os.path.exists(self.welcome_ppa_file):
-            if os.path.getsize(self.welcome_ppa_file) > 0:
-                self.updates_subscribed = True
-
-        # FIXME: Get GTK scale
-        self.dpi = 96
-        self.zoom_level = 1.0
-
-        # For adjusting the colours for other default themes.
-        if self.is_ubuntu_mate:
-            try:
-                dconf = Gio.Settings.new('org.mate.interface')
-                self.theme = str(dconf.get_value('gtk-theme')).strip("'")
-            except:
-                self.theme = 'Ambiant-MATE'
-        else:
-            self.theme = 'Ambiant-MATE'
-
-    def autostart_check(self):
-        # Ensure our autostart directories exist
-        if not os.path.exists(self._autostart_dir):
-            try:
-                os.makedirs(self._autostart_dir)
-            except OSError as err:
-                dbg.stdout("Error while checking autostart directory: " + str(err), dbg.error)
-                pass
-
-        # Set boolean if the autostart file exists.
-        if os.path.exists(self._autostart_path):
-            return True
-        else:
-            return False
-
-    def autostart_toggle(self):
-        if not os.path.exists(self._autostart_path):
-            # create the autostart symlink
-            try:
-                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
-            except OSError as err:
-                dbg.stdout("Error while enabling autostart: " + str(err), dbg.error)
-                pass
-
-        elif os.path.exists(self._autostart_path):
-            # remove the autostart symlink
-            try:
-                os.unlink(self._autostart_path)
-            except OSError as err:
-                dbg.stdout("Error while disabling autostart: " + str(err), dbg.error)
-                pass
-
-        self.autostart = self.autostart_check()
-        dbg.stdout("Auto start toggled to: " + str(self.autostart), dbg.debug, 1)
-
-    def check_internet_connection(self):
-        url = "http://archive.ubuntu.com/"
-        dbg.stdout("Establishing a connection test to: " + url, dbg.debug, 1)
-
-        if args.simulate_no_connection:
-            dbg.stdout("Simulation flag: Forcing no connection presence. Retrying will reset this.", dbg.debug, 1)
-            args.simulate_no_connection = False
-            self.is_online = False
-            return
-
-        if args.simulate_force_connection:
-            dbg.stdout("Simulation flag: Forcing a connection presence.", dbg.debug, 1)
-            dbg.stdout("WARNING: Do not attempt to install/remove software offline as this may cause problems!", dbg.debug, 1)
-            args.simulate_connection = False
-            self.is_online = True
-            return
-
-        try:
-            response = urllib.request.urlopen(url, timeout=2).read().decode('utf-8')
-        except socket.timeout:
-            dbg.stdout("Failed. Socket timed out to URL: " + url, dbg.error, 1)
-            self.is_online = False
-        except:
-            dbg.stdout("Couldn't establish a connection: " + url, dbg.error, 1)
-            self.is_online = False
-        else:
-            dbg.stdout("Successfully pinged: " + url, dbg.success, 1)
-            self.is_online = True
-
-    def detect_graphics(self):
-        # If we're the Raspberry Pi, there is nothing to output.
-        if self.session_type == 'pi':
-            self.graphics_grep = 'Raspberry Pi'
-            self.graphics_vendor = 'Raspberry Pi'
-            return
-
-        # TODO: Support dual graphic cards.
-        dbg.stdout("Detecting graphics vendor... ", dbg.action, 1)
-        try:
-            output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
-            output = output.decode(encoding='UTF-8')
-        except:
-            # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
-            dbg.stdout("Couldn't detect a VGA Controller on this system.", dbg.error, 1)
-            output = 'Unknown'
-
-        # Scan for and set known brand name.
-        if output.find('NVIDIA') != -1:
-            self.graphics_vendor = 'NVIDIA'
-        elif output.find('AMD') != -1:
-            self.graphics_vendor = 'AMD'
-        elif output.find('Intel') != -1:
-            self.graphics_vendor = 'Intel'
-        elif output.find('VirtualBox') != -1:
-            self.graphics_vendor = 'VirtualBox'
-        else:
-            self.graphics_vendor = 'Unknown'
-
-        self.graphics_grep = repr(output)
-        self.graphics_grep = self.graphics_grep.split("controller: ",1)[1]
-        self.graphics_grep = self.graphics_grep.split("\\n",1)[0]
-        dbg.stdout("Detected: " + str(self.graphics_grep), dbg.debug, 1)
-
-    def get_system_info(self, webkit):
-        dbg.stdout("Gathering system specifications...", dbg.action, 1)
-
-        # Prefixes for translation
-        mb_prefix = _("MB")
-        mib_prefix = _("MiB")
-        gb_prefix = _("GB")
-        gib_prefix = _("GiB")
-
-        # Start collecting advanced system information in the background.
-        # (Runs in own thread to prevent holding up screen)
-        inxi_thread = Thread(target=self.get_inxi_info)
-        inxi_thread.start()
-
-        # Append a failure symbol beforehand in event something goes horribly wrong.
-        stat_error_msg = _("Could not gather data.")
-        html_tag = '<button data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></button>'
-        for element in ['distro', 'kernel', 'motherboard', 'boot-mode', 'cpu-model', 'cpu-speed', 'arch-use',
-                        'arch-supported', 'memory', 'graphics', 'filesystem', 'capacity', 'allocated-space', 'free-space']:
-            app.update_page('#spec'+element, 'html', html_tag)
-
-        ## Distro
-        try:
-            dbg.stdout("Gathering Data: Distribution", dbg.action, 1)
-            distro_description = run_external_command(['lsb_release','-d','-s'])
-            distro_codename = run_external_command(['lsb_release','-c','-s'])
-            app.update_page('#spec-distro', 'html', distro_description)
-        except:
-            dbg.stdout("Failed to gather data: Distribution", dbg.error, 1)
-
-        ## Kernel
-        try:
-            dbg.stdout("Gathering Data: Kernel", dbg.action, 1)
-            kernel = run_external_command(['uname','-r'])
-            app.update_page('#spec-kernel', 'html', kernel)
-        except:
-            dbg.stdout("Failed to gather data: Kernel", dbg.error, 1)
-
-        ## Motherboard
-        try:
-            dbg.stdout("Gathering Data: Motherboard", dbg.action, 1)
-            motherboard_name = run_external_command(['cat','/sys/devices/virtual/dmi/id/board_name'])
-            app.update_page('#spec-motherboard', 'html', motherboard_name)
-        except:
-            dbg.stdout("Failed to gather data: Motherboard", dbg.error, 1)
-
-        ## CPU Details
-        dbg.stdout("Gathering Data: CPU", dbg.action, 1)
-        try:
-            cpu_model = run_external_command(['lscpu | grep "name"'], True).split(': ')[1]
-            app.update_page('#spec-cpu-model', 'html', cpu_model)
-        except:
-            dbg.stdout("Failed to gather data: CPU Model", dbg.error, 1)
-
-        try:
-            try:
-                # Try obtaining the maximum speed first.
-                cpu_speed = int(run_external_command(['lscpu | grep "max"'], True).split(': ')[1].strip(' ').split('.')[0])
-            except:
-                # Otherwise, fetch the CPU's MHz.
-                cpu_speed = int(run_external_command(['lscpu | grep "CPU MHz"'], True).split(': ')[1].strip(' ').split('.')[0])
-
-            app.update_page('#spec-cpu-speed', 'html', str(cpu_speed) + ' MHz')
-        except:
-            dbg.stdout("Failed to gather data: CPU Speed", dbg.error, 1)
-
-        try:
-            if self.arch == 'i386':
-                cpu_arch_used = '32-bit'
-            elif self.arch == 'amd64':
-                cpu_arch_used = '64-bit'
-            else:
-                cpu_arch_used = self.arch
-            app.update_page('#spec-arch-use', 'html', cpu_arch_used)
-        except:
-            dbg.stdout("Failed to gather data: CPU Architecture", dbg.error, 1)
-
-        try:
-            cpu_arch_supported = run_external_command(['lscpu | grep "mode"'], True).split(': ')[1]
-            app.update_page('#spec-arch-supported', 'html', cpu_arch_supported)
-        except:
-            dbg.stdout("Failed to gather data: CPU Supported Architectures", dbg.error, 1)
-
-        ## Root partition (where Ubuntu MATE is installed) and the rest of that disk.
-        try:
-            if self.session_type == 'live':
-                app.update_page('.spec-hide-live-session', 'hide')
-            else:
-                dbg.stdout("Gathering Data: Storage", dbg.action, 1)
-                ## Gather entire disk data
-                root_partition = run_external_command(['mount | grep "on / "'], True).split(' ')[0]
-                if root_partition[:-2] == "/dev/sd":            # /dev/sdXY
-                    root_dev = root_partition[:-1]
-                if root_partition[:-2] == "/dev/hd":            # /dev/hdXY
-                    root_dev = root_partition[:-1]
-                if root_partition[:-3] == "/dev/mmcblk":        # /dev/mmcblkXpY
-                    root_dev = root_partition[:-2]
-                else:
-                    root_dev = root_partition[:-1]              # Generic
-                disk_dev_name = root_dev.split('/')[2]
-                dbg.stdout("Ubuntu MATE is installed on disk: " + root_dev, dbg.debug, 1)
-                rootfs = os.statvfs('/')
-                root_size = rootfs.f_blocks * rootfs.f_frsize
-                root_free = rootfs.f_bavail * rootfs.f_frsize
-                root_used = root_size - root_free
-                entire_disk = run_external_command(['lsblk -b | grep "' + disk_dev_name + '" | grep "disk"'], True)
-                entire_disk = int(entire_disk.split()[3])
-
-                ## Perform calculations across units
-                capacity_GB =   round(entire_disk/1000/1000/1000,1)
-                capacity_GiB =  round(entire_disk/1024/1024/1024,1)
-                allocated_GB =  round(root_size/1000/1000/1000,1)
-                allocated_GiB = round(root_size/1024/1024/1024,1)
-                used_GB =       round(root_used/1000/1000/1000,1)
-                used_GiB =      round(root_used/1024/1024/1024,1)
-                free_GB =       round(root_free/1000/1000/1000,1)
-                free_GiB =      round(root_free/1024/1024/1024,1)
-                other_GB =      round((entire_disk-root_size)/1000/1000/1000,1)
-                other_GiB =     round((entire_disk-root_size)/1024/1024/1024,1)
-
-                # Show megabytes/mebibytes (in red) if gigabytes are too small.
-                if capacity_GB <= 1:
-                    capacity_GB = str(round(entire_disk/1000/1000,1)) + ' ' + mb_prefix
-                    capacity_GiB = str(round(entire_disk/1024/1024,1)) + ' ' + mib_prefix
-                else:
-                    capacity_GB = str(capacity_GB) + ' ' + gb_prefix
-                    capacity_GiB = str(capacity_GiB) + ' ' + gib_prefix
-
-                if allocated_GB <= 1:
-                    allocated_GB =  str(round(root_size/1000/1000,1)) + ' ' + mb_prefix
-                    allocated_GiB = str(round(root_size/1024/1024,1)) + ' ' + mib_prefix
-                else:
-                    allocated_GB = str(allocated_GB) + ' ' + gb_prefix
-                    allocated_GiB = str(allocated_GiB) + ' ' + gib_prefix
-
-                if used_GB <= 1:
-                    used_GB =  str(round(root_used/1000/1000,1)) + ' ' + mb_prefix
-                    used_GiB = str(round(root_used/1024/1024,1)) + ' ' + mib_prefix
-                else:
-                    used_GB = str(used_GB) + ' ' + gb_prefix
-                    used_GiB = str(used_GiB) + ' ' + gib_prefix
-
-                if free_GB <= 1:
-                    free_GB =  str(round(root_free/1000/1000,1)) + ' ' + mb_prefix
-                    free_GiB = str(round(root_free/1024/1024,1)) + ' ' + mib_prefix
-                    app.update_page('#spec-free-space', 'addClass', 'specs-error')
-                else:
-                    free_GB = str(free_GB) + ' ' + gb_prefix
-                    free_GiB = str(free_GiB) + ' ' + gib_prefix
-
-                if other_GB <= 1:
-                    other_GB =  str(round((entire_disk-root_size)/1000/1000,1)) + ' ' + mb_prefix
-                    other_GiB = str(round((entire_disk-root_size)/1024/1024,1)) + ' ' + mib_prefix
-                else:
-                    other_GB = str(other_GB) + ' ' + gb_prefix
-                    other_GiB = str(other_GiB) + ' ' + gib_prefix
-
-                ## Append data to HTML.
-                app.update_page('#spec-filesystem', 'html', root_partition)
-                app.update_page('#spec-capacity', 'html', capacity_GB + ' <span class=\'secondary-value\'>(' + capacity_GiB + ')</span>')
-                app.update_page('#spec-allocated-space', 'html',  allocated_GB + ' <span class=\'secondary-value\'>(' + allocated_GiB + ')</span>')
-                app.update_page('#spec-used-space', 'html', used_GB + ' <span class=\'secondary-value\'>(' + used_GiB + ')</span>')
-                app.update_page('#spec-free-space', 'html', free_GB + ' <span class=\'secondary-value\'>(' + free_GiB + ')</span>')
-                app.update_page('#spec-other-space', 'html', other_GB + ' <span class=\'secondary-value\'>(' + other_GiB + ')</span>')
-
-                ## Calculate representation across physical disk
-                disk_percent_UM_used = int(round(root_used / entire_disk * 100)) * 2
-                disk_percent_UM_free = int(round(root_free / entire_disk * 100)) * 2
-                disk_percent_other   = (200 - disk_percent_UM_used - disk_percent_UM_free)
-                dbg.stdout(' Disk: ' + root_dev, dbg.debug, 1)
-                dbg.stdout('  -- OS Used: ' + str(root_used) + ' bytes (' + str(disk_percent_UM_used/2) + '%)', dbg.debug)
-                dbg.stdout('  -- OS Free: ' + str(root_free) + ' bytes (' + str(disk_percent_UM_free/2) + '%)', dbg.debug, 1)
-                dbg.stdout('  -- Other Partitions: ' + str(entire_disk - root_size) + ' bytes (' + str(disk_percent_other/2) + '%)', dbg.debug, 1)
-
-                app.update_page('#disk-used', 'width', str(disk_percent_UM_used) + 'px')
-                app.update_page('#disk-free', 'width', str(disk_percent_UM_free) + 'px')
-                app.update_page('#disk-other', 'width', str(disk_percent_other) + 'px')
-
-        except:
-            dbg.stdout("Failed to gather data: Storage", dbg.error, 1)
-
-        ## RAM
-        try:
-            dbg.stdout("Gathering Data: RAM (Memory)", dbg.action, 1)
-            ram_bytes = run_external_command(['free -b | grep "Mem:" '], True)
-            ram_bytes = float(ram_bytes.split()[1])
-            if round(ram_bytes / 1024 / 1024) < 1024:
-                ram_xb = str(round(ram_bytes / 1000 / 1000, 1)) + ' ' + mb_prefix
-                ram_xib = str(round(ram_bytes / 1024 / 1024, 1)) + ' ' + mib_prefix
-            else:
-                ram_xb =  str(round(ram_bytes / 1000 / 1000 / 1000, 1)) + ' ' + gb_prefix
-                ram_xib = str(round(ram_bytes / 1024 / 1024 / 1024, 1)) + ' ' + gib_prefix
-            ram_string = ram_xb + ' <span class=\'secondary-value\'>(' + ram_xib + ')</span>'
-            app.update_page('#spec-memory', 'html', ram_string)
-        except:
-            dbg.stdout("Failed to gather data: RAM (Memory)", dbg.error, 1)
-
-        ## Graphics
-        app.update_page('#spec-graphics', 'html', self.graphics_grep)
-
-        ## Collect missing data differently for some architectures.
-        if systemstate.arch == 'powerpc':
-            ## Motherboard & Revision
-            try:
-                dbg.stdout('Gathering Data: PowerPC Motherboard', dbg.action, 1)
-                mb_model = run_external_command(['grep','motherboard','/proc/cpuinfo']).split(': ')[1]
-                mb_rev = run_external_command(['grep','revision','/proc/cpuinfo']).split(': ')[1]
-                app.update_page('#spec-motherboard', 'html', mb_model + ' ' + mb_rev)
-            except:
-                dbg.stdout('Failed to gather data: PowerPC Motherboard', dbg.error, 1)
-
-            ## CPU and Clock Speed
-            try:
-                dbg.stdout('Gathering Data: PowerPC CPU', dbg.action, 1)
-                cpu_model = run_external_command(['grep','cpu','/proc/cpuinfo']).split(': ')[1]
-                cpu_speed = run_external_command(['grep','clock','/proc/cpuinfo']).split(': ')[1]
-                app.update_page('#spec-cpu-model', 'html', cpu_model)
-                app.update_page('#spec-cpu-speed', 'html', str(cpu_speed))
-            except:
-                dbg.stdout('Failed to gather data: PowerPC CPU', dbg.error, 1)
-
-            ## Device Name
-            try:
-                dbg.stdout('Gathering Data: PowerPC Model Name', dbg.action, 1)
-                mb_name = run_external_command(['grep','detected','/proc/cpuinfo']).split(': ')[1]
-                app.update_page('#spec-motherboard', 'append', ' / ' + mb_name)
-            except:
-                dbg.stdout('Failed to gather data: PowerPC Model Name', dbg.error, 1)
-
-            ## Boot Mode / PowerMac Generation
-            try:
-                dbg.stdout('Gathering Data: PowerMac Generation', dbg.action, 1)
-                mac_generation = run_external_command(['grep','pmac-generation','/proc/cpuinfo']).split(': ')[1]
-                app.update_page('#spec-boot-mode', 'html', 'Yaboot (' + mac_generation + ')')
-            except:
-                dbg.stdout('Failed to gather data: PowerMac Generation', dbg.error, 1)
-
-        # Check internet connectivity status.
-        if self.is_online:
-            app.update_page('#specs-has-net', 'show')
-            app.update_page('#specs-has-no-net', 'hide')
-        else:
-            app.update_page('#specs-has-net', 'hide')
-            app.update_page('#specs-has-no-net', 'show')
-
-        # Change icon depending on what type of device we are using.
-        if self.session_type == 'pi':
-            app.update_page('#specs-device-rpi', 'show')
-            app.update_page('.specs-hide-pi', 'show')
-        elif self.arch == 'powerpc':
-            app.update_page('#specs-device-powerpc', 'show')
-            app.update_page('.specs-hide-ppc', 'hide')
-        elif self.graphics_vendor == 'VirtualBox':
-            app.update_page('#specs-device-vbox', 'show')
-            app.update_page('.specs-hide-vbox', 'hide')
-        elif self.session_type == 'live':
-            app.update_page('#specs-live-session', 'show')
-            app.update_page('.specs-live-live', 'hide')
-        else:
-            app.update_page('#specs-device-normal', 'show')
-
-        # Display UEFI/BIOS boot mode.
-        if systemstate.arch == 'i386' or systemstate.arch == 'amd64':
-            app.update_page('#spec-boot-mode', 'html', self.boot_mode)
-
-        # Hide root storage info if in a live session.
-        if self.session_type == 'live':
-            app.update_page('.spec-3', 'hide')
-
-        # Data cached, ready to display.
-        app.update_page('#specs-loading', 'fadeOut', 'fast')
-        app.update_page('#specs-tabs', 'fadeIn', 'fast')
-        app.update_page('#specs-basic', 'fadeIn', 'medium')
-        app.update_page('#specs-busy-basic', 'fadeOut', 'fast')
-        webkit.run_js('setCursorNormal()')
-
-    def get_inxi_info(self):
-        dbg.stdout('Gathering advanced system information with "inxi"...', dbg.action, 1)
-        try:
-            inxi_output = str(subprocess.Popen(['inxi','-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE).communicate()[0])
-        except:
-            dbg.stdout('Failed to execute collect advanced information. Is "inxi" no longer installed?', dbg.error)
-
-        # Append advanced system information
-        try:
-            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
-            self.inxi = inxi_output
-            app.update_page('#specs-inxi', 'html', '')
-            for line in inxi_output.split('\n'):
-                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
-            app.update_page('#specs-inxi-busy', 'slideUp')
-            app.update_page('#specs-inxi', 'slideDown')
-            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
-            app.update_page('#specs-inxi-copy', 'slideDown')
-            dbg.stdout('Successfully appended advanced system information.', dbg.success, 1)
-        except:
-            dbg.stdout('Failed to append advanced system information or communicate with "inxi" process.', dbg.error)
-            app.update_page('#specs-inxi-busy', 'slideUp')
-            app.update_page('#specs-inxi-error', 'slideDown')
-
-    def rpi_resize(self, action, webkit=None):
-        if action == 'do-resize':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
-
-            def notify(subject, body, icon):
-                Notify.init(_('Raspberry Pi Partition Resize'))
-                resize_notify=Notify.Notification.new(subject, body, icon)
-                resize_notify.show()
-
-            try:
-                with open('/tmp/notify_rpi_status') as status_file:
-                    status_code = int(status_file.read())
-            except:
-                status_code = 0
-
-            try:
-                with open('/tmp/notify_rpi_text') as misc_file:
-                    misc_text = misc_file.read()
-            except:
-                misc_text = ""
-
-            if status_code == 1:
-                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
-                self.rpi_resize_pending = True
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'hide')
-                app.update_page('#rpi-restart-now', 'show')
-            elif status_code == 2:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("does not exist or is not a symlink."), 'dialog-error' )
-            elif status_code == 3:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not an SD card."), 'dialog-error' )
-            elif status_code == 4:
-                notify( _("Don't know how to expand."), _("Your partition layout is not currently supported by this tool."), 'dialog-error' )
-            elif status_code == 5:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
-            else:
-                notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
-                dbg.stdout('Unrecognised return code for Raspberry Pi resize: ' + str(status_code), dbg.error)
-
-            app.webkit._push_config()
-
-        elif action == 'check':
-            if os.path.exists('/.resized'):
-                resized = True
-            else:
-                resized = False
-
-            if resized:
-                app.update_page('#rpi-resized', 'show')
-                app.update_page('#rpi-not-resized', 'hide')
-            else:
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'show')
-
-            if self.rpi_resize_pending:
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'hide')
-                app.update_page('#rpi-restart-now', 'show')
-
-        elif action == 'reboot':
-            subprocess.call(['mate-session-save','--shutdown-dialog'])
-
-    def copy_to_clipboard(self, var):
-        # Copies text to clipboard, passes 'var' containing what we'd like copying.
-        if var == 'inxi':
-            contents = self.inxi
-        else:
-            dbg.stdout("Clipboard - Unknown variable to copy: " + var, dbg.error)
-            return
-
-        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clipboard.set_text(contents, -1)
-        clipboard.store()
-
-    def get_system_repository_state(self, repo):
-        # Used to determine if a system repository is enabled.
-        # E.g. "main", "multiverse".
-        raw = run_external_command("grep '" + self.codename + " " + repo + "' /etc/apt/sources.list | grep -v 'deb-src' | grep -v 'cdrom'", True)
-        # Check for a commented line.
-        if raw[:1] != '#':
-            dbg.stdout("Repository", "Checked: '" + repo + "' = Enabled", 2, 3)
-            return True
-        else:
-            dbg.stdout("Repository", "Checked: '" + repo + "' = Disabled", 2, 3)
-            return False
-
-    def refresh_pref_page(self, key):
-        # Response when setting is changed via "cmd('set-pref?xxx?yyy')" or "cmd('toggle-pref?xxx')"
-        try:
-            value = self.data[key]
-            dbg.stdout('Config', 'Updating preferences page for key: ' + key + ' (' + str(value) + ')', 2, 4)
-        except:
-            dbg.stdout('Config', 'No data exists for "' + key + '"!', 1, 1)
-            return
-
-        # For boolean data, set check boxes
-        if type(value) is bool:
-            if value == True:
-                app.update_page('#pref-' + key, 'removeClass', 'fa-square')
-                app.update_page('#pref-' + key, 'addClass', 'fa-check-square')
-            else:
-                app.update_page('#pref-' + key, 'addClass', 'fa-square')
-                app.update_page('#pref-' + key, 'removeClass', 'fa-check-square')
-
-        dbg.stdout("Copied contents of: " + var, dbg.success, 1)
-
-
-class Arguments(object):
+def process_arguments():
     """
-    Checks arguments for diagnosis and testing.
+    Checks and assigns arguments intended for diagnosis and testing purposes.
     """
+    parser = argparse.ArgumentParser(add_help=False)
+    parser._optionals.title = _("Optional arguments")
+    parser.add_argument("-h", "--help", help=_("Show this help message and exit"), action="help")
+    parser.add_argument("--version", help=_("Print progran version and exit"), action="store_true")
+    parser.add_argument("-v", "--verbose", help=_("Be verbose to stdout"), action="store_true")
+    parser.add_argument("-vv", "-d", "--debug", help=_("Be very verbose (for debugging)"), action="store_true")
+    parser.add_argument("--locale", help=_("Force locale for interface"))
+    parser.add_argument("--force-net", help=_("Assume network capabilities"), action="store_true")
+    parser.add_argument("--force-no-net", help=_("Assume network is unreachable"), action="store_true")
+    parser.add_argument("--force-session", help=_("Show information for a specific environment."), choices=variables["sessions"])
+    #~ parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=pages)
+    parser.add_argument("-b", "--boutique", "--software-only", help=_("Opens the Software Boutique application"), action="store_true")
 
-    def __init__(self):
-        self.verbose_enabled = False
-        self.simulate_session = None
-        self.simulate_no_connection = False
-        self.simulate_force_connection = False
-        self.locale = None
-        self.jump_to = None
+    arg = parser.parse_args()
 
-        # TODO: New page architecture
-        #~ pages = ["mainmenu", "features"]
-        sessions = ['guest', 'live', 'pi', 'vbox']
+    if arg.version:
+        dbg.stdout("Version: " + variables["welcome_version"])
+        exit(0)
 
-        parser = argparse.ArgumentParser(add_help=False)
-        parser._optionals.title = _("Optional arguments")
-        parser.add_argument("-h", "--help", help=_("Show this help message and exit"), action="help")
-        #~ parser.add_argument("--version", help=_("Print progran version and exit"), action="store_true")
-        parser.add_argument("-v", "--verbose", help=_("Be verbose to stdout"), action="store_true")
-        parser.add_argument("-vv", "-d", "--debug", help=_("Be very verbose (for debugging)"), action="store_true")
-        parser.add_argument("--locale", help=_("Force locale for interface"))
-        parser.add_argument("--force-net", help=_("Assume network capabilities"), action="store_true")
-        parser.add_argument("--force-no-net", help=_("Assume network is unreachable"), action="store_true")
-        parser.add_argument("--force-session", help=_("Show information for a specific environment."), choices=sessions)
-        #~ parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=pages)
-        parser.add_argument("-b", "--boutique", "--software-only", help=_("Opens the Software Boutique application"), action="store_true")
+    if arg.verbose:
+        dbg.stdout("Running in verbose mode.", dbg.action)
+        dbg.verbose_level = 1
 
-        arg = parser.parse_args()
+    if arg.debug:
+        dbg.stdout("Running in debugging mode.", dbg.action)
+        dbg.verbose_level = 2
+        variables["locale"] = 'null'
 
-        if arg.verbose:
-          dbg.stdout("Running in verbose mode.", dbg.action)
-          dbg.verbose_level = 1
+    if arg.force_session:
+        variables["session"] = arg.force_session
+        dbg.stdout("Running as session: " + self.simulate_session, dbg.action)
 
-        if arg.debug:
-          dbg.stdout("Running in debugging mode.", dbg.action)
-          dbg.verbose_level = 2
-          self.locale = 'null'
+    if arg.force_no_net:
+        variables["internet_detected"] = False
+        dbg.stdout("Running with internet connectivity features enabled.", dbg.action)
 
-        if arg.force_session:
-          self.simulate_session = arg.force_session
-          dbg.stdout("Running as session: " + self.simulate_session, dbg.action)
+    if arg.force_net:
+        variables["internet_detected"] = True
+        dbg.stdout("Running without internet connectivity featured disabled.", dbg.action)
 
-        if arg.force_no_net:
-          dbg.stdout("Running with internet connectivity features enabled.", dbg.action)
-          self.simulate_no_connection = True
+    if arg.boutique:
+        dbg.stdout("Software Boutique is no longer part of Welcome.", dbg.warning)
+        if os.path.exists("/usr/bin/software-boutique"):
+            dbg.stdout("In future, launch with 'software-boutique' instead.", dbg.warning)
+            os.execv("/usr/bin/software-boutique", [""])
+        else:
+            dbg.stdout("Software Boutique not found. It may not be installed.", dbg.error)
+            exit(1)
 
-        if arg.force_net:
-          dbg.stdout("Running without internet connectivity featured disabled.", dbg.action)
-          self.simulate_force_connection = True
+    if arg.locale:
+        dbg.stdout("Forcing locale: " + arg.locale, dbg.action)
+        self.locale = arg.locale
 
-        if arg.boutique:
-            dbg.stdout("Software Boutique is no longer part of Welcome.", dbg.warning)
-            if os.path.exists("/usr/bin/software-boutique"):
-                dbg.stdout("In future, launch with 'software-boutique' instead.", dbg.warning)
-                os.execv("/usr/bin/software-boutique", [""])
-            else:
-                dbg.stdout("Software Boutique not found. It may not be installed.", dbg.error)
-                exit(1)
+    #~ if arg.jump_to:
+        #~ self.jump_to = arg.jump_to
+        #~ dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
 
-        if arg.locale:
-            dbg.stdout("Forcing locale: " + arg.locale, dbg.action)
-            self.locale = arg.locale
-
-        #~ if arg.jump_to:
-          #~ self.jump_to = arg.jump_to
-          #~ dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
-
-    def override_session(self):
-        if not self.simulate_session == None:
-            if self.simulate_session == 'vbox':
-                systemstate.graphics_vendor = 'VirtualBox'
-                systemstate.graphics_grep = 'VirtualBox'
-            else:
-                systemstate.session_type = self.simulate_session
+    return arg
 
 
-##################################
-#  Program Initialisation
-##################################
 if __name__ == "__main__":
-    # Set up stdout and i18n
-    dbg = Common.Debugging()
-    data_path = whereami()
-    trans = Translations(data_path)
+    """
+    Main Initialisation
+    """
+    setproctitle.setproctitle("ubuntu-mate-welcome")
 
-    # Process any parameters passed to the program.
-    args = Arguments()
-    if args.locale:
-        trans = Translations(data_path, args.locale)
+    _ = Common.setup_translations(__file__, "ubuntu-mate-welcome")
 
-    # Application Initialisation
-    setproctitle.setproctitle('ubuntu-mate-welcome')
+    dbg = BoutiqueCommon.Debugging()
+    variables["objects"]["dbg"] = dbg
 
-    # Welcome Features
+    arg = process_arguments()
+    variables["objects"]["arg"] = arg
+    variables["data_path"] = Common.get_data_source(dbg, __file__)
+
     pref = Preferences.Preferences(dbg, "preferences", "ubuntu-mate-welcome")
-    systemstate = SystemState()
-    app = WelcomeApp()
+    variables["objects"]["pref"] = pref
 
-    # Argument Overrides
-    args.override_session()
+    app = WelcomeApp()
+    variables["objects"]["app"] = app
 
     dbg.stdout("Application Ready.", dbg.debug, 2)
     app.run()
