@@ -145,6 +145,7 @@ class AppView(WebKit2.WebView):
         Runs a JavaScript function on the page when invoked from run_js()
         """
         self.run_javascript(function)
+        dbg.stdout("=> " + function, dbg.debug, 2)
         return GLib.SOURCE_REMOVE
 
     def _title_changed_cb(self, view, frame):
@@ -212,11 +213,14 @@ class AppView(WebKit2.WebView):
         ensuring correctly parsed quotes.
         """
         if parm1 and parm2:
-            self.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')")
+            js_buffer = '$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')"
         if parm1:
-            self.run_js('$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')")
+            js_buffer = '$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')"
         else:
-            self.run_js('$("' + element + '").' + function + '()')
+            js_buffer = '$("' + element + '").' + function + '()'
+
+        self.run_js(js_buffer)
+        dbg.stdout("=> " + js_buffer, dbg.debug, 2)
 
     def change_page(self, new_page):
         """
