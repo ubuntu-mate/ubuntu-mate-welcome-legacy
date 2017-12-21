@@ -5,11 +5,11 @@ html {
 }
 
 html, body {
+    background-color: #474747;
     margin: 0;
     padding: 0;
     height: 100%;
-    /* Behave more like an application by
-    * preventing text highlighting / dragging. */
+    /* Behave more like an application by preventing dragging. */
     -webkit-user-select: none;
     cursor: default;
 }
@@ -26,13 +26,6 @@ body, button, input {
 .center {
     text-align: center;
     vertical-align: middle;
-}
-
-.backdrop-simple {
-    background-color: @bg-white;
-    background: @bg-white url("../img/welcome/background.svg") no-repeat fixed right bottom;
-    background-position: calc(~'100% + 2px') calc(~'100% - 63px');
-    background-size: 50%;
 }
 
 .cursor-wait {

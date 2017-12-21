@@ -72,6 +72,7 @@ variables = {
         "arg": None,
         "pref": None,
         "dbg": None,
+        "run_js": None,
         "update_page": None,
         "change_page": None
     },
@@ -267,7 +268,7 @@ class WelcomeApp(object):
         else:
             w.set_size_request(800, 552)
 
-        icon_dir = os.path.join(variables["data_path"], 'img', 'welcome', 'ubuntu-mate-icon.svg')
+        icon_dir = os.path.join(variables["data_path"], "img", "welcome", "ubuntu-mate-icon.svg")
         w.set_icon_from_file(icon_dir)
 
         # Build WebKit2 container
@@ -293,6 +294,7 @@ class WelcomeApp(object):
         self._window = w
         variables["objects"]["update_page"] = self.webkit.update_page
         variables["objects"]["change_page"] = self.webkit.change_page
+        variables["objects"]["run_js"] = self.webkit.run_js
 
     def run(self):
         """

@@ -1,31 +1,45 @@
 @import "variables.less";
+@header-height: 2em;
+@header-padding: 0.5em;
 
-#header {
-    padding: 8px 0;
-}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: @header-height;
+    padding: @header-padding 0;
+    z-index: 100;
+    background-color: @footer;
+    box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.5);
 
-#header .logo {
-    height: 64px;
-}
+    transform: translateY(0 - @header-height - @header-padding - 10px);
+    transition: transform @header-footer-speed @header-footer-type;
 
-#header h1 {
-    margin-left: 16px;
-    line-height: 64px;
-    text-align: center;
+    &.in {
+        transform: translateY(0);
+    }
 
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.4),
-                 0px -5px 35px rgba(255,255,255,0.8);
+    h1 {
+        margin-left: 16px;
+        line-height: 64px;
+        text-align: center;
 
-    font-size: 24px;
-    font-weight: bold;
-}
+        text-shadow: 2px 4px 8px rgba(0,0,0,0.4),
+                     0px -5px 35px rgba(255,255,255,0.8);
 
-#header h2 {
-    margin-left: 16px;
-    line-height: 16px;
-    text-align: center;
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.4),
-                 0px -5px 35px rgba(255,255,255,0.8);
-    font-size: 16px;
-    font-weight: normal;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin-left: 16px;
+        line-height: 16px;
+        text-align: center;
+        text-shadow: 2px 4px 8px rgba(0,0,0,0.4),
+                     0px -5px 35px rgba(255,255,255,0.8);
+        font-size: 16px;
+        font-weight: normal;
+    }
+
 }
