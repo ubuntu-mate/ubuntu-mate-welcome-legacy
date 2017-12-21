@@ -323,6 +323,9 @@ def process_arguments():
     #~ parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=pages)
     parser.add_argument("-b", "--boutique", "--software-only", help=_("Opens the Software Boutique application"), action="store_true")
 
+    # For front-end debugging (developer tools)
+    parser.add_argument("--inspect", help=argparse.SUPPRESS, action="store_true")
+
     arg = parser.parse_args()
 
     if arg.version:
@@ -337,6 +340,9 @@ def process_arguments():
         dbg.stdout("Running in debugging mode.", dbg.action)
         dbg.verbose_level = 2
         variables["locale"] = 'null'
+
+    if arg.inspect:
+        dbg.verbose_level = 3
 
     if arg.force_session:
         variables["session"] = arg.force_session
