@@ -65,7 +65,18 @@ variables = {
     "current_page": "",
     "override_initial_page": None,
     "pages": {
-        "splash": Pages.Splash
+        "splash": Pages.Splash,
+        "main_menu": Pages.MainMenu,
+        "community": Pages.Community,
+        "introduction": Pages.Introduction,
+        "features": Pages.Features,
+        "shop": Pages.Shop,
+        "getinvolved": Pages.GetInvolved,
+        "donate": Pages.Donate,
+        "gettingstarted": Pages.GettingStarted,
+        "hellolive": Pages.HelloLive,
+        "helloguest": Pages.HelloGuest,
+        "raspberrypi": Pages.RaspberryPi
     },
     "sessions": ["normal", "guest", "live", "pi", "vbox"],
     "objects": {
