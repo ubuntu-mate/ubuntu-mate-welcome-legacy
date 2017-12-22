@@ -34,7 +34,7 @@ else
 
     # Compile each one and merge into one file
     touch "$dest"
-    lessc ./sources/boutique.less "$dest"
+    lessc ./sources/welcome.less "$dest"
     if [ $? == 0 ]; then
         echo -e "\033[92mFinished compiling CSS.\033[0m\n"
     else
