@@ -63,6 +63,7 @@ variables = {
     # Internals
     "data_path": "",
     "current_page": "",
+    "override_initial_page": None,
     "pages": {
         "splash": Pages.Splash
     },
@@ -331,7 +332,7 @@ def process_arguments():
     parser.add_argument("--force-net", help=_("Assume network capabilities"), action="store_true")
     parser.add_argument("--force-no-net", help=_("Assume network is unreachable"), action="store_true")
     parser.add_argument("--force-session", help=_("Show information for a specific environment."), choices=variables["sessions"])
-    #~ parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=pages)
+    parser.add_argument("--jump-to", help=_("Set the initial starting page."), choices=variables["pages"].keys())
     parser.add_argument("-b", "--boutique", "--software-only", help=_("Opens the Software Boutique application"), action="store_true")
 
     # For front-end debugging (developer tools)
@@ -377,12 +378,12 @@ def process_arguments():
             exit(1)
 
     if arg.locale:
+        variables["locale"] = arg.locale
         dbg.stdout("Forcing locale: " + arg.locale, dbg.action)
-        self.locale = arg.locale
 
-    #~ if arg.jump_to:
-        #~ self.jump_to = arg.jump_to
-        #~ dbg.stdout("Jumping to page: " + self.jump_to + ".html", dbg.action)
+    if arg.jump_to:
+        variables["override_initial_page"] = arg.jump_to
+        dbg.stdout("Initial page set: " + arg.jump_to, dbg.action)
 
     return arg
 

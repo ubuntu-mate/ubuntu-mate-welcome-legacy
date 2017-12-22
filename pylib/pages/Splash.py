@@ -25,8 +25,16 @@ def page_enter(variables):
     """
     update_page = variables["objects"]["update_page"]
     change_page = variables["objects"]["change_page"]
+    dbg = variables["objects"]["dbg"]
     run_js = variables["objects"]["run_js"]
     pref = variables["objects"]["pref"]
+
+    # Jump to a different page
+    override_initial_page = variables["override_initial_page"]
+    if override_initial_page:
+        dbg.stdout("Jumping to page: " + override_initial_page, dbg.action, 1)
+        change_page(override_initial_page)
+        return
 
     # Skip splash
     if pref.read("skip_splash", False):
