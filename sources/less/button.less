@@ -1,0 +1,171 @@
+@import "variables.less";
+
+/* Buttons behave like anchors */
+button {
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    border: 1px solid transparent;
+    cursor: default !important;
+    color: @link-color;
+    font-size: 14px;
+    margin: 0;
+}
+
+.link {
+    margin: 0;
+
+    &:hover {
+        cursor: pointer !important;
+        text-decoration: underline;
+    }
+
+    &:focus {
+        text-decoration: underline;
+        font-style: bold;
+        outline: 0;
+        color: #44522E;
+    }
+
+    &:active {
+        border: 1px solid #87A556;
+        text-decoration: underline;
+    }
+}
+
+/* Button Theme - Dialog */
+.btn {
+    background: linear-gradient(@button-bg);
+    border: 1px solid @button-border;
+    color: black;
+    border-radius: 8px;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    &:focus,
+    &:hover,
+    &:active {
+        border: 1px solid @button-border-focused;
+        outline: 0;
+    }
+
+    &:active {
+        background: linear-gradient(@button-bg-clicked);
+    }
+
+    img {
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
+}
+
+/* Button Theme - Header/Footer */
+.btn.inverted {
+    background: linear-gradient(@button-bg-inverted);
+    color: white;
+
+    &:active {
+        background: linear-gradient(@button-bg-inverted-clicked);
+        color: white;
+    }
+}
+
+/* Button Theme - Green */
+.btn.green {
+    background: linear-gradient(@button-bg-green);
+    color: white;
+
+    &:active {
+        background: linear-gradient(@button-bg-green-clicked);
+        color: white;
+    }
+}
+
+/* Button Theme - Yellow */
+.btn.yellow {
+    background: linear-gradient(@button-bg-yellow);
+    color: white;
+
+    &:active {
+        background: linear-gradient(@button-bg-yellow-clicked);
+        color: white;
+    }
+}
+
+/* Button Theme - Red */
+.btn.red {
+    background: linear-gradient(@button-bg-red);
+    color: white;
+
+    &:active {
+        background: linear-gradient(@button-bg-red-clicked);
+        color: white;
+    }
+}
+
+/* Buttons for navigation/header/footer */
+button.navigation {
+    width: 40px;
+    height: 30px;
+    color: @header-text;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        color: #fff;
+
+        img {
+            filter: brightness(2);
+        }
+    }
+
+    &:focus {
+        border: 1px solid @ubuntu-mate-lighter;
+    }
+
+    &:active,
+    &.active {
+        background-color: @ubuntu-mate;
+        color: #fff;
+
+        img {
+            filter: brightness(2);
+        }
+    }
+
+    &.with-text {
+        width: auto;
+    }
+
+    img {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        float: left;
+    }
+}
+
+/* Checkbox controls for footer */
+button.checkbox {
+    &:focus,
+    &:hover,
+    &:active {
+        opacity: 0.9;
+    }
+
+    &:focus {
+        text-decoration: underline !important;
+    }
+}
+

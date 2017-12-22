@@ -1,32 +1,5 @@
 @import "variables.less";
 
-/* Buttons behave like anchors by default */
-button {
-    -webkit-appearance: none;
-    background: transparent;
-    border: none;
-    padding: 0;
-    font: inherit;
-    border: 1px solid transparent;
-    cursor: default !important;
-    color: @link-colour;
-}
-
-button:focus {
-    cursor: default;
-    border: 1px solid @link-focused;
-}
-
-/* Feedback with button interactions */
-.btn:active, .btn:focus, .btn:hover {
-    border: 1px solid @link-focused;
-}
-
-.link:hover {
-    cursor: pointer !important;
-    text-decoration: underline;
-}
-
 /* Used for terminal commands */
 blockquote.terminal {
     font-family: @code-font;

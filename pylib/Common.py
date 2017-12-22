@@ -79,3 +79,45 @@ def spawn_thread(dbg, target, args=()):
     thread = Thread(target=target, args=args)
     thread.daemon = True
     thread.start()
+
+class UI():
+    """
+    Contains various UI controls and layouts used throughout the application.
+    """
+    def print_button(label, cmd, icon_path=None, button_type="normal", tooltip=None):
+        """
+        Returns the HTML for a UI button.
+
+        label       Text to show for label
+        cmd         cmd('') command to run when clicked.
+        icon_path   Path to the icon image, if none, do not show one.
+        button_type Style of button, choose from:
+                    - normal
+                    - inverted
+                    - green
+                    - yellow
+                    - red
+        tooltip     What to show when hovering over the button.
+        """
+
+        icon_html = ""
+        if icon_path:
+            icon_html = "<img src='{0}' alt=''/>".format(icon_path)
+
+        if not tooltip:
+            tooltip = ""
+
+        return "<button onclick='cmd(\"{0}\")' title='{1}' class='btn {2}'>{3} {4}</button>".format(cmd, tooltip, button_type, icon_html, label)
+
+    def print_link(label, cmd):
+        """
+        Returns the HTML for a link (button)
+
+        This is technically a button element so it is picked up by keyboard navigation,
+        as anchor tags currently do not.
+
+        label       Text to show for label
+        cmd         cmd('') command to run when clicked.
+        """
+
+        return "<button onclick='cmd(\"{0}\")' class='link'>{1}</button>".format(cmd, label)
