@@ -76,6 +76,8 @@ variables = {
         "update_page": None,
         "change_page": None
     },
+    "page_fade_speed": "250",
+    "page_fade_wait": 0.25,
 
     # UI
     "welcome_version": "18.04",
@@ -235,8 +237,10 @@ class AppView(WebKit2.WebView):
             dbg.stdout("Leaving page: " + current_page, dbg.debug, 1)
             variables["pages"][current_page].page_exit(variables)
 
-        variables["current_page"] = new_page
         dbg.stdout("Entering page: " + new_page, dbg.debug, 1)
+        self.update_page("content", "remove")
+        self.update_page("main", "append", "<content></content>")
+        variables["current_page"] = new_page
         variables["pages"][new_page].page_enter(variables)
 
 

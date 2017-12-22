@@ -31,10 +31,13 @@ def page_enter(variables):
     # Skip splash
     if pref.read("skip_splash", False):
         _go_to_next_page(variables)
+        return
 
     # Load SVG tags directly into page
     with open(os.path.join(variables["data_path"], "img/welcome/triangles.svg"), "r") as f:
         svg_data = f.read().replace("\n", "").replace("  ", "")
+    update_page("content", "show")
+    update_page("content", "append", "<div id='splash'></div>")
     update_page("content", "append", '<div id="triangles" style="display:none">{0}</div>'.format(svg_data))
     update_page("content", "append", '<img id="splash-logo" style="display:none" src="img/welcome/ubuntu-mate-icon.svg"/>')
     update_page("content", "append", '<div id="splash-text" style="display:none">{0}</div>'.format(_("Welcome")))
@@ -51,6 +54,8 @@ def page_enter(variables):
         update_page(".ani" + str(x), "fadeIn", str(splash_speed))
 
         if x == 6:
+            update_page("header", "show")
+            update_page("footer", "show")
             update_page("header", "addClass", "in")
             update_page("footer", "addClass", "in")
 
@@ -69,6 +74,7 @@ def page_enter(variables):
     sleep(1)
 
     _go_to_next_page(variables)
+    return
 
 
 def page_exit(variables):
@@ -76,7 +82,11 @@ def page_exit(variables):
     Triggered upon closing the page.
     """
     update_page = variables["objects"]["update_page"]
-
+    update_page("header", "addClass", "in")
+    update_page("footer", "addClass", "in")
+    update_page("body", "removeClass", "splash")
+    update_page("content", "fadeOut", variables["page_fade_speed"])
+    sleep(variables["page_fade_wait"])
 
 
 def do_command(variables, cmd):
@@ -92,3 +102,13 @@ def _go_to_next_page(variables):
     When the splash animation finishes, where to go next?
     """
     pref = variables["objects"]["pref"]
+    change_page = variables["objects"]["change_page"]
+
+    # Show the relevant screen based on where Welcome was started
+    session_type = variables["session_type"]
+    if session_type == "live":
+        change_page("welcome_live")
+    elif session_type == "guest":
+        change_page("welcome_guest")
+    else:
+        change_page("main_menu")

@@ -1,24 +1,35 @@
 @import "variables.less";
 
-main {
-    background-color: @bg-white;
-    background: @bg-white url("../img/welcome/background.svg") no-repeat fixed right bottom;
-    background-position: calc(~'100% + 2px') calc(~'100% - 63px');
-    background-size: 50%;
+body.splash {
+    main {
+        background-color: @bg-dark;
+    }
 }
 
-#content {
-    top: 48px;
-    bottom: 64px;
+main {
+    position: fixed;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    overflow-x: none;
+    background-color: @bg-white;
+}
+
+content {
+    position: absolute;
+    top: @header-height + @header-padding + @header-padding;
+    bottom: @footer-height + @footer-padding + @footer-padding;
+    left: 0;
+    right: 0;
+    padding: @content-padding 0;
+    overflow-x: hidden;
     overflow-y: auto;
-    position: fixed;
     height: auto;
     width: auto;
+    background-image: url("../img/welcome/background.svg");
+    background-size: 50%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
 }
 
 .divider {
