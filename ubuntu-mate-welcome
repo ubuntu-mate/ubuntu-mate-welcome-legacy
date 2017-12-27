@@ -229,9 +229,9 @@ class AppView(WebKit2.WebView):
         ensuring correctly parsed quotes.
         """
         if parm1 and parm2:
-            js_buffer = '$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "', '" + parm2.replace("'", '\\\'') + "')"
+            js_buffer = '$("' + element + '").' + function + "('" + str(parm1).replace("'", '\\\'') + "', '" + str(parm2).replace("'", '\\\'') + "')"
         if parm1:
-            js_buffer = '$("' + element + '").' + function + "('" + parm1.replace("'", '\\\'') + "')"
+            js_buffer = '$("' + element + '").' + function + "('" + str(parm1).replace("'", '\\\'') + "')"
         else:
             js_buffer = '$("' + element + '").' + function + '()'
 
