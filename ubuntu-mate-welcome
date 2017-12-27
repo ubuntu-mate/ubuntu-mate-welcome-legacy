@@ -89,7 +89,7 @@ variables = {
         "change_page": None,
         "ui": Common.UI
     },
-    "page_fade_speed": "250",
+    "page_fade_speed": 250,
     "page_fade_wait": 0.25,
 
     # UI
@@ -248,10 +248,16 @@ class AppView(WebKit2.WebView):
         # When the application first starts, this is blank.
         if not current_page == "":
             dbg.stdout("Leaving page: " + current_page, dbg.debug, 1)
+
+            fade_speed = variables["page_fade_speed"]
+            for element_id in ["#header-left", "#header-right", "#footer-left", "#footer-right"]:
+                self.update_page(element_id, "fadeOut", fade_speed)
             variables["pages"][current_page].page_exit(variables)
 
         dbg.stdout("Entering page: " + new_page, dbg.debug, 1)
         self.update_page("content", "remove")
+        for element_id in ["#header-left", "#header-right", "#footer-left", "#footer-right"]:
+            self.update_page(element_id, "html", " ")
         self.update_page("main", "append", "<content></content>")
         variables["current_page"] = new_page
         variables["pages"][new_page].page_enter(variables)

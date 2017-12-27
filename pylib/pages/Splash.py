@@ -90,11 +90,13 @@ def page_exit(variables):
     Triggered upon closing the page.
     """
     update_page = variables["objects"]["update_page"]
-    update_page("header", "addClass", "in")
-    update_page("footer", "addClass", "in")
+    for element in ["header", "footer"]:
+        update_page(element, "addClass", "in")
     update_page("body", "removeClass", "splash")
     update_page("content", "fadeOut", variables["page_fade_speed"])
     sleep(variables["page_fade_wait"])
+    for element in ["header", "footer"]:
+        update_page(element, "show")
 
 
 def do_command(variables, cmd):
