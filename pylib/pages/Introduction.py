@@ -2,7 +2,7 @@
 #
 # Ubuntu MATE Welcome is licensed under the GPLv3.
 #
-# Copyright (C) 2015-2017 Luke Horwell <luke@ubuntu-mate.org>
+# Copyright (C) 2015-2018 Luke Horwell <luke@ubuntu-mate.org>
 #               2015-2016 Martin Wimpress <code@flexion.org>
 #               2015, Larry Bushey
 #
