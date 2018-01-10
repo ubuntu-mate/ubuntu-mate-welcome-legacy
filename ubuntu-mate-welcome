@@ -217,6 +217,9 @@ class AppView(WebKit2.WebView):
         # Global commands
         if cmd == "quit":
             app.close()
+        elif cmd.startswith("change-page?"):
+            target_page = cmd.split('?')[1]
+            self.change_page(target_page)
         else:
             dbg.stdout("Unimplemented command: " + cmd, dbg.error)
             return
