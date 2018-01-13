@@ -122,6 +122,24 @@ class UI():
 
         return "<button onclick='cmd(\"{0}\")' class='link'>{1}</button>".format(cmd, label)
 
+    def print_title(text):
+        """
+        Returns the HTML for a title that appears on most pages.
+        """
+        return "<h2>{0}</h2>".format(text)
+
+    def print_subtitle(text):
+        """
+        Returns the HTML for a title that appears on most pages.
+        """
+        return "<h3>{0}</h3>".format(text)
+
+    def print_paragraph(text):
+        """
+        Returns the HTML for a title that appears on most pages.
+        """
+        return "<p>{0}</p>".format(text)
+
 
 def page_enter_global(variables, title):
     """
