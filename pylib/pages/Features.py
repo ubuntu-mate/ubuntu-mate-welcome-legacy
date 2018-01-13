@@ -25,7 +25,6 @@ def page_enter(variables):
     Triggered upon opening the page.
     """
     update_page = variables["objects"]["update_page"]
-    change_page = variables["objects"]["change_page"]
     ui = variables["objects"]["ui"]
 
     content = ''
@@ -316,13 +315,14 @@ def page_enter(variables):
                 '</div>'
 
     update_page("content", "html", content)
+    Common.page_enter_global(variables, _("Features"))
+
 
 def page_exit(variables):
     """
     Triggered upon closing the page.
     """
-    update_page = variables["objects"]["update_page"]
-    pass
+    Common.page_exit_global(variables)
 
 
 def do_command(variables, cmd):

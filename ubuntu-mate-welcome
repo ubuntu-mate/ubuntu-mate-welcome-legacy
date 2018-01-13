@@ -219,7 +219,10 @@ class AppView(WebKit2.WebView):
             app.close()
         elif cmd.startswith("change-page?"):
             target_page = cmd.split('?')[1]
-            self.change_page(target_page)
+            Common.spawn_thread(dbg, self.change_page, [target_page])
+        elif cmd == "go-back":
+            # For navigation back button to return to the main menu.
+            Common.spawn_thread(dbg, self.change_page, ["main_menu"])
         else:
             dbg.stdout("Unimplemented command: " + cmd, dbg.error)
             return
@@ -246,22 +249,18 @@ class AppView(WebKit2.WebView):
         Transition in and out of pages.
         """
         current_page = variables["current_page"]
+        page_fade_speed = variables["page_fade_speed"]
+        page_fade_wait = variables["page_fade_wait"]
 
         # Only execute the exit function if leaving a previous page.
         # When the application first starts, this is blank.
         if not current_page == "":
             dbg.stdout("Leaving page: " + current_page, dbg.debug, 1)
-
-            fade_speed = variables["page_fade_speed"]
-            for element_id in ["#header-left", "#header-right", "#footer-left", "#footer-right"]:
-                self.update_page(element_id, "fadeOut", fade_speed)
             variables["pages"][current_page].page_exit(variables)
 
         dbg.stdout("Entering page: " + new_page, dbg.debug, 1)
-        self.update_page("content", "remove")
-        for element_id in ["#header-left", "#header-right", "#footer-left", "#footer-right"]:
+        for element_id in ["#header-left", "#header-right", "#footer-left", "#footer-right", "content"]:
             self.update_page(element_id, "html", " ")
-        self.update_page("main", "append", "<content></content>")
         variables["current_page"] = new_page
         variables["pages"][new_page].page_enter(variables)
 

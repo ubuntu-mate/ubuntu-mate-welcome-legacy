@@ -42,9 +42,7 @@ def page_exit(variables):
     Triggered upon closing the page.
     """
     update_page = variables["objects"]["update_page"]
-
-    print("Exit")
-    pass
+    Common.page_exit_global(variables)
 
 
 def do_command(variables, cmd):

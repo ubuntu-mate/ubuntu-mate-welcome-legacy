@@ -121,3 +121,54 @@ class UI():
         """
 
         return "<button onclick='cmd(\"{0}\")' class='link'>{1}</button>".format(cmd, label)
+
+
+def page_enter_global(variables, title):
+    """
+    Runs 'entry' commands shared across most pages, such as
+    gracefully fading into the page, and setting the titlebar.
+    """
+    update_page = variables["objects"]["update_page"]
+    page_fade_speed = variables["page_fade_speed"]
+    page_fade_wait = variables["page_fade_wait"]
+
+    # === Header ===
+    header_left = '<button class="navigation" onclick="cmd(&quot;go-back&quot;)"><i class="fa fa-chevron-left"></i></button>'
+    header_left += '<h1 id="header-title">{0}</h1>'.format(title)
+    update_page("#header-left", "html", header_left)
+    update_page("#header-left", "fadeIn", page_fade_speed)
+    update_page("#header-right", "fadeIn", page_fade_speed)
+
+    # === Content ===
+    update_page("content", "fadeIn", page_fade_speed)
+
+    # === Footer ===
+    update_page("#footer-left", "fadeIn", page_fade_speed)
+    update_page("#footer-right", "fadeIn", page_fade_speed)
+
+    # Wait for transitions to finish.
+    sleep(page_fade_wait * 2)
+
+
+def page_exit_global(variables):
+    """
+    Runs 'exit' commands shared across most pages, such as
+    gracefully fading out of the page.
+    """
+    update_page = variables["objects"]["update_page"]
+    page_fade_speed = variables["page_fade_speed"]
+    page_fade_wait = variables["page_fade_wait"]
+
+    # === Header ===
+    update_page("#header-left", "fadeOut", page_fade_speed)
+    update_page("#header-right", "fadeOut", page_fade_speed)
+
+    # === Content ===
+    update_page("content", "fadeOut", page_fade_speed)
+
+    # === Footer ===
+    update_page("#footer-left", "fadeOut", page_fade_speed)
+    update_page("#footer-right", "fadeOut", page_fade_speed)
+
+    # Wait for transitions to finish.
+    sleep(page_fade_wait * 2)

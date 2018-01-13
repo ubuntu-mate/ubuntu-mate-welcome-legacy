@@ -27,13 +27,14 @@ def page_enter(variables):
     change_page = variables["objects"]["change_page"]
     ui = variables["objects"]["ui"]
 
+    Common.page_enter_global(variables, _("Community"))
+
 
 def page_exit(variables):
     """
     Triggered upon closing the page.
     """
-    update_page = variables["objects"]["update_page"]
-    pass
+    Common.page_exit_global(variables)
 
 
 def do_command(variables, cmd):
