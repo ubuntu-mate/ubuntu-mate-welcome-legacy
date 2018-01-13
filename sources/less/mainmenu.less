@@ -1,52 +1,84 @@
 @import "variables.less";
+@menu-padding: 2em;
+@menu-width: 800px;
 
-.main-menu-logo {
-    width: 200px;
-    height: 200px;
-    top: 0; left: 0; bottom: 0; right: 0;
-    margin: auto;
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.main-menu-textbox {
-    height: 40px;
-    min-height: 40px;
-    white-space: nowrap;
-}
-
-.main-menu-text {
-    margin: 6px;
-    padding: 6px;
+#menu-logo {
     text-align: center;
-    vertical-align: bottom;
-    font-weight: bold;
-    font-size: 18px;
-    color: #5A6943;
+
+    #um-logo {
+        vertical-align: middle;
+        display: inline-block;
+        height: 6em;
+        width: 6em;
+    }
+
+    #um-ubuntu-text {
+        padding-left: 0.5em;
+        vertical-align: middle;
+        display: inline-block;
+        height: 3em;
+        width: auto;
+    }
+
+    #um-MATE-text {
+        padding-left: 1em;
+        vertical-align: middle;
+        display: inline-block;
+        height: 3em;
+        width: auto;
+    }
+
+    #um-version {
+        vertical-align: middle;
+        display: inline-block;
+        padding-bottom: 1.5em;
+        padding-left: 0.5em;
+    }
 }
 
-.main-menu-version {
-    font-family: @main-font;
-    font-size: 20px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #5A6943;
-    pointer-events: none;
+#menu-text {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.1em;
+    color: @text-colour;
 }
 
-.menu-bkgnd {
-    height: 390px;
-    width: 390px;
-    margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
-    z-index: -10;
-    position: absolute;
-    overflow: hidden;
-    background-image: url('../img/welcome/menu-bg.png');
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: center;
+/* Main Menu Layout */
+.row {
+    max-width: 1000px;
+    width: 100%;
+
+    &.main-menu {
+        padding: 0 2em;
+        width: calc(~'100% - '(@menu-padding + @menu-padding));
+        max-width: @menu-width;
+
+        .btn {
+            text-align: center;
+            width: 100%;
+
+            img {
+                width: calc(~'100% - 2em');
+                height: 3em;
+                padding: 1em;
+                text-align: center;
+                display: block;
+            }
+
+            span {
+                display: block;
+            }
+        }
+    }
+
+    .left,
+    .middle,
+    .right {
+        width: calc(~'33% - 2em - 2px');
+        display: inline-block;
+        padding: 1em;
+        vertical-align: top;
+    }
 }
 
 /* Raspberry Pi Button */
@@ -72,14 +104,4 @@
 .btn-rpi:active,
 .btn-rpi.active {
     background-color: @rpi;
-}
-
-/* Shows a notification in the top-right corner */
-.heads-up {
-    position: fixed;
-    top: 8px;
-    right: 8px;
-    z-index: 11;
-    font-size: 16px;
-    text-align: right;
 }

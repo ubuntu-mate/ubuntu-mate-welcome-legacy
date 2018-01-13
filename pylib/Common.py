@@ -12,6 +12,7 @@ Contains common functions and classes used for Welcome's pages.
 import os
 import sys
 import gettext
+from time import sleep
 from threading import Thread
 
 
@@ -79,6 +80,7 @@ def spawn_thread(dbg, target, args=()):
     thread = Thread(target=target, args=args)
     thread.daemon = True
     thread.start()
+
 
 class UI():
     """
