@@ -109,7 +109,7 @@ class UI():
         if not tooltip:
             tooltip = ""
 
-        return "<button onclick='cmd(\"{0}\")' title='{1}' class='btn {2}'>{3} {4}</button>".format(cmd, tooltip, button_type, icon_html, label)
+        return "<button onclick='cmd(\"{0}\")' title='{1}' class='btn {2}'>{3} <span>{4}</span></button>".format(cmd, tooltip, button_type, icon_html, label)
 
     def print_link(label, cmd):
         """
@@ -121,26 +121,76 @@ class UI():
         label       Text to show for label
         cmd         cmd('') command to run when clicked.
         """
-
         return "<button onclick='cmd(\"{0}\")' class='link'>{1}</button>".format(cmd, label)
 
     def print_title(text):
         """
-        Returns the HTML for a title that appears on most pages.
-        """
-        return "<h2>{0}</h2>".format(text)
-
-    def print_subtitle(text):
-        """
-        Returns the HTML for a title that appears on most pages.
+        Returns the HTML for a title for body content.
         """
         return "<h3>{0}</h3>".format(text)
 
+    def print_subtitle(text):
+        """
+        Returns the HTML for a subtitle for body content.
+        """
+        return "<h4>{0}</h4>".format(text)
+
     def print_paragraph(text):
         """
-        Returns the HTML for a title that appears on most pages.
+        Returns the HTML for paragraphs.
         """
         return "<p>{0}</p>".format(text)
+
+    def print_list(elements):
+        """
+        Returns the HTML for a list of items.
+
+        elements = List containing each item to appear in a bullet list.
+        """
+        html = "<ul>"
+        for item in elements:
+            html += "<li>{0}</li>".format(item)
+        html += "</ul>"
+        return html
+
+    def print_horizontal_line():
+        """
+        Returns the HTML for a line that horizontally splits the page.
+        """
+        return "<hr class='soften'>"
+
+    def print_table(headers=None, rows=None):
+        """
+        Returns the HTML for a table, complete with rows/headings.
+
+        headers = List containing each header to display.
+        rows = List containing sublists of the data for each column.
+
+        Example:
+
+        headers = ["Year", "Month"]
+        rows = [
+            [2017, 01],
+            [2018, 01]
+        ]
+
+        """
+        html = "<table class='table table-bordered'>"
+        if headers:
+            html += "<tr>"
+            for heading in headers:
+                html += "<th>{0}</th>".format(heading)
+            html += "</tr>"
+
+        if rows:
+            for row in rows:
+                html += "<tr>"
+                for column in row:
+                    html += "<td>{0}</td>".format(column)
+                html += "</tr>"
+
+        html += "</table>"
+        return html
 
 
 def page_enter_global(variables, title):
