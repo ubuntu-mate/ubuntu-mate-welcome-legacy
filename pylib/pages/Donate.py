@@ -69,7 +69,7 @@ def page_enter(variables):
 
     month_id = 0
     for month in [_("January"), _("February"), _("March"), _("April"), _("May"), _("June"), _("July"), _("August"), _("September"), _("October"), _("November"), _("December")]:
-        month_long_string_dict[month_id] = month
+        month_long_string_dict[month_id] = month.lower()
         month_short_string_dict[month_id] = month[:3]
         month_id += 1
 
