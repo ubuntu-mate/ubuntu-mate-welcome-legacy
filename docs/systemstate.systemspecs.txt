@@ -1,0 +1,86 @@
+
+Variables used for the System Specs class with examples of integers/strings
+expected.
+
+
+=======================================
+  Class Structure
+=======================================
+ubuntu-mate-welcome
+    SystemState
+        SystemSpecs
+
+=> specs
+
+
+=======================================
+  Units
+=======================================
+Numerical data is stored in either:
+  * Bytes
+  * MHz
+
+=======================================
+  System
+=======================================
+self.distro                 str     "Ubuntu MATE 16.04"
+self.computer_name          str     "User-DesktopName"
+self.kernel                 str     "4.4.0-34-generic"
+self.kernel_date            str     "#53-Ubuntu SMP Wed Jul 27 16:06:39 UTC 2016"
+self.motherboard_brand      str     "ASUS"
+self.motherboard_model      str     "A88X-GAMER"
+self.motherboard_version    str     "Rev X.0x"
+self.bios_vendor            str     "American Megatrends"
+self.bios_version           str     "0404"
+self.bios_date              str     "09/09/2014"
+self.boot_mode              str     "UEFI"
+
+=======================================
+  Processor
+=======================================
+self.processor_model        str     "AMD A10-7850K"
+self.processor_speed        int     3600
+self.processor_min_speed    int     1700
+self.processor_max_speed    int     4100
+self.processor_cores        int     4
+self.processor_arch         str     "x86"
+
+=======================================
+  Memory
+=======================================
+self.ram_total              int     16750372454
+self.ram_used               int     2183564
+self.ram_buff_cache         int     2915092
+self.swap_total             int     2096124
+self.swap_used              int     0
+
+=======================================
+  Components
+=======================================
+self.attached_graphics      list    ["<Name of device 1>", "<Name of device 2>"]
+self.graphics_driver        str     "NVIDIA Proprietary"
+self.attached_audio         list    ["<Name of device 1>", "<Name of device 2>"]
+self.attached_networks      list    ["<Name of device 1>", "<Name of device 2>"]
+self.attached_usb           list    ["<Name of device 1>", "<Name of device 2>"]
+
+=======================================
+  Storage
+=======================================
+self.storage_root_dev       str     "/dev/sda1"
+self.storage_capacity       int     62384399974
+self.storage_allocated      int     62384399974
+self.storage_root_used      int     9341553869
+self.storage_root_free      int     52935471923
+self.storage_other_parts    int     0
+
+=======================================
+  Advanced
+=======================================
+self.desktop                str     "MATE 1.14"
+self.shell                  str     "Bash"
+self.login_manager          str     "lightdm"
+self.display_server         str     "X.Org"
+self.graphics_resolution    str     "1920x1080"
+self.graphics_driver        str     "NVIDIA Proprietary Driver"
+self.uptime                 str     "2:45"
+
