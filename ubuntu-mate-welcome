@@ -96,6 +96,9 @@ def whereami():
     elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
         dbg.stdout('Welcome', 'Using /usr/share/ubuntu-mate-welcome/ path.', 1, 0)
         data_path = '/usr/share/ubuntu-mate-welcome/'
+    elif( os.path.exists(os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/') ):
+        dbg.stdout('Welcome', 'Using ' + os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/ path.', 1, 0)
+        data_path = os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/'
     else:
         dbg.stdout('Welcome', 'Unable to source the ubuntu-mate-welcome data directory.', 0, 1)
         sys.exit(1)
@@ -1637,8 +1640,10 @@ class SystemState(object):
         elif font_dpi >= 130:
             zoom_level = 1.5
 
-        self.dpi = font_dpi
-        self.zoom_level = zoom_level
+        #self.dpi = font_dpi
+        #self.zoom_level = zoom_level
+        self.dpi = 96
+        self.zoom_level = 1.0
 
         # For adjusting the colours for other default themes.
         if self.is_ubuntu_mate:
