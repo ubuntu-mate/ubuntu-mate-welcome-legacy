@@ -1,0 +1,81 @@
+name: ubuntu-mate-welcome 
+version: '17.10.15'
+summary: Welcome screen for Ubuntu MATE
+description: |
+ A welcome screen for Ubuntu MATE that provides links to helpful
+ resources, utilities and a selection of software packages.
+
+confinement: classic
+
+parts:
+  # Build a minimal zenity from source, prevents dragging in WebKit et al.
+  zenity:
+    plugin: autotools
+    configflags:
+      - --prefix=/usr
+    source: https://git.gnome.org/browse/zenity/snapshot/ZENITY_3_18_1_1.tar.xz
+    build-packages:
+      - gnome-common
+      - libgtk-3-dev
+      - libnotify-dev
+      - yelp-tools
+    stage:
+      - usr/bin/zenity
+      - usr/share/zenity
+
+  ubuntu-mate-welcome:
+    plugin: nil
+    after:
+      - zenity
+    build-packages:
+      - python3
+      - python3-polib
+      - gettext
+      - rsync
+    stage-packages:
+      - gir1.2-gtk-3.0
+      - gir1.2-notify-0.7
+      - gir1.2-webkit2-4.0
+      - humanity-icon-theme
+      - inxi
+      - libnotify-bin
+      - parted
+      - pciutils
+      - policykit-1
+      - python3
+      - python3-apt
+      - python3-aptdaemon
+      - python3-aptdaemon.gtk3widgets
+      - python3-gi
+      - python3-polib
+      - python3-setproctitle
+      - software-properties-common
+    build: |
+      ./welcome-po.py --update-pos
+      ./welcome-po.py --install
+      ./edgar-allan translate-all    
+    install: |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
+      rsync -av data/ $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
+      rsync -av hicolor/ $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/locale
+      rsync -av locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
+      #mate-settings-welcome.menu: etc/xdg/menus/
+      #org.ubuntu-mate.welcome.policy: usr/share/polkit-1/actions/
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      cp ubuntu-mate-software.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
+      cp ubuntu-mate-welcome $SNAPCRAFT_PART_INSTALL/usr/bin/
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
+      cp ubuntu-mate-welcome-repository-installer $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
+      cp ubuntu-mate-welcome-rpi2-partition-resize $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
+      mkdir -p usr/share/man/man1
+      cp ubuntu-mate-welcome.1 usr/share/man/man1
+      #ubuntu-mate-welcome.desktop: etc/skel/.config/autostart/
+      #update-mate-menu-welcome: /usr/sbin/
+apps:
+  ubuntu-mate-welcome:
+    #desktop: usr/share/applications/ubuntu-mate-welcome.desktop
+    command: usr/bin/ubuntu-mate-welcome --font-dpi=96
