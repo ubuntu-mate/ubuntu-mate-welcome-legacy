@@ -28,9 +28,9 @@ parts:
     after:
       - zenity
     build-packages:
+      - gettext      
       - python3
       - python3-polib
-      - gettext
       - rsync
     stage-packages:
       - gir1.2-gtk-3.0
@@ -56,26 +56,31 @@ parts:
       ./edgar-allan translate-all    
     install: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
-      rsync -av data/ $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
+      rsync -a data/ $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
-      rsync -av hicolor/ $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
+      rsync -a hicolor/ $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/locale
-      rsync -av locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
+      rsync -a locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
       #mate-settings-welcome.menu: etc/xdg/menus/
       #org.ubuntu-mate.welcome.policy: usr/share/polkit-1/actions/
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
       cp ubuntu-mate-software.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
-      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/ 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       cp ubuntu-mate-welcome $SNAPCRAFT_PART_INSTALL/usr/bin/
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
       cp ubuntu-mate-welcome-repository-installer $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
       cp ubuntu-mate-welcome-rpi2-partition-resize $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
-      mkdir -p usr/share/man/man1
-      cp ubuntu-mate-welcome.1 usr/share/man/man1
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
+      cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       #ubuntu-mate-welcome.desktop: etc/skel/.config/autostart/
       #update-mate-menu-welcome: /usr/sbin/
+    prime:
+      - -usr/share/doc
+
 apps:
   ubuntu-mate-welcome:
     #desktop: usr/share/applications/ubuntu-mate-welcome.desktop
-    command: usr/bin/ubuntu-mate-welcome --font-dpi=96
+    command: usr/bin/ubuntu-mate-welcome
+  software-boutique:
+    command: usr/bin/ubuntu-mate-welcome -b  
