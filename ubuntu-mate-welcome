@@ -508,7 +508,10 @@ class PreInstallation(object):
 
         # Function to run privileged commands.
         def run_task(function):
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
+            if os.environ['SNAP']:
+                subprocess.call(['pkexec', os.environ['SNAP'] + '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
+            else:
+                subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
 
         # Determine if any pre-configuration is specific to a codename.
         try:
