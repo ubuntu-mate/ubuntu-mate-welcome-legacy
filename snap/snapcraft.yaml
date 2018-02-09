@@ -39,7 +39,6 @@ parts:
       - gir1.2-notify-0.7
       - gir1.2-webkit2-4.0
       - inxi
-      #- libnotify-bin - gir1.2-notify-0.7 should provide what we need
       #- parted - is in the standard and ubuntu-core tasks
       #- pciutils - is in the standard task
       - policykit-1
@@ -54,8 +53,8 @@ parts:
       #- software-properties-common - in all the Ubuntu flavour tasks
     prepare: |
       # Modify the icon paths for the snap.
-      sed -i 's|Icon=software-boutique|Icon=/usr/share/icons/hicolor/512x512/apps/software-boutique\.png|' ubuntu-mate-software.desktop
-      sed -i 's|Icon=ubuntu-mate|Icon=/usr/share/icons/hicolor/512x512/apps/ubuntu-mate\.png|' ubuntu-mate-welcome.desktop
+      sed -i 's|Icon=software-boutique|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/software-boutique\.svg|' ubuntu-mate-software.desktop
+      sed -i 's|Icon=ubuntu-mate|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/ubuntu-mate\.svg|' ubuntu-mate-welcome.desktop
     build: |
       ./welcome-po.py --update-pos
       ./welcome-po.py --install
@@ -71,8 +70,7 @@ parts:
       rsync -a locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
-      cp ubuntu-mate-software.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
-      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      cp *.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       cp ubuntu-mate-welcome $SNAPCRAFT_PART_INSTALL/usr/bin/
@@ -84,12 +82,6 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
 
-      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/sbin
-      cp update-mate-menu-welcome $SNAPCRAFT_PART_INSTALL/usr/sbin
-
-      mkdir -p $SNAPCRAFT_PART_INSTALL/etc/xdg/menus/
-      cp mate-settings-welcome.menu $SNAPCRAFT_PART_INSTALL/etc/xdg/menus/
-
     # The cruft_ filesets define files/directories that can be safely
     # removed from Ubuntu MATE Welcome to reduce the size of the snap.
     # They have been grouped to assist others seeking to shrink the size
@@ -99,11 +91,16 @@ parts:
         - -usr/share/apport
       cruft_aspell:
         - -etc/dictionaries-common
-        - -usr/bin/aspell*
+        - -usr/bin/*spell*
         - -usr/lib/aspell
+        - -usr/lib/ispell
+        - -usr/sbin/*aspell*
+        - -usr/sbin/*ispell*
         - -usr/share/aspell
+        - -usr/share/dict
         - -var/cache/dictionaries-common
         - -var/lib/aspell
+        - -var/lib/ispell
         - -var/lib/dictionaries-common
       cruft_binaries:
         - -bin/*.py
@@ -114,7 +111,8 @@ parts:
         - -bin/mutagen*
         - -bin/pyrsa*
         - -usr/bin/pydoc3*
-        - -usr/bin/pygettext3*
+        - -usr/bin/ucf*
+        - -usr/share/apps
       cruft_compilers_and_debuggers:
         - -usr/bin/pdb3*
         - -usr/lib/gcc
@@ -135,9 +133,11 @@ parts:
         - -var/lib/emacsen-common
       cruft_fonts:
         - -etc/fonts
+        - -usr/bin/fc-*
         - -usr/share/fonts
       cruft_gnome:
         - -usr/share/glib-2.0/schemas
+        - -usr/share/GConf
       cruft_headers:
         - -usr/include
         - -usr/share/include
@@ -146,15 +146,24 @@ parts:
         - -usr/share/icons/Humanity*
         - -usr/share/icons/LoginIcons
         - -usr/share/icons/ubuntu-mono-*
+      cruft_init:
+        - -etc/init*
+        - -lib/systemd
+        - -sbin/cg*
+        - -usr/lib/systemd
+        - -usr/share/upstart
+        - -var/lib/systemd
       cruft_lintian:
         - -usr/share/lintian/overrides
       cruft_man_pages:
         - -usr/share/man
       cruft_meta:
         - -usr/share/pixmaps
+        - -usr/share/pkgconfig
       cruft_python_2to3:
-        - -usr/bin/2to3*
         - -usr/lib/python*/lib2to3
+      cruft_python_distutils:
+        - -usr/lib/python*/distutils
       cruft_python_idle:
         - -usr/lib/python*/idlelib
         - -usr/lib/python*/tkinter
@@ -170,8 +179,8 @@ parts:
       cruft_x11:
         - -etc/X11
         - -usr/lib/*/dri
+        - -usr/share/libdrm
         - -usr/share/X11
-
     prime:
       - $cruft_apport
       - $cruft_aspell
@@ -184,9 +193,12 @@ parts:
       - $cruft_fonts
       - $cruft_headers
       - $cruft_icons
+      - $cruft_init
       - $cruft_lintian
       - $cruft_man_pages
+      - $cruft_meta
       - $cruft_python_2to3
+      - $cruft_python_distutils
       - $cruft_python_idle
       - $cruft_python_pip
       - $cruft_python_tests
