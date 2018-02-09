@@ -2134,14 +2134,18 @@ class DynamicApps(object):
         self.operations_busy = False
 
         # Get the version of Welcome in use.
-        for pkgname in systemstate.apt_cache.keys():
-            if 'ubuntu-mate-welcome' in pkgname:
-                try:
-                    systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
-                except AttributeError:
-                    dbg.stdout("Welcome", ".deb is not installed. Version could not be detected. Falling back to __VERSION__", 0, 1)
-                    systemstate.welcome_version = __VERSION__
-                break
+        if not os.environ['SNAP']:
+            for pkgname in systemstate.apt_cache.keys():
+                if 'ubuntu-mate-welcome' in pkgname:
+                    try:
+                        systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
+                    except AttributeError:
+                        dbg.stdout("Welcome", ".deb is not installed. Version could not be detected. Falling back to __VERSION__", 0, 1)
+                        systemstate.welcome_version = __VERSION__
+                    break
+        else:
+            dbg.stdout("Welcome", "Snap detected. Using __VERSION__", 0, 1)
+            systemstate.welcome_version = __VERSION__
         dbg.stdout('Welcome', 'Version: ' + systemstate.welcome_version, 0, 0)
 
     def reload_index(self):
