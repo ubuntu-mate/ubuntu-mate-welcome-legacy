@@ -161,6 +161,7 @@ parts:
         - -usr/share/pixmaps
         - -usr/share/pkgconfig
       cruft_python_2to3:
+        - -usr/bin/2to3*
         - -usr/lib/python*/lib2to3
       cruft_python_distutils:
         - -usr/lib/python*/distutils
