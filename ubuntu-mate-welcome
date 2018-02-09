@@ -1542,10 +1542,7 @@ class SystemState(object):
         # Full path to binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
 
-        # User's autostart directory and full path to autostart symlink.
         # Used for systemstate.autostart_toggle() function.
-        self._autostart_dir = os.path.expanduser('~/.config/autostart/')
-        self._autostart_path = os.path.expanduser(os.path.join(self._autostart_dir, 'ubuntu-mate-welcome.desktop'))
         self.autostart = self.autostart_check()
 
         # Load Apt Cache
@@ -1665,38 +1662,11 @@ class SystemState(object):
         dbg.stdout('Apt', 'Cache reloaded.', 0, 2)
 
     def autostart_check(self):
-        # Ensure our autostart directories exist
-        if not os.path.exists(self._autostart_dir):
-            try:
-                os.makedirs(self._autostart_dir)
-            except OSError as err:
-                dbg.stdout('Welcome', 'Error while checking autostart directory: ' + str(err), 0, 1)
-                pass
-
-        # Set boolean if the autostart file exists.
-        if os.path.exists(self._autostart_path):
-            return True
-        else:
-            return False
+        return pref.get("autostart", True)
 
     def autostart_toggle(self):
-        if not os.path.exists(self._autostart_path):
-            # create the autostart symlink
-            try:
-                os.symlink('/usr/share/applications/ubuntu-mate-welcome.desktop', self._autostart_path)
-            except OSError as err:
-                dbg.stdout('Welcome', 'Error while enabling autostart: ' + str(err), 0, 1)
-                pass
-
-        elif os.path.exists(self._autostart_path):
-            # remove the autostart symlink
-            try:
-                os.unlink(self._autostart_path)
-            except OSError as err:
-                dbg.stdout('Welcome', 'Error while disabling autostart: ' + str(err), 0, 1)
-                pass
-
-        self.autostart = self.autostart_check()
+        self.autostart = not pref.get("autostart", True)
+        pref.set('autostart', self.autostart)
         dbg.stdout('Welcome', 'Auto start toggled to: ' + str(self.autostart), 1, 2)
 
     def check_internet_connection(self):
@@ -3495,6 +3465,7 @@ class Arguments(object):
     '''Check arguments passed the application.'''
 
     def __init__(self):
+        self.autostarted = False
         self.verbose_enabled = False
         self.simulate_arch = None
         self.simulate_session = None
@@ -3515,6 +3486,7 @@ class Arguments(object):
               print('\nUbuntu MATE Welcome Parameters\n  Intended for debugging and testing purposes only!\n')
               print('\nUsage: ubuntu-mate-welcome [arguments]')
               #     | Command                      | Help Text                                     |
+              print('  -a, --autostart              Use when started via an autostart desktop file.')
               print('  -d, --dev, --debug           Disables locales and is very verbose')
               print('                               intended for development purposes.')
               print('  --font-dpi=NUMBER            Adapt zoom setting based on DPI. Default 96.')
@@ -3536,6 +3508,10 @@ class Arguments(object):
               print('  -v, --verbose                Show more details to stdout (for diagnosis).')
               print('')
               exit()
+
+          if arg == '--autostart' or arg == '-a':
+              dbg.stdout('Debug', 'Autostart mode enabled.', 0, 0)
+              self.autostarted = True
 
           if arg == '--verbose' or arg == '-v':
               dbg.stdout('Debug', 'Verbose mode enabled.', 0, 0)
@@ -3629,31 +3605,34 @@ class Arguments(object):
 #  Program Initialisation
 ##################################
 if __name__ == "__main__":
-
+    setproctitle.setproctitle('ubuntu-mate-welcome')
     # Process any parameters passed to the program.
     dbg = Debug()
     arg = Arguments()
-
-    # Application Initialisation
-    setproctitle.setproctitle('ubuntu-mate-welcome')
-    data_path = whereami()
-
-    # Set up translations and strings
-    trans = Translations(data_path)
-    string = Strings()
-
-    # Welcome Features
     pref = Preferences()
-    systemstate = SystemState()
-    app = WelcomeApp()
-    dynamicapps = DynamicApps()
-    queue = ChangesQueue()
-    preinstallation = PreInstallation()
 
-    # Argument Overrides
-    arg.override_arch()
-    arg.override_session()
-    arg.override_codename()
+    # If Welcome is being autostarted check the user preferences.
+    if (not arg.autostarted) or (arg.autostarted and pref.get('autostart', True)):
+        # Application Initialisation
+        data_path = whereami()
 
-    dbg.stdout('Welcome', 'Application Ready.', 0, 0)
-    app.run()
+        # Set up translations and strings
+        trans = Translations(data_path)
+        string = Strings()
+
+        # Welcome Features
+        systemstate = SystemState()
+        app = WelcomeApp()
+        dynamicapps = DynamicApps()
+        queue = ChangesQueue()
+        preinstallation = PreInstallation()
+
+        # Argument Overrides
+        arg.override_arch()
+        arg.override_session()
+        arg.override_codename()
+
+        dbg.stdout('Welcome', 'Application Ready.', 0, 0)
+        app.run()
+    else:
+        dbg.stdout('Welcome', 'Welcome was autostarted but autostart is disabled.', 0, 0)
