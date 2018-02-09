@@ -1,10 +1,6 @@
 #!/bin/sh
 
-#$SNAP/usr/sbin/update-mate-menu-welcome
-#update-icon-caches /usr/share/icons/hicolor
-#update-desktop-database
-
-cat << AUTOSTART > /etc/xdg/autostart/ubuntu-mate-welcome.desktop
+cat << AUTOSTART > /etc/xdg/autostart/ubuntu-mate-welcome-autostart.desktop
 [Desktop Entry]
 Version=1.0
 Name=Welcome
@@ -51,3 +47,23 @@ cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
   </action>
 </policyconfig>
 POLICY
+
+cat << MENU > /etc/xdg/menus/mate-settings-welcome.menu
+<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN' 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+    <Name>Desktop</Name>
+    <Include>
+            <Filename>$SNAP/ubuntu-mate-welcome.desktop</Filename>
+    </Include>
+    <Layout>
+        <Merge type="menus"/>
+        <Separator/>
+        <Filename>$SNAP/ubuntu-mate-welcome.desktop</Filename>
+        <Merge type="files"/>
+    </Layout>
+</Menu>
+MENU
+
+#if [ -f /etc/xdg/menus/mate-settings.menu ]; then
+#    sed -i "/<\/Layout>/a <MergeFile>\/etc\/xdg\/menus\/mate-settings-welcome\.menu<\/MergeFile>" /etc/xdg/menus/mate-settings.menu
+#fi

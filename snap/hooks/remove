@@ -1,8 +1,9 @@
 #!/bin/sh
 
-#$SNAP/usr/sbin/update-mate-menu-welcome --remove
-#update-icon-caches /usr/share/icons/hicolor
-#update-desktop-database
-
-rm -f /etc/xdg/autostart/ubuntu-mate-welcome.desktop
+rm -f /etc/xdg/autostart/ubuntu-mate-welcome-autostart.desktop
 rm -f /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
+
+rm -f /etc/xdg/menus/mate-settings-welcome.menu
+#if [ -f /etc/xdg/menus/mate-settings.menu ]; then
+#    sed -i '/<MergeFile>\/etc\/xdg\/menus\/mate-settings-welcome\.menu<\/MergeFile>/d' /etc/xdg/menus/mate-settings.menu
+#fi
