@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#$SNAP/usr/sbin/update-mate-menu-welcome --remove
+#update-icon-caches /usr/share/icons/hicolor
+#update-desktop-database
+
+rm -f /etc/xdg/autostart/ubuntu-mate-welcome.desktop
+rm -f /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy

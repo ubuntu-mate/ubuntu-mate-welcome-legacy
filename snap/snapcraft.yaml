@@ -1,4 +1,4 @@
-name: ubuntu-mate-welcome 
+name: ubuntu-mate-welcome
 version: '17.10.15'
 summary: Welcome screen for Ubuntu MATE
 description: |
@@ -11,9 +11,9 @@ parts:
   # Build a minimal zenity from source, prevents dragging in WebKit et al.
   zenity:
     plugin: autotools
+    source: https://git.gnome.org/browse/zenity/snapshot/ZENITY_3_18_1_1.tar.xz
     configflags:
       - --prefix=/usr
-    source: https://git.gnome.org/browse/zenity/snapshot/ZENITY_3_18_1_1.tar.xz
     build-packages:
       - gnome-common
       - libgtk-3-dev
@@ -27,8 +27,10 @@ parts:
     plugin: nil
     after:
       - zenity
+    #build-attributes:
+    #  - no-system-libraries
     build-packages:
-      - gettext      
+      - gettext
       - python3
       - python3-polib
       - rsync
@@ -36,11 +38,10 @@ parts:
       - gir1.2-gtk-3.0
       - gir1.2-notify-0.7
       - gir1.2-webkit2-4.0
-      - humanity-icon-theme
       - inxi
-      - libnotify-bin
-      - parted
-      - pciutils
+      #- libnotify-bin - gir1.2-notify-0.7 should provide what we need
+      #- parted - is in the standard and ubuntu-core tasks
+      #- pciutils - is in the standard task
       - policykit-1
       - python3
       - python3-apt
@@ -49,38 +50,154 @@ parts:
       - python3-gi
       - python3-polib
       - python3-setproctitle
-      - software-properties-common
+      - python3-software-properties
+      #- software-properties-common - in all the Ubuntu flavour tasks
+    prepare: |
+      # Modify the icon paths for the snap.
+      sed -i 's|Icon=software-boutique|Icon=/usr/share/icons/hicolor/512x512/apps/software-boutique\.png|' ubuntu-mate-software.desktop
+      sed -i 's|Icon=ubuntu-mate|Icon=/usr/share/icons/hicolor/512x512/apps/ubuntu-mate\.png|' ubuntu-mate-welcome.desktop
     build: |
       ./welcome-po.py --update-pos
       ./welcome-po.py --install
-      ./edgar-allan translate-all    
+      ./edgar-allan translate-all
     install: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
       rsync -a data/ $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
       rsync -a hicolor/ $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/locale
       rsync -a locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
-      #mate-settings-welcome.menu: etc/xdg/menus/
-      #org.ubuntu-mate.welcome.policy: usr/share/polkit-1/actions/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
       cp ubuntu-mate-software.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
-      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/ 
+      cp ubuntu-mate-welcome.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       cp ubuntu-mate-welcome $SNAPCRAFT_PART_INSTALL/usr/bin/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
       cp ubuntu-mate-welcome-repository-installer $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
       cp ubuntu-mate-welcome-rpi2-partition-resize $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
+
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
-      #ubuntu-mate-welcome.desktop: etc/skel/.config/autostart/
-      #update-mate-menu-welcome: /usr/sbin/
+
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/sbin
+      cp update-mate-menu-welcome $SNAPCRAFT_PART_INSTALL/usr/sbin
+
+      mkdir -p $SNAPCRAFT_PART_INSTALL/etc/xdg/menus/
+      cp mate-settings-welcome.menu $SNAPCRAFT_PART_INSTALL/etc/xdg/menus/
+
+    # The cruft_ filesets define files/directories that can be safely
+    # removed from Ubuntu MATE Welcome to reduce the size of the snap.
+    # They have been grouped to assist others seeking to shrink the size
+    # of Python snaps.
+    filesets:
+      cruft_apport:
+        - -usr/share/apport
+      cruft_aspell:
+        - -etc/dictionaries-common
+        - -usr/bin/aspell*
+        - -usr/lib/aspell
+        - -usr/share/aspell
+        - -var/cache/dictionaries-common
+        - -var/lib/aspell
+        - -var/lib/dictionaries-common
+      cruft_binaries:
+        - -bin/*.py
+        - -bin/html2text
+        - -bin/markdown_py
+        - -bin/mid3*
+        - -bin/moggsplit
+        - -bin/mutagen*
+        - -bin/pyrsa*
+        - -usr/bin/pydoc3*
+        - -usr/bin/pygettext3*
+      cruft_compilers_and_debuggers:
+        - -usr/bin/pdb3*
+        - -usr/lib/gcc
+        - -usr/lib/valgrind
+        - -usr/share/bug
+      cruft_debhelper:
+        - -usr/bin/dh_*
+        - -usr/share/debhelper
+        - -usr/share/dh-python
+        - -usr/share/perl5/Debian
+      cruft_docs:
+        - -usr/share/doc
+        - -usr/share/doc-base
+      cruft_emacs:
+        - -etc/emacs
+        - -usr/lib/emacsen-common
+        - -usr/share/emacs
+        - -var/lib/emacsen-common
+      cruft_fonts:
+        - -etc/fonts
+        - -usr/share/fonts
+      cruft_gnome:
+        - -usr/share/glib-2.0/schemas
+      cruft_headers:
+        - -usr/include
+        - -usr/share/include
+      cruft_icons:
+        - -usr/share/icons/Adwaita
+        - -usr/share/icons/Humanity*
+        - -usr/share/icons/LoginIcons
+        - -usr/share/icons/ubuntu-mono-*
+      cruft_lintian:
+        - -usr/share/lintian/overrides
+      cruft_man_pages:
+        - -usr/share/man
+      cruft_meta:
+        - -usr/share/pixmaps
+      cruft_python_2to3:
+        - -usr/bin/2to3*
+        - -usr/lib/python*/lib2to3
+      cruft_python_idle:
+        - -usr/lib/python*/idlelib
+        - -usr/lib/python*/tkinter
+        - -usr/share/applications/python3.5.desktop
+      cruft_python_pip:
+        - -lib/python*/site-packages/pip
+      cruft_python_tests:
+        - -lib/python*/site-packages/tests
+      cruft_python_venv:
+        - -usr/lib/python*/venv
+      cruft_python_wheel:
+        - -lib/python*/site-packages/wheel*
+      cruft_x11:
+        - -etc/X11
+        - -usr/lib/*/dri
+        - -usr/share/X11
+
     prime:
-      - -usr/share/doc
+      - $cruft_apport
+      - $cruft_aspell
+      - $cruft_binaries
+      - $cruft_compilers_and_debuggers
+      - $cruft_debhelper
+      - $cruft_docs
+      - $cruft_emacs
+      - $cruft_gnome
+      - $cruft_fonts
+      - $cruft_headers
+      - $cruft_icons
+      - $cruft_lintian
+      - $cruft_man_pages
+      - $cruft_python_2to3
+      - $cruft_python_idle
+      - $cruft_python_pip
+      - $cruft_python_tests
+      - $cruft_python_venv
+      - $cruft_python_wheel
+      - $cruft_x11
 
 apps:
   ubuntu-mate-welcome:
-    #desktop: usr/share/applications/ubuntu-mate-welcome.desktop
     command: usr/bin/ubuntu-mate-welcome
+    desktop: usr/share/applications/ubuntu-mate-welcome.desktop
   software-boutique:
-    command: usr/bin/ubuntu-mate-welcome -b  
+    command: usr/bin/ubuntu-mate-welcome --boutique
+    desktop: usr/share/applications/ubuntu-mate-software.desktop
