@@ -1070,7 +1070,7 @@ class AppView(WebKit2.WebView):
 
                 # Set version and subscription details.
                 app.update_page('#boutique-version', 'html', systemstate.welcome_version)
-                if systemstate.updates_subscribed:
+                if systemstate.updates_subscribed or os.environ['SNAP']:
                     app.update_page('#update-subscribed', 'show')
                 else:
                     app.update_page('#update-notification', 'show')
@@ -1535,7 +1535,7 @@ class SystemState(object):
         self.is_online = False
         self.updates_subscribed = False
         self.rpi_resize_pending = False
-        self.welcome_version = 'Unknown'
+        self.welcome_version = __VERSION__
 
         # Get user details.
         self.user_name = GLib.get_user_name()
@@ -2139,8 +2139,8 @@ class DynamicApps(object):
                 try:
                     systemstate.welcome_version = systemstate.apt_cache['ubuntu-mate-welcome'].installed.version
                 except AttributeError:
-                    dbg.stdout("Welcome", "Program is not installed. Version could not be detected.", 0, 1)
-                    systemstate.welcome_version = "Unknown"
+                    dbg.stdout("Welcome", ".deb is not installed. Version could not be detected. Falling back to __VERSION__", 0, 1)
+                    systemstate.welcome_version = __VERSION__
                 break
         dbg.stdout('Welcome', 'Version: ' + systemstate.welcome_version, 0, 0)
 
