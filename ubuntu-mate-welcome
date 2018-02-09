@@ -3613,6 +3613,13 @@ if __name__ == "__main__":
 
     # If Welcome is being autostarted check the user preferences.
     if (not arg.autostarted) or (arg.autostarted and pref.get('autostart', True)):
+
+        # If an old style autostart is present, remove it.
+        old_autostart_dir = os.path.expanduser('~/.config/autostart/')
+        old_autostart_path = os.path.expanduser(os.path.join(old_autostart_dir, 'ubuntu-mate-welcome.desktop'))
+        if os.path.exists(old_autostart_path):
+            os.remove(old_autostart_path)
+
         # Application Initialisation
         data_path = whereami()
 
