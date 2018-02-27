@@ -38,7 +38,6 @@ import locale
 import os
 import platform
 import random
-import setproctitle
 import signal
 import socket
 import subprocess
@@ -57,6 +56,13 @@ from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from threading import Thread
 from shutil import which
+
+# FIXME! Temporary workaround to make sure the snap works even if proctitle is not installed on the host.
+try:
+    import setproctitle
+    proctitle_available = True
+except ImportError:
+    proctitle_available = False
 
 __VERSION__ = '17.10.16'
 
@@ -3610,7 +3616,9 @@ class Arguments(object):
 #  Program Initialisation
 ##################################
 if __name__ == "__main__":
-    setproctitle.setproctitle('ubuntu-mate-welcome')
+    if proctitle_available:
+        setproctitle.setproctitle('ubuntu-mate-welcome')
+
     # Process any parameters passed to the program.
     dbg = Debug()
     arg = Arguments()
