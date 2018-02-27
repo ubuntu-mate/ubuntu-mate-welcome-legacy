@@ -1570,7 +1570,8 @@ class SystemState(object):
                 self.is_ubuntu_mate = False
 
         # Determine which type of session we are in.
-        if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override'):
+        if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override') or \
+           os.path.exists('/usr/share/glib-2.0/schemas/40_ubuntu-mate-live.gschema.override'):
             self.session_type = 'live'
         elif self.user_name[:6] == 'guest-':
             self.session_type = 'guest'
