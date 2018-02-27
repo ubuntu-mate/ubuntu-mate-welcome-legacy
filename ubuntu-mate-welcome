@@ -103,9 +103,9 @@ def whereami():
     elif( os.path.exists('/usr/share/ubuntu-mate-welcome/') ):
         dbg.stdout('Welcome', 'Using /usr/share/ubuntu-mate-welcome/ path.', 1, 0)
         data_path = '/usr/share/ubuntu-mate-welcome/'
-    elif( os.path.exists(os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/') ):
-        dbg.stdout('Welcome', 'Using ' + os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/ path.', 1, 0)
-        data_path = os.environ['SNAP'] + '/usr/share/ubuntu-mate-welcome/'
+    elif( os.path.exists(os.environ.get('SNAP') + '/usr/share/ubuntu-mate-welcome/') ):
+        dbg.stdout('Welcome', 'Using ' + os.environ.get('SNAP') + '/usr/share/ubuntu-mate-welcome/ path.', 1, 0)
+        data_path = os.environ.get('SNAP') + '/usr/share/ubuntu-mate-welcome/'
     else:
         dbg.stdout('Welcome', 'Unable to source the ubuntu-mate-welcome data directory.', 0, 1)
         sys.exit(1)
@@ -515,8 +515,8 @@ class PreInstallation(object):
 
         # Function to run privileged commands.
         def run_task(function):
-            if os.environ['SNAP']:
-                subprocess.call(['pkexec', os.environ['SNAP'] + '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
+            if os.environ.get('SNAP'):
+                subprocess.call(['pkexec', os.environ.get('SNAP') + '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
             else:
                 subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer', os.path.abspath(os.path.join(data_path, 'js/applications.json')), function, category, program_id, target])
 
@@ -1076,7 +1076,7 @@ class AppView(WebKit2.WebView):
 
                 # Set version and subscription details.
                 app.update_page('#boutique-version', 'html', systemstate.welcome_version)
-                if systemstate.updates_subscribed or os.environ['SNAP']:
+                if systemstate.updates_subscribed or os.environ.get('SNAP'):
                     app.update_page('#update-subscribed', 'show')
                 else:
                     app.update_page('#update-notification', 'show')
@@ -2140,7 +2140,7 @@ class DynamicApps(object):
         self.operations_busy = False
 
         # Get the version of Welcome in use.
-        if not os.environ['SNAP']:
+        if not os.environ.get('SNAP'):
             for pkgname in systemstate.apt_cache.keys():
                 if 'ubuntu-mate-welcome' in pkgname:
                     try:
