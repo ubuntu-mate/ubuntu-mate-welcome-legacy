@@ -1,6 +1,9 @@
 #!/bin/sh
 
-cat << AUTOSTART > /etc/xdg/autostart/ubuntu-mate-welcome-autostart.desktop
+# Only attempt to write the files when not running in the live session
+if [ ! -f /usr/share/glib-2.0/schemas/40_ubuntu-mate-live.gschema.override ]; then
+
+  cat << AUTOSTART > /etc/xdg/autostart/ubuntu-mate-welcome-autostart.desktop
 [Desktop Entry]
 Version=1.0
 Name=Welcome
@@ -14,7 +17,7 @@ StartupNotify=false
 NoDisplay=true
 AUTOSTART
 
-cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
+  cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE policyconfig PUBLIC
  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
@@ -48,7 +51,7 @@ cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
 </policyconfig>
 POLICY
 
-cat << MENU > /etc/xdg/menus/mate-settings-welcome.menu
+  cat << MENU > /etc/xdg/menus/mate-settings-welcome.menu
 <!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN' 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
 <Menu>
     <Name>Desktop</Name>
@@ -64,6 +67,7 @@ cat << MENU > /etc/xdg/menus/mate-settings-welcome.menu
 </Menu>
 MENU
 
-#if [ -f /etc/xdg/menus/mate-settings.menu ]; then
-#    sed -i "/<\/Layout>/a <MergeFile>\/etc\/xdg\/menus\/mate-settings-welcome\.menu<\/MergeFile>" /etc/xdg/menus/mate-settings.menu
-#fi
+  #if [ -f /etc/xdg/menus/mate-settings.menu ]; then
+  #  sed -i "/<\/Layout>/a <MergeFile>\/etc\/xdg\/menus\/mate-settings-welcome\.menu<\/MergeFile>" /etc/xdg/menus/mate-settings.menu
+  #fi
+fi
