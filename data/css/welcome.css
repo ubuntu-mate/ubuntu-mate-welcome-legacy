@@ -784,7 +784,7 @@ blockquote.terminal {
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto;
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -825,6 +825,21 @@ blockquote.terminal {
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
+}
+
+#mate-blur {
+  animation: rotate 20s linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
 }
 
 /* Raspberry Pi Button */
