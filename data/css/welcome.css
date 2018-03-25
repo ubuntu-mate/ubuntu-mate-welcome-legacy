@@ -49,6 +49,15 @@ body, button, input {
   background-size: 50%;
 }
 
+.backdrop-simple.splash {
+  transition: background-position 1s;
+  background-position: calc(100% + 2px) 100%;
+}
+
+.backdrop-simple.splashIn {
+  background-position: calc(100% + 2px) calc(100% - 63px);
+}
+
 .cursor-wait {
   cursor: wait;
 }
