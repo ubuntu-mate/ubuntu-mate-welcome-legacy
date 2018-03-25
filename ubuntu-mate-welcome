@@ -993,6 +993,9 @@ class AppView(WebKit2.WebView):
             elif systemstate.session_type == 'guest':
                 self.run_js('var splashNextPage = "helloguest"')
                 self.run_js('var quick_splash = true')
+            elif should_offer_to_change_panels() == True:
+                self.run_js('var splashNextPage = "hellopanel"')
+                self.run_js('var quick_splash = true')
             else:
                 self.run_js('var splashNextPage = "index"')
                 self.run_js('var quick_splash = false')
@@ -1382,6 +1385,17 @@ class AppView(WebKit2.WebView):
             self.run_js("smoothPageFade('message.html')")
         elif cmd == 'list-repos':
             dynamicapps.populate_repos()
+        elif cmd.startswith('choose-panel'):
+            layout = cmd.split('?')[1]
+            dbg.stdout('Welcome', 'Setting layout to: ' + layout, 0, 3)
+            if layout == "ok":
+                pref.set("chosen-panel", True)
+                self.run_js("smoothPageFade('index.html')")
+            else:
+                app.update_page('#panel-keep', 'hide')
+                app.update_page('#panel-ok', 'show')
+                app.update_page('#panel-ok-hint', 'fadeIn')
+                subprocess.Popen(['mate-tweak', '--layout', layout])
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
@@ -3611,6 +3625,21 @@ class Arguments(object):
     def override_codename(self):
         if not self.simulate_codename == None:
             systemstate.codename = self.simulate_codename
+
+
+##################################
+#  Special
+##################################
+def should_offer_to_change_panels():
+    """
+    If running on 18.04 or later and the user hasn't been
+    prompted to choose a panel layout.
+    """
+    # Only for 18.04 and up, and if screen was never seen before.
+    if int(systemstate.os_version[:2]) >= 18 and pref.get("chosen-panel", False) == False:
+        return True
+    else:
+        return False
 
 
 ##################################

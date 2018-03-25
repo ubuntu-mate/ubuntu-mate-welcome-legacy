@@ -867,3 +867,9 @@ if ( current_page == 'donate.html' ) {
 
 }
 
+// Panel Selection
+function chooseLayout(self, layout) {
+    $('.panel-option').removeClass('active');
+    $(self).addClass('active');
+    cmd('choose-panel?' + layout)
+}
