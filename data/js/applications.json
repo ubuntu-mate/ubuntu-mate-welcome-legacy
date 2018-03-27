@@ -4114,12 +4114,12 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,zesty,artful",
+            "releases": "xenial,artful,bionic",
             "pre-install": {
-                "artful": {
+                "all": {
                     "method": "skip"
                 },
-                "all": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:team-xbmc/ppa",
                     "source-file": "team-xbmc-ubuntu-ppa-CODENAME"
@@ -4163,46 +4163,6 @@
                     "method": "ppa",
                     "enable-ppa": "ppa:heyarje/makemkv-beta",
                     "source-file": "heyarje-ubuntu-makemkv-beta-CODENAME"
-                }
-            },
-            "working": true
-        },
-        "nuvolaplayer": {
-            "name": "Nuvola Player",
-            "img": "nuvolaplayer",
-            "main-package": "nuvolaplayer3",
-            "launch-command": "nuvolaplayer3",
-            "install-packages": "nuvolaplayer3,nuvolaplayer3-all-services",
-            "remove-packages": "nuvolaplayer3,nuvolaplayer3-all-services",
-            "description": [
-                "A runtime for web-based music streaming services",
-                "providing more native user experience and integration",
-                "with Linux desktop environments than usual web browsers",
-                "can offer. It tries to feel and look like a native",
-                "application as possible. Supports 14 music streaming",
-                "services, including Amazon Cloud Player, Bandcamp,",
-                "Google Play Music, Plex Music, Sound Clound, Spotify and",
-                "TuneIn"
-            ],
-            "alternate-to": null,
-            "subcategory": "Media Playback",
-            "open-source": true,
-            "url-info": "https://tiliado.eu/nuvolaplayer/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,zesty",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "tiliado-nuvolaplayer",
-                    "apt-key-server": [
-                        "keyserver.ubuntu.com",
-                        "40554B8FA5FE6F6A"
-                    ],
-                    "apt-sources": [
-                        "deb https://tiliado.eu/nuvolaplayer/repository/deb/ CODENAME stable"
-                    ]
                 }
             },
             "working": true
