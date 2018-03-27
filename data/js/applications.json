@@ -4802,39 +4802,6 @@
             },
             "working": true
         },
-        "virt-manager": {
-            "name": "Virtual Machine Manager",
-            "img": "virt-manager",
-            "main-package": "virt-manager",
-            "launch-command": "virt-manager",
-            "install-packages": "qemu,qemu-kvm,qemu-system,virt-manager,virt-viewer,libvirt-bin",
-            "remove-packages": "qemu,qemu-kvm,qemu-system,virt-manager,virt-viewer,libvirt-bin",
-            "description": [
-                "A desktop application for managing virtual machines through <code>libvirt</code>.",
-                "It primarily targets KVM VMs, but also manages Xen and LXC",
-                "(linux containers). It presents a summary view of running",
-                "domains, their live performance and resource utilization",
-                "statistics. Wizards enable the creation of new domains, and",
-                "configuration and adjustment of a domain\u2019s resource",
-                "allocation and virtual hardware. An embedded VNC and SPICE",
-                "client viewer presents a full graphical console to the guest domain.",
-                " <strong>Requires a reboot after installing.</strong>"
-            ],
-            "alternate-to": "Oracle&reg; VirtualBox",
-            "subcategory": "Virtualization",
-            "open-source": true,
-            "url-info": "https://virt-manager.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "virtualbox": {
             "name": "Oracle VirtualBox",
             "img": "virtualbox",
