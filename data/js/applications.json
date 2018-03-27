@@ -1731,18 +1731,13 @@
             "img": "adobeflash",
             "main-package": "flashplugin-installer",
             "launch-command": null,
-            "install-packages": "flashplugin-installer,libhal1-flash",
+            "install-packages": "flashplugin-installer",
             "remove-packages": "flashplugin-installer",
             "description": [
                 "A cross-platform, browser-based application runtime that",
                 "provides uncompromised viewing of expressive applications, content, and videos",
                 "across browsers and operating systems. This package provides",
-                "plugins compatible with the  Firefox Web Browser.",
-                "Ubuntu MATE Welcome will also install",
-                "<code>libhal1-flash</code> required by",
-                "<code>libadobecp</code> (which <code>libflashplayer.so</code>",
-                "retrieves from the Internet) for playing back DRM content",
-                "from streaming services such as Amazon Prime Instant Video."
+                "plugins compatible with the Firefox Web Browser."
             ],
             "alternate-to": null,
             "subcategory": "Plug-in",
@@ -1754,9 +1749,7 @@
             "releases": "xenial,zesty,artful,bionic",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/hal-flash",
-                    "source-file": "flexiondotorg-ubuntu-hal-flash-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
