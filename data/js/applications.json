@@ -1346,6 +1346,39 @@
             },
             "working": true
         },
+        "displaycal": {
+            "name": "DisplayCAL",
+            "img": "displaycal",
+            "main-package": "dispcalgui",
+            "launch-command": "displaycal",
+            "install-packages": "dispcalgui",
+            "remove-packages": "dispcalgui",
+            "description": [
+                "Calibrates and characterizes display devices using a hardware sensor,",
+                "driven by the open source color management system Argyll CMS. Supports",
+                "multi-display setups and a variety of available settings like customizable",
+                "whitepoint, luminance, black level, tone response curve as well as the",
+                "creation of matrix and look-up-table ICC profiles with optional gamut",
+                "mapping. Calibrations and profiles can be verified through measurements,",
+                "and profiles can be installed to make them available to color management",
+                "aware applications. Profile installation can utilize Argyll CMS, Oyranos",
+                "and/or GNOME Color Manager if available, for flexible integration."
+            ],
+            "alternate-to": null,
+            "subcategory": "Calibration",
+            "open-source": true,
+            "url-info": "https://displaycal.net",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,artful,bionic",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "darktable": {
             "name": "Darktable",
             "img": "darktable",
