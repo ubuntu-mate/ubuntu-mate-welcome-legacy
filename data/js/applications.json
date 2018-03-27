@@ -3404,37 +3404,6 @@
             },
             "working": true
         },
-        "brackets": {
-            "name": "Brackets",
-            "img": "brackets",
-            "main-package": "brackets",
-            "launch-command": "brackets",
-            "install-packages": "brackets",
-            "remove-packages": "brackets",
-            "description": [
-                "A modern, open source text editor that understands web design.",
-                "With focused visual tools and preprocessor support, Brackets",
-                "is a modern text editor that makes it easy to design in the",
-                "browser. It's crafted from the ground up for web designers",
-                "and front-end developers."
-            ],
-            "alternate-to": null,
-            "subcategory": "IDEs",
-            "open-source": true,
-            "url-info": "http://brackets.io/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:webupd8team/brackets",
-                    "source-file": "webupd8team-ubuntu-brackets-CODENAME"
-                }
-            },
-            "working": true
-        },
         "bzr": {
             "name": "Bazaar Explorer",
             "img": "bzr",
