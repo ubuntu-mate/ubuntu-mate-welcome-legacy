@@ -4647,7 +4647,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "zesty",
+            "releases": "zesty,artful,bionic",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4777,8 +4777,8 @@
             "img": "gns3",
             "main-package": "gns3",
             "launch-command": "gns3",
-            "install-packages": "gns3-gui",
-            "remove-packages": "gns3-gui",
+            "install-packages": "gns3",
+            "remove-packages": "gns3",
             "description": [
                 "What is GNS3?",
                 "Build, Design and Test your network in a risk-free virtual environment,",
@@ -4793,16 +4793,11 @@
             "url-info": "https://gns3.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf",
-            "releases": "xenial,zesty,artful",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,zesty,artful,bionic",
             "pre-install": {
                 "all": {
-                  "method": "ppa",
-                  "enable-ppa": "ppa:gns3/ppa",
-                  "source-file": "gns3-ubuntu-stable-CODENAME"
-                },
-                "bionic": {
-                    "method": "skip"
+                  "method": "skip"
                 }
             },
             "working": true
