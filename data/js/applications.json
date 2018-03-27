@@ -2351,41 +2351,6 @@
             },
             "working": true
         },
-        "nylas-mail": {
-            "name": "Nylas Mail",
-            "img": "nylas-mail",
-            "main-package": "nylas-mail",
-            "launch-command": "nylas-mail",
-            "install-packages": "nylas-mail",
-            "remove-packages": "nylas-mail",
-            "description": [
-                "Nylas Mail is a beautifully crafted email app that",
-                "works across on Linux, macOS and Windows. It features",
-                "an elegant UI and a host of features including Unified",
-                "Inbox, Open and Link Tracking, Rich Contacts, Undo Send",
-                "and Quick Reply templates. It offers a delightful",
-                "experience in managing your inboxes."
-            ],
-            "alternate-to": null,
-            "subcategory": "Email",
-            "open-source": true,
-            "url-info": "https://www.nylas.com/nylas-mail/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "nylas",
-                    "apt-key-server": ["keyserver.ubuntu.com", "7D0ACF4A"],
-                    "apt-sources": [
-                        "deb [arch=i386,amd64] http://apt.nylas.com/ubuntu trusty main"
-                    ]
-                }
-            },
-            "working": false
-        },
         "owncloud-client": {
             "name": "ownCloud Client",
             "img": "owncloud",
