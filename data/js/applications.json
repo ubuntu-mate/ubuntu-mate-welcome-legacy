@@ -4511,38 +4511,6 @@
         }
     },
     "SysTools": {
-        "aptik": {
-            "name": "Aptik",
-            "img": "aptik",
-            "main-package": "aptik",
-            "launch-command": "pkexec aptik-gtk",
-            "install-packages": "aptik",
-            "remove-packages": "aptik",
-            "description": [
-                "A utility to simplify re-installation of",
-                "software packages after upgrading/re-installing Ubuntu-based",
-                "distributions. Provides options to backup and re-install",
-                "extra applications installed by user; backup and re-add",
-                "third-party PPAs; backup and restore downloaded packages in",
-                "APT cache; fixing ownership of files in user&#8217;s home directory."
-            ],
-            "alternate-to": null,
-            "subcategory": "Maintenance",
-            "open-source": true,
-            "url-info": "http://www.teejeetech.in/search/label/aptik",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:teejee2008/ppa",
-                    "source-file": "teejee2008-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
-        },
         "bleachbit": {
             "name": "BleachBit",
             "img": "bleachbit",
