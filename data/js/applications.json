@@ -3709,41 +3709,6 @@
                 }
             },
             "working": true
-        },
-        "ubuntu-make": {
-            "name": "Ubuntu Make",
-            "img": "ubuntu-make",
-            "main-package": "ubuntu-make",
-            "launch-command": null,
-            "install-packages": "ubuntu-make",
-            "remove-packages": "ubuntu-make",
-            "description": [
-                "A command line tool which allows you",
-                "to download the latest version of popular developer tools and",
-                "provides functionality to setup, maintain and personalize",
-                "your developer environment easily. It will handle all",
-                "dependencies, even those which aren&#8217;t in Ubuntu itself, and",
-                "will install the latest versions of the recommended tools."
-            ],
-            "alternate-to": null,
-            "subcategory": "Design and Tools",
-            "open-source": true,
-            "url-info": "https://github.com/ubuntu/ubuntu-make",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:lyzardking/ubuntu-make",
-                    "source-file": "lyzardking-ubuntu-ubuntu-make-CODENAME"
-                },
-                "artful": {
-                    "method": "skip"
-                }
-            },
-            "working": true
         }
     },
     "Media": {
