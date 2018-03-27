@@ -4873,37 +4873,6 @@
             },
             "working": true
         },
-        "gnome-orca": {
-            "name": "Orca",
-            "img": "gnome-orca",
-            "main-package": "gnome-orca",
-            "launch-command": "orca",
-            "upgradable": true,
-            "upgrade-packages": "gnome-orca",
-            "description": [
-                "A scriptable screen reader that defines a set of default behaviors",
-                "(reactions to application events) and key bindings (reaction to user key presses).",
-                "These default behaviors and key bindings can be overwritten on a per-application basis.",
-                "<br><br>Clicking &#8217;Upgrade&#8217; will ensure Orca, and other components",
-                "in the accessibility stack, always stays up-to-date with the latest stable release."
-            ],
-            "alternate-to": null,
-            "subcategory": "Accesibility",
-            "open-source": true,
-            "url-info": "https://wiki.gnome.org/Projects/Orca",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:accessibility-dev/ppa",
-                    "source-file": "accessibility-dev-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
-        },
         "workrave": {
             "name": "Workrave",
             "img": "workrave",
