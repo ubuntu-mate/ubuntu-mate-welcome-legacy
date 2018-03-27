@@ -4202,36 +4202,6 @@
             },
             "working": true
         },
-        "openshot-qt": {
-            "name": "OpenShot",
-            "img": "openshot-qt",
-            "main-package": "openshot-qt",
-            "launch-command": "openshot-qt",
-            "install-packages": "openshot-qt",
-            "remove-packages": "openshot-qt",
-            "description": [
-                "A non-linear video editor that can create and edit videos and",
-                "movies using many popular video, audio, and image formats.",
-                "Create videos for YouTube, Flickr, Vimeo, Metacafe, Xbox, and many",
-                "more common formats!"
-            ],
-            "alternate-to": null,
-            "subcategory": "Video Production",
-            "open-source": true,
-            "url-info": "http://openshot.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:openshot.developers/ppa",
-                    "source-file": "openshot_developers-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
-        },
         "pithos": {
             "name": "Pithos",
             "img": "pithos",
