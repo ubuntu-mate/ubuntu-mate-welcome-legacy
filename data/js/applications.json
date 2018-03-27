@@ -1021,38 +1021,6 @@
             },
             "working": true
         },
-        "wine-devel": {
-            "name": "Wine Development Builds",
-            "img": "wine",
-            "main-package": "winehq-devel",
-            "launch-command": null,
-            "install-packages": "winehq-devel",
-            "remove-packages": "winehq-devel",
-            "description": [
-                "The latest, official development builds of the Wine Compatibility Layer.",
-                "These allow you to play a wider range of Windows games and software",
-                "as soon as new versions of Wine are released."
-            ],
-            "alternate-to": null,
-            "subcategory": "Compatibility",
-            "open-source": true,
-            "url-info": "https://www.winehq.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,zesty,artful",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "wine-builds",
-                    "apt-key-url": "https://dl.winehq.org/wine-builds/Release.key",
-                    "apt-sources": [
-                        "deb https://dl.winehq.org/wine-builds/ubuntu/ CODENAME main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "pysolfc": {
             "name": "PySolFC",
             "img": "pysolfc",
