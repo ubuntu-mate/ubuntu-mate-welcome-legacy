@@ -5100,40 +5100,7 @@
         }
     },
     "MoreApps": {
-        "1-appgrid": {
-            "name": "App Grid",
-            "img": "appgrid",
-            "main-package": "appgrid",
-            "launch-command": "appgrid",
-            "install-packages": "appgrid",
-            "remove-packages": "appgrid",
-            "description": [
-                "Helps you discover and install apps",
-                "for Ubuntu MATE. Written from scratch, App Grid delivers",
-                "stunning startup speed, and swift reactions throughout. A",
-                "clean and simple design makes App Grid a joy to use. No",
-                "confusion, no frustration. Discover the best of Open Source",
-                "in the Ubuntu archives. Or purchase additional apps via",
-                "Ubuntu One. Complete with ratings, reviews and screenshots."
-            ],
-            "alternate-to": null,
-            "subcategory": "Software Center",
-            "open-source": false,
-            "url-info": "http://www.appgrid.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial",
-            "pre-install": {
-                "all": {
-                    "method": "partner-repo+ppa",
-                    "enable-ppa": "ppa:appgrid/stable",
-                    "source-file": "appgrid-ubuntu-stable-CODENAME"
-                }
-            },
-            "working": true
-        },
-        "2-software": {
+        "1-software": {
             "name": "Software",
             "img": "gnome-software",
             "main-package": "gnome-software",
@@ -5158,7 +5125,7 @@
             },
             "working": true
         },
-        "4-synaptic": {
+        "2-synaptic": {
             "name": "Synaptic Package Manager",
             "img": "synaptic",
             "main-package": "synaptic",
