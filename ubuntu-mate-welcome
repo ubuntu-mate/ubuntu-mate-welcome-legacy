@@ -2794,8 +2794,8 @@ class DynamicApps(object):
                 for item_id in list_add:
                     # Extract it's attributes.
                     try:
-                        item_name = self.get_attribute_for_app(item_id, 'name')
-                        item_img = self.get_attribute_for_app(item_id, 'img')
+                        item_name = str(self.get_attribute_for_app(item_id, 'name'))
+                        item_img = str(self.get_attribute_for_app(item_id, 'img'))
                         item_category_raw = self.get_attribute_for_app(item_id, 'category')
                         item_category = get_category_string(item_category_raw)
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason"> (' + item_category + ')</span></li>'
@@ -2814,9 +2814,9 @@ class DynamicApps(object):
                 news_buffer = news_buffer + '<div class="news-list-items"><ul>'
                 for item_id in list_fix:
                     try:
-                        item_name = self.get_attribute_for_app(item_id, 'name')
-                        item_img = self.get_attribute_for_app(item_id, 'img')
-                        item_reason = get_reason_string(self.news[version]['fix'][item_id])
+                        item_name = str(self.get_attribute_for_app(item_id, 'name'))
+                        item_img = str(self.get_attribute_for_app(item_id, 'img'))
+                        item_reason = str(get_reason_string(self.news[version]['fix'][item_id]))
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
                         dbg.stdout('Apps', 'Failed to process news item: ' + item_id, 0, 1)
