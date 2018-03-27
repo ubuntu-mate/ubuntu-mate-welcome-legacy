@@ -2894,10 +2894,10 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,zesty,artful,bionic",
             "pre-install": {
-                "artful": {
+                "all": {
                     "method": "skip"
                 },
-                "all": {
+                "xenial": {
                   "method": "ppa",
                   "enable-ppa": "ppa:wireshark-dev/stable",
                   "source-file": "wireshark-ubuntu-stable-CODENAME"
@@ -3160,7 +3160,7 @@
             },
             "working": true
         },
-        "libreoffice": {
+        "libreoffice-upgrade": {
             "name": "LibreOffice",
             "img": "libreoffice",
             "main-package": "libreoffice-core",
@@ -3181,12 +3181,39 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,zesty,artful,bionic",
+            "releases": "xenial",
             "pre-install": {
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:libreoffice/ppa",
                     "source-file": "libreoffice-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": true
+        },
+        "libreoffice": {
+            "name": "LibreOffice",
+            "img": "libreoffice",
+            "main-package": "libreoffice-core",
+            "launch-command": "libreoffice",
+            "install-packages": "libreoffice-core,libreoffice-gtk3,libreoffice-calc,libreoffice-draw,libreoffice-gnome,libreoffice-impress,libreoffice-writer",
+            "remove-packages": "libreoffice-core,libreoffice-gtk3,libreoffice-calc,libreoffice-draw,libreoffice-gnome,libreoffice-impress,libreoffice-writer",
+            "description": [
+                "The full-featured office productivity suite",
+                "that provides a near drop-in replacement for",
+                "Microsoft&reg; Office."
+            ],
+            "alternate-to": null,
+            "subcategory": "Office Applications",
+            "open-source": true,
+            "url-info": "https://www.libreoffice.org/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "zesty,artful,bionic",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
