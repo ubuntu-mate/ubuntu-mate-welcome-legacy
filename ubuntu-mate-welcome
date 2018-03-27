@@ -1396,7 +1396,7 @@ class AppView(WebKit2.WebView):
                 app.update_page('#panel-keep', 'hide')
                 app.update_page('#panel-ok', 'show')
                 app.update_page('#panel-ok-hint', 'fadeIn')
-                subprocess.Popen(['mate-tweak', '--layout', layout])
+                subprocess.call(['mate-tweak', '--layout', layout])
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
