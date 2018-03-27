@@ -5352,31 +5352,6 @@
             },
             "working": true
         },
-        "nvidia-settings": {
-            "name": "NVIDIA Proprietary Drivers",
-            "img": "additional-drivers",
-            "main-package": "nvidia-settings",
-            "launch-command": null,
-            "upgradable": true,
-            "upgrade-packages": "nvidia-settings",
-            "description": "null",
-            "alternate-to": null,
-            "subcategory": "null",
-            "open-source": false,
-            "url-info": "",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:graphics-drivers/ppa",
-                    "source-file": "graphics-drivers-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
-        },
         "wallpapers": {
             "name": "Ubuntu MATE Community Wallpapers",
             "img": "desktop",
