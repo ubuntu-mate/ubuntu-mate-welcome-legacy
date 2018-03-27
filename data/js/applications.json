@@ -697,14 +697,9 @@
             "url-info": "http://www.flightgear.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,arm64",
             "releases": "xenial,zesty,artful,bionic",
             "pre-install": {
-                "xenial,zesty": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:saiarcot895/flightgear",
-                    "source-file": "saiarcot895-ubuntu-flightgear-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
