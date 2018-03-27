@@ -408,42 +408,6 @@
                 }
             },
             "working": true
-        },
-        "zim": {
-            "name": "Zim",
-            "img": "zim",
-            "main-package": "zim",
-            "launch-command": "zim",
-            "install-packages": "libgtkspell0,scrot,zim",
-            "remove-packages": "libgtkspell0,scrot,zim",
-            "description": [
-                "A graphical text editor used to maintain a",
-                "collection of wiki pages. Each page can contain links to",
-                "other pages, simple formatting and inline images. Pages are",
-                "stored in a folder structure, like in an outliner, and can",
-                "have attachments. Creating a new page is as easy as linking",
-                "to a nonexistent page. All data is stored in plain text files",
-                "with wiki formatting. Various plugins provide additional",
-                "functionality, like a task list manager, an equation editor,",
-                "a tray icon, and support for version control. Zim can be used",
-                "to: Keep an archive of notes, Take notes during meetings or",
-                "lectures, Organize task lists, Draft blog entries and emails,",
-                "Do brainstorming."
-            ],
-            "alternate-to": null,
-            "subcategory": "Note Taking",
-            "open-source": true,
-            "url-info": "http://zim-wiki.org/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
         }
     },
     "Education": {
