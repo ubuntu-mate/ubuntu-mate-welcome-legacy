@@ -1,34 +1,5 @@
 {
     "Accessories": {
-        "alarm-clock-applet": {
-            "name": "Alarm Clock",
-            "img": "alarm-clock-applet",
-            "main-package": "alarm-clock-applet",
-            "install-packages": "alarm-clock-applet",
-            "remove-packages": "alarm-clock-applet",
-            "launch-command": "alarm-clock-applet",
-            "description": [
-                "A fully-featured alarm clock which resides in the",
-                "notification area. It is easy to use yet powerful with support for",
-                "multiple and repeatable alarms, as well as snoozing and a flexible",
-                "notification system. Two types of alarms are supported: Alarm Clocks",
-                "and Timers. Notification is done by either playing a sound or launching an application."
-            ],
-            "alternate-to": null,
-            "subcategory": "Clock",
-            "open-source": true,
-            "url-info": "http://alarm-clock.pseudoberries.com/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "caffeine": {
             "name": "Caffeine",
             "img": "caffeine",
