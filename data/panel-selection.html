@@ -12,6 +12,9 @@
     <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
+        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+          <span class="fa fa-chevron-left"></span>
+        </button>
         <div id="navigation-title" style="display:none">&zwnj;Customise Layout&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
@@ -67,9 +70,7 @@
                     <button class="btn" onclick="$('#panel-show-more').remove();$('.panel-options').fadeIn();"><span class="fa fa-chevron-down"></span> &zwnj;Show More&zwnj;</button>
                     <br>
                 </span>
-                <button id="panel-keep" class="btn btn-inverse" onclick="cmd('choose-panel?ok')"><span class="fa fa-check"></span> &zwnj;Keep Existing Settings&zwnj;</button>
-                <button id="panel-ok" class="btn btn-success" onclick="cmd('choose-panel?ok')" style="display:none"><span class="fa fa-check"></span> &zwnj;Use These Settings&zwnj;</button>
-                <span id="panel-ok-hint" style="display:none">
+                <span id="panel-ok-hint">
                     <br>
                     <small>&zwnj;Panel layouts can be changed later in&zwnj; <strong>&zwnj;MATE Tweak&zwnj;</strong></small>
                 </span>
@@ -85,7 +86,8 @@
             <span id="footer-global-left"></span>
           </div>
           <div id="footer-right" class="form">
-            <button class="btn btn-inverse" onclick="smoothPageFade('index.html')">&zwnj;Choose Later&zwnj;</button>
+            <button id="panel-keep" class="btn btn-inverse" onclick="cmd('choose-panel?ok');$(this).fadeOut(500);"><span class="fa fa-check"></span> &zwnj;Keep Existing Settings&zwnj;</button>
+            <button id="panel-ok" class="btn btn-success" onclick="cmd('choose-panel?ok');$(this).fadeOut(500);" style="display:none"><span class="fa fa-check"></span> &zwnj;Use These Settings&zwnj;</button>
           </div>
         </div>
       </div>

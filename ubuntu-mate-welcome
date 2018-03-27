@@ -983,6 +983,10 @@ class AppView(WebKit2.WebView):
             if not which("ubiquity"):
                 app.update_page("#install", "prop", "disabled", "true")
 
+            # Enable panel customisation if supported in this version
+            if should_offer_to_change_panels() == True:
+                app.update_page('#panel-selection', 'fadeIn', 'fast')
+
         ### Splash ###
         if app.current_page == 'splash.html':
             self.do_smooth_footer = True
@@ -992,9 +996,6 @@ class AppView(WebKit2.WebView):
                 self.run_js('var quick_splash = true')
             elif systemstate.session_type == 'guest':
                 self.run_js('var splashNextPage = "helloguest"')
-                self.run_js('var quick_splash = true')
-            elif should_offer_to_change_panels() == True:
-                self.run_js('var splashNextPage = "hellopanel"')
                 self.run_js('var quick_splash = true')
             else:
                 self.run_js('var splashNextPage = "index"')
@@ -3632,11 +3633,9 @@ class Arguments(object):
 ##################################
 def should_offer_to_change_panels():
     """
-    If running on 18.04 or later and the user hasn't been
-    prompted to choose a panel layout.
+    Determine if user is running Ubuntu [MATE] 18.04 or later.
     """
-    # Only for 18.04 and up, and if screen was never seen before.
-    if int(systemstate.os_version[:2]) >= 18 and pref.get("chosen-panel", False) == False:
+    if int(systemstate.os_version[:2]) >= 18 and which("mate-tweak") != None:
         return True
     else:
         return False
