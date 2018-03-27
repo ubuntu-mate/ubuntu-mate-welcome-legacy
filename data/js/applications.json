@@ -819,7 +819,7 @@
             "url-info": "http://www.hedgewars.org",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf",
+            "arch": "i386,amd64",
             "releases": "xenial,zesty,artful,bionic",
             "pre-install": {
                 "all": {
@@ -827,7 +827,7 @@
                 }
             },
             "working": true,
-            "notes": "no packages for armhf or ppc64el"
+            "notes": "no packages for armhf on xenial"
         },
         "lutris": {
             "name": "Lutris",
