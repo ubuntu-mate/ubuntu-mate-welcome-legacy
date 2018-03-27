@@ -278,38 +278,6 @@
             },
             "working": true
         },
-        "recentnotifications": {
-            "name": "Recent Notifications",
-            "img": "recent-notifications",
-            "main-package": "indicator-notifications",
-            "launch-command": null,
-            "install-packages": "indicator-notifications,indicator-notifications-gtk2",
-            "remove-packages": "indicator-notifications,indicator-notifications-gtk2",
-            "description": [
-                "An indicator that collects recent notification messages",
-                "and stores them in a history so you can review",
-                "any notifications you may have missed while",
-                "away from your computer.",
-                "<ul><li><b>Note: </b><i>Recent Notifications works best with <u>Indicators enabled</u> via",
-                "<a onclick=\"cmd('run?mate-tweak')\"> MATE Tweak</a>.</i></li></ul>"
-            ],
-            "alternate-to": null,
-            "subcategory": "Desktop Management",
-            "open-source": true,
-            "url-info": "https://launchpad.net/recent-notifications",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:jconti/recent-notifications",
-                    "source-file": "jconti-ubuntu-recent-notifications-CODENAME"
-                }
-            },
-            "working": true
-        },
         "redshift": {
             "name": "Redshift",
             "img": "redshift",
