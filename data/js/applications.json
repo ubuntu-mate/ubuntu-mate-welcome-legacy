@@ -314,36 +314,6 @@
             },
             "working": true
         },
-        "hamster-applet": {
-            "name": "Time Tracker",
-            "img": "hamster-applet",
-            "main-package": "hamster-applet",
-            "launch-command": "hamster-time-tracker",
-            "install-packages": "hamster-applet,hamster-indicator",
-            "remove-packages": "hamster-applet,hamster-indicator",
-            "description": [
-                "Helps you to keep track of how much time you spend on",
-                "various activities during the day. Whenever you move",
-                "from one task to another, you change your current activity",
-                "in the applet. It can present graphical statistics of",
-                "how long you have spent on each task, and may be useful",
-                "for project management or keeping employee timesheets."
-            ],
-            "alternate-to": null,
-            "subcategory": "Productivity Tracking",
-            "open-source": true,
-            "url-info": "https://projecthamster.wordpress.com/about/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,zesty,artful,bionic",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "subsurface": {
             "name": "Subsurface",
             "img": "subsurface",
