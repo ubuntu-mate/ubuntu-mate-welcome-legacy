@@ -1175,6 +1175,14 @@ class AppView(WebKit2.WebView):
                     app.update_page(".slogan-box", "attr", "style", "background:url(" + path + ")")
                     break
 
+        ### Panel Selection ###
+        if app.current_page == 'panel-selection.html':
+            # Highlight the current panel in use (if built-in one)
+            output = subprocess.Popen(["mate-tweak", "--get-layout"], stdout=subprocess.PIPE).communicate()[0]
+            layout = output.decode().strip().split(": ")[-1]
+            app.update_page(".panel-option", "removeClass", "active")
+            app.update_page("#layout-" + layout, "addClass", "active")
+
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
         if title != 'null' and title != '' and title != None:
