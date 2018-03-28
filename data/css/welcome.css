@@ -1394,6 +1394,7 @@ blockquote.terminal {
 
 .panel-option {
     float: left;
+    position: relative;
     min-width: 100px;
     text-align: center;
     width: 100%;
@@ -1436,9 +1437,19 @@ blockquote.terminal {
     height: auto;
 }
 
-.panel-option span {
+.panel-option .name {
     margin: 0.5em 0;
     display: block;
+}
+
+.panel-option .inspiration {
+    position: absolute;
+    right: 14px;
+    bottom: 48px;
+    height: 26px;
+    width: 26px;
+    color: white;
+    text-align: right;
 }
 
 #panel-show-more {
