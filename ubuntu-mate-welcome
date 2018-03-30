@@ -960,6 +960,10 @@ class AppView(WebKit2.WebView):
             if systemstate.session_type == 'pi':
                 btns.append('raspberry-pi')
 
+            # Enable panel customisation if supported in this version
+            if should_offer_to_change_panels() == True:
+                btns.append('panel-selection')
+
             # Swap software for install button in live sessions.
             if systemstate.session_type == 'live':
                 btns.remove('gettingstarted')
@@ -983,10 +987,6 @@ class AppView(WebKit2.WebView):
             # Disable install button on installed systems.
             if not which("ubiquity"):
                 app.update_page("#install", "prop", "disabled", "true")
-
-            # Enable panel customisation if supported in this version
-            if should_offer_to_change_panels() == True:
-                app.update_page('#panel-selection', 'fadeIn', 'fast')
 
         ### Splash ###
         if app.current_page == 'splash.html':
