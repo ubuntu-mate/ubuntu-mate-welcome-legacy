@@ -936,7 +936,8 @@ class AppView(WebKit2.WebView):
             # Buttons (IDs) to be displayed
             btns = [ 'introduction', 'features', 'gettingstarted',
                      'getinvolved', 'shop', 'donate',
-                     'community', 'chatroom', 'software', 'open-at-start'
+                     'community', 'chatroom', 'software', 'open-at-start',
+                     'browser-selection'
                    ]
 
             # Show Welcome at login state
@@ -1183,6 +1184,22 @@ class AppView(WebKit2.WebView):
             app.update_page(".panel-option", "removeClass", "active")
             app.update_page("#layout-" + layout, "addClass", "active")
 
+        ### Browser Selection ###
+        if app.current_page == 'browser-selection.html':
+            # Update browser listings
+            dynamicapps.update_app_status(self, 'firefox')
+            dynamicapps.update_app_status(self, 'chromium')
+            dynamicapps.update_app_status(self, 'google-chrome')
+            dynamicapps.update_app_status(self, 'opera-browser')
+            dynamicapps.update_app_status(self, 'vivaldi')
+            dynamicapps.update_app_status(self, 'brave')
+
+            # Highlight default browser
+            if which('xdg-settings') != None:
+                default_browser = subprocess.Popen(['xdg-settings', 'get', 'default-web-browser'], stdout=subprocess.PIPE).communicate()[0]
+                default_browser = default_browser.decode('UTF-8').strip().replace('.desktop', '')
+                app.update_page('#' + default_browser, 'addClass', 'active')
+
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
         if title != 'null' and title != '' and title != None:
@@ -1405,6 +1422,14 @@ class AppView(WebKit2.WebView):
                 app.update_page('#panel-ok', 'show')
                 app.update_page('#panel-ok-hint', 'fadeIn')
                 subprocess.call(['mate-tweak', '--layout', layout])
+        elif cmd.startswith('set-default-web-browser'):
+            browser = cmd.split('?')[1]
+            browser_file = browser + '.desktop'
+            dbg.stdout('Welcome', 'Setting default browser to: ' + browser_file, 0, 3)
+            subprocess.Popen(['xdg-settings', 'set', 'default-web-browser', browser_file])
+            app.update_page('.browser-option', 'removeClass', 'active')
+            app.update_page('#' + browser, 'addClass', 'active')
+
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 

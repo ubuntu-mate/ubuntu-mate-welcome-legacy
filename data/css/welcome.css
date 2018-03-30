@@ -1466,3 +1466,53 @@ blockquote.terminal {
     text-align: center;
     margin: 1em 0;
 }
+
+/************************
+ * Browser Selection Screen
+*************************/
+.browser-option {
+    display: inline-block;
+    position: relative;
+    width: calc(49% - 32px);
+    text-align: center;
+    background-color: white;
+    box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
+    transition: all 0.1s linear;
+    padding: 8px;
+    margin: 8px;
+    color: black;
+    text-align: left;
+    vertical-align: top;
+}
+
+.browser-option .left {
+    float: left;
+}
+
+.browser-option .right {
+    float: right;
+}
+
+.browser-option img {
+    width: 32px;
+    height: 32px;
+}
+
+.browser-option .default-button {
+    display: inline-block;
+}
+
+.browser-option .default-label {
+    display: none;
+    color: #4D5F30;
+    padding-left: 34px;
+}
+
+.browser-option.active .default-label {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.browser-option.active .default-button {
+    display: none;
+}

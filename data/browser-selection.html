@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/welcome.css" rel="stylesheet" media="screen">
+  </head>
+  <body class="backdrop-simple">
+    <div id="wrapper">
+    <div class="container-fluid">
+      <div id="navigation">
+        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+          <span class="fa fa-chevron-left"></span>
+        </button>
+        <div id="navigation-title" style="display:none">&zwnj;Browser Selection&zwnj;</div>
+        <div id="navigation-right"></div>
+      </div>
+    </div>
+      <div id="content" class="container-fluid entire-page-fade" hidden>
+        <div class="row-fluid">
+          <div id="panels-selection" class="span12 animated fadeIn" hidden>
+
+            <h2>&zwnj;Pick a portal to the world wide web.&zwnj;</h2>
+            <p>&zwnj;Many computer users have a preferred web browser when accessing
+            content on the Internet. Ubuntu MATE offers these browsers for your convenience.&zwnj;</p>
+
+            <div class="alert alert-warning offline" hidden>
+                <span class="fa fa-warning"></span> &zwnj;You must be connected to the internet to download and install software.&zwnj;
+            </div>
+
+            <div class="browser-selection">
+                <div id="firefox" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/firefox.png"/>
+                        <span>Firefox</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success firefox-remove default-button" onclick="cmd('set-default-web-browser?firefox')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success firefox-install" onclick="cmd('install-appid?firefox')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger firefox-remove" onclick="cmd('remove-appid?firefox')"><span class="fa fa-trash"></span></button>
+                        <span class="firefox-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="google-chrome" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/google-chrome.png"/>
+                        <span>Google Chrome</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success google-chrome-remove default-button" onclick="cmd('set-default-web-browser?google-chrome')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success google-chrome-install" onclick="cmd('install-appid?google-chrome')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger google-chrome-remove" onclick="cmd('remove-appid?google-chrome')"><span class="fa fa-trash"></span></button>
+                        <span class="google-chrome-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="chromium-browser" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/chromium.png"/>
+                        <span>Chromium</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success chromium-remove default-button" onclick="cmd('set-default-web-browser?chromium-browser')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success chromium-install" onclick="cmd('install-appid?chromium')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger chromium-remove" onclick="cmd('remove-appid?chromium')"><span class="fa fa-trash"></span></button>
+                        <span class="chromium-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="opera" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/opera.png"/>
+                        <span>Opera</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success opera-browser-remove default-button" onclick="cmd('set-default-web-browser?opera')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success opera-browser-install" onclick="cmd('install-appid?opera-browser')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger opera-browser-remove" onclick="cmd('remove-appid?opera-browser')"><span class="fa fa-trash"></span></button>
+                        <span class="opera-browser-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="vivaldi-stable" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/vivaldi.png"/>
+                        <span>Vivaldi</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success vivaldi-remove default-button" onclick="cmd('set-default-web-browser?vivaldi-stable')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success vivaldi-install" onclick="cmd('install-appid?vivaldi')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger vivaldi-remove" onclick="cmd('remove-appid?vivaldi')"><span class="fa fa-trash"></span></button>
+                        <span class="vivaldi-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="brave" class="browser-option">
+                    <div class="left">
+                        <img src="img/applications/brave.png"/>
+                        <span>Brave</span>
+                    </div>
+                    <div class="right">
+                        <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                        <button class="btn btn-success brave-remove default-button" onclick="cmd('set-default-web-browser?brave')">&zwnj;Set Default&zwnj;</button>
+                        <button class="btn btn-success brave-install" onclick="cmd('install-appid?brave')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger brave-remove" onclick="cmd('remove-appid?brave')"><span class="fa fa-trash"></span></button>
+                        <span class="brave-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer" class="bottom">
+        <div class="footer-content">
+          <div id="footer-left">
+            <span id="footer-global-left"></span>
+          </div>
+          <div id="footer-right" class="form">
+            <span id="footer-global-right"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap-2.3.2.js"></script>
+    <script src="js/janimate.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/welcome.js"></script>
+  </body>
+</html>
