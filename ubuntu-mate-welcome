@@ -1421,7 +1421,8 @@ class AppView(WebKit2.WebView):
                 app.update_page('#panel-keep', 'hide')
                 app.update_page('#panel-ok', 'show')
                 app.update_page('#panel-ok-hint', 'fadeIn')
-                subprocess.call(['mate-tweak', '--layout', layout])
+                #subprocess.call(['mate-tweak', '--layout', layout])
+                os.system('mate-tweak --layout ' + layout)
         elif cmd.startswith('set-default-web-browser'):
             browser = cmd.split('?')[1]
             browser_file = browser + '.desktop'
