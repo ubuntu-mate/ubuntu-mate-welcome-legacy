@@ -2090,6 +2090,7 @@ class SystemState(object):
             dbg.stdout('Specs', 'Failed to append advanced system information or communicate with "inxi" process.', 0, 1)
             app.update_page('#specs-inxi-busy', 'slideUp')
             app.update_page('#specs-inxi-error', 'slideDown')
+            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
 
     def rpi_resize(self, action, webkit=None):
         if action == 'do-resize':
