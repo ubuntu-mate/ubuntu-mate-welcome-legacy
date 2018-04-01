@@ -1027,6 +1027,8 @@ class AppView(WebKit2.WebView):
             app.update_page('#boot-mode', 'html', systemstate.boot_mode)
 
             # Update any applications featured on these pages.
+            dynamicapps.update_app_status(self, 'deja-dup')
+            dynamicapps.update_app_status(self, 'gufw')
             dynamicapps.update_app_status(self, 'hardinfo')
             dynamicapps.update_app_status(self, 'gparted')
             dynamicapps.update_app_status(self, 'gnome-disk-utility')

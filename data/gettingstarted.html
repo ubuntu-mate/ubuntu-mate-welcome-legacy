@@ -816,9 +816,12 @@
             <p><img src="img/applications/deja-dup.png" width="20px" height="20px"/>
             <b>Deja-Dup</b> &zwnj;comes pre-installed and supports backups to
             local devices as well as online cloud-based services.&zwnj;</p>
-            <button class="btn btn-lg btn-inverse" onclick="cmd('backup'); smoothFade('','#backup-hint')">
+            <button class="btn btn-lg btn-inverse deja-dup-remove" onclick="cmd('backup'); smoothFade('','#backup-hint')">
               <img src="img/applications/deja-dup.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Backup&zwnj;
             </button>
+            <button class="btn btn-lg btn-success deja-dup-install" onclick="cmd('install-appid?deja-dup')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+            <span class="deja-dup-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
+
             <span id="backup-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>&zwnj;Backups&zwnj;</b>
               &zwnj;can be found later in the&zwnj; <b>&zwnj;Control Center&zwnj;</b>.</p>
@@ -865,9 +868,12 @@
               <b>Gufw</b> &zwnj;provides a graphical frontend to&zwnj; <code>ufw</code>
               (&zwnj;Uncomplicated Firewall&zwnj;). &zwnj;If security is important to you, there are&zwnj;
               <button class="link" onclick="cmd('link?https://wiki.ubuntu.com/BasicSecurity')">&zwnj;more ways to stay secure too&zwnj;</button>.</p>
-            <button class="btn btn-lg btn-inverse" onclick="cmd('firewall'); smoothFade('','#firewall-hint')">
+            <button class="btn btn-lg btn-inverse gufw-remove" onclick="cmd('firewall'); smoothFade('','#firewall-hint')">
               <img src="img/applications/gufw.png" width="32px" height="32px"/>&nbsp; &zwnj;Configure Firewall&zwnj;
             </button>
+            <button class="btn btn-lg btn-success gufw-install" onclick="cmd('install-appid?gufw')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+            <span class="gufw-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
+
             <span id="firewall-hint" class="center" hidden><small>
               <p><span class="fa fa-info-circle"></span> <b>&zwnj;Firewall Configuration&zwnj;</b>
               &zwnj;can be found later in the&zwnj; <b>&zwnj;Control Center&zwnj;</b>.</p>

@@ -5408,6 +5408,29 @@
             },
             "working": true
         },
+        "gufw": {
+            "name": "Firewall",
+            "img": "gufw",
+            "main-package": "gufw",
+            "launch-command": "gufw",
+            "install-packages": "gufw",
+            "remove-packages": "gufw",
+            "description": "Shown in the Getting Started page.",
+            "alternate-to": null,
+            "subcategory": "null",
+            "open-source": true,
+            "url-info": "",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "xenial,artful,bionic",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "gnome-disk-utility": {
             "name": "GNOME Disks",
             "img": "gnome-disk-utility",
