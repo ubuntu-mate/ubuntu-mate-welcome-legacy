@@ -56,6 +56,7 @@ from aptdaemon.enums import *
 from gi.repository import GLib, Gio, GObject, Gdk, Gtk, Notify, WebKit2
 from threading import Thread
 from shutil import which
+from subprocess import DEVNULL, PIPE
 
 # FIXME! Temporary workaround to make sure the snap works even if proctitle is not installed on the host.
 try:
@@ -69,6 +70,13 @@ __VERSION__ = '17.10.19'
 ##################################
 #  Miscellaneous
 ##################################
+def get_string(schema, path, key):
+    if path:
+        settings = Gio.Settings.new_with_path(schema, path)
+    else:
+        settings = Gio.Settings.new(schema)
+    return settings.get_string(key)
+
 def goodbye(a=None, b=None):
     # NOTE: _a_ and _b_ are passed via the close window 'delete-event'.
     ''' Closing the program '''
@@ -1181,8 +1189,7 @@ class AppView(WebKit2.WebView):
         ### Panel Selection ###
         if app.current_page == 'panel-selection.html':
             # Highlight the current panel in use (if built-in one)
-            output = subprocess.Popen(["mate-tweak", "--get-layout"], stdout=subprocess.PIPE).communicate()[0]
-            layout = output.decode().strip().split(": ")[-1]
+            layout = get_string('org.mate.panel', None, 'default-layout')
             app.update_page(".panel-option", "removeClass", "active")
             app.update_page("#layout-" + layout, "addClass", "active")
 
@@ -1423,8 +1430,8 @@ class AppView(WebKit2.WebView):
                 app.update_page('#panel-keep', 'hide')
                 app.update_page('#panel-ok', 'show')
                 app.update_page('#panel-ok-hint', 'fadeIn')
-                #subprocess.call(['mate-tweak', '--layout', layout])
-                os.system('mate-tweak --layout ' + layout)
+                cmd = 'mate-tweak --layout ' + layout
+                subprocess.call(cmd, shell=True, stdout=DEVNULL, stderr=DEVNULL)
         elif cmd.startswith('set-default-web-browser'):
             browser = cmd.split('?')[1]
             browser_file = browser + '.desktop'
