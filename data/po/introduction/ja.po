@@ -1,11 +1,13 @@
 # 
 # Translators:
+# raspi0124 <adores0124@yahoo.co.jp>, 2017
+# Kiyohito Yoshida <dananassae@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-12-21 11:09+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-02-24 22:53+0000\n"
+"Last-Translator: Kiyohito Yoshida <dananassae@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,267 +18,275 @@ msgstr ""
 
 #: introduction.html:18
 msgid "Introduction"
-msgstr ""
+msgstr "紹介"
 
-#: introduction.html:29
+#: introduction.html:28
 msgid "For a retrospective future."
-msgstr ""
+msgstr "かつて夢見た未来"
 
-#: introduction.html32, 108
-msgid "What is Ubuntu MATE?"
-msgstr ""
+#: introduction.html:31
+msgid "Scroll down to learn more."
+msgstr "それはここから"
 
-#: introduction.html:47
+#: introduction.html:52
 msgid ""
 "Ubuntu MATE is an operating system -- the core software that runs your "
 "computer, similar to"
-msgstr ""
+msgstr "Ubuntu MATEはオペレーティングシステム(OS)のひとつです。OSとはパソコンを動かすための基本ソフトウェアであり、たとえば、"
 
-#: introduction.html:50
+#: introduction.html:55
 msgid "Microsoft's Windows"
-msgstr ""
+msgstr "Microsoft社のWindows"
 
-#: introduction.html:52
+#: introduction.html:57
 msgid "Apple's OS X"
-msgstr ""
+msgstr "Apple社のOS X"
 
-#: introduction.html52, 124
+#: introduction.html57, 130
 msgid "and"
-msgstr ""
-
-#: introduction.html:54
-msgid "Google's Chrome OS"
-msgstr ""
-
-#: introduction.html:56
-msgid ""
-"Ubuntu MATE is a distribution (variation) of GNU/Linux. A dependable, "
-"secure, capable, and modern computer system that rivals all others in "
-"popularity and actual use."
-msgstr ""
+msgstr "あるいは"
 
 #: introduction.html:59
-msgid "Unlike other operating systems, Linux is a major one used:"
-msgstr ""
+msgid "Google's Chrome OS"
+msgstr "Google社のChrome OSなどといったものと同じものです。"
 
 #: introduction.html:61
-msgid "on most of the world's fastest and most powerful supercomputers"
-msgstr ""
-
-#: introduction.html:63
 msgid ""
-"on many of (if not most of) the computers that make up the backbone of "
-"Internet"
-msgstr ""
+"Ubuntu MATE is a desktop distribution (variation) of GNU/Linux -- a "
+"dependable, secure, capable, and modern computer system that rivals all "
+"others in popularity and usage."
+msgstr "Ubuntu MATEは、GNU/Linuxをデスクトップで利用し易いようにまとめた配布形態(ディストリビューション)のひとつです。GNU/Linuxとは、高い信頼性と堅牢性を兼ね備えた、高機能で先進的なコンピューターシステムで、評判においても使い勝手の点においても他のどのOSにも引けをとりません。"
 
-#: introduction.html:65
-msgid "and on corporate servers that require stability and reliability"
-msgstr ""
+#: introduction.html:64
+msgid "Unlike other operating systems, Linux is used:"
+msgstr "他のOSと違い、Linuxは次のような場面で使われています。"
+
+#: introduction.html:66
+msgid "on most of the world's fastest and most powerful supercomputers"
+msgstr "主要な、世界最速最強のスーパーコンピュータで"
+
+#: introduction.html:68
+msgid ""
+"on many of, if not most of, the computers that make up the backbone of "
+"Internet"
+msgstr "\"インターネットを支えるバックボーンを構成するコンピュータで、一番多いわけではありませんが、それでもかなりの多くのコンピュータで"
 
 #: introduction.html:70
+msgid "and on corporate servers that require stability and reliability"
+msgstr "安定性と信頼性が要求される、企業のサーバーで"
+
+#: introduction.html:75
 msgid ""
 "Ubuntu MATE is a stable, easy-to-use operating system with a configurable "
 "desktop environment. It is ideal for those who want the most out of their "
 "computers and prefer a traditional desktop metaphor. With modest hardware "
 "requirements, it is suitable for modern desktops and laptops, single board "
 "computers (such as the Raspberry Pi) and older hardware alike."
-msgstr ""
+msgstr "\"Ubuntu MATEは、デスクトップ環境を簡単に設定変更でき、安定した使い易いOSなので、自分のコンピュータを最大限に利用したいユーザーや慣れ親しんだデスクトップ環境を使い続けたいユーザーにとって理想的といえます。Ubuntu MATEが要求する、パソコンの性能はそれほど高くはありませんから、みなさんがお使いのデスクトップパソコンやノートパソコンはもちろんのこと、Raspberry Piのようなシングルボードコンピュータや古くなったパソコンでも十分に使えます。"
 
-#: introduction.html:78
+#: introduction.html:83
 msgid ""
 "The operating system is more secure, and better supported than the operating"
 " system pre-installed on most home computer hardware today."
-msgstr ""
+msgstr "Ubuntu MATEはとても安全です。今どきほとんどの家庭用パソコンにはじめからインストールされているOSよりもずっとしっかりと保守されています。"
 
-#: introduction.html:82
+#: introduction.html:87
 msgid ""
 "Using Ubuntu MATE provides you with the freedom to run a complete, full-"
 "featured operating system, pre-configured with most (if not all) of the "
 "applications you will need for your daily computing. Change anything about "
 "the way it looks, the way it works, or the applications it runs to suit your"
 " taste."
-msgstr ""
-
-#: introduction.html:92
-msgid "Objectives"
-msgstr ""
-
-#: introduction.html:93
-msgid "Ubuntu MATE has a number of guiding objectives and goals:"
-msgstr ""
-
-#: introduction.html:95
-msgid "Accessible to all, regardless of language and physical ability."
-msgstr ""
-
-#: introduction.html:96
-msgid "Increase both Ubuntu and MATE Desktop user adoption."
-msgstr ""
+msgstr "Ubuntu MATEを使えば、すべての機能を完備したOSを動かせる自由が手に入ります。しかも、日常のパソコン仕事に必要となるような(すべてではないですが)多くのアプリケーションがすぐに使えるように設定されたうえでです。さらに、Ubuntu MATEの外観や動作、使うアプリケーションは自分の好みに合せてどんなふうにでも変えることができます。"
 
 #: introduction.html:97
-msgid ""
-"Ubuntu alternative for computers that aren't powerful enough to run a "
-"composited desktop."
-msgstr ""
+msgid "Objectives"
+msgstr "目指すところ"
 
 #: introduction.html:98
-msgid ""
-"First choice Ubuntu platform for remote workstation solutions such as LTSP "
-"and X2Go."
-msgstr ""
-
-#: introduction.html:99
-msgid ""
-"Recreate the halcyon days of Ubuntu for users who prefer a traditional "
-"desktop metaphor."
-msgstr ""
+msgid "Ubuntu MATE has a number of guiding objectives and goals:"
+msgstr "Ubuntu MATEにはいくつかの指針となるべき目標とゴールがあります。"
 
 #: introduction.html:100
-msgid ""
-"Use themes and artwork similar to Ubuntu so that Ubuntu MATE is immediately "
-"familiar."
-msgstr ""
+msgid "Accessible to all, regardless of language and physical ability."
+msgstr "言語や身体的能力に関係なく、すべてのひとが利用できるようにする。"
 
 #: introduction.html:101
-msgid ""
-"When possible contribute to Debian so both the Debian and Ubuntu communities"
-" benefit."
-msgstr ""
+msgid "Increase both Ubuntu and MATE Desktop user adoption."
+msgstr "UbuntuとMATEデスクトップを選んでくれるユーザーをふやす。"
 
 #: introduction.html:102
 msgid ""
-"Software selection will favor functionality and stability over lightness and"
-" whimsy."
-msgstr ""
+"Ubuntu alternative for computers that aren't powerful enough to run a "
+"composited desktop."
+msgstr "コンポジット型デスクトップ環境を動かせるほどの処理能力がないパソコンでもUbuntuが動くようにする。"
 
-#: introduction.html:118
+#: introduction.html:103
+msgid ""
+"First choice Ubuntu platform for remote workstation solutions such as LTSP "
+"and X2Go."
+msgstr "Ubuntuプラットフォームが、LTSPやX2Goといったリモートワークステーションソリューションの第一候補となる。"
+
+#: introduction.html:104
+msgid ""
+"Recreate the halcyon days of Ubuntu for users who prefer a traditional "
+"desktop metaphor."
+msgstr "伝統的なデスクトップ環境に愛着を感じるユーザーのためのUbuntuによる心穏やかな日々を取り戻す。"
+
+#: introduction.html:105
+msgid ""
+"Use themes and artwork similar to Ubuntu so that Ubuntu MATE is immediately "
+"familiar."
+msgstr "Ubuntu MATEにすぐに慣れるように、Ubuntuを踏襲したテーマやアートワークを使う。"
+
+#: introduction.html:106
+msgid ""
+"When possible, contribute to Debian so both the Debian and Ubuntu "
+"communities benefit."
+msgstr "DebianとUbuntu双方のコミュニティ発展のために、できるだけDebianに貢献する。"
+
+#: introduction.html:107
+msgid ""
+"Software favors functionality and stability, as opposed to being fancy or "
+"light on features."
+msgstr "ソフトウェアは、見た目がいいとかこれといった特徴がないものではなく、機能的で安定的なものにする。"
+
+#: introduction.html:113
+msgid "What is Ubuntu MATE?"
+msgstr "Ubuntu MATEとは何か？"
+
+#: introduction.html:124
 msgid "is one of, if not the, largest deployed"
-msgstr ""
+msgstr "は、世界で一、二を争う数のLinuxソフトウェア群"
 
-#: introduction.html:121
+#: introduction.html:127
 msgid ""
 "based desktop operating systems in the world. Linux is at the heart of "
 "Ubuntu and makes it possible to create secure, powerful and versatile "
 "operating systems, such as"
-msgstr ""
+msgstr "から構成されたデスクトップOSです。Ubuntuの中核であるLinuxですが、Linuxを使えば、OSを安全かつ強力で使い易いものとすることができます。例えば"
 
-#: introduction.html:125
+#: introduction.html:131
 msgid ""
 "Android is now in the hands of billions of people around the world and it's "
 "also powered by Linux."
-msgstr ""
+msgstr "Androidは、今では世界中の何十億もの人が使っていますが、Linuxによって動いています。"
 
-#: introduction.html:128
+#: introduction.html:134
 msgid "Ubuntu is available in a number of different"
-msgstr ""
+msgstr "Ubuntuには多くの種類"
 
-#: introduction.html:129
+#: introduction.html:135
 msgid "flavors"
-msgstr ""
+msgstr "(フレーバー)があります。"
 
-#: introduction.html:129
+#: introduction.html:135
 msgid ""
 "each coming with its own desktop environment. Ubuntu MATE takes the Ubuntu "
 "base operating system and adds the"
-msgstr ""
+msgstr "それぞれのフレーバーにはそれぞれのデスクトップ環境が用意されています。Ubuntu MATEは基本OSとしてUbuntuを、 そして"
 
-#: introduction.html132, 139
+#: introduction.html138, 144
 msgid "MATE Desktop"
-msgstr ""
+msgstr "MATEデスクトップを採用しています。"
 
-#: introduction.html:140
-msgid "Wikipedia says that"
-msgstr ""
+#: introduction.html:151
+msgid "Wikipedia says that a"
+msgstr "ウィキペディアによれば、"
 
-#: introduction.html:142
-msgid "a Desktop Environment is"
-msgstr ""
+#: introduction.html:153
+msgid "Desktop Environment"
+msgstr "デスクトップ環境"
 
-#: introduction.html:144
+#: introduction.html:153
+msgid "is"
+msgstr "とは、"
+
+#: introduction.html:155
 msgid ""
 "an implementation of the desktop metaphor made of a bundle of programs "
 "running on top of a computer operating system, which share a common "
 "graphical user interface (GUI). Desktop GUIs help the user to easily access "
 "and edit files."
-msgstr ""
+msgstr "OSの上で動いている各種プログラムをあたかも机の上(デスクトップ)に置かれているかのように見せる仕組み(メタファー)で、統一されたグラフィカルユーザーインターフェイス(GUI)を持たせたものです。\"デスクトップ環境のGUIのおかげで、ファイルに簡単にアクセスしたり編集したりできます。"
 
-#: introduction.html:154
+#: introduction.html:161
 msgid ""
 "The MATE Desktop implements essential features that you'd expect in a "
 "desktop environment, such as:"
-msgstr ""
+msgstr "MATEデスクトップはデスクトップ環境として必要な基本的機能を備えています。たとえば、"
 
-#: introduction.html:167
+#: introduction.html:174
 msgid "File Browser"
-msgstr ""
+msgstr "ファイル閲覧"
 
-#: introduction.html:168
+#: introduction.html:175
 msgid "Calculator"
-msgstr ""
+msgstr "計算機"
 
-#: introduction.html:169
+#: introduction.html:176
 msgid "Archive Manager"
-msgstr ""
+msgstr "アーカイブマネージャー"
 
-#: introduction.html:170
+#: introduction.html:177
 msgid "Image Viewer"
-msgstr ""
+msgstr "画像ビューア"
 
-#: introduction.html:171
+#: introduction.html:178
 msgid "Document Viewer"
-msgstr ""
+msgstr "ドキュメントビューア"
 
-#: introduction.html:172
+#: introduction.html:179
 msgid "MATE System Monitor"
-msgstr ""
+msgstr "MATEシステムモニター"
 
-#: introduction.html:173
+#: introduction.html:180
 msgid "MATE Terminal"
-msgstr ""
+msgstr "MATE端末"
 
-#: introduction.html:185
+#: introduction.html:192
 msgid "All of which are highly customisable and managed via the"
-msgstr ""
+msgstr "これらすべては高度にカスタマイズ可能で、"
 
-#: introduction.html:188
+#: introduction.html:195
 msgid "Control Center"
-msgstr ""
+msgstr "コントロールセンター"
 
-#: introduction.html:190
+#: introduction.html:197
 msgid ""
 "MATE Desktop provides an intuitive and attractive desktop environment using "
 "traditional metaphors, which means if you've ever used"
-msgstr ""
+msgstr "から設定を変更できます。MATEデスクトップは、伝統的なメタファーによって直感的で魅力的なデスクトップ環境を提供しています。こうすることで、これまでに使ったことがある、"
 
-#: introduction.html:194
+#: introduction.html:201
 msgid "or"
-msgstr ""
+msgstr "あるいは"
 
-#: introduction.html:197
+#: introduction.html:204
 msgid "it will feel very familiar."
-msgstr ""
+msgstr "とても馴染みやすいと感じる環境となっています。"
 
-#: introduction.html:199
+#: introduction.html:206
 msgid ""
 "The MATE Desktop has a rich history and is the continuation of the GNOME 2 "
 "desktop, which was the default desktop environment on many Linux and Unix "
 "operating systems for over a decade. This means that MATE Desktop is tried, "
 "tested and very reliable."
-msgstr ""
+msgstr "GNOME 2デスクトップは多くのLinuxやUnix OSで長きにわたって標準のデスクトップ環境でしたが、MATEデスクトップはそのGNOME 2デスクトップの流れを汲むデスクトップであり、豊富な経験を持つデスクトップです。つまり、MATEデスクトップは長年の風雪に耐え抜いた、とても信頼できるデスクトップであるといえます。"
 
-#: introduction.html:211
+#: introduction.html:215
 msgid "Open Source"
-msgstr ""
+msgstr "オープンソース"
 
-#: introduction.html:218
+#: introduction.html:222
 msgid ""
 "What Linux, Ubuntu and MATE Desktop all have in common is they are Open "
 "Source. This software can be freely used, changed, and shared (in modified "
 "or unmodified form) by anyone. In a nutshell Ubuntu MATE is free, in the "
 "truest sense of the word."
-msgstr ""
+msgstr "\"LinuxやUbuntu、MATEデスクトップに共通すること。それは皆、オープンソースだということです。オープンソースソフトウェアは自由に使うことができ、変更を加えることもできます。また、改変した状態でもそのままの状態でも、誰とでも共有することができます。つまり、Ubuntu MATEは文字通りフリーなのです。"
 
-#: introduction.html:224
+#: introduction.html:228
 msgid ""
 "Although you will find some distributions (variations) of Linux for "
 "purchase, the vast majority are provided free of charge, like Ubuntu MATE. "
@@ -289,35 +299,35 @@ msgid ""
 "into future versions. There is no guarantee that this will ever happen, but "
 "if you have made it better, then your changes just might be included in the "
 "next release of Ubuntu MATE."
-msgstr ""
+msgstr "\"商用のLinuxディストリビューションもあることはありますが、大部分は、Ubuntu MATEと同様に無料で手に入れられます。Ubuntu MATEは誰でも無償で付帯条件なしに頒布してもよいことがライセンスで認められています。例をあげると、このライセンセスでは、コミュニティのユーザーは誰でもLinuxをどんな目的で使ってもよいですし、Linuxを頒布したり、手を加えたり、そしてそれを再頒布したり、さらには販売する自由も認められています。Linuxに変更を加えて、その変更をそのままの形で再頒布する場合は、ライセンスにより変更をその後のバージョンにできるだけ含めることが求められています。ですから、もしあなたが改善点を見つけたときは、いつもそうなるという訳ではありませんが、Ubuntu MATEの次のリリースにそれが反映されることがあるかもしれません。"
 
-#: introduction.html:239
+#: introduction.html:243
 msgid ""
 "Many of the users of Linux are corporations that use the operating system to"
 " run their businesses, or include it within their products. Many of these "
 "corporations provide fixes and new features for Linux as they use the "
 "software for their businesses."
-msgstr ""
+msgstr "Linuxユーザーの多くは企業に所属して、自分たちの業務をこなすためにLinuxを使ったり、製品の組み込み用OSとしてLinuxを使っています。このように商業利用しているユーザーの多くが自分たちの仕事のために使うソフトウェアとしてLinuxに修正を加えたり新しい機能を盛り込んだりしています。"
 
-#: introduction.html:245
+#: introduction.html:249
 msgid "These improvements are given back"
-msgstr ""
+msgstr "このような改善は"
 
-#: introduction.html:246
+#: introduction.html:250
 msgid ""
 "to the Linux community and Ubuntu MATE improves as a result. This is how we "
 "can continually improve and grow without having to charge our users money."
-msgstr ""
+msgstr "\"Linuxコミュミティに還元され、結果としてUbuntu MATEも進歩していきます。これこそが、ユーザーに対価を求めることなしに、持続的な進歩と成長を可能にしている方法です。"
 
-#: introduction.html:250
+#: introduction.html:254
 msgid ""
 "Unlike Windows and OS X, Linux is not created and supported by just one "
 "company. It is supported by Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas"
 " Instruments, Google, Canonical, Oracle, AMD, and Microsoft. Over 4,000 "
 "developers contributed to Linux over the last 15 years."
-msgstr ""
+msgstr "\"Linuxは、WindowsやOS Xとは違って、たったひとつの企業によって生み出され支えられているわけではありません。Linuxは、Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas Instruments, Google, Canonical, Oracle, AMD, and Microsoftといった企業によってサポートされています。15年間にわたって4,000人以上の開発者がLinuxに貢献してきました。"
 
-#: introduction.html:256
+#: introduction.html:260
 msgid ""
 "Whether you are a home user of Ubuntu MATE, an Ubuntu MATE software or "
 "application developer, or an employee of an organization that uses the "
@@ -328,49 +338,4 @@ msgid ""
 "cheapest netbook, from the newest Chromebook to some very old machines "
 "designed for Windows, and from the most powerful Internet servers to the "
 "smallest smart thermostat."
-msgstr ""
-
-#: introduction.html:32
-msgid "Scroll down to learn more."
-msgstr ""
-
-#: introduction.html:61
-msgid ""
-"Ubuntu MATE is a desktop distribution (variation) of GNU/Linux -- a "
-"dependable, secure, capable, and modern computer system that rivals all "
-"others in popularity and usage."
-msgstr ""
-
-#: introduction.html:64
-msgid "Unlike other operating systems, Linux is used:"
-msgstr ""
-
-#: introduction.html:68
-msgid ""
-"on many of, if not most of, the computers that make up the backbone of "
-"Internet"
-msgstr ""
-
-#: introduction.html:106
-msgid ""
-"When possible, contribute to Debian so both the Debian and Ubuntu "
-"communities benefit."
-msgstr ""
-
-#: introduction.html:107
-msgid ""
-"Software favors functionality and stability, as opposed to being fancy or "
-"light on features."
-msgstr ""
-
-#: introduction.html:151
-msgid "Wikipedia says that a"
-msgstr ""
-
-#: introduction.html:153
-msgid "Desktop Environment"
-msgstr ""
-
-#: introduction.html:153
-msgid "is"
-msgstr ""
+msgstr "あなたはUbuntu MATEを家で使っている一ユーザーでしょうか。それともUbuntu MATEのソフトウェアやアプリケーションを開発している人でしょうか。はたまたUbuntu MATEを仕事で使っている従業員であるかもしれません。いずれにせよ皆、Linuxコミュニティとオープンソースコミュニティの一員であり、Ubuntu MATEやそれに関連するプロジェクトであるLinuxやMATEそしてUbuntuに関わってきた開発者たちの苦労の恩恵を受けています。おしゃれなMacbookから安物のネットブック、最新のChromebookから旧式のWindowsパソコン、そして最強のネットワークサーバーから最小のコンピュータ制御サーモスタットまでほとんどあらゆるハードウェア上でLinuxを動かしてきたのは、誰あろうコミュニティの人たちなのですから。"

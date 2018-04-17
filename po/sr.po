@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2016-10-18 17:51+0000\n"
+"PO-Revision-Date: 2017-09-22 22:41+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
 "welcome/language/sr/)\n"
@@ -27,7 +27,7 @@ msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
 msgstr ""
-"Измене програма су у току. Допустите им да заврше пре него ли затворите "
+"Измене програма су у току. Допустите да се заврше пре него затворите "
 "Добродошлицу."
 
 #: ubuntu-mate-welcome:74 ubuntu-mate-welcome:2608
@@ -229,7 +229,7 @@ msgstr "Сакриј"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Појединости"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -280,19 +280,16 @@ msgid "Ubuntu Repository"
 msgstr "Убунтуова ризница"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Убунтуова ризница мултиверзум"
+msgstr "Ризница коју одржава Убунтуова заједница"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Убунтуова ризница мултиверзум"
+msgstr "Ризница Убунтуових власничких управљачких програма"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Убунтуова ризница"
+msgstr "Убунтуова неслободна ризница"
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -307,14 +304,12 @@ msgid "Undo Changes"
 msgstr "Опзови измене"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Убунтуова ризница"
+msgstr "Спољна ризница"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Бутик програма"
+msgstr "Програми"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -454,12 +449,11 @@ msgstr "Биће уклоњен"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Помакни горе"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Инсталирам:"
+msgstr "Водич за инсталацију"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -515,17 +509,19 @@ msgstr "дец."
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Неподржана дистрибуција"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
-msgstr ""
+msgstr "Ваша километража може варирати."
 
 #: ubuntu-mate-welcome:1114
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Бутик програма је осмишљен за Убунту Мејт, али изгледа да радите на другој "
+"дистрибуцији."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -533,23 +529,25 @@ msgid ""
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
 msgstr ""
+"Док ће велики избор софтвера радити и на другим дистрибуцијама заснованих на "
+"Убунтуу, не можемо гарантовати да ће наш издвојени избор беспрекорно радити "
+"на вашем систему."
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Ова порука неће бити поново приказана."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Настави"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Убунтуова ризница"
+msgstr "Веб сајт Убунту Мејта"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Приложите неки динар Убунту Мејту"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
@@ -689,37 +687,5 @@ msgid "proprietary applications are hidden."
 msgstr "власнички програми су скривени."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Бутик програма"
-
-#~ msgid "applications have been installed"
-#~ msgstr "програми су инсталирани"
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Ваши новоинсталиани програми су спремни за употребу."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Неки програми нису инсталирани."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Неки програми нису успели да се инсталирају."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr "Бутик програма је наишао на проблем са једним од програма."
-
-#~ msgid "applications have been removed"
-#~ msgstr "програми су уклоњени"
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Ти програми нису више присутни на вашем систему."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Неки програми нису уклоњени."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Неки програми нису успели да се уклоне."
-
-#~ msgid "Show"
-#~ msgstr "Покажи"
+msgstr "Извори софтвера"

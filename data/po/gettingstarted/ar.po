@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-23 00:02+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: Ibrahim al-Darra <ibrahimaldarra@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,7 +307,7 @@ msgid ""
 " \"paging file\" in Windows. Performance will decrease when running low on "
 "memory and could possibly freeze if you completely run out of memory without"
 " anywhere to swap."
-msgstr ""
+msgstr "للحواسيب التي تنخفض فيها الذاكرة العشوائية (RAM)، سيبدأ نظام التشغيل بإبدال محتوى الذاكرة العشوائية بينها وبين القرص الصلب. وهذا يعرف بـ\"ملف الصفحات\" في ويندوز. سينخفض الأداء إذا انخفضت الذاكرة العشوائية وربما يتوقف النظام تماماً إذا نفدت الذاكرة دون وجود مساحة للإبدال."
 
 #: gettingstarted.html:222
 msgid ""
@@ -320,7 +320,7 @@ msgstr "افتراضيا، فان قسم الابدال يشنا اعتمادا 
 msgid ""
 "Swap space that's the size of your RAM is also required if you would like to"
 " hibernate the system (as known as suspending to disk)."
-msgstr ""
+msgstr "مساحة إبدال تساوي حجم ذاكرتك العشوائية (RAM) مطلوبة أيضاً إذا كنت تريد إسبات النظام (كما هو معروف بالتعليق إلى القرص)."
 
 #: gettingstarted.html:235
 msgid ""
@@ -335,11 +335,11 @@ msgstr "ساقوم بالاقلاع الثنائي مع"
 
 #: gettingstarted.html:244
 msgid "To minimize the risk of data loss or failure, ensure that:"
-msgstr "لتقليص نسبة خطر  فقدان البيانات او الفشل تاكد انه :"
+msgstr "لتقليص نسبة خطر فقدان البيانات أو الفشل تأكد أنه:"
 
 #: gettingstarted.html:246
 msgid "There is enough free space. 10 GB minimum is recommended."
-msgstr "لديك مساحة فارغة كافية .من المستحسن ان يكون هنالك على الاقل 10 جيجا بايت كمساحة فارغة"
+msgstr "لديك مساحة فارغة كافية. من المستحسن أن يكون هنالك على الأقل 10 جيجا بايت من المساحة الفارغة."
 
 #: gettingstarted.html:247
 msgid "important data to another drive."
@@ -347,7 +347,7 @@ msgstr "قد قمت بنسخ بياناتك احتياطيا و نقلتها ا�
 
 #: gettingstarted.html:248
 msgid "Defragment the hard drive."
-msgstr ""
+msgstr "إلغاء تجزئة القرص الصلب."
 
 #: gettingstarted.html:249
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
@@ -589,7 +589,7 @@ msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "الإصدارات الأحدث من ويندوز توفر أداة لتقليص قرص NTFS من داخل ويندوز. هذا أكثر أماناً إذا كان من الضروري إبقاء ويندوز قابلاً للإقلاع على حاسوبك مع الاستمتاع بأبونتو ماتيه."
 
 #: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
 msgid "Open"
@@ -725,7 +725,7 @@ msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "باقة الترميزات تتضمن حلاً متكاملاً يعمل على مختلف الأنظمة، لترميز الصوت والفيديو، وفك ترميزها، وتسجيلها، وتحويلها، واستقبال بثها المتدفق. كما تتضمن أيضاً مفكك ترميز الصوت MP3 الذي يسمح بتشغيل طبقة صوت MPEG 1 الثالثة (MP3)."
 
 #: gettingstarted.html446, 465, 485, 504, 523
 msgid "Applying Changes..."
@@ -742,21 +742,21 @@ msgstr "إزالة"
 
 #: gettingstarted.html:459
 msgid "Blu-ray and DVD Playback Support"
-msgstr ""
+msgstr "دعم تشغيل بلوراي Blu-ray ودي في دي DVD"
 
 #: gettingstarted.html:460
 msgid ""
 "Installs libraries that enable Blu-ray and DVD playback in VLC. After "
 "install DVDs will work but for Blu-ray you will need to download"
-msgstr ""
+msgstr "يُثبّت المكتبات التي تمكن تشغيل بلوراي Blu-ray ودي في دي DVD في مشغل في إل سي VLC. بعد التثبيت ستعمل أقراص DVD ولكن لتشغيل Blu-ray ستحتاج إلى تنزيل"
 
 #: gettingstarted.html:463
 msgid "and save it to"
-msgstr ""
+msgstr "وحفظها إلى"
 
 #: gettingstarted.html:478
 msgid "Additional Screen Savers"
-msgstr "شاشات حفظ إضافية"
+msgstr "حافظات شاشات إضافية"
 
 #: gettingstarted.html:479
 msgid ""
@@ -764,21 +764,21 @@ msgid ""
 "periods of time. Screen savers were originally created to reduce burn-in for"
 " cathode ray tube (CRT) monitors displaying the same image for long periods "
 "of time."
-msgstr "بإمكانك تثبيت أكثر من 200 شاشة حفظ لجهاز حاسوبك لتعرض عند عدم استخدامك إياه فترة طويلة. الفكرة وراء شاشات الحفظ تعود للحفاظ على شاشات (CRT) القديمة من التلف لعرضها نفس الصورة لفترة طويلة ."
+msgstr "بإمكانك تثبيت أكثر من 200 حافظة شاشة لجهاز حاسوبك لتعرض عند عدم استخدامك إياه فترة طويلة. الفكرة وراء حافظة الشاشة تعود للحفاظ على شاشات (CRT) القديمة من التلف لعرضها نفس الصورة لمدة طويلة."
 
 #: gettingstarted.html:488
 msgid "Change Screen Saver"
-msgstr "تغيير شاشة الحفظ"
+msgstr "تغيير حافظة الشاشة"
 
 #: gettingstarted.html:499
 msgid "Additional Themes"
-msgstr ""
+msgstr "سمات إضافية"
 
 #: gettingstarted.html:500
 msgid ""
 "Install additional themes and icons, such as Numix and Arc, to expand the "
 "selection available so you can tweak the look and feel to your liking."
-msgstr ""
+msgstr "ثبّت سمات ورموزاً إضافية، مثل نومكس Numix وآرك Arc، لتوسيع التشكيلة المتوفر حتى تتمكن من تخصيص المنظر والشعور ليناسب ذوقك."
 
 #: gettingstarted.html507, 526
 msgid "Change Appearance"
@@ -793,17 +793,17 @@ msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr "لقد ساهم مجتمع أبونتو ماتيه على مدار السنوات بالعديد من صور خلفيات لسطح المكتب . لم لا تجربهم علك تجد شيئا ما يناسب ذوقك ؟"
+msgstr "لقد ساهم مجتمع أبونتو ماتيه على مدار السنوات بالعديد من صور خلفيات لسطح المكتب . لم لا تجربها علك تجد شيئا ما يناسب ذوقك؟"
 
 #: gettingstarted.html:531
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "ستحتاج إلى قاعدة بيانات AACS لبلوراي Blu-ray من أجل تشغيل الأقراص المشفرة بـ AACS أو المحمية بـ BD+."
 
 #: gettingstarted.html:534
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "ثبّت قاعدة بيانات AACS لبلوراي Blu-ray"
 
 #: gettingstarted.html:545
 msgid ""
@@ -811,7 +811,7 @@ msgid ""
 "some components and peripherals that require proprietary drivers to function"
 " properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
-msgstr ""
+msgstr "مع أنّ عدداً كبيراً من الأجهزة متوافق مع أبونتو ماتيه، إلا أن هناك بعض المكوّنات والأجهزة الملحقة التي تحتاج مشغّلات غير مفتوحة المصدر لتعمل كما ينبغي. تثبيت حزمة النظام الثابت (firmware) مطلوب غالباً لبعض الأجهزة (أجهزة بلوتوث Bluetooth وواي فاي Wi-Fi) لتعمل بشكل صحيح."
 
 #: gettingstarted.html:551
 msgid "An Internet connection is required to download and install drivers."
@@ -819,15 +819,15 @@ msgstr "يطلب اتصال انترنت لتحميل و تثبيت التعري
 
 #: gettingstarted.html555, 563, 633
 msgid "Additional Drivers"
-msgstr "التعريفات الإضافية"
+msgstr "المشغلات الإضافية"
 
 #: gettingstarted.html:558
 msgid "Install Firmware Package"
-msgstr ""
+msgstr "تثبيت حزمة النظام الثابت (firmware)"
 
 #: gettingstarted.html564, 791, 842, 891, 914, 936
 msgid "can be found later in the"
-msgstr "يمكن أن يوجد مستقبلاً في"
+msgstr "يمكن أن يوجد لاحقاً في"
 
 #: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
 msgid "Control Center"
@@ -841,7 +841,7 @@ msgstr "الرسوميات"
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr "عذرا ، شاشة الترحيب غير قادرة على تحديد نوع بطاقة العرض على جهازك ."
+msgstr "عذراً ، شاشة الترحيب غير قادرة على تحديد نوع بطاقة العرض على هذا النظام."
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Card/Chipset:"
@@ -859,33 +859,33 @@ msgstr "تم التعرف على بطاقة عرض"
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
 "applications and games as well as deliver improvements to power management."
-msgstr ""
+msgstr "ربما تحوي مشغلات لبطاقتك يمكنها زيادة أداء التطبيقات والألعاب ثلاثية الأبعاد وتوفير تحسينات لإدارة الطاقة."
 
 #: gettingstarted.html:584
 msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "لم تعد مشغلات أي إم دي AMD مدعومة على أبونتو. المشغلات مفتوحة المصدر التي تستخدمها حاليًّا ستوفر أفضل أداء مستقر لبطاقتك."
 
 #: gettingstarted.html:591
 msgid "You're already good to go."
-msgstr ""
+msgstr "أنت جاهز للانطلاق بالفعل."
 
 #: gettingstarted.html:592
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "مشغلات إنتل Intel مفتوحة المصدر وتتم صيانتها وتحديثها في النواة."
 
 #: gettingstarted.html:597
 msgid "VirtualBox Guest Additions"
-msgstr ""
+msgstr "إضافات الضيف لـ VirtualBox"
 
 #: gettingstarted.html:598
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "لتسريع أداء الرسوميات داخل الحاسوب الوهمي، فضلاً ثبّت إضافات الضيف."
 
 #: gettingstarted.html:602
 msgid "Proprietary or Open Source Drivers?"
@@ -1097,21 +1097,21 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "يوصى به إن كان لديك طابعة أيتش بي HP حيث إنه يوفر دعماً كاملاً لأغلب الطابعات HP SFP (أحادية الوظيفة) النافثة للحبر منها وكثير من الليزرية، وللمسح الضوئي وإرسال الفاكسات وولوج بطاقة الصورة على أغلب طابعات HP MFP (متعددة الوظيفة)."
 
 #: gettingstarted.html:715
 msgid "Software Utilities for Peripherals"
-msgstr ""
+msgstr "أدوات برمجية للأجهزة الملحقة"
 
 #: gettingstarted.html:724
 msgid "Solaar"
-msgstr ""
+msgstr "Solaar"
 
 #: gettingstarted.html:725
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
-msgstr ""
+msgstr "مدير جهاز لملحقات مستقبل لوجيتك الموحد Logitech Unifying Receiver. يوفّر مزايا مثل إدارة الأجهزة المقرونة وقراءة حالة البطارية."
 
 #: gettingstarted.html728, 747, 765
 msgid "Learn More"
@@ -1119,23 +1119,23 @@ msgstr "للمزيد"
 
 #: gettingstarted.html:743
 msgid "Razer Drivers for Linux"
-msgstr ""
+msgstr "مشغلات رايزر Razer للنكس"
 
 #: gettingstarted.html:744
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
-msgstr ""
+msgstr "مشغل ومُصغي موجهة من قبل المجتمع يتضمن الوظيفة الكاملة للعديد من أجهزة رايزر Razer الملحقة، من لوحات المفاتيح، والفأرة، ووسادة الفأرة."
 
 #: gettingstarted.html:762
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
-msgstr ""
+msgstr "واجهة لإدارة أجهزة رايزر Razer مع دعم أوضاع التطبيقات، وضبط المؤثرات، وتمكين ميزات لوحة المفاتيح."
 
 #: gettingstarted.html:763
 msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr ""
+msgstr "يتطلّب أن تكون مشغلات رايزر Razer للنكس مثبّتة أولاً."
 
 #: gettingstarted.html782, 787, 790
 msgid "Language Support"
@@ -1342,7 +1342,7 @@ msgstr "لأبونتو ماتيه الكثير من اختصارات لوحة ا
 
 #: gettingstarted.html:959
 msgid "The"
-msgstr ""
+msgstr "تطبيق"
 
 #: gettingstarted.html:959
 msgid "Super"
@@ -1639,75 +1639,75 @@ msgstr "اختصارات تأثرات كومبيز"
 #: gettingstarted.html:1397
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "كل الاختصارات المسرودة في هذا القسم، تتطلب أن يكون كومبِز Compiz ممكّناً."
 
 #: gettingstarted.html:1406
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "تشغل وتوقف \"عرض سطح المكتب\"."
 
 #: gettingstarted.html:1414
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "تصغير المنظور، يعرض مبدّل مساحة العمل."
 
 #: gettingstarted.html:1422
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "تُمكّن تأثير \"التأقلم مع حجم الشاشة\"، تعرض جميع النوافذ من مساحة العمل الحالية."
 
 #: gettingstarted.html:1432
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "تُمكّن تأثير \"التأقلم مع حجم الشاشة\"، تعرض جميع النوافذ من جميع مساحات العمل."
 
 #: gettingstarted.html:1440
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "عكس الألوان للنافذة التي عليها التركيز."
 
 #: gettingstarted.html:1448
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "عكس الألوان للشاشة كاملة."
 
 #: gettingstarted.html:1454
 msgid "Scroll Wheel"
-msgstr ""
+msgstr "عجلة التمرير"
 
 #: gettingstarted.html:1456
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "تكبّر منظور الشاشة."
 
 #: gettingstarted.html1462, 1478
 msgid "Middle Click"
-msgstr ""
+msgstr "النقرة الوسطى"
 
 #: gettingstarted.html:1464
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "اختر منطقة لتكبير منظورها باستخدام مستطيل."
 
 #: gettingstarted.html:1470
 msgid "Left Click"
-msgstr ""
+msgstr "النقرة اليسرى"
 
 #: gettingstarted.html:1472
 msgid "Move focused window."
-msgstr ""
+msgstr "تحريك النافذة التي عليها التركيز."
 
 #: gettingstarted.html:1480
 msgid "Resize focused window."
-msgstr ""
+msgstr "تغيير حجم النافذة التي عليها التركيز."
 
 #: gettingstarted.html:1486
 msgid "Right Click"
-msgstr ""
+msgstr "النقرة اليمنى"
 
 #: gettingstarted.html:1488
 msgid "Show window menu."
-msgstr ""
+msgstr "عرض قائمة النافذة."
 
 #: gettingstarted.html:1501
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr ""
+msgstr "حاسوبك مكون من مكونات مختلفة تتفاعل معاً. هذه المعلومات مفيدة عند تقديم الدعم للتأكد من أن العتاد والبرامج تعمل على حاسوبك."
 
 #: gettingstarted.html:1505
 msgid "View System Requirements"
@@ -1715,182 +1715,182 @@ msgstr "عرض متطلبات النظام "
 
 #: gettingstarted.html:1509
 msgid "Basic"
-msgstr ""
+msgstr "أساسي"
 
 #: gettingstarted.html:1510
 msgid "Detailed"
-msgstr ""
+msgstr "مفصّل"
 
 #: gettingstarted.html:1526
 msgid "Distribution:"
-msgstr ""
+msgstr "التوزيعة:"
 
 #: gettingstarted.html:1530
 msgid "Kernel:"
-msgstr ""
+msgstr "النواة:"
 
 #: gettingstarted.html:1533
 msgid "The Linux kernel is the heart of Ubuntu."
-msgstr ""
+msgstr "نواة لنكس هي قلب أبونتو."
 
 #: gettingstarted.html:1539
 msgid "Motherboard:"
-msgstr ""
+msgstr "اللوحة الأم:"
 
 #: gettingstarted.html:1543
 msgid "Boot Mode:"
-msgstr ""
+msgstr "وضع الإقلاع:"
 
 #: gettingstarted.html:1546
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
-msgstr ""
+msgstr "يعرض الوضع الذي يتواصل به أبونتو ماتيه مع النظام الثابت (firmware)."
 
 #: gettingstarted.html:1554
 msgid "Processor"
-msgstr ""
+msgstr "المعالج"
 
 #: gettingstarted.html:1557
 msgid "Model:"
-msgstr ""
+msgstr "الطراز:"
 
 #: gettingstarted.html:1561
 msgid "Speed:"
-msgstr ""
+msgstr "السرعة:"
 
 #: gettingstarted.html:1565
 msgid "Architecture in use:"
-msgstr ""
+msgstr "المعمارية المستخدمة:"
 
 #: gettingstarted.html:1568
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
-msgstr ""
+msgstr "معمارية نظام التشغيل المستخدمة. مثلاً، i386 تعني 32 بت."
 
 #: gettingstarted.html:1574
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "المعماريات المدعومة:"
 
 #: gettingstarted.html:1577
 msgid "Architectures that are supported by this processor."
-msgstr ""
+msgstr "المعمارية التي يدعمها هذا المعالج."
 
 #: gettingstarted.html:1585
 msgid "Components"
-msgstr ""
+msgstr "المكونات"
 
 #: gettingstarted.html:1588
 msgid "Memory (RAM):"
-msgstr ""
+msgstr "الذاكرة العشوائية (RAM):"
 
 #: gettingstarted.html:1591
 msgid "More RAM allows more applications to run simultaneously."
-msgstr ""
+msgstr "المزيد من الذاكرة العشوائية (RAM) يسمح لتطبيقات أكثر بالعمل في آنٍ معاً."
 
 #: gettingstarted.html:1597
 msgid "Graphics:"
-msgstr ""
+msgstr "الرسوميات:"
 
 #: gettingstarted.html:1601
 msgid "Internet Access:"
-msgstr ""
+msgstr "الولوج للإنترنت:"
 
 #: gettingstarted.html:1603
 msgid "Connected"
-msgstr ""
+msgstr "متصل"
 
 #: gettingstarted.html:1604
 msgid "Not Connected"
-msgstr ""
+msgstr "غير متصل"
 
 #: gettingstarted.html:1611
 msgid "Storage"
-msgstr ""
+msgstr "التخزين"
 
 #: gettingstarted.html:1615
 msgid "Root File System:"
-msgstr ""
+msgstr "نظام ملفات الجذر:"
 
 #: gettingstarted.html:1618
 msgid "The file system where Ubuntu MATE is installed."
-msgstr ""
+msgstr "نظام الملفات حيث تم تثبيت أبونتو ماتيه."
 
 #: gettingstarted.html:1624
 msgid "Entire Disk Capacity:"
-msgstr ""
+msgstr "السعة الكلّية للقرص:"
 
 #: gettingstarted.html:1629
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "المستخدَم من قبل أبونتو ماتيه"
 
 #: gettingstarted.html:1638
 msgid "Allocated for Ubuntu MATE:"
-msgstr ""
+msgstr "المخصّص لأبونتو ماتيه:"
 
 #: gettingstarted.html:1641
 msgid "The size of your operating system partition."
-msgstr ""
+msgstr "حجم قسم نظام تشغيلك."
 
 #: gettingstarted.html:1647
 msgid "Used Space:"
-msgstr ""
+msgstr "المساحة المستخدمة:"
 
 #: gettingstarted.html:1653
 msgid "Free Space:"
-msgstr ""
+msgstr "المساحة الخالية:"
 
 #: gettingstarted.html:1659
 msgid "Other Usage:"
-msgstr ""
+msgstr "استخدامات أخرى:"
 
 #: gettingstarted.html:1662
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "محجوز من قبل النظام، أو أقسام أخرى، أو غير معيّن، أو نظام التبديل swap."
 
 #: gettingstarted.html:1670
 msgid "Why do I see two units?"
-msgstr ""
+msgstr "لم أرى وحدتين؟"
 
 #: gettingstarted.html:1676
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "وحدة SI أو IEC؟"
 
 #: gettingstarted.html:1678
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "عشري (معيار SI)"
 
 #: gettingstarted.html:1680
 msgid "1 KB = 1000 bytes"
-msgstr ""
+msgstr "1 ك.ب. = 1000 بايت"
 
 #: gettingstarted.html:1681
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
+msgstr "تنطق \"جا/كا\" مثل \"ميجا/ميكا\"، \"جيجا/كيكا\"."
 
 #: gettingstarted.html:1682
 msgid "Common in every day applications and file storage."
-msgstr ""
+msgstr "شائع في قياس التطبيقات اليومية وتخزين الملفات."
 
 #: gettingstarted.html:1686
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "ثنائي (معيار IEC)"
 
 #: gettingstarted.html:1688
 msgid "1 KiB = 1024 bytes"
-msgstr ""
+msgstr "1 ك. ب. = 1024 بايت."
 
 #: gettingstarted.html:1689
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
+msgstr "تُنطق \"باي\" - مثل \"ميباي\"، \"جيباي\"."
 
 #: gettingstarted.html:1690
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr ""
+msgstr "شائع في قياس الذاكرة العشوائية (RAM) والأقراص وأقسام الأقراص، متضمنة أدوات مثل ج.بارتد GParted."
 
 #: gettingstarted.html:1699
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
-msgstr ""
+msgstr "المعلومات التالية مستخلصة مباشرة من برنامج سطر الأوامر inxi."
 
 #: gettingstarted.html:1700
 msgid "Gathering data..."
@@ -1912,14 +1912,14 @@ msgstr "اطّلع على المزيد من المعلومات التفصيلي�
 
 #: gettingstarted.html:1733
 msgid "Disks"
-msgstr ""
+msgstr "الأقراص"
 
 #: gettingstarted.html:1734
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
-msgstr ""
+msgstr "أداة مثبتة مسبقاً تُمكّن من التضبيط المبدئي للأقراص وأقسام الأقراص، متضمنة التهيئة، التقسيم، التثبيت، عرض بيانات S.M.A.R.T وكتابة صور الأقراص إلى بطاقات ذاكرة SD وأقراص USB."
 
 #: gettingstarted.html:1751
 msgid ""
@@ -1960,8 +1960,52 @@ msgstr "عرض و تخطيط درجات الحرارة الحالية للمكو
 
 #: gettingstarted.html:1097
 msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr ""
+msgstr "تنشيط مطلق برمجيات قائمة بْرِسْك Brisk أو قائمة ماتيه"
 
 #: gettingstarted.html:1103
 msgid "Activate Heads-up Display (HUD)"
+msgstr "تنشيط نظام العرض الفوقي HUD"
+
+#: gettingstarted.html:743
+msgid "OpenRazer"
+msgstr "أوبن رايزر OpenRazer"
+
+#: gettingstarted.html:763
+msgid "Requires OpenRazer to be installed first."
+msgstr "يتطلب أن يكون أوبن رايزر OpenRazer مثبتاً أولاً."
+
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "جاري التثبيت .."
+
+#: gettingstarted.html:1091
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1129
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1309
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1325
+msgid "S"
+msgstr ""
+
+#: gettingstarted.html:1327
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html:1718
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
+
+#: gettingstarted.html:1751
+msgid ""
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
 msgstr ""

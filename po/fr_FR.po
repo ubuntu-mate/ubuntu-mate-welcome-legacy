@@ -6,13 +6,17 @@
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
 # utybo <utybo@users.noreply.github.com>, 2016
+# Nicolas Jourdain, 2018
+# Robert Orzanna <robert@orzanna.de>, 2017
+# Patrice Laborda <webmaster555@gmail.com>, 2017
+# Patrice Laborda <webmaster555@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2016-06-12 23:57+0000\n"
-"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
+"PO-Revision-Date: 2018-03-28 19:49+0000\n"
+"Last-Translator: Arkelis <guillaume2.fayard@wanadoo.fr>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-"
 "mate-welcome/language/fr_FR/)\n"
 "Language: fr_FR\n"
@@ -43,7 +47,7 @@ msgstr "Toutes les installations qui étaient incomplètes sont terminées."
 
 #: ubuntu-mate-welcome:159 ubuntu-mate-welcome:169
 msgid "Failed to perform fix."
-msgstr "Echec de l'application de la correction."
+msgstr "Échec de l'application de la correction."
 
 #: ubuntu-mate-welcome:159
 msgid "Errors occurred while finishing an incomplete installation."
@@ -68,7 +72,7 @@ msgstr "Le logiciel est maintenant prêt à être installé."
 
 #: ubuntu-mate-welcome:181
 msgid "Failed to update cache."
-msgstr "Echec de la mise à jour du cache."
+msgstr "Échec de la mise à jour du cache."
 
 #: ubuntu-mate-welcome:181
 msgid "There may be a problem with your repository configuration."
@@ -211,7 +215,9 @@ msgstr "Récupérer le catalogue de logiciels le plus récent."
 
 #: ubuntu-mate-welcome:749
 msgid "Please wait while the application is being updated..."
-msgstr "Veuillez attendre pendant que l'application est mise à jour..."
+msgstr ""
+"Veuillez attendre pendant que l'application est en train de se mettre à "
+"jour..."
 
 #: ubuntu-mate-welcome:750
 msgid "Version:"
@@ -219,7 +225,7 @@ msgstr "Version :"
 
 #: ubuntu-mate-welcome:753
 msgid "This application is set to receive the latest updates."
-msgstr "Cette application doit recevoir les dernières mises à jour."
+msgstr "Cette application est réglée pour recevoir les dernières mises à jour."
 
 #: ubuntu-mate-welcome:754
 msgid "Alternative to:"
@@ -231,7 +237,7 @@ msgstr "Masquer"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -243,7 +249,7 @@ msgstr "Réinstaller"
 
 #: ubuntu-mate-welcome:759
 msgid "Remove"
-msgstr "Désinstaller"
+msgstr "Supprimer "
 
 #: ubuntu-mate-welcome:760
 msgid "Upgrade"
@@ -282,19 +288,16 @@ msgid "Ubuntu Repository"
 msgstr "Dépôt Ubuntu"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Dépôt Multivers Ubuntu"
+msgstr "Dépôt maintenu par la communauté Ubuntu"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Dépôt Multivers Ubuntu"
+msgstr "Dépôt de pilotes propriétaires Ubuntu"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Dépôt Ubuntu"
+msgstr "Dépôt non-gratuit Ubuntu"
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -309,14 +312,12 @@ msgid "Undo Changes"
 msgstr "Annuler les modifications"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Dépôt Ubuntu"
+msgstr "Référentiel externe"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Boutique de Logiciels"
+msgstr "Logiciels"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -324,7 +325,7 @@ msgstr "Installation en cours..."
 
 #: ubuntu-mate-welcome:783
 msgid "Removing..."
-msgstr "Désistallation en cours..."
+msgstr "Désinstallation en cours..."
 
 #: ubuntu-mate-welcome:784
 msgid "Upgrading..."
@@ -448,20 +449,19 @@ msgstr "Désinstallation échouée"
 
 #: ubuntu-mate-welcome:823
 msgid "To be installed"
-msgstr "A installer"
+msgstr "À installer"
 
 #: ubuntu-mate-welcome:824
 msgid "To be removed"
-msgstr "A désinstaller"
+msgstr "À désinstaller"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Défiler vers le haut"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Installation :"
+msgstr "Guide d'installation"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -517,17 +517,19 @@ msgstr "Déc"
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Distribution non prise en charge"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
-msgstr ""
+msgstr "Votre configuration peut varier."
 
 #: ubuntu-mate-welcome:1114
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Software Boutique est conçu pour Ubuntu MATE, mais il semble que vous "
+"utilisez une distribution différente."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -535,27 +537,29 @@ msgid ""
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
 msgstr ""
+"Bien qu'un large éventail de logiciels fonctionnent sur d'autres "
+"distributions basées sur Ubuntu, nous ne pouvons pas garantir que nos choix "
+"sélectionnés fonctionneront sans problème sur votre système."
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Ce message ne sera plus affiché."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Dépôt Ubuntu"
+msgstr "Site Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Faire un don à Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
-msgstr "MB"
+msgstr "Mo"
 
 #: ubuntu-mate-welcome:1728
 msgid "MiB"
@@ -563,7 +567,7 @@ msgstr "MiB"
 
 #: ubuntu-mate-welcome:1729
 msgid "GB"
-msgstr "GB"
+msgstr "Go"
 
 #: ubuntu-mate-welcome:1730
 msgid "GiB"
@@ -600,7 +604,7 @@ msgstr "n'est pas une carte SD."
 
 #: ubuntu-mate-welcome:2055
 msgid "Your partition layout is not currently supported by this tool."
-msgstr "La disposition de vos partitions n'est pas supportée par cet outil."
+msgstr "La structure de votre partition n'est pas supportée par cet outil."
 
 #: ubuntu-mate-welcome:2057
 msgid "is not the last partition."
@@ -608,7 +612,7 @@ msgstr "n'est pas la dernière partition."
 
 #: ubuntu-mate-welcome:2059
 msgid "Failed to run resize script."
-msgstr "Echec lors de l'éxecution du script de redimensionnement."
+msgstr "Échec lors de l'exécution du script de redimensionnement."
 
 #: ubuntu-mate-welcome:2059
 msgid "The returned error code is:"
@@ -668,11 +672,11 @@ msgstr "Pas encore disponible pour certaines versions."
 
 #: ubuntu-mate-welcome:2704
 msgid "No longer works for some releases."
-msgstr "Ne fonctionne plus pour une raison inconnue."
+msgstr "Ne fonctionne plus pour certaines versions."
 
 #: ubuntu-mate-welcome:2706
 msgid "Not suitable for production machines."
-msgstr "Ne fonctionne pas pour des machines normales."
+msgstr "Ne convient pas pour des machines en production."
 
 #: ubuntu-mate-welcome:2708
 msgid "Requires further testing."
@@ -688,41 +692,8 @@ msgstr "applications trouvées."
 
 #: ubuntu-mate-welcome:2885
 msgid "proprietary applications are hidden."
-msgstr "applications propriétaires sont masquées."
+msgstr "Les applications propriétaires sont masquées."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Boutique de Logiciels"
-
-#~ msgid "applications have been installed"
-#~ msgstr "applications ont été installées."
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Votre nouvelle application est prête à l'emploi."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Des applications n'ont pas été installées."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Des applications n'ont pas pu être installées."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr ""
-#~ "La Boutique de logiciels a eu un problème avec l'une des applications."
-
-#~ msgid "applications have been removed"
-#~ msgstr "applications ont été désinstallées."
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Ces applications ne sont plus présentes sur votre système."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Des applications n'ont pas été désinstallées."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Des applications n'ont pas pu être installées"
-
-#~ msgid "Show"
-#~ msgstr "Afficher"
+msgstr "Sources de Logiciels"

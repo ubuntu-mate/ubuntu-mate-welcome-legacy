@@ -1,12 +1,14 @@
 # 
 # Translators:
 # raspi0124 <adores0124@yahoo.co.jp>, 2017
+# Kiyohito Yoshida <dananassae@gmail.com>, 2018
+# raspi0124 <adores0124@yahoo.co.jp>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 21:37+0000\n"
-"Last-Translator: raspi0124 <adores0124@yahoo.co.jp>\n"
+"PO-Revision-Date: 2018-02-15 05:49+0000\n"
+"Last-Translator: Kiyohito Yoshida <dananassae@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +37,7 @@ msgstr "Ubuntu MATE は簡単に扱え、かつ魅力的なユーザーインタ
 
 #: features.html:37
 msgid "Pre-Configured Yet Flexible"
-msgstr ""
+msgstr "設定済み、変更も自在"
 
 #: features.html:43
 msgid ""
@@ -44,11 +46,11 @@ msgid ""
 "applications you will need for your daily computing - or to change anything "
 "about the way it looks, the way it works, or the applications it runs to "
 "suit your taste."
-msgstr ""
+msgstr "Ubuntu MATEを使えば、すべての機能を完備したOSを自由に動かせます。しかも、すべてとは言いませんが、日常のパソコン仕事に必要となるような多くのアプリケーションがすぐに使えるように設定されています。さらに、Ubuntu MATEの外観や動作、使うアプリケーションは自分の好みに合せてどんなふうにでも変えることができます。"
 
 #: features.html:52
 msgid "Built-In Security"
-msgstr ""
+msgstr "セキュリティも万全"
 
 #: features.html:58
 msgid ""
@@ -58,7 +60,7 @@ msgid ""
 "Security updates for all of its installed applications are also provided on "
 "the same schedule. This ensures that you have the latest protection for all "
 "of your computer's software -- as soon as it's available!"
-msgstr ""
+msgstr "Ubuntu MATEはセキュリティを念頭において設計されています。月イチでしか更新されないようなOSなんかとは違って、Ubuntu MATEは随時更新されます。更新は、Ubuntu MATEとそのコンポーネントすべてのセキュリティパッチを含みます。インストールされているアプリケーションすべてに対するセキュリティアップデートも同時に提供されますので、ご自分のパソコンのソフトウェア全部が可能な限り速やかに最新の安全性を備えた状態となります。"
 
 #: features.html:74
 msgid ""
@@ -72,7 +74,7 @@ msgid ""
 "without conscious intervention by you, the user. Even if you do accidentally"
 " invite in an infection, chances are it's designed to attack Windows and "
 "won't do much, if any damage to Ubuntu MATE."
-msgstr ""
+msgstr "Ubuntu MATEはウイルスやマルウェアに冒される...いえ、そんなことはありません。Ubuntu MATEのようなLinuxシステムに対する脅威が蔓延してしまうようなことがほとんどないように、迅速で適時な更新が実施されています。実際、この10年でUbuntu MATEに被害を与えうる感染が\"公式\"に報告された事例はほとんどありません。今や、先進的なLinuxディストリビューションをインストールすることや利用することにまったく不安などありません。Ubuntu MATEは、ウイルスやルートキット、その他のマルウェアを忍び込ませたり、ユーザーの監視の目をかいくぐってそれらを実行させることができないような設計になっています。たとえ誤って感染したとしても、ひょっとするとそれはWindowsを標的にしたものかもしれませんし、Ubuntu MATEに対しては何かあったとしてもほとんど被害はないでしょう。"
 
 #: features.html:94
 msgid ""
@@ -80,7 +82,7 @@ msgid ""
 "not administrators by default. Administrators (\"root\" users) on any "
 "computer system have permission to do anything they want, including the "
 "ability to damage the system."
-msgstr ""
+msgstr "Ubuntu MATEのもうひとつのセキュリティ的特徴は、ユーザーは初期設定では管理者ではないということです。どのコンピュータシステムにおいても管理者(\"root\"ユーザー)は、システムを破壊することも含め、どんな事でも実行できる権限を持っています。"
 
 #: features.html:98
 msgid ""
@@ -94,29 +96,29 @@ msgid ""
 "program that will be run if you give it permission to continue. To be extra "
 "secure, Ubuntu MATE requires you to provide your administrator password "
 "before that permission is granted. Every single time."
-msgstr ""
+msgstr "例えば他のOSでは、ファイル名をみて、そのファイルを開くプログラムを決め、すぐさま開きます。この仕様だと、侵入者はコンピュータを簡単に攻撃できてしまいます。Ubuntu MATEは、ファイルの名前ではなく、その内容に応じてファイルを開きます。そのため、たとえ悪意あるプログラムがファイル名を\"遺言状.txt\"などとテキストファイルを偽って素性を隠しても、Ubuntu MATEはプログラムファイルとして認識します。そして、そのファイルはテキストファイルではなくプログラムなので、許可がない限り実行しない旨、警告するでしょう。さらなるセキュリティ対策として、Ubuntu MATEは実行が許可される前には必ず毎回、管理者パスワードの入力を求めるようになっています。"
 
 #: features.html:116
 msgid "Powerful Applications"
-msgstr ""
+msgstr "強力なアプリケーション群"
 
 #: features.html:117
 msgid ""
 "While MATE Desktop provides the essential user interfaces to control and use"
 " a computer, Ubuntu MATE adds a collection of additional applications to "
 "turn your computer into a truly powerful workstation."
-msgstr ""
+msgstr "MATEデスクトップはパソコンを制御したり利用したりするための基本的なユーザーインターフェイスを提供しますが、Ubuntu MATEは、お使いのパソコンを真に強力なワークステーションへと変身させる様々なアプリケーション群を用意しています。"
 
 #: features.html:122
 msgid "Productivity"
-msgstr ""
+msgstr "生産性"
 
 #: features.html:131
 msgid ""
 "Firefox delivers safe, easy web browsing. A familiar user interface, "
 "enhanced security features including protection from online identity theft, "
 "and an integrated search to let you get the most out of the web."
-msgstr ""
+msgstr "Firefoxは安全で手軽なウエッブ閲覧をお約束します。使い易いユーザーインターフェイス、なりすましからの防御をはじめとした強固なセキュリティ機能、そして、有益な情報を引き出してくれる統合された検索機能。"
 
 #: features.html:143
 msgid ""
@@ -127,7 +129,7 @@ msgid ""
 "filter, advanced search and indexing capabilities, and offers easy "
 "organization of mails with tagging and virtual folders. It also features "
 "unrivalled extensibility."
-msgstr ""
+msgstr "ThunderbirdはRSSやニュースグループも閲覧できるメールクライアントです。メールをかつてないほど安全に、速く、簡単にやりとりできます。Thunderbirdは、異なるメールアカウント(POP, IMAP, Gmail)に対応、メールアカウントの設定はウィザードで簡単にできます。クリックひとつで選べるアドレスブックに、タブインターフェイス、賢い学習型スパムフィルター、高度な検索機能と一覧表示、タグ付けと仮想フォルダを使ったメールの簡単整理。さらに、他の追随をゆるさない拡張性を備えた多機能なメールクライアントです。"
 
 #: features.html:159
 msgid ""
@@ -136,35 +138,35 @@ msgid ""
 "powerful tools let you unleash your creativity and grow your productivity. "
 "LibreOffice embeds several applications that make it the most powerful Free "
 "and Open Source Office suite on the market:"
-msgstr ""
+msgstr "LibreOfficeは、Microsoft(R) Officeとそっくり置き換えられる、機能満載のオフィス生産性向上ソフトウェアパッケージです。すっきりとしたインターフェイスと強力なツールがあなたの創造性を解き放ち、生産性を向上させてくれます。LibreOfficeを構成するアプリケーションのおかげで、LibreOfficeは業界随一のフリーなオープンソースオフィーススーツとなっています。"
 
 #: features.html:166
 msgid "Writer, the word processor."
-msgstr ""
+msgstr "Writer、ワードプロセッサ"
 
 #: features.html:167
 msgid "Calc, the spreadsheet application."
-msgstr ""
+msgstr "Calc、スプレッドシートアプリケーション"
 
 #: features.html:168
 msgid "Impress, the presentation engine."
-msgstr ""
+msgstr "Impress、プレゼンテーション作成 "
 
 #: features.html:169
 msgid "Draw, the drawing and flowcharting application."
-msgstr ""
+msgstr "Draw、描画とフローチャート作成アプリケーション"
 
 #: features.html:170
 msgid "Base, the database and database frontend."
-msgstr ""
+msgstr "Base、データベースとそのフロントエンド"
 
 #: features.html:171
 msgid "Math, for editing mathematics."
-msgstr ""
+msgstr "Math、数式編集"
 
 #: features.html:178
 msgid "Entertainment"
-msgstr ""
+msgstr "エンターテインメント"
 
 #: features.html:184
 msgid ""
@@ -173,7 +175,7 @@ msgid ""
 "inspired by Apple's iTunes, the current version also supports Internet "
 "Radio, iPod integration and generic portable audio player support, Audio CD "
 "burning, Audio CD playback, music sharing, and Podcasts."
-msgstr ""
+msgstr "Rhythmboxはとっても簡単に使える、様々な音楽ファイル形式(mp3やogg)に対応した音楽プレイヤー兼音楽管理プログラムです。元々はAppleのiTunesに触発されたアプリケーションですが、最新版は、インターネットラジオやiPodとの連携、一般的なポータブルオーディオプレーヤーにも対応しています。さらに音楽CDの作成や演奏、音楽の共有もできますし、ポッドキャストも聞けます。"
 
 #: features.html:198
 msgid ""
@@ -181,38 +183,38 @@ msgid ""
 "disk or camera, organize them in various ways, view them in full-window or "
 "fullscreen mode, and export them to share with others. It is able to manage "
 "a lot of different image formats, also including raw CR2 files."
-msgstr ""
+msgstr "Shotwellはデジタル写真管理プログラムです。Shotwellを使って、ディスクやカメラから写真を取り込んだり、写真を様々に取り扱うことができます。写真をウィンドウいっぱいに拡大したり全画面で閲覧したり、他の人と共有するために写真を書き出したりもできます。また、raw CR2といったファイル形式を含むいろんなフォーマットの画像を取り扱うことができます。"
 
 #: features.html:211
 msgid ""
 "VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
 "DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
 "podcasts, and multimedia streams from various network sources."
-msgstr ""
+msgstr "VLCはVideoLANプロジェクトが開発するメディアプレイヤーです。VLCはMPEG、MPEG-2、MPEG-4、DivX、MOV、WMV、QuickTime、WebM、FLAC、MP3、Ogg/Vorbis files、DVDs、VCDs、ポッドキャスト、さらには様々なネットワークソースからのマルチメディアストリームを再生できます。"
 
 #: features.html:215
 msgid ""
 "VLC can also be used as a streaming server that duplicates the stream it "
 "reads and multicasts them through the network to other clients, or serves "
 "them through HTTP."
-msgstr ""
+msgstr "VLCは、読み込んだ動画を複製し、他のクライアントやサーバーに向けてHTTPを使ってネットワーク上に配信するストリーミングサーバーとしても使うことができます。"
 
 #: features.html:218
 msgid ""
 "VLC has support for on-the-fly transcoding of audio and video formats, "
 "either for broadcasting purposes or for movie format transformations."
-msgstr ""
+msgstr "VLCは、放送のためや動画のフォーマット変換のときにオーディオやビデオのフォーマットをオンザフライで変換することもできます。"
 
 #: features.html:226
 msgid "... And a whole lot more!"
-msgstr ""
+msgstr "...まだまだある!"
 
 #: features.html:228
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
-msgstr ""
+msgstr "もちろん、ファイアウォールにバックアップアプリケーション、ドキュメント/写真スキャナー、プリンター管理などなど、すべてUbuntu MATEには用意されています。そして、これはほんの序の口。"
 
 #: features.html:231
 msgid "Software"
@@ -222,34 +224,34 @@ msgstr "ソフトウェア"
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
-msgstr ""
+msgstr "セクションには極上の各種アプリケーションが揃っていて、"
 
 #: features.html:233
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
-msgstr ""
+msgstr "からクリックひとつでインストールできます。<i>App Store</i>では様々な、仕事用から娯楽用の何千ものアプリケーションが選べます。"
 
 #: features.html:240
 msgid "Games"
-msgstr ""
+msgstr "ゲーム"
 
 #: features.html:246
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
-msgstr ""
+msgstr "ここ数年でLinuxは第一級のゲームプラットフォームとなりました。それは"
 
 #: features.html:249
 msgid "bringing the"
-msgstr ""
+msgstr "によってLinux用の"
 
 #: features.html:251
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
-msgstr ""
+msgstr "プラットフォームが提供されたからです。現時点で、Linuxで遊べる1000以上の高品質な、インディーズやAAAタイトルのゲームがSteamから入手できます。Ubuntu MATEでもLinux版Steamは完全動作します。"
 
 #: features.html:256
 msgid ""
@@ -258,38 +260,38 @@ msgid ""
 "MATE. It doesn't matter if you like flight simulators, motor racing, first "
 "person shooters, jump and run or card games, you'll find something to keep "
 "you entertained."
-msgstr ""
+msgstr "SteamはLinuxのゲーム環境を大きく進歩させましたが、Ubuntu MATEには、楽しく遊べる高品質なオープンソースのゲームもたくさんあります。フライトシミュレーターにレーシングゲーム、ファーストパーソン・シューティングゲーム、ラン＆ジャンプ系ゲーム、そしてカードゲーム。あなたの大好きなゲームがきっと見つかります。"
 
 #: features.html:266
 msgid "Accessibility"
-msgstr ""
+msgstr "扱いやすさ"
 
 #: features.html:272
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
-msgstr ""
+msgstr "Ubuntu MATEの開発者たちがこのプロジェクトの目標を最初に定めるときに、最も大事にしたことは扱いやすいOSを作るというものでした。"
 
 #: features.html:276
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
-msgstr ""
+msgstr "Ubuntu MATEは、福祉的技術の包括的な統合を進めようとしているわけではありません。しかし、そのような目標を掲げた"
 
 #: features.html:278
 msgid "Sonar GNU/Linux"
-msgstr ""
+msgstr "Sonar GNU/Linux"
 
 #: features.html:279
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
-msgstr ""
+msgstr "というディストリビューションの範にならって、Ubuntu MATEは、個々の使い途が家庭や仕事で違うような場合でも、それらに共通する、コンピュータの操作性に対する現実的な回答としてのデスクトップ環境を目指していきます。"
 
 #: features.html:287
 msgid "Mobile Integration"
-msgstr ""
+msgstr "モバイル対応"
 
 #: features.html:293
 msgid ""
@@ -297,4 +299,4 @@ msgid ""
 "You can plug in a phone, media player or digital camera and the device is "
 "automatically detected and mounted. You can then access the files on it or "
 "sync its contents."
-msgstr ""
+msgstr "現在、Ubuntu MATEは必須モバイル機器に、一般的なものであれば対応しています。携帯電話やメディアプレーヤー、デジタルカメラなどを接続すれば、それらの機器は自動で認識され、使えるようになります。"

@@ -2,16 +2,19 @@
 # Translators:
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
+# Arkelis <guillaume2.fayard@wanadoo.fr>, 2018
 # Laurent Napias, 2016
 # utybo <utybo@users.noreply.github.com>, 2016
+# Nicolas Jourdain, 2018
 # Robert Orzanna <robert@orzanna.de>, 2017
 # utybo <utybo@users.noreply.github.com>, 2016-2017
+# William Smith (Kite) <swilliam273@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 21:35+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,11 +45,11 @@ msgstr "Sujets"
 
 #: gettingstarted.html:42
 msgid "Prerequisites"
-msgstr "Pré-requis"
+msgstr "Prérequis"
 
 #: gettingstarted.html46, 132
 msgid "System Requirements"
-msgstr "Exigences du système"
+msgstr "Configuration requise"
 
 #: gettingstarted.html:51
 msgid "Installation Preparation"
@@ -82,7 +85,7 @@ msgstr "Rapport de fin d'Installation"
 
 #: gettingstarted.html87, 402, 405
 msgid "Updates & Extras"
-msgstr "Mises à jours & extras"
+msgstr "Mises à jours et extras"
 
 #: gettingstarted.html92, 541, 544
 msgid "Drivers"
@@ -90,7 +93,7 @@ msgstr "Pilotes"
 
 #: gettingstarted.html97, 779
 msgid "Language & Input"
-msgstr "Langues & périphériques d'entrée"
+msgstr "Langues et périphériques d'entrée"
 
 #: gettingstarted.html102, 815
 msgid "Optional Tasks"
@@ -118,7 +121,7 @@ msgstr "Spécifications du système"
 
 #: gettingstarted.html:135
 msgid "Modest System Requirements"
-msgstr "Exigences modestes du système"
+msgstr "Configuration minimum requise"
 
 #: gettingstarted.html:136
 msgid ""
@@ -216,7 +219,7 @@ msgstr "Restez connecté(e) à Internet afin d'installer toutes les mises à jou
 #: gettingstarted.html:181
 msgid ""
 "Plug your device into a power source if it is running on battery power."
-msgstr "Branchez votre appareil à une source d'alimentation électrique si la batterie est faible."
+msgstr "Branchez votre appareil sur secteur si la batterie est faible."
 
 #: gettingstarted.html:186
 msgid ""
@@ -257,13 +260,13 @@ msgstr "option) dans le BIOS avant l'installation, surtout si un système d'expl
 
 #: gettingstarted.html:198
 msgid "If you are using a legacy BIOS machine, you do not need to do this."
-msgstr "Si vous utilisez une machine fonctionnant à partir d'un BIOS legacy, vous n'aurez pas besoin de faire ceci."
+msgstr "Si vous utilisez une machine fonctionnant à partir d'un BIOS legacy, vous n'aurez pas besoin de faire cela."
 
 #: gettingstarted.html:201
 msgid ""
 "Especially when dual booting, it is important that you boot your system in "
 "the correct mode and use the"
-msgstr "Spécifiquement quand vous utilisez un double démarrage, il est important que vous démarriez le système dans le mode approprié et que vous utilisiez"
+msgstr "Quand vous utilisez un double démarrage, il est important que vous démarriez le système dans le mode approprié et que vous utilisiez"
 
 #: gettingstarted.html:202
 msgid "64-bit image"
@@ -308,7 +311,7 @@ msgid ""
 " \"paging file\" in Windows. Performance will decrease when running low on "
 "memory and could possibly freeze if you completely run out of memory without"
 " anywhere to swap."
-msgstr "Pour les ordinateurs avec une faible mémoire vive (RAM), le système d'exploitation commencera a échanger du contenu de la mémoire vive au disque dur. Cette technique est connue en tant que \"fichier de pagination\" sous Windows. Les performances de votre ordinateurs vont se détériorer qu'il y aura peu de mémoire vive disponible, et pourrait même se geler si il n'en reste absolument plus sans l'utilisation de ce système."
+msgstr "Pour les ordinateurs avec une faible mémoire vive (RAM), le système d'exploitation commencera a échanger du contenu de la mémoire vive au disque dur. Cette technique est connue en tant que \"fichier de pagination\" sous Windows. Les performances de votre ordinateurs vont se détériorer quand il y aura peu de mémoire vive disponible, et celui-ci pourrait même se geler si il n'en reste absolument plus sans l'utilisation de ce système."
 
 #: gettingstarted.html:222
 msgid ""
@@ -321,14 +324,14 @@ msgstr "Par défaut, une partition de swap est créée en fonction de la taille 
 msgid ""
 "Swap space that's the size of your RAM is also required if you would like to"
 " hibernate the system (as known as suspending to disk)."
-msgstr "De l'espace \"swap\" de la tailler de votre RAM est également nécessaire si vous souhaitez mettre votre système en hibernation (connu sous le nom de Mise en veille prolongée, ou Mise en veille sur disque)."
+msgstr "De l'espace \"swap\" de la taille de votre RAM est également nécessaire si vous souhaitez mettre votre système en hibernation (connu sous le nom de Mise en veille prolongée, ou Mise en veille sur disque)."
 
 #: gettingstarted.html:235
 msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr "Dans le cas ou vous voudriez installer Ubuntu MATE aux cotés de votre système d'exploitation, vos partitions auront besoin d'être rétrécies. Ce qui implique que des sections de votre disque dur seront divisées entre différents systèmes d'exploitation."
+msgstr "Dans le cas ou vous voudriez installer Ubuntu MATE aux cotés de votre système d'exploitation, vos partitions auront besoin d'être rétrécies. Cela implique que des sections de votre disque dur seront divisées entre différents systèmes d'exploitation."
 
 #: gettingstarted.html:241
 msgid "I'm dual booting with"
@@ -372,13 +375,13 @@ msgstr "Sûre"
 
 #: gettingstarted.html:262
 msgid "The simplest method is to use the installer."
-msgstr "La méthode la plus simple est d'utiliser l'installeur."
+msgstr "La méthode la plus simple est d'utiliser l'installateur."
 
 #: gettingstarted.html:264
 msgid ""
 "The installer scans your disks for existing operating systems and provides a"
 " choice on what you'd like to do."
-msgstr "L'installeur scanne vos disques afin de détecter d'autres systèmes d'exploitation et vous permet de choisir ce que vous voulez faire."
+msgstr "L'installateur scanne vos disques afin de détecter d'autres systèmes d'exploitation et vous permet de choisir ce que vous voulez faire."
 
 #: gettingstarted.html:267
 msgid "You will see an option similar to this:"
@@ -396,7 +399,7 @@ msgstr "N'interrompez pas l'opération de modification de la taille des partitio
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr "Dans le cas ou feriez une des manipulations précédemment mentionnées, il se peut que vous perdiez des données ou que vous corrompiez la table de partition. Veuillez re-vérifier les changements avant de continuer."
+msgstr "Dans le cas où vous feriez une des manipulations précédemment mentionnées, il se peut que vous perdiez des données ou que vous corrompiez la table de partition. Veuillez revérifier les changements avant de continuer."
 
 #: gettingstarted.html:281
 msgid "The installer may show a"
@@ -409,14 +412,14 @@ msgstr " en rotation peut apparaître pendant un long moment en fonction de la t
 
 #: gettingstarted.html:285
 msgid "When you next boot Windows, run"
-msgstr "La prochaine fois que vous démarrerez Windows, lancez"
+msgstr "La prochaine fois que vous démarrez Windows, lancez"
 
 #: gettingstarted.html:286
 msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr "à partir de l'invite de commandes et pour vérifier s'il y a des erreurs dans le système de fichier. Il se peut que Windows planifie cette tâche automatiquement. Cela assure la consistance pour le système de fichiers NTFS."
+msgstr "à partir de l'invite de commande pour vérifier s'il y a des erreurs dans le système de fichier. Il se peut que Windows planifie cette tâche automatiquement. Cela assure la consistance pour le système de fichiers NTFS."
 
 #: gettingstarted.html:293
 msgid "Use GParted or the installer's \"Custom\" option."
@@ -583,7 +586,7 @@ msgstr "ou"
 
 #: gettingstarted.html:339
 msgid "method to shrink your disk."
-msgstr "afin de rapetisser votre disque système."
+msgstr "afin de rétrécir votre disque système."
 
 #: gettingstarted.html:342
 msgid ""
@@ -1833,15 +1836,15 @@ msgstr "La taille de la partition de votre système d'exploitation."
 
 #: gettingstarted.html:1647
 msgid "Used Space:"
-msgstr "Espace Utilisé:"
+msgstr "Espace utilisé :"
 
 #: gettingstarted.html:1653
 msgid "Free Space:"
-msgstr "Espace Libre :"
+msgstr "Espace libre :"
 
 #: gettingstarted.html:1659
 msgid "Other Usage:"
-msgstr "Autre Utilisation:"
+msgstr "Autre utilisation :"
 
 #: gettingstarted.html:1662
 msgid "Reserved by system, other partitions, unallocated or swap."
@@ -1961,8 +1964,52 @@ msgstr "Affiche et dessine des graphiques de la température des composants atta
 
 #: gettingstarted.html:1097
 msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr ""
+msgstr "Activer le Menu Brisk ou le Menu du bureau MATE"
 
 #: gettingstarted.html:1103
 msgid "Activate Heads-up Display (HUD)"
+msgstr "Activer l'Affichage Tête Haute (ATH)"
+
+#: gettingstarted.html:743
+msgid "OpenRazer"
+msgstr "OpenRazer"
+
+#: gettingstarted.html:763
+msgid "Requires OpenRazer to be installed first."
+msgstr "Nécessite que OpenRazer soit installé en premier"
+
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "Installation en cours..."
+
+#: gettingstarted.html:1091
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1129
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1309
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1325
+msgid "S"
+msgstr ""
+
+#: gettingstarted.html:1327
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html:1718
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
+
+#: gettingstarted.html:1751
+msgid ""
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
 msgstr ""

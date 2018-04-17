@@ -5,6 +5,7 @@
 # Translators:
 # Agustín Alcaraz <alcaraz.agustin@gmail.com>, 2016
 # Hernán Alvarez <hernan.alvarez@gmail.com>, 2016
+# Robert Orzanna <robert@orzanna.de>, 2017
 # Simeon Ivanov <smstiv@gmail.com>, 2016
 # Neverest <happytoast27@gmail.com>, 2016
 msgid ""
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2016-07-30 15:08+0000\n"
-"Last-Translator: Hernán Alvarez <hernan.alvarez@gmail.com>\n"
+"PO-Revision-Date: 2017-09-22 21:35+0000\n"
+"Last-Translator: Robert Orzanna <robert@orzanna.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/ubuntu-mate/ubuntu-"
 "mate-welcome/language/es_ES/)\n"
 "Language: es_ES\n"
@@ -234,7 +235,7 @@ msgstr "Esconder"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -285,19 +286,16 @@ msgid "Ubuntu Repository"
 msgstr "Repositorio Ubuntu"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Repositorio Multiverse de Ubuntu"
+msgstr "Ubuntu Comunidad repositorio"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Repositorio Multiverse de Ubuntu"
+msgstr "Repositorio de controladores propietarios de Ubuntu"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Repositorio Ubuntu"
+msgstr "Ubuntu Repositorio No Libre"
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -312,14 +310,12 @@ msgid "Undo Changes"
 msgstr "Deshacer cambios"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Repositorio Ubuntu"
+msgstr "Repositorio externo"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Boutique de Software"
+msgstr "Software"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -459,12 +455,11 @@ msgstr "A eliminar"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Desplazarse hacia arriba"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Instalando:"
+msgstr "Guía de instalación"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -520,17 +515,19 @@ msgstr "Dec"
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Distribución no admitida"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
-msgstr ""
+msgstr "Su experiencia puede ser diferente."
 
 #: ubuntu-mate-welcome:1114
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Software Boutique está diseñado para Ubuntu MATE, pero parece que está "
+"ejecutando una distribución diferente."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -538,23 +535,25 @@ msgid ""
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
 msgstr ""
+"Si bien una gran selección de software funcionará en otras distribuciones "
+"basadas en Ubuntu, no podemos garantizar que nuestras selecciones funcionen "
+"perfectamente en su sistema."
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Este mensaje no se mostrará de nuevo."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Repositorio Ubuntu"
+msgstr "Sitio web de Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Hacer una donación a Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
@@ -695,38 +694,5 @@ msgid "proprietary applications are hidden."
 msgstr "aplicaciones propietarias están ocultas."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Boutique de Software"
-
-#~ msgid "applications have been installed"
-#~ msgstr "aplicaciones fueron instaladas"
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Sus aplicaciones recientemente instaladas están listas para usar."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Algunas aplicaciones no fueron instaladas."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Algunas aplicaciones no se instalaron correctamente."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr ""
-#~ "La Boutique de Software encontró un problema con una de las aplicaciones."
-
-#~ msgid "applications have been removed"
-#~ msgstr "aplicaciones fueron eliminadas"
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Estas aplicaciones ya no están presentes en su sistema."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Algunas aplicaciones no fueron eliminadas."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Algunas aplicaciones no pudieron ser eliminadas."
-
-#~ msgid "Show"
-#~ msgstr "Mostrar"
+msgstr "Fuentes de Software"

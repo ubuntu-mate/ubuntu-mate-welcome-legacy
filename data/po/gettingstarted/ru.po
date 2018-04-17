@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Dmitriy Kulikov <kulikov@dima.perm.ru>, 2017
+# Oleg Okhotnikov <alex462002@gmail.com>, 2018
 # Антон Антонов <imiafamiliamoio@mail.ru>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 23:21+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: Oleg Okhotnikov <alex462002@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,23 +23,23 @@ msgstr "Начало работы"
 
 #: gettingstarted.html23, 36, 38
 msgid "Topic Selection"
-msgstr ""
+msgstr "Выбор темы"
 
 #: gettingstarted.html:26
 msgid "Previous"
-msgstr ""
+msgstr "Предыдущий этап"
 
 #: gettingstarted.html:27
 msgid "Next"
-msgstr ""
+msgstr "Следующий этап"
 
 #: gettingstarted.html:28
 msgid "Topics"
-msgstr ""
+msgstr "Темы"
 
 #: gettingstarted.html:42
 msgid "Prerequisites"
-msgstr ""
+msgstr "Требования"
 
 #: gettingstarted.html46, 132
 msgid "System Requirements"
@@ -221,81 +222,81 @@ msgid ""
 "all of your peripherals are working as intended before committing to "
 "installing it on your machine. Once you are ready, double click the "
 "installation icon on the desktop."
-msgstr ""
+msgstr "Живая сессия, в которой вы сейчас находитесь — хороший шанс оценить Ubuntu MATE без модифицирования вашего компьютера, позволяющий вам проверить, что вся периферия работает, как надо, до установки системы на машину. Как только вы будете готовы, дважды нажмите на иконку установки на рабочем столе."
 
 #: gettingstarted.html:193
 msgid "Modern UEFI-based computers"
-msgstr ""
+msgstr "Современные компьютеры, основанные на UEFI"
 
 #: gettingstarted.html:194
 msgid ""
 "If you have a modern PC that uses the Unified Extended Firmware Interface "
 "(UEFI), you may need to disable"
-msgstr ""
+msgstr "Если у вас современный ПК, использующий единый интерфейс расширяемой прошивки (UEFI), вам может понадобиться отключить"
 
 #: gettingstarted.html:195
 msgid "Secure Boot"
-msgstr ""
+msgstr "Безопасную загрузку"
 
 #: gettingstarted.html:195
 msgid "(or enable the"
-msgstr ""
+msgstr "(или включить"
 
 #: gettingstarted.html:195
 msgid "Unlock Bootloader"
-msgstr ""
+msgstr "разблокировку загрузчика)"
 
 #: gettingstarted.html:196
 msgid ""
 "option) in the BIOS prior to installation, particularly if an operating "
 "system was pre-installed."
-msgstr ""
+msgstr ") в BIOS до начала установки, особенно если до этого была пре-установлена операционная система."
 
 #: gettingstarted.html:198
 msgid "If you are using a legacy BIOS machine, you do not need to do this."
-msgstr ""
+msgstr "Если ваша машина использует BIOS, вам это делать не нужно."
 
 #: gettingstarted.html:201
 msgid ""
 "Especially when dual booting, it is important that you boot your system in "
 "the correct mode and use the"
-msgstr ""
+msgstr "Важно, особенно при использовании двух систем одновременно, загружать систему в верном режиме и использовать"
 
 #: gettingstarted.html:202
 msgid "64-bit image"
-msgstr ""
+msgstr "64-хразрядный образ"
 
 #: gettingstarted.html:202
 msgid ""
 ", as you cannot boot an operating system installed in BIOS mode after "
 "installing a UEFI-enabled operating system or vice versa."
-msgstr ""
+msgstr ", так как вы не сможете загрузить операционную систему, установленную в режиме BIOS, после установки операционной системы с поддержкой UEFI, или наоборот."
 
 #: gettingstarted.html:207
 msgid ""
 "Booting in BIOS mode on a UEFI system with a GPT-formatted disk will also "
 "show a \"protection layer\"."
-msgstr ""
+msgstr "Загрузка в режиме BIOS на системе UEFI с GPT-форматированном диске также отобразит \"слой защиты\"."
 
 #: gettingstarted.html:208
 msgid "Do not worry,"
-msgstr ""
+msgstr "Не беспокойтесь,"
 
 #: gettingstarted.html:208
 msgid "your data is not lost or corrupt!"
-msgstr ""
+msgstr "ваши данные не потеряны или испорчены!"
 
 #: gettingstarted.html:212
 msgid "Your system is currently running in"
-msgstr ""
+msgstr "Ваша система сейчас запущена в режиме"
 
 #: gettingstarted.html:212
 msgid "mode"
-msgstr ""
+msgstr " "
 
 #: gettingstarted.html:217
 msgid "Swap"
-msgstr ""
+msgstr "Своп"
 
 #: gettingstarted.html:218
 msgid ""
@@ -304,238 +305,238 @@ msgid ""
 " \"paging file\" in Windows. Performance will decrease when running low on "
 "memory and could possibly freeze if you completely run out of memory without"
 " anywhere to swap."
-msgstr ""
+msgstr "На компьютерах с низким количеством свободной памяти (ОЗУ) операционная система начинает свопить содержимое памяти на жёсткий диск. Это также известно как \"файл подкачки\" в Windows. Производительность будет уменьшаться, и система может даже застынуть, если у вас совершенно закончится память и пространство свопа."
 
 #: gettingstarted.html:222
 msgid ""
 "By default, a swap partition is created based on the size of your RAM. For "
 "example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
 "reserved for swap at the end of the drive."
-msgstr ""
+msgstr "По умолчанию раздел свопа создаётся на основе размера вашей ОЗУ. Например, если у вас 2 ГиБ ОЗУ, на конце привода будет зарезервировано 2 ГиБ дискового пространства для свопа."
 
 #: gettingstarted.html:224
 msgid ""
 "Swap space that's the size of your RAM is also required if you would like to"
 " hibernate the system (as known as suspending to disk)."
-msgstr ""
+msgstr "Пространство для свопа размером с ОЗУ вашего компьютера также требуется, если вы хотите проводить гибернацию систему (также известно как сохранение сеанса на диск)."
 
 #: gettingstarted.html:235
 msgid ""
 "Should you wish to install Ubuntu MATE alongside your existing operating "
 "system, your partitions need to be shrunk. This results in sections of your "
 "hard disk being split between multiple operating systems."
-msgstr ""
+msgstr "Если вы хотите установить Ubuntu MATE вместе с вашей существующей операционной системой, вам нужно сжать разделы. Это приводит к делению частей вашего жёсткого диска между множеством операционных систем."
 
 #: gettingstarted.html:241
 msgid "I'm dual booting with"
-msgstr ""
+msgstr "Двойная загрузка с"
 
 #: gettingstarted.html:244
 msgid "To minimize the risk of data loss or failure, ensure that:"
-msgstr ""
+msgstr "Чтобы минимизировать риск потери данных или неудачи, убедитесь в том, что:"
 
 #: gettingstarted.html:246
 msgid "There is enough free space. 10 GB minimum is recommended."
-msgstr ""
+msgstr "Свободного пространства достаточно. Минимально рекомендуемое свободное пространство - 10 ГБ."
 
 #: gettingstarted.html:247
 msgid "important data to another drive."
-msgstr ""
+msgstr "важные данные на другое устройство хранения."
 
 #: gettingstarted.html:248
 msgid "Defragment the hard drive."
-msgstr ""
+msgstr "Дефрагментируйте жёсткий диск."
 
 #: gettingstarted.html:249
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
-msgstr ""
+msgstr "Убедитесь, что ОС Windows завершила работу (не вошла в режим гибернации)."
 
 #: gettingstarted.html:253
 msgid "Which approach would you prefer?"
-msgstr ""
+msgstr "Какой подход вы предпочтёте?"
 
 #: gettingstarted.html255, 339
 msgid "Simple"
-msgstr ""
+msgstr "Простой"
 
 #: gettingstarted.html256, 339
 msgid "Advanced"
-msgstr ""
+msgstr "Продвинутый"
 
 #: gettingstarted.html:257
 msgid "Safest"
-msgstr ""
+msgstr "Наиболее безопасный"
 
 #: gettingstarted.html:262
 msgid "The simplest method is to use the installer."
-msgstr ""
+msgstr "Простейший метод - это использование установщика."
 
 #: gettingstarted.html:264
 msgid ""
 "The installer scans your disks for existing operating systems and provides a"
 " choice on what you'd like to do."
-msgstr ""
+msgstr "Установщик сканирует ваши диски на наличие существующих операционных систем и предлагает вам выбор того, что вы желали бы сделать."
 
 #: gettingstarted.html:267
 msgid "You will see an option similar to this:"
-msgstr ""
+msgstr "Вы увидите подобную опцию:"
 
 #: gettingstarted.html:271
 msgid "Followed by:"
-msgstr ""
+msgstr "А затем:"
 
 #: gettingstarted.html:277
 msgid "Do not interrupt or power off the computer during a resize operation."
-msgstr ""
+msgstr "Не выключайте компьютер во время изменения размера раздела."
 
 #: gettingstarted.html:279
 msgid ""
 "If you do, data loss or a partition table corruption could occur. Please "
 "double check your changes before proceeding."
-msgstr ""
+msgstr "Иначе произойдёт порча таблицы разделов или потеря данных. Перепроверьте ваши изменения перед тем, как продолжить."
 
 #: gettingstarted.html:281
 msgid "The installer may show a"
-msgstr ""
+msgstr "Установщик может показать"
 
 #: gettingstarted.html:281
 msgid ""
 "spinner cursor for a long period of time, depending on the size of your disk"
-msgstr ""
+msgstr "крутящийся курсор в течение долгого времени, в зависимости от размера вашего диска"
 
 #: gettingstarted.html:285
 msgid "When you next boot Windows, run"
-msgstr ""
+msgstr "После следующего запуска Windows, запустите"
 
 #: gettingstarted.html:286
 msgid ""
 "from the command prompt to check the file system for errors. Windows may "
 "schedule this automatically. This ensures consistency for the NTFS file "
 "system."
-msgstr ""
+msgstr "в командной строке, чтобы проверить файловую систему на ошибки. Windows может запланировать это автоматически. Это поддерживает согласованность файловой системы NTFS."
 
 #: gettingstarted.html:293
 msgid "Use GParted or the installer's \"Custom\" option."
-msgstr ""
+msgstr "Используйте GParted или опцию \"Ручная настройка\" установщика."
 
 #: gettingstarted.html296, 1750
 msgid "GParted"
-msgstr ""
+msgstr "Программа GParted"
 
 #: gettingstarted.html:296
 msgid "is available during the live session only."
-msgstr ""
+msgstr "доступна только во время \"живой\" сессии."
 
 #: gettingstarted.html:297
 msgid "It is located under the"
-msgstr ""
+msgstr "Она располагается под меню"
 
 #: gettingstarted.html297, 423, 684, 1523
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #: gettingstarted.html298, 423, 685
 msgid "Administration"
-msgstr ""
+msgstr "Управление"
 
 #: gettingstarted.html:298
 msgid ""
 "menu. GParted provides complete flexibility over your partitions, primarily "
 "for power users who know how they'd like to layout their disks. This method "
 "makes changes to partitions prior to installation."
-msgstr ""
+msgstr "GParted предоставляет полный контроль над вашими разделами, в основном для опытных пользователей, знающих, какой должна быть структура их дисков. Этот метод изменяет разделы до установки."
 
 #: gettingstarted.html:306
 msgid ""
 "After completing operations to your disk, you can leave the remaining space "
 "unallocated,"
-msgstr ""
+msgstr "После завершения операций с вашим диском вы можете оставить свободное пространство неразмеченным,"
 
 #: gettingstarted.html:307
 msgid ""
 "whereby the installer will detect this unused space to install Ubuntu MATE "
 "to."
-msgstr ""
+msgstr "и тогда установщик найдёт это неиспользуемое пространство, на которое возможно установить Ubuntu MATE."
 
 #: gettingstarted.html:309
 msgid "Using the Installer's \"Custom\" option."
-msgstr ""
+msgstr "Использование опции \"Ручная настройка\" установщика."
 
 #: gettingstarted.html:310
 msgid "Instead or in addition to GParted, the"
-msgstr ""
+msgstr "Вместо или в дополнение к GParted, опция"
 
 #: gettingstarted.html:310
 msgid "Custom"
-msgstr ""
+msgstr "Ручной настройки"
 
 #: gettingstarted.html:310
 msgid ""
 "option during the installation wizard can also configure and resize your "
 "partitions as well as choose mount points. Dividing your disks can make it "
 "somewhat easier to re-install the operating system later if desired."
-msgstr ""
+msgstr "во время установки так же позволяет настроить и изменить размер ваших разделов, а также выбрать точки монтирования. Разделение ваших дисков может сделать проще переустановку ОС позже, если такая понадобится."
 
 #: gettingstarted.html:315
 msgid "You can specify these mount points:"
-msgstr ""
+msgstr "Вы можете указать эти точки монтирования:"
 
 #: gettingstarted.html:317
 msgid "The base for Ubuntu MATE"
-msgstr ""
+msgstr "Основа Ubuntu MATE"
 
 #: gettingstarted.html:318
 msgid "Bootloader and kernels"
-msgstr ""
+msgstr "Загрузчик и ядра"
 
 #: gettingstarted.html:319
 msgid "Your personal files and folders"
-msgstr ""
+msgstr "Ваши личные файлы и папки"
 
 #: gettingstarted.html:320
 msgid "Temporary files"
-msgstr ""
+msgstr "Временные файлы"
 
 #: gettingstarted.html:321
 msgid "Contains most of the applications"
-msgstr ""
+msgstr "Содержит большую часть приложений"
 
 #: gettingstarted.html:321
 msgid "(binaries, documentation, libraries, etc)"
-msgstr ""
+msgstr "(бинарные файлы, документации, библиотеки и т.д.)"
 
 #: gettingstarted.html:322
 msgid "Variable data"
-msgstr ""
+msgstr "Переменные данные"
 
 #: gettingstarted.html:322
 msgid "(such as system logs)"
-msgstr ""
+msgstr "(такие как системные журналы отладки)"
 
 #: gettingstarted.html:323
 msgid "Data for System Services"
-msgstr ""
+msgstr "Данные системных служб"
 
 #: gettingstarted.html:323
 msgid "(typically used for server configurations)"
-msgstr ""
+msgstr "(обычно используемые для серверных конфигураций)"
 
 #: gettingstarted.html:324
 msgid "Additional software unmanaged by the package manager"
-msgstr ""
+msgstr "Дополнительное ПО, не управляемое менеджером пакетов,"
 
 #: gettingstarted.html:325
 msgid "such as"
-msgstr ""
+msgstr "такое как"
 
 #: gettingstarted.html:327
 msgid ""
 "Creating separate partitions for all above mount points is not necessary."
-msgstr ""
+msgstr "Создание отдельных разделов для каждой точки монтирования выше необязательно."
 
 #: gettingstarted.html:328
 msgid "The commonly partitioned directories being"
-msgstr ""
+msgstr "Обычно создаются разделы для папок"
 
 #: gettingstarted.html:329
 msgid "and"
@@ -543,35 +544,35 @@ msgstr "и"
 
 #: gettingstarted.html:329
 msgid "These mount points can also be set across different"
-msgstr ""
+msgstr "Эти точки монтирования могут также быть назначены на нескольких"
 
 #: gettingstarted.html:330
 msgid "physical disks, for instance, if you'd like the OS"
-msgstr ""
+msgstr "физических дисках, например, если вы хотите, чтобы ОС была"
 
 #: gettingstarted.html:330
 msgid "on an SSD,"
-msgstr ""
+msgstr "на SSD,"
 
 #: gettingstarted.html:331
 msgid "but your personal files"
-msgstr ""
+msgstr "а ваши личные файлы"
 
 #: gettingstarted.html:331
 msgid "on a mechanical hard drive."
-msgstr ""
+msgstr "на механическом жёстком диске."
 
 #: gettingstarted.html:335
 msgid "Shrink your system disk within Windows."
-msgstr ""
+msgstr "Сожмите ваш системный диск в Windows."
 
 #: gettingstarted.html:337
 msgid "Applies to Windows Vista and later."
-msgstr ""
+msgstr "Применимо к Windows Vista и позже."
 
 #: gettingstarted.html:338
 msgid "If you are using Windows XP or earlier, you will need to use the"
-msgstr ""
+msgstr "Если вы используете Windows XP или более раннюю систему, вам будет нужно использовать"
 
 #: gettingstarted.html:339
 msgid "or"
@@ -579,72 +580,72 @@ msgstr "или"
 
 #: gettingstarted.html:339
 msgid "method to shrink your disk."
-msgstr ""
+msgstr "для сжатия диска."
 
 #: gettingstarted.html:342
 msgid ""
 "Newer versions of Windows provide a tool to shrink the NTFS volume from "
 "within Windows. This is a safer bet if it's essential that Windows still "
 "boots on your computer while experiencing Ubuntu MATE."
-msgstr ""
+msgstr "Более новые версии Windows предоставляют утилиту для сжатия тома NTFS внутри системы. Это более безопасно, если Windows обязательно должна продолжать загружаться на вашем компьютере с установленной Ubuntu MATE."
 
 #: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
 msgid "Open"
-msgstr ""
+msgstr "Откройте"
 
 #: gettingstarted.html:346
 msgid "Disk Management"
-msgstr ""
+msgstr "Управление диском"
 
 #: gettingstarted.html:346
 msgid "from the start menu."
-msgstr ""
+msgstr "в основном меню."
 
 #: gettingstarted.html:351
 msgid "Right click your desired drive and choose"
-msgstr ""
+msgstr "Нажмите правой кнопкой мыши по желаемому приводу и выберите опцию"
 
 #: gettingstarted.html:351
 msgid "Shrink Partition"
-msgstr ""
+msgstr "Сжать раздел"
 
 #: gettingstarted.html:351
 msgid "from the context menu."
-msgstr ""
+msgstr "в контекстном меню."
 
 #: gettingstarted.html:356
 msgid "Enter the amount to shrink your system partition by."
-msgstr ""
+msgstr "Введите значение, на которое нужно сжать ваш системный раздел."
 
 #: gettingstarted.html:362
 msgid "Remember, Ubuntu MATE needs at minimum 8 GB of disk space."
-msgstr ""
+msgstr "Помните, что для Ubuntu MATE требуется как минимум 8 ГБ дискового пространства."
 
 #: gettingstarted.html:367
 msgid "Further Reading"
-msgstr ""
+msgstr "Дальнейшее чтение"
 
 #: gettingstarted.html:368
 msgid ""
 "For further information on the best practices to modify partitions "
 "containing Windows, see the following"
-msgstr ""
+msgstr "Для дальнейшей информации о лучших способах редактирования разделов с Windows, см. последующую"
 
 #: gettingstarted.html:371
 msgid "help article"
-msgstr ""
+msgstr "статью"
 
 #: gettingstarted.html:371
 msgid "online"
-msgstr ""
+msgstr "онлайн"
 
 #: gettingstarted.html:375
 msgid "Repairing Boot Problems"
-msgstr ""
+msgstr "Исправление проблем загрузки"
 
 #: gettingstarted.html:377
 msgid "Linux distributions use a boot loader known as"
-msgstr ""
+msgstr "Дистрибутивы Linux используют загрузчик, известный как"
 
 #: gettingstarted.html:378
 msgid ""
@@ -652,27 +653,27 @@ msgid ""
 " systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
-msgstr ""
+msgstr "который ищет и загружает операционную систему. Однако некоторые операционные системы (такие как Windows) не интегрируются с существующими загрузчиками и будут их перезаписывать, что может привести к временной потере доступа к Ubuntu MATE."
 
 #: gettingstarted.html:383
 msgid "Fortunately, you can use the"
-msgstr ""
+msgstr "К счастью, вы можете использовать утилиту"
 
 #: gettingstarted.html:383
 msgid "Boot Repair"
-msgstr ""
+msgstr "Исправление загрузки"
 
 #: gettingstarted.html:383
 msgid "tool to repair common problems caused by other operating systems."
-msgstr ""
+msgstr "для исправления обычных проблем, возникающих из-за других операционных систем."
 
 #: gettingstarted.html:388
 msgid "Requires downloading a package."
-msgstr ""
+msgstr "Требует загрузки пакета."
 
 #: gettingstarted.html:389
 msgid "Please connect to the Internet to download and use this utility."
-msgstr ""
+msgstr "Пожалуйста, подключитесь к Интернету для загрузки и использования этой утилиты."
 
 #: gettingstarted.html:390
 msgid "Sorry, Welcome was unable to establish a connection."
@@ -684,15 +685,15 @@ msgstr "Попробовать снова"
 
 #: gettingstarted.html:394
 msgid "Download Boot Repair"
-msgstr ""
+msgstr "Загрузить Исправление загрузки"
 
 #: gettingstarted.html:395
 msgid "Open Boot-Repair"
-msgstr ""
+msgstr "Открыть Исправление загрузки"
 
 #: gettingstarted.html:408
 msgid "An Internet connection is required to download and install updates."
-msgstr ""
+msgstr "Для загрузки и установки обновлений требуется подключение к Интернету."
 
 #: gettingstarted.html416, 422
 msgid "Software Updater"
@@ -703,11 +704,11 @@ msgid ""
 "Ubuntu MATE periodically will check to see if new software and security "
 "updates are available for your computer. If you have just installed Ubuntu "
 "MATE, you might want to do this now."
-msgstr ""
+msgstr "Ubuntu MATE будет периодически проверять наличие новых обновлений ПО и безопасности. Если вы только что установили Ubuntu MATE, вы можете пожелать сделать это прямо сейчас."
 
 #: gettingstarted.html:422
 msgid "can be found later in"
-msgstr ""
+msgstr "будет в"
 
 #: gettingstarted.html:428
 msgid "Check for Updates"
@@ -722,7 +723,7 @@ msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "Пакет кодеков предоставляет полное кроссплатформенное решение для кодирования, записи, конверсии и воспроизведения аудио и видео.  Он также включает в себя декодер MP3-аудио, который позволяет воспроизведение MPEG-1 слой аудио III (MP3)."
 
 #: gettingstarted.html446, 465, 485, 504, 523
 msgid "Applying Changes..."
@@ -731,29 +732,29 @@ msgstr "Применение изменений..."
 #: gettingstarted.html447, 466, 486, 505, 524, 708, 730, 748, 767, 866, 1722,
 #: 1739, 1755, 1771, 1787, 1803
 msgid "Install"
-msgstr ""
+msgstr "Установить"
 
 #: gettingstarted.html448, 467, 487, 506, 525
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: gettingstarted.html:459
 msgid "Blu-ray and DVD Playback Support"
-msgstr ""
+msgstr "Поддержка воспроизведения дисков Blu-ray и DVD"
 
 #: gettingstarted.html:460
 msgid ""
 "Installs libraries that enable Blu-ray and DVD playback in VLC. After "
 "install DVDs will work but for Blu-ray you will need to download"
-msgstr ""
+msgstr "Устанавливает библиотеки, включающие воспроизведение Blu-ray и DVD в VLC. После установки DVD будут работать, но для работы Blu-ray вам нужно будет загрузить"
 
 #: gettingstarted.html:463
 msgid "and save it to"
-msgstr ""
+msgstr "и сохранить в"
 
 #: gettingstarted.html:478
 msgid "Additional Screen Savers"
-msgstr ""
+msgstr "Дополнительные скринсейверы"
 
 #: gettingstarted.html:479
 msgid ""
@@ -761,11 +762,11 @@ msgid ""
 "periods of time. Screen savers were originally created to reduce burn-in for"
 " cathode ray tube (CRT) monitors displaying the same image for long periods "
 "of time."
-msgstr ""
+msgstr "Установите более 200 скринсейверов на те случаи, когда ваш компьютер простаивает в течение долгого времени. Скринсейверы изначально были созданы для уменьшения выгорания ЭЛТ-дисплеев, происходящем при отображении одного и того же изображения в течение долгих периодов времени."
 
 #: gettingstarted.html:488
 msgid "Change Screen Saver"
-msgstr ""
+msgstr "Изменить скринсейвер"
 
 #: gettingstarted.html:499
 msgid "Additional Themes"
@@ -775,32 +776,32 @@ msgstr "Дополнительные темы"
 msgid ""
 "Install additional themes and icons, such as Numix and Arc, to expand the "
 "selection available so you can tweak the look and feel to your liking."
-msgstr ""
+msgstr "Установка дополнительных тем и иконок, таких как Numix и Arc, чтобы расширить доступный вам выбор для изменения внешнего вида интерфейса на свой вкус."
 
 #: gettingstarted.html507, 526
 msgid "Change Appearance"
-msgstr ""
+msgstr "Изменить внешний вид"
 
 #: gettingstarted.html:518
 msgid "Additional Community Wallpapers"
-msgstr ""
+msgstr "Дополнительные обои от сообщества"
 
 #: gettingstarted.html:519
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr ""
+msgstr "Сообщество Ubuntu MATE создало огромное количество обоев на рабочий стол за годы. Почему бы не установить их и не попробовать найти то,  что вам понравится?"
 
 #: gettingstarted.html:531
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Для воспроизведения дисков, зашифрованных AACS или защищённых BD+, вам потребуется установить базу данных Blu-ray AACS."
 
 #: gettingstarted.html:534
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "Установить базу данных Blu-ray AACS"
 
 #: gettingstarted.html:545
 msgid ""
@@ -808,11 +809,11 @@ msgid ""
 "some components and peripherals that require proprietary drivers to function"
 " properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
-msgstr ""
+msgstr "Хотя с Ubuntu MATE совместим широкий ассортимент оборудования, некоторые компоненты и периферия требуют несвободные драйвера для правильного функционирования. Установка фирменного обеспечения часто требуется для верной работы некоторых устройств, в основном беспроводных."
 
 #: gettingstarted.html:551
 msgid "An Internet connection is required to download and install drivers."
-msgstr ""
+msgstr "Для загрузки и установки драйверов требуется подключение к Интернету."
 
 #: gettingstarted.html555, 563, 633
 msgid "Additional Drivers"
@@ -824,7 +825,7 @@ msgstr "Установить пакет микропрограммы"
 
 #: gettingstarted.html564, 791, 842, 891, 914, 936
 msgid "can be found later in the"
-msgstr ""
+msgstr "будет в"
 
 #: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
 msgid "Control Center"
@@ -838,15 +839,15 @@ msgstr "Графика"
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr ""
+msgstr "Простите, Welcome не удалось автоматически идентифицировать вендора графической платы на этой системе."
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Плата/чипсет:"
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #: gettingstarted.html577, 583
 msgid "Graphics Card Detected."
@@ -856,23 +857,23 @@ msgstr "Видеокарта обнаружена."
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
 "applications and games as well as deliver improvements to power management."
-msgstr ""
+msgstr "может иметь драйверы для вашей видеокарты, которые смогут повысить производительность 3D-приложений и игр, а также улучшить управление электропитанием."
 
 #: gettingstarted.html:584
 msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "Драйверы AMD больше не поддерживаются Ubuntu. Открытые драйверы, которые вы сейчас используете, обеспечат наиболее стабильную производительность вашей видеокарты."
 
 #: gettingstarted.html:591
 msgid "You're already good to go."
-msgstr ""
+msgstr "Всё уже в порядке."
 
 #: gettingstarted.html:592
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "Драйвера Intel имеют открытый код и поддерживаются/обновляются в ядре."
 
 #: gettingstarted.html:597
 msgid "VirtualBox Guest Additions"
@@ -882,7 +883,7 @@ msgstr "Гостевые расширения VirtualBox"
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "Чтобы увеличить производительность графики внутри виртуальной машины, установите Гостевые добавления."
 
 #: gettingstarted.html:602
 msgid "Proprietary or Open Source Drivers?"
@@ -894,113 +895,113 @@ msgstr "Проприетарные драйверы поставляются п�
 
 #: gettingstarted.html:604
 msgid "As they are not open source, Ubuntu developers are"
-msgstr ""
+msgstr "Поскольку их код не открыт, разработчики Ubuntu"
 
 #: gettingstarted.html:604
 msgid "unable to review and improve their code"
-msgstr ""
+msgstr "не могут проверить и улучшить их код,"
 
 #: gettingstarted.html:604
 msgid "which means that you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "что означает, что вам придётся полагаться на поддержку производителя."
 
 #: gettingstarted.html:607
 msgid "In addition, proprietary drivers can"
-msgstr ""
+msgstr "Кроме того, проприетарные драйверы могут"
 
 #: gettingstarted.html:607
 msgid "significantly improve graphics performance"
-msgstr ""
+msgstr "значительно улучшить производительность графики"
 
 #: gettingstarted.html:607
 msgid "and as a result,"
-msgstr ""
+msgstr "и в результате,"
 
 #: gettingstarted.html:608
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr ""
+msgstr "всей системы. Пользователи могут пожелать установить эти драйверы, чтобы:"
 
 #: gettingstarted.html:610
 msgid "Run 3D applications and games."
-msgstr ""
+msgstr "Запускать трёхмерные приложения и видеоигры."
 
 #: gettingstarted.html:611
 msgid "Use Compiz's window effects."
-msgstr ""
+msgstr "Использовать оконные эффекты Compiz."
 
 #: gettingstarted.html:612
 msgid ""
 "Improve power management, particularly if the device experiences overheating"
 " problems under open source drivers."
-msgstr ""
+msgstr "Улучшить управление электропитанием, особенно если устройство испытывает проблемы с перегревом под открытыми драйверами."
 
 #: gettingstarted.html:613
 msgid "Improve support for high resolutions and multiple monitors."
-msgstr ""
+msgstr "Улучшить поддержку для высоких разрешений и нескольких мониторов."
 
 #: gettingstarted.html:614
 msgid "Fix blank screen issues."
-msgstr ""
+msgstr "Исправить проблемы с пустым экраном."
 
 #: gettingstarted.html:617
 msgid ""
 "Proprietary drivers are known as \"binary blobs\". Certain hardware may "
 "experience worse behavior,"
-msgstr ""
+msgstr "Проприетарные драйвера известны как \"бинарные блобы\". Некоторое оборудование может вести себя хуже,"
 
 #: gettingstarted.html:618
 msgid "causing more issues then the open source drivers, such as:"
-msgstr ""
+msgstr "испытывая больше проблем, чем на открытых драйверах, например:"
 
 #: gettingstarted.html:620
 msgid "Failing to boot to the graphical desktop."
-msgstr ""
+msgstr "Неудающаяся загрузка в графический интерфейс."
 
 #: gettingstarted.html:621
 msgid "Broken drivers after an upgrade."
-msgstr ""
+msgstr "Испорченные драйверы после обновления."
 
 #: gettingstarted.html:622
 msgid "Severe graphical glitches."
-msgstr ""
+msgstr "Значительные графические сбои."
 
 #: gettingstarted.html:623
 msgid "Problems with applications/games requiring hardware acceleration."
-msgstr ""
+msgstr "Проблемы с приложениями/играми, требующими аппаратное ускорение. "
 
 #: gettingstarted.html:627
 msgid "is the open source driver for your card."
-msgstr ""
+msgstr "является открытым драйвером для вашей карты."
 
 #: gettingstarted.html:632
 msgid "What about the latest NVIDIA drivers?"
-msgstr ""
+msgstr "Что насчёт последних драйверов NVIDIA?"
 
 #: gettingstarted.html:633
 msgid "fetches the latest tested driver from the Ubuntu repositories."
-msgstr ""
+msgstr "загружает последний протестированный драйвер из репозиториев Ubuntu."
 
 #: gettingstarted.html:634
 msgid ""
 "Advanced users and gamers who would like newer versions may wish to consider"
 " adding the"
-msgstr ""
+msgstr "Продвинутые пользователи и геймеры, которые желают новейшие версии ПО, могут пожелать добавить"
 
 #: gettingstarted.html:635
 msgid "Ubuntu Graphics Driver PPA"
-msgstr ""
+msgstr "PPA графических драйверов для Ubuntu"
 
 #: gettingstarted.html:636
 msgid ""
 "which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
 "not as thoroughly tested."
-msgstr ""
+msgstr "который распространяет последние драйвера NVIDIA для Ubuntu. Эти пакеты не были тщательно протестированы."
 
 #: gettingstarted.html:638
 msgid ""
 "This only applies for actively supported cards, and not older cards using "
 "the legacy driver."
-msgstr ""
+msgstr "Это применимо только к активно поддерживаемым картам, но не старым картам, которые используют устаревший драйвер."
 
 #: gettingstarted.html:641
 msgid "Add Repository"
@@ -1009,11 +1010,11 @@ msgstr "Добавить репозиторий"
 #: gettingstarted.html:644
 msgid ""
 "To add the repository to the system, open a terminal and type the following:"
-msgstr ""
+msgstr "Для того, чтобы добавить репозиторий в систему, откройте терминал и введите следующее:"
 
 #: gettingstarted.html:649
 msgid "After the PPA is added, newer versions are presented to install in"
-msgstr ""
+msgstr "После добавления PPA новейшие версии представлены для установки в"
 
 #: gettingstarted.html:650
 msgid "Additional Drivers:"
@@ -1021,14 +1022,14 @@ msgstr "Дополнительные драйверы:"
 
 #: gettingstarted.html:657
 msgid "Wireless, Bluetooth and Other Devices"
-msgstr ""
+msgstr "Беспроводные, Bluetooth и другие устройства"
 
 #: gettingstarted.html:659
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr ""
+msgstr "Если для оборудования не удалось найти дополнительные драйвера, и оно не заработало после установки фирменных пакетов, вам может понадобиться исследование вашего устройства для нахождения подходящего драйвера."
 
 #: gettingstarted.html:663
 msgid ""
@@ -1036,21 +1037,21 @@ msgid ""
 "hasn't provided any source code for developers to freely use, or there is "
 "insufficient documentation to create drivers for your particular brand and "
 "model."
-msgstr ""
+msgstr "К сожалению, это связано с тем фактом, что производитель вашего оборудования не предоставил никакого исходного когда для свободного использования разработчиками, или для создания драйверов для вашего конкретного бренда или модели недостаточно документации."
 
 #: gettingstarted.html:669
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr ""
+msgstr "Некоторые производители могут предлагать закрытые драйвера сами. Если вам требуется помощь, не бойтесь"
 
 #: gettingstarted.html:671
 msgid "ask the community"
-msgstr ""
+msgstr "задавать вопросы сообществу,"
 
 #: gettingstarted.html:674
 msgid "Read more on troubleshooting wireless hardware."
-msgstr ""
+msgstr "Узнать больше об исправлении ошибок с беспроводным оборудованием."
 
 #: gettingstarted.html678, 683
 msgid "Printers"
@@ -1058,35 +1059,35 @@ msgstr "Принтеры"
 
 #: gettingstarted.html:680
 msgid "When you set up a printer in the"
-msgstr ""
+msgstr "Когда вы устанавливаете принтер в утилите"
 
 #: gettingstarted.html:684
 msgid "utility"
-msgstr ""
+msgstr " "
 
 #: gettingstarted.html:684
 msgid "under"
-msgstr ""
+msgstr "под"
 
 #: gettingstarted.html:685
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr ""
+msgstr "вам будет представлен список драйверов, возможных к использованию."
 
 #: gettingstarted.html:688
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
-msgstr ""
+msgstr "Некоторые производители могут предлагать свои собственные драйвера и требовать их загрузки с их вебсайтов."
 
 #: gettingstarted.html:691
 msgid "Read more on printing"
-msgstr ""
+msgstr "Узнать больше о печати"
 
 #: gettingstarted.html:700
 msgid "HP Linux Printing and Imaging System"
-msgstr ""
+msgstr "Система печати HP Linux"
 
 #: gettingstarted.html:701
 msgid ""
@@ -1094,45 +1095,45 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "Рекомендуется, если у вас есть принтер HP, так как она предоставляет полную поддержку печати на большинстве HP SFP (однофункционально-периферийных) струйных принтеров и множества лазерных принтеров, а также для сканирования, отправки факсов и для доступа к фотокарточкам на большинстве MFP (многофункционально-периферийных принтеров) HP."
 
 #: gettingstarted.html:715
 msgid "Software Utilities for Peripherals"
-msgstr ""
+msgstr "Программные утилиты периферии"
 
 #: gettingstarted.html:724
 msgid "Solaar"
-msgstr ""
+msgstr "Solaar"
 
 #: gettingstarted.html:725
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
-msgstr ""
+msgstr "Менеджер устройств для периферии Logitech Unifying Receiver. Включает такие функции, как управление спаренных устройств и чтение состояния батареи."
 
 #: gettingstarted.html728, 747, 765
 msgid "Learn More"
-msgstr ""
+msgstr "Узнать больше"
 
 #: gettingstarted.html:743
 msgid "Razer Drivers for Linux"
-msgstr ""
+msgstr "Драйверы Razer для Linux"
 
 #: gettingstarted.html:744
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
-msgstr ""
+msgstr "Разрабатываемый сообществом драйвер и демон, использующий полную функциональность множества периферии Razer, в том числе клавиатур, мышей и ковриков для мыши."
 
 #: gettingstarted.html:762
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
-msgstr ""
+msgstr "Фронтенд для управления устройствами Razer с поддержкой профилей приложений, установки эффектов и включения функций клавиатуры."
 
 #: gettingstarted.html:763
 msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr ""
+msgstr "Требует предварительной установки драйверов Razer для Linux."
 
 #: gettingstarted.html782, 787, 790
 msgid "Language Support"
@@ -1142,53 +1143,53 @@ msgstr "Поддержка языков"
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
-msgstr ""
+msgstr "Ваш компьютер может потребовать обновлений ваших настроек языка и локализации, или же вы можете пожелать установить поддержку дополнительных языков."
 
 #: gettingstarted.html:797
 msgid "Complex Input"
-msgstr ""
+msgstr "Сложный метод ввода"
 
 #: gettingstarted.html:798
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Некоторые регионы мира требуют сложных методов ввода."
 
 #: gettingstarted.html:803
 msgid "Chinese"
-msgstr ""
+msgstr "Китайский"
 
 #: gettingstarted.html:806
 msgid "Japanese"
-msgstr ""
+msgstr "Японский"
 
 #: gettingstarted.html:809
 msgid "Korean"
-msgstr ""
+msgstr "Корейский"
 
 #: gettingstarted.html:818
 msgid "Backup, Firewall and User Management"
-msgstr ""
+msgstr "Резервные копии, сетевой экран и управление пользователями"
 
 #: gettingstarted.html:819
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
-msgstr ""
+msgstr "Ubuntu MATE предоставляет инструменты для создания резервных копий ваших файлов, включает в себя сетевой экран и поддерживает несколько учетных записей."
 
 #: gettingstarted.html830, 841
 msgid "Backups"
-msgstr ""
+msgstr "Резервные копии"
 
 #: gettingstarted.html:831
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
-msgstr ""
+msgstr "Нет ничего более важного, чем создание резервных копий ваших личных файлов на тот случай, если с вашим компьютером приключится что-то ужасное."
 
 #: gettingstarted.html:835
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
-msgstr ""
+msgstr "предустановлена и поддерживает резервные копии на локальные устройства, а также облачные сервисы."
 
 #: gettingstarted.html:838
 msgid "Configure Backup"
@@ -1196,11 +1197,11 @@ msgstr "Настройка резервного копирования"
 
 #: gettingstarted.html:853
 msgid "Network Shares"
-msgstr ""
+msgstr "Сетевой доступ"
 
 #: gettingstarted.html:854
 msgid "Need to access files and folders with multiple computers?"
-msgstr ""
+msgstr "Нужен доступ к папкам и файлам с нескольких компьютеров?"
 
 #: gettingstarted.html:857
 msgid "Samba"
@@ -1210,7 +1211,7 @@ msgstr "Samba"
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
-msgstr ""
+msgstr "доступна для установки, которая интегрируется с файловым менеджером Caja, позволяя вам бесшовно доставать данные с другого компьютера."
 
 #: gettingstarted.html:862
 msgid "Samba is installed."
@@ -1218,11 +1219,11 @@ msgstr "Samba установлена."
 
 #: gettingstarted.html:863
 msgid "Choose a folder and select \"Sharing Options\"."
-msgstr ""
+msgstr "Выберите папку и нажмите на \"Настройки общего доступа\"."
 
 #: gettingstarted.html:867
 msgid "Samba is available from the Software Boutique under \"Servers\"."
-msgstr ""
+msgstr "Samba доступна в Магазине программного обеспечения в категории Серверы."
 
 #: gettingstarted.html:878
 msgid "Firewall"
@@ -1232,110 +1233,110 @@ msgstr "Межсетевой экран"
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
-msgstr ""
+msgstr "Межсетевые экраны блокируют вредоносные подключения к вашему компьютеру и от него. По умолчанию межсетевой экран отключен,"
 
 #: gettingstarted.html:881
 msgid "learn more about firewalls"
-msgstr ""
+msgstr "узнать больше о межсетевых экранах"
 
 #: gettingstarted.html:883
 msgid "provides a graphical frontend to"
-msgstr ""
+msgstr "предоставляет графический фронтенд для"
 
 #: gettingstarted.html:884
 msgid "Uncomplicated Firewall"
-msgstr ""
+msgstr "Незамысловатый сетевой экран"
 
 #: gettingstarted.html:884
 msgid "If security is important to you, there are"
-msgstr ""
+msgstr "Если безопасность для вас важна, существует"
 
 #: gettingstarted.html:885
 msgid "more ways to stay secure too"
-msgstr ""
+msgstr "также больше путей оставаться в безопасности"
 
 #: gettingstarted.html:887
 msgid "Configure Firewall"
-msgstr ""
+msgstr "Настроить межсетевой экран"
 
 #: gettingstarted.html:890
 msgid "Firewall Configuration"
-msgstr ""
+msgstr "Конфигурация межсетевого экрана"
 
 #: gettingstarted.html:902
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: gettingstarted.html:904
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
-msgstr ""
+msgstr "Делите ваш компьютер с другими? Настройте отдельную учётную запись для каждого пользователя, чтобы защитить частную жизнь каждого пользователя компьютера."
 
 #: gettingstarted.html:907
 msgid "You can also log in to a"
-msgstr ""
+msgstr "Вы также можете начать"
 
 #: gettingstarted.html:907
 msgid "Guest Session"
-msgstr ""
+msgstr "Гостевой сеанс"
 
 #: gettingstarted.html:907
 msgid "if someone is using your computer as a one-off."
-msgstr ""
+msgstr "если кто-то использует ваш компьютер единовременно."
 
 #: gettingstarted.html:910
 msgid "Configure Users"
-msgstr ""
+msgstr "Настройка пользователей"
 
 #: gettingstarted.html:913
 msgid "Users and Groups"
-msgstr ""
+msgstr "Пользователи и группы"
 
 #: gettingstarted.html:921
 msgid "Customisation"
-msgstr ""
+msgstr "Кастомизация"
 
 #: gettingstarted.html924, 932
 msgid "User Interface"
-msgstr ""
+msgstr "Интерфейс"
 
 #: gettingstarted.html:925
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr ""
+msgstr "Ubuntu MATE предоставляет уникальную утилиту для трансформирования интерфейса. Она может быть использована для быстрой смены стиля интерфейса на подобие стиля других популярных операционных систем. Разметка"
 
 #: gettingstarted.html:928
 msgid "layout is similar to Microsoft Windows, while the"
-msgstr ""
+msgstr "схожа с интерфейсом Microsoft Windows, а разметка"
 
 #: gettingstarted.html:929
 msgid "layout is similar to Apple Mac OS X."
-msgstr ""
+msgstr "схожа с интерфейсом Apple macOS."
 
 #: gettingstarted.html:935
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: gettingstarted.html:940
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
-msgstr ""
+msgstr "Все упомянутые выше утилиты -- часть широкого Центра управления, предоставляемого Ubuntu MATE. Вы можете настроить практически любой аспект вашего компьютера из Центра управления."
 
 #: gettingstarted.html:951
 msgid "Keyboard & Mouse Shortcuts"
-msgstr ""
+msgstr "Комбинации клавиш клавиатуры и кнопок мыши"
 
 #: gettingstarted.html:955
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
-msgstr ""
+msgstr "Ubuntu MATE содержит множество комбинаций клавиш клавиатуры, которые позволят вам использовать ваш компьютер более эффективно."
 
 #: gettingstarted.html:959
 msgid "The"
@@ -1343,622 +1344,666 @@ msgstr " "
 
 #: gettingstarted.html:959
 msgid "Super"
-msgstr ""
+msgstr "Суперключ"
 
 #: gettingstarted.html:959
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
-msgstr ""
+msgstr "-- это ваша клавиша Windows. На клавиатурах Mac это клавиша ⌘ Command."
 
 #: gettingstarted.html:962
 msgid "Common application shortcuts"
-msgstr ""
+msgstr "Стандартные комбинации клавиш в приложениях"
 
 #: gettingstarted.html:963
 msgid "These shortcuts apply in most applications."
-msgstr ""
+msgstr "Эти комбинации применимы в большинстве приложений."
 
 #: gettingstarted.html968, 976, 984, 992, 1000, 1008, 1016, 1024, 1032, 1040,
 #: 1048, 1056, 1064, 1072, 1125, 1135, 1145, 1183, 1199, 1209, 1219, 1231,
 #: 1306, 1316, 1326, 1336, 1346, 1356, 1366, 1400
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
 #: gettingstarted.html:972
 msgid "Copy the selected text/object"
-msgstr ""
+msgstr "Копирование выбранного текста или объекта"
 
 #: gettingstarted.html:980
 msgid "Cut the selected text/object"
-msgstr ""
+msgstr "Вырезка выбранного текста или объекта"
 
 #: gettingstarted.html:988
 msgid "Paste/insert the selected text/object"
-msgstr ""
+msgstr "Вставка выбранного текста или объекта"
 
 #: gettingstarted.html:996
 msgid "Select all text"
-msgstr ""
+msgstr "Выделить весь текст"
 
 #: gettingstarted.html:1004
 msgid "Find and replace words"
-msgstr ""
+msgstr "Найти и заменить слова"
 
 #: gettingstarted.html:1012
 msgid "Make the selected text bold"
-msgstr ""
+msgstr "Выделить выбранный текст полужирным начертанием"
 
 #: gettingstarted.html:1020
 msgid "Make the selected text italic"
-msgstr ""
+msgstr "Выделить выбранный текст курсивом"
 
 #: gettingstarted.html:1028
 msgid "Underline the selected text"
-msgstr ""
+msgstr "Подчеркнуть выделенный текст"
 
 #: gettingstarted.html:1036
 msgid "Open a new document or window"
-msgstr ""
+msgstr "Открыть новый документ или окно"
 
 #: gettingstarted.html:1044
 msgid "Save the current document"
-msgstr ""
+msgstr "Сохранить текущий документ"
 
 #: gettingstarted.html:1052
 msgid "Open another document"
-msgstr ""
+msgstr "Открыть другой документ"
 
 #: gettingstarted.html:1060
 msgid "Print the current document"
-msgstr ""
+msgstr "Распечатать текущий документ"
 
 #: gettingstarted.html:1068
 msgid "Undo the last change you made"
-msgstr ""
+msgstr "Отменить последнее сделанное изменение"
 
 #: gettingstarted.html:1078
 msgid "Redo a change that you just undid"
-msgstr ""
+msgstr "Повторить только что отмененное изменение"
 
 #: gettingstarted.html:1084
 msgid "Toggle the current application between full-screen and windowed"
-msgstr ""
+msgstr "Переключение текущего приложения между полным экраном и окном."
 
 #: gettingstarted.html:1088
 msgid "Desktop shortcuts"
-msgstr ""
+msgstr "Сочетания клавиш рабочего стола"
 
 #: gettingstarted.html:1089
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
-msgstr ""
+msgstr "Это список обычных комбинаций клавиш клавиатуры, которые вы можете использовать."
 
 #: gettingstarted.html:1099
 msgid "Open the Applications menu"
-msgstr ""
+msgstr "Откройте меню Приложения"
 
 #: gettingstarted.html:1107
 msgid "Run an application by typing its name in the box which appears"
-msgstr ""
+msgstr "Запустите приложение введением его названия в поле, появляющееся"
 
 #: gettingstarted.html:1111
 msgid "Prt Sc"
-msgstr ""
+msgstr "Prt Sc"
 
 #: gettingstarted.html:1113
 msgid "Take a screenshot of the whole screen"
-msgstr ""
+msgstr "Взять снимок всего экрана"
 
 #: gettingstarted.html:1121
 msgid "Take a screenshot of the current window"
-msgstr ""
+msgstr "Взять снимок текущего окна"
 
 #: gettingstarted.html:1129
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #: gettingstarted.html:1131
 msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr ""
+msgstr "Открыть окно для выключения, перезапуска или завершения сеанса."
 
 #: gettingstarted.html:1141
 msgid "Lock your screen."
-msgstr ""
+msgstr "Заблокировать ваш экран."
 
 #: gettingstarted.html:1151
 msgid "Open a terminal."
-msgstr ""
+msgstr "Открыть терминал."
 
 #: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
 msgid "Super Key"
-msgstr ""
+msgstr "Суперключ"
 
 #: gettingstarted.html:1161
 msgid "Screen reader enable/disable."
-msgstr ""
+msgstr "Включение/выключение экранного диктора."
 
 #: gettingstarted.html:1165
 msgid "Window shortcuts"
-msgstr ""
+msgstr "Оконные сочетания клавиш"
 
 #: gettingstarted.html:1170
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
 #: gettingstarted.html:1173
 msgid "Switch between currently-open windows."
-msgstr ""
+msgstr "Переключение между открытыми окнами."
 
 #: gettingstarted.html:1175
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
-msgstr ""
+msgstr "Зажмите Alt + Tab, затем отпустите Tab (но продолжайте держать Alt)."
 
 #: gettingstarted.html1176, 1192
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
-msgstr ""
+msgstr "Нажимайте Tab для переключения между окнами в списке доступных окон, появляющемся на экране."
 
 #: gettingstarted.html:1177
 msgid "Release the Alt key to switch to the selected window."
-msgstr ""
+msgstr "Отпустите клавишу Alt для переключения на выбранное окно."
 
 #: gettingstarted.html:1190
 msgid "Switch between currently-open windows in all Workspaces."
-msgstr ""
+msgstr "Переключиться между открытыми окнами во всех рабочих местах."
 
 #: gettingstarted.html:1193
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
-msgstr ""
+msgstr "Отпустите клавиши Ctrl и Alt для переключения к выбранному окну."
 
 #: gettingstarted.html1203, 1225
 msgid "Left"
-msgstr ""
+msgstr "Лево"
 
 #: gettingstarted.html:1205
 msgid "Switch to the previous workspace."
-msgstr ""
+msgstr "Переключение на предыдущее рабочее место."
 
 #: gettingstarted.html1213, 1236
 msgid "Right"
-msgstr ""
+msgstr "Право"
 
 #: gettingstarted.html:1215
 msgid "Switch to the next workspace."
-msgstr ""
+msgstr "Переключение на следующее рабочее место."
 
 #: gettingstarted.html1223, 1234, 1428
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
 #: gettingstarted.html:1227
 msgid "Move the current window to the previous workspace."
-msgstr ""
+msgstr "Переместить текущее окно в предыдущее рабочее место."
 
 #: gettingstarted.html:1238
 msgid "Move the current window to the next workspace."
-msgstr ""
+msgstr "Переместить текущее окно в следующее рабочее место."
 
 #: gettingstarted.html:1246
 msgid "Closes window."
-msgstr ""
+msgstr "Закрывает окно."
 
 #: gettingstarted.html:1254
 msgid "Returns window to 'normal' or previous size."
-msgstr ""
+msgstr "Возвращает окну предыдущий размер или размер по умолчанию."
 
 #: gettingstarted.html:1262
 msgid "Moves the current window (can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Перемещает текущее окно (может быть передвинуто мышью или клавиатурой)"
 
 #: gettingstarted.html:1270
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr ""
+msgstr "Изменяет размер текущего окна (опять же может быть передвинуто мышью или клавиатурой)"
 
 #: gettingstarted.html:1278
 msgid "Minimizes current window."
-msgstr ""
+msgstr "Сворачивает текущее окно."
 
 #: gettingstarted.html:1286
 msgid "Maximizes current window."
-msgstr ""
+msgstr "Разворачивает текущее окно на весь экран."
 
 #: gettingstarted.html:1294
 msgid "Pulldown Terminal."
-msgstr ""
+msgstr "Развернуть терминал."
 
 #: gettingstarted.html:1300
 msgid "Space"
-msgstr ""
+msgstr "Пробел"
 
 #: gettingstarted.html:1302
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
-msgstr ""
+msgstr "Отображает оконное меню с опциями \"всегда поверх\", \"свернуть\" и \"развернуть\" и командами выше."
 
 #: gettingstarted.html1310, 1320, 1330, 1340, 1350, 1360, 1370
 msgid "Numpad"
-msgstr ""
+msgstr "Numpad"
 
 #: gettingstarted.html:1312
 msgid "Place window in top left corner of screen."
-msgstr ""
+msgstr "Расположить окно в верхнем левом углу экрана."
 
 #: gettingstarted.html:1322
 msgid "Place window in top half of screen."
-msgstr ""
+msgstr "Разместить окно в верхней половине экрана."
 
 #: gettingstarted.html:1332
 msgid "Place window in top right corner of screen."
-msgstr ""
+msgstr "Расположить окно в верхнем правом углу экрана."
 
 #: gettingstarted.html:1342
 msgid "Center/Maximize the window in the middle of the screen."
-msgstr ""
+msgstr "Центрировать/развернуть окно в середине экрана."
 
 #: gettingstarted.html:1352
 msgid "Place window in the bottom left corner of the screen."
-msgstr ""
+msgstr "Расположить окно в нижнем левом углу экрана."
 
 #: gettingstarted.html:1362
 msgid "Place window in the bottom half of the screen."
-msgstr ""
+msgstr "Разместить окно в нижней половине экрана."
 
 #: gettingstarted.html:1372
 msgid "Place window in the bottom right corner of the screen."
-msgstr ""
+msgstr "Расположить окно в нижнем правом углу экрана."
 
 #: gettingstarted.html:1376
 msgid "Mouse Shortcuts"
-msgstr ""
+msgstr "Комбинации кнопок мыши"
 
 #: gettingstarted.html:1382
 msgid "Left-click while dragging mouse"
-msgstr ""
+msgstr "Левый клик во время перетаскивания"
 
 #: gettingstarted.html:1384
 msgid "Moves the window."
-msgstr ""
+msgstr "Перемещает окно."
 
 #: gettingstarted.html:1390
 msgid "Right-click while dragging mouse"
-msgstr ""
+msgstr "Правый клик во время перетаскивания"
 
 #: gettingstarted.html:1392
 msgid "Resizes the window (closest window edge)."
-msgstr ""
+msgstr "Изменяет размер окна (ближайший край окна)."
 
 #: gettingstarted.html:1396
 msgid "Compiz Effects Shortcuts"
-msgstr ""
+msgstr "Сочетания клавиш эффектов Compiz"
 
 #: gettingstarted.html:1397
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "Все горячие клавиши на этой странице требуют включения Compiz."
 
 #: gettingstarted.html:1406
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "Переключает 'Показ рабочего стола'."
 
 #: gettingstarted.html:1414
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "Уменьшить масштаб, показать переключатель рабочих мест."
 
 #: gettingstarted.html:1422
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Включает эффект \"масштабирования\", показывающий все окна в текущем рабочем месте."
 
 #: gettingstarted.html:1432
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Включает эффект \"масштабирования\", показывающий все окна во всех рабочих местах."
 
 #: gettingstarted.html:1440
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Инвертирование цветов окна в фокусе"
 
 #: gettingstarted.html:1448
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "Инвертирование цветов всего экрана"
 
 #: gettingstarted.html:1454
 msgid "Scroll Wheel"
-msgstr ""
+msgstr "Колесо прокрутки"
 
 #: gettingstarted.html:1456
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "Изменяет масштаб изображения на экране"
 
 #: gettingstarted.html1462, 1478
 msgid "Middle Click"
-msgstr ""
+msgstr "Средний клик"
 
 #: gettingstarted.html:1464
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "Выберите регион для масштабирования, используя прямоугольник."
 
 #: gettingstarted.html:1470
 msgid "Left Click"
-msgstr ""
+msgstr "Левый щелчок"
 
 #: gettingstarted.html:1472
 msgid "Move focused window."
-msgstr ""
+msgstr "Перемещает окно под фокусом"
 
 #: gettingstarted.html:1480
 msgid "Resize focused window."
-msgstr ""
+msgstr "Изменяет размер окна под фокусом"
 
 #: gettingstarted.html:1486
 msgid "Right Click"
-msgstr ""
+msgstr "Правый щелчок"
 
 #: gettingstarted.html:1488
 msgid "Show window menu."
-msgstr ""
+msgstr "Показать меню окна."
 
 #: gettingstarted.html:1501
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr ""
+msgstr "Ваш компьютер создан из различных компонентов, взаимодействующих друг с другом. Эта информация полезна при предоставлении поддержки, обеспечивающей работу оборудования и программного обеспечения на вашем компьютере."
 
 #: gettingstarted.html:1505
 msgid "View System Requirements"
-msgstr ""
+msgstr "Просмотреть системные требования"
 
 #: gettingstarted.html:1509
 msgid "Basic"
-msgstr ""
+msgstr "Базовые"
 
 #: gettingstarted.html:1510
 msgid "Detailed"
-msgstr ""
+msgstr "Детальные"
 
 #: gettingstarted.html:1526
 msgid "Distribution:"
-msgstr ""
+msgstr "Распространение:"
 
 #: gettingstarted.html:1530
 msgid "Kernel:"
-msgstr ""
+msgstr "Ядро:"
 
 #: gettingstarted.html:1533
 msgid "The Linux kernel is the heart of Ubuntu."
-msgstr ""
+msgstr "Ядро Linux — это сердце Ubuntu."
 
 #: gettingstarted.html:1539
 msgid "Motherboard:"
-msgstr ""
+msgstr "Материнская плата:"
 
 #: gettingstarted.html:1543
 msgid "Boot Mode:"
-msgstr ""
+msgstr "Режим загрузки"
 
 #: gettingstarted.html:1546
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
-msgstr ""
+msgstr "Отображает режим, в котором Ubuntu MATE взаимодействует с фирменным обеспечением."
 
 #: gettingstarted.html:1554
 msgid "Processor"
-msgstr ""
+msgstr "Процессор"
 
 #: gettingstarted.html:1557
 msgid "Model:"
-msgstr ""
+msgstr "Модель:"
 
 #: gettingstarted.html:1561
 msgid "Speed:"
-msgstr ""
+msgstr "Скорость:"
 
 #: gettingstarted.html:1565
 msgid "Architecture in use:"
-msgstr ""
+msgstr "Используемая архитектура:"
 
 #: gettingstarted.html:1568
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
-msgstr ""
+msgstr "Используемая архитектура операционной системы. Например, i386 = 32-хразрядная."
 
 #: gettingstarted.html:1574
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "Поддерживаемые архитектуры:"
 
 #: gettingstarted.html:1577
 msgid "Architectures that are supported by this processor."
-msgstr ""
+msgstr "Архитектуры, поддерживаемые этим процессором."
 
 #: gettingstarted.html:1585
 msgid "Components"
-msgstr ""
+msgstr "Компоненты"
 
 #: gettingstarted.html:1588
 msgid "Memory (RAM):"
-msgstr ""
+msgstr "Оперативная память (ОЗУ):"
 
 #: gettingstarted.html:1591
 msgid "More RAM allows more applications to run simultaneously."
-msgstr ""
+msgstr "Большее количество ОЗУ одновременно запускать больше приложений."
 
 #: gettingstarted.html:1597
 msgid "Graphics:"
-msgstr ""
+msgstr "Графика:"
 
 #: gettingstarted.html:1601
 msgid "Internet Access:"
-msgstr ""
+msgstr "Доступ к Интернету:"
 
 #: gettingstarted.html:1603
 msgid "Connected"
-msgstr ""
+msgstr "подключено"
 
 #: gettingstarted.html:1604
 msgid "Not Connected"
-msgstr ""
+msgstr "не подключено"
 
 #: gettingstarted.html:1611
 msgid "Storage"
-msgstr ""
+msgstr "Хранилище"
 
 #: gettingstarted.html:1615
 msgid "Root File System:"
-msgstr ""
+msgstr "Корневая файловая система:"
 
 #: gettingstarted.html:1618
 msgid "The file system where Ubuntu MATE is installed."
-msgstr ""
+msgstr "Файловая система, в которой установлена ОС Ubuntu MATE."
 
 #: gettingstarted.html:1624
 msgid "Entire Disk Capacity:"
-msgstr ""
+msgstr "Полная ёмкость диска:"
 
 #: gettingstarted.html:1629
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "Используется Ubuntu MATE"
 
 #: gettingstarted.html:1638
 msgid "Allocated for Ubuntu MATE:"
-msgstr ""
+msgstr "Размечено для Ubuntu MATE:"
 
 #: gettingstarted.html:1641
 msgid "The size of your operating system partition."
-msgstr ""
+msgstr "Размер раздела вашей операционной системы."
 
 #: gettingstarted.html:1647
 msgid "Used Space:"
-msgstr ""
+msgstr "Используемое пространство:"
 
 #: gettingstarted.html:1653
 msgid "Free Space:"
-msgstr ""
+msgstr "Свободное пространство:"
 
 #: gettingstarted.html:1659
 msgid "Other Usage:"
-msgstr ""
+msgstr "Иное использование:"
 
 #: gettingstarted.html:1662
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "Неразмечено или зарезервировано системой, другими разделами и подкачкой"
 
 #: gettingstarted.html:1670
 msgid "Why do I see two units?"
-msgstr ""
+msgstr "Почему я вижу две меры измерения?"
 
 #: gettingstarted.html:1676
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "Единицы СИ или МЭК?"
 
 #: gettingstarted.html:1678
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "Десятичный формат (стандарт СИ)"
 
 #: gettingstarted.html:1680
 msgid "1 KB = 1000 bytes"
-msgstr ""
+msgstr "1 КБ = 1000 байт"
 
 #: gettingstarted.html:1681
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
+msgstr "Произносится с \"га\" - как \"мега\", \"гига\"."
 
 #: gettingstarted.html:1682
 msgid "Common in every day applications and file storage."
-msgstr ""
+msgstr "Используется в каждодневных приложениях и при обозначении объёма хранилища файлов."
 
 #: gettingstarted.html:1686
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "Двоичный формат (стандарт МЭК)"
 
 #: gettingstarted.html:1688
 msgid "1 KiB = 1024 bytes"
-msgstr ""
+msgstr "1 КиБ = 1024 байта"
 
 #: gettingstarted.html:1689
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
+msgstr "Произносится с \"би\" - как \"меби\", \"гиби\"."
 
 #: gettingstarted.html:1690
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr ""
+msgstr "Используется при обозначении объёма ОЗУ, дисков и разделов в том числе в утилитах как GParted."
 
 #: gettingstarted.html:1699
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
-msgstr ""
+msgstr "Следующая информация собрана напрямую через программу командной строки inxi."
 
 #: gettingstarted.html:1700
 msgid "Gathering data..."
-msgstr ""
+msgstr "Сбор данных..."
 
 #: gettingstarted.html:1701
 msgid "Sorry, there was a problem gathering this information."
-msgstr ""
+msgstr "Извините, в процессе набора этой информации возникла проблема."
 
 #: gettingstarted.html:1717
 msgid "System Profiler and Benchmark"
-msgstr ""
+msgstr "Профилировщик системы и бенчмарк"
 
 #: gettingstarted.html:1718
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
-msgstr ""
+msgstr "Узнайте подробную информацию о системе в графическом окне, включающую подключенные USB, PCI-устройства и простой бенчмарк ЦП."
 
 #: gettingstarted.html:1733
 msgid "Disks"
-msgstr ""
+msgstr "Диски"
 
 #: gettingstarted.html:1734
 msgid ""
 "A pre-installed utility that allows basic configuration to your disks and "
 "partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
 "data and writing images to SD cards/USB drives."
-msgstr ""
+msgstr "Предустановленная утилита, позволяющая базовую настройку дисков и разделов, включая форматирование, создание разделов, монтирование, просмотр данных S.M.A.R.T и запись образов на карты памяти и USB-накопители."
 
 #: gettingstarted.html:1751
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
-msgstr ""
+msgstr "Продвинутая утилита для просмотра, модифицирования и удаления разделов. Она также имеет функции для расширения/сжатия файловых систем и поддерживает широкий ассортимент форматов."
 
 #: gettingstarted.html:1766
 msgid "Disk Usage Analyser"
-msgstr ""
+msgstr "Анализ использования диска"
 
 #: gettingstarted.html:1767
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
-msgstr ""
+msgstr "Графическая утилита для исследования вашей файловой системы или конкретных папок на предмет используемого пространства диска."
 
 #: gettingstarted.html:1782
 msgid "System Monitor"
-msgstr ""
+msgstr "Системный монитор"
 
 #: gettingstarted.html:1783
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
-msgstr ""
+msgstr "Просмотр текущих запущенных процессов, использования ресурсов, количества занятого и свободного дискового пространства в смонтированных файловых системах."
 
 #: gettingstarted.html:1798
 msgid "Psensor"
-msgstr ""
+msgstr "Psensor"
 
 #: gettingstarted.html:1799
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
-msgstr ""
+msgstr "Отображение информации о текущей температуре компонентов, присоединённых к системе, включая материнскую плату, ЦП, ГП и жёсткие диски, в текстовом и графическом виде."
 
 #: gettingstarted.html:1097
 msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr ""
+msgstr "Включить меню Brisk или запуск MATE Menu"
 
 #: gettingstarted.html:1103
 msgid "Activate Heads-up Display (HUD)"
+msgstr "Включить Heads-Up Display (HUD)"
+
+#: gettingstarted.html:743
+msgid "OpenRazer"
+msgstr "OpenRazer"
+
+#: gettingstarted.html:763
+msgid "Requires OpenRazer to be installed first."
+msgstr "Требует предварительной установки OpenRazer."
+
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "Установка..."
+
+#: gettingstarted.html:1091
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1129
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1309
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1325
+msgid "S"
+msgstr ""
+
+#: gettingstarted.html:1327
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html:1718
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
+
+#: gettingstarted.html:1751
+msgid ""
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
 msgstr ""

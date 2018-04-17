@@ -3,22 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Bilgehan Zeki ÖZAYTAÇ <atilla_com@hotmail.com>, 2017
 # Kaan BODUR <kaanbodur@gmail.com>, 2016
+# Yaşar Çiv, 2017
 # Yasin Uysal <yasinuysal22@outlook.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2016-07-12 15:55+0000\n"
-"Last-Translator: Kaan BODUR <kaanbodur@gmail.com>\n"
+"PO-Revision-Date: 2017-10-31 00:05+0000\n"
+"Last-Translator: Bilgehan Zeki ÖZAYTAÇ <atilla_com@hotmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/ubuntu-mate/ubuntu-"
 "mate-welcome/language/tr_TR/)\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ubuntu-mate-welcome:73
 msgid ""
@@ -228,7 +230,7 @@ msgstr "Gizle"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Detaylar"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -279,19 +281,16 @@ msgid "Ubuntu Repository"
 msgstr "Ubuntu Deposu"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Ubuntu"
+msgstr "Ubuntu Topluluğu Sürdürülebilinir Deposu"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Ubuntu"
+msgstr "Ubuntu Özel Sürücüler Deposu"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Ubuntu Deposu"
+msgstr ""
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -306,14 +305,12 @@ msgid "Undo Changes"
 msgstr "Değişiklikleri Geri Al"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Ubuntu Deposu"
+msgstr "Harici Depo"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Yazılım Butiği"
+msgstr "Yazılım"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -453,12 +450,11 @@ msgstr "Kaldırılacak"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Yukarı Kaydırın"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Yükleniyor:"
+msgstr "Yükleme Kılavuzu"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -514,7 +510,7 @@ msgstr "Aralık"
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Desteklenmeyen Dağıtım"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
@@ -525,6 +521,8 @@ msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Bu yazılım butiği Ubuntu MATE için dizayn edilmiştir, fakat başka bir "
+"dağıtım kullanılıyor gibi gözükmekte."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -535,20 +533,19 @@ msgstr ""
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Bu mesaj tekrar gösterilmeyecek."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Devam Et"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Ubuntu Deposu"
+msgstr "Ubuntu MATE Web Sitesi"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Ubuntu MATE İçin Bağış Yapın"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
@@ -688,37 +685,5 @@ msgid "proprietary applications are hidden."
 msgstr "sahipli uygulamalar gizli."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Yazılım Butiği"
-
-#~ msgid "applications have been installed"
-#~ msgstr "uygulamalar yüklendi"
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Yeni yüklediğiniz uygulamalar kullanıma hazır."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Bazı uygulamalar yüklenemedi."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Bazı uygulamalar yüklenemedi."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr "Yazılım Butiği uygulamaların birinde hatayla karşılaştı."
-
-#~ msgid "applications have been removed"
-#~ msgstr "uygulamalar kaldırıldı"
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Bu uygulamalar artık sisteminizde mevcut değil."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Bazı uygulamalar kaldırılamadı."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Bazı uygulamalar kaldırılamadı."
-
-#~ msgid "Show"
-#~ msgstr "Göster"
+msgstr "Yazılım Kaynakları"

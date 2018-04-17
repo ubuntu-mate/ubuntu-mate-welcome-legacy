@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# nomen omen <vapoursoft@gmail.com>, 2017
+# nomen omen <vapoursoft@gmail.com>, 2017-2018
 # KoneetKiertoon <paul.brown@koneetkiertoon.fi>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2017-05-18 13:17+0000\n"
+"PO-Revision-Date: 2018-02-08 22:10+0000\n"
 "Last-Translator: nomen omen <vapoursoft@gmail.com>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/ubuntu-mate/"
 "ubuntu-mate-welcome/language/fi_FI/)\n"
@@ -200,7 +200,7 @@ msgstr "Peruuta"
 
 #: ubuntu-mate-welcome:747
 msgid "Set to retrieve the latest software listings."
-msgstr "Asetuksella haetaan uusimmat ohjelmistolistaukset."
+msgstr "Hae uusimmat ohjelmistolistaukset."
 
 #: ubuntu-mate-welcome:748
 msgid "Retrieve the latest software listings."
@@ -228,7 +228,7 @@ msgstr "Piilota"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Yksityiskohdat"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -279,19 +279,16 @@ msgid "Ubuntu Repository"
 msgstr "Ubuntu Pakettivarasto"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Ubuntu Multiverse Pakettivarasto"
+msgstr "Ubuntu Yhteisön Ylläpitämä Pakettivarasto"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Ubuntu Multiverse Pakettivarasto"
+msgstr "Ubuntu Omisteisten Ajureiden Pakettivarasto"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Ubuntu Pakettivarasto"
+msgstr "Ubuntu Ei-Vapaa Pakettivarasto"
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -306,14 +303,12 @@ msgid "Undo Changes"
 msgstr "Kumoa Muutokset"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Ubuntu Pakettivarasto"
+msgstr "Ulkoinen Pakettivarasto"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Ohjelmisto Putiikki"
+msgstr "Ohjelmisto"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -453,12 +448,11 @@ msgstr "Poistetaan"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Vieritä Ylös"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Asennetaan:"
+msgstr "Asennusohje"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -514,17 +508,19 @@ msgstr "Jou"
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Tukematon Jakelu"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
-msgstr ""
+msgstr "Käyttökokemuksesi voi poiketa."
 
 #: ubuntu-mate-welcome:1114
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Ohjelmistoputiikki on suunniteltu Ubuntu MATEa varten, mutta vaikuttaa "
+"siltä, että käytät eri jakelua."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -532,23 +528,25 @@ msgid ""
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
 msgstr ""
+"Vaikka lukuisat ohjelmistot toimivat muillakin Ubuntu-pohjaisilla "
+"jakeluilla, emme voi taata, että esillä olevat valikoidut ohjelmat toimivat "
+"moitteettomasti sinun järjestelmässi."
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Tätä viestiä ei näytetä enää."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Jatkaa"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Ubuntu Pakettivarasto"
+msgstr "Ubuntu MATE Verkkosivusto"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Lahjoita Ubuntu MATElle"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
@@ -689,37 +687,5 @@ msgid "proprietary applications are hidden."
 msgstr "suljettua sovellusta ovat piilotettuina."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Ohjelmisto Putiikki"
-
-#~ msgid "applications have been installed"
-#~ msgstr "sovellukset on asennettu"
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Äsken asentamasi sovellukset ovat valmiita käytettäviksi."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Osa sovelluksista ei asennettu."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Osa sovelluksista eivät asentuneet."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr "Jokin sovellus aiheutti ongelman Ohjelmisto Putiikissa."
-
-#~ msgid "applications have been removed"
-#~ msgstr "sovellukset on poistettu"
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Nämä sovellukset puuttuvat järjestelmästäsi."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Osa sovelluksista ei poistettu."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Osa sovelluksista eivät poistuneet."
-
-#~ msgid "Show"
-#~ msgstr "Näytä"
+msgstr "Ohjelmistolähteet"

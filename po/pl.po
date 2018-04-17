@@ -5,15 +5,17 @@
 # Translators:
 # Andrzej Jarzebowski <jarzebowski.andrzej@gmail.com>, 2017
 # Andrzej Jarzębowski <jarzebowski.andrzej@gmail.com>, 2017
+# Ka Gie <xdlodykoralxd@gmail.com>, 2018
 # Marcin Sedlak <fdmarcin@gmail.com>, 2016
+# Robert Orzanna <robert@orzanna.de>, 2017
 # Paweł Pańczyk <pawelppanczyk@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-27 15:22+0100\n"
-"PO-Revision-Date: 2017-03-25 23:08+0000\n"
-"Last-Translator: Andrzej Jarzebowski <jarzebowski.andrzej@gmail.com>\n"
+"PO-Revision-Date: 2018-02-04 16:17+0000\n"
+"Last-Translator: Ka Gie <xdlodykoralxd@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
 "welcome/language/pl/)\n"
 "Language: pl\n"
@@ -21,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: ubuntu-mate-welcome:73
@@ -231,7 +233,7 @@ msgstr "Ukryj"
 
 #: ubuntu-mate-welcome:756
 msgid "Details"
-msgstr ""
+msgstr "Detale"
 
 #: ubuntu-mate-welcome:757
 msgid "Install"
@@ -282,19 +284,16 @@ msgid "Ubuntu Repository"
 msgstr "Repozystorium Ubuntu"
 
 #: ubuntu-mate-welcome:769
-#, fuzzy
 msgid "Ubuntu Community Maintained Repository"
-msgstr "Repozytorium Ubuntu Multiverse"
+msgstr "Wspólnota prowadzi repozytorium Ubuntu"
 
 #: ubuntu-mate-welcome:770
-#, fuzzy
 msgid "Ubuntu Proprietary Drivers Repository"
-msgstr "Repozytorium Ubuntu Multiverse"
+msgstr "Lokalne repozytorium sterowników Ubuntu"
 
 #: ubuntu-mate-welcome:771
-#, fuzzy
 msgid "Ubuntu Non-Free Repository"
-msgstr "Repozystorium Ubuntu"
+msgstr "Ubuntu 'Non-Free' repozytorium"
 
 #: ubuntu-mate-welcome:772
 msgid "Canonical Partner Repository"
@@ -309,14 +308,12 @@ msgid "Undo Changes"
 msgstr "Cofnij zmiany"
 
 #: ubuntu-mate-welcome:777
-#, fuzzy
 msgid "External Repository"
-msgstr "Repozystorium Ubuntu"
+msgstr "Repozytorium zewnętrzne"
 
 #: ubuntu-mate-welcome:778
-#, fuzzy
 msgid "Software"
-msgstr "Software Boutique"
+msgstr "Software"
 
 #: ubuntu-mate-welcome:782
 msgid "Installing..."
@@ -456,12 +453,11 @@ msgstr "Zostanie usunięte"
 
 #: ubuntu-mate-welcome:870
 msgid "Scroll Up"
-msgstr ""
+msgstr "Przewiń do góry"
 
 #: ubuntu-mate-welcome:985
-#, fuzzy
 msgid "Installation Guide"
-msgstr "Instalowanie:"
+msgstr "Podręcznik instalacji"
 
 #: ubuntu-mate-welcome:1027
 msgid "Servers"
@@ -517,17 +513,19 @@ msgstr "Gru"
 
 #: ubuntu-mate-welcome:1112
 msgid "Unsupported Distribution"
-msgstr ""
+msgstr "Nieobsługiwana dystrybucja"
 
 #: ubuntu-mate-welcome:1113
 msgid "Your mileage may wary."
-msgstr ""
+msgstr "Twój przebieg może się różnić."
 
 #: ubuntu-mate-welcome:1114
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
 msgstr ""
+"Oprogramowanie Boutique jest przeznaczone dla Ubuntu MATE, ale wydaje się, "
+"że używasz innej dystrybucji."
 
 #: ubuntu-mate-welcome:1115
 msgid ""
@@ -535,23 +533,25 @@ msgid ""
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
 msgstr ""
+"Chociaż duży wybór oprogramowania będzie działał na innych dystrybucjach na "
+"Ubuntu, nie możemy zagwarantować, że nasi specjaliści będą działać bez "
+"zarzutu w Twoim systemie."
 
 #: ubuntu-mate-welcome:1118
 msgid "This message will not be shown again."
-msgstr ""
+msgstr "Ta wiadomość nie zostanie wyświetlona ponownie."
 
 #: ubuntu-mate-welcome:1131
 msgid "Continue"
-msgstr ""
+msgstr "Dalej"
 
 #: ubuntu-mate-welcome:1357
-#, fuzzy
 msgid "Ubuntu MATE Website"
-msgstr "Repozystorium Ubuntu"
+msgstr "Ubuntu MATE strona internetowa"
 
 #: ubuntu-mate-welcome:1361
 msgid "Donate to Ubuntu MATE"
-msgstr ""
+msgstr "Darowizna do Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1727
 msgid "MB"
@@ -688,40 +688,8 @@ msgstr "aplikacji znaleziono."
 
 #: ubuntu-mate-welcome:2885
 msgid "proprietary applications are hidden."
-msgstr "aplikacje własnościowe są ukryte."
+msgstr "aplikacji własnościowych jest ukrytych."
 
 #: ubuntu-mate-welcome:2888
-#, fuzzy
 msgid "Software Sources"
-msgstr "Software Boutique"
-
-#~ msgid "applications have been installed"
-#~ msgstr "aplikacje zostały zainstalowane"
-
-#~ msgid "Your newly installed applications are ready to use."
-#~ msgstr "Twoje nowo zainstalowane aplikacje są gotowe do użycia."
-
-#~ msgid "Some applications were not installed."
-#~ msgstr "Niektóre aplikacje nie zostały zainstalowane."
-
-#~ msgid "Some applications failed to install."
-#~ msgstr "Instalacja niektórych aplikacji nie powiodła się."
-
-#~ msgid ""
-#~ "Software Boutique encountered a problem with one of the applications."
-#~ msgstr "Software Boutique napotkał problem z jedną z twoich aplikacji."
-
-#~ msgid "applications have been removed"
-#~ msgstr "aplikacje zostąły usunięte"
-
-#~ msgid "These applications are no longer present on your system."
-#~ msgstr "Te aplikacje nie znajdują się już w twoim systemie."
-
-#~ msgid "Some applications were not removed."
-#~ msgstr "Niektóre aplikacje nie zostały usunięte."
-
-#~ msgid "Some applications failed to remove."
-#~ msgstr "Usunięcie niektórych aplikacji nie powiodło się."
-
-#~ msgid "Show"
-#~ msgstr "Pokaż"
+msgstr "Źródła oprogramowania"

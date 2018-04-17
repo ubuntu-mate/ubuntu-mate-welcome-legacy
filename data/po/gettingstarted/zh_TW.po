@@ -1,12 +1,13 @@
 # 
 # Translators:
+# ChiehMin Hsu <polarbear881999@gmail.com>, 2018
 # zangmen ch <chzang55@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 21:35+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: ChiehMin Hsu <polarbear881999@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 
 #: gettingstarted.html:18
 msgid "Getting Started"
-msgstr "準備好開始"
+msgstr "開始使用"
 
 #: gettingstarted.html23, 36, 38
 msgid "Topic Selection"
@@ -25,7 +26,7 @@ msgstr "主題選擇"
 
 #: gettingstarted.html:26
 msgid "Previous"
-msgstr "以前"
+msgstr "上一個"
 
 #: gettingstarted.html:27
 msgid "Next"
@@ -65,7 +66,7 @@ msgstr "常用工具"
 
 #: gettingstarted.html:72
 msgid "Disks (Simple Partition Editor)"
-msgstr "Disks,簡單分區編輯器"
+msgstr "Disks ( 簡易磁區編輯器 )"
 
 #: gettingstarted.html:76
 msgid "GParted (Advanced Partition Editor)"
@@ -303,14 +304,14 @@ msgid ""
 " \"paging file\" in Windows. Performance will decrease when running low on "
 "memory and could possibly freeze if you completely run out of memory without"
 " anywhere to swap."
-msgstr "對於開始運行內存不足的計算機，操作系統將開始將內存從內存交換到硬盤。 這在Windows中被稱為“分頁文件”。 當內存運行不足時，性能會降低，如果在沒有任何地方交換的情況下完全耗盡內存，則可能會凍結。"
+msgstr "電腦將用盡記憶體時，作業系統將開始把記憶體從物件置換到硬硬碟。 這在Windows中被稱為“分頁檔”。 當記憶體不足時，效能會降低，如果在沒有任何地方置換的情況下完全耗盡記憶體，則可能會導致系統當機。"
 
 #: gettingstarted.html:222
 msgid ""
 "By default, a swap partition is created based on the size of your RAM. For "
 "example, if you have 2 GiB of RAM, then 2 GiB of hard disk space will be "
 "reserved for swap at the end of the drive."
-msgstr "默認情況下，根據RAM的大小創建交換分區。 例如，如果您有2 GB的RAM，則將在驅動器末端保留2 GB的硬盤空間用於交換。"
+msgstr "預設情況下，根據RAM的大小建立換置分區。 例如，如果您有2 GB的RAM，則將在驅動器末端保留2 GB的硬盤空間用於交換。"
 
 #: gettingstarted.html:224
 msgid ""
@@ -343,7 +344,7 @@ msgstr "重要資料到另一個磁碟"
 
 #: gettingstarted.html:248
 msgid "Defragment the hard drive."
-msgstr "磁碟重組"
+msgstr "重組磁碟"
 
 #: gettingstarted.html:249
 msgid "Ensure Windows has been cleanly shut down (not hibernated)."
@@ -355,7 +356,7 @@ msgstr "您偏好哪種方式?"
 
 #: gettingstarted.html255, 339
 msgid "Simple"
-msgstr "範例"
+msgstr "簡單"
 
 #: gettingstarted.html256, 339
 msgid "Advanced"
@@ -477,7 +478,7 @@ msgstr "安裝精靈的選項中也可以設定和調整您的分區以及選擇
 
 #: gettingstarted.html:315
 msgid "You can specify these mount points:"
-msgstr "您可以指定這些mount points:"
+msgstr "您可以指定這些掛載點"
 
 #: gettingstarted.html:317
 msgid "The base for Ubuntu MATE"
@@ -485,7 +486,7 @@ msgstr "Ubuntu MATE基礎"
 
 #: gettingstarted.html:318
 msgid "Bootloader and kernels"
-msgstr "Bootloader和內核"
+msgstr "開機載入程式和內核"
 
 #: gettingstarted.html:319
 msgid "Your personal files and folders"
@@ -562,7 +563,7 @@ msgstr "在機械硬碟上"
 
 #: gettingstarted.html:335
 msgid "Shrink your system disk within Windows."
-msgstr "在Windows內縮小您的系統槽"
+msgstr "在 Windows 內縮小您的系統槽"
 
 #: gettingstarted.html:337
 msgid "Applies to Windows Vista and later."
@@ -764,11 +765,11 @@ msgstr "當您的計算機長時間閒置時，請安裝超過200個屏幕保護
 
 #: gettingstarted.html:488
 msgid "Change Screen Saver"
-msgstr ""
+msgstr "變更螢幕保護桌面"
 
 #: gettingstarted.html:499
 msgid "Additional Themes"
-msgstr ""
+msgstr "更多主題"
 
 #: gettingstarted.html:500
 msgid ""
@@ -778,11 +779,11 @@ msgstr "安裝其他主題和圖標，例如Numix和Arc，以擴展可用的選�
 
 #: gettingstarted.html507, 526
 msgid "Change Appearance"
-msgstr ""
+msgstr "變更外觀"
 
 #: gettingstarted.html:518
 msgid "Additional Community Wallpapers"
-msgstr ""
+msgstr "更多來自社群的桌布"
 
 #: gettingstarted.html:519
 msgid ""
@@ -799,7 +800,7 @@ msgstr "您將需要藍光AACS數據庫才能播放AACS加密或BD +保護光盤
 
 #: gettingstarted.html:534
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "安裝Blu-ray AACS 資料庫"
 
 #: gettingstarted.html:545
 msgid ""
@@ -897,11 +898,11 @@ msgstr "當它們不屬於開源軟體，Ubuntu開發者們將"
 
 #: gettingstarted.html:604
 msgid "unable to review and improve their code"
-msgstr ""
+msgstr "無法檢查和改善程式碼"
 
 #: gettingstarted.html:604
 msgid "which means that you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "這表示你需要尋求製造商的協助。"
 
 #: gettingstarted.html:607
 msgid "In addition, proprietary drivers can"
@@ -1111,11 +1112,11 @@ msgstr "為羅技Unifying接收機的外圍設備的設備管理器。 這樣可
 
 #: gettingstarted.html728, 747, 765
 msgid "Learn More"
-msgstr ""
+msgstr "了解更多"
 
 #: gettingstarted.html:743
 msgid "Razer Drivers for Linux"
-msgstr ""
+msgstr "Linux 的 Razer 驅動程式。"
 
 #: gettingstarted.html:744
 msgid ""
@@ -1199,7 +1200,7 @@ msgstr ""
 
 #: gettingstarted.html:854
 msgid "Need to access files and folders with multiple computers?"
-msgstr ""
+msgstr "需要在多台電腦之間存取檔案嗎?"
 
 #: gettingstarted.html:857
 msgid "Samba"
@@ -1213,7 +1214,7 @@ msgstr "可用於安裝，它與Caja文件管理器集成，使您可以無縫�
 
 #: gettingstarted.html:862
 msgid "Samba is installed."
-msgstr ""
+msgstr "已安裝 Samba。"
 
 #: gettingstarted.html:863
 msgid "Choose a folder and select \"Sharing Options\"."
@@ -1294,7 +1295,7 @@ msgstr "使用者和群組"
 
 #: gettingstarted.html:921
 msgid "Customisation"
-msgstr ""
+msgstr "自訂"
 
 #: gettingstarted.html924, 932
 msgid "User Interface"
@@ -1328,7 +1329,7 @@ msgstr "上述提到的常用工具都是Ubuntu MATE控制中心所提供的一�
 
 #: gettingstarted.html:951
 msgid "Keyboard & Mouse Shortcuts"
-msgstr ""
+msgstr "鍵盤與滑鼠捷徑。"
 
 #: gettingstarted.html:955
 msgid ""
@@ -1470,11 +1471,11 @@ msgstr "打開終端機"
 
 #: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
 msgid "Super Key"
-msgstr ""
+msgstr "Super 鍵"
 
 #: gettingstarted.html:1161
 msgid "Screen reader enable/disable."
-msgstr ""
+msgstr "螢幕朗讀 開啟/關閉。"
 
 #: gettingstarted.html:1165
 msgid "Window shortcuts"
@@ -1486,17 +1487,17 @@ msgstr "Tab"
 
 #: gettingstarted.html:1173
 msgid "Switch between currently-open windows."
-msgstr ""
+msgstr "在最近開啟的視窗之間切換。"
 
 #: gettingstarted.html:1175
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
-msgstr ""
+msgstr "按下 Alt + Tab 然後放開 Tab 鍵 ( 但要繼續按住 Alt )。"
 
 #: gettingstarted.html1176, 1192
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
-msgstr ""
+msgstr "於當前所有工作區開啟的視窗中切換。重複按Tab來循環切換顯示在螢幕中的視窗。放開Alt鍵切換至所選視窗。"
 
 #: gettingstarted.html:1177
 msgid "Release the Alt key to switch to the selected window."
@@ -1516,7 +1517,7 @@ msgstr "左"
 
 #: gettingstarted.html:1205
 msgid "Switch to the previous workspace."
-msgstr ""
+msgstr "回到上一個工作區。"
 
 #: gettingstarted.html1213, 1236
 msgid "Right"
@@ -1707,7 +1708,7 @@ msgstr "您的機器由各種組件組成。 當提供支持以確保機器上�
 
 #: gettingstarted.html:1505
 msgid "View System Requirements"
-msgstr ""
+msgstr "檢視系統需求"
 
 #: gettingstarted.html:1509
 msgid "Basic"
@@ -1727,7 +1728,7 @@ msgstr "內核:"
 
 #: gettingstarted.html:1533
 msgid "The Linux kernel is the heart of Ubuntu."
-msgstr ""
+msgstr "Linux 核心是 Ubuntu 的心臟"
 
 #: gettingstarted.html:1539
 msgid "Motherboard:"
@@ -1828,7 +1829,7 @@ msgstr "您的操作系統分區的大小。"
 
 #: gettingstarted.html:1647
 msgid "Used Space:"
-msgstr ""
+msgstr "已用空間:"
 
 #: gettingstarted.html:1653
 msgid "Free Space:"
@@ -1836,7 +1837,7 @@ msgstr "剩餘空間:"
 
 #: gettingstarted.html:1659
 msgid "Other Usage:"
-msgstr ""
+msgstr "其他使用:"
 
 #: gettingstarted.html:1662
 msgid "Reserved by system, other partitions, unallocated or swap."
@@ -1890,7 +1891,7 @@ msgstr ""
 
 #: gettingstarted.html:1700
 msgid "Gathering data..."
-msgstr ""
+msgstr "正在蒐集資料..."
 
 #: gettingstarted.html:1701
 msgid "Sorry, there was a problem gathering this information."
@@ -1926,7 +1927,7 @@ msgstr "一個進階的工具提供檢視，建立，修改和刪除分區。同
 
 #: gettingstarted.html:1766
 msgid "Disk Usage Analyser"
-msgstr ""
+msgstr "磁碟用量分析"
 
 #: gettingstarted.html:1767
 msgid ""
@@ -1960,4 +1961,48 @@ msgstr ""
 
 #: gettingstarted.html:1103
 msgid "Activate Heads-up Display (HUD)"
+msgstr "開啟 HUD"
+
+#: gettingstarted.html:743
+msgid "OpenRazer"
+msgstr ""
+
+#: gettingstarted.html:763
+msgid "Requires OpenRazer to be installed first."
+msgstr ""
+
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "安裝中..."
+
+#: gettingstarted.html:1091
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1129
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1309
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1325
+msgid "S"
+msgstr ""
+
+#: gettingstarted.html:1327
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html:1718
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
+
+#: gettingstarted.html:1751
+msgid ""
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
 msgstr ""
