@@ -48,13 +48,25 @@ def add_apt_key_from_keyserver(keyserver, key):
     subprocess.call(['apt-key', 'adv', '--keyserver', keyserver, '--recv-keys', key])
 
 def enable_ppa(ppa):
-    subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
+    os_version = float(platform.dist()[1])
+    if (os_version >= 18.04):
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
+    else:
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
 
 def enable_partner_repository():
-    subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
+    os_version = float(platform.dist()[1])
+    if (os_version >= 18.04):
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', 'http://archive.canonical.com/ubuntu partner'])
+    else:
+        subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
 def enable_multiverse_repository():
-    subprocess.call(['apt-add-repository', 'multiverse', '--yes'])
+    os_version = float(platform.dist()[1])
+    if (os_version >= 18.04):
+        subprocess.call(['apt-add-repository', 'multiverse', '--yes', '--no-update'])
+    else:
+        subprocess.call(['apt-add-repository', 'multiverse', '--yes'])
 
 
 def finish(err=0):
