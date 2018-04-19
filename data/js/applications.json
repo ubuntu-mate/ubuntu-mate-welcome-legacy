@@ -4115,6 +4115,40 @@
             },
             "working": true
         },
+        "google-play-music-desktop-player": {
+            "name": "Google Play Music Desktop Player",
+            "img": "google-play-music-desktop-player",
+            "main-package": "google-play-music-desktop-player",
+            "launch-command": "google-play-music-desktop-player",
+            "install-packages": "google-play-music-desktop-player",
+            "remove-packages": "google-play-music-desktop-player",
+            "description": [
+                "A beautiful cross platform Desktop Player for Google Play Music.",
+                "You can change your theme, customize the colors, send your play",
+                "history straight to last.fm, and it even has a built-in equalizer.",
+                "From advanced audio controls to simple song change notifications,",
+                "this desktop player literally does it all."
+            ],
+            "alternate-to": "Apple iTunes",
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "https://www.googleplaymusicdesktopplayer.com/",
+            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
+            "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
+            "arch": "i386,amd64",
+            "releases": "xenial,artful,bionic",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "gpmdp",
+                    "apt-key-url": "https://gpmdp.xyz/bintray-public.key.asc",
+                    "apt-sources": [
+                        "deb https://dl.bintray.com/marshallofsound/deb trusty main"
+                    ]
+                }
+            },
+            "working": true
+        },
         "handbrake": {
             "name": "Handbrake",
             "img": "handbrake",
@@ -4427,7 +4461,7 @@
                 "CD playback, music sharing, and Podcasts."
             ],
             "alternate-to": "Apple iTunes",
-            "subcategory": "Media Playbox",
+            "subcategory": "Media Playback",
             "open-source": true,
             "url-info": "https://wiki.gnome.org/Apps/Rhythmbox",
             "url-android": null,
