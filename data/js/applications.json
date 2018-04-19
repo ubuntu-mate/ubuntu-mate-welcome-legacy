@@ -2085,10 +2085,10 @@
         "google-earth": {
             "name": "Google Earth",
             "img": "google-earth",
-            "main-package": "google-earth-ec-stable",
-            "launch-command": "google-earth-ec",
-            "install-packages": "google-earth-ec-stable",
-            "remove-packages": "google-earth-ec-stable",
+            "main-package": "google-earth-pro-stable",
+            "launch-command": "google-earth-pro",
+            "install-packages": "google-earth-pro-stable",
+            "remove-packages": "google-earth-pro-stable",
             "description": [
                 "Explore, search and discover the planet. Google Earth",
                 "lets you fly anywhere to see satellite imagery, 3D",
@@ -2107,7 +2107,7 @@
                 "all": {
                     "method": "manual",
                     "source-file": "google-earth",
-                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+                    "apt-key-url": "https://dl-ssl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
                         "deb http://dl.google.com/linux/earth/deb/ stable main"
                     ]
