@@ -2137,19 +2137,19 @@
             "url-info": "https://music.google.com/music/listen?#manager_pl",
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
             "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
-            "arch": "i386,amd64",
+            "arch": "amd64",
             "releases": "xenial,artful,bionic",
             "pre-install": {
                 "all": {
                     "method": "manual",
                     "source-file": "google-musicmanager",
-                    "apt-key-url": "http://dl.google.com/linux/linux_signing_key.pub",
+                    "apt-key-url": "https://dl-ssl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
+                        "deb [arch=amd64] http://dl.google.com/linux/musicmanager/deb/ stable main"
                     ]
                 }
             },
-            "working": false
+            "working": true
         },
         "hexchat": {
             "name": "Hexchat",
