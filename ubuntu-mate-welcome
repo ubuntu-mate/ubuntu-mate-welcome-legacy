@@ -1461,6 +1461,7 @@ class WelcomeApp(object):
         <button onclick="cmd(\'link?https://plus.google.com/communities/108331279007926658904\')" title="Google+"><img src="' + trans.res_dir + 'img/social/google+.svg"></button> \
         <button onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></button> \
         <button onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></button> \
+        <button onclick="cmd(\'link?https://www.youtube.com/channel/UCqRwuzCjj2UN5aAX_PENIfQ\')" title="YouTube"><img src="' + trans.res_dir + 'img/social/youtube.svg"></button> \
         <button onclick="cmd(\'link?https://ubuntu-mate.org/donate/\')" title="' + _("Donate to Ubuntu MATE") + '"><img src="' + trans.res_dir + 'img/welcome/donate.svg"></button> \
         </div>'
         self.footer_close = '<button onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</button>'
