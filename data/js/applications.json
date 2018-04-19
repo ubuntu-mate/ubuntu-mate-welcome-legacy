@@ -2257,6 +2257,17 @@
                     "apt-sources": [
                         "deb http://apt.insynchq.com/ubuntu CODENAME non-free contrib"
                     ]
+                },
+                "bionic": {
+                    "method": "manual",
+                    "source-file": "insync",
+                    "apt-key-server": [
+                        "keyserver.ubuntu.com",
+                        "ACCAF35C"
+                    ],
+                    "apt-sources": [
+                        "deb http://apt.insynchq.com/ubuntu artful non-free contrib"
+                    ]
                 }
             },
             "working": true
