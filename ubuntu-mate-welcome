@@ -1619,8 +1619,9 @@ class SystemState(object):
         self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
         # Get current version / codename of Ubuntu MATE in use.
-        self.os_version = platform.dist()[1]    # → 14.04, 15.10, 16.04
-        self.codename = platform.dist()[2]      # → trusty, wily, xenial
+        self.distro = platform.dist()[0].lower() # → ubuntu
+        self.os_version = platform.dist()[1]     # → 14.04, 15.10, 16.04
+        self.codename = platform.dist()[2]       # → trusty, wily, xenial
 
         # Are we running in Ubuntu MATE?
         self.is_ubuntu_mate = True
@@ -1632,6 +1633,8 @@ class SystemState(object):
         if os.path.exists('/usr/share/glib-2.0/schemas/zubuntu-mate-live.gschema.override') or \
            os.path.exists('/usr/share/glib-2.0/schemas/40_ubuntu-mate-live.gschema.override'):
             self.session_type = 'live'
+        elif self.user_name == 'oem' and os.path.isfile(os.path.join('/','usr/','sbin/','oem-config-remove')):
+            self.session_type = 'oem'
         elif self.user_name[:6] == 'guest-':
             self.session_type = 'guest'
         elif os.path.isfile(os.path.join('/','boot/','kernel7.img')):
@@ -1648,6 +1651,23 @@ class SystemState(object):
             self.boot_mode = 'Yaboot'
         else:
             self.boot_mode = 'BIOS'
+
+        # Is there unsent telemetry?
+        self.unsent_installer_telemetry = False
+        self.unsent_upgrade_telemetry = False
+        # Don't both looking for telemetry in the Live or OEM session
+        if self.session_type != 'live' and self.session_type != 'oem':
+            # Have we already sent a telemetry report?
+            if not (os.path.isfile(os.path.join(os.environ.get('HOME'), '.cache', 'ubuntu-report', self.distro + '.' + self.os_version))):
+                # What kind of telemetry is available?
+                if os.path.isfile('/var/log/installer/telemetry'):
+                    dbg.stdout('Welcome', 'Found unsent installer telemetry', 1, 3)
+                    self.unsent_installer_telemetry = True
+                elif os.path.exists('/var/log/upgrade/telemetry'):
+                    dbg.stdout('Welcome', 'Found unsent upgrade telemetry', 1, 3)
+                    self.unsent_upgrade_telemetry = True
+            else:
+                dbg.stdout('Welcome', 'Telemetry has already been sent', 1, 2)
 
         # Multithread to prevent holding up program execution.
         thread1 = Thread(target=self.check_internet_connection)
@@ -3551,7 +3571,7 @@ class Arguments(object):
         self.font_dpi_override = None
 
         archs = ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']
-        sessions = ['guest', 'live', 'pi', 'vbox']
+        sessions = ['guest', 'live', 'oem', 'pi', 'vbox']
 
         for arg in sys.argv:
           if arg == '--help' or arg == '-h':
