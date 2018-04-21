@@ -1655,8 +1655,9 @@ class SystemState(object):
         # Is there unsent telemetry?
         self.unsent_installer_telemetry = False
         self.unsent_upgrade_telemetry = False
-        # Don't both looking for telemetry in the Live or OEM session
-        if self.session_type != 'live' and self.session_type != 'oem':
+
+        # Don't bother looking for telemetry in the Live or OEM session
+        if self.session_type != 'live' and self.session_type != 'oem' and which('ubuntu-report') != None:
             # Have we already sent a telemetry report?
             if not (os.path.isfile(os.path.join(os.environ.get('HOME'), '.cache', 'ubuntu-report', self.distro + '.' + self.os_version))):
                 # What kind of telemetry is available?
