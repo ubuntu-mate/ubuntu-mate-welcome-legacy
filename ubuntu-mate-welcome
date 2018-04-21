@@ -1006,6 +1006,9 @@ class AppView(WebKit2.WebView):
             elif systemstate.session_type == 'guest':
                 self.run_js('var splashNextPage = "helloguest"')
                 self.run_js('var quick_splash = true')
+            elif systemstate.unsent_installer_telemetry or systemstate.unsent_upgrade_telemetry:
+                self.run_js('var splashNextPage = "telemetry"')
+                self.run_js('var quick_splash = true')
             else:
                 self.run_js('var splashNextPage = "index"')
                 self.run_js('var quick_splash = false')
@@ -1155,6 +1158,7 @@ class AppView(WebKit2.WebView):
                 dbg.stdout("Welcome", "No message ID set! Returning to main menu.", 0, 1)
                 app.webkit.run_js("smoothPageFade('index.html')")
                 return
+
             elif msg_id == "boutique-on-other-distro":
                 nav_title = _("Unsupported Distribution")
                 body_title = _("Your mileage may wary.")
@@ -1165,6 +1169,21 @@ class AppView(WebKit2.WebView):
                        '<span class="fa fa-info-circle"></span> ' + _("This message will not be shown again.")
                 image = "img/welcome/boutique-on-other-distro.png"
                 target = "software.html"
+
+            elif msg_id == "telemetry-send-success":
+                nav_title = _("Telemetry Data Consent")
+                body_title = _("Thank you!")
+                body_text = _("This data was successfully sent and will be used to improve future installations.")
+                image = "img/welcome/telemetry.png"
+                target = "index.html"
+
+            elif msg_id == "telemetry-send-failed":
+                nav_title = _("Telemetry Data Consent")
+                body_title = _("Communication Error")
+                body_text = _("The server couldn't be contacted at this time. Please try again later.")
+                image = "img/welcome/telemetry.png"
+                target = "index.html"
+
             else:
                 dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
                 app.webkit.run_js("smoothPageFade('index.html')")
@@ -1439,6 +1458,22 @@ class AppView(WebKit2.WebView):
             subprocess.Popen(['xdg-settings', 'set', 'default-web-browser', browser_file])
             app.update_page('.browser-option', 'removeClass', 'active')
             app.update_page('#' + browser, 'addClass', 'active')
+        elif cmd == 'telemetry-show':
+            telemetry_data = subprocess.Popen(['ubuntu-report', 'show'], stdout=subprocess.PIPE).communicate()[0].decode('UTF-8')
+            app.update_page('#show-telemetry-button', 'hide')
+            app.update_page('#show-telemetry-title', 'show')
+            for line in telemetry_data.split('\n'):
+                app.update_page('#show-telemetry-preview', 'append', line + '<br>')
+            app.update_page('#show-telemetry-preview', 'slideDown', 'fast')
+        elif cmd == 'telemetry-send':
+            result = subprocess.call(['ubuntu-report', 'send', 'yes'])
+            if result == 0:
+                self._do_command('message?telemetry-send-success')
+            else:
+                self._do_command('message?telemetry-send-failed')
+        elif cmd == 'telemetry-nosend':
+            subprocess.call(['ubuntu-report', 'send', 'no'])
+            self.run_js("smoothPageFade('index.html')")
 
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
