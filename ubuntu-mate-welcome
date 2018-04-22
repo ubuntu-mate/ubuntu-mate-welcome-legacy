@@ -1171,14 +1171,14 @@ class AppView(WebKit2.WebView):
                 target = "software.html"
 
             elif msg_id == "telemetry-send-success":
-                nav_title = _("Telemetry Data Consent")
+                nav_title = _("Help Improve Ubuntu MATE")
                 body_title = _("Thank you!")
                 body_text = _("This data was successfully sent and will be used to improve future installations.")
                 image = "img/welcome/telemetry.png"
                 target = "index.html"
 
             elif msg_id == "telemetry-send-failed":
-                nav_title = _("Telemetry Data Consent")
+                nav_title = _("Help Improve Ubuntu MATE")
                 body_title = _("Communication Error")
                 body_text = _("The server couldn't be contacted at this time. Please try again later.")
                 image = "img/welcome/telemetry.png"
