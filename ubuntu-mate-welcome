@@ -1170,20 +1170,6 @@ class AppView(WebKit2.WebView):
                 image = "img/welcome/boutique-on-other-distro.png"
                 target = "software.html"
 
-            elif msg_id == "telemetry-send-success":
-                nav_title = _("Help Improve Ubuntu MATE")
-                body_title = _("Thank you!")
-                body_text = _("This data was successfully sent and will be used to improve future installations.")
-                image = "img/welcome/telemetry.png"
-                target = "index.html"
-
-            elif msg_id == "telemetry-send-failed":
-                nav_title = _("Help Improve Ubuntu MATE")
-                body_title = _("Communication Error")
-                body_text = _("The server couldn't be contacted at this time. Please try again later.")
-                image = "img/welcome/telemetry.png"
-                target = "index.html"
-
             else:
                 dbg.stdout("Welcome", "Unknown message ID: '" + msg_id + "' - Returning to main menu.", 0, 1)
                 app.webkit.run_js("smoothPageFade('index.html')")
@@ -1466,13 +1452,23 @@ class AppView(WebKit2.WebView):
                 app.update_page('#show-telemetry-preview', 'append', line + '<br>')
             app.update_page('#show-telemetry-preview', 'slideDown', 'fast')
         elif cmd == 'telemetry-send':
-            result = subprocess.call(['ubuntu-report', 'send', 'yes'])
+            try:
+                result = subprocess.call(['ubuntu-report', 'send', 'yes'])
+            except Exception as e:
+                dbg.stdout('ubuntu-report', 'Threw exception: ' + str(e), 0, 1)
+                result = 1
             if result == 0:
-                self._do_command('message?telemetry-send-success')
+                app.update_page('#telemetry-intro', 'hide')
+                app.update_page('#telemetry-success', 'show')
             else:
-                self._do_command('message?telemetry-send-failed')
+                app.update_page('#telemetry-intro', 'hide')
+                app.update_page('#telemetry-failed', 'show')
         elif cmd == 'telemetry-nosend':
-            subprocess.call(['ubuntu-report', 'send', 'no'])
+            try:
+                result = subprocess.call(['ubuntu-report', 'send', 'no'])
+            except Exception as e:
+                dbg.stdout('ubuntu-report', 'Threw exception: ' + str(e), 0, 1)
+                result = 1
             self.run_js("smoothPageFade('index.html')")
 
         else:

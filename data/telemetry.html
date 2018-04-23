@@ -23,23 +23,39 @@
           </div>
 
           <div class="span7 animated fadeIn" hidden>
-            <h2 id="message-title">&zwnj;Help Improve Ubuntu MATE&zwnj;</h2>
-            <p id="message-body">
-                &zwnj;Ubuntu MATE can submit anonymised system information
-                that will help the developers better understand what
-                devices Ubuntu MATE is being used on. This data will be
-                transmitted one time only and includes basic system components
-                but nothing that is uniquely identifiable.&zwnj;
-                <br><br>
-                <b>&zwnj;Would you like to send this information?&zwnj;</b>
-                <br><br>
-                <button id="show-telemetry-button" onclick="cmd('telemetry-show')"><span class="fa fa-search"></span> &zwnj;Preview data&zwnj;</button>
-                <div id="show-telemetry-title" style="display:none"><strong>&zwnj;This is the data that will be sent:&zwnj;</strong><br><br></div>
-                <pre id="show-telemetry-preview" style="display:none"></pre>
-                <br>
-            </p>
-            <button class='btn btn-success' onclick="cmd('telemetry-send')">&zwnj;Send Telemetry&zwnj;</button>
-            <button class='btn btn-default' onclick="cmd('telemetry-nosend')">&zwnj;Do Not Send&zwnj;</button>
+                <span id="telemetry-intro">
+                    <h2 id="message-title">&zwnj;Help Improve Ubuntu MATE&zwnj;</h2>
+                    <p id="message-body">
+                        &zwnj;Ubuntu MATE can submit anonymised system information
+                        that will help the developers better understand what
+                        devices Ubuntu MATE is being used on. This data will be
+                        transmitted one time only and includes basic system components
+                        but nothing that is uniquely identifiable.&zwnj;
+                        <br><br>
+                        <b>&zwnj;Would you like to send this information?&zwnj;</b>
+                        <br><br>
+                        <button id="show-telemetry-button" onclick="cmd('telemetry-show')"><span class="fa fa-search"></span> &zwnj;Preview data&zwnj;</button>
+                        <div id="show-telemetry-title" style="display:none"><strong>&zwnj;This is the data that will be sent:&zwnj;</strong><br><br></div>
+                        <pre id="show-telemetry-preview" style="display:none"></pre>
+                        <br>
+                    </p>
+                    <button class='btn btn-success' onclick="cmd('telemetry-send')">&zwnj;Send Telemetry&zwnj;</button>
+                    <button class='btn btn-default' onclick="cmd('telemetry-nosend')">&zwnj;Do Not Send&zwnj;</button>
+                </span>
+                <span id="telemetry-success" style="display:none">
+                    <h2 id="message-title">&zwnj;Thank you!&zwnj;</h2>
+                    <p id="message-body">
+                        &zwnj;This data was successfully sent and will be used to improve future installations.&zwnj;
+                    </p>
+                    <button class='btn btn-success' onclick="smoothPageFade('index.html')">&zwnj;Continue&zwnj;</button>
+                </span>
+                <span id="telemetry-failed" style="display:none">
+                    <h2 id="message-title">&zwnj;Communication Error&zwnj;</h2>
+                    <p id="message-body">
+                        &zwnj;The server couldn't be contacted at this time. Please try again later.&zwnj;
+                    </p>
+                    <button class='btn btn-success' onclick="smoothPageFade('index.html')">&zwnj;Continue&zwnj;</button>
+                </span>
           </div>
         </div>
       </div>
