@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-04-17 18:35+0000\n"
-"Last-Translator: Kaan BODUR <kaanbodur@gmail.com>\n"
+"PO-Revision-Date: 2018-04-23 09:20+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "Yükleme"
 msgid "Install Now"
 msgstr "Şimdi Kur"
 
-#: gettingstarted.html68, 1511
+#: gettingstarted.html68, 1530
 msgid "Utilities"
 msgstr "Yardımcı Hizmetler"
 
@@ -87,11 +87,11 @@ msgstr "Güncelleştirmeler & Fazlası"
 msgid "Drivers"
 msgstr "Sürücüler"
 
-#: gettingstarted.html97, 779
+#: gettingstarted.html97, 761
 msgid "Language & Input"
 msgstr "Dil & Giriş"
 
-#: gettingstarted.html102, 815
+#: gettingstarted.html102, 797
 msgid "Optional Tasks"
 msgstr "İsteğe Bağlı Görevler"
 
@@ -103,7 +103,7 @@ msgstr "Aşinalık"
 msgid "Customization"
 msgstr "Kişiselleştirme"
 
-#: gettingstarted.html115, 954
+#: gettingstarted.html115, 944
 msgid "Keyboard Shortcuts"
 msgstr "Klavye Kısayolları"
 
@@ -111,7 +111,7 @@ msgstr "Klavye Kısayolları"
 msgid "Troubleshooting"
 msgstr "Sorun Giderme"
 
-#: gettingstarted.html123, 1497
+#: gettingstarted.html123, 1516
 msgid "System Specifications"
 msgstr "Sistem Özellikleri"
 
@@ -163,7 +163,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Bilgisayarınız önerilen gereksinimleri karşıladığı takdirde işletim sisteminiz daha verimli çalışacaktır.  "
 
-#: gettingstarted.html158, 1500
+#: gettingstarted.html158, 1519
 msgid "What's inside my computer?"
 msgstr "Bilgisayarımın içerisinde neler var?"
 
@@ -421,7 +421,7 @@ msgstr "komutunu çalıştırın. Bu, dosya sistemi hatalarını verecektir. Win
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "GParted ya da kurulum yöntecisinini \"Özel Ayarlar\" seçeneğini kullanın. "
 
-#: gettingstarted.html296, 1750
+#: gettingstarted.html296, 1769
 msgid "GParted"
 msgstr "GParted"
 
@@ -433,11 +433,11 @@ msgstr "sadece canlı oturum esnasında mevcuttur. "
 msgid "It is located under the"
 msgstr "Programı şurada bulabilirsiniz:"
 
-#: gettingstarted.html297, 423, 684, 1523
+#: gettingstarted.html297, 423, 666, 1542
 msgid "System"
 msgstr "Sistem"
 
-#: gettingstarted.html298, 423, 685
+#: gettingstarted.html298, 423, 667
 msgid "Administration"
 msgstr "Yönetim"
 
@@ -591,7 +591,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Windows'un yeni sürümleri, Windows içerisiden NTFS bölümlerini küçültmenizi sağlayan bir araca sahip. Eğer Ubuntu MATE'yi deneyimlerken bir yandan da Windows hala sizin için vazgeçilmez ise bu daha güvenli bir yöntemdir. "
 
-#: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
+#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
 msgid "Open"
 msgstr "Başlat menüsünden"
 
@@ -731,8 +731,8 @@ msgstr "Kodek paketi, tüm platformlar için müzik ve video decode, encode, kay
 msgid "Applying Changes..."
 msgstr "Değişiklikler Uygulanıyor..."
 
-#: gettingstarted.html447, 466, 486, 505, 524, 708, 730, 748, 767, 866, 1722,
-#: 1739, 1755, 1771, 1787, 1803
+#: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
+#: 874, 1741, 1758, 1774, 1790, 1806, 1822
 msgid "Install"
 msgstr "Yükle"
 
@@ -825,11 +825,11 @@ msgstr "Ek Sürücüler"
 msgid "Install Firmware Package"
 msgstr "Yazılım Paketini Kur"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936
+#: gettingstarted.html564, 773, 827, 879, 902, 925
 msgid "can be found later in the"
 msgstr "daha sonra şurada bulunabilir: "
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
+#: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
 msgstr "Kontrol Merkezi"
 
@@ -983,57 +983,18 @@ msgstr "En güncel NVDIA sürücülerine ne dersiniz? "
 msgid "fetches the latest tested driver from the Ubuntu repositories."
 msgstr "Ubuntu depolarından test edilmiş en son sürücüleri getiriyor. "
 
-#: gettingstarted.html:634
-msgid ""
-"Advanced users and gamers who would like newer versions may wish to consider"
-" adding the"
-msgstr "Güncel sürümleri kullanmak isteyen ileri ve oyun oynayan kullanıcılar, en güncel NVDIA sürücülerini paketleyen"
-
-#: gettingstarted.html:635
-msgid "Ubuntu Graphics Driver PPA"
-msgstr "Ubuntu Ekran Kartı Sürücüsü PPA"
-
-#: gettingstarted.html:636
-msgid ""
-"which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
-"not as thoroughly tested."
-msgstr "adresini eklemeyi düşünebilirler. Bu paketler tamamen test edilmemiştir. "
-
-#: gettingstarted.html:638
-msgid ""
-"This only applies for actively supported cards, and not older cards using "
-"the legacy driver."
-msgstr "Bu sadece aktif olarak desteklenen kartlar için geçerlidir. Eski sürücüleri kullanan eski kartlar için geçerli değildir. "
-
-#: gettingstarted.html:641
-msgid "Add Repository"
-msgstr "Depo Ekle"
-
-#: gettingstarted.html:644
-msgid ""
-"To add the repository to the system, open a terminal and type the following:"
-msgstr "Sisteminize depo eklemek için, bir uçbirim açın ve şunları yazın:"
-
-#: gettingstarted.html:649
-msgid "After the PPA is added, newer versions are presented to install in"
-msgstr "PPA eklendikten sonra güncel sürümler şurada sunulacaktır: "
-
-#: gettingstarted.html:650
-msgid "Additional Drivers:"
-msgstr "Ek Sürücüler"
-
-#: gettingstarted.html:657
+#: gettingstarted.html:639
 msgid "Wireless, Bluetooth and Other Devices"
 msgstr "Kablosuz Ağ, Bluetooth ve Diğer Cihazlar"
 
-#: gettingstarted.html:659
+#: gettingstarted.html:641
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
 msgstr "Donanımınız için gereken ek sürücü bulunmamış ya da aygıtınız için sunulan paket çalışmamışsa uygun sürücüler için araştırma yapmanız gerekebilir. "
 
-#: gettingstarted.html:663
+#: gettingstarted.html:645
 msgid ""
 "Unfortunately, this is due to the fact the manufacturer for your hardware "
 "hasn't provided any source code for developers to freely use, or there is "
@@ -1041,57 +1002,57 @@ msgid ""
 "model."
 msgstr "Bu ne yazık ki, donanım üreticisinin geliştiricilerin özgürce kullanabileceği kaynak kodlarını sunmaması ya da belirli bir marka ve model için uygun sürücülerin yazılmasını sağlayacak yeterli sayıda belgelendirme bulunmamasından kaynaklıdır. "
 
-#: gettingstarted.html:669
+#: gettingstarted.html:651
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
 msgstr "Bazı üreticiler doğrudan kendileri  kapalı kaynaklı sürücüleri  sunabilirler. Yardımıa ihtiyacınız olduğu takdirde, "
 
-#: gettingstarted.html:671
+#: gettingstarted.html:653
 msgid "ask the community"
 msgstr "topluluğa danışmaktan çekinmeyin. "
 
-#: gettingstarted.html:674
+#: gettingstarted.html:656
 msgid "Read more on troubleshooting wireless hardware."
 msgstr "Kablosuz donanımlar için sorun giderme hakkında daha fazlası için. "
 
-#: gettingstarted.html678, 683
+#: gettingstarted.html660, 665
 msgid "Printers"
 msgstr "Yazıcılar"
 
-#: gettingstarted.html:680
+#: gettingstarted.html:662
 msgid "When you set up a printer in the"
 msgstr "Yeni bir yazıcıyı"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "utility"
 msgstr "hizmetini kullanarak kurduğunuzda"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "under"
 msgstr "şurada"
 
-#: gettingstarted.html:685
+#: gettingstarted.html:667
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
 msgstr "eğer uygulanabilir olanlar mevcutsa, kullanılabilir sürücülerin bir listesi size sunulur. "
 
-#: gettingstarted.html:688
+#: gettingstarted.html:670
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
 msgstr "Bazı üreticiler kendi sürücülerini kendileri sunabilirler. Bunlar doğrudan web sitelerinden indirilebilinir. "
 
-#: gettingstarted.html:691
+#: gettingstarted.html:673
 msgid "Read more on printing"
 msgstr "Yazdırma hakkında daha fazlasını için"
 
-#: gettingstarted.html:700
+#: gettingstarted.html:682
 msgid "HP Linux Printing and Imaging System"
 msgstr "HP Linux Yazdırma ve Görüntüleme Sistemi"
 
-#: gettingstarted.html:701
+#: gettingstarted.html:683
 msgid ""
 "Recommended if you have an HP printer as it provides full support for "
 "printing on most HP SFP (single function peripheral) inkjets and many "
@@ -1099,913 +1060,882 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr "Eğer bir HP yazıcınız varsa bu paketi kurmanız önerilir. Bu paket, HP SFP ( single function peripheral), LaserJets, HP MFP (multi-function peripheral) modellerinin çoğu için gerekli tarama, faks alıp gönderme, fotoğraf baskısı işlemleri desteğini sağlar. "
 
-#: gettingstarted.html:715
+#: gettingstarted.html:697
 msgid "Software Utilities for Peripherals"
 msgstr "Çevre Birimleri için Yardımcı Programlar"
 
-#: gettingstarted.html:724
+#: gettingstarted.html:706
 msgid "Solaar"
 msgstr "Solaar"
 
-#: gettingstarted.html:725
+#: gettingstarted.html:707
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
 msgstr "Logitech Unifying Alıcısı için cihaz yöneticisi. Eşleştirilmiş cihazları yönetme ve pil durumu görme gibi özellikleri sağlar. "
 
-#: gettingstarted.html728, 747, 765
+#: gettingstarted.html710, 729, 747
 msgid "Learn More"
 msgstr "Fazlasını Öğrenin"
 
-#: gettingstarted.html:743
-msgid "Razer Drivers for Linux"
-msgstr "Linux için Razer Sürücüleri"
+#: gettingstarted.html:725
+msgid "OpenRazer"
+msgstr "OpenRazer"
 
-#: gettingstarted.html:744
+#: gettingstarted.html:726
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
 msgstr "Klavye, fare ve fare paspaslarına kadar birçok Razer çevre biriminin tam işlevselliğini sağlayan topluluğa dayalı bir sürücü ve aygıt."
 
-#: gettingstarted.html:762
+#: gettingstarted.html:744
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
 msgstr "Uygulama profilleri için destek, efektleri ayarlama ve klavyenin özelliklerini kullanma ile Razer cihazlarını yönetmek için kullanılan bir ön yüz."
 
-#: gettingstarted.html:763
-msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr "Linux için öncelikle Razer Sürücülerinin yüklenmesini gerektirir."
+#: gettingstarted.html:745
+msgid "Requires OpenRazer to be installed first."
+msgstr "Önce OpenRazer'ın kurulmasını gerektirir."
 
-#: gettingstarted.html782, 787, 790
+#: gettingstarted.html764, 769, 772
 msgid "Language Support"
 msgstr "Dil Desteği"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:765
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
 msgstr "Dil ve yerelleştirme ayarlarınızı güncellemeniz gerekebilir ya da ilave dil desteği yükleyebilirsiniz. "
 
-#: gettingstarted.html:797
+#: gettingstarted.html:779
 msgid "Complex Input"
 msgstr "Karmaşık Giriş"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:780
 msgid "Some regions of the world require complex inputs."
 msgstr "Dünyanın bazı bölgeleri için karmaşık girişlere ihtiyaç duyulabilir."
 
-#: gettingstarted.html:803
+#: gettingstarted.html:785
 msgid "Chinese"
 msgstr "Çince"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:788
 msgid "Japanese"
 msgstr "Japonca"
 
-#: gettingstarted.html:809
+#: gettingstarted.html:791
 msgid "Korean"
 msgstr "Korece"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:800
 msgid "Backup, Firewall and User Management"
 msgstr "Yedekleme, Güvenlik Duvarı ve Kullanıcı Yönetimi"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:801
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
 msgstr "Ubuntu MATE dosya yedekleme için gerekli araçları sunar, güvenlik duvarı kurulu olarak gelir ve çoklu kullanıcı hesabını destekler.  "
 
-#: gettingstarted.html830, 841
+#: gettingstarted.html812, 826
 msgid "Backups"
 msgstr "Yedekler"
 
-#: gettingstarted.html:831
+#: gettingstarted.html:813
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr "Hiçbir şey bilgisayarın başına gelebilecek talihsizliklere karşı kişisel dosyaların bir yedeğinin bulundurulmasından önemli değildir. "
 
-#: gettingstarted.html:835
+#: gettingstarted.html:817
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
 msgstr "yüklü olarak gelir ve yerel sürücülere yedek almayı destekler. Bulut tabanlı servislere yedekleme işlemlerini de destekler. "
 
-#: gettingstarted.html:838
+#: gettingstarted.html:820
 msgid "Configure Backup"
 msgstr "Yedeklemeyi Yapılandır"
 
-#: gettingstarted.html:853
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "Kuruluyor..."
+
+#: gettingstarted.html:838
 msgid "Network Shares"
 msgstr "İnternet Paylaşımları"
 
-#: gettingstarted.html:854
+#: gettingstarted.html:839
 msgid "Need to access files and folders with multiple computers?"
 msgstr "Birden fazla bilgisayardan dosyalara ve klasörlere erişmeniz mi gerek?"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid "Samba"
 msgstr "Samba"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
 msgstr ""
 
-#: gettingstarted.html:862
+#: gettingstarted.html:847
 msgid "Samba is installed."
 msgstr "Samba kuruldu."
 
-#: gettingstarted.html:863
+#: gettingstarted.html:848
 msgid "Choose a folder and select \"Sharing Options\"."
 msgstr "Bir klasör seçin ve \"Paylaşma Seçenekleri\" ni seçin."
 
-#: gettingstarted.html:867
+#: gettingstarted.html:852
 msgid "Samba is available from the Software Boutique under \"Servers\"."
 msgstr "Samba, \"Yazılım Butiği\"nde \"Sunucular\" bölümünden yüklenebilir."
 
-#: gettingstarted.html:878
+#: gettingstarted.html:863
 msgid "Firewall"
 msgstr "Güvenlik Duvarı"
 
-#: gettingstarted.html:879
+#: gettingstarted.html:864
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
 msgstr "Güvenlik duvarı zararlı yazılımların bilgisayarınıza giriş ve çıkışlarını engeller. Güvenlik duvarı varsayılan olarak kapalı gelir. "
 
-#: gettingstarted.html:881
+#: gettingstarted.html:866
 msgid "learn more about firewalls"
 msgstr "Güvenlik duvarı yapılandırmaları hakkında daha fazla öğrenmek için "
 
-#: gettingstarted.html:883
+#: gettingstarted.html:868
 msgid "provides a graphical frontend to"
 msgstr "şunun için basit bir grafik arayüz sunar: "
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "Uncomplicated Firewall"
 msgstr "Basit Güvenlik Duvarı"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "If security is important to you, there are"
 msgstr "Eğer güvenlik sizin için önemliyse,"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:870
 msgid "more ways to stay secure too"
 msgstr "güvenliği sağlamanın daha birçok yolu var. "
 
-#: gettingstarted.html:887
+#: gettingstarted.html:872
 msgid "Configure Firewall"
 msgstr "Güvenlik Duvarını Yapılandır"
 
-#: gettingstarted.html:890
+#: gettingstarted.html:878
 msgid "Firewall Configuration"
 msgstr "Güvenlik Duvarı Yapılandırması"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:890
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:892
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
 msgstr "Bilgisayarı başkalarıyla mı paylaşıyorsunuz? Aynı bilgisayarı kullanan her bir kullanıcının kişisel mahremiyetini koruması için ayrı hesap oluşturun. "
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "You can also log in to a"
 msgstr "Ayrıca "
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "Guest Session"
 msgstr "Konuk Oturumu"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "if someone is using your computer as a one-off."
 msgstr "seçeneğiyle giriş yaparak, tek kullanımlık oturum da açabilirsiniz. "
 
-#: gettingstarted.html:910
+#: gettingstarted.html:898
 msgid "Configure Users"
 msgstr "Kullanıcıları Yapılandır "
 
-#: gettingstarted.html:913
+#: gettingstarted.html:901
 msgid "Users and Groups"
 msgstr "Kullanıcılar ve Gruplar"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:909
 msgid "Customisation"
 msgstr "Özelleştirme"
 
-#: gettingstarted.html924, 932
+#: gettingstarted.html913, 921
 msgid "User Interface"
 msgstr "Kullanıcı Arayüzü"
 
-#: gettingstarted.html:925
+#: gettingstarted.html:914
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
 msgstr "Ubuntu MATE, kullanıcı arayüzünü dönüştürebilmek için eşsiz bir araç ile gelir. Arayüzü hızlı bir şekilde, popüler olan diğer işletim sistemlerinde yaşanılan deneyime benzer bir hale getirebilirsiniz. "
 
-#: gettingstarted.html:928
+#: gettingstarted.html:917
 msgid "layout is similar to Microsoft Windows, while the"
 msgstr "yerleşim şekli Microsoft Windows benzeri iken"
 
-#: gettingstarted.html:929
+#: gettingstarted.html:918
 msgid "layout is similar to Apple Mac OS X."
 msgstr "yerleşimi ise Apple MAC OS X benzeridir."
 
-#: gettingstarted.html:935
+#: gettingstarted.html:924
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: gettingstarted.html:940
+#: gettingstarted.html:930
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
 msgstr "Yukarıda bahsedilenlerin hepsi Ubuntu MATE'nin sunduğu kapsamlı Kontrol Merkezi'nin birer parçasıdır. "
 
-#: gettingstarted.html:951
+#: gettingstarted.html:941
 msgid "Keyboard & Mouse Shortcuts"
 msgstr "Klavye ve Fare Kısayolları"
 
-#: gettingstarted.html:955
+#: gettingstarted.html:945
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
 msgstr "Ubuntu MATE bilgisayarınızı daha verimli kullanmanıza yardım edecek bir çok klavye kısayolu içerir. "
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "The"
 msgstr "Bu"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "Super"
 msgstr "Windows Tuşu"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
 msgstr "sizin Windows tuşunuzdur. Mac klavyeleri için, bu \"⌘\" tuşudur."
 
-#: gettingstarted.html:962
+#: gettingstarted.html:952
 msgid "Common application shortcuts"
 msgstr "Yaygın uygulama kısayolları"
 
-#: gettingstarted.html:963
+#: gettingstarted.html:953
 msgid "These shortcuts apply in most applications."
 msgstr "Bu kısayollar çoğu uygulamada geçerlidir. "
 
-#: gettingstarted.html968, 976, 984, 992, 1000, 1008, 1016, 1024, 1032, 1040,
-#: 1048, 1056, 1064, 1072, 1125, 1135, 1145, 1183, 1199, 1209, 1219, 1231,
-#: 1306, 1316, 1326, 1336, 1346, 1356, 1366, 1400
+#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
+#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: gettingstarted.html:972
+#: gettingstarted.html:962
 msgid "Copy the selected text/object"
 msgstr "Seçili metin/nesne'yi kopyala"
 
-#: gettingstarted.html:980
+#: gettingstarted.html:970
 msgid "Cut the selected text/object"
 msgstr "Seçili metin/nesne'yi kes"
 
-#: gettingstarted.html:988
+#: gettingstarted.html:978
 msgid "Paste/insert the selected text/object"
 msgstr "Seçili metin/nesne'yi yapıştır"
 
-#: gettingstarted.html:996
+#: gettingstarted.html:986
 msgid "Select all text"
 msgstr "Tüm metni seç"
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:994
 msgid "Find and replace words"
 msgstr "Sözcükleri bul ve değiştir"
 
-#: gettingstarted.html:1012
+#: gettingstarted.html:1002
 msgid "Make the selected text bold"
 msgstr "Seçili metni kalınlaştır"
 
-#: gettingstarted.html:1020
+#: gettingstarted.html:1010
 msgid "Make the selected text italic"
 msgstr "Seçili metni italik yap"
 
-#: gettingstarted.html:1028
+#: gettingstarted.html:1018
 msgid "Underline the selected text"
 msgstr "Seçili metnin altını çiz"
 
-#: gettingstarted.html:1036
+#: gettingstarted.html:1026
 msgid "Open a new document or window"
 msgstr "Yeni bir belge ya da pencere aç"
 
-#: gettingstarted.html:1044
+#: gettingstarted.html:1034
 msgid "Save the current document"
 msgstr "Geçerli belgeyi kaydet"
 
-#: gettingstarted.html:1052
+#: gettingstarted.html:1042
 msgid "Open another document"
 msgstr "Başka bir belge aç"
 
-#: gettingstarted.html:1060
+#: gettingstarted.html:1050
 msgid "Print the current document"
 msgstr "Geçerli belgeyi yazdır"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1058
 msgid "Undo the last change you made"
 msgstr "En son yapılan değişikliği geri al"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
 msgstr "Geri alınan değişikliği tekrar uygula"
 
-#: gettingstarted.html:1084
+#: gettingstarted.html:1074
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "Geçerli uygulama için tam-ekran ve pencere arasında geçiş yap"
 
-#: gettingstarted.html:1088
+#: gettingstarted.html:1078
 msgid "Desktop shortcuts"
 msgstr "Masaüstü kısayolları"
 
-#: gettingstarted.html:1089
+#: gettingstarted.html:1079
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "Bu bölümde masaüstünde kullanabileceğiniz kısayollar listelenmiştir."
 
-#: gettingstarted.html:1099
-msgid "Open the Applications menu"
-msgstr "Uygulamalar Menüsünü aç"
-
-#: gettingstarted.html:1107
-msgid "Run an application by typing its name in the box which appears"
-msgstr "Açılan penceredeki kutucuğa uygulamanın ismini yazarak çalıştırın."
-
-#: gettingstarted.html:1111
-msgid "Prt Sc"
-msgstr "Prt Sc"
-
-#: gettingstarted.html:1113
-msgid "Take a screenshot of the whole screen"
-msgstr "Tüm ekranın görüntüsünü al"
-
-#: gettingstarted.html:1121
-msgid "Take a screenshot of the current window"
-msgstr "Geçerli pencerenin görüntüsünü al"
-
-#: gettingstarted.html:1129
-msgid "Delete"
-msgstr "Sil"
-
-#: gettingstarted.html:1131
-msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr "Bilgisayarı kapatmak, yeniden başlatmak ya da beklemeye almak için iletişim penceresini açın."
-
-#: gettingstarted.html:1141
-msgid "Lock your screen."
-msgstr "Ekranı Kilitle"
-
-#: gettingstarted.html:1151
-msgid "Open a terminal."
-msgstr "Bir uçbirim ekranı aç"
-
-#: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
+#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
 msgid "Super Key"
 msgstr "\"Süper Tuş\""
 
-#: gettingstarted.html:1161
+#: gettingstarted.html:1087
+msgid "Activate Brisk Menu or MATE Menu launcher"
+msgstr "Brisk Menü veya Mate Menü başlatıcısını etkinleştir"
+
+#: gettingstarted.html:1093
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1101
+msgid "Open the Applications menu"
+msgstr "Uygulamalar Menüsünü aç"
+
+#: gettingstarted.html:1109
+msgid "Run an application by typing its name in the box which appears"
+msgstr "Açılan penceredeki kutucuğa uygulamanın ismini yazarak çalıştırın."
+
+#: gettingstarted.html:1113
+msgid "Prt Sc"
+msgstr "Prt Sc"
+
+#: gettingstarted.html:1115
+msgid "Take a screenshot of the whole screen"
+msgstr "Tüm ekranın görüntüsünü al"
+
+#: gettingstarted.html:1123
+msgid "Take a screenshot of the current window"
+msgstr "Geçerli pencerenin görüntüsünü al"
+
+#: gettingstarted.html:1131
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1139
+msgid "Delete"
+msgstr "Sil"
+
+#: gettingstarted.html:1141
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "Bilgisayarı kapatmak, yeniden başlatmak ya da beklemeye almak için iletişim penceresini açın."
+
+#: gettingstarted.html:1150
+msgid "Toggles 'Show Desktop'."
+msgstr "'Masaüstünü Göster''i açar ve ya kapatır."
+
+#: gettingstarted.html:1160
+msgid "Lock your screen."
+msgstr "Ekranı Kilitle"
+
+#: gettingstarted.html:1170
+msgid "Open a terminal."
+msgstr "Bir uçbirim ekranı aç"
+
+#: gettingstarted.html:1180
 msgid "Screen reader enable/disable."
 msgstr "Ekran okuyucusu etkin/devre dışı."
 
-#: gettingstarted.html:1165
+#: gettingstarted.html:1184
 msgid "Window shortcuts"
 msgstr "Pencere kısayolları"
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1189
 msgid "Tab"
 msgstr "Tab"
 
-#: gettingstarted.html:1173
+#: gettingstarted.html:1192
 msgid "Switch between currently-open windows."
 msgstr "Açık pencereler arasında geçiş yapın."
 
-#: gettingstarted.html:1175
+#: gettingstarted.html:1194
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "Alt + Tab tuşlarına basın daha sonra Tab tuşunu bırakın (Alt'a basmaya devam edin)"
 
-#: gettingstarted.html1176, 1192
+#: gettingstarted.html1195, 1211
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "Döngüde gözüken açık pencereler arasında dolaşmak için Tab tuşuna tekrarlı olarak basın. "
 
-#: gettingstarted.html:1177
+#: gettingstarted.html:1196
 msgid "Release the Alt key to switch to the selected window."
 msgstr "Seçili pencere geçiş yapmak için Alt tuşunu bırakın. "
 
-#: gettingstarted.html:1190
+#: gettingstarted.html:1209
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "Tüm çalışma alanlarındaki açık pencereler arasında geçiş yapın."
 
-#: gettingstarted.html:1193
+#: gettingstarted.html:1212
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr "Seçili pencere geçiş yapmak için Ctrl ve Alt tuşunu bırakın. "
 
-#: gettingstarted.html1203, 1225
+#: gettingstarted.html1222, 1244
 msgid "Left"
 msgstr "Sol"
 
-#: gettingstarted.html:1205
+#: gettingstarted.html:1224
 msgid "Switch to the previous workspace."
 msgstr "Önceki çalışma alanına geç."
 
-#: gettingstarted.html1213, 1236
+#: gettingstarted.html1232, 1255
 msgid "Right"
 msgstr "Sağ"
 
-#: gettingstarted.html:1215
+#: gettingstarted.html:1234
 msgid "Switch to the next workspace."
 msgstr "Sonraki çalışma alanına geç."
 
-#: gettingstarted.html1223, 1234, 1428
+#: gettingstarted.html1242, 1253, 1447
 msgid "Shift"
 msgstr "Shift"
 
-#: gettingstarted.html:1227
+#: gettingstarted.html:1246
 msgid "Move the current window to the previous workspace."
 msgstr "Geçerli pencereyi önceki çalışma alanına taşı. "
 
-#: gettingstarted.html:1238
+#: gettingstarted.html:1257
 msgid "Move the current window to the next workspace."
 msgstr "Geçerli pencereyi sonraki çalışma alanına taşı. "
 
-#: gettingstarted.html:1246
+#: gettingstarted.html:1265
 msgid "Closes window."
 msgstr "Pencereleri kapatır. "
 
-#: gettingstarted.html:1254
+#: gettingstarted.html:1273
 msgid "Returns window to 'normal' or previous size."
 msgstr "Pencereyi 'normal' ya da bir önceki boyutuna döndürür. "
 
-#: gettingstarted.html:1262
+#: gettingstarted.html:1281
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "Geçerli pencereyi hareket ettirir. (fare ve klavye yardımıyla hareket ettirilebilir.)"
 
-#: gettingstarted.html:1270
+#: gettingstarted.html:1289
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "Geçerli pencereyi yeniden boyutlandırır. (yine fare ve klavye yardımıyla hareket ettirilebilir)"
 
-#: gettingstarted.html:1278
+#: gettingstarted.html:1297
 msgid "Minimizes current window."
 msgstr "Geçerli pencereyi küçültür. "
 
-#: gettingstarted.html:1286
+#: gettingstarted.html:1305
 msgid "Maximizes current window."
 msgstr "Geçerli pencereyi büyütür. "
 
-#: gettingstarted.html:1294
-msgid "Pulldown Terminal."
-msgstr "Uçbirimi Aşağı Çek."
+#: gettingstarted.html:1311
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
 
-#: gettingstarted.html:1300
+#: gettingstarted.html:1317
 msgid "Space"
 msgstr "Boşluk"
 
-#: gettingstarted.html:1302
+#: gettingstarted.html:1319
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "\"Her Zaman Üstte\", \"Küçült\" ve \"Büyüt\" gibi seçenekleri ve yukarıdaki komutları içeren pencere menüsünü gösterir. "
 
-#: gettingstarted.html1310, 1320, 1330, 1340, 1350, 1360, 1370
+#: gettingstarted.html:1329
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
 msgid "Numpad"
 msgstr "Tuş Takımı"
 
-#: gettingstarted.html:1312
+#: gettingstarted.html:1340
 msgid "Place window in top left corner of screen."
 msgstr "Pencereyi ekranın sol üst köşesine yerleştir."
 
-#: gettingstarted.html:1322
+#: gettingstarted.html:1350
 msgid "Place window in top half of screen."
 msgstr "Pencereyi ekranın üst orta bölgesine yerleştir."
 
-#: gettingstarted.html:1332
+#: gettingstarted.html:1360
 msgid "Place window in top right corner of screen."
 msgstr "Pencereyi ekranın sağ üst köşesine yerleştir."
 
-#: gettingstarted.html:1342
+#: gettingstarted.html:1370
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "Pencereyi ekranın ortasına yerleştir/büyüt"
 
-#: gettingstarted.html:1352
+#: gettingstarted.html:1380
 msgid "Place window in the bottom left corner of the screen."
 msgstr "Pencereyi ekranın sol alt köşesine yerleştir."
 
-#: gettingstarted.html:1362
+#: gettingstarted.html:1390
 msgid "Place window in the bottom half of the screen."
 msgstr "Pencereyi ekranın alt orta bölgesine yerleştir."
 
-#: gettingstarted.html:1372
+#: gettingstarted.html:1400
 msgid "Place window in the bottom right corner of the screen."
 msgstr "Pencereyi ekranın sağ alt köşesine yerleştir. "
 
-#: gettingstarted.html:1376
+#: gettingstarted.html:1404
 msgid "Mouse Shortcuts"
 msgstr "Fare Kısayolları"
 
-#: gettingstarted.html:1382
+#: gettingstarted.html:1410
 msgid "Left-click while dragging mouse"
 msgstr "Fareyi sürüklerken sol tıklayın."
 
-#: gettingstarted.html:1384
+#: gettingstarted.html:1412
 msgid "Moves the window."
 msgstr "Pencereyi taşır."
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1418
 msgid "Right-click while dragging mouse"
 msgstr "Fareyi sürüklerken sağ tıklayın."
 
-#: gettingstarted.html:1392
+#: gettingstarted.html:1420
 msgid "Resizes the window (closest window edge)."
 msgstr "Pencereyi boyutlandırır (en küçük boyuta)"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1424
 msgid "Compiz Effects Shortcuts"
 msgstr "Compiz Efekt Kısayolları "
 
-#: gettingstarted.html:1397
+#: gettingstarted.html:1425
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "Bu bölümdeki kısayolların hepsi Compiz'in aktif olduğu durumda geçerlidir. "
 
-#: gettingstarted.html:1406
-msgid "Toggles 'Show Desktop'."
-msgstr "'Masaüstünü Göster''i açar ve ya kapatır."
-
-#: gettingstarted.html:1414
+#: gettingstarted.html:1433
 msgid "Zoom out, show workspace switcher."
 msgstr "Uzaklaşır, çalışma alanın seçiciyi gösterir. "
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1441
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "\"Ölçekleme\" etkisini etkinleştirir, geçerli çalışma alanındaki tüm pencereleri gösterir. "
 
-#: gettingstarted.html:1432
+#: gettingstarted.html:1451
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "\"Ölçekleme\" etkisini etkinleştirir, tüm çalışma alanlarındaki pencereleri gösterir. "
 
-#: gettingstarted.html:1440
+#: gettingstarted.html:1459
 msgid "Invert colors of the focused window."
 msgstr "Seçili pencere renklerini tersine çevir."
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1467
 msgid "Invert colors for the whole screen."
 msgstr "Tüm ekran renklerini tersine çevir."
 
-#: gettingstarted.html:1454
+#: gettingstarted.html:1473
 msgid "Scroll Wheel"
 msgstr "Tekerleği Kaydırma"
 
-#: gettingstarted.html:1456
+#: gettingstarted.html:1475
 msgid "Zooms in on the screen."
 msgstr "Ekrana yakınlaşır."
 
-#: gettingstarted.html1462, 1478
+#: gettingstarted.html1481, 1497
 msgid "Middle Click"
 msgstr "Orta Tık"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1483
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "Bir dikdörtgen kullanarak, yakınlaşılacak alanı seç."
 
-#: gettingstarted.html:1470
+#: gettingstarted.html:1489
 msgid "Left Click"
 msgstr "Sol Tık"
 
-#: gettingstarted.html:1472
+#: gettingstarted.html:1491
 msgid "Move focused window."
 msgstr "Odaklanılan pencereyi hareket ettir."
 
-#: gettingstarted.html:1480
+#: gettingstarted.html:1499
 msgid "Resize focused window."
 msgstr "Odaklanılan pencereyi yeniden boyutlandır."
 
-#: gettingstarted.html:1486
+#: gettingstarted.html:1505
 msgid "Right Click"
 msgstr "Sağ Tık"
 
-#: gettingstarted.html:1488
+#: gettingstarted.html:1507
 msgid "Show window menu."
 msgstr "Pencere menüsünü göster."
 
-#: gettingstarted.html:1501
+#: gettingstarted.html:1520
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "Makineniz birbirleriyle etkileşim içerisinde olan farklı bileşenlerden oluşmuştur. Bunlar hakkındaki bilgiler, makinenizde çalışan donanım ve yazılım için destek sağlama aşamasında faydalıdır. "
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1524
 msgid "View System Requirements"
 msgstr "Sistem Gereksinimlerini Gör"
 
-#: gettingstarted.html:1509
+#: gettingstarted.html:1528
 msgid "Basic"
 msgstr "Temel"
 
-#: gettingstarted.html:1510
+#: gettingstarted.html:1529
 msgid "Detailed"
 msgstr "Detaylı"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1545
 msgid "Distribution:"
 msgstr "Dağıtım:"
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1549
 msgid "Kernel:"
 msgstr "Çekirdek:"
 
-#: gettingstarted.html:1533
+#: gettingstarted.html:1552
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Linux Çekirdeği Ubuntu'nun kalbidir."
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1558
 msgid "Motherboard:"
 msgstr "Anakart:"
 
-#: gettingstarted.html:1543
+#: gettingstarted.html:1562
 msgid "Boot Mode:"
 msgstr "Önyükleme Modu:"
 
-#: gettingstarted.html:1546
+#: gettingstarted.html:1565
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Ubuntu MATE'nin aygıt yazılımı ile iletişim kurduğu modu görüntüler. "
 
-#: gettingstarted.html:1554
+#: gettingstarted.html:1573
 msgid "Processor"
 msgstr "İşlemci"
 
-#: gettingstarted.html:1557
+#: gettingstarted.html:1576
 msgid "Model:"
 msgstr "Model:"
 
-#: gettingstarted.html:1561
+#: gettingstarted.html:1580
 msgid "Speed:"
 msgstr "Hız:"
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1584
 msgid "Architecture in use:"
 msgstr "Kullanılan mimari:"
 
-#: gettingstarted.html:1568
+#: gettingstarted.html:1587
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "Kullanımda olan işletim sistemi mimarisi. Örneğin, i386 = 32-bit."
 
-#: gettingstarted.html:1574
+#: gettingstarted.html:1593
 msgid "Architecture(s) supported:"
 msgstr "Desteklenen mimariler:"
 
-#: gettingstarted.html:1577
+#: gettingstarted.html:1596
 msgid "Architectures that are supported by this processor."
 msgstr "Bu işlemci tarafından desteklenen mimariler. "
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1604
 msgid "Components"
 msgstr "Bileşenler"
 
-#: gettingstarted.html:1588
+#: gettingstarted.html:1607
 msgid "Memory (RAM):"
 msgstr "Bellek(RAM)"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1610
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Daha fazla RAM aynı anda daha fazla uygulama çalıştırmaya izin verir. "
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1616
 msgid "Graphics:"
 msgstr "Grafikler:"
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1620
 msgid "Internet Access:"
 msgstr "İnternet Erişimi:"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1622
 msgid "Connected"
 msgstr "Bağlı"
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1623
 msgid "Not Connected"
 msgstr "Bağlı Değil"
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1630
 msgid "Storage"
 msgstr "Depolama"
 
-#: gettingstarted.html:1615
+#: gettingstarted.html:1634
 msgid "Root File System:"
 msgstr "Kök Dosya Sistemi:"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1637
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Ubuntu MATE'nin kurulduğu dosya sistemi. "
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1643
 msgid "Entire Disk Capacity:"
 msgstr "Bütün Disk Kapasitesi:"
 
-#: gettingstarted.html:1629
+#: gettingstarted.html:1648
 msgid "Ubuntu MATE Usage"
 msgstr "Ubuntu Mate Kullanımı"
 
-#: gettingstarted.html:1638
+#: gettingstarted.html:1657
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Ubuntu MATE için ayrılmış. "
 
-#: gettingstarted.html:1641
+#: gettingstarted.html:1660
 msgid "The size of your operating system partition."
 msgstr "İşletim sisteminizin boyutu."
 
-#: gettingstarted.html:1647
+#: gettingstarted.html:1666
 msgid "Used Space:"
 msgstr "Kullanılan Alan:"
 
-#: gettingstarted.html:1653
+#: gettingstarted.html:1672
 msgid "Free Space:"
 msgstr "Boş Alan:"
 
-#: gettingstarted.html:1659
+#: gettingstarted.html:1678
 msgid "Other Usage:"
 msgstr "Diğer Kullanım:"
 
-#: gettingstarted.html:1662
+#: gettingstarted.html:1681
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Sistem tarafından ayrılmış, diğer bölümler, ayrılmamış ya da takas alanı."
 
-#: gettingstarted.html:1670
+#: gettingstarted.html:1689
 msgid "Why do I see two units?"
 msgstr "Neden iki birim görüyorum?"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1695
 msgid "SI or IEC Units?"
 msgstr "SI, IEC birimlerinden hangisi?"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1697
 msgid "Decimal (SI Standard)"
 msgstr "Desimal (SI Standartı)"
 
-#: gettingstarted.html:1680
+#: gettingstarted.html:1699
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bayt"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1700
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "Telaffuzu \"ga\" şeklindedir. \"Mega\", \"Ciga\" gibi"
 
-#: gettingstarted.html:1682
+#: gettingstarted.html:1701
 msgid "Common in every day applications and file storage."
 msgstr "Günlük uygulamalar ve dosya depolama için. "
 
-#: gettingstarted.html:1686
+#: gettingstarted.html:1705
 msgid "Binary (IEC Standard)"
 msgstr "İkili (IEC Standartı)"
 
-#: gettingstarted.html:1688
+#: gettingstarted.html:1707
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bayt"
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1708
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Telaffuzu \"bi\" şeklindedir. \"Mebi\", \"Cibi\" gibi"
 
-#: gettingstarted.html:1690
+#: gettingstarted.html:1709
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Bellek, GParted gibi araçları da içeren sürücü ve bölümlemeler için. "
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1718
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
 msgstr "Aşağıdaki bilgiler inxi komut satırı programından alınmıştır."
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1719
 msgid "Gathering data..."
 msgstr "Veri toplanıyor..."
 
-#: gettingstarted.html:1701
-msgid "Sorry, there was a problem gathering this information."
-msgstr "Üzgünüz, veri toplanırken hata oluştu."
+#: gettingstarted.html:1720
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
 
-#: gettingstarted.html:1717
+#: gettingstarted.html:1736
 msgid "System Profiler and Benchmark"
 msgstr "Sistem Profiler ve Bencmark"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1737
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Bağlı USB'ler, PCI cihazları ve basit bir CPU benchmark gibi spesifik bilgileri bir grafik ekranda görün."
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1752
 msgid "Disks"
 msgstr "Diskler"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1753
 msgid ""
-"A pre-installed utility that allows basic configuration to your disks and "
-"partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
-"data and writing images to SD cards/USB drives."
-msgstr "Disk ve disk bölümleriniz için biçimlendirme, bölümleme, bağlama, S.M.A.R.T verileri görüntüleme ve kalıpları SD kart/ USB aygıtlara yazma gibi temel yapılandırmaları gerçekleştirmenize sağlayan ön tanımlı bir araç. "
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
+msgstr ""
 
-#: gettingstarted.html:1751
+#: gettingstarted.html:1770
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Disk bölümlemelerini görüntüleme, oluşturma, değiştirme ve silme işlemleri için gelişmiş bir araç. "
 
-#: gettingstarted.html:1766
+#: gettingstarted.html:1785
 msgid "Disk Usage Analyser"
 msgstr "Disk Kullanım Analizcisi"
 
-#: gettingstarted.html:1767
+#: gettingstarted.html:1786
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Dosya sisteminizin ya da kişisel dosyalarınızın ne kadar alan kapladığını öğrenmenize yarayan bir grafik araç. "
 
-#: gettingstarted.html:1782
+#: gettingstarted.html:1801
 msgid "System Monitor"
 msgstr "Sistem Gözlemcisi"
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1802
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Mevcut işlemleri, kaynak kullanımını, bağlı disklerdeki kullanılan ve boş olan alanları görüntüler. "
 
-#: gettingstarted.html:1798
+#: gettingstarted.html:1817
 msgid "Psensor"
 msgstr "Psensör"
 
-#: gettingstarted.html:1799
+#: gettingstarted.html:1818
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "Ana kart, CPU, GPU ve sabit disk. gibi sisteminize bağlı mevcut bileşenlerin sıcaklıklarını görüntüler ve grafiklerini verir. "
-
-#: gettingstarted.html:1097
-msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr "Brisk Menü veya Mate Menü başlatıcısını etkinleştir"
-
-#: gettingstarted.html:1103
-msgid "Activate Heads-up Display (HUD)"
-msgstr ""
-
-#: gettingstarted.html:743
-msgid "OpenRazer"
-msgstr "OpenRazer"
-
-#: gettingstarted.html:763
-msgid "Requires OpenRazer to be installed first."
-msgstr "Önce OpenRazer'ın kurulmasını gerektirir."
-
-#: gettingstarted.html823, 875
-msgid "Installing..."
-msgstr "Kuruluyor..."
-
-#: gettingstarted.html:1091
-msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1129
-msgid "Take a screenshot of a selected area"
-msgstr ""
-
-#: gettingstarted.html:1309
-msgid "Pulldown Terminal, if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1325
-msgid "S"
-msgstr ""
-
-#: gettingstarted.html:1327
-msgid "Toggle shaded state."
-msgstr ""
-
-#: gettingstarted.html:1718
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr ""
-
-#: gettingstarted.html:1751
-msgid ""
-"A utility that allows basic configuration to your disks and partitions, "
-"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
-"writing images to SD cards/USB drives."
-msgstr ""

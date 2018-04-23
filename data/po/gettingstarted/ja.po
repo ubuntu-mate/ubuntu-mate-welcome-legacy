@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-04-17 18:35+0000\n"
-"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
+"PO-Revision-Date: 2018-04-23 09:20+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgstr "インストール"
 msgid "Install Now"
 msgstr "今すぐインストール"
 
-#: gettingstarted.html68, 1511
+#: gettingstarted.html68, 1530
 msgid "Utilities"
 msgstr "ユーティリティー"
 
@@ -85,11 +85,11 @@ msgstr "アップデートと付加項目"
 msgid "Drivers"
 msgstr "ドライバ"
 
-#: gettingstarted.html97, 779
+#: gettingstarted.html97, 761
 msgid "Language & Input"
 msgstr "言語と入力"
 
-#: gettingstarted.html102, 815
+#: gettingstarted.html102, 797
 msgid "Optional Tasks"
 msgstr "追加事項"
 
@@ -101,7 +101,7 @@ msgstr "詳細"
 msgid "Customization"
 msgstr "カスタマイズ"
 
-#: gettingstarted.html115, 954
+#: gettingstarted.html115, 944
 msgid "Keyboard Shortcuts"
 msgstr "キーボードショートカット"
 
@@ -109,7 +109,7 @@ msgstr "キーボードショートカット"
 msgid "Troubleshooting"
 msgstr "トラブルシューティング"
 
-#: gettingstarted.html123, 1497
+#: gettingstarted.html123, 1516
 msgid "System Specifications"
 msgstr "システム仕様"
 
@@ -161,7 +161,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "コンピュータの性能が推奨する条件以上であれば、より快適に動作します。"
 
-#: gettingstarted.html158, 1500
+#: gettingstarted.html158, 1519
 msgid "What's inside my computer?"
 msgstr "このコンピュータの性能を調べる"
 
@@ -419,7 +419,7 @@ msgstr "をコマンドプロンプトから実行してファイルシステム
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "GPartedもしくはインストーラーの\"カスタム\"オプションを使ってください。"
 
-#: gettingstarted.html296, 1750
+#: gettingstarted.html296, 1769
 msgid "GParted"
 msgstr "GParted"
 
@@ -431,11 +431,11 @@ msgstr "はライブセッションのみで利用可能です。"
 msgid "It is located under the"
 msgstr "GPartedは"
 
-#: gettingstarted.html297, 423, 684, 1523
+#: gettingstarted.html297, 423, 666, 1542
 msgid "System"
 msgstr "システム"
 
-#: gettingstarted.html298, 423, 685
+#: gettingstarted.html298, 423, 667
 msgid "Administration"
 msgstr "システム管理"
 
@@ -589,7 +589,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "より新しいバージョンのWindowsでは、NTFSボリュームを縮小するツールが提供されています。Ubuntu MATEを試している間もWindowsを立ち上げる必要があるなら、このツールを使うのは安全な選択といえます。"
 
-#: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
+#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
 msgid "Open"
 msgstr "項目"
 
@@ -729,8 +729,8 @@ msgstr "コーデックパッケージは、デコードやエンコード、録
 msgid "Applying Changes..."
 msgstr "変更を有効にする"
 
-#: gettingstarted.html447, 466, 486, 505, 524, 708, 730, 748, 767, 866, 1722,
-#: 1739, 1755, 1771, 1787, 1803
+#: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
+#: 874, 1741, 1758, 1774, 1790, 1806, 1822
 msgid "Install"
 msgstr "インストール"
 
@@ -823,11 +823,11 @@ msgstr "ドライバの追加"
 msgid "Install Firmware Package"
 msgstr "ファームウェアパッケージのインストール"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936
+#: gettingstarted.html564, 773, 827, 879, 902, 925
 msgid "can be found later in the"
 msgstr "は次のツールから実行できます: "
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
+#: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
 msgstr "コントロールセンター"
 
@@ -981,57 +981,18 @@ msgstr "最新のNVIDIAドライバは使えますか？"
 msgid "fetches the latest tested driver from the Ubuntu repositories."
 msgstr "は最新のテスト済みドライバをUbuntuのレポジトリから入手します。"
 
-#: gettingstarted.html:634
-msgid ""
-"Advanced users and gamers who would like newer versions may wish to consider"
-" adding the"
-msgstr "より新しいバージョンを望む上級者やゲーマーの方は"
-
-#: gettingstarted.html:635
-msgid "Ubuntu Graphics Driver PPA"
-msgstr "UbuntuグラフィックドライバPPA"
-
-#: gettingstarted.html:636
-msgid ""
-"which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
-"not as thoroughly tested."
-msgstr "を選択肢に加えてみてください。このPPAはUbuntu用の最新のNVIDIAドライバをパッケージしています。ただ、これらのパッケージはすべてがテスト済みではありません。"
-
-#: gettingstarted.html:638
-msgid ""
-"This only applies for actively supported cards, and not older cards using "
-"the legacy driver."
-msgstr "活発にサポートされているカードに対してのみテストされますが、レガシーなドライバを使う古いカードはテストされません。"
-
-#: gettingstarted.html:641
-msgid "Add Repository"
-msgstr "レポジトリを加える"
-
-#: gettingstarted.html:644
-msgid ""
-"To add the repository to the system, open a terminal and type the following:"
-msgstr "システムにレポジトリを加えるには、ターミナルを開き、以下をタイプします:"
-
-#: gettingstarted.html:649
-msgid "After the PPA is added, newer versions are presented to install in"
-msgstr "PPAが追加されたら、次のボタンで表示される新しいバージョンをインストールしてください。"
-
-#: gettingstarted.html:650
-msgid "Additional Drivers:"
-msgstr "Additional Drivers:"
-
-#: gettingstarted.html:657
+#: gettingstarted.html:639
 msgid "Wireless, Bluetooth and Other Devices"
 msgstr "ワイヤレス、ブルートゥース、その他のデバイス"
 
-#: gettingstarted.html:659
+#: gettingstarted.html:641
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
 msgstr "ファームウェアパッケージをインストールしてもハードウェア用の追加ドライバがなかったり、あるいは動作しなかった場合、そのデバイス用の適切なドライバを見つけるために情報を集める必要があるかもしれません。"
 
-#: gettingstarted.html:663
+#: gettingstarted.html:645
 msgid ""
 "Unfortunately, this is due to the fact the manufacturer for your hardware "
 "hasn't provided any source code for developers to freely use, or there is "
@@ -1039,57 +1000,57 @@ msgid ""
 "model."
 msgstr "残念なことに、ご自分のハードウェアの製造元が、開発者が自由に使えるソースコードを公開していなかったり、特定の機種やモデル用のドライバを作るのに十分な資料がなかったりすることがその原因です。"
 
-#: gettingstarted.html:669
+#: gettingstarted.html:651
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
 msgstr "いくつかの製造元はクローズドソースドライバを直接提供することもあります。もしお困りのときは、遠慮せず"
 
-#: gettingstarted.html:671
+#: gettingstarted.html:653
 msgid "ask the community"
 msgstr "コミュニティにお尋ねください"
 
-#: gettingstarted.html:674
+#: gettingstarted.html:656
 msgid "Read more on troubleshooting wireless hardware."
 msgstr "ワイヤレス機器のトラブルシューティングをさらに読む"
 
-#: gettingstarted.html678, 683
+#: gettingstarted.html660, 665
 msgid "Printers"
 msgstr "プリンタ"
 
-#: gettingstarted.html:680
+#: gettingstarted.html:662
 msgid "When you set up a printer in the"
 msgstr "プリンタを設定するとき"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "utility"
 msgstr "ユーティリティーを使いますが"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "under"
 msgstr "参照"
 
-#: gettingstarted.html:685
+#: gettingstarted.html:667
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
 msgstr "該当するものがあれば、使用できるドライバの一覧が表示されます。"
 
-#: gettingstarted.html:688
+#: gettingstarted.html:670
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
 msgstr "一部のプリンタメーカーは自社でドライバを用意していますので、メーカーのウェッブサイトからドライバを入手してください。"
 
-#: gettingstarted.html:691
+#: gettingstarted.html:673
 msgid "Read more on printing"
 msgstr "プリンタについてさらに読む"
 
-#: gettingstarted.html:700
+#: gettingstarted.html:682
 msgid "HP Linux Printing and Imaging System"
 msgstr "HP Linux Printing and Imaging System"
 
-#: gettingstarted.html:701
+#: gettingstarted.html:683
 msgid ""
 "Recommended if you have an HP printer as it provides full support for "
 "printing on most HP SFP (single function peripheral) inkjets and many "
@@ -1097,913 +1058,882 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr "HP製のほとんどの単機能(SFP)インクジェットプリンタとLaserJetプリンタでの印刷や複合機(MFP)でのスキャン、Fax送信、メモリカードへのアクセスなどがフルに利用できるので、HPのプリンタをお持ちの方にはお薦めです。"
 
-#: gettingstarted.html:715
+#: gettingstarted.html:697
 msgid "Software Utilities for Peripherals"
 msgstr "周辺機器用ソフトウェアユーティリティ"
 
-#: gettingstarted.html:724
+#: gettingstarted.html:706
 msgid "Solaar"
 msgstr "Solaar"
 
-#: gettingstarted.html:725
+#: gettingstarted.html:707
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
 msgstr "Logitech社のUnifyingレシーバー対応機器用のデバイスマネージャーで、接続した機器の管理やバッテリー残量の確認などができます。"
 
-#: gettingstarted.html728, 747, 765
+#: gettingstarted.html710, 729, 747
 msgid "Learn More"
 msgstr "詳細について"
 
-#: gettingstarted.html:743
-msgid "Razer Drivers for Linux"
-msgstr "Linux用Razerドライバ"
+#: gettingstarted.html:725
+msgid "OpenRazer"
+msgstr "OpenRazer"
 
-#: gettingstarted.html:744
+#: gettingstarted.html:726
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
 msgstr "コミュニティーで開発されたドライバとデーモンで、キーボードやマウス、マウスパッドなどのRazer社の周辺機器に完全対応しています。"
 
-#: gettingstarted.html:762
+#: gettingstarted.html:744
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
 msgstr "Razer社製機器を制御するフロントエンドで、アプリケーションプロファイルの作成やエフェクトの設定、キーボードの制御などか可能です。"
 
-#: gettingstarted.html:763
-msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr "Linux用Razerドライバを先にインストールしてください。"
+#: gettingstarted.html:745
+msgid "Requires OpenRazer to be installed first."
+msgstr "OpenRazerを先にインストールしてください。"
 
-#: gettingstarted.html782, 787, 790
+#: gettingstarted.html764, 769, 772
 msgid "Language Support"
 msgstr "言語サポート"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:765
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
 msgstr "言語と地域の設定を更新する必要があるかもしれません。あるいは、追加の言語サポートをインストールした方がよいかもしれません。"
 
-#: gettingstarted.html:797
+#: gettingstarted.html:779
 msgid "Complex Input"
 msgstr "変換入力"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:780
 msgid "Some regions of the world require complex inputs."
 msgstr "いくつかの地域では変換入力が必要です。"
 
-#: gettingstarted.html:803
+#: gettingstarted.html:785
 msgid "Chinese"
 msgstr "中国語"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:788
 msgid "Japanese"
 msgstr "日本語"
 
-#: gettingstarted.html:809
+#: gettingstarted.html:791
 msgid "Korean"
 msgstr "韓国語"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:800
 msgid "Backup, Firewall and User Management"
 msgstr "バックアップとファイアウォール、ユーザー管理"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:801
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
 msgstr "Ubuntu MATEはファイルのバックアップのためのツールが用意されています。また、ファイアウォールがあらかじめインストールされていますし、複数ユーザーアカウントに対応しています。"
 
-#: gettingstarted.html830, 841
+#: gettingstarted.html812, 826
 msgid "Backups"
 msgstr "バックアップ"
 
-#: gettingstarted.html:831
+#: gettingstarted.html:813
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr "コンピュータに何か災難があったときに備えて、ファイルのバックアップをとっておくことほど大事なことはありません。"
 
-#: gettingstarted.html:835
+#: gettingstarted.html:817
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
 msgstr "がプレインストールされていますので、ローカルデバイスだけでなくクラウドベースのサービスにバックアップすることができます。"
 
-#: gettingstarted.html:838
+#: gettingstarted.html:820
 msgid "Configure Backup"
 msgstr "バックアップの設定"
 
-#: gettingstarted.html:853
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr ""
+
+#: gettingstarted.html:838
 msgid "Network Shares"
 msgstr "ネットワーク共有"
 
-#: gettingstarted.html:854
+#: gettingstarted.html:839
 msgid "Need to access files and folders with multiple computers?"
 msgstr "複数のコンピュータからファイルやフォルダにアクセスする必要がありますか？"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid "Samba"
 msgstr "Samba"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
 msgstr "がインストールできます。これはCajaファイルマネージャーに統合されていますので、他のコンピュータ上に保存されているデータをシームレスに取得できます。"
 
-#: gettingstarted.html:862
+#: gettingstarted.html:847
 msgid "Samba is installed."
 msgstr "Sambaはインストール済みです。"
 
-#: gettingstarted.html:863
+#: gettingstarted.html:848
 msgid "Choose a folder and select \"Sharing Options\"."
 msgstr "フォルダーを選び\"共有オプション\"を選択してください。"
 
-#: gettingstarted.html:867
+#: gettingstarted.html:852
 msgid "Samba is available from the Software Boutique under \"Servers\"."
 msgstr "SambaはソフトウェアBoutiqueの\"サーバー\"からインストールできます。"
 
-#: gettingstarted.html:878
+#: gettingstarted.html:863
 msgid "Firewall"
 msgstr "ファイアウォール"
 
-#: gettingstarted.html:879
+#: gettingstarted.html:864
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
 msgstr "ファイアウォールはコンピュータに出入りしようとする悪意ある接続を防ぎます。デフォルトでは、ファイアウォールは停止されています。"
 
-#: gettingstarted.html:881
+#: gettingstarted.html:866
 msgid "learn more about firewalls"
 msgstr "ファイアウォールについて"
 
-#: gettingstarted.html:883
+#: gettingstarted.html:868
 msgid "provides a graphical frontend to"
 msgstr "はグラフィカルフロントエンドで、"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "Uncomplicated Firewall"
 msgstr "Uncomplicated Firewall"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "If security is important to you, there are"
 msgstr "を操作できます。セキュリティを最優先にするなら、"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:870
 msgid "more ways to stay secure too"
 msgstr "他にもセキュリティを強固にする方法があります。"
 
-#: gettingstarted.html:887
+#: gettingstarted.html:872
 msgid "Configure Firewall"
 msgstr "ファイアウォールの設定"
 
-#: gettingstarted.html:890
+#: gettingstarted.html:878
 msgid "Firewall Configuration"
 msgstr "ファイアウォールの設定は"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:890
 msgid "Users"
 msgstr "ユーザー"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:892
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
 msgstr "ご自分のコンピュータを他の人と共用しますか？同じコンピュータを共有するユーザーのプライバシーを守るためには、ユーザーごとに個別のアカウントを作成しましょう。"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "You can also log in to a"
 msgstr "ログインする方法として、"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "Guest Session"
 msgstr "ゲストセッション"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "if someone is using your computer as a one-off."
 msgstr "を使えば、そのとき限りしかコンピュータを利用しないときなどは便利です。"
 
-#: gettingstarted.html:910
+#: gettingstarted.html:898
 msgid "Configure Users"
 msgstr "ユーザー設定"
 
-#: gettingstarted.html:913
+#: gettingstarted.html:901
 msgid "Users and Groups"
 msgstr "ユーザーとグループ"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:909
 msgid "Customisation"
 msgstr "カスタマイズ"
 
-#: gettingstarted.html924, 932
+#: gettingstarted.html913, 921
 msgid "User Interface"
 msgstr "ユーザーインターフェイス"
 
-#: gettingstarted.html:925
+#: gettingstarted.html:914
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
 msgstr "Ubuntu MATEはユーザーインターフェイスを取り替えるための独特のツールを用意しています。このツールを使えば簡単に、ユーザーインターフェイスを他の代表的なOSの見た目に近づけることができます。"
 
-#: gettingstarted.html:928
+#: gettingstarted.html:917
 msgid "layout is similar to Microsoft Windows, while the"
 msgstr "レイアウトはMicrosoft Windowsに似ていますし、"
 
-#: gettingstarted.html:929
+#: gettingstarted.html:918
 msgid "layout is similar to Apple Mac OS X."
 msgstr "レイアウトはApple Mac OS X風です。"
 
-#: gettingstarted.html:935
+#: gettingstarted.html:924
 msgid "MATE Tweak"
 msgstr "MATE Tweak"
 
-#: gettingstarted.html:940
+#: gettingstarted.html:930
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
 msgstr "Ubuntu MATEの提供するコントロールセンターに前述したユーティリティーも含まれています。ほぼすべての設定をコントロールセンターから変更できます。"
 
-#: gettingstarted.html:951
+#: gettingstarted.html:941
 msgid "Keyboard & Mouse Shortcuts"
 msgstr "キーボードとマウスのショートカット"
 
-#: gettingstarted.html:955
+#: gettingstarted.html:945
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
 msgstr "Ubuntu MATEは、コンピュータをさらに効率的に使えるようにするためのキーボードショートカットをたくさん用意しています。"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "The"
 msgstr "この"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "Super"
 msgstr "スーパー"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
 msgstr "キーとはWindowsキーのことです。Macのキーボードでは、⌘ コマンドキーにあたります"
 
-#: gettingstarted.html:962
+#: gettingstarted.html:952
 msgid "Common application shortcuts"
 msgstr "アプリケーション共通ショートカット"
 
-#: gettingstarted.html:963
+#: gettingstarted.html:953
 msgid "These shortcuts apply in most applications."
 msgstr "以下のショートカットはほとんどのアプリケーションで有効です。"
 
-#: gettingstarted.html968, 976, 984, 992, 1000, 1008, 1016, 1024, 1032, 1040,
-#: 1048, 1056, 1064, 1072, 1125, 1135, 1145, 1183, 1199, 1209, 1219, 1231,
-#: 1306, 1316, 1326, 1336, 1346, 1356, 1366, 1400
+#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
+#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: gettingstarted.html:972
+#: gettingstarted.html:962
 msgid "Copy the selected text/object"
 msgstr "選択したテキスト/対象物をコピーする"
 
-#: gettingstarted.html:980
+#: gettingstarted.html:970
 msgid "Cut the selected text/object"
 msgstr "選択したテキスト/対象物を切り取る"
 
-#: gettingstarted.html:988
+#: gettingstarted.html:978
 msgid "Paste/insert the selected text/object"
 msgstr "選択したテキスト/対象物を貼り付ける/挿入する"
 
-#: gettingstarted.html:996
+#: gettingstarted.html:986
 msgid "Select all text"
 msgstr "すべてのテキストを選択する"
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:994
 msgid "Find and replace words"
 msgstr "検索と置換"
 
-#: gettingstarted.html:1012
+#: gettingstarted.html:1002
 msgid "Make the selected text bold"
 msgstr "選択したテキストを太字にする"
 
-#: gettingstarted.html:1020
+#: gettingstarted.html:1010
 msgid "Make the selected text italic"
 msgstr "選択したテキストをイタリック体にする"
 
-#: gettingstarted.html:1028
+#: gettingstarted.html:1018
 msgid "Underline the selected text"
 msgstr "選択したテキストに下線をひく"
 
-#: gettingstarted.html:1036
+#: gettingstarted.html:1026
 msgid "Open a new document or window"
 msgstr "新規ドキュメントもしくはウィンドウを開く"
 
-#: gettingstarted.html:1044
+#: gettingstarted.html:1034
 msgid "Save the current document"
 msgstr "現在のドキュメントを保存する"
 
-#: gettingstarted.html:1052
+#: gettingstarted.html:1042
 msgid "Open another document"
 msgstr "他のドキュメントを開く"
 
-#: gettingstarted.html:1060
+#: gettingstarted.html:1050
 msgid "Print the current document"
 msgstr "現在のドキュメントを印刷する"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1058
 msgid "Undo the last change you made"
 msgstr "最後の変更を元に戻す"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
 msgstr "元に戻した変更をやり直す"
 
-#: gettingstarted.html:1084
+#: gettingstarted.html:1074
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "現在のアプリケーションのフルスクリーン化とウィンドウ化を切り替える"
 
-#: gettingstarted.html:1088
+#: gettingstarted.html:1078
 msgid "Desktop shortcuts"
 msgstr "デスクトップショートカット"
 
-#: gettingstarted.html:1089
+#: gettingstarted.html:1079
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "ここでは、デスクトップの要素を操作するための共通したキーボードショートカットの一覧を示します。"
 
-#: gettingstarted.html:1099
-msgid "Open the Applications menu"
-msgstr "アプリケーションメニューを開く"
-
-#: gettingstarted.html:1107
-msgid "Run an application by typing its name in the box which appears"
-msgstr "表示される入力欄にアプリケーション名を入力して実行する"
-
-#: gettingstarted.html:1111
-msgid "Prt Sc"
-msgstr "Print Screen"
-
-#: gettingstarted.html:1113
-msgid "Take a screenshot of the whole screen"
-msgstr "画面全体のスクリーンショットを撮る"
-
-#: gettingstarted.html:1121
-msgid "Take a screenshot of the current window"
-msgstr "現在のウィンドウのスクリーンショットを撮る"
-
-#: gettingstarted.html:1129
-msgid "Delete"
-msgstr "Delete"
-
-#: gettingstarted.html:1131
-msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr "シャットダウン、再起動、サスペンドのダイアログを開く"
-
-#: gettingstarted.html:1141
-msgid "Lock your screen."
-msgstr "画面のロック"
-
-#: gettingstarted.html:1151
-msgid "Open a terminal."
-msgstr "端末を開く"
-
-#: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
+#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
 msgid "Super Key"
 msgstr "スーパーキー"
 
-#: gettingstarted.html:1161
+#: gettingstarted.html:1087
+msgid "Activate Brisk Menu or MATE Menu launcher"
+msgstr "BriskメニューもしくはMATEメニューランチャーを表示する"
+
+#: gettingstarted.html:1093
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1101
+msgid "Open the Applications menu"
+msgstr "アプリケーションメニューを開く"
+
+#: gettingstarted.html:1109
+msgid "Run an application by typing its name in the box which appears"
+msgstr "表示される入力欄にアプリケーション名を入力して実行する"
+
+#: gettingstarted.html:1113
+msgid "Prt Sc"
+msgstr "Print Screen"
+
+#: gettingstarted.html:1115
+msgid "Take a screenshot of the whole screen"
+msgstr "画面全体のスクリーンショットを撮る"
+
+#: gettingstarted.html:1123
+msgid "Take a screenshot of the current window"
+msgstr "現在のウィンドウのスクリーンショットを撮る"
+
+#: gettingstarted.html:1131
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1139
+msgid "Delete"
+msgstr "Delete"
+
+#: gettingstarted.html:1141
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "シャットダウン、再起動、サスペンドのダイアログを開く"
+
+#: gettingstarted.html:1150
+msgid "Toggles 'Show Desktop'."
+msgstr "'デスクトップの表示'を切り替える"
+
+#: gettingstarted.html:1160
+msgid "Lock your screen."
+msgstr "画面のロック"
+
+#: gettingstarted.html:1170
+msgid "Open a terminal."
+msgstr "端末を開く"
+
+#: gettingstarted.html:1180
 msgid "Screen reader enable/disable."
 msgstr "スクリーンリーダーを有効/無効"
 
-#: gettingstarted.html:1165
+#: gettingstarted.html:1184
 msgid "Window shortcuts"
 msgstr "ウィンドウのショートカット"
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1189
 msgid "Tab"
 msgstr "Tab"
 
-#: gettingstarted.html:1173
+#: gettingstarted.html:1192
 msgid "Switch between currently-open windows."
 msgstr "現在開いているウィンドウの中から選択する"
 
-#: gettingstarted.html:1175
+#: gettingstarted.html:1194
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "Alt + Tabを押したらTabキーを離す(ただしAltキーは押したまま)"
 
-#: gettingstarted.html1176, 1192
+#: gettingstarted.html1195, 1211
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "Tabキーを繰り返し押して、画面上のウィンドウ一覧から選択する"
 
-#: gettingstarted.html:1177
+#: gettingstarted.html:1196
 msgid "Release the Alt key to switch to the selected window."
 msgstr "Altキーを離すと、選択されたウィンドウに切り替わる"
 
-#: gettingstarted.html:1190
+#: gettingstarted.html:1209
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "すべてのワークスペース上で開いているウィンドウの中から選択する"
 
-#: gettingstarted.html:1193
+#: gettingstarted.html:1212
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr "CtrlキーとAltキーを離すと、選択されたウィンドウに切り替わる"
 
-#: gettingstarted.html1203, 1225
+#: gettingstarted.html1222, 1244
 msgid "Left"
 msgstr "Left"
 
-#: gettingstarted.html:1205
+#: gettingstarted.html:1224
 msgid "Switch to the previous workspace."
 msgstr "左側のワークスペースに切り替える"
 
-#: gettingstarted.html1213, 1236
+#: gettingstarted.html1232, 1255
 msgid "Right"
 msgstr "Right"
 
-#: gettingstarted.html:1215
+#: gettingstarted.html:1234
 msgid "Switch to the next workspace."
 msgstr "右側のワークスペースに切り替える"
 
-#: gettingstarted.html1223, 1234, 1428
+#: gettingstarted.html1242, 1253, 1447
 msgid "Shift"
 msgstr "Shift"
 
-#: gettingstarted.html:1227
+#: gettingstarted.html:1246
 msgid "Move the current window to the previous workspace."
 msgstr "現在のウィンドウを左側のワークスペースへ移動する"
 
-#: gettingstarted.html:1238
+#: gettingstarted.html:1257
 msgid "Move the current window to the next workspace."
 msgstr "現在のウィンドウを右側のワークスペースへ移動する"
 
-#: gettingstarted.html:1246
+#: gettingstarted.html:1265
 msgid "Closes window."
 msgstr "ウィンドウを閉じる"
 
-#: gettingstarted.html:1254
+#: gettingstarted.html:1273
 msgid "Returns window to 'normal' or previous size."
 msgstr "ウィンドウを通常あるいは元の大きさに戻す"
 
-#: gettingstarted.html:1262
+#: gettingstarted.html:1281
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "ウィンドウを移動する(マウスかキーボードで移動可能)"
 
-#: gettingstarted.html:1270
+#: gettingstarted.html:1289
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "ウィンドウの大きさを変更する(これも、マウスかキーボードで変更可能)"
 
-#: gettingstarted.html:1278
+#: gettingstarted.html:1297
 msgid "Minimizes current window."
 msgstr "ウィンドウを最小化"
 
-#: gettingstarted.html:1286
+#: gettingstarted.html:1305
 msgid "Maximizes current window."
 msgstr "ウィンドウを最大化"
 
-#: gettingstarted.html:1294
-msgid "Pulldown Terminal."
-msgstr "端末をプルダウン"
+#: gettingstarted.html:1311
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
 
-#: gettingstarted.html:1300
+#: gettingstarted.html:1317
 msgid "Space"
 msgstr "Space"
 
-#: gettingstarted.html:1302
+#: gettingstarted.html:1319
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "ウィンドウメニューを表示し、'最全面へ'や'最小化'、最大化'などの操作を選ぶ"
 
-#: gettingstarted.html1310, 1320, 1330, 1340, 1350, 1360, 1370
+#: gettingstarted.html:1329
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
 msgid "Numpad"
 msgstr "テンキー"
 
-#: gettingstarted.html:1312
+#: gettingstarted.html:1340
 msgid "Place window in top left corner of screen."
 msgstr "ウィンドウを左上に移動"
 
-#: gettingstarted.html:1322
+#: gettingstarted.html:1350
 msgid "Place window in top half of screen."
 msgstr "ウィンドウを画面上端に移動"
 
-#: gettingstarted.html:1332
+#: gettingstarted.html:1360
 msgid "Place window in top right corner of screen."
 msgstr "ウィンドウを右上に移動"
 
-#: gettingstarted.html:1342
+#: gettingstarted.html:1370
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "ウィンドウを画面中央に移動/最大化"
 
-#: gettingstarted.html:1352
+#: gettingstarted.html:1380
 msgid "Place window in the bottom left corner of the screen."
 msgstr "ウィンドウを左下に移動"
 
-#: gettingstarted.html:1362
+#: gettingstarted.html:1390
 msgid "Place window in the bottom half of the screen."
 msgstr "ウィンドウを画面下端に移動"
 
-#: gettingstarted.html:1372
+#: gettingstarted.html:1400
 msgid "Place window in the bottom right corner of the screen."
 msgstr "ウィンドウを右下に移動"
 
-#: gettingstarted.html:1376
+#: gettingstarted.html:1404
 msgid "Mouse Shortcuts"
 msgstr "マウスショートカット"
 
-#: gettingstarted.html:1382
+#: gettingstarted.html:1410
 msgid "Left-click while dragging mouse"
 msgstr "左クリックしながらマウスをドラッグ"
 
-#: gettingstarted.html:1384
+#: gettingstarted.html:1412
 msgid "Moves the window."
 msgstr "ウィンドウの移動"
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1418
 msgid "Right-click while dragging mouse"
 msgstr "右クリックしながらマウスをドラッグ"
 
-#: gettingstarted.html:1392
+#: gettingstarted.html:1420
 msgid "Resizes the window (closest window edge)."
 msgstr "ウィンドウの大きさを変更(ウィンドウの端近くで)"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1424
 msgid "Compiz Effects Shortcuts"
 msgstr "Compiz画面効果のショートカット"
 
-#: gettingstarted.html:1397
+#: gettingstarted.html:1425
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "Compizがインストールされている場合、この一覧にあるショートカットが使えます。"
 
-#: gettingstarted.html:1406
-msgid "Toggles 'Show Desktop'."
-msgstr "'デスクトップの表示'を切り替える"
-
-#: gettingstarted.html:1414
+#: gettingstarted.html:1433
 msgid "Zoom out, show workspace switcher."
 msgstr "ズームアウトし、ワークスペーススイッチャーを表示する"
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1441
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "スケール効果を有効にし、現在のワークスペースにすべてのウィンドウを表示する。"
 
-#: gettingstarted.html:1432
+#: gettingstarted.html:1451
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "スケール効果を有効にし、すべてのワークスペースのウィンドウをすべて表示する。"
 
-#: gettingstarted.html:1440
+#: gettingstarted.html:1459
 msgid "Invert colors of the focused window."
 msgstr "フォーカスしているウィンドウの色を反転する"
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1467
 msgid "Invert colors for the whole screen."
 msgstr "画面全体の色を反転する"
 
-#: gettingstarted.html:1454
+#: gettingstarted.html:1473
 msgid "Scroll Wheel"
 msgstr "スクロールホイール"
 
-#: gettingstarted.html:1456
+#: gettingstarted.html:1475
 msgid "Zooms in on the screen."
 msgstr "画面上でズームイン"
 
-#: gettingstarted.html1462, 1478
+#: gettingstarted.html1481, 1497
 msgid "Middle Click"
 msgstr "中クリック"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1483
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "ズームインする領域を矩形で選択"
 
-#: gettingstarted.html:1470
+#: gettingstarted.html:1489
 msgid "Left Click"
 msgstr "左クリック"
 
-#: gettingstarted.html:1472
+#: gettingstarted.html:1491
 msgid "Move focused window."
 msgstr "フォーカスしたウィンドウを移動"
 
-#: gettingstarted.html:1480
+#: gettingstarted.html:1499
 msgid "Resize focused window."
 msgstr "フォーカスしたウィンドウの大きさを変更"
 
-#: gettingstarted.html:1486
+#: gettingstarted.html:1505
 msgid "Right Click"
 msgstr "右クリック"
 
-#: gettingstarted.html:1488
+#: gettingstarted.html:1507
 msgid "Show window menu."
 msgstr "ウィンドウメニューを表示"
 
-#: gettingstarted.html:1501
+#: gettingstarted.html:1520
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "コンピュータは、お互いに連携する様々な部品から構成されています。ここに表示される情報は、ハードウェアとソフトウェアをご自分のコンピュータで正しく稼働するよう保守する際に有益となります。"
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1524
 msgid "View System Requirements"
 msgstr "システム要件を見る"
 
-#: gettingstarted.html:1509
+#: gettingstarted.html:1528
 msgid "Basic"
 msgstr "基本"
 
-#: gettingstarted.html:1510
+#: gettingstarted.html:1529
 msgid "Detailed"
 msgstr "詳細"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1545
 msgid "Distribution:"
 msgstr "ディストリビューション:"
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1549
 msgid "Kernel:"
 msgstr "カーネル:"
 
-#: gettingstarted.html:1533
+#: gettingstarted.html:1552
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "LinuxカーネルはUbuntuの心臓ともいえます。"
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1558
 msgid "Motherboard:"
 msgstr "マザーボード:"
 
-#: gettingstarted.html:1543
+#: gettingstarted.html:1562
 msgid "Boot Mode:"
 msgstr "ブートモード:"
 
-#: gettingstarted.html:1546
+#: gettingstarted.html:1565
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Ubuntu MATEがファームウェアと通信するモードを表示します。"
 
-#: gettingstarted.html:1554
+#: gettingstarted.html:1573
 msgid "Processor"
 msgstr "プロセッサ"
 
-#: gettingstarted.html:1557
+#: gettingstarted.html:1576
 msgid "Model:"
 msgstr "モデル:"
 
-#: gettingstarted.html:1561
+#: gettingstarted.html:1580
 msgid "Speed:"
 msgstr "処理速度:"
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1584
 msgid "Architecture in use:"
 msgstr "使用アーキテクチャ:"
 
-#: gettingstarted.html:1568
+#: gettingstarted.html:1587
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "使用されているOSのアーキテクチャ。たとえば、i386 = 32-bit"
 
-#: gettingstarted.html:1574
+#: gettingstarted.html:1593
 msgid "Architecture(s) supported:"
 msgstr "対応するアーキテクチャ:"
 
-#: gettingstarted.html:1577
+#: gettingstarted.html:1596
 msgid "Architectures that are supported by this processor."
 msgstr "このプロセッサが対応するアーキテクチャ"
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1604
 msgid "Components"
 msgstr "構成部品"
 
-#: gettingstarted.html:1588
+#: gettingstarted.html:1607
 msgid "Memory (RAM):"
 msgstr "メモリ(RAM)"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1610
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "より多くのRAMがあれば同時に動くアプリケーションの数を増せます。"
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1616
 msgid "Graphics:"
 msgstr "グラフィックス"
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1620
 msgid "Internet Access:"
 msgstr "インターネット接続:"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1622
 msgid "Connected"
 msgstr "接続済み"
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1623
 msgid "Not Connected"
 msgstr "未接続"
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1630
 msgid "Storage"
 msgstr "記憶領域"
 
-#: gettingstarted.html:1615
+#: gettingstarted.html:1634
 msgid "Root File System:"
 msgstr "ルートファイルシステム:"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1637
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Ubuntu MATEがインストールされているファイルシステム"
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1643
 msgid "Entire Disk Capacity:"
 msgstr "全体のディスク容量:"
 
-#: gettingstarted.html:1629
+#: gettingstarted.html:1648
 msgid "Ubuntu MATE Usage"
 msgstr "Ubuntu MATEの領域"
 
-#: gettingstarted.html:1638
+#: gettingstarted.html:1657
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Ubuntu MATEへの割り当て領域"
 
-#: gettingstarted.html:1641
+#: gettingstarted.html:1660
 msgid "The size of your operating system partition."
 msgstr "Ubuntu MATE用のパーティションの大きさ"
 
-#: gettingstarted.html:1647
+#: gettingstarted.html:1666
 msgid "Used Space:"
 msgstr "使用容量:"
 
-#: gettingstarted.html:1653
+#: gettingstarted.html:1672
 msgid "Free Space:"
 msgstr "空き容量:"
 
-#: gettingstarted.html:1659
+#: gettingstarted.html:1678
 msgid "Other Usage:"
 msgstr "他の領域"
 
-#: gettingstarted.html:1662
+#: gettingstarted.html:1681
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "システム用の領域や他のパーティション、未割当領域、スワップ領域など。"
 
-#: gettingstarted.html:1670
+#: gettingstarted.html:1689
 msgid "Why do I see two units?"
 msgstr "なぜ、2つの単位が使われているのですか？"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1695
 msgid "SI or IEC Units?"
 msgstr "SI単位かIEC単位か?"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1697
 msgid "Decimal (SI Standard)"
 msgstr "十進数(SI標準)"
 
-#: gettingstarted.html:1680
+#: gettingstarted.html:1699
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1700
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "\"ガ\"と発音します。\"メガ\"、\"ギガ\""
 
-#: gettingstarted.html:1682
+#: gettingstarted.html:1701
 msgid "Common in every day applications and file storage."
 msgstr "通常のアプリケーションやファイルの容量で一般的です。"
 
-#: gettingstarted.html:1686
+#: gettingstarted.html:1705
 msgid "Binary (IEC Standard)"
 msgstr "バイナリ(IEC標準)"
 
-#: gettingstarted.html:1688
+#: gettingstarted.html:1707
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1708
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "\"ビ\"と発音します。\"メビ\"、\"ギビ\""
 
-#: gettingstarted.html:1690
+#: gettingstarted.html:1709
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "RAMやドライブ、パーティション、GPartedのようなツールなどで一般的。"
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1718
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
 msgstr "以下の情報はコマンドラインプログラムのinxiを使って直接取得できます。"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1719
 msgid "Gathering data..."
 msgstr "データ収集中..."
 
-#: gettingstarted.html:1701
-msgid "Sorry, there was a problem gathering this information."
-msgstr "申し訳ありません。情報を収集中に問題が発生しました。"
+#: gettingstarted.html:1720
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
 
-#: gettingstarted.html:1717
+#: gettingstarted.html:1736
 msgid "System Profiler and Benchmark"
 msgstr "システムプロファイラーとベンチマーク"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1737
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "接続されているUSB機器やPCIデバイス、簡易CPUベンチマークなど、より詳しいシステム情報をグラフィカルに見ることができます。"
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1752
 msgid "Disks"
 msgstr "ディスク"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1753
 msgid ""
-"A pre-installed utility that allows basic configuration to your disks and "
-"partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
-"data and writing images to SD cards/USB drives."
-msgstr "あらかじめインストールされているユーティリティで、ディスクとパーティションの基本的設定を行ないます。フォーマットやパーティション作成、マウント、S.M.A.R.Tデータの閲覧、SDカードやUSBドライブへのイメージの書き込みもできます。"
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
+msgstr ""
 
-#: gettingstarted.html:1751
+#: gettingstarted.html:1770
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "パーティションの閲覧や作成、編集、削除などが行なえる上級者向けツールです。ファイルシステムの拡張や縮小の他、様々なファイルフォーマットにも対応しています。"
 
-#: gettingstarted.html:1766
+#: gettingstarted.html:1785
 msgid "Disk Usage Analyser"
 msgstr "ディスク使用量解析"
 
-#: gettingstarted.html:1767
+#: gettingstarted.html:1786
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "ファイルシステムや個々のフォルダを調べるグラフィカルなツールで、どれくらいの容量を使用しているかを知ることができます。"
 
-#: gettingstarted.html:1782
+#: gettingstarted.html:1801
 msgid "System Monitor"
 msgstr "システムモニター"
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1802
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "現在動いているプロセスやリソースの使用量、現在マウントされているファイルシステムの使用容量と空き容量を表示します。"
 
-#: gettingstarted.html:1798
+#: gettingstarted.html:1817
 msgid "Psensor"
 msgstr "Psensor"
 
-#: gettingstarted.html:1799
+#: gettingstarted.html:1818
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "システムに内蔵されている部品の現在の温度をグラフに表示してくれます。表示される温度は、マザーボードやCPU、GPU、ハードディスクなどです。"
-
-#: gettingstarted.html:1097
-msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr "BriskメニューもしくはMATEメニューランチャーを表示する"
-
-#: gettingstarted.html:1103
-msgid "Activate Heads-up Display (HUD)"
-msgstr "ヘッドアップディスプレイ(HUD)を有効にする"
-
-#: gettingstarted.html:743
-msgid "OpenRazer"
-msgstr "OpenRazer"
-
-#: gettingstarted.html:763
-msgid "Requires OpenRazer to be installed first."
-msgstr "OpenRazerを先にインストールしてください。"
-
-#: gettingstarted.html823, 875
-msgid "Installing..."
-msgstr ""
-
-#: gettingstarted.html:1091
-msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1129
-msgid "Take a screenshot of a selected area"
-msgstr ""
-
-#: gettingstarted.html:1309
-msgid "Pulldown Terminal, if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1325
-msgid "S"
-msgstr ""
-
-#: gettingstarted.html:1327
-msgid "Toggle shaded state."
-msgstr ""
-
-#: gettingstarted.html:1718
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr ""
-
-#: gettingstarted.html:1751
-msgid ""
-"A utility that allows basic configuration to your disks and partitions, "
-"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
-"writing images to SD cards/USB drives."
-msgstr ""

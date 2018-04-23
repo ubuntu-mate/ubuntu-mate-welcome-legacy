@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Ab E <Abdulrhman360@gmail.com>, 2017
+# Ab E <inactive+Abd360@transifex.com>, 2017
 # Ala Eddine <alaeddinonline@gmail.com>, 2016
 # Ibrahim al-Darra <ibrahimaldarra@gmail.com>, 2016
 # Ibrahim al-Darra <ibrahimaldarra@gmail.com>, 2016
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-04-17 18:35+0000\n"
-"Last-Translator: Ibrahim al-Darra <ibrahimaldarra@gmail.com>\n"
+"PO-Revision-Date: 2018-04-23 09:20+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "التثبيت"
 msgid "Install Now"
 msgstr "ثبت الآن"
 
-#: gettingstarted.html68, 1511
+#: gettingstarted.html68, 1530
 msgid "Utilities"
 msgstr "الأدوات"
 
@@ -87,11 +87,11 @@ msgstr "التحديثات و الإضافات"
 msgid "Drivers"
 msgstr "التعريفات"
 
-#: gettingstarted.html97, 779
+#: gettingstarted.html97, 761
 msgid "Language & Input"
 msgstr "اللغة و الإدخال"
 
-#: gettingstarted.html102, 815
+#: gettingstarted.html102, 797
 msgid "Optional Tasks"
 msgstr "المهام الاختيارية"
 
@@ -103,7 +103,7 @@ msgstr "الألفة"
 msgid "Customization"
 msgstr "التخصيص"
 
-#: gettingstarted.html115, 954
+#: gettingstarted.html115, 944
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
 
@@ -111,7 +111,7 @@ msgstr "اختصارات لوحة المفاتيح"
 msgid "Troubleshooting"
 msgstr "اكتشاف الأخطاء و أصلاحها"
 
-#: gettingstarted.html123, 1497
+#: gettingstarted.html123, 1516
 msgid "System Specifications"
 msgstr "مواصفات الجهاز"
 
@@ -163,7 +163,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "سيعمل نظام التشغيل بشكل أفضل في حال طابق أو فاق جهازك المواصفاتِ الموصّاة"
 
-#: gettingstarted.html158, 1500
+#: gettingstarted.html158, 1519
 msgid "What's inside my computer?"
 msgstr "ماذا دخل حاسوبي ؟"
 
@@ -421,7 +421,7 @@ msgstr "تأكد من وجود اخطاء في نظام الملفات من خل
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "استخدم برنامج Gparted او خيار \"المخصص\" من المثبت ."
 
-#: gettingstarted.html296, 1750
+#: gettingstarted.html296, 1769
 msgid "GParted"
 msgstr "Gparted"
 
@@ -433,11 +433,11 @@ msgstr "متوافر فقط من الجلسة الحية."
 msgid "It is located under the"
 msgstr "تجده في قائمة"
 
-#: gettingstarted.html297, 423, 684, 1523
+#: gettingstarted.html297, 423, 666, 1542
 msgid "System"
 msgstr "النظام"
 
-#: gettingstarted.html298, 423, 685
+#: gettingstarted.html298, 423, 667
 msgid "Administration"
 msgstr "الإدارة"
 
@@ -591,7 +591,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "الإصدارات الأحدث من ويندوز توفر أداة لتقليص قرص NTFS من داخل ويندوز. هذا أكثر أماناً إذا كان من الضروري إبقاء ويندوز قابلاً للإقلاع على حاسوبك مع الاستمتاع بأبونتو ماتيه."
 
-#: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
+#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
 msgid "Open"
 msgstr "افتح"
 
@@ -731,8 +731,8 @@ msgstr "باقة الترميزات تتضمن حلاً متكاملاً يعم�
 msgid "Applying Changes..."
 msgstr "يتم تطبيق التغييرات..."
 
-#: gettingstarted.html447, 466, 486, 505, 524, 708, 730, 748, 767, 866, 1722,
-#: 1739, 1755, 1771, 1787, 1803
+#: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
+#: 874, 1741, 1758, 1774, 1790, 1806, 1822
 msgid "Install"
 msgstr "تثبيت"
 
@@ -825,11 +825,11 @@ msgstr "المشغلات الإضافية"
 msgid "Install Firmware Package"
 msgstr "تثبيت حزمة النظام الثابت (firmware)"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936
+#: gettingstarted.html564, 773, 827, 879, 902, 925
 msgid "can be found later in the"
 msgstr "يمكن أن يوجد لاحقاً في"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
+#: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
 msgstr "مركز التحكم"
 
@@ -983,57 +983,18 @@ msgstr "ماذا عن أحدث التعريفات من أنفيديا \"NVIDIA\"
 msgid "fetches the latest tested driver from the Ubuntu repositories."
 msgstr "تجلب آخر التعريفات المختبرة من مستودعات أبونتو ."
 
-#: gettingstarted.html:634
-msgid ""
-"Advanced users and gamers who would like newer versions may wish to consider"
-" adding the"
-msgstr "المستخدمون المتقدمون و محبوا الألعاب الذين يريدون النسخ الأحدث من التعريفات قد يرغبون بإضافة"
-
-#: gettingstarted.html:635
-msgid "Ubuntu Graphics Driver PPA"
-msgstr "مستودع تعريفات الجرافيكس \"Ubuntu Graphics Driver PPA\""
-
-#: gettingstarted.html:636
-msgid ""
-"which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
-"not as thoroughly tested."
-msgstr "الذي يحزم آخر التعريفات من أنفيديا لأبونتو . هذه الحزم ليست مختبرة كما يجب ."
-
-#: gettingstarted.html:638
-msgid ""
-"This only applies for actively supported cards, and not older cards using "
-"the legacy driver."
-msgstr "هذا ينطبق على البطاقات المدعومة بشكل نشط ، لا على البطاقات الأخرى الأكثر قدماً التي تستخدم التعريف الاعتيادي ."
-
-#: gettingstarted.html:641
-msgid "Add Repository"
-msgstr "إضافة المستودع"
-
-#: gettingstarted.html:644
-msgid ""
-"To add the repository to the system, open a terminal and type the following:"
-msgstr "لإضافة المستودع إلى جهازك ، قم بفتح الطرفية و لتكتب الأمر التالي :"
-
-#: gettingstarted.html:649
-msgid "After the PPA is added, newer versions are presented to install in"
-msgstr "بعد أن تضيف المستودع \" الـ PPA \" ، نسخ أحدث من التعريف ستكون ظاهرة لتثبتها من "
-
-#: gettingstarted.html:650
-msgid "Additional Drivers:"
-msgstr "التعريفات الإضافية \"Additional Drivers\""
-
-#: gettingstarted.html:657
+#: gettingstarted.html:639
 msgid "Wireless, Bluetooth and Other Devices"
 msgstr "اللاسلكي ، البلوتوث ، و الأجهزة الأخرى "
 
-#: gettingstarted.html:659
+#: gettingstarted.html:641
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
 msgstr "في حين لم يكن يتم العثور على أي تعريفات إضافية للعتاد ، ولم يعمل هذا الشيء بعد تثبيت حزم الـ . حينها عليك أن تبحث حول كيفية الحصول على تعريف مناسب ليعمل ذلك الجهاز كما هو مطلوب ."
 
-#: gettingstarted.html:663
+#: gettingstarted.html:645
 msgid ""
 "Unfortunately, this is due to the fact the manufacturer for your hardware "
 "hasn't provided any source code for developers to freely use, or there is "
@@ -1041,57 +1002,57 @@ msgid ""
 "model."
 msgstr "لسوء الحظ ، هذا الأمر سببه عدم تزويد مصنعي العتاد الشيفرات البرمجية الخاصة بالتعريفات للمطورين بشكل حرّ و مجاني ، أو لأنه لانعدام توثيق كاف لصنع تعريفات لذلك النوع أو لتلك الفئة المعينة للعتاد الخاص بك ."
 
-#: gettingstarted.html:669
+#: gettingstarted.html:651
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
 msgstr "و قد تزود بعض الجهات المصنعة تعريفا مغلق المصدر . إذا احتجت لمساعدة ، لا تتردد "
 
-#: gettingstarted.html:671
+#: gettingstarted.html:653
 msgid "ask the community"
 msgstr "بسؤال المجتمع"
 
-#: gettingstarted.html:674
+#: gettingstarted.html:656
 msgid "Read more on troubleshooting wireless hardware."
 msgstr "المزيد حول حل مشاكل العتاد اللاسلكي"
 
-#: gettingstarted.html678, 683
+#: gettingstarted.html660, 665
 msgid "Printers"
 msgstr "الطابعات"
 
-#: gettingstarted.html:680
+#: gettingstarted.html:662
 msgid "When you set up a printer in the"
 msgstr "عندما تقوم بإعداد طابعة عن طريق"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "utility"
 msgstr "الأداة"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "under"
 msgstr "أدناه"
 
-#: gettingstarted.html:685
+#: gettingstarted.html:667
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
 msgstr " سترى قائمة بالتعريفات الخاصة بها ، هذا في حال توفرها ."
 
-#: gettingstarted.html:688
+#: gettingstarted.html:670
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
 msgstr "قد تزود بعض الجهات المصنعة للعتادِ التعريفاتَ بحيث يتوجب عليك تحميلها من موقعهم الرسمي ."
 
-#: gettingstarted.html:691
+#: gettingstarted.html:673
 msgid "Read more on printing"
 msgstr "المزيد حول الطباعة"
 
-#: gettingstarted.html:700
+#: gettingstarted.html:682
 msgid "HP Linux Printing and Imaging System"
 msgstr "نظام الطباعة و التصوير لـ HP على لينكس"
 
-#: gettingstarted.html:701
+#: gettingstarted.html:683
 msgid ""
 "Recommended if you have an HP printer as it provides full support for "
 "printing on most HP SFP (single function peripheral) inkjets and many "
@@ -1099,913 +1060,882 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr "يوصى به إن كان لديك طابعة أيتش بي HP حيث إنه يوفر دعماً كاملاً لأغلب الطابعات HP SFP (أحادية الوظيفة) النافثة للحبر منها وكثير من الليزرية، وللمسح الضوئي وإرسال الفاكسات وولوج بطاقة الصورة على أغلب طابعات HP MFP (متعددة الوظيفة)."
 
-#: gettingstarted.html:715
+#: gettingstarted.html:697
 msgid "Software Utilities for Peripherals"
 msgstr "أدوات برمجية للأجهزة الملحقة"
 
-#: gettingstarted.html:724
+#: gettingstarted.html:706
 msgid "Solaar"
 msgstr "Solaar"
 
-#: gettingstarted.html:725
+#: gettingstarted.html:707
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
 msgstr "مدير جهاز لملحقات مستقبل لوجيتك الموحد Logitech Unifying Receiver. يوفّر مزايا مثل إدارة الأجهزة المقرونة وقراءة حالة البطارية."
 
-#: gettingstarted.html728, 747, 765
+#: gettingstarted.html710, 729, 747
 msgid "Learn More"
 msgstr "للمزيد"
 
-#: gettingstarted.html:743
-msgid "Razer Drivers for Linux"
-msgstr "مشغلات رايزر Razer للنكس"
+#: gettingstarted.html:725
+msgid "OpenRazer"
+msgstr "أوبن رايزر OpenRazer"
 
-#: gettingstarted.html:744
+#: gettingstarted.html:726
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
 msgstr "مشغل ومُصغي موجهة من قبل المجتمع يتضمن الوظيفة الكاملة للعديد من أجهزة رايزر Razer الملحقة، من لوحات المفاتيح، والفأرة، ووسادة الفأرة."
 
-#: gettingstarted.html:762
+#: gettingstarted.html:744
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
 msgstr "واجهة لإدارة أجهزة رايزر Razer مع دعم أوضاع التطبيقات، وضبط المؤثرات، وتمكين ميزات لوحة المفاتيح."
 
-#: gettingstarted.html:763
-msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr "يتطلّب أن تكون مشغلات رايزر Razer للنكس مثبّتة أولاً."
+#: gettingstarted.html:745
+msgid "Requires OpenRazer to be installed first."
+msgstr "يتطلب أن يكون أوبن رايزر OpenRazer مثبتاً أولاً."
 
-#: gettingstarted.html782, 787, 790
+#: gettingstarted.html764, 769, 772
 msgid "Language Support"
 msgstr "دعم اللغات"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:765
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
 msgstr "قد تحتاج إلى القيام بتحديثات لإعدادات اللغة و التوطين ، و قد تحتاج لتثبيت دعم إضافي للغات ."
 
-#: gettingstarted.html:797
+#: gettingstarted.html:779
 msgid "Complex Input"
 msgstr "الإدخال المركب"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:780
 msgid "Some regions of the world require complex inputs."
 msgstr "بعض المناطق من العالم تحتاج إلى الإدخالات المركبة ."
 
-#: gettingstarted.html:803
+#: gettingstarted.html:785
 msgid "Chinese"
 msgstr "الصينية"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:788
 msgid "Japanese"
 msgstr "اليابانية"
 
-#: gettingstarted.html:809
+#: gettingstarted.html:791
 msgid "Korean"
 msgstr "الكورية"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:800
 msgid "Backup, Firewall and User Management"
 msgstr "النسخ الاحتياطي و إعدادات جدار النار و إدارة المستخدم"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:801
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
 msgstr "أبونتو ماتيه مزودة أدوات تقوم بنسخ احتياطي لملفاتك ، و تأتي مع جدار ناري مثبت مسبقاً و تدعم حسابات مستخدمين متعددة ."
 
-#: gettingstarted.html830, 841
+#: gettingstarted.html812, 826
 msgid "Backups"
 msgstr "النسخ الاحتياطية "
 
-#: gettingstarted.html:831
+#: gettingstarted.html:813
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr "لا شيء أهم من القيام بنسخ احتياطي لملفاتك الشخصية خصوصة حالة حصول شيء كارثي ما لجهازك ."
 
-#: gettingstarted.html:835
+#: gettingstarted.html:817
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
 msgstr "بشكل مسبق ، يدعم النظام إمكانية أخذ نسخة احتياطية سواء لأجهزة تخزين محلية أو لخدمات تخزين سحابية ."
 
-#: gettingstarted.html:838
+#: gettingstarted.html:820
 msgid "Configure Backup"
 msgstr "إعداد النسخ الاحتياطي"
 
-#: gettingstarted.html:853
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "جاري التثبيت .."
+
+#: gettingstarted.html:838
 msgid "Network Shares"
 msgstr "مشاركات الشبكة"
 
-#: gettingstarted.html:854
+#: gettingstarted.html:839
 msgid "Need to access files and folders with multiple computers?"
 msgstr "هل تحتاج إلى الوصول لملفات و مجلدات عن طريق حواسيب متعددة ؟"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid "Samba"
 msgstr "سامبا | samba"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
 msgstr "متوافر للتثبيت ، و يتوافق مع مدير الملفات 'كاها caja' ، مما يسمح لك بجلب البيانات المخزنة على حواسيب أخرى بكل سلاسة ."
 
-#: gettingstarted.html:862
+#: gettingstarted.html:847
 msgid "Samba is installed."
 msgstr "سامبا مثبت ."
 
-#: gettingstarted.html:863
+#: gettingstarted.html:848
 msgid "Choose a folder and select \"Sharing Options\"."
 msgstr "اختر مجلدا أو ملفا ثم اختر \"إعدادات المشاركة\""
 
-#: gettingstarted.html:867
+#: gettingstarted.html:852
 msgid "Samba is available from the Software Boutique under \"Servers\"."
 msgstr "سامبا متوافر للتثبيت من الـ Boutique تحت خانة \"الخوادم servers\""
 
-#: gettingstarted.html:878
+#: gettingstarted.html:863
 msgid "Firewall"
 msgstr "جدار النار"
 
-#: gettingstarted.html:879
+#: gettingstarted.html:864
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
 msgstr "جدار النار يمنع الاتصالات الخبيثة من الخروج و الدخول من و الى جهازك . افتراضيا ، جدار النار غير مفعل ،"
 
-#: gettingstarted.html:881
+#: gettingstarted.html:866
 msgid "learn more about firewalls"
 msgstr "للمزيد حول جدران النار "
 
-#: gettingstarted.html:883
+#: gettingstarted.html:868
 msgid "provides a graphical frontend to"
 msgstr "يوفر وجهة رسومية لـ"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "Uncomplicated Firewall"
 msgstr "جدار النار البسيط \"Uncomplicated Firewall\""
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "If security is important to you, there are"
 msgstr "إذا كان الجانب الأمني مهما لك ، هنالك"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:870
 msgid "more ways to stay secure too"
 msgstr "طرق أخرى أيضا للبقاء آمناً "
 
-#: gettingstarted.html:887
+#: gettingstarted.html:872
 msgid "Configure Firewall"
 msgstr "أعدَّ جدار النار"
 
-#: gettingstarted.html:890
+#: gettingstarted.html:878
 msgid "Firewall Configuration"
 msgstr "إعداد جدار النار"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:890
 msgid "Users"
 msgstr "المستخدمون"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:892
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
 msgstr "هل تشارك حاسوبك مع الآخرين ؟ إذاً إجعل لكل مستخدم منهم حساباً لتحمي الخصوصية المتشاركين بجهاز الحاسوب نفسه ."
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "You can also log in to a"
 msgstr "يمكنك أيضاً تسجيل الدخول إلى :"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "Guest Session"
 msgstr "جلسة الضيف"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "if someone is using your computer as a one-off."
 msgstr "في حال كان هناك من يريد استخدام جهازك لمرة واحدة فقط."
 
-#: gettingstarted.html:910
+#: gettingstarted.html:898
 msgid "Configure Users"
 msgstr "إعداد المستخدمين"
 
-#: gettingstarted.html:913
+#: gettingstarted.html:901
 msgid "Users and Groups"
 msgstr "المستخدمون و المجموعات"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:909
 msgid "Customisation"
 msgstr "التخصيص"
 
-#: gettingstarted.html924, 932
+#: gettingstarted.html913, 921
 msgid "User Interface"
 msgstr "الواجهة الرسومية"
 
-#: gettingstarted.html:925
+#: gettingstarted.html:914
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
 msgstr "أبونتو ماتيه مزودة بأداة فريدة لتحويل أنماط عرض الواجهة الرسومية . بالمقدور استخدامها لتعكس بشكل سريع كيف تبدو و تظهرالأنظمة الأكثر شهرة بصورة عامة ."
 
-#: gettingstarted.html:928
+#: gettingstarted.html:917
 msgid "layout is similar to Microsoft Windows, while the"
 msgstr "عرض شبيه بنظام ويندوز بينما الـ "
 
-#: gettingstarted.html:929
+#: gettingstarted.html:918
 msgid "layout is similar to Apple Mac OS X."
 msgstr "عرض شبيه بنظام الماك"
 
-#: gettingstarted.html:935
+#: gettingstarted.html:924
 msgid "MATE Tweak"
 msgstr "أداة تطويع ماتيه \"MATE Tweak\""
 
-#: gettingstarted.html:940
+#: gettingstarted.html:930
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
 msgstr "إن الأدوات المذكورة أعلاه لجزء من مركز التحكم الشامل الذي توفره أبونتو ماتيه و الذي يمكنك من تغيير كل جانب و مظهر تقريباً ."
 
-#: gettingstarted.html:951
+#: gettingstarted.html:941
 msgid "Keyboard & Mouse Shortcuts"
 msgstr "اختصارات لوحة المفاتيح و الفأرة "
 
-#: gettingstarted.html:955
+#: gettingstarted.html:945
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
 msgstr "لأبونتو ماتيه الكثير من اختصارات لوحة المفاتيح لجعل استخدام الحاسوب أكثر عملية و إنتاجية ."
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "The"
 msgstr "تطبيق"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "Super"
 msgstr "زرالسوبر super key"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
 msgstr "هو نفسه الزر المعروف بزر \"الويندوز\" ، بالنسبة لأجهزة الماك فهو يعرف بزر الأمر\"⌘ Command key\" "
 
-#: gettingstarted.html:962
+#: gettingstarted.html:952
 msgid "Common application shortcuts"
 msgstr "اختصارات شائعة "
 
-#: gettingstarted.html:963
+#: gettingstarted.html:953
 msgid "These shortcuts apply in most applications."
 msgstr "هذه الاختصارات هي ذاتها في أغلب البرامج و التطبيقات"
 
-#: gettingstarted.html968, 976, 984, 992, 1000, 1008, 1016, 1024, 1032, 1040,
-#: 1048, 1056, 1064, 1072, 1125, 1135, 1145, 1183, 1199, 1209, 1219, 1231,
-#: 1306, 1316, 1326, 1336, 1346, 1356, 1366, 1400
+#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
+#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
 msgid "Ctrl"
 msgstr "زر التحكم  Ctrl "
 
-#: gettingstarted.html:972
+#: gettingstarted.html:962
 msgid "Copy the selected text/object"
 msgstr "نسخ الشيء/النص المحدد "
 
-#: gettingstarted.html:980
+#: gettingstarted.html:970
 msgid "Cut the selected text/object"
 msgstr "قص الشيء/النص المحدد"
 
-#: gettingstarted.html:988
+#: gettingstarted.html:978
 msgid "Paste/insert the selected text/object"
 msgstr "لصق/إدخال الشيء/النص المحدد"
 
-#: gettingstarted.html:996
+#: gettingstarted.html:986
 msgid "Select all text"
 msgstr "تحديد كل النص"
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:994
 msgid "Find and replace words"
 msgstr "بحث و استبدال الكلمات"
 
-#: gettingstarted.html:1012
+#: gettingstarted.html:1002
 msgid "Make the selected text bold"
 msgstr "جعل النص المحدد سميكاً"
 
-#: gettingstarted.html:1020
+#: gettingstarted.html:1010
 msgid "Make the selected text italic"
 msgstr "لجعل النص المحدد مائلاً"
 
-#: gettingstarted.html:1028
+#: gettingstarted.html:1018
 msgid "Underline the selected text"
 msgstr "لجعل ما تحت النص المحدد مسطراً"
 
-#: gettingstarted.html:1036
+#: gettingstarted.html:1026
 msgid "Open a new document or window"
 msgstr "لفتح نافذة مستند جديد أو مستند جديد"
 
-#: gettingstarted.html:1044
+#: gettingstarted.html:1034
 msgid "Save the current document"
 msgstr "لحفظ المستند الحالي"
 
-#: gettingstarted.html:1052
+#: gettingstarted.html:1042
 msgid "Open another document"
 msgstr "لفتح مستند آخر"
 
-#: gettingstarted.html:1060
+#: gettingstarted.html:1050
 msgid "Print the current document"
 msgstr "لطباعة المستند الحالي"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1058
 msgid "Undo the last change you made"
 msgstr "التراجع عن التغييرات التي تمت"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
 msgstr "لإعادة القيام بالتغييرات التي تم التراجع عنها "
 
-#: gettingstarted.html:1084
+#: gettingstarted.html:1074
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "للتبديل بين وضعي الشاشة الكاملة و الوضع المُؤطّر"
 
-#: gettingstarted.html:1088
+#: gettingstarted.html:1078
 msgid "Desktop shortcuts"
 msgstr "اختصارات سطح المكتب"
 
-#: gettingstarted.html:1089
+#: gettingstarted.html:1079
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "هذه القسم يصنف اختصارات سطح المكتب الأشهر التي تستخدم للتحكم بأقسام سطح المكتب و تشغيلها ."
 
-#: gettingstarted.html:1099
-msgid "Open the Applications menu"
-msgstr "فتح قائمة التطبيقات"
-
-#: gettingstarted.html:1107
-msgid "Run an application by typing its name in the box which appears"
-msgstr "تشغيل تطبيق ما بكتابة اسمه في مربع الحوار الذي يظهر"
-
-#: gettingstarted.html:1111
-msgid "Prt Sc"
-msgstr "زر التقاط الشاشة Prt Sc"
-
-#: gettingstarted.html:1113
-msgid "Take a screenshot of the whole screen"
-msgstr "أخذ لقطة شاشة لكل الشاشة"
-
-#: gettingstarted.html:1121
-msgid "Take a screenshot of the current window"
-msgstr "أخذ لقطة شاشة للنافذة الحالية"
-
-#: gettingstarted.html:1129
-msgid "Delete"
-msgstr "حذف"
-
-#: gettingstarted.html:1131
-msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr "فتح مربع الحواري لايقاف او اعادة تشغيل النظام او لايقافه مؤقتا ."
-
-#: gettingstarted.html:1141
-msgid "Lock your screen."
-msgstr "قفل الشاشة"
-
-#: gettingstarted.html:1151
-msgid "Open a terminal."
-msgstr "فتح الطرفية"
-
-#: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
+#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
 msgid "Super Key"
 msgstr "زر السوبر"
 
-#: gettingstarted.html:1161
+#: gettingstarted.html:1087
+msgid "Activate Brisk Menu or MATE Menu launcher"
+msgstr "تنشيط مطلق برمجيات قائمة بْرِسْك Brisk أو قائمة ماتيه"
+
+#: gettingstarted.html:1093
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr ""
+
+#: gettingstarted.html:1101
+msgid "Open the Applications menu"
+msgstr "فتح قائمة التطبيقات"
+
+#: gettingstarted.html:1109
+msgid "Run an application by typing its name in the box which appears"
+msgstr "تشغيل تطبيق ما بكتابة اسمه في مربع الحوار الذي يظهر"
+
+#: gettingstarted.html:1113
+msgid "Prt Sc"
+msgstr "زر التقاط الشاشة Prt Sc"
+
+#: gettingstarted.html:1115
+msgid "Take a screenshot of the whole screen"
+msgstr "أخذ لقطة شاشة لكل الشاشة"
+
+#: gettingstarted.html:1123
+msgid "Take a screenshot of the current window"
+msgstr "أخذ لقطة شاشة للنافذة الحالية"
+
+#: gettingstarted.html:1131
+msgid "Take a screenshot of a selected area"
+msgstr ""
+
+#: gettingstarted.html:1139
+msgid "Delete"
+msgstr "حذف"
+
+#: gettingstarted.html:1141
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "فتح مربع الحواري لايقاف او اعادة تشغيل النظام او لايقافه مؤقتا ."
+
+#: gettingstarted.html:1150
+msgid "Toggles 'Show Desktop'."
+msgstr "تشغل وتوقف \"عرض سطح المكتب\"."
+
+#: gettingstarted.html:1160
+msgid "Lock your screen."
+msgstr "قفل الشاشة"
+
+#: gettingstarted.html:1170
+msgid "Open a terminal."
+msgstr "فتح الطرفية"
+
+#: gettingstarted.html:1180
 msgid "Screen reader enable/disable."
 msgstr "تفعيل/تعطيل قارئ الشاشة"
 
-#: gettingstarted.html:1165
+#: gettingstarted.html:1184
 msgid "Window shortcuts"
 msgstr "اختصارات النوافذ"
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1189
 msgid "Tab"
 msgstr "زر Tab"
 
-#: gettingstarted.html:1173
+#: gettingstarted.html:1192
 msgid "Switch between currently-open windows."
 msgstr "التبديل بين النوافذ المفتوحة "
 
-#: gettingstarted.html:1175
+#: gettingstarted.html:1194
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "اضغط زري Alt + Tab معا ، ثم أفلت زر الـ Tab (مع استمرار الضغط على الـ Alt )"
 
-#: gettingstarted.html1176, 1192
+#: gettingstarted.html1195, 1211
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "اضغط زر الـ Tab لتدور بين النوافذ المفتوحة "
 
-#: gettingstarted.html:1177
+#: gettingstarted.html:1196
 msgid "Release the Alt key to switch to the selected window."
 msgstr "أفلت زر الـ Alt لتنتقل إلى النافذة المختارة"
 
-#: gettingstarted.html:1190
+#: gettingstarted.html:1209
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "بدل بين النوافذ المفتوحي في كل مساحات العمل"
 
-#: gettingstarted.html:1193
+#: gettingstarted.html:1212
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr "أفلت زر الـ Ctrl و الـ Alt لتنتقل إلى النافذة المختارة"
 
-#: gettingstarted.html1203, 1225
+#: gettingstarted.html1222, 1244
 msgid "Left"
 msgstr "يسار"
 
-#: gettingstarted.html:1205
+#: gettingstarted.html:1224
 msgid "Switch to the previous workspace."
 msgstr "بدل إلى مساحة العمل السابقة"
 
-#: gettingstarted.html1213, 1236
+#: gettingstarted.html1232, 1255
 msgid "Right"
 msgstr "يمين"
 
-#: gettingstarted.html:1215
+#: gettingstarted.html:1234
 msgid "Switch to the next workspace."
 msgstr "بدل إلى مساحة العمل التالية"
 
-#: gettingstarted.html1223, 1234, 1428
+#: gettingstarted.html1242, 1253, 1447
 msgid "Shift"
 msgstr "زر Shift"
 
-#: gettingstarted.html:1227
+#: gettingstarted.html:1246
 msgid "Move the current window to the previous workspace."
 msgstr "انقل النافذة الحالية إلى مساحة العمل السابقة"
 
-#: gettingstarted.html:1238
+#: gettingstarted.html:1257
 msgid "Move the current window to the next workspace."
 msgstr "انقل النافذة الحالية إلى مساحة العمل التالية"
 
-#: gettingstarted.html:1246
+#: gettingstarted.html:1265
 msgid "Closes window."
 msgstr "تغلق النافذة"
 
-#: gettingstarted.html:1254
+#: gettingstarted.html:1273
 msgid "Returns window to 'normal' or previous size."
 msgstr "تعيد النافذة إلى الحجم الطبيعي أو السابق"
 
-#: gettingstarted.html:1262
+#: gettingstarted.html:1281
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "تنقل النافذة الحالية (قابلة للتحريك عن طريق لوحة المفاتيح أو الفأرة)"
 
-#: gettingstarted.html:1270
+#: gettingstarted.html:1289
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "تعيد تحجيم النافذة الحالية (قابلة للتحريك عن طريق لوحة المفاتيح أو الفأرة)"
 
-#: gettingstarted.html:1278
+#: gettingstarted.html:1297
 msgid "Minimizes current window."
 msgstr "تصغر كل النوافذ المفتوحة"
 
-#: gettingstarted.html:1286
+#: gettingstarted.html:1305
 msgid "Maximizes current window."
 msgstr "تكبر النافذة الحالية"
 
-#: gettingstarted.html:1294
-msgid "Pulldown Terminal."
-msgstr "تسحب الطرفية للأسفل "
+#: gettingstarted.html:1311
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
 
-#: gettingstarted.html:1300
+#: gettingstarted.html:1317
 msgid "Space"
 msgstr "زر space"
 
-#: gettingstarted.html:1302
+#: gettingstarted.html:1319
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "يعرض قائمة النوافذ مع خيارات مثل 'إبقاء على السطح' و 'تصغير' و 'تكبير' .."
 
-#: gettingstarted.html1310, 1320, 1330, 1340, 1350, 1360, 1370
+#: gettingstarted.html:1329
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
 msgid "Numpad"
 msgstr "زر Numpad"
 
-#: gettingstarted.html:1312
+#: gettingstarted.html:1340
 msgid "Place window in top left corner of screen."
 msgstr "لجعل النافذة تتموضع في الزاوية العليا اليسارية من الشاشة"
 
-#: gettingstarted.html:1322
+#: gettingstarted.html:1350
 msgid "Place window in top half of screen."
 msgstr "لجعل النافذة تتموضع في النصف  العليا من الشاشة"
 
-#: gettingstarted.html:1332
+#: gettingstarted.html:1360
 msgid "Place window in top right corner of screen."
 msgstr "لجعل النافذة تتموضع في الزاوية العليا اليمينية من الشاشة"
 
-#: gettingstarted.html:1342
+#: gettingstarted.html:1370
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "لجعل النافذة تتوسط/تملأ الشاشة"
 
-#: gettingstarted.html:1352
+#: gettingstarted.html:1380
 msgid "Place window in the bottom left corner of the screen."
 msgstr "لجعل النافذة تتموضع في الزاوية السفلى اليسارية من الشاشة"
 
-#: gettingstarted.html:1362
+#: gettingstarted.html:1390
 msgid "Place window in the bottom half of the screen."
 msgstr "لجعل النافذة تتموضع في النصف الأسفل من الشاشة"
 
-#: gettingstarted.html:1372
+#: gettingstarted.html:1400
 msgid "Place window in the bottom right corner of the screen."
 msgstr "لجعل النافذة تتموضع في الزاوية السفلى اليمينية من الشاشة"
 
-#: gettingstarted.html:1376
+#: gettingstarted.html:1404
 msgid "Mouse Shortcuts"
 msgstr "اختصارات الفأرة"
 
-#: gettingstarted.html:1382
+#: gettingstarted.html:1410
 msgid "Left-click while dragging mouse"
 msgstr "إضغط على الزر الأيسر أثناء سحب الفأرة"
 
-#: gettingstarted.html:1384
+#: gettingstarted.html:1412
 msgid "Moves the window."
 msgstr "تحرك النافذة"
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1418
 msgid "Right-click while dragging mouse"
 msgstr "إضغط على الزر الأيمن أثناء سحب الفأرة"
 
-#: gettingstarted.html:1392
+#: gettingstarted.html:1420
 msgid "Resizes the window (closest window edge)."
 msgstr "تعيد تحجيم النوافذ (الأقرب من الحافة)"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1424
 msgid "Compiz Effects Shortcuts"
 msgstr "اختصارات تأثرات كومبيز"
 
-#: gettingstarted.html:1397
+#: gettingstarted.html:1425
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "كل الاختصارات المسرودة في هذا القسم، تتطلب أن يكون كومبِز Compiz ممكّناً."
 
-#: gettingstarted.html:1406
-msgid "Toggles 'Show Desktop'."
-msgstr "تشغل وتوقف \"عرض سطح المكتب\"."
-
-#: gettingstarted.html:1414
+#: gettingstarted.html:1433
 msgid "Zoom out, show workspace switcher."
 msgstr "تصغير المنظور، يعرض مبدّل مساحة العمل."
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1441
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "تُمكّن تأثير \"التأقلم مع حجم الشاشة\"، تعرض جميع النوافذ من مساحة العمل الحالية."
 
-#: gettingstarted.html:1432
+#: gettingstarted.html:1451
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "تُمكّن تأثير \"التأقلم مع حجم الشاشة\"، تعرض جميع النوافذ من جميع مساحات العمل."
 
-#: gettingstarted.html:1440
+#: gettingstarted.html:1459
 msgid "Invert colors of the focused window."
 msgstr "عكس الألوان للنافذة التي عليها التركيز."
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1467
 msgid "Invert colors for the whole screen."
 msgstr "عكس الألوان للشاشة كاملة."
 
-#: gettingstarted.html:1454
+#: gettingstarted.html:1473
 msgid "Scroll Wheel"
 msgstr "عجلة التمرير"
 
-#: gettingstarted.html:1456
+#: gettingstarted.html:1475
 msgid "Zooms in on the screen."
 msgstr "تكبّر منظور الشاشة."
 
-#: gettingstarted.html1462, 1478
+#: gettingstarted.html1481, 1497
 msgid "Middle Click"
 msgstr "النقرة الوسطى"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1483
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "اختر منطقة لتكبير منظورها باستخدام مستطيل."
 
-#: gettingstarted.html:1470
+#: gettingstarted.html:1489
 msgid "Left Click"
 msgstr "النقرة اليسرى"
 
-#: gettingstarted.html:1472
+#: gettingstarted.html:1491
 msgid "Move focused window."
 msgstr "تحريك النافذة التي عليها التركيز."
 
-#: gettingstarted.html:1480
+#: gettingstarted.html:1499
 msgid "Resize focused window."
 msgstr "تغيير حجم النافذة التي عليها التركيز."
 
-#: gettingstarted.html:1486
+#: gettingstarted.html:1505
 msgid "Right Click"
 msgstr "النقرة اليمنى"
 
-#: gettingstarted.html:1488
+#: gettingstarted.html:1507
 msgid "Show window menu."
 msgstr "عرض قائمة النافذة."
 
-#: gettingstarted.html:1501
+#: gettingstarted.html:1520
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "حاسوبك مكون من مكونات مختلفة تتفاعل معاً. هذه المعلومات مفيدة عند تقديم الدعم للتأكد من أن العتاد والبرامج تعمل على حاسوبك."
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1524
 msgid "View System Requirements"
 msgstr "عرض متطلبات النظام "
 
-#: gettingstarted.html:1509
+#: gettingstarted.html:1528
 msgid "Basic"
 msgstr "أساسي"
 
-#: gettingstarted.html:1510
+#: gettingstarted.html:1529
 msgid "Detailed"
 msgstr "مفصّل"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1545
 msgid "Distribution:"
 msgstr "التوزيعة:"
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1549
 msgid "Kernel:"
 msgstr "النواة:"
 
-#: gettingstarted.html:1533
+#: gettingstarted.html:1552
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "نواة لنكس هي قلب أبونتو."
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1558
 msgid "Motherboard:"
 msgstr "اللوحة الأم:"
 
-#: gettingstarted.html:1543
+#: gettingstarted.html:1562
 msgid "Boot Mode:"
 msgstr "وضع الإقلاع:"
 
-#: gettingstarted.html:1546
+#: gettingstarted.html:1565
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "يعرض الوضع الذي يتواصل به أبونتو ماتيه مع النظام الثابت (firmware)."
 
-#: gettingstarted.html:1554
+#: gettingstarted.html:1573
 msgid "Processor"
 msgstr "المعالج"
 
-#: gettingstarted.html:1557
+#: gettingstarted.html:1576
 msgid "Model:"
 msgstr "الطراز:"
 
-#: gettingstarted.html:1561
+#: gettingstarted.html:1580
 msgid "Speed:"
 msgstr "السرعة:"
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1584
 msgid "Architecture in use:"
 msgstr "المعمارية المستخدمة:"
 
-#: gettingstarted.html:1568
+#: gettingstarted.html:1587
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "معمارية نظام التشغيل المستخدمة. مثلاً، i386 تعني 32 بت."
 
-#: gettingstarted.html:1574
+#: gettingstarted.html:1593
 msgid "Architecture(s) supported:"
 msgstr "المعماريات المدعومة:"
 
-#: gettingstarted.html:1577
+#: gettingstarted.html:1596
 msgid "Architectures that are supported by this processor."
 msgstr "المعمارية التي يدعمها هذا المعالج."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1604
 msgid "Components"
 msgstr "المكونات"
 
-#: gettingstarted.html:1588
+#: gettingstarted.html:1607
 msgid "Memory (RAM):"
 msgstr "الذاكرة العشوائية (RAM):"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1610
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "المزيد من الذاكرة العشوائية (RAM) يسمح لتطبيقات أكثر بالعمل في آنٍ معاً."
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1616
 msgid "Graphics:"
 msgstr "الرسوميات:"
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1620
 msgid "Internet Access:"
 msgstr "الولوج للإنترنت:"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1622
 msgid "Connected"
 msgstr "متصل"
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1623
 msgid "Not Connected"
 msgstr "غير متصل"
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1630
 msgid "Storage"
 msgstr "التخزين"
 
-#: gettingstarted.html:1615
+#: gettingstarted.html:1634
 msgid "Root File System:"
 msgstr "نظام ملفات الجذر:"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1637
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "نظام الملفات حيث تم تثبيت أبونتو ماتيه."
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1643
 msgid "Entire Disk Capacity:"
 msgstr "السعة الكلّية للقرص:"
 
-#: gettingstarted.html:1629
+#: gettingstarted.html:1648
 msgid "Ubuntu MATE Usage"
 msgstr "المستخدَم من قبل أبونتو ماتيه"
 
-#: gettingstarted.html:1638
+#: gettingstarted.html:1657
 msgid "Allocated for Ubuntu MATE:"
 msgstr "المخصّص لأبونتو ماتيه:"
 
-#: gettingstarted.html:1641
+#: gettingstarted.html:1660
 msgid "The size of your operating system partition."
 msgstr "حجم قسم نظام تشغيلك."
 
-#: gettingstarted.html:1647
+#: gettingstarted.html:1666
 msgid "Used Space:"
 msgstr "المساحة المستخدمة:"
 
-#: gettingstarted.html:1653
+#: gettingstarted.html:1672
 msgid "Free Space:"
 msgstr "المساحة الخالية:"
 
-#: gettingstarted.html:1659
+#: gettingstarted.html:1678
 msgid "Other Usage:"
 msgstr "استخدامات أخرى:"
 
-#: gettingstarted.html:1662
+#: gettingstarted.html:1681
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "محجوز من قبل النظام، أو أقسام أخرى، أو غير معيّن، أو نظام التبديل swap."
 
-#: gettingstarted.html:1670
+#: gettingstarted.html:1689
 msgid "Why do I see two units?"
 msgstr "لم أرى وحدتين؟"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1695
 msgid "SI or IEC Units?"
 msgstr "وحدة SI أو IEC؟"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1697
 msgid "Decimal (SI Standard)"
 msgstr "عشري (معيار SI)"
 
-#: gettingstarted.html:1680
+#: gettingstarted.html:1699
 msgid "1 KB = 1000 bytes"
 msgstr "1 ك.ب. = 1000 بايت"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1700
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "تنطق \"جا/كا\" مثل \"ميجا/ميكا\"، \"جيجا/كيكا\"."
 
-#: gettingstarted.html:1682
+#: gettingstarted.html:1701
 msgid "Common in every day applications and file storage."
 msgstr "شائع في قياس التطبيقات اليومية وتخزين الملفات."
 
-#: gettingstarted.html:1686
+#: gettingstarted.html:1705
 msgid "Binary (IEC Standard)"
 msgstr "ثنائي (معيار IEC)"
 
-#: gettingstarted.html:1688
+#: gettingstarted.html:1707
 msgid "1 KiB = 1024 bytes"
 msgstr "1 ك. ب. = 1024 بايت."
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1708
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "تُنطق \"باي\" - مثل \"ميباي\"، \"جيباي\"."
 
-#: gettingstarted.html:1690
+#: gettingstarted.html:1709
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "شائع في قياس الذاكرة العشوائية (RAM) والأقراص وأقسام الأقراص، متضمنة أدوات مثل ج.بارتد GParted."
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1718
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
 msgstr "المعلومات التالية مستخلصة مباشرة من برنامج سطر الأوامر inxi."
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1719
 msgid "Gathering data..."
 msgstr "جاري جمع المعلومات .."
 
-#: gettingstarted.html:1701
-msgid "Sorry, there was a problem gathering this information."
-msgstr "عذرا ، هناك مشكلة في جمع هذه المعلومات ."
+#: gettingstarted.html:1720
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr ""
 
-#: gettingstarted.html:1717
+#: gettingstarted.html:1736
 msgid "System Profiler and Benchmark"
 msgstr "حول الجهاز"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1737
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "اطّلع على المزيد من المعلومات التفصيلية حول النظام في واجهة رسومية بما في ذلك مفاتيح الـ USB المتصلة ، أجهزة الـ PCI و قياس بسيط لمواصفات المعالج ."
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1752
 msgid "Disks"
 msgstr "الأقراص"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1753
 msgid ""
-"A pre-installed utility that allows basic configuration to your disks and "
-"partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
-"data and writing images to SD cards/USB drives."
-msgstr "أداة مثبتة مسبقاً تُمكّن من التضبيط المبدئي للأقراص وأقسام الأقراص، متضمنة التهيئة، التقسيم، التثبيت، عرض بيانات S.M.A.R.T وكتابة صور الأقراص إلى بطاقات ذاكرة SD وأقراص USB."
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
+msgstr ""
 
-#: gettingstarted.html:1751
+#: gettingstarted.html:1770
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "أداة متقدّمة لعرض، إنشاء، تعديل و حذف التقسيمات. بإمكانها أيضاً توسيع و تقليص نُظُم الملف، كما أنها تدعم مجال واسع من الصيغ."
 
-#: gettingstarted.html:1766
+#: gettingstarted.html:1785
 msgid "Disk Usage Analyser"
 msgstr "محلل استخدام القرص"
 
-#: gettingstarted.html:1767
+#: gettingstarted.html:1786
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "أداة رسومية لاستعراض نظام الملف أو المجلدات الفردية لمعرفة مقدار المساحة المستخدمة."
 
-#: gettingstarted.html:1782
+#: gettingstarted.html:1801
 msgid "System Monitor"
 msgstr "مراقبة النظام"
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1802
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "العرض يظهر الآن العمليات، استهلاك الموارد، و كمية المواد الحرة و المستخدمة لنظم الملف المركّبة حالياً."
 
-#: gettingstarted.html:1798
+#: gettingstarted.html:1817
 msgid "Psensor"
 msgstr "Psensor"
 
-#: gettingstarted.html:1799
+#: gettingstarted.html:1818
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "عرض و تخطيط درجات الحرارة الحالية للمكونات المرتبطة بالنظام. متضمناً : اللوحة الأم، المعالج، وحدة معالجة الرسوميات و القرص الصلب"
-
-#: gettingstarted.html:1097
-msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr "تنشيط مطلق برمجيات قائمة بْرِسْك Brisk أو قائمة ماتيه"
-
-#: gettingstarted.html:1103
-msgid "Activate Heads-up Display (HUD)"
-msgstr "تنشيط نظام العرض الفوقي HUD"
-
-#: gettingstarted.html:743
-msgid "OpenRazer"
-msgstr "أوبن رايزر OpenRazer"
-
-#: gettingstarted.html:763
-msgid "Requires OpenRazer to be installed first."
-msgstr "يتطلب أن يكون أوبن رايزر OpenRazer مثبتاً أولاً."
-
-#: gettingstarted.html823, 875
-msgid "Installing..."
-msgstr "جاري التثبيت .."
-
-#: gettingstarted.html:1091
-msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1129
-msgid "Take a screenshot of a selected area"
-msgstr ""
-
-#: gettingstarted.html:1309
-msgid "Pulldown Terminal, if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1325
-msgid "S"
-msgstr ""
-
-#: gettingstarted.html:1327
-msgid "Toggle shaded state."
-msgstr ""
-
-#: gettingstarted.html:1718
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr ""
-
-#: gettingstarted.html:1751
-msgid ""
-"A utility that allows basic configuration to your disks and partitions, "
-"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
-"writing images to SD cards/USB drives."
-msgstr ""

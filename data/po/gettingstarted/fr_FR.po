@@ -2,6 +2,7 @@
 # Translators:
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
+# David D, 2018
 # Arkelis <guillaume2.fayard@wanadoo.fr>, 2018
 # Laurent Napias, 2016
 # utybo <utybo@users.noreply.github.com>, 2016
@@ -13,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-04-17 18:35+0000\n"
-"Last-Translator: Clement Krys <krys.clement@gmail.com>\n"
+"PO-Revision-Date: 2018-04-23 09:20+0000\n"
+"Last-Translator: Martin Wimpress <code@flexion.org>\n"
 "Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +68,7 @@ msgstr "Installation"
 msgid "Install Now"
 msgstr "Installer maintenant"
 
-#: gettingstarted.html68, 1511
+#: gettingstarted.html68, 1530
 msgid "Utilities"
 msgstr "Utilitaires"
 
@@ -91,11 +92,11 @@ msgstr "Mises à jours et extras"
 msgid "Drivers"
 msgstr "Pilotes"
 
-#: gettingstarted.html97, 779
+#: gettingstarted.html97, 761
 msgid "Language & Input"
 msgstr "Langues et périphériques d'entrée"
 
-#: gettingstarted.html102, 815
+#: gettingstarted.html102, 797
 msgid "Optional Tasks"
 msgstr "Tâches optionnelles"
 
@@ -107,7 +108,7 @@ msgstr "Familliarité"
 msgid "Customization"
 msgstr "Personnalisation"
 
-#: gettingstarted.html115, 954
+#: gettingstarted.html115, 944
 msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
@@ -115,7 +116,7 @@ msgstr "Raccourcis clavier"
 msgid "Troubleshooting"
 msgstr "Résolution des problèmes"
 
-#: gettingstarted.html123, 1497
+#: gettingstarted.html123, 1516
 msgid "System Specifications"
 msgstr "Spécifications du système"
 
@@ -167,7 +168,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Le système d'exploitation fonctionnera de manière plus efficace si votre ordinateur dépasse les exigences relatives au matériel."
 
-#: gettingstarted.html158, 1500
+#: gettingstarted.html158, 1519
 msgid "What's inside my computer?"
 msgstr "Qu'y a-t-il dans mon ordinateur ?"
 
@@ -425,7 +426,7 @@ msgstr "à partir de l'invite de commande pour vérifier s'il y a des erreurs da
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Utilisez GParted ou le mode \"Manuel\" de l'installeur."
 
-#: gettingstarted.html296, 1750
+#: gettingstarted.html296, 1769
 msgid "GParted"
 msgstr "GParted"
 
@@ -437,11 +438,11 @@ msgstr "est seulement disponible durant une session live."
 msgid "It is located under the"
 msgstr "Il se trouve sous le menu"
 
-#: gettingstarted.html297, 423, 684, 1523
+#: gettingstarted.html297, 423, 666, 1542
 msgid "System"
 msgstr "Système"
 
-#: gettingstarted.html298, 423, 685
+#: gettingstarted.html298, 423, 667
 msgid "Administration"
 msgstr "Administration"
 
@@ -595,7 +596,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Les nouvelles versions de Windows contiennent un utilitaire pour diminuer la taille du volume NTFS pendant que votre système est en marche. Ce qui est plus sûr s'il est essentiel que Windows puisse toujours démarrer sur votre ordinateur alors que vous faites l'expérience d'Ubuntu MATE."
 
-#: gettingstarted.html346, 707, 729, 766, 1721, 1738, 1754, 1770, 1786, 1802
+#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -735,8 +736,8 @@ msgstr "Le paquet \"codecs\" inclut une solution multi-plateformes pour décoder
 msgid "Applying Changes..."
 msgstr "Application des changements..."
 
-#: gettingstarted.html447, 466, 486, 505, 524, 708, 730, 748, 767, 866, 1722,
-#: 1739, 1755, 1771, 1787, 1803
+#: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
+#: 874, 1741, 1758, 1774, 1790, 1806, 1822
 msgid "Install"
 msgstr "Installer"
 
@@ -829,11 +830,11 @@ msgstr "Pilotes Additionnels"
 msgid "Install Firmware Package"
 msgstr "Installer Paquet Micrologiciel"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936
+#: gettingstarted.html564, 773, 827, 879, 902, 925
 msgid "can be found later in the"
 msgstr "peut être retrouvé plus tard dans le"
 
-#: gettingstarted.html564, 791, 842, 891, 914, 936, 939, 944
+#: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
 msgstr "Centre de Contrôle"
 
@@ -987,57 +988,18 @@ msgstr "Qu'en est-il des derniers pilotes NVIDIA ?"
 msgid "fetches the latest tested driver from the Ubuntu repositories."
 msgstr "va chercher les derniers pilotes testés directement des dépôts Ubuntu."
 
-#: gettingstarted.html:634
-msgid ""
-"Advanced users and gamers who would like newer versions may wish to consider"
-" adding the"
-msgstr "Les utilisateurs avancés ainsi que les \"gamers\" désirant des versions plus récentes pourront considérer le fait d'ajouter le PPA"
-
-#: gettingstarted.html:635
-msgid "Ubuntu Graphics Driver PPA"
-msgstr "Ubuntu Graphics Driver"
-
-#: gettingstarted.html:636
-msgid ""
-"which packages up the latest NVIDIA drivers for Ubuntu. These packages are "
-"not as thoroughly tested."
-msgstr "qui contient les derniers pilotes NVIDIA pour Ubuntu. Ces paquets ne sont pas aussi minutieusement testés."
-
-#: gettingstarted.html:638
-msgid ""
-"This only applies for actively supported cards, and not older cards using "
-"the legacy driver."
-msgstr "Ceci ne s'applique que pour les cartes supportées, et non les cartes plus anciennes utilisant un pilote legacy."
-
-#: gettingstarted.html:641
-msgid "Add Repository"
-msgstr "Ajouter le Dépôt."
-
-#: gettingstarted.html:644
-msgid ""
-"To add the repository to the system, open a terminal and type the following:"
-msgstr "Pour ajouter le dépôt au système, ouvrez une fenêtre de terminal et tapez ceci :"
-
-#: gettingstarted.html:649
-msgid "After the PPA is added, newer versions are presented to install in"
-msgstr "Après l'ajout du PPA, les nouvelles versions seront présentées à l'installation dans"
-
-#: gettingstarted.html:650
-msgid "Additional Drivers:"
-msgstr "Pilotes Additionnels :"
-
-#: gettingstarted.html:657
+#: gettingstarted.html:639
 msgid "Wireless, Bluetooth and Other Devices"
 msgstr "Connections Sans-fil, Bluetooth et Autres Appareils"
 
-#: gettingstarted.html:659
+#: gettingstarted.html:641
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
 msgstr "Dans le cas où aucun pilote n'a été trouvé, et que votre matériel ne fonctionne pas après avoir installé les paquets de micrologiciels, il se peut que vous deviez faire une recherche en mentionnant le nom de votre appareil afin de trouver les pilotes appropriés."
 
-#: gettingstarted.html:663
+#: gettingstarted.html:645
 msgid ""
 "Unfortunately, this is due to the fact the manufacturer for your hardware "
 "hasn't provided any source code for developers to freely use, or there is "
@@ -1045,57 +1007,57 @@ msgid ""
 "model."
 msgstr "Malheureusement cela est dû au fait que, soit le fabricant de votre matériel ne fournit pas gratuitement le code source aux développeurs Linux, soit il n'y a pas assez de documentation pour créer des pilotes pour cette marque et ce modèle précis."
 
-#: gettingstarted.html:669
+#: gettingstarted.html:651
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
 msgstr "Il se peut que certains fabricants fournissent eux-même des pilotes au code source privé directement. Si vous avec besoin d'aide,"
 
-#: gettingstarted.html:671
+#: gettingstarted.html:653
 msgid "ask the community"
 msgstr "posez vos question à la communauté"
 
-#: gettingstarted.html:674
+#: gettingstarted.html:656
 msgid "Read more on troubleshooting wireless hardware."
 msgstr "En lire plus sur le dépannage du matériel sans-fil."
 
-#: gettingstarted.html678, 683
+#: gettingstarted.html660, 665
 msgid "Printers"
 msgstr "Imprimantes"
 
-#: gettingstarted.html:680
+#: gettingstarted.html:662
 msgid "When you set up a printer in the"
 msgstr "Vous pouvez installer une imprimante dans"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "utility"
 msgstr "&nbsp;"
 
-#: gettingstarted.html:684
+#: gettingstarted.html:666
 msgid "under"
 msgstr "sous"
 
-#: gettingstarted.html:685
+#: gettingstarted.html:667
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
 msgstr "vous verrez apparaître une liste de pilotes disponibles le cas échéant."
 
-#: gettingstarted.html:688
+#: gettingstarted.html:670
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
 msgstr "Il est possible que certains fabricants fournissent leur propres pilotes. Il se peut aussi qu'ils vous demandent de les télécharger à partir de leur site web."
 
-#: gettingstarted.html:691
+#: gettingstarted.html:673
 msgid "Read more on printing"
 msgstr "En lire plus sur les imprimantes"
 
-#: gettingstarted.html:700
+#: gettingstarted.html:682
 msgid "HP Linux Printing and Imaging System"
 msgstr "Le Système d'Impression et d'Imagerie Linux HP"
 
-#: gettingstarted.html:701
+#: gettingstarted.html:683
 msgid ""
 "Recommended if you have an HP printer as it provides full support for "
 "printing on most HP SFP (single function peripheral) inkjets and many "
@@ -1103,913 +1065,882 @@ msgid ""
 " HP MFP (multi-function peripheral) printers."
 msgstr "Recommandé si vous avez une imprimante HP. Il permet d'imprimer à partir de la plupart des Inkjets et plusieur LaserJets de types \"périphériques simple-fonction HP\" (HP SFP) ainsi que de scanner, envoyer des fax, et accéder aux stoquages de masse à partir de la plupart des imprimantes de types \"périphériques multi-fonction\" (MFP) de la marque HP ."
 
-#: gettingstarted.html:715
+#: gettingstarted.html:697
 msgid "Software Utilities for Peripherals"
 msgstr "Utilitaires pour les Périphériques"
 
-#: gettingstarted.html:724
+#: gettingstarted.html:706
 msgid "Solaar"
 msgstr "Solaar"
 
-#: gettingstarted.html:725
+#: gettingstarted.html:707
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
 msgstr "Un gestionnaire d'appareils pour l'Unifying Receiver des périphériques Logitech. Il permet beaucoup de choses comme de gérer des appareils appareillés ou de lire le statut des batteries."
 
-#: gettingstarted.html728, 747, 765
+#: gettingstarted.html710, 729, 747
 msgid "Learn More"
 msgstr "En savoir plus"
 
-#: gettingstarted.html:743
-msgid "Razer Drivers for Linux"
-msgstr "Pilotes de périphériques Razer pour Linux"
+#: gettingstarted.html:725
+msgid "OpenRazer"
+msgstr "OpenRazer"
 
-#: gettingstarted.html:744
+#: gettingstarted.html:726
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
 msgstr "Un pilote de périphérique et un utilitaire en arrière-plan qui utilise toutes les fonctions de la plupart des périphériques Razer, des claviers aux souris et tapis de souris."
 
-#: gettingstarted.html:762
+#: gettingstarted.html:744
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
 msgstr "Une interface pour gérer des périphériques Razer, avec la possibilité d'utiliser différents profit, de mettre en place des effets et d'activer des fonctions du clavier."
 
-#: gettingstarted.html:763
-msgid "Requires Razer Drivers for Linux to be installed first."
-msgstr "Les Pilotes de périphériques Razer pour Linux doivent être installés."
+#: gettingstarted.html:745
+msgid "Requires OpenRazer to be installed first."
+msgstr "Nécessite que OpenRazer soit installé en premier"
 
-#: gettingstarted.html782, 787, 790
+#: gettingstarted.html764, 769, 772
 msgid "Language Support"
 msgstr "Support des Langues"
 
-#: gettingstarted.html:783
+#: gettingstarted.html:765
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
 msgstr "Votre ordinateur pourrait nécessiter des mises à jours pour les paramètres de langue et de localisation, ou vous pouvez vouloir installer le support de langues additionnel."
 
-#: gettingstarted.html:797
+#: gettingstarted.html:779
 msgid "Complex Input"
 msgstr "Saisie Complexe"
 
-#: gettingstarted.html:798
+#: gettingstarted.html:780
 msgid "Some regions of the world require complex inputs."
 msgstr "Certaines régions du monde nécessitent la Saisie Complexe."
 
-#: gettingstarted.html:803
+#: gettingstarted.html:785
 msgid "Chinese"
 msgstr "Chinois"
 
-#: gettingstarted.html:806
+#: gettingstarted.html:788
 msgid "Japanese"
 msgstr "Japonais"
 
-#: gettingstarted.html:809
+#: gettingstarted.html:791
 msgid "Korean"
 msgstr "Coréen"
 
-#: gettingstarted.html:818
+#: gettingstarted.html:800
 msgid "Backup, Firewall and User Management"
 msgstr "Sauvegarde, Pare-Feu et Gestion des Utilisateurs"
 
-#: gettingstarted.html:819
+#: gettingstarted.html:801
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
 msgstr "Ubuntu MATE inclut des outils permettant de sauvegarder vos fichiers, un pare-feu pré-installé, et supporte plusieurs comptes utilisateurs."
 
-#: gettingstarted.html830, 841
+#: gettingstarted.html812, 826
 msgid "Backups"
 msgstr "Sauvegardes"
 
-#: gettingstarted.html:831
+#: gettingstarted.html:813
 msgid ""
 "Nothing is more important then having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr "Rien n'est plus important qu'avoir une sauvegarde de vos fichiers personnels, au cas où quelque-chose de désastreux arrive a votre ordinateur."
 
-#: gettingstarted.html:835
+#: gettingstarted.html:817
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
 msgstr "vient pré-installé et supporte la sauvegarde vers des appareils locaux ainsi que des services de stoquage dans le nuage."
 
-#: gettingstarted.html:838
+#: gettingstarted.html:820
 msgid "Configure Backup"
 msgstr "Configurer la Sauvegarde"
 
-#: gettingstarted.html:853
+#: gettingstarted.html823, 875
+msgid "Installing..."
+msgstr "Installation en cours..."
+
+#: gettingstarted.html:838
 msgid "Network Shares"
 msgstr "Partages Réseau"
 
-#: gettingstarted.html:854
+#: gettingstarted.html:839
 msgid "Need to access files and folders with multiple computers?"
 msgstr "Vous avez besoin d'accéder à des fichiers et des dossiers avec plusieurs ordinateurs ?"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid "Samba"
 msgstr "Samba"
 
-#: gettingstarted.html:857
+#: gettingstarted.html:842
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
 msgstr "est disponible à l'installation, il s'intègre avec le Gestionnaire de Fichiers Caja, et vous permet de récupérer sans effort des données stoquées sur un autre ordinateur."
 
-#: gettingstarted.html:862
+#: gettingstarted.html:847
 msgid "Samba is installed."
 msgstr "Samba est installé."
 
-#: gettingstarted.html:863
+#: gettingstarted.html:848
 msgid "Choose a folder and select \"Sharing Options\"."
 msgstr "Choisissez un dossier et sélectionnez \"Options de Partage\""
 
-#: gettingstarted.html:867
+#: gettingstarted.html:852
 msgid "Samba is available from the Software Boutique under \"Servers\"."
 msgstr "Samba est disponible depuis la Boutique d'Applications sous la rubrique \"Serveurs\""
 
-#: gettingstarted.html:878
+#: gettingstarted.html:863
 msgid "Firewall"
 msgstr "Pare-Feu"
 
-#: gettingstarted.html:879
+#: gettingstarted.html:864
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
 msgstr "Les pare-feux empêchent les connections malveillantes d'entrer ou de sortir de votre ordinateur. Par défaut, le pare-feu est désactivé,"
 
-#: gettingstarted.html:881
+#: gettingstarted.html:866
 msgid "learn more about firewalls"
 msgstr "en apprendre plus sur les pare-feu"
 
-#: gettingstarted.html:883
+#: gettingstarted.html:868
 msgid "provides a graphical frontend to"
 msgstr "fournit une interface graphique à"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "Uncomplicated Firewall"
 msgstr "Pare-Feu Non-Compliqué"
 
-#: gettingstarted.html:884
+#: gettingstarted.html:869
 msgid "If security is important to you, there are"
 msgstr "Si la sécurité est importante pour vous, il y a"
 
-#: gettingstarted.html:885
+#: gettingstarted.html:870
 msgid "more ways to stay secure too"
 msgstr "plusieurs manières de rester sécurisé"
 
-#: gettingstarted.html:887
+#: gettingstarted.html:872
 msgid "Configure Firewall"
 msgstr "Configurer le Pare-Feu"
 
-#: gettingstarted.html:890
+#: gettingstarted.html:878
 msgid "Firewall Configuration"
 msgstr "Configuration du Pare-Feu"
 
-#: gettingstarted.html:902
+#: gettingstarted.html:890
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: gettingstarted.html:904
+#: gettingstarted.html:892
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
 msgstr "Vous partagez votre ordinateur avec d'autres personnes ? Configurez des comptes utilisateurs séparés pour chacun des utilisateurs afin de protéger la vie privée de chaque personne utilisant le même ordinateur."
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "You can also log in to a"
 msgstr "Vous pouvez également vous connecter en tant qu'"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "Guest Session"
 msgstr "Invité"
 
-#: gettingstarted.html:907
+#: gettingstarted.html:895
 msgid "if someone is using your computer as a one-off."
 msgstr "si quelqu'un utilise votre ordinateur exceptionnellement."
 
-#: gettingstarted.html:910
+#: gettingstarted.html:898
 msgid "Configure Users"
 msgstr "Configuration des Utilisateurs"
 
-#: gettingstarted.html:913
+#: gettingstarted.html:901
 msgid "Users and Groups"
 msgstr "Utilisateurs et Groupes"
 
-#: gettingstarted.html:921
+#: gettingstarted.html:909
 msgid "Customisation"
 msgstr "Personnalisation"
 
-#: gettingstarted.html924, 932
+#: gettingstarted.html913, 921
 msgid "User Interface"
 msgstr "Interface Utilisateur"
 
-#: gettingstarted.html:925
+#: gettingstarted.html:914
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
 msgstr "Vous trouverez dans Ubuntu MATE un outil unique pour transformer l'interface utilisateur. Vous pourrez l'utiliser afin de rapidement paramétrer l'interface utilisateur et ainsi imiter d'autres systèmes d'exploitation populaires, aussi bien en apparence qu'en fonction. Les agencements"
 
-#: gettingstarted.html:928
+#: gettingstarted.html:917
 msgid "layout is similar to Microsoft Windows, while the"
 msgstr "est un affichage similaire à Microsoft Windows, tandis que"
 
-#: gettingstarted.html:929
+#: gettingstarted.html:918
 msgid "layout is similar to Apple Mac OS X."
 msgstr "est un affichage plus proche d'Apple Mac OS X"
 
-#: gettingstarted.html:935
+#: gettingstarted.html:924
 msgid "MATE Tweak"
 msgstr "Adapteur MATE Tweak"
 
-#: gettingstarted.html:940
+#: gettingstarted.html:930
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
 msgstr "Les utilitaires mentionnés plus haut font partie de l'application complète Centre de Contrôle, fournie avec Ubuntu MATE. Vous pouvez configurer le moindre aspect de votre système à partir du Centre de Contrôle."
 
-#: gettingstarted.html:951
+#: gettingstarted.html:941
 msgid "Keyboard & Mouse Shortcuts"
 msgstr "Clavier et raccourcis souris"
 
-#: gettingstarted.html:955
+#: gettingstarted.html:945
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
 msgstr "Ubuntu MATE est muni d'une quantité de raccourcis clavier aidant à vous rendre plus efficace en utilisant votre ordinateur."
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "The"
 msgstr "Des Pilotes Additionnels"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "Super"
 msgstr "Super"
 
-#: gettingstarted.html:959
+#: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
 msgstr "touche est votre touche Windows. Pour les claviers de Mac, il s'agit de la touche ⌘ Commande"
 
-#: gettingstarted.html:962
+#: gettingstarted.html:952
 msgid "Common application shortcuts"
 msgstr "Raccourcis courants"
 
-#: gettingstarted.html:963
+#: gettingstarted.html:953
 msgid "These shortcuts apply in most applications."
 msgstr "Ces raccourcis s'appliquent à la plupart des applications."
 
-#: gettingstarted.html968, 976, 984, 992, 1000, 1008, 1016, 1024, 1032, 1040,
-#: 1048, 1056, 1064, 1072, 1125, 1135, 1145, 1183, 1199, 1209, 1219, 1231,
-#: 1306, 1316, 1326, 1336, 1346, 1356, 1366, 1400
+#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
+#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: gettingstarted.html:972
+#: gettingstarted.html:962
 msgid "Copy the selected text/object"
 msgstr "Copier le texte / l'objet sélectionné"
 
-#: gettingstarted.html:980
+#: gettingstarted.html:970
 msgid "Cut the selected text/object"
 msgstr "Couper le texte / l'objet sélectionné"
 
-#: gettingstarted.html:988
+#: gettingstarted.html:978
 msgid "Paste/insert the selected text/object"
 msgstr "Coller/insérer le texte ou l'objet sélectionné"
 
-#: gettingstarted.html:996
+#: gettingstarted.html:986
 msgid "Select all text"
 msgstr "Sélectionner tout le texte"
 
-#: gettingstarted.html:1004
+#: gettingstarted.html:994
 msgid "Find and replace words"
 msgstr "Chercher et remplacer des mots"
 
-#: gettingstarted.html:1012
+#: gettingstarted.html:1002
 msgid "Make the selected text bold"
 msgstr "Mettre le texte sélectionné en caractères gras"
 
-#: gettingstarted.html:1020
+#: gettingstarted.html:1010
 msgid "Make the selected text italic"
 msgstr "Mettre le texte sélectionné en italique"
 
-#: gettingstarted.html:1028
+#: gettingstarted.html:1018
 msgid "Underline the selected text"
 msgstr "Sous-ligner le texte sélectionné"
 
-#: gettingstarted.html:1036
+#: gettingstarted.html:1026
 msgid "Open a new document or window"
 msgstr "Ouvrir un nouveau document ou une nouvelle fenêtre"
 
-#: gettingstarted.html:1044
+#: gettingstarted.html:1034
 msgid "Save the current document"
 msgstr "Sauvegarder le document courant"
 
-#: gettingstarted.html:1052
+#: gettingstarted.html:1042
 msgid "Open another document"
 msgstr "Ouvrir un nouveau document"
 
-#: gettingstarted.html:1060
+#: gettingstarted.html:1050
 msgid "Print the current document"
 msgstr "Imprimer le document courant"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1058
 msgid "Undo the last change you made"
 msgstr "Annuler les derniers changements"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
 msgstr "Rétablir les changements que vous venez d'annuler"
 
-#: gettingstarted.html:1084
+#: gettingstarted.html:1074
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "Basculer entre le mode plein écran et fenêtré de l'application en cours"
 
-#: gettingstarted.html:1088
+#: gettingstarted.html:1078
 msgid "Desktop shortcuts"
 msgstr "Raccourcis du bureau"
 
-#: gettingstarted.html:1089
+#: gettingstarted.html:1079
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "Cette section énumère les raccourcis clavier les plus courant. Ceux-ci peuvent être utilisés pour manœuvrer certaines parties du bureau."
 
-#: gettingstarted.html:1099
-msgid "Open the Applications menu"
-msgstr "Ouvrir le menu Applications"
-
-#: gettingstarted.html:1107
-msgid "Run an application by typing its name in the box which appears"
-msgstr "Lancer une application en entrant son nom dans la boîte qui apparaît"
-
-#: gettingstarted.html:1111
-msgid "Prt Sc"
-msgstr "Imp. écr"
-
-#: gettingstarted.html:1113
-msgid "Take a screenshot of the whole screen"
-msgstr "Prendre une capture d'écran complète"
-
-#: gettingstarted.html:1121
-msgid "Take a screenshot of the current window"
-msgstr "Prendre une capture d'écran de la fenêtre en cours"
-
-#: gettingstarted.html:1129
-msgid "Delete"
-msgstr "Supprimer"
-
-#: gettingstarted.html:1131
-msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr "Ouvrir une fenêtre de dialogue afin d'éteindre, redémarrer ou mettre en veille votre ordinateur."
-
-#: gettingstarted.html:1141
-msgid "Lock your screen."
-msgstr "Bloquer votre écran."
-
-#: gettingstarted.html:1151
-msgid "Open a terminal."
-msgstr "Ouvrir une fenêtre de terminal."
-
-#: gettingstarted.html1157, 1410, 1418, 1426, 1436, 1444, 1452, 1460
+#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
 msgid "Super Key"
 msgstr "Touche Super"
 
-#: gettingstarted.html:1161
+#: gettingstarted.html:1087
+msgid "Activate Brisk Menu or MATE Menu launcher"
+msgstr "Activer le Menu Brisk ou le Menu du bureau MATE"
+
+#: gettingstarted.html:1093
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr "Active l'Affichage Tête Haute (ATH/HUD), s'il est permis dans MATE Tweak."
+
+#: gettingstarted.html:1101
+msgid "Open the Applications menu"
+msgstr "Ouvrir le menu Applications"
+
+#: gettingstarted.html:1109
+msgid "Run an application by typing its name in the box which appears"
+msgstr "Lancer une application en entrant son nom dans la boîte qui apparaît"
+
+#: gettingstarted.html:1113
+msgid "Prt Sc"
+msgstr "Imp. écr"
+
+#: gettingstarted.html:1115
+msgid "Take a screenshot of the whole screen"
+msgstr "Prendre une capture d'écran complète"
+
+#: gettingstarted.html:1123
+msgid "Take a screenshot of the current window"
+msgstr "Prendre une capture d'écran de la fenêtre en cours"
+
+#: gettingstarted.html:1131
+msgid "Take a screenshot of a selected area"
+msgstr "Prendre une capture d'écran de la zone sélectionnée"
+
+#: gettingstarted.html:1139
+msgid "Delete"
+msgstr "Supprimer"
+
+#: gettingstarted.html:1141
+msgid "Open the dialog box to shutdown, restart or suspend."
+msgstr "Ouvrir une fenêtre de dialogue afin d'éteindre, redémarrer ou mettre en veille votre ordinateur."
+
+#: gettingstarted.html:1150
+msgid "Toggles 'Show Desktop'."
+msgstr "Activer ou Désactiver \"Afficher le Bureau\"."
+
+#: gettingstarted.html:1160
+msgid "Lock your screen."
+msgstr "Bloquer votre écran."
+
+#: gettingstarted.html:1170
+msgid "Open a terminal."
+msgstr "Ouvrir une fenêtre de terminal."
+
+#: gettingstarted.html:1180
 msgid "Screen reader enable/disable."
 msgstr "Activer/désactiver le lecteur d'écran."
 
-#: gettingstarted.html:1165
+#: gettingstarted.html:1184
 msgid "Window shortcuts"
 msgstr "Raccourcis de la fenêtre"
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1189
 msgid "Tab"
 msgstr "Tabulation"
 
-#: gettingstarted.html:1173
+#: gettingstarted.html:1192
 msgid "Switch between currently-open windows."
 msgstr "Commuter entre les fenêtres ouvertes."
 
-#: gettingstarted.html:1175
+#: gettingstarted.html:1194
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "Appuyez sur Alt + Tab puis relâchez Tab (tout en continuant de maintenir Alt enfoncé)."
 
-#: gettingstarted.html1176, 1192
+#: gettingstarted.html1195, 1211
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "Appuyez sur Tab de façon répétée pour passer en revue la liste de fenêtres disponibles affichée sur l'écran."
 
-#: gettingstarted.html:1177
+#: gettingstarted.html:1196
 msgid "Release the Alt key to switch to the selected window."
 msgstr "Relâchez la touche Alt pour passer à la fenêtre sélectionnée."
 
-#: gettingstarted.html:1190
+#: gettingstarted.html:1209
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "Commuter entre les fenêtres ouvertes dans tous les Espaces de Travail."
 
-#: gettingstarted.html:1193
+#: gettingstarted.html:1212
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr "Relâchez les touches Ctrl et Alt pour passer à la fenêtre sélectionnée."
 
-#: gettingstarted.html1203, 1225
+#: gettingstarted.html1222, 1244
 msgid "Left"
 msgstr "Gauche"
 
-#: gettingstarted.html:1205
+#: gettingstarted.html:1224
 msgid "Switch to the previous workspace."
 msgstr "Passer a l'espace de travail précédent."
 
-#: gettingstarted.html1213, 1236
+#: gettingstarted.html1232, 1255
 msgid "Right"
 msgstr "Droite"
 
-#: gettingstarted.html:1215
+#: gettingstarted.html:1234
 msgid "Switch to the next workspace."
 msgstr "Passer au prochain espace de travail."
 
-#: gettingstarted.html1223, 1234, 1428
+#: gettingstarted.html1242, 1253, 1447
 msgid "Shift"
 msgstr "Majuscule"
 
-#: gettingstarted.html:1227
+#: gettingstarted.html:1246
 msgid "Move the current window to the previous workspace."
 msgstr "Déplacer la fenêtre active vers le précédent espace de travail."
 
-#: gettingstarted.html:1238
+#: gettingstarted.html:1257
 msgid "Move the current window to the next workspace."
 msgstr "Déplacer la fenêtre active vers le prochain espace de travail."
 
-#: gettingstarted.html:1246
+#: gettingstarted.html:1265
 msgid "Closes window."
 msgstr "Fermer les fenêtres."
 
-#: gettingstarted.html:1254
+#: gettingstarted.html:1273
 msgid "Returns window to 'normal' or previous size."
 msgstr "Faire revenir la fenêtre à la taille \"normale\" ou précédente le cas échéant."
 
-#: gettingstarted.html:1262
+#: gettingstarted.html:1281
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "Déplacer la fenêtre active (il est possible de la déplacer avec la souris ou le clavier)."
 
-#: gettingstarted.html:1270
+#: gettingstarted.html:1289
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "Redimensionner la fenêtre active (il est aussi possible de la déplacer avec la souris ou le clavier)."
 
-#: gettingstarted.html:1278
+#: gettingstarted.html:1297
 msgid "Minimizes current window."
 msgstr "Rapetisser la fenêtre active."
 
-#: gettingstarted.html:1286
+#: gettingstarted.html:1305
 msgid "Maximizes current window."
 msgstr "Maximiser la fenêtre active."
 
-#: gettingstarted.html:1294
-msgid "Pulldown Terminal."
-msgstr "Terminal Déroulant."
+#: gettingstarted.html:1311
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr ""
 
-#: gettingstarted.html:1300
+#: gettingstarted.html:1317
 msgid "Space"
 msgstr "Espace"
 
-#: gettingstarted.html:1302
+#: gettingstarted.html:1319
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "Afficher le menu de la fenêtre, celui-ci contient des options comme \"Toujours en Avant\", \"Rapetisser\" et \"Maximiser\" ainsi que les commandes mentionnées plus haut."
 
-#: gettingstarted.html1310, 1320, 1330, 1340, 1350, 1360, 1370
+#: gettingstarted.html:1329
+msgid "Toggle shaded state."
+msgstr ""
+
+#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
 msgid "Numpad"
 msgstr "Pavé Numérique"
 
-#: gettingstarted.html:1312
+#: gettingstarted.html:1340
 msgid "Place window in top left corner of screen."
 msgstr "Placer la fenêtre dans le coin haut-gauche de l'écran."
 
-#: gettingstarted.html:1322
+#: gettingstarted.html:1350
 msgid "Place window in top half of screen."
 msgstr "Placer la fenêtre dans la moitié haute de l'écran."
 
-#: gettingstarted.html:1332
+#: gettingstarted.html:1360
 msgid "Place window in top right corner of screen."
 msgstr "Placer la fenêtre dans le coin haut-droit de l'écran."
 
-#: gettingstarted.html:1342
+#: gettingstarted.html:1370
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "Centrer/Maximiser la fenêtre au milieu de l'écran."
 
-#: gettingstarted.html:1352
+#: gettingstarted.html:1380
 msgid "Place window in the bottom left corner of the screen."
 msgstr "Placer la fenêtre dans le coin bas-gauche de l'écran."
 
-#: gettingstarted.html:1362
+#: gettingstarted.html:1390
 msgid "Place window in the bottom half of the screen."
 msgstr "Placer la fenêtre dans le moitié basse de l'écran."
 
-#: gettingstarted.html:1372
+#: gettingstarted.html:1400
 msgid "Place window in the bottom right corner of the screen."
 msgstr "Placer la fenêtre dans le coin bas-droit de l'écran."
 
-#: gettingstarted.html:1376
+#: gettingstarted.html:1404
 msgid "Mouse Shortcuts"
 msgstr "Raccourcis à la souris"
 
-#: gettingstarted.html:1382
+#: gettingstarted.html:1410
 msgid "Left-click while dragging mouse"
 msgstr "Clic gauche pendant le déplacement de la souris"
 
-#: gettingstarted.html:1384
+#: gettingstarted.html:1412
 msgid "Moves the window."
 msgstr "Déplace la fenêtre."
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1418
 msgid "Right-click while dragging mouse"
 msgstr "Clic droit pendant le déplacement de la souris"
 
-#: gettingstarted.html:1392
+#: gettingstarted.html:1420
 msgid "Resizes the window (closest window edge)."
 msgstr "Modifie la taille de la fenêtre (bord de l'écran le plus proche)"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1424
 msgid "Compiz Effects Shortcuts"
 msgstr "Raccourcis vers les Effets Compiz"
 
-#: gettingstarted.html:1397
+#: gettingstarted.html:1425
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "Tous les raccourcis mis en liste dans cette section requièrent l'activation de Compiz."
 
-#: gettingstarted.html:1406
-msgid "Toggles 'Show Desktop'."
-msgstr "Activer ou Désactiver \"Afficher le Bureau\"."
-
-#: gettingstarted.html:1414
+#: gettingstarted.html:1433
 msgid "Zoom out, show workspace switcher."
 msgstr "Dé-zoomer, et afficher le commutateur d'espace de travail."
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1441
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "Activer l'effet \"mise à l'échelle\" et afficher toutes les fenêtres de l'espace de travail en cours."
 
-#: gettingstarted.html:1432
+#: gettingstarted.html:1451
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "Activer l'effet \"mise à l'échelle\" et afficher toutes les fenêtres de tous les espaces de travail en cours."
 
-#: gettingstarted.html:1440
+#: gettingstarted.html:1459
 msgid "Invert colors of the focused window."
 msgstr "Inverser les couleurs de la fenêtre active."
 
-#: gettingstarted.html:1448
+#: gettingstarted.html:1467
 msgid "Invert colors for the whole screen."
 msgstr "Inverser les couleurs de l'écran entier."
 
-#: gettingstarted.html:1454
+#: gettingstarted.html:1473
 msgid "Scroll Wheel"
 msgstr "Molette de souris"
 
-#: gettingstarted.html:1456
+#: gettingstarted.html:1475
 msgid "Zooms in on the screen."
 msgstr "Zoomer sur l'écran."
 
-#: gettingstarted.html1462, 1478
+#: gettingstarted.html1481, 1497
 msgid "Middle Click"
 msgstr "Clic-molette"
 
-#: gettingstarted.html:1464
+#: gettingstarted.html:1483
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "Sélectionner une zone dans laquelle zoomer, en utilisant un rectangle."
 
-#: gettingstarted.html:1470
+#: gettingstarted.html:1489
 msgid "Left Click"
 msgstr "Clic gauche"
 
-#: gettingstarted.html:1472
+#: gettingstarted.html:1491
 msgid "Move focused window."
 msgstr "Bouger la fenêtre active."
 
-#: gettingstarted.html:1480
+#: gettingstarted.html:1499
 msgid "Resize focused window."
 msgstr "Modifier la taille de la fenêtre active."
 
-#: gettingstarted.html:1486
+#: gettingstarted.html:1505
 msgid "Right Click"
 msgstr "Clic droit"
 
-#: gettingstarted.html:1488
+#: gettingstarted.html:1507
 msgid "Show window menu."
 msgstr "Afficher le menu de la fenêtre."
 
-#: gettingstarted.html:1501
+#: gettingstarted.html:1520
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "Votre ordinateur est fait de nombreux composants interagissant entre eux. Cette information est utile au moment ou vous voulez demander de l'aide, pour s'assurer que le matériel et les logiciels fonctionnent sur votre machine."
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1524
 msgid "View System Requirements"
 msgstr "Voir les exigences du système"
 
-#: gettingstarted.html:1509
+#: gettingstarted.html:1528
 msgid "Basic"
 msgstr "Basique"
 
-#: gettingstarted.html:1510
+#: gettingstarted.html:1529
 msgid "Detailed"
 msgstr "Détaillé"
 
-#: gettingstarted.html:1526
+#: gettingstarted.html:1545
 msgid "Distribution:"
 msgstr "Distribution :"
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1549
 msgid "Kernel:"
 msgstr "Noyau :"
 
-#: gettingstarted.html:1533
+#: gettingstarted.html:1552
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Le Noyau Linux est le cœur d'Ubuntu."
 
-#: gettingstarted.html:1539
+#: gettingstarted.html:1558
 msgid "Motherboard:"
 msgstr "Carte Mère :"
 
-#: gettingstarted.html:1543
+#: gettingstarted.html:1562
 msgid "Boot Mode:"
 msgstr "Mode de Démarrage :"
 
-#: gettingstarted.html:1546
+#: gettingstarted.html:1565
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Affiche le mode qu'utilise Ubuntu MATE pour communiquer avec le micrologiciel."
 
-#: gettingstarted.html:1554
+#: gettingstarted.html:1573
 msgid "Processor"
 msgstr "Processeur"
 
-#: gettingstarted.html:1557
+#: gettingstarted.html:1576
 msgid "Model:"
 msgstr "Modèle :"
 
-#: gettingstarted.html:1561
+#: gettingstarted.html:1580
 msgid "Speed:"
 msgstr "Vitesse :"
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1584
 msgid "Architecture in use:"
 msgstr "Architecture utilisée :"
 
-#: gettingstarted.html:1568
+#: gettingstarted.html:1587
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "L'architecture du système d'exploitation utilisé. Par exemple i386 = 32-bit."
 
-#: gettingstarted.html:1574
+#: gettingstarted.html:1593
 msgid "Architecture(s) supported:"
 msgstr "Architecture(s) supportées :"
 
-#: gettingstarted.html:1577
+#: gettingstarted.html:1596
 msgid "Architectures that are supported by this processor."
 msgstr "Les architectures supportées par ce processeur."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1604
 msgid "Components"
 msgstr "Composants"
 
-#: gettingstarted.html:1588
+#: gettingstarted.html:1607
 msgid "Memory (RAM):"
 msgstr "Mémoire (RAM) :"
 
-#: gettingstarted.html:1591
+#: gettingstarted.html:1610
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Plus de mémoire vive (RAM) permet de lancer plus d'applications simultanément."
 
-#: gettingstarted.html:1597
+#: gettingstarted.html:1616
 msgid "Graphics:"
 msgstr "Carte(s) Graphique(s) :"
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1620
 msgid "Internet Access:"
 msgstr "Accès Internet :"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1622
 msgid "Connected"
 msgstr "Connecté"
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1623
 msgid "Not Connected"
 msgstr "Déconnecté"
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1630
 msgid "Storage"
 msgstr "Stockage"
 
-#: gettingstarted.html:1615
+#: gettingstarted.html:1634
 msgid "Root File System:"
 msgstr "Système de Fichiers Administrateur (Root) :"
 
-#: gettingstarted.html:1618
+#: gettingstarted.html:1637
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Le système de fichier sur lequel Ubuntu MATE est installé."
 
-#: gettingstarted.html:1624
+#: gettingstarted.html:1643
 msgid "Entire Disk Capacity:"
 msgstr "Capacité Totale du Disque :"
 
-#: gettingstarted.html:1629
+#: gettingstarted.html:1648
 msgid "Ubuntu MATE Usage"
 msgstr "Utilisation Ubuntu MATE"
 
-#: gettingstarted.html:1638
+#: gettingstarted.html:1657
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Alloué pour Ubuntu MATE :"
 
-#: gettingstarted.html:1641
+#: gettingstarted.html:1660
 msgid "The size of your operating system partition."
 msgstr "La taille de la partition de votre système d'exploitation."
 
-#: gettingstarted.html:1647
+#: gettingstarted.html:1666
 msgid "Used Space:"
 msgstr "Espace utilisé :"
 
-#: gettingstarted.html:1653
+#: gettingstarted.html:1672
 msgid "Free Space:"
 msgstr "Espace libre :"
 
-#: gettingstarted.html:1659
+#: gettingstarted.html:1678
 msgid "Other Usage:"
 msgstr "Autre utilisation :"
 
-#: gettingstarted.html:1662
+#: gettingstarted.html:1681
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Réservé au système, autres partitions, allouées ou swap."
 
-#: gettingstarted.html:1670
+#: gettingstarted.html:1689
 msgid "Why do I see two units?"
 msgstr "Pourquoi vois-je deux unités ?"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1695
 msgid "SI or IEC Units?"
 msgstr "Unités SI ou IEC ?"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1697
 msgid "Decimal (SI Standard)"
 msgstr "Décimal (Standard SI)"
 
-#: gettingstarted.html:1680
+#: gettingstarted.html:1699
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1700
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "Prononcé \"ga\" comme \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1682
+#: gettingstarted.html:1701
 msgid "Common in every day applications and file storage."
 msgstr "Il est souvent employé dans les applications de tous les jours et de stoquage de fichiers."
 
-#: gettingstarted.html:1686
+#: gettingstarted.html:1705
 msgid "Binary (IEC Standard)"
 msgstr "Binaire (Standard IEC)"
 
-#: gettingstarted.html:1688
+#: gettingstarted.html:1707
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1708
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Prononcé \"bi\" comme \"Mebi, \"Gibi\"."
 
-#: gettingstarted.html:1690
+#: gettingstarted.html:1709
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Il est souvent employé pour se référer à la taille de la Mémoire Vive (RAM), des disques durs et des partitions, ainsi que dans des outils comme GParted."
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1718
 msgid ""
 "The following information is retrieved directly from the inxi command line "
 "program."
 msgstr "Les informations suivantes sont obtenues directement à partir du programme en ligne de comande inxi."
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1719
 msgid "Gathering data..."
 msgstr "Collecte des données en cours..."
 
-#: gettingstarted.html:1701
-msgid "Sorry, there was a problem gathering this information."
-msgstr "Désolé, il y a eu un problème pendant la collecte des données."
+#: gettingstarted.html:1720
+msgid ""
+"Detailed specifications cannot be displayed as 'inxi' is not installed."
+msgstr "Les spécifications détaillées ne peuvent pas être affichées parce que \"inxi\" n'est pas installé."
 
-#: gettingstarted.html:1717
+#: gettingstarted.html:1736
 msgid "System Profiler and Benchmark"
 msgstr "Système de Profilage et d'Évaluation"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1737
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Afficher des informations système plus spécifiques dans une fenêtre graphique, y-compris les périphériques USB connectés, le matériel PCI ainsi qu'un simple test Processeur (CPU)."
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1752
 msgid "Disks"
 msgstr "Disques"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1753
 msgid ""
-"A pre-installed utility that allows basic configuration to your disks and "
-"partitions, including formatting, partitioning, mounting, viewing S.M.A.R.T "
-"data and writing images to SD cards/USB drives."
-msgstr "Un utilitaire pré-installé permettant de configurer, formater, partitioner, monter, et visualiser vos disques et partitions, et qui permet également l'écriture d'images disque sur cartes SD et disques USB."
+"A utility that allows basic configuration to your disks and partitions, "
+"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
+"writing images to SD cards/USB drives."
+msgstr "Une utilitaire qui permet de configurer basiquement vos disques et partitions, ainsi que de les formater, les partitionner, les monter, de voir leurs données  S.M.A.R.T. et d'écrire des images sur des cartes SD ou des lecteurs USB."
 
-#: gettingstarted.html:1751
+#: gettingstarted.html:1770
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Un utilitaire avancé pour afficher, créer, modifier, et supprimer des partitions. Il permet aussi d'étendre ou de rapetisser les systèmes de fichiers et supporte une large palette de formats."
 
-#: gettingstarted.html:1766
+#: gettingstarted.html:1785
 msgid "Disk Usage Analyser"
 msgstr "Logiciel d'Analyse de Taux d'Utilisation des Disques"
 
-#: gettingstarted.html:1767
+#: gettingstarted.html:1786
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Un outil graphique pour explorer votre système de fichier ainsi que des dossiers individuels afin de déterminer la quantité d'espace disque étant actuellement utilisée."
 
-#: gettingstarted.html:1782
+#: gettingstarted.html:1801
 msgid "System Monitor"
 msgstr "Surveillance du Système"
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1802
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Affiche les processus, l'utilisation de ressource, ainsi que la quantité d'espace disque utilisé et libre sur les systèmes de fichiers montés."
 
-#: gettingstarted.html:1798
+#: gettingstarted.html:1817
 msgid "Psensor"
 msgstr "Sonde de température Psensor"
 
-#: gettingstarted.html:1799
+#: gettingstarted.html:1818
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
 msgstr "Affiche et dessine des graphiques de la température des composants attachés au système. Ce qui inclue : Carte Mère, Processeur, Carte Graphique et disques durs."
-
-#: gettingstarted.html:1097
-msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr "Activer le Menu Brisk ou le Menu du bureau MATE"
-
-#: gettingstarted.html:1103
-msgid "Activate Heads-up Display (HUD)"
-msgstr "Activer l'Affichage Tête Haute (ATH)"
-
-#: gettingstarted.html:743
-msgid "OpenRazer"
-msgstr "OpenRazer"
-
-#: gettingstarted.html:763
-msgid "Requires OpenRazer to be installed first."
-msgstr "Nécessite que OpenRazer soit installé en premier"
-
-#: gettingstarted.html823, 875
-msgid "Installing..."
-msgstr "Installation en cours..."
-
-#: gettingstarted.html:1091
-msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1129
-msgid "Take a screenshot of a selected area"
-msgstr ""
-
-#: gettingstarted.html:1309
-msgid "Pulldown Terminal, if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1325
-msgid "S"
-msgstr ""
-
-#: gettingstarted.html:1327
-msgid "Toggle shaded state."
-msgstr ""
-
-#: gettingstarted.html:1718
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr ""
-
-#: gettingstarted.html:1751
-msgid ""
-"A utility that allows basic configuration to your disks and partitions, "
-"including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
-"writing images to SD cards/USB drives."
-msgstr ""
