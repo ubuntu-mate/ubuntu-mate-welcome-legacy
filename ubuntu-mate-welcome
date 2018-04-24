@@ -978,6 +978,7 @@ class AppView(WebKit2.WebView):
                 btns.remove('open-at-start')
                 btns.append('install-guide')
                 btns.append('install')
+                btns.remove('browser-selection')
 
             # Fade in the menu buttons.
             for btn_id in btns:
