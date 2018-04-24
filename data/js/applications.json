@@ -3357,10 +3357,13 @@
             "arch": "i386,amd64,armhf,arm64",
             "releases": "xenial,artful,bionic",
             "pre-install": {
-                "all": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:texworks/stable",
                     "source-file": "texworks-ubuntu-stable-CODENAME"
+                },
+                "all": {
+                    "method": "skip"
                 }
             },
             "working": true
