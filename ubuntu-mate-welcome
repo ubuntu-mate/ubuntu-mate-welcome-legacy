@@ -336,7 +336,6 @@ class SimpleApt(object):
             apt_update = self.client.update_cache(self.source_to_update)
         else:
             apt_update = self.client.update_cache()
-        apt_update.connect("finished",self.on_finished_update)
         try:
             apt_update.connect("finished",self.on_finished_update)
         except AttributeError:
