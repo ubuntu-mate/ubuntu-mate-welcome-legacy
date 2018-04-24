@@ -2134,10 +2134,10 @@
             "pre-install": {
                 "all": {
                     "method": "manual",
-                    "source-file": "google-earth",
+                    "source-file": "google-earth-pro",
                     "apt-key-url": "https://dl-ssl.google.com/linux/linux_signing_key.pub",
                     "apt-sources": [
-                        "deb http://dl.google.com/linux/earth/deb/ stable main"
+                        "deb [arch=amd64] http://dl.google.com/linux/earth/deb/ stable main"
                     ]
                 }
             },
