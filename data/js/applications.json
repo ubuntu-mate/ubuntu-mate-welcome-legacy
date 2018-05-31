@@ -4750,6 +4750,39 @@
             },
             "working": true
         },
+        "Ukuu": {
+            "name": "Ukuu",
+            "img": "ukuu",
+            "main-package": "ukuu",
+            "launch-command": "ukuu",
+            "install-packages": "ukuu",
+            "remove-packages": "ukuu",
+            "description": [
+                "Ukuu (Ubuntu Kernel Update Utility) is a Kernel Update Utility",
+                "for Ubuntu-based distributions.", 
+                "Provides desktop notifications when new mainline ",
+                "kernel is available. ",
+                "<ul><li>Fetches list of kernels from kernel.ubuntu.com</li>",
+                "<li>Displays notifications when a new kernel update is available.</li>",
+                "<li>Downloads and installs packages automatically</li></ul>"
+            ],
+            "alternate-to": null,
+            "subcategory": "Ubuntu Kernel",
+            "open-source": true,
+            "url-info": "https://github.com/teejee2008/ukuu",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,artful,bionic",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:teejee2008/ppa",
+                    "source-file": "teejee2008-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": true
+        },
         "deja-dup-preferences": {
             "name": "Déjà Dup",
             "img": "deja-dup",
