@@ -60,7 +60,7 @@ parts:
       sed -i 's|Icon=ubuntu-mate|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/ubuntu-mate\.svg|' ubuntu-mate-welcome.desktop
       VER=$(grep __VERSION__ ubuntu-mate-welcome | head -n 1 | cut -d'=' -f2 | sed 's/ //g' | sed "s/'//g")
       REV=$(git rev-parse --short HEAD)
-      snapcraftctl set-version ${VER-$REV}
+      snapcraftctl set-version "${VER}-${REV}"
     override-build: |
       ./welcome-po.py --update-pos
       ./welcome-po.py --install
