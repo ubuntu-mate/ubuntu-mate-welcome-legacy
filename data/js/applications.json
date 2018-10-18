@@ -2674,10 +2674,10 @@
         "telegram": {
             "name": "Telegram",
             "img": "telegram",
-            "main-package": "telegram",
-            "launch-command": "/opt/telegram/Telegram",
-            "install-packages": "telegram",
-            "remove-packages": "telegram",
+            "main-package": "telegram-desktop",
+            "launch-command": "/usr/bin/telegram-desktop",
+            "install-packages": "telegram-desktop",
+            "remove-packages": "telegram-desktop",
             "description": [
                 "A messaging app with a focus on speed",
                 "and security, it&#8217;s super fast, simple and free. You can use",
@@ -2696,13 +2696,11 @@
             "url-info": "https://telegram.org/",
             "url-android": "https://play.google.com/store/apps/details?id=org.telegram.messenger",
             "url-ios": "https://itunes.apple.com/gb/app/telegram-messenger/id686449807",
-            "arch": "i386,amd64",
-            "releases": "xenial,bionic",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "bionic,cosmic",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/telegram",
-                    "source-file": "flexiondotorg-ubuntu-telegram-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
