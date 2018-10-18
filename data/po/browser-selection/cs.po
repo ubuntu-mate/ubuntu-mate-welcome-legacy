@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: browser-selection.html:18
@@ -21,7 +21,7 @@ msgstr "Výběr prohlížeče"
 
 #: browser-selection.html:26
 msgid "Pick a portal to the world wide web."
-msgstr "Vyberte portál na webu."
+msgstr "Vyberte si svou vstupní bránu do webu."
 
 #: browser-selection.html:27
 msgid ""

@@ -1,20 +1,20 @@
 # 
 # Translators:
 # Haxo C <haxoc112@openmailbox.org>, 2017
-# shy tzedaka <shaytzedaka123@gmail.com>, 2016
+# shy tzedaka <shaytzedaka123@gmail.com>, 2016,2018
 # shy tzedaka <shaytzedaka123@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-23 01:41+0000\n"
-"Last-Translator: Haxo C <haxoc112@openmailbox.org>\n"
+"PO-Revision-Date: 2018-09-30 16:51+0000\n"
+"Last-Translator: shy tzedaka <shaytzedaka123@gmail.com>\n"
 "Language-Team: Hebrew (Israel) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he_IL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: donate.html:18
@@ -33,11 +33,11 @@ msgstr "התומכים שלנו"
 msgid ""
 "It appears you are not connected to the Internet. Please check your "
 "connection to access this content."
-msgstr "נראה שאתה לא מחובר לאינטרנט. בדוק את החיבור שלך כדי לגשת לתוכן זה."
+msgstr "נראה שאתה לא מחובר לאינטרנט. בדוק את החיבור שלך כדי לגשת לתוכן הזה."
 
 #: donate.html:31
 msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "סליחה, 'ברוך הבא' לא הצליח ליצור חיבור."
+msgstr "סליחה, 'ברוך הבא' לא הצליח ליצור חיבור לאינטרנט."
 
 #: donate.html:32
 msgid "Retry"
@@ -50,7 +50,7 @@ msgstr "Ubuntu MATE ממומן ע\"י הקהילה. התרומות שלכם עו
 
 #: donate.html:43
 msgid "Web hosting and bandwidth costs."
-msgstr ""
+msgstr "אחזקת אתרים ועלויות רוחב פס."
 
 #: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
@@ -59,7 +59,7 @@ msgstr "תמיכה בפרוייקטים 'קוד פתוח' שUbuntu MATE תלוי
 #: donate.html:45
 msgid ""
 "Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr ""
+msgstr "בסופו של דבר לשלם עבור מפתחי משרה מלאה של Ubuntu MATE ושל שולחן עבודה MATE"
 
 #: donate.html:47
 msgid "Patreon"
@@ -71,7 +71,7 @@ msgid ""
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
 " with exclusive project news, updates and invited to participate in video "
 "conferences where you can talk to the developers directly."
-msgstr ""
+msgstr "היא דרך יחודית לממן פרויקט קוד פתוח.הכנסה חודשית קבועה מבטיחה תמיכה בפרויקט Ubuntu MATE. פטרונים יוענקו בחדשות בלעדיות על הפרויקט,עדכונים ויוזמנו להשתתף במפגשי וידיאו איפה שאתם יכולים לדבר על המפתחים בצורה ישירה."
 
 #: donate.html:52
 msgid "If you would prefer to use"
@@ -81,7 +81,7 @@ msgstr "אם אתה הייתה מעדיף להשתמש"
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
-msgstr ""
+msgstr "ואז יש לנו את האופציה לתרום בצורה חודשית או לתרום פעם אחת. לבסוף, אנחנו גם מקבלים תרומות דרך"
 
 #: donate.html:54
 msgid "Bitcoin"
@@ -93,7 +93,7 @@ msgstr "הפוך לפטרון"
 
 #: donate.html:62
 msgid "Donate with PayPal"
-msgstr "לתרום עם Paypal"
+msgstr "תרום עם Paypal"
 
 #: donate.html:65
 msgid "Donate with Bitcoin"
@@ -105,11 +105,11 @@ msgstr "חסות מסחרית"
 
 #: donate.html:71
 msgid "is also available. Click the"
-msgstr "גם אפשרי. נא הקלק על ה"
+msgstr "גם אפשרי.לחץ על ה"
 
 #: donate.html:72
 msgid "button above to find out more."
-msgstr "לחצן לעיל בכדי לברר פרטים נוספים"
+msgstr "כפתור מעל בכדי לברר פרטים נוספים"
 
 #: donate.html:80
 msgid "Thank you!"
@@ -119,11 +119,11 @@ msgstr "תודה!"
 msgid ""
 "Every month, we compile a list of our donations and detail how they are "
 "spent."
-msgstr ""
+msgstr "כל חודש,אנחנו יוצרים רשימה של התרומות שקיבלנו ומסבירים איך הם משומשים."
 
 #: donate.html:82
 msgid "This information is published monthly to the"
-msgstr ""
+msgstr "המידע הזה מופץ חודשית אל "
 
 #: donate.html:82
 msgid "Ubuntu MATE Blog"
@@ -131,7 +131,7 @@ msgstr "בלוג Ubuntu MATE"
 
 #: donate.html:83
 msgid "which you can take a look below."
-msgstr ""
+msgstr "שבו אתה יכול להעיף מבט למטה."
 
 #: donate.html:89
 msgid "Year"

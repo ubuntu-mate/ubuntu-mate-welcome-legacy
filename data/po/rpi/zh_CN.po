@@ -1,11 +1,12 @@
 # 
 # Translators:
+# biqiu-ssw <shenshuaiwen@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-04-03 14:00+0000\n"
-"Last-Translator: Martin Wimpress <code@flexion.org>\n"
+"PO-Revision-Date: 2018-06-23 10:23+0000\n"
+"Last-Translator: biqiu-ssw <shenshuaiwen@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,246 +17,246 @@ msgstr ""
 
 #: rpi.html:18
 msgid "Raspberry Pi Information"
-msgstr ""
+msgstr "树莓派信息"
+
+#: rpi.html:26
+msgid "A few important notes."
+msgstr "重要事项"
 
 #: rpi.html:27
-msgid "A few important notes."
-msgstr ""
-
-#: rpi.html:28
 msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
-msgstr ""
+msgstr "尽管树莓派版 Ubuntu MATE 的体验与传统桌面版 Ubuntu MATE 极为接近，但两者的底层架构差异巨大。本页面将重点讲解这些差异。"
 
-#: rpi.html:34
+#: rpi.html:33
 msgid "Resizing the file system"
-msgstr ""
+msgstr "调整文件系统大小"
 
-#: rpi.html:37
+#: rpi.html:36
 msgid "Your file system has already been resized."
-msgstr ""
+msgstr "文件系统大小已被重新调整"
 
-#: rpi.html:40
+#: rpi.html:39
 msgid ""
 "After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
 "file system will be restricted to the size of the original image, which is "
 "about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr ""
+msgstr "首次在树莓派上使用 Ubuntu MATE 时， 文件系统将会被格式化为原始镜像大小，大概是 3.9 GB。使用该选项将文件系统调整为整个SD卡大小。"
 
-#: rpi.html:44
+#: rpi.html:43
 msgid "Resize Now"
-msgstr ""
+msgstr "现在调整"
 
-#: rpi.html:48
+#: rpi.html:47
 msgid ""
 "To complete the resize of your Raspberry Pi file system, please close all "
 "open windows and restart now."
-msgstr ""
+msgstr "请关闭所有已打开的窗口并重启以应用更改。"
 
-#: rpi.html:50
+#: rpi.html:49
 msgid "Reboot"
-msgstr ""
+msgstr "重启"
+
+#: rpi.html:53
+msgid "Incompatible Software"
+msgstr "不兼容的软件"
 
 #: rpi.html:54
-msgid "Incompatible Software"
-msgstr ""
-
-#: rpi.html:55
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
-msgstr ""
+msgstr "一些 Ubuntu 的包必需重新编译给"
 
-#: rpi.html56, 111
+#: rpi.html55, 110
 msgid "or"
-msgstr ""
+msgstr "或者"
+
+#: rpi.html:56
+msgid "architecture. As the Raspberry Pi is based on"
+msgstr "构建。因为树莓派是基于"
 
 #: rpi.html:57
-msgid "architecture. As the Raspberry Pi is based on"
-msgstr ""
-
-#: rpi.html:58
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
-msgstr ""
+msgstr "这些包不能直接获取以供安装，你可以通过源代码自己编译。"
 
-#: rpi.html:65
+#: rpi.html:64
 msgid "Incompatible:"
-msgstr ""
+msgstr "不兼容"
 
-#: rpi.html:74
+#: rpi.html:73
 msgid "Compatible:"
-msgstr ""
+msgstr "兼容"
+
+#: rpi.html:86
+msgid "Upgrades"
+msgstr "升级"
 
 #: rpi.html:87
-msgid "Upgrades"
-msgstr ""
-
-#: rpi.html:88
 msgid "Please"
-msgstr ""
+msgstr "请"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "do not"
-msgstr ""
+msgstr "不要"
 
-#: rpi.html:88
+#: rpi.html:87
 msgid "attempt to"
-msgstr ""
+msgstr "尝试"
+
+#: rpi.html:87
+msgid "upgrade"
+msgstr "升级"
 
 #: rpi.html:88
-msgid "upgrade"
-msgstr ""
-
-#: rpi.html:89
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 15.04 to 15.10), as the underlying kernel is"
-msgstr ""
+msgstr "树莓派将升级到新的发行版本（从15.04到15.10），但是内核"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid "not designed"
-msgstr ""
+msgstr "并没有针对此行为专门设计。"
 
-#: rpi.html:91
+#: rpi.html:90
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
-msgstr ""
+msgstr "该过程将持续很长时间，并且可能会用尽你的 SD 卡空间。"
 
-#: rpi.html:96
+#: rpi.html:95
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
-msgstr ""
+msgstr "如果你想在 SD 卡烧写镜像，那么提前将您所有的数据备份才是安全的做法。尝试升级可能会损坏 SD 卡，造成系统不能启动或者引起一些未知的故障。"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "You can, however, install"
-msgstr ""
+msgstr "你仍然可以"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "regular updates"
-msgstr ""
+msgstr "通过"
 
-#: rpi.html:100
+#: rpi.html:99
 msgid "via the"
-msgstr ""
+msgstr "软件"
 
-#: rpi.html102, 111
+#: rpi.html101, 110
 msgid "Software Updater"
-msgstr ""
+msgstr "更新器"
 
-#: rpi.html:102
+#: rpi.html:101
 msgid "utility for your installed software."
-msgstr ""
+msgstr "给你已安装的应用安装常规更新。"
+
+#: rpi.html:104
+msgid "Kernel Updates"
+msgstr "内核更新"
 
 #: rpi.html:105
-msgid "Kernel Updates"
-msgstr ""
+msgid "The same kernel provided by the"
+msgstr "内核提供方："
 
 #: rpi.html:106
-msgid "The same kernel provided by the"
-msgstr ""
+msgid "Raspberry Pi foundation"
+msgstr "Raspberry Pi 基金会"
 
 #: rpi.html:107
-msgid "Raspberry Pi foundation"
-msgstr ""
-
-#: rpi.html:108
 msgid ""
 "is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
 "\"firmware\" blob, updates are not distributed via the"
-msgstr ""
+msgstr "被用于该版本的 Ubuntu MATE 。因为内核类似于“firmware”分支，所以不能直接更新通过"
 
-#: rpi.html:113
+#: rpi.html:112
 msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr ""
+msgstr "要更新内核，请打开终端运行以下命令"
+
+#: rpi.html:116
+msgid "Hardware Acceleration"
+msgstr "硬件加速"
 
 #: rpi.html:117
-msgid "Hardware Acceleration"
-msgstr ""
-
-#: rpi.html:118
 msgid "Currently, hardware accelerated applications are"
-msgstr ""
+msgstr "目前支持硬件加速的应用有："
+
+#: rpi.html:117
+msgid "not supported"
+msgstr "不支持"
 
 #: rpi.html:118
-msgid "not supported"
-msgstr ""
+msgid "unlike"
+msgstr "不像"
 
 #: rpi.html:119
-msgid "unlike"
-msgstr ""
-
-#: rpi.html:120
 msgid ""
 "Applications that depend on OpenGL ES libraries or require the GPU will fail"
 " to start."
-msgstr ""
+msgstr "依赖于 OpenGL ES 库或者需要 GPU 的会启动失败。"
 
-#: rpi.html:123
+#: rpi.html:122
 msgid "For playing videos, the application"
-msgstr ""
+msgstr "播放视频的操作该应用"
 
-#: rpi.html:123
+#: rpi.html:122
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
-msgstr ""
+msgstr "即可以完成并且已被预装。如果你要播放 MPEG-2 或者 VC-1 视频"
+
+#: rpi.html:124
+msgid "you will need MPEG-2 and/or VC-1 licenses from the"
+msgstr "你需要获取 MPEG-2  及 VC-1 的授权从"
 
 #: rpi.html:125
-msgid "you will need MPEG-2 and/or VC-1 licenses from the"
-msgstr ""
-
-#: rpi.html:126
 msgid "Raspberry Pi Store."
-msgstr ""
+msgstr "树莓派商店"
+
+#: rpi.html:128
+msgid "Enable/Disable X11"
+msgstr "启用/禁用 X11"
 
 #: rpi.html:129
-msgid "Enable/Disable X11"
-msgstr ""
-
-#: rpi.html:130
 msgid "For users who are looking to create their own headless"
-msgstr ""
+msgstr "以下选项提供给想要打造无图形界面的用户"
 
-#: rpi.html:130
+#: rpi.html:129
 msgid "\"server\""
-msgstr ""
+msgstr "\"server\""
 
-#: rpi.html:130
+#: rpi.html:129
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
-msgstr ""
+msgstr "调整显示方案"
 
-#: rpi.html:133
+#: rpi.html:132
 msgid "To disable X11 and login via the console:"
-msgstr ""
+msgstr "禁用 X11 使用命令行操作；"
 
-#: rpi.html:137
+#: rpi.html:136
 msgid "To enable X11 to restore the Ubuntu MATE desktop:"
-msgstr ""
+msgstr "启用 X11 恢复 Ubuntu MATE 桌面环境；"
 
-#: rpi.html:140
+#: rpi.html:139
 msgid "Changes take effect after a reboot."
-msgstr ""
+msgstr "重启以使改变生效"
+
+#: rpi.html:143
+msgid "Release Notes"
+msgstr "发行注记"
 
 #: rpi.html:144
-msgid "Release Notes"
-msgstr ""
-
-#: rpi.html:145
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
-msgstr ""
+msgstr "访问 Ubuntu MATE 官网查看发行注记及各版本更新内容。"
 
-#: rpi.html:152
+#: rpi.html:151
 msgid "Raspberry Pi is a trademark of the"
-msgstr ""
+msgstr "Raspberry Pi 商标所有者："

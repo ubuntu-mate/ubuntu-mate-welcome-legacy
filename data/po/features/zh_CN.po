@@ -1,11 +1,12 @@
 # 
 # Translators:
+# biqiu-ssw <shenshuaiwen@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2016-06-11 21:09+0000\n"
-"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
+"PO-Revision-Date: 2018-06-23 11:10+0000\n"
+"Last-Translator: biqiu-ssw <shenshuaiwen@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,13 +17,13 @@ msgstr ""
 
 #: features.html:18
 msgid "Features"
-msgstr ""
+msgstr "特性"
+
+#: features.html:26
+msgid "Modern and Full-Featured"
+msgstr "现代化且功能齐全"
 
 #: features.html:27
-msgid "Modern and Full-Featured"
-msgstr ""
-
-#: features.html:28
 msgid ""
 "Ubuntu MATE is a modern computer operating system, with an attractive and "
 "easy to understand user interface. Its update manager keeps not only the "
@@ -30,26 +31,26 @@ msgid ""
 "the current release. The operating system is more secure, and better "
 "supported than operating systems that come pre-installed on most home "
 "computer hardware today."
-msgstr ""
+msgstr "Ubuntu MATE 是一个拥有美观易用的用户界面的现代化操作系统。内置的更新管理器不仅适用于操作系统，也适用于您所安装的软件。Ubuntu MATE 比大多数电脑预装的操作系统更优秀，更安全。"
 
-#: features.html:38
+#: features.html:37
 msgid "Pre-Configured Yet Flexible"
-msgstr ""
+msgstr "灵活配置"
 
-#: features.html:44
+#: features.html:43
 msgid ""
 "Using Ubuntu MATE provides you with the freedom to run a complete, full-"
 "featured operating system, pre-configured with most, if not all, of the "
 "applications you will need for your daily computing - or to change anything "
 "about the way it looks, the way it works, or the applications it runs to "
 "suit your taste."
-msgstr ""
+msgstr "Ubuntu MATE 提供给你使用一个完整的，功能齐全，预设好的桌面环境。如果你有不满意的地方，可以根据自由定制它的外观及运行方式。"
 
-#: features.html:53
+#: features.html:52
 msgid "Built-In Security"
-msgstr ""
+msgstr "内置安全组件"
 
-#: features.html:59
+#: features.html:58
 msgid ""
 "Ubuntu MATE is designed with security in mind. Unlike operating systems that"
 " update only once a month, Ubuntu MATE receives updates continuously. The "
@@ -57,9 +58,9 @@ msgid ""
 "Security updates for all of its installed applications are also provided on "
 "the same schedule. This ensures that you have the latest protection for all "
 "of your computer's software -- as soon as it's available!"
-msgstr ""
+msgstr "Ubuntu MATE 设计过程始终坚守安全这一理念、与其他每月仅更新一次的操作系统不同，Ubuntu MATE 实时推送更新。更新内容包括 Ubuntu MATE 安全补丁及其他组件。所有已安装应用的安全更新也会一并推送。这种方案能帮助您的电脑及所安装的软件获取所能获取的最新，最安全的保护。"
 
-#: features.html:75
+#: features.html:74
 msgid ""
 "Ubuntu MATE can get viruses and other infections... but it doesn't. Rapid "
 "and timely updates ensure that there are very few, if any threats to Linux "
@@ -71,17 +72,17 @@ msgid ""
 "without conscious intervention by you, the user. Even if you do accidentally"
 " invite in an infection, chances are it's designed to attack Windows and "
 "won't do much, if any damage to Ubuntu MATE."
-msgstr ""
+msgstr "Ubuntu MATE 可能会感染病毒？......不不不，它并不会。快速和及时的更新可以确保 Linux 系统——如 Ubuntu MATE 免除绝大多数威胁。实际上，在过去的10年中，很少有能影响到 Ubuntu MATE 的“公共”感染。这些病毒几乎影响不到安装使用 Linux 发行版的任何人的威胁。Ubuntu MATE的设计目标是让用户在不自行防御的情况下不感染病毒，root 工具包和其他恶意软件。即使您的电脑不小心被感染了，也只会攻击Windows，而不会在 Ubuntu MATE 上起作用。PS：放心，没人专门给 Linux 桌面用户设计病毒的啦，成本都不一定收回来。"
 
-#: features.html:95
+#: features.html:94
 msgid ""
 "Another significant security feature of Ubuntu MATE is that its users are "
 "not administrators by default. Administrators (\"root\" users) on any "
 "computer system have permission to do anything they want, including the "
 "ability to damage the system."
-msgstr ""
+msgstr "Ubuntu MATE的另一个重要安全功能是其用户默认不具有管理员权限。因为任何计算机系统上的管理员（“根”用户）都有权执行他们想要执行的任何操作，包括破坏系统。"
 
-#: features.html:99
+#: features.html:98
 msgid ""
 "For example, other operating systems look at the name of a file to determine"
 " which program should open it, then immediately attempt to open it. That "
@@ -93,31 +94,31 @@ msgid ""
 "program that will be run if you give it permission to continue. To be extra "
 "secure, Ubuntu MATE requires you to provide your administrator password "
 "before that permission is granted. Every single time."
-msgstr ""
+msgstr "例如，其他操作系统可以查看文件的拓展名以确定哪个程序可以打开它，然后立即尝试打开它。这种设计使入侵者很容易攻击计算机。Ubuntu MATE 根据文件的实质而不是拓展名来打开文件。因此，即使恶意程序使用名称“Last Will and Testament.txt”掩盖其身份，Ubuntu MATE也会将该文件识别为程序。系统会提供一个警告，说明该文件不是文本文件，而是它是一个程序，如果您允许它继续运行，该程序将运行。为了更加安全，Ubuntu MATE 要求您在授予权限之前提供您的管理员密码。每一次使用权限都需要。"
+
+#: features.html:116
+msgid "Powerful Applications"
+msgstr "功能强大的应用"
 
 #: features.html:117
-msgid "Powerful Applications"
-msgstr ""
-
-#: features.html:118
 msgid ""
 "While MATE Desktop provides the essential user interfaces to control and use"
 " a computer, Ubuntu MATE adds a collection of additional applications to "
 "turn your computer into a truly powerful workstation."
-msgstr ""
+msgstr "尽管 MATE Desktop 提供了用于控制和使用计算机的基本用户界面，但 Ubuntu MATE 仍添加了一系列附加应用程序，可将您的计算机变成真正强大的工作站。"
 
-#: features.html:123
+#: features.html:122
 msgid "Productivity"
-msgstr ""
+msgstr "生产力工具"
 
-#: features.html:132
+#: features.html:131
 msgid ""
 "Firefox delivers safe, easy web browsing. A familiar user interface, "
 "enhanced security features including protection from online identity theft, "
 "and an integrated search to let you get the most out of the web."
-msgstr ""
+msgstr "火狐提供安全，轻松的网页浏览体验，拥有你所熟悉的用户界面，包括防盗号的安全功能，集成搜索，能让您更充分的利用网络。"
 
-#: features.html:144
+#: features.html:143
 msgid ""
 "Thunderbird is a full-featured email, RSS and newsgroup client that makes "
 "emailing safer, faster and easier than ever before. It supports different "
@@ -126,174 +127,174 @@ msgid ""
 "filter, advanced search and indexing capabilities, and offers easy "
 "organization of mails with tagging and virtual folders. It also features "
 "unrivalled extensibility."
-msgstr ""
+msgstr "雷鸟是一个全功能的电子邮件，RSS 和新闻组客户端它使发送电子邮件比以往更安全，更快速，更轻松。雷鸟支持不同的邮件协议（POP，IMAP，Gmail），拥有简单的邮件帐户设置向导，一键式通讯录，标签式界面，集成的垃圾邮件过滤器，高级搜索和索引功能，并提供易于组织邮件的标签和文件夹。同时还具有无与伦比的可扩展性。"
 
-#: features.html:160
+#: features.html:159
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
 "powerful tools let you unleash your creativity and grow your productivity. "
 "LibreOffice embeds several applications that make it the most powerful Free "
 "and Open Source Office suite on the market:"
-msgstr ""
+msgstr "LibreOffice 是一个全功能办公用生产力工具，是 Microsoft(R) Office 最好的替代品：其清晰的界面和强大的工具有助于释放你的创意并提高你的工作效率。LibreOffice嵌入了多个应用程序，使其成为市场上功能最强大的免费开源办公套件："
+
+#: features.html:166
+msgid "Writer, the word processor."
+msgstr "Writer ，文本专业解决方案。"
 
 #: features.html:167
-msgid "Writer, the word processor."
-msgstr ""
+msgid "Calc, the spreadsheet application."
+msgstr "Cal ，表格专业解决方案。"
 
 #: features.html:168
-msgid "Calc, the spreadsheet application."
-msgstr ""
+msgid "Impress, the presentation engine."
+msgstr "Impress ，幻灯片专业解决方案。"
 
 #: features.html:169
-msgid "Impress, the presentation engine."
-msgstr ""
+msgid "Draw, the drawing and flowcharting application."
+msgstr "Draw，流程图绘制工具。"
 
 #: features.html:170
-msgid "Draw, the drawing and flowcharting application."
-msgstr ""
+msgid "Base, the database and database frontend."
+msgstr "Base，数据库前端。"
 
 #: features.html:171
-msgid "Base, the database and database frontend."
-msgstr ""
-
-#: features.html:172
 msgid "Math, for editing mathematics."
-msgstr ""
+msgstr "Mat，数学公式编辑器。"
 
-#: features.html:179
+#: features.html:178
 msgid "Entertainment"
-msgstr ""
+msgstr "娱乐"
 
-#: features.html:185
+#: features.html:184
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
 "inspired by Apple's iTunes, the current version also supports Internet "
 "Radio, iPod integration and generic portable audio player support, Audio CD "
 "burning, Audio CD playback, music sharing, and Podcasts."
-msgstr ""
+msgstr "Rhythmbo 是一个支持大量音频格式（包括 mp3 和 ogg）的简单易用的播放器。最初受 iTunes 启发而设计，当前版本支持网络电台，iPod 及通用便携播放设备的管理，播放 CD， 音乐分享以及播客。"
 
-#: features.html:199
+#: features.html:198
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
 "fullscreen mode, and export them to share with others. It is able to manage "
 "a lot of different image formats, also including raw CR2 files."
-msgstr ""
+msgstr "Shotwell 是一个照片管理软件。它允许你从存储设备或者相机中导出，管理，最大化或者全屏查看照片以及分享给他人。支持包括 raw CR2 在内的大量图片格式。"
 
-#: features.html:212
+#: features.html:211
 msgid ""
 "VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
 "DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
 "podcasts, and multimedia streams from various network sources."
-msgstr ""
+msgstr "VLC 是 VideoLAN 项目的播放器，用于播放 MPEG， MPEG-2， MPEG-4， DivX， MOV,，WMV， QuickTime， WebM， FLAC， MP3， Ogg/Vorbis 文件， DVDs， VCDs，podcasts,网络多媒体串流。"
 
-#: features.html:216
+#: features.html:215
 msgid ""
 "VLC can also be used as a streaming server that duplicates the stream it "
 "reads and multicasts them through the network to other clients, or serves "
 "them through HTTP."
-msgstr ""
+msgstr "VLC 还可以用作流媒体服务器，它可以复制读取的流并通过网络将其广播到其他客户端，或通过 HTTP 提供服务。"
 
-#: features.html:219
+#: features.html:218
 msgid ""
 "VLC has support for on-the-fly transcoding of audio and video formats, "
 "either for broadcasting purposes or for movie format transformations."
-msgstr ""
+msgstr "VLC还 支持音频和视频格式的即时转码，无论是用于广播还是电影格式的转换。"
 
-#: features.html:227
+#: features.html:226
 msgid "... And a whole lot more!"
-msgstr ""
+msgstr "...以及其他许多！"
 
-#: features.html:229
+#: features.html:228
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
-msgstr ""
+msgstr "理所当然的你可以在 Ubuntu MATE 中找到防火墙，备份，文档扫描，打印机管理等服务。并且这只是一个开始。"
 
-#: features.html:232
+#: features.html:231
 msgid "Software"
-msgstr ""
+msgstr "软件商店"
 
-#: features.html:232
+#: features.html:231
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
-msgstr ""
+msgstr "包含了了针对大多数情况的优秀解决方案以及一键安装程序，"
 
-#: features.html:234
+#: features.html:233
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
-msgstr ""
+msgstr "提供了简单快捷的途径获取数以千计的专业或者娱乐用应用套件。"
 
-#: features.html:241
+#: features.html:240
 msgid "Games"
-msgstr ""
+msgstr "游戏"
 
-#: features.html:247
+#: features.html:246
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
-msgstr ""
+msgstr "在过去的几年中，Linux 已经成为一流的游戏平台，这归功于"
 
-#: features.html:250
+#: features.html:249
 msgid "bringing the"
-msgstr ""
+msgstr "带来这个"
 
-#: features.html:252
+#: features.html:251
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
-msgstr ""
+msgstr "这个平台到 Linux 。在撰写本文时，Steam 拥有超过 1000 款可用于 Linux 的高品质独立游戏和 3A 级游戏。Ubuntu MATE与Steam for Linux 完全兼容。"
 
-#: features.html:257
+#: features.html:256
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
 "MATE. It doesn't matter if you like flight simulators, motor racing, first "
 "person shooters, jump and run or card games, you'll find something to keep "
 "you entertained."
-msgstr ""
+msgstr "虽然 Steam 是 Linux 上游戏的重要一环，但也有许多高品质和令人愉快的开源游戏可供 Ubuntu MATE 使用。无论你喜欢飞行模拟器，赛车，第一人称射击，动作游戏还是纸牌游戏，你都会发现一些让你流连忘返的东西。"
 
-#: features.html:267
+#: features.html:266
 msgid "Accessibility"
-msgstr ""
+msgstr "无障碍"
 
-#: features.html:273
+#: features.html:272
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
-msgstr ""
+msgstr "当 Ubuntu MATE 创始人最初确定项目的目标时，便于使用是当时的一个优先事项。"
 
-#: features.html:277
+#: features.html:276
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
-msgstr ""
+msgstr "Ubuntu MATE 永远无法全面整合"
+
+#: features.html:278
+msgid "Sonar GNU/Linux"
+msgstr "Sonar GNU/Linux"
 
 #: features.html:279
-msgid "Sonar GNU/Linux"
-msgstr ""
-
-#: features.html:280
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
-msgstr ""
+msgstr "所提供的辅助技术。但是 Ubuntu MATE 将时刻跟进他们的技术，因此 Ubuntu MATE 是一个可行的桌面解决方案。"
 
-#: features.html:288
+#: features.html:287
 msgid "Mobile Integration"
-msgstr ""
+msgstr "移动端"
 
-#: features.html:294
+#: features.html:293
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "
 "automatically detected and mounted. You can then access the files on it or "
 "sync its contents."
-msgstr ""
+msgstr "目前，Ubuntu MATE 拥有您所期望的基本的移动设备支持。您可以插入手机，媒体播放器或数码相机，系统将自动检测并安装设备。然后你可以访问或者同步其中的文件。"

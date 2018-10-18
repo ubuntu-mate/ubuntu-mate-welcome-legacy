@@ -1,28 +1,33 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
-# Moo, 2016-2017
+# Moo, 2016-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-23 10:18+0100\n"
-"PO-Revision-Date: 2018-04-23 09:22+0000\n"
+"PO-Revision-Date: 2018-04-26 12:55+0000\n"
 "Last-Translator: Moo\n"
-"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/lt_LT/)\n"
+"Language-Team: Lithuanian (Lithuania) (http://www.transifex.com/ubuntu-mate/"
+"ubuntu-mate-welcome/language/lt_LT/)\n"
+"Language: lt_LT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lt_LT\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
 
 #: ubuntu-mate-welcome:88
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr "Programinės įrangos pakeitimai yra eigoje. Prašome, prieš užveriant programą Sveiki, leisti jiems užsibaigti."
+msgstr ""
+"Programinės įrangos pakeitimai yra eigoje. Prašome, prieš užveriant programą "
+"Sveiki, leisti jiems užsibaigti."
 
 #: ubuntu-mate-welcome:89 ubuntu-mate-welcome:2748
 msgid "OK"
@@ -75,7 +80,9 @@ msgstr "Programa Sveiki bus atnaujinama į naujausias versijas."
 #: ubuntu-mate-welcome:256
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
-msgstr "Programa Sveiki ir Programinės įrangos butikas yra nustatyti gauti naujausius atnaujinimus."
+msgstr ""
+"Programa Sveiki ir Programinės įrangos butikas yra nustatyti gauti "
+"naujausius atnaujinimus."
 
 #: ubuntu-mate-welcome:262
 msgid "Everything is up-to-date"
@@ -513,14 +520,19 @@ msgstr "Jūsų patyrimai gali skirtis."
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
-msgstr "Programinės įrangos butikas yra sukurtas Ubuntu MATE, tačiau atrodo, kad jūs naudojate kitą distribuciją."
+msgstr ""
+"Programinės įrangos butikas yra sukurtas Ubuntu MATE, tačiau atrodo, kad jūs "
+"naudojate kitą distribuciją."
 
 #: ubuntu-mate-welcome:1166
 msgid ""
 "While a large selection of software will work on other Ubuntu-based "
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
-msgstr "Nors didelė programinės įrangos dalis veiks kitose Ubuntu pagrįstose distribucijose, mes negali garantuoti, kad mūsų parengtos programos nepriekaištingai veiks jūsų sistemoje."
+msgstr ""
+"Nors didelė programinės įrangos dalis veiks kitose Ubuntu pagrįstose "
+"distribucijose, mes negali garantuoti, kad mūsų parengtos programos "
+"nepriekaištingai veiks jūsų sistemoje."
 
 #: ubuntu-mate-welcome:1169
 msgid "This message will not be shown again."
@@ -528,7 +540,7 @@ msgstr "Šis pranešimas daugiau nebebus rodomas."
 
 #: ubuntu-mate-welcome:1174 ubuntu-mate-welcome:1181
 msgid "Help Improve Ubuntu MATE"
-msgstr ""
+msgstr "Padėti tobulinti Ubuntu MATE"
 
 #: ubuntu-mate-welcome:1175
 msgid "Thank you!"
@@ -539,14 +551,16 @@ msgid ""
 "This data was successfully sent and will be used to improve future "
 "installations."
 msgstr ""
+"Šie duomenys buvo sėkmingai išsiųsti ir bus panaudoti tobulinti diegimus "
+"ateityje."
 
 #: ubuntu-mate-welcome:1182
 msgid "Communication Error"
-msgstr ""
+msgstr "Susisiekimo klaida"
 
 #: ubuntu-mate-welcome:1183
 msgid "The server couldn't be contacted at this time. Please try again later."
-msgstr ""
+msgstr "Šiuo metu nepavyko susisiekti su serveriu. Bandykite dar kartą vėliau."
 
 #: ubuntu-mate-welcome:1197
 msgid "Continue"
@@ -633,13 +647,17 @@ msgstr "Nuosavybinė"
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr "Atleiskite, programai Sveiki nepavyko šioje kategorijoje atrasti jokios programinės įrangos, kuri būtų suderinama su šia sistema."
+msgstr ""
+"Atleiskite, programai Sveiki nepavyko šioje kategorijoje atrasti jokios "
+"programinės įrangos, kuri būtų suderinama su šia sistema."
 
 #: ubuntu-mate-welcome:2749
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr "Paleidžiant PROGRAM_NAME, įvyko klaida. Prašome pagalvoti apie programos įdiegimą iš naujo."
+msgstr ""
+"Paleidžiant PROGRAM_NAME, įvyko klaida. Prašome pagalvoti apie programos "
+"įdiegimą iš naujo."
 
 #: ubuntu-mate-welcome:2750
 msgid "Command:"

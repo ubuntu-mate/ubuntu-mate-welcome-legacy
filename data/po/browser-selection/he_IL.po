@@ -11,35 +11,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he_IL\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: browser-selection.html:18
 msgid "Browser Selection"
-msgstr ""
+msgstr "בחירת דפדפן"
 
 #: browser-selection.html:26
 msgid "Pick a portal to the world wide web."
-msgstr ""
+msgstr "בחר את הגשר שלך אל האינטרנט."
 
 #: browser-selection.html:27
 msgid ""
 "Many computer users have a preferred web browser when accessing content on "
 "the Internet. Ubuntu MATE offers these browsers for your convenience."
 msgstr ""
+"להרבה משתמשי מחשב יש דפדפן מעודף בשביל לגשת לתוכן באינטרנט.Ubuntu MATE מציע "
+"את הדפדפנים האלה לנוחותך."
 
 #: browser-selection.html:31
 msgid ""
 "You must be connected to the internet to download and install software."
-msgstr ""
+msgstr "אתה חייב להיות מחובר לאינטרנט בשביל להוריד ולהתקין תוכנות."
 
 #: browser-selection.html41, 54, 67, 80, 93, 106
 msgid "Default"
-msgstr ""
+msgstr "ברירת מחדל"
 
 #: browser-selection.html42, 55, 68, 81, 94, 107
 msgid "Set Default"
-msgstr ""
+msgstr "הגדר ברירת מחדל"
 
 #: browser-selection.html43, 56, 69, 82, 95, 108
 msgid "Install"
