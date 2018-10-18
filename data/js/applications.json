@@ -2978,12 +2978,10 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic",
+            "releases": "xenial,bionic,cosmic",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:x2go/stable",
-                    "source-file": "x2go-ubuntu-stable-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
