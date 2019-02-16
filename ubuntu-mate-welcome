@@ -1489,6 +1489,7 @@ class WelcomeApp(object):
         ## Social Links ##
         self.footer_left = '<div id="social" class="pull-left"> \
         <button onclick="cmd(\'link?https://ubuntu-mate.org\')" title="' + _("Ubuntu MATE Website") + '"><img src="' + trans.res_dir + 'img/welcome/ubuntu-mate-icon.svg"></button> \
+        <button onclick="cmd(\'link?https://ubuntu.social/@ubuntumate\')" title="Mastodon"><img src="' + trans.res_dir + 'img/social/mastodon.svg"></button> \
         <button onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></button> \
         <button onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></button> \
         <button onclick="cmd(\'link?https://www.youtube.com/channel/UCqRwuzCjj2UN5aAX_PENIfQ\')" title="YouTube"><img src="' + trans.res_dir + 'img/social/youtube.svg"></button> \
