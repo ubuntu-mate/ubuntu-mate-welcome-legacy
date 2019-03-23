@@ -965,6 +965,7 @@ class AppView(WebKit2.WebView):
 
             # Raspberry Pi button
             if systemstate.session_type == 'pi':
+                btns.remove('browser-selection')
                 btns.append('raspberry-pi')
 
             # Enable panel customisation if supported in this version
@@ -1668,7 +1669,7 @@ class SystemState(object):
             self.session_type = 'oem'
         elif self.user_name[:6] == 'guest-':
             self.session_type = 'guest'
-        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')):
+        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')) or os.path.isfile(os.path.join('/','boot/','frmware/', 'config.txt')):
             self.session_type = 'pi'
         else:
             self.session_type = 'normal'
