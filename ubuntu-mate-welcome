@@ -1669,7 +1669,7 @@ class SystemState(object):
             self.session_type = 'oem'
         elif self.user_name[:6] == 'guest-':
             self.session_type = 'guest'
-        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')) or os.path.isfile(os.path.join('/','boot/','frmware/', 'config.txt')):
+        elif os.path.isfile(os.path.join('/','boot/','kernel7.img')) or os.path.isfile(os.path.join('/','boot/','firmware/', 'config.txt')):
             self.session_type = 'pi'
         else:
             self.session_type = 'normal'
