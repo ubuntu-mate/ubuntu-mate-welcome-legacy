@@ -15,7 +15,6 @@ Exec=/snap/bin/ubuntu-mate-welcome --autostart
 OnlyShowIn=MATE;
 StartupNotify=false
 NoDisplay=true
-X-MATE-Autostart-Delay=10
 AUTOSTART
 
   cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
@@ -68,7 +67,4 @@ POLICY
 </Menu>
 MENU
 
-  #if [ -f /etc/xdg/menus/mate-settings.menu ]; then
-  #  sed -i "/<\/Layout>/a <MergeFile>\/etc\/xdg\/menus\/mate-settings-welcome\.menu<\/MergeFile>" /etc/xdg/menus/mate-settings.menu
-  #fi
 fi
