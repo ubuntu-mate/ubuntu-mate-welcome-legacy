@@ -212,10 +212,15 @@ parts:
       - $cruft_python_wheel
       - $cruft_x11
 
+  wrapper:
+    after:
+      - ubuntu-mate-welcome
+    plugin: dump
+    source: files/
+
 apps:
   ubuntu-mate-welcome:
-    command: usr/bin/ubuntu-mate-welcome
-    desktop: usr/share/applications/ubuntu-mate-welcome.desktop
+    command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome
   software-boutique:
-    command: usr/bin/ubuntu-mate-welcome --boutique
+    command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome --boutique
     desktop: usr/share/applications/ubuntu-mate-software.desktop
