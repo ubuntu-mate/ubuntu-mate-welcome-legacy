@@ -1827,8 +1827,8 @@
         "brave": {
             "name": "Brave",
             "img": "brave",
-            "main-package": "brave",
-            "launch-command": "brave",
+            "main-package": "brave-browser",
+            "launch-command": "brave-browser",
             "install-packages": "brave-keyring brave-browser",
             "remove-packages": "brave-keyring brave-browser",
             "description": [
@@ -1856,10 +1856,10 @@
                 },
                 "all": {
                     "method": "manual",
-                    "source-file": "brave-CODENAME",
-                    "apt-key-url": "https://s3-us-west-2.amazonaws.com/brave-apt/keys.asc",
+                    "source-file": "brave-browser-release-CODENAME.list",
+                    "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
                     "apt-sources": [
-                        "deb [arch=amd64] https://s3-us-west-2.amazonaws.com/brave-apt CODENAME main"
+                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ CODENAME main"
                     ]
                 }
             },
