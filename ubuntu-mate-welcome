@@ -87,7 +87,12 @@ def goodbye(a=None, b=None):
         title = string.boutique
         text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
         ok_label = _("OK")
-        messagebox = subprocess.Popen(['zenity',
+        if os.environ.get('SNAP'):
+            dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
+        else:
+            dialog_app = os.path.join('/', usr', 'bin', 'zenity')
+
+        messagebox = subprocess.Popen([dialog_app,
                                  '--error',
                                  '--title=' + title,
                                  "--text=" + text_busy,
@@ -2747,7 +2752,12 @@ class DynamicApps(object):
             ok_label = _("OK")
             text_error = _("An error occurred while launching PROGRAM_NAME. Please consider re-installing the application.").replace('PROGRAM_NAME', program_name) + \
                             '\n\n' + _("Command:") + ' "' + program_command + '"'
-            messagebox = subprocess.Popen(['zenity',
+            if os.environ.get('SNAP'):
+                dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
+            else:
+                dialog_app = os.path.join('/', 'usr', 'bin', 'zenity')
+        
+            messagebox = subprocess.Popen([dialog_app,
                          '--error',
                          '--title=' + title,
                          "--text=" + text_error,

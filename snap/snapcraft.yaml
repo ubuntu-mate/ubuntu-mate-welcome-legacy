@@ -12,27 +12,8 @@ description: |
 confinement: classic
 
 parts:
-  # Build a minimal zenity from source, prevents dragging in WebKit et al.
-  zenity:
-    plugin: autotools
-    source: https://github.com/GNOME/zenity/archive/ZENITY_3_18_1_1.tar.gz
-    configflags:
-      - --prefix=/usr
-    build-packages:
-      - gnome-common
-      - libgtk-3-dev
-      - libnotify-dev
-      - yelp-tools
-    stage:
-      - usr/bin/zenity
-      - usr/share/zenity
-
   ubuntu-mate-welcome:
     plugin: nil
-    after:
-      - zenity
-    #build-attributes:
-    #  - no-system-libraries
     build-packages:
       - gettext
       - git
@@ -56,6 +37,7 @@ parts:
       - python3-setproctitle
       - python3-software-properties
       #- software-properties-common - in all the Ubuntu flavour tasks
+      - yad
     override-pull: |
       snapcraftctl pull
       # Modify the icon paths for the snap.
