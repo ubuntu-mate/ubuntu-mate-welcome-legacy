@@ -65,7 +65,6 @@ parts:
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
       cp ubuntu-mate-welcome-repository-installer $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
-      cp ubuntu-mate-welcome-rpi2-partition-resize $SNAPCRAFT_PART_INSTALL/usr/lib/ubuntu-mate/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1

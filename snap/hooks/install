@@ -37,17 +37,6 @@ AUTOSTART
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">$SNAP/usr/lib/ubuntu-mate/ubuntu-mate-welcome-repository-installer</annotate>
   </action>
-  <action id="org.ubuntu-mate.rpi2partresize">
-    <description>Ubuntu MATE Welcome Partition Resizer for the Raspberry Pi 2</description>
-    <message>Helper utility for the Ubuntu MATE Welcome screen that can resize the partitions for the Raspberry Pi 2.</message>
-    <icon_name>system-run</icon_name>
-    <defaults>
-      <allow_any>no</allow_any>
-      <allow_inactive>no</allow_inactive>
-      <allow_active>yes</allow_active>
-    </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">$SNAP/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize</annotate>
-  </action>
 </policyconfig>
 POLICY
 

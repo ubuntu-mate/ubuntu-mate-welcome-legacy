@@ -1136,8 +1136,7 @@ class AppView(WebKit2.WebView):
 
         ### Raspberry Pi Page ###
         if app.current_page == 'rpi.html':
-            # Check file system resize flag.
-            systemstate.rpi_resize('check', self)
+            pass
 
         ### Donate ###
         if app.current_page == 'donate.html':
@@ -1391,10 +1390,6 @@ class AppView(WebKit2.WebView):
             else:
                 app.update_page('.offline', 'show')
                 app.update_page('.online', 'hide')
-        elif cmd == 'resize-rpi':
-            systemstate.rpi_resize('do-resize', self)
-        elif cmd == 'reboot-rpi':
-            systemstate.rpi_resize('reboot')
         elif cmd == 'subscribe-updates':
             dbg.stdout('Welcome', 'Subscribing to Ubuntu MATE Welcome Updates...', 0, 3)
             app.update_page('#update-notification', 'hide')
@@ -1636,7 +1631,6 @@ class SystemState(object):
         # Set default variables
         self.is_online = False
         self.updates_subscribed = False
-        self.rpi_resize_pending = False
         self.welcome_version = __VERSION__
 
         # Get user details.
@@ -2159,68 +2153,6 @@ class SystemState(object):
             app.update_page('#specs-inxi-busy', 'slideUp')
             app.update_page('#specs-inxi-error', 'slideDown')
             app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
-
-    def rpi_resize(self, action, webkit=None):
-        if action == 'do-resize':
-            subprocess.call(['pkexec', '/usr/lib/ubuntu-mate/ubuntu-mate-welcome-rpi2-partition-resize'])
-
-            def notify(subject, body, icon):
-                Notify.init(_('Raspberry Pi Partition Resize'))
-                resize_notify=Notify.Notification.new(subject, body, icon)
-                resize_notify.show()
-
-            try:
-                with open('/tmp/notify_rpi_status') as status_file:
-                    status_code = int(status_file.read())
-            except:
-                status_code = 0
-
-            try:
-                with open('/tmp/notify_rpi_text') as misc_file:
-                    misc_text = misc_file.read()
-            except:
-                misc_text = ""
-
-            if status_code == 1:
-                notify( _("Root partition has been resized."), _("The filesystem will be enlarged upon the next reboot."), 'dialog-information' )
-                self.rpi_resize_pending = True
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'hide')
-                app.update_page('#rpi-restart-now', 'show')
-            elif status_code == 2:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("does not exist or is not a symlink."), 'dialog-error' )
-            elif status_code == 3:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not an SD card."), 'dialog-error' )
-            elif status_code == 4:
-                notify( _("Don't know how to expand."), _("Your partition layout is not currently supported by this tool."), 'dialog-error' )
-            elif status_code == 5:
-                notify( _("Don't know how to expand."), misc_text + ' ' + _("is not the last partition."), 'dialog-error' )
-            else:
-                notify( _("Failed to run resize script."), _("The returned error code is:") + str(status_code), 'dialog-error' )
-                dbg.stdout('Welcome', 'Unrecognised return code for Raspberry Pi resize: ' + str(status_code), 0, 1)
-
-            app.webkit._push_config()
-
-        elif action == 'check':
-            if os.path.exists('/.resized'):
-                resized = True
-            else:
-                resized = False
-
-            if resized:
-                app.update_page('#rpi-resized', 'show')
-                app.update_page('#rpi-not-resized', 'hide')
-            else:
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'show')
-
-            if self.rpi_resize_pending:
-                app.update_page('#rpi-resized', 'hide')
-                app.update_page('#rpi-not-resized', 'hide')
-                app.update_page('#rpi-restart-now', 'show')
-
-        elif action == 'reboot':
-            subprocess.call(['mate-session-save','--shutdown-dialog'])
 
     def copy_to_clipboard(self, var):
         # Copies text to clipboard, passes 'var' containing what we'd like copying.
