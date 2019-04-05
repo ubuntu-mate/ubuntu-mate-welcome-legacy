@@ -219,10 +219,10 @@
         "etcher": {
             "name": "Etcher",
             "img": "etcher",
-            "main-package": "etcher-electron",
-            "launch-command": "etcher-electron",
-            "install-packages": "etcher-electron",
-            "remove-packages": "etcher-electron",
+            "main-package": "balena-etcher-electron",
+            "launch-command": "balena-etcher-electron",
+            "install-packages": "balena-etcher-electron",
+            "remove-packages": "balena-etcher-electron",
             "description": [
                 "Etcher is a cross-platform tool for writing images to USB drives",
                 "and SD cards, aiming to be really simple to prevent accidental",
@@ -239,10 +239,10 @@
             "pre-install": {
                 "all": {
                     "method": "manual",
-                    "source-file": "etcher",
+                    "source-file": "balena-etcher",
                     "apt-key-server": ["hkp://pgp.mit.edu:80", "379CE192D401AB61"],
                     "apt-sources": [
-                        "deb https://dl.bintray.com/resin-io/debian stable etcher"
+                        "deb https://deb.etcher.io stable etcher"
                     ]
                 }
             },
