@@ -240,7 +240,10 @@
                 "all": {
                     "method": "manual",
                     "source-file": "balena-etcher",
-                    "apt-key-server": ["hkp://pgp.mit.edu:80", "379CE192D401AB61"],
+                    "apt-key-server": [
+                        "keyserver.ubuntu.com",
+                        "379CE192D401AB61"
+                    ],                    
                     "apt-sources": [
                         "deb https://deb.etcher.io stable etcher"
                     ]
@@ -1829,8 +1832,8 @@
             "img": "brave",
             "main-package": "brave-browser",
             "launch-command": "brave-browser",
-            "install-packages": "brave-keyring brave-browser",
-            "remove-packages": "brave-keyring brave-browser",
+            "install-packages": "brave-keyring,brave-browser",
+            "remove-packages": "brave-keyring,brave-browser",
             "description": [
                 "Browse faster and safer with Brave.",
                 "The new Brave browser automatically blocks ads and trackers,",
@@ -1846,7 +1849,7 @@
             "arch": "amd64",
             "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
-                "cosmic": {
+                "cosmic,disco": {
                     "method": "manual",
                     "source-file": "brave-browser-release-CODENAME.list",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
