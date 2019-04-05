@@ -204,6 +204,12 @@ parts:
 apps:
   ubuntu-mate-welcome:
     command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome
+    environment:
+      # Fallback to XWayland if running in a Wayland session.
+      DISABLE_WAYLAND: 1
   software-boutique:
     command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome --boutique
     desktop: usr/share/applications/ubuntu-mate-software.desktop
+    environment:
+      # Fallback to XWayland if running in a Wayland session.
+      DISABLE_WAYLAND: 1
