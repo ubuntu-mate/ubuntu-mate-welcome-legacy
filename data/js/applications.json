@@ -5536,13 +5536,13 @@
         "libdvdcss2": {
             "name": "Blu-ray and DVD Playback Support",
             "img": "dvd",
-            "main-package": "libdvdcss2",
+            "main-package": "libbluray-bdj",
             "launch-command": null,
-            "install-packages": "libdvdcss2,libaacs0,libbluray-bdj,libdvdnav4,libdvdread4",
-            "remove-packages": "libdvdcss2,libbluray-bdj",
+            "install-packages": "libaacs0,libbluray-bdj,libdvdnav4,libdvdread4",
+            "remove-packages": "libbluray-bdj",
             "description": [
                 "Installs libraries that enable Blu-ray and DVD playback in VLC.",
-                "After install this DVD will work but Blu-ray will need to put",
+                "After install DVD will work but Blu-ray will need to put",
                 "http://www.labdv.com/aacs/KEYDB.cfg in ~/.config/aacs/KEYDB.cfg."
             ],
             "alternate-to": null,
@@ -5555,13 +5555,7 @@
             "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
                 "all": {
-                    "method": "manual",
-                    "source-file": "libdvdcss2",
-                    "apt-key-url": "http://download.videolan.org/pub/debian/videolan-apt.asc",
-                    "apt-sources": [
-                        "deb http://download.videolan.org/pub/debian/stable/ /",
-                        "deb-src http://download.videolan.org/pub/debian/stable/ /"
-                    ]
+                    "method": "skip"
                 }
             },
             "working": true
