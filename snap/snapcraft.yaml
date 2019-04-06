@@ -26,7 +26,7 @@ parts:
       - gir1.2-webkit2-4.0
       - inxi
       #- parted - is in the standard and ubuntu-core tasks
-      #- pciutils - is in the standard task
+      - pciutils
       - policykit-1
       - python3
       - python3-apt

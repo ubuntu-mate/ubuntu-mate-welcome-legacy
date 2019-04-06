@@ -1827,7 +1827,11 @@ class SystemState(object):
         # TODO: Support dual graphic cards.
         dbg.stdout('Specs', 'Detecting graphics vendor... ', 1, 3)
         try:
-            output = subprocess.Popen('lspci | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
+            if os.environ.get('SNAP'):
+                lspci_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'lspci')
+            else:
+                lspci_app = os.path.join('/', 'usr', 'bin', 'lspci')
+            output = subprocess.Popen(lspci_app + ' | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
             # When 'lspci' does not find a VGA controller (this is the case for the RPi 2)
