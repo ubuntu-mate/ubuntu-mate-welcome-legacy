@@ -90,7 +90,7 @@ def goodbye(a=None, b=None):
         if os.environ.get('SNAP'):
             dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
         else:
-            dialog_app = os.path.join('/', usr', 'bin', 'zenity')
+            dialog_app = os.path.join('/', 'usr', 'bin', 'zenity')
 
         messagebox = subprocess.Popen([dialog_app,
                                  '--error',
