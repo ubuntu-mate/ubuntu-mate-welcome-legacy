@@ -3711,16 +3711,16 @@
             },
             "working": true
         },
-        "pgadmin3": {
-            "name": "pgAdmin III",
+        "pgadmin": {
+            "name": "pgAdmin",
             "img": "pgadmin3",
-            "main-package": "pgadmin3",
-            "launch-command": "pgadmin3",
-            "install-packages": "pgadmin3",
-            "remove-packages": "pgadmin3",
+            "main-package": "pgadmin4",
+            "launch-command": "pgadmin4",
+            "install-packages": "pgadmin4",
+            "remove-packages": "pgadmin4",
             "description": [
                 "A database design and management",
-                "application for use with PostgreSQL. pgAdmin III is designed",
+                "application for use with PostgreSQL. pgAdmin is designed",
                 "to answer the needs of all users, from writing simple SQL",
                 "queries to developing complex databases. The graphical",
                 "interface supports all PostgreSQL features and makes",
@@ -3735,11 +3735,16 @@
             "url-info": "http://www.pgadmin.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
+            "arch": "amd64",
             "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
                 "all": {
-                    "method": "skip"
+                    "method": "manual",
+                    "source-file": "pgdg.list",
+                    "apt-key-url": "https://www.postgresql.org/media/keys/ACCC4CF8.asc",
+                    "apt-sources": [
+                        "deb http://apt.postgresql.org/pub/repos/apt/ CODENAME-pgdg main"
+                    ]
                 }
             },
             "working": true
