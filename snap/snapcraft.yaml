@@ -20,7 +20,6 @@ parts:
       - git
       - python3
       - python3-polib
-      - rsync
     stage-packages:
       - gir1.2-gtk-3.0
       - gir1.2-notify-0.7
@@ -49,13 +48,13 @@ parts:
       ./welcome-po.py --install
       ./edgar-allan translate-all
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
-      rsync -a data/ $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
+      cp -a data/* $SNAPCRAFT_PART_INSTALL/usr/share/ubuntu-mate-welcome/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
-      rsync -a hicolor/ $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
+      cp -a hicolor/* $SNAPCRAFT_PART_INSTALL/usr/share/icons/hicolor/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/locale
-      rsync -a locale/ $SNAPCRAFT_PART_INSTALL/usr/share/locale/
+      cp -a locale/* $SNAPCRAFT_PART_INSTALL/usr/share/locale/
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
       cp *.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
