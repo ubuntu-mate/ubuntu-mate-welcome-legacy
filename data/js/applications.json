@@ -3671,7 +3671,7 @@
             "working": true
         },
         "pgadmin": {
-            "name": "pgAdmin",
+            "name": "pgAdmin 4",
             "img": "pgadmin3",
             "main-package": "pgadmin4",
             "launch-command": "pgadmin4",
@@ -3702,7 +3702,7 @@
                     "source-file": "pgdg.list",
                     "apt-key-url": "https://www.postgresql.org/media/keys/ACCC4CF8.asc",
                     "apt-sources": [
-                        "deb http://apt.postgresql.org/pub/repos/apt/ CODENAME-pgdg main"
+                        "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ CODENAME-pgdg main"
                     ]
                 }
             },
