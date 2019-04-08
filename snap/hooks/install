@@ -15,7 +15,7 @@ Exec=/snap/bin/ubuntu-mate-welcome --autostart
 OnlyShowIn=MATE;
 StartupNotify=false
 NoDisplay=true
--X-MATE-Autostart-Delay=10
+X-MATE-Autostart-Delay=10
 AUTOSTART
 
   cat << POLICY > /usr/share/polkit-1/actions/org.ubuntu-mate.welcome.policy
