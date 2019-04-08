@@ -2174,47 +2174,6 @@
             },
             "working": true
         },
-        "hipchat": {
-            "name": "HipChat",
-            "img": "hipchat",
-            "main-package": "hipchat4",
-            "launch-command": "hipchat4",
-            "install-packages": "hipchat4",
-            "remove-packages": "hipchat4",
-            "description": [
-                "Group and private chat, file sharing, and integrations.",
-                "Persistent, searchable team chat that's actually built",
-                "for business with and loaded with goodies, including",
-                "video calling, screen sharing and hundreds of integrations."
-            ],
-            "alternate-to": null,
-            "subcategory": "Collaboration",
-            "open-source": false,
-            "url-info": "https://www.hipchat.com/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.hipchat&hl=en",
-            "url-ios": "https://itunes.apple.com/us/app/hipchat-group-chat-video-file/id418168984?mt=8",
-            "arch": "amd64",
-            "releases": "xenial,bionic,cosmic,disco",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "atlassian-hipchat4",
-                    "apt-key-url": "https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public",
-                    "apt-sources": [
-                        "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client CODENAME main"
-                    ]
-                },
-                "bionic,cosmic": {
-                    "method": "manual",
-                    "source-file": "atlassian-hipchat4",
-                    "apt-key-url": "https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public",
-                    "apt-sources": [
-                        "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client artful main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "insync": {
             "name": "Insync",
             "img": "insync",
