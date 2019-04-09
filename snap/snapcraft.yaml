@@ -199,6 +199,7 @@ parts:
 apps:
   ubuntu-mate-welcome:
     command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome
+    desktop: usr/share/applications/ubuntu-mate-welcome.desktop
     environment:
       # Fallback to XWayland if running in a Wayland session.
       DISABLE_WAYLAND: 1
