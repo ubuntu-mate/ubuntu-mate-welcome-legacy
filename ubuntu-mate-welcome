@@ -1211,7 +1211,7 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'google-chrome')
             dynamicapps.update_app_status(self, 'opera-browser')
             dynamicapps.update_app_status(self, 'vivaldi')
-            dynamicapps.update_app_status(self, 'brave')
+            dynamicapps.update_app_status(self, 'brave-browser')
 
             # Highlight default browser
             if which('xdg-settings') != None:
