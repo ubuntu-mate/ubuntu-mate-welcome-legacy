@@ -950,10 +950,15 @@
             "session": "pi",
             "releases": "xenial,bionic",
             "pre-install": {
-                "all": {
+                "xenial": {
                     "method": "ppa",
                     "enable-ppa": "ppa:flexiondotorg/minecraft",
                     "source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
+                },
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntu-pi-flavour-makers/ppa",
+                    "source-file": "ubuntu-pi-flavour-makers-ubuntu-ppa-CODENAME"
                 }
             },
             "working": true
