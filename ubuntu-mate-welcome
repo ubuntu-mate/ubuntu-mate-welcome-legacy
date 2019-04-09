@@ -2136,12 +2136,7 @@ class SystemState(object):
     def get_inxi_info(self):
         dbg.stdout('Specs', 'Gathering advanced system information with "inxi"...', 1, 0)
         try:
-            if os.environ.get('SNAP'):
-                inxi_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'inxi')                
-            else:
-                inxi_app = os.path.join('/', 'usr', 'bin', 'inxi')
-            
-            inxi_output = str(subprocess.Popen([inxi_app,'-c','0','-v','5','-p','-d','-xx'], stdout=subprocess.PIPE).communicate()[0])
+            inxi_output = str(subprocess.Popen(['inxi','-c','0','--basic','--cpu','-D','-G','-m','-s'], stdout=subprocess.PIPE).communicate()[0])
         except:
             dbg.stdout('Specs', 'Failed to execute collect advanced information. Is "inxi" no longer installed?', 0, 1)
 
