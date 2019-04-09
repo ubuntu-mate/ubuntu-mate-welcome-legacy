@@ -2251,6 +2251,10 @@ class DynamicApps(object):
         self.app_url_android = self.index[category][program_id]['url-android']
         self.app_url_ios = self.index[category][program_id]['url-ios']
         self.app_arch = self.index[category][program_id]['arch']
+        try:
+            self.app_session = self.index[category][program_id]['session']
+        except KeyError:
+            self.app_session = None
         self.app_releases = self.index[category][program_id]['releases']
         self.app_working = self.index[category][program_id]['working']
 
@@ -2264,21 +2268,29 @@ class DynamicApps(object):
         supported = False
         supported_arch = False
         supported_release = False
+        supported_session = False
 
         for architecture in self.app_arch.split(','):
             if architecture == systemstate.arch:
                 supported_arch = True
+
+        if self.app_session is not None:
+          for session in self.app_session.split(','):
+            if session == systemstate.session_type :
+              supported_session = True
+        elif self.app_session is None:
+            supported_session = True
 
         # Only list the program if it's available for the current release.
         for release in self.app_releases.split(','):
             if release == systemstate.codename:
                 supported_release = True
 
-        if supported_arch and supported_release:
+        if supported_arch and supported_release and supported_session:
             supported = True
 
         if not supported:
-            dbg.stdout('Apps', ' Skipping unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ')', 2, 4)
+            dbg.stdout('Apps', ' Skipping unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ' and sessio: ' + str(self.app_session) + ')', 2, 4)
             return 1
 
         # If the app has made it this far, it can be added to the grid.
