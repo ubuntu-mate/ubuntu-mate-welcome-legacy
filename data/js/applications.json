@@ -928,6 +928,36 @@
             },
             "working": false
         },
+        "minecraft-pi": {
+            "name": "Minecraft: Pi Edition",
+            "img": "minecraft",
+            "main-package": "minecraft-pi",
+            "launch-command": "minecraft-pi",
+            "install-packages": "minecraft-pi",
+            "remove-packages": "minecraft-pi",
+            "description": [
+                "Minecraft: Pi Edition is a cut down version of Minecraft for",
+                "the Raspberry Pi. It is based on an old version of Minecraft",
+                "Pocket Edition and offers language bindings for Python."
+            ],
+            "alternate-to": null,
+            "subcategory": "Open World",
+            "open-source": false,
+            "url-info": "https://projects.raspberrypi.org/en/projects/getting-started-with-minecraft-pi",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "armhf",
+            "session": "pi",
+            "releases": "xenial,bionic,disco",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:flexiondotorg/minecraft",
+                    "source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
+                }
+            },
+            "working": true
+        },
         "neverball": {
             "name": "Neverball",
             "img": "neverball",
