@@ -1238,6 +1238,37 @@
             },
             "working": true
         },
+        "steamlink": {
+            "name": "Steam Link",
+            "img": "steamlink",
+            "main-package": "steamlink",
+            "launch-command": "steamlink",
+            "install-packages": "steamlink",
+            "remove-packages": "steamlink",
+            "description": [
+                "The Steam Link app extends Steam Link functionality to the Raspberry",
+                "Pi Model B 3 and 3+ and uses the same streaming technology as Valves",
+                "Steam Link, allowing you to play your favorite games and even spectate",
+                "VR games right from your Raspberry Pi."
+            ],
+            "alternate-to": null,
+            "subcategory": "Game Streaming",
+            "open-source": false,
+            "url-info": "https://support.steampowered.com/kb_article.php?ref=6153-IFGH-6589",
+            "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.steamlink&hl=en",
+            "url-ios": null,
+            "arch": "armhf",
+            "session": "pi",
+            "releases": "bionic",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntu-pi-flavour-makers/ppa",
+                    "source-file": "ubuntu-pi-flavour-makers-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": true
+        },
         "supertuxkart": {
             "name": "SuperTuxKart",
             "img": "supertuxkart",
