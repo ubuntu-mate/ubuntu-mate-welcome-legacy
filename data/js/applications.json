@@ -4410,14 +4410,14 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic",
+            "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:peek-developers/stable",
                     "source-file": "peek-developers-ubuntu-stable-CODENAME"
                 },
-                "cosmis,disco": {
+                "cosmic,disco": {
                     "method": "skip"
                 }
             },
