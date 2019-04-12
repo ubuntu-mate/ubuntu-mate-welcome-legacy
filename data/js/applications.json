@@ -4929,10 +4929,10 @@
         "virtualbox": {
             "name": "Oracle VirtualBox",
             "img": "virtualbox",
-            "main-package": "virtualbox-5.2",
+            "main-package": "virtualbox-6.0",
             "launch-command": "virtualbox",
-            "install-packages": "virtualbox-5.2",
-            "remove-packages": "virtualbox-5.2",
+            "install-packages": "virtualbox-6.0",
+            "remove-packages": "virtualbox-6.0",
             "description": [
                 "A powerful PC virtualization solution",
                 "allowing you to run a wide range of PC operating systems on",
@@ -4948,7 +4948,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,cosmic",
+            "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4956,6 +4956,14 @@
                     "apt-key-url": "https://www.virtualbox.org/download/oracle_vbox_2016.asc",
                     "apt-sources": [
                         "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian CODENAME contrib"
+                    ]
+                },
+                "disco": {
+                    "method": "manual",
+                    "source-file": "virtualbox",
+                    "apt-key-url": "https://www.virtualbox.org/download/oracle_vbox_2016.asc",
+                    "apt-sources": [
+                        "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian cosmic contrib"
                     ]
                 }
             },
