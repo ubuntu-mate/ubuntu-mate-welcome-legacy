@@ -4826,13 +4826,13 @@
             "url-info": "https://github.com/Bajoja/indicator-kdeconnect",
             "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,bionic",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "bionic,cosmic,disco",
             "pre-install": {
                 "all": {
                     "method": "ppa",
-                    "enable-ppa": "ppa:webupd8team/indicator-kdeconnect",
-                    "source-file": "webupd8team-ubuntu-indicator-kdeconnect-CODENAME"
+                    "enable-ppa": "ppa:flexiondotorg/indicator-kdeconnect",
+                    "source-file": "flexiondotorg-ubuntu-indicator-kdeconnect-CODENAME"
                 }
             },
             "working": true
