@@ -5174,13 +5174,11 @@
             "url-info": "http://wiki.x2go.org/doku.php",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "xenial,bionic,cosmic",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "bionic,cosmic,disco",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:x2go/stable",
-                    "source-file": "x2go-ubuntu-stable-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
