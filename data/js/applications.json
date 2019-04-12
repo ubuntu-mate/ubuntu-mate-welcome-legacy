@@ -4608,10 +4608,10 @@
         "youtube-dlg": {
             "name": "YouTube Downloader",
             "img": "youtube-dlg",
-            "main-package": "youtube-dlg",
+            "main-package": "youtube-dl-gui",
             "launch-command": "youtube-dl-gui",
-            "install-packages": "youtube-dl,youtube-dlg",
-            "remove-packages": "youtube-dl,youtube-dlg",
+            "install-packages": "youtube-dl,youtube-dl-gui",
+            "remove-packages": "youtube-dl,youtube-dl-gui",
             "description": [
                 "A front-end GUI of the popular youtube-dl, which can download videos from",
                 "YouTube, and hundreds of other sites, that do not provide direct links to the videos",
