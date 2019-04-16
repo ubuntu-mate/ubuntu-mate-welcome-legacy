@@ -164,6 +164,9 @@ parts:
         - -lib/python*/site-packages/wheel*
       cruft_x11:
         - -etc/X11
+        - -usr/lib/*/dri
+        - -usr/share/libdrm
+        - -usr/share/X11
     prime:
       - $cruft_apport
       - $cruft_aspell
