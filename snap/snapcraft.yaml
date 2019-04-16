@@ -205,9 +205,11 @@ apps:
     environment:
       # Fallback to XWayland if running in a Wayland session.
       DISABLE_WAYLAND: 1
+      LIBGL_ALWAYS_SOFTWARE: 1
   software-boutique:
     command: bin/wrapper $SNAP/usr/bin/ubuntu-mate-welcome --boutique
     desktop: usr/share/applications/ubuntu-mate-software.desktop
     environment:
       # Fallback to XWayland if running in a Wayland session.
       DISABLE_WAYLAND: 1
+      LIBGL_ALWAYS_SOFTWARE: 1
