@@ -5049,6 +5049,43 @@
             },
             "working": true
         },
+        "jellyfin": {
+            "name": "Jellyfin",
+            "img": "jellyfin",
+            "main-package": "jellyfin",
+            "launch-command": null,
+            "install-packages": "jellyfin",
+            "remove-packages": "jellyfin",
+            "description": [
+                "Brings all of your home videos, music, and",
+                "photos together into one place. Your personal Jellyfin server",
+                "automatically converts and streams your media on-the-fly to",
+                "play on any device.",
+                "<br><br>When installed run <code>sudo service jellyfin",
+                "start</code> from a terminal to start Jellyfin and then point a",
+                "browser to <a onclick=\"cmd('link?http://localhost:8096')\">http://localhost:8096</a>",
+                "to configure Jellyfin."
+            ],
+            "alternate-to": "Plex Media Server",
+            "subcategory": "Server",
+            "open-source": true,
+            "url-info": "https://jellyfin.github.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64,armhf",
+            "releases": "xenial,bionic,cosmic,disco",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "jellyfin",
+                    "apt-key-url": "https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key",
+                    "apt-sources": [
+                        "deb https://repo.jellyfin.org/ubuntu CODENAME main"
+                    ]
+                }
+            },
+            "working": true
+        },
         "minecraft-server": {
             "name": "Minecraft Server",
             "img": "minecraft",
