@@ -1350,7 +1350,7 @@ class AppView(WebKit2.WebView):
             else:
                 subprocess.Popen(['ubiquity', 'gtk_ui'])
         elif cmd == 'backup':
-            if systemstate.codename in ["xenial", "yakkety", "zesty"]:
+            if systemstate.codename in ["xenial"]:
                 subprocess.Popen(['deja-dup-preferences'])
             else:
                 subprocess.Popen(['deja-dup'])
@@ -1652,7 +1652,7 @@ class SystemState(object):
         # Get current version / codename of Ubuntu MATE in use.
         self.distro = platform.dist()[0].lower() # → ubuntu
         self.os_version = platform.dist()[1]     # → 14.04, 15.10, 16.04
-        self.codename = platform.dist()[2]       # → trusty, wily, xenial
+        self.codename = platform.dist()[2]       # → xenial, bionic
 
         # Are we running in Ubuntu MATE?
         self.is_ubuntu_mate = True
@@ -3579,7 +3579,7 @@ class Arguments(object):
               print('  --force-arch=ARCH            Simulate a specific architecture.')
               print('                                -- Examples: i386, amd64, armhf, amd64')
               print('  --force-codename=CODENAME    Simulate a specific release.')
-              print('                                -- Examples: trusty, wily, xenial')
+              print('                                -- Examples: xenial, bionic')
               print('  --force-net                  Simulate a working internet connection.')
               print('  --force-no-net               Simulate no internet connection.')
               print('  --force-session=TYPE         Simulate a specific type of session.')
