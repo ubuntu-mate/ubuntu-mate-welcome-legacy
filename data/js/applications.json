@@ -1075,9 +1075,12 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,cosmic",
+            "releases": "xenial,bionic,cosmic,disco",
             "pre-install": {
                 "all": {
+                    "method": "skip"
+                },
+                "xenial,bionic,cosmic": {
                     "method": "manual",
                     "apt-key-url": "http://deb.playonlinux.com/public.gpg",
                     "source-file": "playonlinux",
