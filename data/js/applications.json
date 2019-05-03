@@ -3999,6 +3999,34 @@
             },
             "working": true
         },
+        "flacon": {
+            "name": "Flacon",
+            "img": "flacon",
+            "main-package": "flacon",
+            "launch-command": "flacon",
+            "install-packages": "flacon",
+            "remove-packages": "flacon",
+            "description": [
+                "Flacon extracts individual tracks from one big audio file containing",
+                "the entire album of music and saves them as separate audio files."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Conversion",
+            "open-source": true,
+            "url-info": "https://flacon.github.io",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64",
+            "releases": "xenial,bionic,cosmic,disco",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:flacon/ppa",
+                    "source-file": "flacon-ubuntu-ppa-CODENAME"
+                }
+            },
+            "working": true
+        },
         "audacity": {
             "name": "Audacity",
             "img": "audacity",
