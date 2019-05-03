@@ -1864,11 +1864,6 @@ class SystemState(object):
         gb_prefix = _("GB")
         gib_prefix = _("GiB")
 
-        # Start collecting advanced system information in the background.
-        # (Runs in own thread to prevent holding up screen)
-        inxi_thread = Thread(target=self.get_inxi_info)
-        inxi_thread.start()
-
         # Append a failure symbol beforehand in event something goes horribly wrong.
         stat_error_msg = _("Could not gather data.")
         html_tag = '<button data-toggle=\'tooltip\' data-placement=\'top\' title=\'' + stat_error_msg + '\'><span class=\'fa fa-warning specs-error\'></span></button>'
@@ -2132,44 +2127,6 @@ class SystemState(object):
         app.update_page('#specs-basic', 'fadeIn', 'medium')
         app.update_page('#specs-busy-basic', 'fadeOut', 'fast')
         webkit.run_js('setCursorNormal()')
-
-    def get_inxi_info(self):
-        dbg.stdout('Specs', 'Gathering advanced system information with "inxi"...', 1, 0)
-        try:
-            inxi_output = str(subprocess.Popen(['inxi','-c','0','--basic','--cpu','-D','-G','-m','-s'], stdout=subprocess.PIPE).communicate()[0])
-        except:
-            dbg.stdout('Specs', 'Failed to execute collect advanced information. Is "inxi" no longer installed?', 0, 1)
-
-        # Append advanced system information
-        try:
-            inxi_output = inxi_output.replace("b'","").replace("\\n","\n")
-            self.inxi = inxi_output
-            app.update_page('#specs-inxi', 'html', '')
-            for line in inxi_output.split('\n'):
-                app.update_page('#specs-inxi', 'append', line.strip('"').strip("'") + '<br>')
-            app.update_page('#specs-inxi-busy', 'slideUp')
-            app.update_page('#specs-inxi', 'slideDown')
-            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
-            app.update_page('#specs-inxi-copy', 'slideDown')
-            dbg.stdout('Specs', 'Successfully appended advanced system information.', 0, 2)
-        except:
-            dbg.stdout('Specs', 'Failed to append advanced system information or communicate with "inxi" process.', 0, 1)
-            app.update_page('#specs-inxi-busy', 'slideUp')
-            app.update_page('#specs-inxi-error', 'slideDown')
-            app.update_page('#specs-busy-detailed', 'fadeOut', 'fast')
-
-    def copy_to_clipboard(self, var):
-        # Copies text to clipboard, passes 'var' containing what we'd like copying.
-        if var == 'inxi':
-            contents = self.inxi
-        else:
-            dbg.stdout('Clipboard', 'Unknown variable to copy: ' + var, 0, 1)
-            return
-
-        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clipboard.set_text(contents, -1)
-        clipboard.store()
-        dbg.stdout('Clipboard', 'Copied contents of: ' + var, 1, 2)
 
     def get_system_repository_state(self, repo):
         # Used to determine if a system repository is enabled.
