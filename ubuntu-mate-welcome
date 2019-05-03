@@ -1026,11 +1026,11 @@ class AppView(WebKit2.WebView):
         ### Chat Page ###
         if app.current_page == 'chatroom.html':
             if systemstate.apt_cache['hexchat'].is_installed:
-                app.update_page('.hexchat', 'show')
-                app.update_page('.webchat', 'hide')
+                app.update_page('.hexchat-launch', 'show')
+                app.update_page('.hexchat-install', 'hide')
             else:
-                app.update_page('.hexchat', 'hide')
-                app.update_page('.webchat', 'show')
+                app.update_page('.hexchat-launch', 'hide')
+                app.update_page('.hexchat-install', 'show')
 
         ### Getting Started Page ###
         if app.current_page == 'gettingstarted.html':
