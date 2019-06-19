@@ -13,7 +13,14 @@ grade: stable
 confinement: classic
 
 parts:
+  python-distro:
+    plugin: python
+    python-packages:
+      - distro
+
   ubuntu-mate-welcome:
+    after:
+      - python-distro
     plugin: nil
     build-packages:
       - gettext
