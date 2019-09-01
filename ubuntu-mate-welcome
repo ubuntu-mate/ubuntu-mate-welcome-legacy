@@ -3650,7 +3650,7 @@ def should_offer_to_change_panels():
     """
     Determine if user is running Ubuntu [MATE] 18.04 or later.
     """
-    if int(systemstate.os_version[:2]) >= 18 and which("mate-tweak") != None:
+    if float(systemstate.os_version) >= 19.10 and which("mate-tweak") != None:
         return True
     else:
         return False
