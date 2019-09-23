@@ -1,14 +1,12 @@
 name: ubuntu-mate-welcome
 version: git
-version-script: |
-  VER=$(grep __VERSION__ ubuntu-mate-welcome | head -n 1 | cut -d'=' -f2 | sed 's/ //g' | sed "s/'//g")
-  REV=$(git rev-parse --short HEAD)
-  echo $VER-$REV
+adopt-info: ubuntu-mate-welcome
 summary: Welcome screen for Ubuntu MATE
 description: |
  A welcome screen for Ubuntu MATE that provides links to helpful
  resources, utilities and a selection of software packages.
 
+base: core
 grade: stable
 confinement: classic
 
@@ -46,10 +44,13 @@ parts:
       - yad
     override-pull: |
       snapcraftctl pull
-      # Modify the icon paths for the snap.
-      sed -i 's|Icon=software-boutique|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/software-boutique\.svg|' ubuntu-mate-software.desktop
-      sed -i 's|Icon=ubuntu-mate|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/ubuntu-mate\.svg|' ubuntu-mate-welcome.desktop
+      cd $SNAPCRAFT_PROJECT_DIR
+      VER=$(grep __VERSION__ ubuntu-mate-welcome | head -n 1 | cut -d'=' -f2 | sed 's/ //g' | sed "s/'//g")
+      REV=$(git rev-parse --short HEAD)
+      snapcraftctl set-version $VER-$REV
     override-build: |
+      snapcraftctl build
+      cd $SNAPCRAFT_PROJECT_DIR
       ./welcome-po.py --update-pos
       ./welcome-po.py --install
       ./edgar-allan translate-all
@@ -62,8 +63,10 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/locale
       cp -a locale/* $SNAPCRAFT_PART_INSTALL/usr/share/locale/
 
+      # Modify the icon paths for the snap.
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications/
-      cp *.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      sed 's|Icon=software-boutique|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/software-boutique\.svg|' ubuntu-mate-software.desktop > $SNAPCRAFT_PART_INSTALL/usr/share/applications/ubuntu-mate-software.desktop
+      sed 's|Icon=ubuntu-mate|Icon=${SNAP}/usr/share/icons/hicolor/scalable/apps/ubuntu-mate\.svg|' ubuntu-mate-welcome.desktop > $SNAPCRAFT_PART_INSTALL/usr/share/applications/ubuntu-mate-welcome.desktop
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       cp ubuntu-mate-welcome $SNAPCRAFT_PART_INSTALL/usr/bin/
