@@ -92,43 +92,6 @@
             },
             "working": true
         },
-        "enpass": {
-            "name": "Enpass",
-            "img": "enpass",
-            "main-package": "enpass",
-            "launch-command": "/opt/Enpass/bin/runenpass.sh",
-            "install-packages": "enpass",
-            "remove-packages": "enpass",
-            "description": [
-                "A cross-platform, complete password",
-                "management solution that securely manages passwords and all",
-                "other life important credentials like bank accounts, Credit",
-                "cards, IDs, passport, driving licenses etc. Everything is",
-                "saved locally on user\u2019s device and optionally he can sync",
-                "through other devices using his accounts of Dropbox, Box,",
-                "Google Drive, OneDrive, Nextcloud and ownCloud.",
-                "<ul><li><b>Browser Extensions Available: </b><i>Enpass <a onclick=\"cmd('link?https://enpass.io/enpass-browser-extension/')\">browser extensions for Firefox and Google Chrome</a> are also available.</i></li></ul>"
-            ],
-            "alternate-to": null,
-            "subcategory": "Password Management",
-            "open-source": false,
-            "url-info": "https://enpass.io/",
-            "url-android": "https://play.google.com/store/apps/details?id=io.enpass.app&hl=en",
-            "url-ios": "https://itunes.apple.com/gb/app/enpass-password-manager/id455566716",
-            "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco,eoan",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "enpass",
-                    "apt-key-url": "http://repo.sinew.in/keys/enpass-linux.key",
-                    "apt-sources": [
-                        "deb http://repo.sinew.in/ stable main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "gip": {
             "name": "Gip",
             "img": "gip",
