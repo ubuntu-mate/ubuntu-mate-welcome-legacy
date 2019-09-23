@@ -1881,7 +1881,7 @@
             "arch": "amd64",
             "releases": "xenial,bionic,disco,eoan",
             "pre-install": {
-                "cosmic,disco": {
+                "disco,eoan": {
                     "method": "manual",
                     "source-file": "brave-browser-release-bionic.list",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
