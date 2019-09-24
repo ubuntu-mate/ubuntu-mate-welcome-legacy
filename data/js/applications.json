@@ -1883,10 +1883,10 @@
             "pre-install": {
                 "disco,eoan": {
                     "method": "manual",
-                    "source-file": "brave-browser-release-bionic.list",
+                    "source-file": "brave-browser-release-disco.list",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
                     "apt-sources": [
-                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ bionic main"
+                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
                     ]
                 },
                 "all": {
