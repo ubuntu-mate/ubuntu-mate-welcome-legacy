@@ -4611,10 +4611,7 @@
                 "all": {
                     "method": "manual",
                     "source-file": "spotify",
-                    "apt-key-server": [
-                        "keyserver.ubuntu.com",
-                        "48BF1C90"
-                    ],
+                    "apt-key-url": "https://download.spotify.com/debian/pubkey.gpg",
                     "apt-sources": [
                         "deb http://repository.spotify.com stable non-free"
                     ]
