@@ -18,7 +18,13 @@
 # Free Software Foundation, Inc.,
 # 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 
-import os, sys, platform, subprocess, json, glob, urllib.request
+import distro
+import glob
+import json
+import os
+import subprocess
+import sys
+import urllib.request
 
 def del_apt_sources(listname):
     for filename in glob.glob(os.path.join('/','etc','apt','sources.list.d','*'+listname+'*.list*')):
@@ -48,21 +54,21 @@ def add_apt_key_from_keyserver(keyserver, key):
     subprocess.call(['apt-key', 'adv', '--keyserver', keyserver, '--recv-keys', key])
 
 def enable_ppa(ppa):
-    os_version = float(platform.dist()[1])
+    os_version = float(distro.version(pretty=False))
     if (os_version >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
     else:
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
 
 def enable_partner_repository():
-    os_version = float(platform.dist()[1])
+    os_version = float(distro.version(pretty=False))
     if (os_version >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', 'http://archive.canonical.com/ubuntu partner'])
     else:
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
 def enable_multiverse_repository():
-    os_version = float(platform.dist()[1])
+    os_version = float(distro.version(pretty=False))
     if (os_version >= 18.04):
         subprocess.call(['apt-add-repository', 'multiverse', '--yes', '--no-update'])
     else:
@@ -88,8 +94,8 @@ if __name__ == "__main__":
     print('--- Repository Installer -------------------------------------')
 
     # Set important variables.
-    os_version = platform.dist()[1]
-    codename = platform.dist()[2]
+    os_version = distro.version(pretty=False)
+    codename = distro.codename()
 
     try:
         json_path = sys.argv[1]
