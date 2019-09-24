@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     # Set important variables.
     os_version = distro.version(pretty=False)
-    codename = distro.codename()
+    codename = distro.codename().split(' ')[0].lower()
 
     try:
         json_path = sys.argv[1]

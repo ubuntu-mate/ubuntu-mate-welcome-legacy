@@ -483,7 +483,7 @@ class PreInstallation(object):
     def __init__(self):
         # Always ensure we have the correct variables, not any overrides.
         self.os_version = distro.version(pretty=False)
-        self.codename = distro.codename()
+        self.codename = distro.codename().split(' ')[0].lower()
         dbg.stdout('Pre-Install', "System is running Ubuntu " + self.os_version + " (" + self.codename + ")", 1, 0)
 
     def process_packages(self, program_id, action, preconfigure_only=False):
@@ -1650,9 +1650,9 @@ class SystemState(object):
         self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
         # Get current version / codename of Ubuntu MATE in use.
-        self.distro = distro.id().lower()               # → ubuntu
-        self.os_version = distro.version(pretty=False)  # → 14.04, 15.10, 16.04
-        self.codename = distro.codename()               # → xenial, bionic
+        self.distro = distro.id().lower()                       # → ubuntu
+        self.os_version = distro.version(pretty=False)          # → 14.04, 15.10, 16.04
+        self.codename = distro.codename().split(' ')[0].lower() # → xenial, bionic
 
         # Are we running in Ubuntu MATE?
         self.is_ubuntu_mate = True
