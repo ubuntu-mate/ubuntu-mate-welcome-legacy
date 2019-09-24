@@ -4080,6 +4080,62 @@
             },
             "working": true
         },
+        "gnome-mpv": {
+            "name": "GNOME MPV",
+            "img": "celluloid",
+            "main-package": "gnome-mpv",
+            "launch-command": "gnome-mpv",
+            "install-packages": "gnome-mpv",
+            "remove-packages": "gnome-mpv",
+            "description": [
+                "GNOME MPV is a simple media player that aims to be easy to use while maintaining",
+                "a high level of configurability. Features include comprehensive media format support,",
+                "drag and drop playlist management and MPRIS D-Bus Interface that provides integration",
+                "with the desktop environment."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "https://celluloid-player.github.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "bionic,disco,eoan",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "celluloid": {
+            "name": "Celluloid",
+            "img": "celluloid",
+            "main-package": "celluloid",
+            "launch-command": "celluloid",
+            "install-packages": "celluloid",
+            "remove-packages": "celluloid",
+            "description": [
+              "Celluloid (formerly GNOME MPV) is a simple media player that aims to be easy to use while maintaining",
+              "a high level of configurability. Features include comprehensive media format support,",
+              "drag and drop playlist management and MPRIS D-Bus Interface that provides integration",
+              "with the desktop environment."
+            ],
+            "alternate-to": null,
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "https://celluloid-player.github.io/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "fanimal",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "codecs": {
             "name": "Codecs Pack",
             "img": "codecs",
