@@ -28,7 +28,6 @@ parts:
       - gir1.2-gtk-3.0
       - gir1.2-notify-0.7
       - gir1.2-webkit2-4.0
-      #- parted - is in the standard and ubuntu-core tasks
       - pciutils
       - policykit-1
       - python3
@@ -39,7 +38,6 @@ parts:
       - python3-polib
       - python3-setproctitle
       - python3-software-properties
-      #- software-properties-common - in all the Ubuntu flavour tasks
       - yad
     override-pull: |
       snapcraftctl pull
