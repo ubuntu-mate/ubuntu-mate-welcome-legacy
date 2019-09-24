@@ -3477,34 +3477,6 @@
             },
             "working": true
         },
-        "bzr": {
-            "name": "Bazaar Explorer",
-            "img": "bzr",
-            "main-package": "bzr-explorer",
-            "launch-command": "bzr explorer",
-            "install-packages": "bzr,bzr-explorer",
-            "remove-packages": "bzr,bzr-explorer",
-            "description": [
-                "Provides an easy-to-use interface",
-                "to the Bazaar version control system. It is designed to be",
-                "simple enough for casual users of version control, yet",
-                "powerful enough for experts to be productive."
-            ],
-            "alternate-to": null,
-            "subcategory": "Version Control",
-            "open-source": true,
-            "url-info": "http://doc.bazaar.canonical.com/explorer/en/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "d-feet": {
             "name": "d-feet",
             "img": "d-feet",
