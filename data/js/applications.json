@@ -2272,18 +2272,7 @@
                         "deb http://apt.insynchq.com/ubuntu CODENAME non-free contrib"
                     ]
                 },
-                "cosmic": {
-                    "method": "manual",
-                    "source-file": "insync",
-                    "apt-key-server": [
-                        "keyserver.ubuntu.com",
-                        "ACCAF35C"
-                    ],
-                    "apt-sources": [
-                        "deb http://apt.insynchq.com/ubuntu bionic non-free contrib"
-                    ]
-                },
-                "disco": {
+                "disco,eoan": {
                     "method": "manual",
                     "source-file": "insync",
                     "apt-key-server": [
