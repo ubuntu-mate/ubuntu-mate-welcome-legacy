@@ -22,6 +22,7 @@ import distro
 import glob
 import json
 import os
+import platform
 import subprocess
 import sys
 import urllib.request
@@ -59,6 +60,12 @@ def enable_ppa(ppa):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
     else:
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
+
+def enable_i386():
+    if platform.machine() == 'x86_64':
+        os_version = float(distro.version(pretty=False))
+        if (os_version >= 19.10):
+            subprocess.call(['dpkg', '--add-architecture', 'i386'])
 
 def enable_partner_repository():
     os_version = float(distro.version(pretty=False))
@@ -145,6 +152,9 @@ if __name__ == "__main__":
     elif function == 'enable_ppa':
         ppa = index[category][program_id]['pre-install'][target]['enable-ppa']
         enable_ppa(ppa)
+
+    elif function == 'enable_i386':
+        enable_i386()
 
     else:
         print('Invalid function specified: ' + function)
