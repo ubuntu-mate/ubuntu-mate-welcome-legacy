@@ -3577,37 +3577,6 @@
             },
             "working": true
         },
-        "git-cola": {
-            "name": "Git-Cola",
-            "img": "git-cola",
-            "main-package": "git-cola",
-            "launch-command": "git-cola",
-            "install-packages": "git,git-cola",
-            "remove-packages": "git-cola",
-            "description": [
-                "A graphical interface to git,",
-                "optimized for working with the git index. Git-cola can",
-                "compare arbitrary commits using standard merge tools. With it",
-                "you can search commit messages, content, authors, paths, data",
-                "ranges etc. and it makes it easy to interactively edit the index."
-            ],
-            "alternate-to": null,
-            "subcategory": "Version Control",
-            "open-source": true,
-            "url-info": "https://git-cola.github.io/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco,eoan",
-            "pre-install": {
-                "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:git-core/ppa",
-                    "source-file": "git-core-ubuntu-ppa-CODENAME"
-                }
-            },
-            "working": true
-        },
         "glade": {
             "name": "Glade",
             "img": "glade",
