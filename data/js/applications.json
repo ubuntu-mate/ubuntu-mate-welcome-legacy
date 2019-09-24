@@ -3800,8 +3800,8 @@
             "img": "anoise",
             "main-package": "anoise",
             "launch-command": "anoise",
-            "install-packages": "anoise,anoise-gui,anoise-media",
-            "remove-packages": "anoise,anoise-gui,anoise-media",
+            "install-packages": "anoise,anoise-media",
+            "remove-packages": "anoise,anoise-media",
             "description": [
                 "Helps you relax or concentrate by",
                 "creating an ambient background sound track allowing you to",
@@ -3817,7 +3817,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco,eoan",
+            "releases": "bionic,disco",
             "pre-install": {
                 "all": {
                     "method": "ppa",
