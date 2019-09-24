@@ -565,8 +565,6 @@ class PreInstallation(object):
                 requires_i386 = dynamicapps.get_attribute_for_app(program_id, 'enable_i386')
                 if requires_i386 == True:
                     run_task('enable_i386')
-                    transaction.update_cache = True
-                    queue.must_update_cache = True
             except KeyError:
                 pass
 
