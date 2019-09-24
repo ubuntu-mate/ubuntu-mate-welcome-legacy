@@ -129,7 +129,7 @@ def notify_send(title, description, icon_path):
     Send system notification to the user.
     """
     try:
-        Notify.init(title)
+        Notify.init(_("Software Boutique"))
         notification=Notify.Notification.new(title, description, icon_path)
         notification.show()
     except Exception as e:
@@ -2661,7 +2661,7 @@ class DynamicApps(object):
                 dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
             else:
                 dialog_app = os.path.join('/', 'usr', 'bin', 'zenity')
-        
+
             messagebox = subprocess.Popen([dialog_app,
                          '--error',
                          '--title=' + title,
