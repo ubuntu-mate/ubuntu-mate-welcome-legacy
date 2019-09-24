@@ -1,18 +1,18 @@
 {
     "19.10.0": {
         "add": [
-            "jellyfin",
             "evolution",
             "sublime-text",
-            "sublime-merge",
-            "flacon"
+            "sublime-merge"
         ],
         "fix": {
             "playonlinux": "new-source",
             "anoise": "new-source"
         },
-        "dell": {
-            "enpass": "not-nice"
+        "del": {
+            "enpass": "not-nice",
+            "git-cola": "not-nice",
+            "bzr": "no-source"
         }
     }
 }
