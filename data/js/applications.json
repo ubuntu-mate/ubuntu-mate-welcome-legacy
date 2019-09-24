@@ -1883,7 +1883,7 @@
             "pre-install": {
                 "disco,eoan": {
                     "method": "manual",
-                    "source-file": "brave-browser-release-disco.list",
+                    "source-file": "brave-browser-release-disco",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
                     "apt-sources": [
                         "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
@@ -1891,7 +1891,7 @@
                 },
                 "all": {
                     "method": "manual",
-                    "source-file": "brave-browser-release-CODENAME.list",
+                    "source-file": "brave-browser-release-CODENAME",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
                     "apt-sources": [
                         "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ CODENAME main"
