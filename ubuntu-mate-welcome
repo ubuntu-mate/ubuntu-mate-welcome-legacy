@@ -1842,10 +1842,7 @@ class SystemState(object):
         # TODO: Support dual graphic cards.
         dbg.stdout('Specs', 'Detecting graphics vendor... ', 1, 3)
         try:
-            if os.environ.get('SNAP'):
-                lspci_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'lspci')
-            else:
-                lspci_app = os.path.join('/', 'usr', 'bin', 'lspci')
+            lspci_app = which('lspci')
             output = subprocess.Popen(lspci_app + ' | grep VGA', stdout=subprocess.PIPE, shell='True').communicate()[0]
             output = output.decode(encoding='UTF-8')
         except:
@@ -2672,18 +2669,21 @@ class DynamicApps(object):
             ok_label = _("OK")
             text_error = _("An error occurred while launching PROGRAM_NAME. Please consider re-installing the application.").replace('PROGRAM_NAME', program_name) + \
                             '\n\n' + _("Command:") + ' "' + program_command + '"'
-            if os.environ.get('SNAP'):
-                dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
+            if which('zenity'):
+                dialog_app = which('zenity')
+            elif which('yad'):
+                dialog_app = which('yad')
             else:
-                dialog_app = os.path.join('/', 'usr', 'bin', 'zenity')
-
-            messagebox = subprocess.Popen([dialog_app,
-                         '--error',
-                         '--title=' + title,
-                         "--text=" + text_error,
-                         "--ok-label=" + ok_label,
-                         '--window-icon=error',
-                         '--timeout=15'])
+                dialog_app = None
+            
+            if dialog_app is not None:
+                messagebox = subprocess.Popen([dialog_app,
+                            '--error',
+                            '--title=' + title,
+                            "--text=" + text_error,
+                            "--ok-label=" + ok_label,
+                            '--window-icon=error',
+                            '--timeout=15'])
 
     def toggle_non_free(self):
         # Toggles visibility of non-free software.
