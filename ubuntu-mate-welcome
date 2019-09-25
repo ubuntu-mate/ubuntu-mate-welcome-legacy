@@ -101,6 +101,7 @@ def goodbye(a=None, b=None):
                                     '--title=' + title,
                                     "--text=" + text_busy,
                                     "--ok-label=" + ok_label,
+                                    '--width=400',
                                     '--window-icon=error',
                                     '--timeout=9'])
             return 1
@@ -2685,6 +2686,7 @@ class DynamicApps(object):
                             '--title=' + title,
                             "--text=" + text_error,
                             "--ok-label=" + ok_label,
+                            '--width=400',
                             '--window-icon=error',
                             '--timeout=15'])
 
