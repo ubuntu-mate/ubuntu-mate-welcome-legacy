@@ -484,7 +484,7 @@ class PreInstallation(object):
     def __init__(self):
         # Always ensure we have the correct variables, not any overrides.
         #self.os_version = distro.version(pretty=False)
-        self.os_version = float(platform.dist()[1])
+        self.os_version = platform.dist()[1]
         #self.codename = distro.codename().split(' ')[0].lower()
         self.codename = platform.dist()[2]
         dbg.stdout('Pre-Install', "System is running Ubuntu " + self.os_version + " (" + self.codename + ")", 1, 0)
