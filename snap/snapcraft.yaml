@@ -10,35 +10,13 @@ grade: stable
 confinement: classic
 
 parts:
-  python-distro:
-    plugin: python
-    python-packages:
-      - distro
-
   ubuntu-mate-welcome:
-    after:
-      - python-distro
     plugin: nil
     build-packages:
       - gettext
       - git
       - python3
       - python3-polib
-    stage-packages:
-      - gir1.2-gtk-3.0
-      - gir1.2-notify-0.7
-      - gir1.2-webkit2-4.0
-      - pciutils
-      - policykit-1
-      - python3
-      - python3-apt
-      - python3-aptdaemon
-      - python3-aptdaemon.gtk3widgets
-      - python3-gi
-      - python3-polib
-      - python3-setproctitle
-      - python3-software-properties
-      - yad
     override-pull: |
       snapcraftctl pull
       cd $SNAPCRAFT_PROJECT_DIR
@@ -73,131 +51,18 @@ parts:
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
-
-    # The cruft_ filesets define files/directories that can be safely
-    # removed from Ubuntu MATE Welcome to reduce the size of the snap.
-    # They have been grouped to assist others seeking to shrink the size
-    # of Python snaps.
-    filesets:
-      cruft_apport:
-        - -usr/share/apport
-      cruft_aspell:
-        - -etc/dictionaries-common
-        - -usr/bin/*spell*
-        - -usr/lib/aspell
-        - -usr/lib/ispell
-        - -usr/sbin/*aspell*
-        - -usr/sbin/*ispell*
-        - -usr/share/aspell
-        - -usr/share/dict
-        - -var/cache/dictionaries-common
-        - -var/lib/aspell
-        - -var/lib/ispell
-        - -var/lib/dictionaries-common
-      cruft_binaries:
-        - -bin/*.py
-        - -bin/html2text
-        - -bin/markdown_py
-        - -bin/mid3*
-        - -bin/moggsplit
-        - -bin/mutagen*
-        - -bin/pyrsa*
-        - -usr/bin/pydoc3*
-        - -usr/bin/ucf*
-        - -usr/share/apps
-      cruft_compilers_and_debuggers:
-        - -usr/bin/pdb3*
-        - -usr/lib/gcc
-        - -usr/lib/valgrind
-        - -usr/share/bug
-      cruft_debhelper:
-        - -usr/bin/dh_*
-        - -usr/share/debhelper
-        - -usr/share/dh-python
-        - -usr/share/perl5/Debian
-      cruft_docs:
-        - -usr/share/doc
-        - -usr/share/doc-base
-      cruft_emacs:
-        - -etc/emacs
-        - -usr/lib/emacsen-common
-        - -usr/share/emacs
-        - -var/lib/emacsen-common
-      cruft_fonts:
-        - -etc/fonts
-        - -usr/bin/fc-*
-        - -usr/share/fonts
-      cruft_gnome:
-        - -usr/share/glib-2.0/schemas
-        - -usr/share/GConf
-      cruft_headers:
-        - -usr/include
-        - -usr/share/include
-      cruft_icons:
-        - -usr/share/icons/Adwaita
-        - -usr/share/icons/Humanity*
-        - -usr/share/icons/LoginIcons
-        - -usr/share/icons/ubuntu-mono-*
-      cruft_init:
-        - -etc/init*
-        - -lib/systemd
-        - -sbin/cg*
-        - -usr/lib/systemd
-        - -usr/share/upstart
-        - -var/lib/systemd
-      cruft_lintian:
-        - -usr/share/lintian/overrides
-      cruft_man_pages:
-        - -usr/share/man
-      cruft_meta:
-        - -usr/share/pixmaps
-        - -usr/share/pkgconfig
-      cruft_python_2to3:
-        - -usr/bin/2to3*
-        - -usr/lib/python*/lib2to3
-      cruft_python_distutils:
-        - -usr/lib/python*/distutils
-      cruft_python_idle:
-        - -usr/lib/python*/idlelib
-        - -usr/lib/python*/tkinter
-        - -usr/share/applications/python3.5.desktop
-      cruft_python_pip:
-        - -lib/python*/site-packages/pip
-      cruft_python_tests:
-        - -lib/python*/site-packages/tests
-      cruft_python_venv:
-        - -usr/lib/python*/venv
-      cruft_python_wheel:
-        - -lib/python*/site-packages/wheel*
-      cruft_x11:
-        - -etc/X11
-        - -usr/lib/*/dri
-        - -usr/share/libdrm
-        - -usr/share/X11
+    
     prime:
-      - $cruft_apport
-      - $cruft_aspell
-      - $cruft_binaries
-      - $cruft_compilers_and_debuggers
-      - $cruft_debhelper
-      - $cruft_docs
-      - $cruft_emacs
-      - $cruft_gnome
-      - $cruft_fonts
-      - $cruft_headers
-      - $cruft_icons
-      - $cruft_init
-      - $cruft_lintian
-      - $cruft_man_pages
-      - $cruft_meta
-      - $cruft_python_2to3
-      - $cruft_python_distutils
-      - $cruft_python_idle
-      - $cruft_python_pip
-      - $cruft_python_tests
-      - $cruft_python_venv
-      - $cruft_python_wheel
-      - $cruft_x11
+      - usr/bin/
+      - usr/share/ubuntu-mate-welcome/
+      - usr/share/icons/hicolor/*/apps/software-boutique.png
+      - usr/share/icons/hicolor/*/apps/ubuntu-mate.png
+      - usr/share/icons/hicolor/*/apps/software-boutique.svg
+      - usr/share/icons/hicolor/*/apps/ubuntu-mate.svg
+      - usr/share/locale/
+      - usr/share/applications/
+      - usr/lib/ubuntu-mate/
+      - usr/share/man/man1/ubuntu-mate-welcome.1
 
   wrapper:
     after:
