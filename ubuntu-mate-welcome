@@ -3678,40 +3678,66 @@ if __name__ == "__main__":
     if proctitle_available:
         setproctitle.setproctitle('ubuntu-mate-welcome')
 
-    # Process any parameters passed to the program.
-    dbg = Debug()
-    arg = Arguments()
-    pref = Preferences()
+    distro = platform.dist()[0].lower() # → ubuntu
+    os_version = float(platform.dist()[1])     # → 14.04, 15.10, 16.04
+    codename = platform.dist()[2]       # → xenial, bionic
+    desktop = os.environ.get('XDG_CURRENT_DESKTOP').lower()
 
-    # If Welcome is being autostarted check the user preferences.
-    if (not arg.autostarted) or (arg.autostarted and pref.get('autostart', True)):
+    if distro == 'ubuntu' and desktop == 'mate':
+        # Process any parameters passed to the program.
+        dbg = Debug()
+        arg = Arguments()
+        pref = Preferences()
 
-        # If an old style autostart is present, remove it.
-        old_autostart_dir = os.path.expanduser('~/.config/autostart/')
-        old_autostart_path = os.path.expanduser(os.path.join(old_autostart_dir, 'ubuntu-mate-welcome.desktop'))
-        if os.path.exists(old_autostart_path):
-            os.remove(old_autostart_path)
+        # If Welcome is being autostarted check the user preferences.
+        if (not arg.autostarted) or (arg.autostarted and pref.get('autostart', True)):
 
-        # Application Initialisation
-        data_path = whereami()
+            # If an old style autostart is present, remove it.
+            old_autostart_dir = os.path.expanduser('~/.config/autostart/')
+            old_autostart_path = os.path.expanduser(os.path.join(old_autostart_dir, 'ubuntu-mate-welcome.desktop'))
+            if os.path.exists(old_autostart_path):
+                os.remove(old_autostart_path)
 
-        # Set up translations and strings
-        trans = Translations(data_path)
-        string = Strings()
+            # Application Initialisation
+            data_path = whereami()
 
-        # Welcome Features
-        systemstate = SystemState()
-        app = WelcomeApp()
-        dynamicapps = DynamicApps()
-        queue = ChangesQueue()
-        preinstallation = PreInstallation()
+            # Set up translations and strings
+            trans = Translations(data_path)
+            string = Strings()
 
-        # Argument Overrides
-        arg.override_arch()
-        arg.override_session()
-        arg.override_codename()
+            # Welcome Features
+            systemstate = SystemState()
+            app = WelcomeApp()
+            dynamicapps = DynamicApps()
+            queue = ChangesQueue()
+            preinstallation = PreInstallation()
 
-        dbg.stdout('Welcome', 'Application Ready.', 0, 0)
-        app.run()
+            # Argument Overrides
+            arg.override_arch()
+            arg.override_session()
+            arg.override_codename()
+
+            dbg.stdout('Welcome', 'Application Ready.', 0, 0)
+            app.run()
+        else:
+            dbg.stdout('Welcome', 'Welcome was autostarted but autostart is disabled.', 0, 0)
     else:
-        dbg.stdout('Welcome', 'Welcome was autostarted but autostart is disabled.', 0, 0)
+        if which('zenity'):
+            dialog_app = which('zenity')
+        elif which('yad'):
+            dialog_app = which('yad')
+        else:
+            dialog_app = None
+        
+        message = "Sorry, Ubuntu MATE Welcome is not currently supported on your distribution. We will soon be releasing a new version of Welcome that will support more distributions."
+
+        if dialog_app is not None:
+            messagebox = subprocess.Popen([dialog_app,
+                '--error',
+                '--title=Not a supported Linux distribution',
+                '--text=' + message,
+                '--window-icon=error',
+                '--width=400',
+                '--timeout=15'])
+        else:
+            print(message)
