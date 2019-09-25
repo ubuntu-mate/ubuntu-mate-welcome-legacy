@@ -88,19 +88,22 @@ def goodbye(a=None, b=None):
         title = string.boutique
         text_busy = _('Software changes are in progress. Please allow them to complete before closing Welcome.')
         ok_label = _("OK")
-        if os.environ.get('SNAP'):
-            dialog_app = os.path.join(os.environ.get('SNAP'), 'usr', 'bin', 'yad')
+        if which('zenity'):
+            dialog_app = which('zenity')
+        elif which('yad'):
+            dialog_app = which('yad')
         else:
-            dialog_app = os.path.join('/', 'usr', 'bin', 'zenity')
+            dialog_app = None
 
-        messagebox = subprocess.Popen([dialog_app,
-                                 '--error',
-                                 '--title=' + title,
-                                 "--text=" + text_busy,
-                                 "--ok-label=" + ok_label,
-                                 '--window-icon=error',
-                                 '--timeout=9'])
-        return 1
+        if dialog_app is not None:
+            messagebox = subprocess.Popen([dialog_app,
+                                    '--error',
+                                    '--title=' + title,
+                                    "--text=" + text_busy,
+                                    "--ok-label=" + ok_label,
+                                    '--window-icon=error',
+                                    '--timeout=9'])
+            return 1
 
     else:
         dbg.stdout('Welcome', 'Application Closed', 0, 0)
