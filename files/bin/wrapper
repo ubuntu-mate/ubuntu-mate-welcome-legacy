@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 
-# On Fedora $SNAP is under /var and there is some magic to map it to /snap.
-# We need to handle that case and reset $SNAP
-SNAP=$(echo $SNAP | sed -e "s|/var/lib/snapd||g")
-
-if [ "$SNAP_ARCH" == "amd64" ]; then
-  ARCH="x86_64-linux-gnu"
-elif [ "$SNAP_ARCH" == "armhf" ]; then
-  ARCH="arm-linux-gnueabihf"
-elif [ "$SNAP_ARCH" == "arm64" ]; then
-  ARCH="aarch64-linux-gnu"
-else
-  ARCH="$SNAP_ARCH-linux-gnu"
-fi
+case "$SNAP_ARCH" in
+    i386) ARCH="i386-linux-gnu" ;;
+    amd64) ARCH="x86_64-linux-gnu" ;;
+    s390x) ARCH="s390x-linux-gnu" ;;
+    ppc64el) ARCH="powerpc64le-linux-gnu" ;;
+    armhf) ARCH="arm-linux-gnueabihf" ;;
+    arm64) ARCH="aarch64-linux-gnu" ;;
+esac
 
 # Create $XDG_RUNTIME_DIR if not exists (to be removed when https://pad.lv/1656340 is fixed)
 [ -n "$XDG_RUNTIME_DIR" ] && mkdir -p $XDG_RUNTIME_DIR -m 700
+
+export DISABLE_WAYLAND=1
+export LIBGL_ALWAYS_SOFTWARE=1
 
 exec "$@"
