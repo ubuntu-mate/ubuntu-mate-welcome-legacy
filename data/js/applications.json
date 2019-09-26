@@ -4143,10 +4143,10 @@
         "codecs": {
             "name": "Codecs Pack",
             "img": "codecs",
-            "main-package": "libavcodec-extra",
+            "main-package": "gstreamer1.0-plugins-ugly",
             "launch-command": null,
-            "install-packages": "libavcodec-extra,gstreamer1.0-plugins-good,gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly",
-            "remove-packages": "libavcodec-extra,gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly",
+            "install-packages": "gstreamer1.0-plugins-good,gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly",
+            "remove-packages": "gstreamer1.0-plugins-bad,gstreamer1.0-plugins-ugly",
             "description": [
                 "Includes a library that offers a complete,",
                 "cross-platform solution to decode, encode, record, convert and",
