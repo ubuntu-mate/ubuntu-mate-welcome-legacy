@@ -107,7 +107,7 @@ if __name__ == "__main__":
     # Set important variables.
     #os_version = distro.version(pretty=False)
     #codename = distro.codename().split(' ')[0].lower()
-    os_version = float(platform.dist()[1])
+    os_version = platform.dist()[1]
     codename = platform.dist()[2]
 
     try:
