@@ -105,8 +105,10 @@ if __name__ == "__main__":
     print('--- Repository Installer -------------------------------------')
 
     # Set important variables.
-    os_version = distro.version(pretty=False)
-    codename = distro.codename().split(' ')[0].lower()
+    #os_version = distro.version(pretty=False)
+    #codename = distro.codename().split(' ')[0].lower()
+    os_version = float(platform.dist()[1])
+    codename = platform.dist()[2]
 
     try:
         json_path = sys.argv[1]
