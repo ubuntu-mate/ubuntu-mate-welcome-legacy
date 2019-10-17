@@ -1958,33 +1958,6 @@
             },
             "working": true
         },
-        "evolution": {
-            "name": "Evolution",
-            "img": "evolution",
-            "main-package": "evolution",
-            "launch-command": "evolution",
-            "install-packages": "evolution,evolution-ews,evolution-plugins,evolution-rss",
-            "remove-packages": "evolution,evolution-ews,evolution-plugins,evolution-rss",
-            "description": [
-                "Evolution is an integrated mail, calendar and address book suite.",
-                "It features integration with Exchange and Google servers, a newsgroup client,",
-                "LDAP support, web calendars and RSS reader."
-            ],
-            "alternate-to": "Microsoft&reg; Outlook",
-            "subcategory": "Email",
-            "open-source": true,
-            "url-info": "https://wiki.gnome.org/Apps/Evolution",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,disco,eoan",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "filezilla": {
             "name": "FileZilla",
             "img": "filezilla",
@@ -3081,22 +3054,21 @@
             "img": "evolution",
             "main-package": "evolution",
             "launch-command": "evolution",
-            "install-packages": "evolution,evolution-ews,evolution-plugins",
-            "remove-packages": "evolution,evolution-ews,evolution-plugins",
+            "install-packages": "evolution,evolution-ews,evolution-plugins,evolution-rss",
+            "remove-packages": "evolution,evolution-ews,evolution-plugins,evolution-rss",
             "description": [
-                "A groupware suite which integrates",
-                "mail, calendar, address book, to-do list and memo tools.",
-                "Additional features include integration with Exchange servers,",
-                "newsgroup client, LDAP support and web calendars."
+                "Evolution is an integrated mail, calendar and address book suite.",
+                "It features integration with Exchange and Google servers, a newsgroup client,",
+                "LDAP support, web calendars and RSS reader."
             ],
             "alternate-to": "Microsoft&reg; Outlook",
-            "subcategory": "Office Applications",
+            "subcategory": "Email",
             "open-source": true,
             "url-info": "https://wiki.gnome.org/Apps/Evolution",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco,eoan",
+            "releases": "bionic,disco,eoan",
             "pre-install": {
                 "all": {
                     "method": "skip"
