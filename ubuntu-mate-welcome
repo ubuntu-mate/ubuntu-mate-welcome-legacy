@@ -37,7 +37,6 @@ import inspect
 import json
 import locale
 import os
-import platform
 import random
 import signal
 import socket
@@ -487,10 +486,8 @@ class PreInstallation(object):
 
     def __init__(self):
         # Always ensure we have the correct variables, not any overrides.
-        #self.os_version = distro.version(pretty=False)
-        self.os_version = platform.dist()[1]
-        #self.codename = distro.codename().split(' ')[0].lower()
-        self.codename = platform.dist()[2]
+        self.os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        self.codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
         dbg.stdout('Pre-Install', "System is running Ubuntu " + self.os_version + " (" + self.codename + ")", 1, 0)
 
     def process_packages(self, program_id, action, preconfigure_only=False):
@@ -1666,12 +1663,15 @@ class SystemState(object):
         self.arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
 
         # Get current version / codename of Ubuntu MATE in use.
+        self.distro = subprocess.run(['lsb_release','-is'], stdout=subprocess.PIPE).stdout.decode('utf-8').lower()
+        self.os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        self.codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
         #self.distro = distro.id().lower()                       # → ubuntu
         #self.os_version = distro.version(pretty=False)          # → 14.04, 15.10, 16.04
         #self.codename = distro.codename().split(' ')[0].lower() # → xenial, bionic
-        self.distro = platform.dist()[0].lower() # → ubuntu
-        self.os_version = platform.dist()[1]     # → 14.04, 15.10, 16.04
-        self.codename = platform.dist()[2]       # → xenial, bionic
+        #self.distro = platform.dist()[0].lower() # → ubuntu
+        #self.os_version = platform.dist()[1]     # → 14.04, 15.10, 16.04
+        #self.codename = platform.dist()[2]       # → xenial, bionic
 
         # Are we running in Ubuntu MATE?
         self.is_ubuntu_mate = True
@@ -3683,9 +3683,12 @@ if __name__ == "__main__":
     if proctitle_available:
         setproctitle.setproctitle('ubuntu-mate-welcome')
 
-    distro = platform.dist()[0].lower() # → ubuntu
-    os_version = float(platform.dist()[1])     # → 14.04, 15.10, 16.04
-    codename = platform.dist()[2]       # → xenial, bionic
+    distro = subprocess.run(['lsb_release','-is'], stdout=subprocess.PIPE).stdout.decode('utf-8').lower()
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    #distro = platform.dist()[0].lower() # → ubuntu
+    #os_version = float(platform.dist()[1])     # → 14.04, 15.10, 16.04
+    #codename = platform.dist()[2]       # → xenial, bionic
     desktop = os.environ.get('XDG_CURRENT_DESKTOP').lower()
 
     if distro == 'ubuntu' and desktop == 'mate':
