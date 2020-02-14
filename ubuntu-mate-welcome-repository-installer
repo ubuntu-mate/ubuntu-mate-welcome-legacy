@@ -55,7 +55,7 @@ def add_apt_key_from_keyserver(keyserver, key):
 
 def enable_ppa(ppa):
     #os_version = float(distro.version(pretty=False))
-    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
     if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
     else:
@@ -65,13 +65,13 @@ def enable_i386():
     cpu_arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
     if cpu_arch == 'amd64':
         #os_version = float(distro.version(pretty=False))
-        os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
         if (float(os_version) >= 19.10):
             subprocess.call(['dpkg', '--add-architecture', 'i386'])
 
 def enable_partner_repository():
     #os_version = float(distro.version(pretty=False))
-    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
     if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', 'http://archive.canonical.com/ubuntu partner'])
     else:
@@ -79,7 +79,7 @@ def enable_partner_repository():
 
 def enable_multiverse_repository():
     #os_version = float(distro.version(pretty=False))
-    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
     if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', 'multiverse', '--yes', '--no-update'])
     else:
@@ -107,8 +107,8 @@ if __name__ == "__main__":
     # Set important variables.
     #os_version = distro.version(pretty=False)
     #codename = distro.codename().split(' ')[0].lower()
-    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
-    codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
+    codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip('\n')
 
     try:
         json_path = sys.argv[1]
