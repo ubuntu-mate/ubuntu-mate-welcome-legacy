@@ -1,4 +1,4 @@
-#!/usr/bin/python3 -W ignore::DeprecationWarning
+#!/usr/bin/python3
 
 # Copyright (C) 2015 Martin Wimpress <code@ubuntu-mate.org>
 # Copyright (C) 2016 Luke Horwell <luke@ubuntu-mate.org>
@@ -55,31 +55,32 @@ def add_apt_key_from_keyserver(keyserver, key):
 
 def enable_ppa(ppa):
     #os_version = float(distro.version(pretty=False))
-    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').float()
-    if (os_version >= 18.04):
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
     else:
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', ppa])
 
 def enable_i386():
-    if platform.machine() == 'x86_64':
+    cpu_arch = str(subprocess.Popen(['dpkg','--print-architecture'], stdout=subprocess.PIPE).communicate()[0]).strip('\\nb\'')
+    if cpu_arch == 'amd64':
         #os_version = float(distro.version(pretty=False))
-        os_version = float(platform.dist()[1])
-        if (os_version >= 19.10):
+        os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        if (float(os_version) >= 19.10):
             subprocess.call(['dpkg', '--add-architecture', 'i386'])
 
 def enable_partner_repository():
     #os_version = float(distro.version(pretty=False))
-    os_version = float(platform.dist()[1])
-    if (os_version >= 18.04):
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', 'http://archive.canonical.com/ubuntu partner'])
     else:
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', 'http://archive.canonical.com/ubuntu partner'])
 
 def enable_multiverse_repository():
     #os_version = float(distro.version(pretty=False))
-    os_version = float(platform.dist()[1])
-    if (os_version >= 18.04):
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    if (float(os_version) >= 18.04):
         subprocess.call(['apt-add-repository', 'multiverse', '--yes', '--no-update'])
     else:
         subprocess.call(['apt-add-repository', 'multiverse', '--yes'])
@@ -106,8 +107,8 @@ if __name__ == "__main__":
     # Set important variables.
     #os_version = distro.version(pretty=False)
     #codename = distro.codename().split(' ')[0].lower()
-    os_version = platform.dist()[1]
-    codename = platform.dist()[2]
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    codename = subprocess.run(['lsb_release','-cs'], stdout=subprocess.PIPE).stdout.decode('utf-8')
 
     try:
         json_path = sys.argv[1]
