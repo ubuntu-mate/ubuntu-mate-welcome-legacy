@@ -22,7 +22,6 @@
 import glob
 import json
 import os
-import platform
 import subprocess
 import sys
 import urllib.request
@@ -56,7 +55,7 @@ def add_apt_key_from_keyserver(keyserver, key):
 
 def enable_ppa(ppa):
     #os_version = float(distro.version(pretty=False))
-    os_version = float(platform.dist()[1])
+    os_version = subprocess.run(['lsb_release','-rs'], stdout=subprocess.PIPE).stdout.decode('utf-8').float()
     if (os_version >= 18.04):
         subprocess.call(['apt-add-repository', '--enable-source', '--yes', '--no-update', ppa])
     else:
