@@ -1883,22 +1883,14 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.brave.browser",
             "url-ios": "https://itunes.apple.com/us/app/brave-web-browser-fast-with-built-in-adblock/id1052879175",
             "arch": "amd64",
-            "releases": "xenial,bionic,disco,eoan",
+            "releases": "xenial,bionic,disco,eoan,focal",
             "pre-install": {
-                "disco,eoan": {
-                    "method": "manual",
-                    "source-file": "brave-browser-release-disco",
-                    "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
-                    "apt-sources": [
-                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ disco main"
-                    ]
-                },
                 "all": {
                     "method": "manual",
-                    "source-file": "brave-browser-release-CODENAME",
+                    "source-file": "brave-browser-release",
                     "apt-key-url": "https://brave-browser-apt-release.s3.brave.com/brave-core.asc",
                     "apt-sources": [
-                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ CODENAME main"
+                        "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"
                     ]
                 }
             },
@@ -5434,8 +5426,8 @@
             "img": "keyboard",
             "main-package": "fcitx-sunpinyin",
             "launch-command": null,
-            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-sunpinyin",
-            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-sunpinyin",
+            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-sunpinyin",
+            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-sunpinyin",
             "description": "null",
             "alternate-to": null,
             "subcategory": "null",
@@ -5457,8 +5449,8 @@
             "img": "keyboard",
             "main-package": "fcitx-mozc",
             "launch-command": null,
-            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-mozc",
-            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-mozc",
+            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-mozc",
+            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-mozc",
             "description": "null",
             "alternate-to": null,
             "subcategory": "null",
@@ -5480,8 +5472,8 @@
             "img": "keyboard",
             "main-package": "fcitx-hangul",
             "launch-command": null,
-            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-hangul",
-            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-frontend-qt4,fcitx-hangul",
+            "install-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-hangul",
+            "remove-packages": "fcitx,fcitx-frontend-gtk2,fcitx-frontend-gtk3,fcitx-hangul",
             "description": "null",
             "alternate-to": null,
             "subcategory": "null",
