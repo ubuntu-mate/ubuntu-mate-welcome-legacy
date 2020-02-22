@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap-2.3.2.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.css" rel="stylesheet" media="screen">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/welcome.css" rel="stylesheet" media="screen">
+  </head>
+  <body class="backdrop-simple">
+    <div id="wrapper">
+    <div class="container-fluid">
+      <div id="navigation">
+        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+          <span class="fa fa-chevron-left"></span>
+        </button>
+        <div id="navigation-title" style="display:none">&zwnj;Color Selection&zwnj;</div>
+        <div id="navigation-right"></div>
+      </div>
+    </div>
+      <div id="content" class="container-fluid entire-page-fade" hidden>
+        <div class="row-fluid">
+          <div id="panels-selection" class="span12 animated fadeIn" hidden>
+
+            <h2>&zwnj;Give your desktop a splash of color&zwnj;</h2>
+            <p>&zwnj;Themes typically resolve around a single set of colours.
+            With the Ubuntu MATE Colours project, you can tailor the Ambiant-MATE
+            and Radiant-MATE themes to match your favorite colour.&zwnj;</p>
+
+            <img src="img/colours/preview.jpg"/>
+            <br><br>
+
+            <div class="alert alert-warning offline2" hidden>
+                <span class="fa fa-warning"></span> &zwnj;You must be connected to the internet to download and install software.&zwnj;
+            </div>
+
+            <p>&zwnj;After installing your desired colours, click "Change Appearance" to use your new themes.&zwnj;</p>
+
+            <div id="colour-selection">
+                <div id="ubuntu-mate-colours-aqua" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Aqua.svg"/>
+                        <img src="img/colours/icon2/Aqua.svg"/>
+                        <span>&zwnj;Aqua&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-aqua-install" onclick="cmd('install-appid?ubuntu-mate-colours-aqua')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-aqua-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-aqua')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-aqua-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-blue" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Blue.svg"/>
+                        <img src="img/colours/icon2/Blue.svg"/>
+                        <span>&zwnj;Blue&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-blue-install" onclick="cmd('install-appid?ubuntu-mate-colours-blue')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-blue-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-blue')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-blue-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-brown" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Brown.svg"/>
+                        <img src="img/colours/icon2/Brown.svg"/>
+                        <span>&zwnj;Brown&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-brown-install" onclick="cmd('install-appid?ubuntu-mate-colours-brown')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-brown-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-brown')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-brown-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-orange" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Orange.svg"/>
+                        <img src="img/colours/icon2/Orange.svg"/>
+                        <span>&zwnj;Orange&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-orange-install" onclick="cmd('install-appid?ubuntu-mate-colours-orange')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-orange-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-orange')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-orange-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-pink" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Pink.svg"/>
+                        <img src="img/colours/icon2/Pink.svg"/>
+                        <span>&zwnj;Pink&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-pink-install" onclick="cmd('install-appid?ubuntu-mate-colours-pink')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-pink-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-pink')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-pink-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-purple" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Purple.svg"/>
+                        <img src="img/colours/icon2/Purple.svg"/>
+                        <span>&zwnj;Purple&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-purple-install" onclick="cmd('install-appid?ubuntu-mate-colours-purple')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-purple-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-purple')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-purple-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-red" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Red.svg"/>
+                        <img src="img/colours/icon2/Red.svg"/>
+                        <span>&zwnj;Red&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-red-install" onclick="cmd('install-appid?ubuntu-mate-colours-red')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-red-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-red')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-red-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-teal" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Teal.svg"/>
+                        <img src="img/colours/icon2/Teal.svg"/>
+                        <span>&zwnj;Teal&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-teal-install" onclick="cmd('install-appid?ubuntu-mate-colours-teal')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-teal-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-teal')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-teal-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+                <div id="ubuntu-mate-colours-yellow" class="browser-option">
+                    <div class="left">
+                        <img src="img/colours/icon1/Yellow.svg"/>
+                        <img src="img/colours/icon2/Yellow.svg"/>
+                        <span>&zwnj;Yellow&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-success ubuntu-mate-colours-yellow-install" onclick="cmd('install-appid?ubuntu-mate-colours-yellow')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                        <button class="btn btn-danger ubuntu-mate-colours-yellow-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-yellow')"><span class="fa fa-trash"></span></button>
+                        <span class="ubuntu-mate-colours-yellow-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer" class="bottom">
+        <div class="footer-content">
+          <div id="footer-left">
+            <span id="footer-global-left"></span>
+          </div>
+          <div id="footer-right" class="form">
+              <button class="btn btn-lg btn-inverse" onclick="cmd('run?mate-appearance-properties')"> <img src="img/applications/appearance.png" width="20px" height="20px">&nbsp; &zwnj;Change Appearance&zwnj;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap-2.3.2.js"></script>
+    <script src="js/janimate.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/welcome.js"></script>
+  </body>
+</html>

@@ -990,6 +990,10 @@ class AppView(WebKit2.WebView):
             if should_offer_to_change_panels() == True:
                 btns.append('panel-selection')
 
+            # Enable custom coloured themes if supported in this version
+            if should_offer_custom_themes() == True:
+                btns.append('colour-selection')
+
             # Swap software for install button in live sessions.
             if systemstate.session_type == 'live':
                 btns.remove('gettingstarted')
@@ -1231,6 +1235,12 @@ class AppView(WebKit2.WebView):
                 default_browser = subprocess.Popen(['xdg-settings', 'get', 'default-web-browser'], stdout=subprocess.PIPE).communicate()[0]
                 default_browser = default_browser.decode('UTF-8').strip().replace('.desktop', '')
                 app.update_page('#' + default_browser, 'addClass', 'active')
+
+        ### Custom Colours ###
+        if app.current_page == 'colour-selection.html':
+            # Update listings
+            for colour in ['Aqua', 'Blue', 'Brown', 'Orange', 'Pink', 'Purple', 'Red', 'Teal', 'Yellow']:
+                dynamicapps.update_app_status(self, 'ubuntu-mate-colours-' + colour.lower())
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
@@ -3671,6 +3681,16 @@ def should_offer_to_change_panels():
     Determine if user is running Ubuntu [MATE] 19.10 or later.
     """
     if float(systemstate.os_version) >= 19.10 and which("mate-tweak") != None:
+        return True
+    else:
+        return False
+
+
+def should_offer_custom_themes():
+    """
+    Determine if user is running Ubuntu [MATE] 18.04 or later.
+    """
+    if float(systemstate.os_version) >= 18.04:
         return True
     else:
         return False
