@@ -85,51 +85,6 @@ button:focus {
 }
 
 /************************
- * Nicer Scroll Bar Integration
-*************************/
-::-webkit-scrollbar {
-  width: 15px;
-  height: 15px;
-  z-index: 100;
-  background: -webkit-linear-gradient(#F1F0EE, #FDFDFD);
-  border: 1px solid #CBC8C6;
-}
-
-::-webkit-scrollbar-thumb {
-  height: 6px;
-  border: 1px solid #7e9b4f;
-  background-color: #86A551;
-  background-clip: padding-box;
-  -webkit-border-radius: 0px;
-  z-index: 100;
-}
-
-::-webkit-scrollbar-button {
-  width: 13px;
-  height: 18px;
-  background: -webkit-linear-gradient(#F1F0EE, #FDFDFD);
-  border: 1px solid #c9c6c3;
-  z-index: 100;
-}
-
-::-webkit-scrollbar-button:start:decrement {
-    background: url(../img/welcome/scrollbar-up.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-::-webkit-scrollbar-button:end:increment {
-    background: url(../img/welcome/scrollbar-down.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-  z-index: 100;
-}
-
-/************************
  * Header
 *************************/
 #header {
