@@ -973,11 +973,18 @@ class AppView(WebKit2.WebView):
                 app.update_page('#autostart', 'removeClass', 'fa-check-square')
                 app.update_page('#autostart', 'addClass', 'fa-square')
 
+            # Enable custom coloured themes if supported in this version
+            if should_offer_custom_themes() == True:
+                btns.append('colour-selection')
+
             # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
                 btns.remove('gettingstarted')
                 btns.remove('software')
                 btns.remove('open-at-start')
+                btns.remove('browser-selection')
+                if 'colour-selection' in btns:
+                    btns.remove('colour-selection')
                 app.update_page('#introduction', 'addClass', 'btn-success')
                 app.update_page('#community', 'addClass', 'btn-success')
 
@@ -990,10 +997,6 @@ class AppView(WebKit2.WebView):
             if should_offer_to_change_panels() == True:
                 btns.append('panel-selection')
 
-            # Enable custom coloured themes if supported in this version
-            if should_offer_custom_themes() == True:
-                btns.append('colour-selection')
-
             # Swap software for install button in live sessions.
             if systemstate.session_type == 'live':
                 btns.remove('gettingstarted')
@@ -1002,6 +1005,8 @@ class AppView(WebKit2.WebView):
                 btns.append('install-guide')
                 btns.append('install')
                 btns.remove('browser-selection')
+                if 'colour-selection' in btns:
+                    btns.remove('colour-selection')
 
             # Fade in the menu buttons.
             for btn_id in btns:
