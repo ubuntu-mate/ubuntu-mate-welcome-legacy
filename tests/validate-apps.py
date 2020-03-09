@@ -2,8 +2,6 @@
 #
 #  Validates the applications saved in the Boutique database.
 #
-#  (C) Luke Horwell, Revised Jun 2016
-#
 
 import common.testing as test
 test.name = 'Index Validation'
@@ -16,7 +14,7 @@ import json
 ###############################################
 test.start()
 
-valid_distro_codenames = ['trusty', 'xenial', 'artful', 'bionic', 'disco', 'eoan']
+valid_distro_codenames = ['trusty', 'xenial', 'artful', 'bionic', 'disco', 'eoan', 'focal']
 valid_arch = ['i386', 'amd64', 'armhf', 'arm64']
 
 # Load Applications JSON
@@ -141,7 +139,7 @@ for category in categories:
             try:
                 packages = app[list_data]
                 search = packages.find(' ')
-                if search is not -1:
+                if search != -1:
                     test.error('Whitespace found: "' + list_data + '" for "' + program_id + '".')
             except:
                 # That package list doesn't exist, depends if it's an upgrade package or not.
