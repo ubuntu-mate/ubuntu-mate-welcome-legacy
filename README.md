@@ -74,25 +74,22 @@ Usage: ubuntu-mate-welcome [arguments]
   * inxi
   * humanity-icon-theme
 
-## Builds
-
-### Status
-[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/master/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Artful**
-
-[![Build Status](https://semaphoreci.com/api/v1/ubuntu-mate/ubuntu-mate-welcome/branches/xenial-ppa/shields_badge.svg)](https://semaphoreci.com/ubuntu-mate/ubuntu-mate-welcome) for **Xenial**
-
 ### Daily Builds
 
-Testers wanting the latest builds should use the [Daily PPA](https://launchpad.net/~ubuntu-mate-dev/+archive/ubuntu/welcome-daily):
+For the latest [Snap Build](https://snapcraft.io/ubuntu-mate-welcome):
 
-    sudo add-apt-repository ppa:ubuntu-mate-dev/welcome-daily
+    snap refresh ubuntu-mate-welcome --channel beta --amend
+
+For the latest [Debian Package (PPA)](https://launchpad.net/~ubuntu-mate-dev/+archive/ubuntu/welcome):
+
+    sudo add-apt-repository ppa:ubuntu-mate-dev/welcome
     sudo apt update
-    sudo apt upgrade
+    sudo apt upgrade ubuntu-mate-welcome
 
 ## Tests
 
 To perform tests against the application, see the `tests/` folder. These scripts
-check the application for consistency and may even catch bugs early.
+check the application for consistency and may catch bugs early.
 
 #### tools/app-index-debugger.py
 
@@ -113,24 +110,17 @@ We are on Transifex!
 
   * https://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/
 
-## Testing Translations
+To test translations:
 
 1. Navigate to the repository folder.
 2. Run `./create-translations.sh`
 3. Run `./ubuntu-mate-welcome --locale=<CODE>` (e.g. `fr_FR`, `es_ES`)
 
-## Syncing Translations
+A member from the Ubuntu MATE with access to Transifex may run:
 
-    tx pull -a --minimum-perc=5
-    ./welcome-po.py --update-pos
-    ./edgar-allan create-all-pots
-    ./edgar-allan translate-all
-    tx push -s
-    ./clean.sh
+    ./scripts/sync-translations.sh
 
-## Non-Translatable
-
-The following cannot be translated:
+**The following cannot be translated:**
 
   * Software Boutique - Names and descriptions for applications.
   * Terminal debug output.
