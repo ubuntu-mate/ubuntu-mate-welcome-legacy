@@ -1,8 +1,10 @@
 # 
 # Translators:
+# Christian Spaan, 2019
 # Elias Mardaus, 2016
 # FortressBuilder <fellner.sebastian@gmail.com>, 2016
 # Lukas Behrendsen <multicraft411@gmail.com>, 2016
+# Marcel Artz <email@marcel-artz.de>, 2018
 # Stefan Popov <stefpopov47@gmail.com>, 2016
 # Stephen, 2016
 # Stephen, 2016
@@ -11,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-11-26 15:38+0000\n"
-"Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: German (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,122 +27,77 @@ msgstr ""
 msgid "Donate"
 msgstr "Spenden"
 
-#: donate.html:26
-msgid "About Donations"
-msgstr "Informationen zum Spenden"
+#: donate.html:24
+msgid "Support Ubuntu MATE Development"
+msgstr "Unterstütze die Entwicklung von Ubuntu Mate"
 
 #: donate.html:27
-msgid "Our Supporters"
-msgstr "Unsere Unterstützer"
+msgid ""
+"Ubuntu MATE is funded by our community. Your donations help improve project "
+"momentum in the following ways:"
+msgstr "Ubuntu Mate wird durch die Gemeinschaft finanziert. Ihre Spende hilft dem Projekte folgendermaßen:"
+
+#: donate.html:29
+msgid "Fund developers working on MATE Desktop and Ubuntu MATE projects."
+msgstr "Unterstützen Sie die Entwickler, welche an der MATE-Arbeitsumgebung und am Ubuntu-MATE-Projekt arbeiten."
 
 #: donate.html:30
-msgid ""
-"It appears you are not connected to the Internet. Please check your "
-"connection to access this content."
-msgstr "Es scheint, dass Sie nicht mit dem Internet verbunden sind. Bitte überprüfen Sie Ihre Verbindung, um auf diesen Inhalt zuzugreifen zu können."
-
-#: donate.html:31
-msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Willkommen war leider nicht in der Lage eine Verbindung aufzubauen."
-
-#: donate.html:32
-msgid "Retry"
-msgstr "Wiederholen"
-
-#: donate.html:41
-msgid ""
-"Ubuntu MATE is funded by our community. Your donations help pay towards:"
-msgstr "Ubuntu MATE wird von unserer Benutzergemeinschaft finanziert. Ihre Spenden helfen bei:"
-
-#: donate.html:43
-msgid "Web hosting and bandwidth costs."
-msgstr "Der Finanzierung von Webhosting und Bandbreitenkosten."
-
-#: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
 msgstr "Der Unterstützung von Open-Source-Projekten, von welchen Ubuntu MATE abhängig ist."
 
-#: donate.html:45
-msgid ""
-"Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr "Der Bezahlung von Vollzeitentwicklern für Ubuntu MATE und der MATE-Arbeitsumgebung."
+#: donate.html:31
+msgid "Travel expenses to attend conferences."
+msgstr "Reisekosten um an Konferenzen teilzunehmen."
 
-#: donate.html:47
+#: donate.html:32
+msgid "Miscellaneous hosting costs for the project."
+msgstr "Diverse Kosten für die Bereitstellung des Projekts"
+
+#: donate.html:34
 msgid "Patreon"
 msgstr "Patreon"
 
-#: donate.html:47
+#: donate.html:34
 msgid ""
 "is a unique way to fund an Open Source project. A regular monthly income "
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
-" with exclusive project news, updates and invited to participate in video "
-"conferences where you can talk to the developers directly."
-msgstr "ist eine einzigartige Möglichkeit, ein Open-Source-Projekt zu finanzieren. Ein regelmäßiges, monatliches Einkommen sichert den Fortbestand des Ubuntu-MATE-Projekts. Patrons werden mit exklusiven Projektneuigkeiten, Updates und Einladungen zu Videokonferenzen belohnt, während welchen sie direkt mit den Entwicklern sprechen können."
+" with exclusive project news, updates and developer access."
+msgstr "ist eine einzigartige Methode, ein Open-Source-Projekt zu finanzieren. Ein regelmäßiges, monatliches Einkommen stellt sicher, dass Ubuntu Mate auch in Zukunft aufrechterhalten werden kann. Wer Ubuntu Mate als sogenannter Patron unterstützt, erhält exklusive Nachrichten, Aktualisierungen und einen Entwicklerzugang."
 
-#: donate.html:52
+#: donate.html:38
 msgid "If you would prefer to use"
 msgstr "Wenn Sie es bevorzugen,"
 
-#: donate.html:52
+#: donate.html:38
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
 msgstr "können Sie auch monatlich spenden oder eine einmalige Spende machen. Außerdem nehmen wir auch Spenden in Form von "
 
-#: donate.html:54
+#: donate.html:40
 msgid "Bitcoin"
 msgstr "Bitcoin an."
 
-#: donate.html59, 72
+#: donate.html47, 60
 msgid "Become a Patron"
 msgstr "Patron werden"
 
-#: donate.html:62
+#: donate.html:50
 msgid "Donate with PayPal"
 msgstr "Mit PayPal spenden"
 
-#: donate.html:65
+#: donate.html:53
 msgid "Donate with Bitcoin"
 msgstr "Mit Bitcoin spenden"
 
-#: donate.html:71
+#: donate.html:59
 msgid "Commercial sponsorship"
 msgstr "Kommerzielle Förderung"
 
-#: donate.html:71
+#: donate.html:59
 msgid "is also available. Click the"
 msgstr "ist ebenfalls verfügbar."
 
-#: donate.html:72
+#: donate.html:60
 msgid "button above to find out more."
 msgstr "Klicken Sie den Knopf oben, um mehr herauszufinden."
-
-#: donate.html:80
-msgid "Thank you!"
-msgstr "Vielen Dank!"
-
-#: donate.html:81
-msgid ""
-"Every month, we compile a list of our donations and detail how they are "
-"spent."
-msgstr "Jeden Monat stellen wir eine detaillierte Liste unserer Spenden zusammen und berichten im Detail wie diese verwendet werden."
-
-#: donate.html:82
-msgid "This information is published monthly to the"
-msgstr "Diese Informationen werden monatlich in dem"
-
-#: donate.html:82
-msgid "Ubuntu MATE Blog"
-msgstr "Ubuntu-MATE-Blog"
-
-#: donate.html:83
-msgid "which you can take a look below."
-msgstr "veröffentlicht, auf welchen Sie weiter unten einen Blick werfen können."
-
-#: donate.html:89
-msgid "Year"
-msgstr "Jahr"
-
-#: donate.html:90
-msgid "Month"
-msgstr "Monat"

@@ -1,19 +1,20 @@
 # 
 # Translators:
+# ilkeryus <ilkeryus@gmail.com>, 2019
 # Kaan BODUR <kaanbodur@gmail.com>, 2016
 # Yasin Uysal <yasinuysal22@outlook.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 22:18+0000\n"
-"Last-Translator: Yasin Uysal <yasinuysal22@outlook.com>\n"
+"PO-Revision-Date: 2019-11-11 18:17+0000\n"
+"Last-Translator: ilkeryus <ilkeryus@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: features.html:18
@@ -121,16 +122,12 @@ msgstr "Firefox güvenli ve kolay bir web taraması sunar. Tanıdık bir arayüz
 
 #: features.html:143
 msgid ""
-"Thunderbird is a full-featured email, RSS and newsgroup client that makes "
-"emailing safer, faster and easier than ever before. It supports different "
-"mail accounts (POP, IMAP, Gmail), has a simple mail account setup wizard, "
-"one-click address book, tabbed interface, an integrated learning spam "
-"filter, advanced search and indexing capabilities, and offers easy "
-"organization of mails with tagging and virtual folders. It also features "
-"unrivalled extensibility."
-msgstr "Thunderbird, elektronik postalarınızın her zamankinden daha güvenli, hızlı ve kolay bir şekilde yönetmenizi sağlayan tam donanımlı bir elektronik posta, RSS ve haber grubu istemcisidir. Farklı posta hesaplarını destekler(POP,IMAP,Gmail); kolay bir kurulum yönlendiricisi, tümleşik adres defteri, sekmeli arayüz, tümleşik spam filtresi, geliştirilmiş arama ve indeksleme yetenekleri ve postaların kolaylıkla organize edilmesini sağlayan etiketleme ve sanal klasörleme özelliklerine sahiptir. Aynı zamanda eşsiz bir esnekliği de mevcuttur. "
+"Evolution is an integrated mail, calendar and address book suite. It "
+"features integration with Exchange and Google servers, a newsgroup client, "
+"LDAP support, web calendars and RSS reader."
+msgstr "Evolution, bütünleşik bir posta, takvim ve adres defteri paketidir. Exchange ve Google sunucuları, bir haber grubu istemcisi, LDAP desteği, web takvimleri ve RSS okuyucusu ile entegrasyon sunar."
 
-#: features.html:159
+#: features.html:154
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
@@ -139,35 +136,35 @@ msgid ""
 "and Open Source Office suite on the market:"
 msgstr "LibreOffice Microsoft(R) Ofis'in yerini alabilecek tam donanımlı bir ofis takımıdır. Temiz arayüzü ve güçlü araçları ile yaratıcılığınızı ortaya çıkarır ve üretkenliğinizi artırır. LibreOffice piyasada bulunan çoğu Özgür ve Açık Kaynaklı Ofis takımlarının güçlü uygulamalarını beraberinde getirir. "
 
-#: features.html:166
+#: features.html:161
 msgid "Writer, the word processor."
 msgstr "Writer, kelime işlemci. "
 
-#: features.html:167
+#: features.html:162
 msgid "Calc, the spreadsheet application."
 msgstr "Calc, çizelge uygulaması."
 
-#: features.html:168
+#: features.html:163
 msgid "Impress, the presentation engine."
 msgstr "Impress, sunum dinamosu."
 
-#: features.html:169
+#: features.html:164
 msgid "Draw, the drawing and flowcharting application."
 msgstr "Draw, çizim ve planlama uygulaması."
 
-#: features.html:170
+#: features.html:165
 msgid "Base, the database and database frontend."
 msgstr "Base, veritabanı ve veritabanı arayüzü."
 
-#: features.html:171
+#: features.html:166
 msgid "Math, for editing mathematics."
 msgstr "Math, matematiksel işlemler için. "
 
-#: features.html:178
+#: features.html:173
 msgid "Entertainment"
 msgstr "Eğlence"
 
-#: features.html:184
+#: features.html:179
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
@@ -176,7 +173,7 @@ msgid ""
 "burning, Audio CD playback, music sharing, and Podcasts."
 msgstr "Rhythmbox çok çeşitli ses biçimlerini destekleyen (mp3 ve ogg dahil olmak üzere), kullanımı kolay bir müzik yönetim ve oynatma programıdır. Apple'ın iTunes yazılımından esinlenilerek geliştirilen uygulamanın şu anki sürümüyle şunlar desteklenmektedir: İnternet Radyoları, İPod Entegrasyonu ve önde gelen medya oynatıcıları, Ses CD'si yakma, Ses CD'si oynatma, Müzik Paylaşımı ve Podcast. "
 
-#: features.html:198
+#: features.html:193
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
@@ -184,75 +181,64 @@ msgid ""
 "a lot of different image formats, also including raw CR2 files."
 msgstr "Shotwell bir dijital fotoğraf düzenleyicidir. Kamera veya disklerden fotoğraflarınızı aktarma ve düzenlemenize; farklı şekillerde düzenlemenize; tam ekran ya da pencere şeklinde görüntülemenize ya da paylaşmak üzere aktarım yapmanıza olanak sağlar. CR2 dosyaları da olmak üzere çok farklı görüntü biçimlerini destekler. "
 
-#: features.html:211
+#: features.html:206
 msgid ""
-"VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
-"DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
-"podcasts, and multimedia streams from various network sources."
-msgstr "VLC VideoLAN Projesi'nin medya oynatıcısıdır. MPEG, MPEG-2, MPEG-4, DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis Dosyaları; DVD, VCD, Podcastler ve farklı ağ kaynaklarından çoklu medya akışlarını oynatır. "
+"Celluloid (formerly GNOME MPV) is a simple media player that aims to be easy"
+" to use while maintaining a high level of configurability. Features include "
+"comprehensive media format support, drag and drop playlist management and "
+"MPRIS D-Bus Interface that provides integration with the desktop "
+"environment."
+msgstr "Celluloid (eski adıyla GNOME MPV), yüksek düzeyde yapılandırılabilirliği korurken kullanımı kolay olan basit bir medya oynatıcısıdır. Özellikler arasında kapsamlı medya formatı desteği, sürükle ve bırak çalma listesi yönetimi ve masaüstü ortamıyla bütünleşme sağlayan MPRIS D-Bus Arayüzü bulunur."
 
 #: features.html:215
-msgid ""
-"VLC can also be used as a streaming server that duplicates the stream it "
-"reads and multicasts them through the network to other clients, or serves "
-"them through HTTP."
-msgstr "VLC aynı zamanda yayın sunucusu olarak da kullanılabilir. "
-
-#: features.html:218
-msgid ""
-"VLC has support for on-the-fly transcoding of audio and video formats, "
-"either for broadcasting purposes or for movie format transformations."
-msgstr "VLC yayın amaçlı ya da film biçimleri arasında dönüşüm yapma amacıyla kullanabileceğiniz, ses ve görüntü biçimlerinin \"on-the-fly\" çözümlemenmesi desteğini sunar."
-
-#: features.html:226
 msgid "... And a whole lot more!"
 msgstr "...ve daha fazlası!"
 
-#: features.html:228
+#: features.html:217
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
 msgstr "Ubuntu MATE ile birlikte gelen güvenlik duvarı, yedekleme uygulaması, belge/fotoğraf tarayıcı ve yazıcı yöneticisi uygulamaları göreceksiniz. Bunlar sadece başlangıç. "
 
-#: features.html:231
+#: features.html:220
 msgid "Software"
 msgstr "Yazılım"
 
-#: features.html:231
+#: features.html:220
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
 msgstr "bölümleri işlemleriniz için sınıfının en iyi uygulamaları ve tek tuşla kurulum için bir "
 
-#: features.html:233
+#: features.html:222
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
 msgstr "bulursunuz ve bu yazılım ile profesyonel ya da keyfi kullanımlara uyacak binlerce uygulamaya ulaşma imkanı bulursunuz. "
 
-#: features.html:240
+#: features.html:229
 msgid "Games"
 msgstr "Oyunlar"
 
-#: features.html:246
+#: features.html:235
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
 msgstr "Son birkaç yılda Linux birinci sınıf bir oyun platformu konumunda geldi ve bunu "
 
-#: features.html:249
+#: features.html:238
 msgid "bringing the"
 msgstr "firması ve Linux'a getirdiği"
 
-#: features.html:251
+#: features.html:240
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
 msgstr "'e borçlu. Bu yazının yazıldığı sırada Steam bünyesinde 1000'den fazla yüksek kalite indie ve AAA içeriyor. Ubuntu MATE Linux için Steam ile tam uyumludur. "
 
-#: features.html:256
+#: features.html:245
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
@@ -261,38 +247,38 @@ msgid ""
 "you entertained."
 msgstr "Steam'in varlığı Linux oyun dünyası için büyük bir adım olmakla birlikte, Ubuntu MATE için yüksek kaliteli birçok  Açık Kaynak oyun da bulunmaktadır. Uçuş simülasyonu, motor yarışları, FRP, zıplama ve koşma, kart oyunları... Hangisinden hoşlandığınız fark etmez, sizi eğlendirecek bir oyunu mutlaka bulacaksınız. "
 
-#: features.html:266
+#: features.html:255
 msgid "Accessibility"
 msgstr "Erişilebilirlik"
 
-#: features.html:272
+#: features.html:261
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
 msgstr "Ubuntu MATE'nin kurucuları projeye başladıklarında anahtar öneme sahip ve önceliklerinden olan bir konu da erişilebilir bir işletim sistemi yapmaktı. "
 
-#: features.html:276
+#: features.html:265
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
 msgstr "Ubuntu MATE hiç bir zaman "
 
-#: features.html:278
+#: features.html:267
 msgid "Sonar GNU/Linux"
 msgstr "Sonar GNU/Linux"
 
-#: features.html:279
+#: features.html:268
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
 msgstr "dağıtımının sağladığı geniş ve kapsayıcı yardımcı teknolojileri sağlayamayacak. Ancak Ubuntu MATE onların yönlendiriciliğini takip edecek ve bilgisayar erişiminin paylaşıldığı ve ihitayaca göre değiştiği aile ortamları ya da iş çevrelerinde uygulanabilir bir masaüstü alternatifi olacak. "
 
-#: features.html:287
+#: features.html:276
 msgid "Mobile Integration"
 msgstr "Mobil Entegrasyonu"
 
-#: features.html:293
+#: features.html:282
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "

@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 23:21+0000\n"
+"PO-Revision-Date: 2019-10-30 14:38+0000\n"
 "Last-Translator: ToMáš Marný\n"
 "Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: chatroom.html:18
@@ -24,39 +24,45 @@ msgid "Chat with fellow users"
 msgstr "Chatovat se členy"
 
 #: chatroom.html:27
-msgid "This IRC client is pre-configured so you can jump into our"
-msgstr "IRC klient je přednastaven, takže se můžete připojit k našemu"
+msgid "Come and say hello by connecting to our"
+msgstr "Přijďte se s námi seznámit skrze připojení k našemu"
 
 #: chatroom.html:28
 msgid "channel on"
 msgstr "kanálu na"
 
-#: chatroom.html:29
-msgid ""
-"Most of the Ubuntu MATE team are on here but they have real lives too. If "
-"you have a question, feel free to ask."
-msgstr "Většina Ubuntu MATE týmu tu je, ale oni mají teké svůj reálný život. Máte-li dotaz, neváhejte se zeptat."
+#: chatroom.html:30
+msgid "You'll need an IRC client, such as Hexchat."
+msgstr "Budete potřebovat IRC klienta, jako je například Hexchat."
 
 #: chatroom.html:31
 msgid ""
-"However, it may take a while for someone to reply. Just be patient and don't"
-" disconnect right away."
-msgstr "Nicméně to může chvíli trvat, než vám někdo odpoví. Buďte trpěliví a neodpojujte se hned."
+"If you're looking for technical support, consider stopping by at our "
+"Community instead."
+msgstr "Pokud hledáte technickou podporu, zvažte místo toho návštěvu v naší komunitě."
 
-#: chatroom.html:35
+#: chatroom.html:34
 msgid ""
 "It appears you are not connected to the Internet. Please check your "
 "connection to access this content."
 msgstr "Zdá se, že nejste připojeni k Internetu. Zkontrolujte prosím své připojení, abyste mohli přistoupit k tomuto obsahu."
 
-#: chatroom.html:36
+#: chatroom.html:35
 msgid "Sorry, Welcome was unable to establish a connection."
 msgstr "Je nám líto, aplikace Vítejte nebyla schopna navázat spojení."
 
-#: chatroom.html:37
+#: chatroom.html:36
 msgid "Retry"
 msgstr "Zkusit znovu"
 
-#: chatroom.html:40
+#: chatroom.html:39
 msgid "Join the IRC in Hexchat"
 msgstr "Přípojit k IRC s pomocí Hexchat"
+
+#: chatroom.html:40
+msgid "Install"
+msgstr "Instalovat"
+
+#: chatroom.html:41
+msgid "Installing..."
+msgstr "Instaluje se..."

@@ -4,136 +4,91 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 23:21+0000\n"
-"Last-Translator: ToMáš Marný\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Czech (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: donate.html:18
 msgid "Donate"
 msgstr "Přispět"
 
-#: donate.html:26
-msgid "About Donations"
-msgstr "O příspěvcích"
+#: donate.html:24
+msgid "Support Ubuntu MATE Development"
+msgstr "Podpora vývoje Ubuntu MATE"
 
 #: donate.html:27
-msgid "Our Supporters"
-msgstr "Naši podporovatelé"
+msgid ""
+"Ubuntu MATE is funded by our community. Your donations help improve project "
+"momentum in the following ways:"
+msgstr "Ubuntu MATE financuje naše komunita. Vaše dary pomáhají zlepšit dynamiku projektu následujícími způsoby:"
+
+#: donate.html:29
+msgid "Fund developers working on MATE Desktop and Ubuntu MATE projects."
+msgstr "Financování vývojářů, kteří pracují na projektech MATE Desktop a Ubuntu MATE."
 
 #: donate.html:30
-msgid ""
-"It appears you are not connected to the Internet. Please check your "
-"connection to access this content."
-msgstr "Zdá se, že nejste připojeni k Internetu. Zkontrolujte prosím své připojení, abyste mohli přistoupit k tomuto obsahu."
-
-#: donate.html:31
-msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Je nám líto, aplikace Vítejte nebyla schopna navázat spojení."
-
-#: donate.html:32
-msgid "Retry"
-msgstr "Zkusit znovu"
-
-#: donate.html:41
-msgid ""
-"Ubuntu MATE is funded by our community. Your donations help pay towards:"
-msgstr "Ubuntu MATE je financováno naší komunitou. Vaše dary pomáhají platit následující:"
-
-#: donate.html:43
-msgid "Web hosting and bandwidth costs."
-msgstr "Náklady na webhosting a šířku pásma."
-
-#: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
 msgstr "Podporu open source projektů na kterých Ubuntu MATE závisí."
 
-#: donate.html:45
-msgid ""
-"Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr "Případně úvazky vývojářů Ubuntu MATE a MATE Desktop."
+#: donate.html:31
+msgid "Travel expenses to attend conferences."
+msgstr "Cestovní náklady na účast na konferencích."
 
-#: donate.html:47
+#: donate.html:32
+msgid "Miscellaneous hosting costs for the project."
+msgstr "Různé náklady na hostování projektu."
+
+#: donate.html:34
 msgid "Patreon"
 msgstr "Patreon"
 
-#: donate.html:47
+#: donate.html:34
 msgid ""
 "is a unique way to fund an Open Source project. A regular monthly income "
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
-" with exclusive project news, updates and invited to participate in video "
-"conferences where you can talk to the developers directly."
-msgstr "je jedinečný způsob, jak financovat open source projekt. Pravidelný měsíční příjem zajistí udržitelnost projektu Ubuntu MATE. Patroni budou odměněni exkluzivními novinkami z projektu, aktualizacemi a budou pozváni k účasti na videokonferencích, kde si mohou promluvit přímo s vývojáři."
+" with exclusive project news, updates and developer access."
+msgstr "je jedinečný způsob financování Open Source projektu. Pravidelný měsíční příjem zajišťuje udržitelnost projektu Ubuntu MATE. Patroni budou odměněni exkluzivními zprávami o projektu, aktualizacemi a přístupem vývojářů."
 
-#: donate.html:52
+#: donate.html:38
 msgid "If you would prefer to use"
 msgstr "Pokud byste raději používali"
 
-#: donate.html:52
+#: donate.html:38
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
 msgstr ", pak máte možnost přispívat každý měsíc nebo učinit jednorázový příspěvek. Také přijímáme dary prostřednictvím"
 
-#: donate.html:54
+#: donate.html:40
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: donate.html59, 72
+#: donate.html47, 60
 msgid "Become a Patron"
 msgstr "Staňte se patronem"
 
-#: donate.html:62
+#: donate.html:50
 msgid "Donate with PayPal"
 msgstr "Přispět přes PayPal"
 
-#: donate.html:65
+#: donate.html:53
 msgid "Donate with Bitcoin"
 msgstr "Přispět přes Bitcoin"
 
-#: donate.html:71
+#: donate.html:59
 msgid "Commercial sponsorship"
 msgstr "Komerční sponzorství"
 
-#: donate.html:71
+#: donate.html:59
 msgid "is also available. Click the"
 msgstr "je také k dispozici. Klikněte na tlačítko"
 
-#: donate.html:72
+#: donate.html:60
 msgid "button above to find out more."
 msgstr ", které je výše, a dozvíte se více."
-
-#: donate.html:80
-msgid "Thank you!"
-msgstr "Děkujeme!"
-
-#: donate.html:81
-msgid ""
-"Every month, we compile a list of our donations and detail how they are "
-"spent."
-msgstr "Každý měsíc sestavujeme seznam našich příspěvků a podrobně rozepisujeme, jak se budou vynakládat."
-
-#: donate.html:82
-msgid "This information is published monthly to the"
-msgstr "Tyto informace jsou zveřejňovány měsíčně na"
-
-#: donate.html:82
-msgid "Ubuntu MATE Blog"
-msgstr "blogu Ubuntu MATE"
-
-#: donate.html:83
-msgid "which you can take a look below."
-msgstr "můžete se na ně podívat níže."
-
-#: donate.html:89
-msgid "Year"
-msgstr "Rok"
-
-#: donate.html:90
-msgid "Month"
-msgstr "Měsíc"

@@ -1,13 +1,13 @@
 # 
 # Translators:
 # scootergrisen, 2017
-# scootergrisen, 2018
+# scootergrisen, 2018-2019
 # Silas Wulff <silaswulff@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-09-28 15:48+0000\n"
+"PO-Revision-Date: 2019-09-28 02:58+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Installering"
 msgid "Install Now"
 msgstr "Installer nu"
 
-#: gettingstarted.html68, 1530
+#: gettingstarted.html68, 1641
 msgid "Utilities"
 msgstr "Værktøjer"
 
@@ -109,7 +109,7 @@ msgstr "Tastaturgenveje"
 msgid "Troubleshooting"
 msgstr "Fejlfinding"
 
-#: gettingstarted.html123, 1516
+#: gettingstarted.html123, 1628
 msgid "System Specifications"
 msgstr "System specifikationer"
 
@@ -161,7 +161,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Operativsystemet vil kø meget mere effektivt hvis din computer enten imødekommer eller overgår de anbefalede systemkrav."
 
-#: gettingstarted.html158, 1519
+#: gettingstarted.html158, 1631
 msgid "What's inside my computer?"
 msgstr "Hvad er der indeni min computer?"
 
@@ -419,7 +419,7 @@ msgstr "en kommandoprompt og tjek filsystemet for eventuelle fejl. Windows skedu
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Benyt GParted eller installationsværktøjets \"brugerdefineret\" mulighed."
 
-#: gettingstarted.html296, 1769
+#: gettingstarted.html296, 1866
 msgid "GParted"
 msgstr "GParted"
 
@@ -431,7 +431,7 @@ msgstr "er kun tilgængelig her i Live sessionen."
 msgid "It is located under the"
 msgstr "Du kan finde det under"
 
-#: gettingstarted.html297, 423, 666, 1542
+#: gettingstarted.html297, 423, 666, 1653
 msgid "System"
 msgstr "System"
 
@@ -589,9 +589,9 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Nyere versioner af Windows stiller værktøjer til rådighed der kan hjælpe med at formindske NTFS volumen fra Windows. Dette er en sikrere fremgangsmåde hvis det er kritisk at Windows stadig kan starte op efter Ubuntu MATE er installeret."
 
-#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
+#: gettingstarted.html346, 689, 711, 748, 1837, 1854, 1870, 1886, 1902, 1918
 msgid "Open"
-msgstr "Åben"
+msgstr "Åbn"
 
 #: gettingstarted.html:346
 msgid "Disk Management"
@@ -689,7 +689,7 @@ msgstr "Download Boot reparations værktøjet"
 
 #: gettingstarted.html:395
 msgid "Open Boot-Repair"
-msgstr "Åben boot reparations værktøjet"
+msgstr "Åbn boot reparations værktøjet"
 
 #: gettingstarted.html:408
 msgid "An Internet connection is required to download and install updates."
@@ -730,7 +730,7 @@ msgid "Applying Changes..."
 msgstr "Anvender opdateringer..."
 
 #: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
-#: 874, 1741, 1758, 1774, 1790, 1806, 1822
+#: 874, 1838, 1855, 1871, 1887, 1903, 1919
 msgid "Install"
 msgstr "Installer"
 
@@ -745,12 +745,20 @@ msgstr "Blu-Ray og DVD support"
 #: gettingstarted.html:460
 msgid ""
 "Installs libraries that enable Blu-ray and DVD playback in VLC. After "
-"install DVDs will work but for Blu-ray you will need to download"
-msgstr "Installerer biblioteker der muliggør afspilning af Blu-ray og DVD i VLC programmer. Efter installation vil du kunne afspille DVDer men for at asfpille Blu-ray skal du yderligere downloade"
+"install you will need to run"
+msgstr "Installerer biblioteker der gør det muligt at afspille Blu-ray og DVD i VLC. Efter installationen skal du køre"
+
+#: gettingstarted.html:461
+msgid "to enable encrypted DVD playback and you will need to obtain a copy of"
+msgstr "for at aktivere afspilning af krypteret DVD og du skal få fat i en kopi af"
 
 #: gettingstarted.html:463
 msgid "and save it to"
 msgstr "og gemme det i"
+
+#: gettingstarted.html:463
+msgid "to enable encrypted Blu-ray playback."
+msgstr "for at aktivere afspilning af krypteret Blu-ray."
 
 #: gettingstarted.html:478
 msgid "Additional Screen Savers"
@@ -843,7 +851,7 @@ msgstr "Beklager, Velkomstprogrammet var ikke i stand til at genkende grafikkort
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Card/Chipset:"
-msgstr "Kort/chipset:"
+msgstr "Kort/chipsæt:"
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Unknown"
@@ -1142,7 +1150,7 @@ msgstr "Backups"
 
 #: gettingstarted.html:813
 msgid ""
-"Nothing is more important then having a backup of your personal files, just "
+"Nothing is more important than having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr "Der er ikke noget vigtigere en at have en backup af dine personlige filer, hvis ulykken skulle være ude og noget sker med din computer."
 
@@ -1313,7 +1321,7 @@ msgstr "Super"
 
 #: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
-msgstr "knappen er din Windows knap. På Mac tastaturer er det ⌘ Kommando knappen"
+msgstr "tasten er din Windows-knap. På Mac-tastaturer er det ⌘ kommando-tasten."
 
 #: gettingstarted.html:952
 msgid "Common application shortcuts"
@@ -1324,8 +1332,8 @@ msgid "These shortcuts apply in most applications."
 msgstr "Disse genveje gælder for de fleste programmer."
 
 #: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
-#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
-#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1168, 1252, 1268, 1278, 1288,
+#: 1300, 1373, 1384, 1400, 1410, 1426, 1442, 1456, 1470, 1488, 1498
 msgid "Ctrl"
 msgstr "Ctrl"
 
@@ -1363,7 +1371,7 @@ msgstr "Understreg den valgte tekst"
 
 #: gettingstarted.html:1026
 msgid "Open a new document or window"
-msgstr "Åben et nyt dokument eller vindue"
+msgstr "Åbn et nyt dokument eller vindue"
 
 #: gettingstarted.html:1034
 msgid "Save the current document"
@@ -1371,7 +1379,7 @@ msgstr "Gem det aktive dokument"
 
 #: gettingstarted.html:1042
 msgid "Open another document"
-msgstr "Åben et nyt dokument"
+msgstr "Åbn et nyt dokument"
 
 #: gettingstarted.html:1050
 msgid "Print the current document"
@@ -1380,6 +1388,10 @@ msgstr "Print det aktive dokument"
 #: gettingstarted.html:1058
 msgid "Undo the last change you made"
 msgstr "Fortryd den sidste ændring du foretog"
+
+#: gettingstarted.html1064, 1127, 1208, 1292, 1303, 1476, 1504, 1559
+msgid "Shift"
+msgstr "Shift"
 
 #: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
@@ -1399,9 +1411,11 @@ msgid ""
 "parts of the desktop."
 msgstr "Denne sektion viser en liste over tastaturgenveje du kan bruge til at kontrollere skrivebordet."
 
-#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
+#: gettingstarted.html1085, 1160, 1174, 1182, 1190, 1198, 1216, 1226, 1392,
+#: 1418, 1434, 1448, 1462, 1480, 1508, 1541, 1549, 1557, 1567, 1575, 1583,
+#: 1591
 msgid "Super Key"
-msgstr "Super tasten"
+msgstr "Super-tasten"
 
 #: gettingstarted.html:1087
 msgid "Activate Brisk Menu or MATE Menu launcher"
@@ -1413,7 +1427,7 @@ msgstr "Aktivér Heads-up Display (HUD), hvis det er aktiveret i MATE Tweak."
 
 #: gettingstarted.html:1101
 msgid "Open the Applications menu"
-msgstr "Åben programmenuen"
+msgstr "Åbn programmenuen"
 
 #: gettingstarted.html:1109
 msgid "Run an application by typing its name in the box which appears"
@@ -1447,492 +1461,505 @@ msgstr "Åbner dialogboksen til at Slukke, Genstarte eller sætte i standby."
 msgid "Toggles 'Show Desktop'."
 msgstr "Bringer dig til dit skrivebord."
 
-#: gettingstarted.html:1160
+#: gettingstarted.html:1164
 msgid "Lock your screen."
 msgstr "Lås skærmen."
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1178
 msgid "Open a terminal."
-msgstr "Åben en kommandolinje"
+msgstr "Åbn en kommandolinje"
 
-#: gettingstarted.html:1180
+#: gettingstarted.html:1186
+msgid "Open the file manager"
+msgstr "Åbn filhåndteringen"
+
+#: gettingstarted.html:1194
+msgid "Open Control Center"
+msgstr "Åbn kontrolcenter"
+
+#: gettingstarted.html:1202
+msgid "Open Search"
+msgstr "Åbn søgning"
+
+#: gettingstarted.html:1206
+msgid "CTRL"
+msgstr "CTRL"
+
+#: gettingstarted.html:1212
+msgid "Open System Monitor"
+msgstr "Åbn systemovervågning"
+
+#: gettingstarted.html:1218
+msgid "Pause"
+msgstr "Pause"
+
+#: gettingstarted.html:1220
+msgid "Open System Information"
+msgstr "Åbn systeminformation"
+
+#: gettingstarted.html:1230
 msgid "Screen reader enable/disable."
-msgstr "Skærmlæser til/fra"
+msgstr "Skærmlæser til/fra."
 
-#: gettingstarted.html:1184
+#: gettingstarted.html:1234
 msgid "Window shortcuts"
 msgstr "Vinduesgenveje"
 
-#: gettingstarted.html:1189
+#: gettingstarted.html:1239
 msgid "Tab"
 msgstr "Tab"
 
-#: gettingstarted.html:1192
+#: gettingstarted.html:1242
 msgid "Switch between currently-open windows."
 msgstr "Skift imellem de åbne vinduer."
 
-#: gettingstarted.html:1194
+#: gettingstarted.html:1244
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "Hold Alt + tab nede og giv slip på tab (men hold fortsat Alt nede)."
 
-#: gettingstarted.html1195, 1211
+#: gettingstarted.html1245, 1261
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "Hold Tab knappen nede for at cirkulere imellem listen over tilgængelige vinduer på skærmen."
 
-#: gettingstarted.html:1196
+#: gettingstarted.html:1246
 msgid "Release the Alt key to switch to the selected window."
-msgstr "Giv slip på Alt knappen for at skifte til det valgte vindue."
+msgstr "Slip Alt-tasten for at skifte til det valgte vindue."
 
-#: gettingstarted.html:1209
+#: gettingstarted.html:1259
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "Vælg imellem de åbne vinduer i alle arbejdsområder."
 
-#: gettingstarted.html:1212
+#: gettingstarted.html:1262
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
-msgstr "Giv slip på Ctrl og Alt knapperne for at skifte til det valgte vindue."
+msgstr "Slip Ctrl- og Alt-tasterne for at skifte til det valgte vindue."
 
-#: gettingstarted.html1222, 1244
+#: gettingstarted.html1272, 1294, 1394, 1450, 1482
 msgid "Left"
 msgstr "Venstre"
 
-#: gettingstarted.html:1224
+#: gettingstarted.html:1274
 msgid "Switch to the previous workspace."
 msgstr "Skift til tidligere arbejdsområde."
 
-#: gettingstarted.html1232, 1255
+#: gettingstarted.html1282, 1305, 1420, 1464, 1510
 msgid "Right"
 msgstr "Højre"
 
-#: gettingstarted.html:1234
+#: gettingstarted.html:1284
 msgid "Switch to the next workspace."
 msgstr "Skift til det næste arbejdsområde."
 
-#: gettingstarted.html1242, 1253, 1447
-msgid "Shift"
-msgstr "Shift"
-
-#: gettingstarted.html:1246
+#: gettingstarted.html:1296
 msgid "Move the current window to the previous workspace."
 msgstr "Flyt det åbne vindue til det tidligere arbejdsområde."
 
-#: gettingstarted.html:1257
+#: gettingstarted.html:1307
 msgid "Move the current window to the next workspace."
 msgstr "Flyt det åben vindue til det næste arbejdsområde."
 
-#: gettingstarted.html:1265
+#: gettingstarted.html:1315
 msgid "Closes window."
 msgstr "Luk vindue."
 
-#: gettingstarted.html:1273
+#: gettingstarted.html:1323
 msgid "Returns window to 'normal' or previous size."
 msgstr "Vinduet vender tilbage til original eller tidl. størrelse."
 
-#: gettingstarted.html:1281
+#: gettingstarted.html:1331
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "Flytter det åbne vindue (kan flyttes med mus eller tastatur)."
 
-#: gettingstarted.html:1289
+#: gettingstarted.html:1339
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "Ændrer størrelsen på det åbne vindue (Kan også flyttes med både mus og tastatur)."
 
-#: gettingstarted.html:1297
+#: gettingstarted.html:1347
 msgid "Minimizes current window."
 msgstr "Minimerer det åbne vindue."
 
-#: gettingstarted.html:1305
+#: gettingstarted.html:1355
 msgid "Maximizes current window."
 msgstr "Maksimerer det åbne vindue."
 
-#: gettingstarted.html:1311
+#: gettingstarted.html:1361
 msgid "Pulldown Terminal, if enabled in MATE Tweak."
 msgstr "Nedrulningsterminal, hvis det er aktiveret i MATE Tweak."
 
-#: gettingstarted.html:1317
+#: gettingstarted.html:1367
 msgid "Space"
 msgstr "Mellemrum"
 
-#: gettingstarted.html:1319
+#: gettingstarted.html:1369
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "Viser menuen med muligheder såsom 'Altid øverst', 'Minimer' og 'Maksimer' og yderligere muligheder."
 
-#: gettingstarted.html:1329
+#: gettingstarted.html:1379
 msgid "Toggle shaded state."
 msgstr "Skyggetilstand til/fra."
 
-#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
+#: gettingstarted.html1388, 1404, 1414, 1430, 1446, 1460, 1474, 1492, 1502
 msgid "Numpad"
 msgstr "Numpad"
 
-#: gettingstarted.html:1340
+#: gettingstarted.html:1396
 msgid "Place window in top left corner of screen."
 msgstr "Placer vinduet i det øverste venstre hjørne af skærmen."
 
-#: gettingstarted.html:1350
+#: gettingstarted.html:1406
 msgid "Place window in top half of screen."
 msgstr "Placer vinduet i den øverste halvdel af skærmen."
 
-#: gettingstarted.html:1360
+#: gettingstarted.html:1422
 msgid "Place window in top right corner of screen."
 msgstr "Placer vinduet i det øverste højre hjørne af skærmen."
 
-#: gettingstarted.html:1370
+#: gettingstarted.html:1438
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "Centrer/maksimer vinduet i midten af skærmen."
 
-#: gettingstarted.html:1380
+#: gettingstarted.html:1452
+msgid "Place window to the left half of the screen."
+msgstr "Placer vinduet i den venstre halvdel af skærmen."
+
+#: gettingstarted.html:1466
+msgid "Place window to the right half of the screen."
+msgstr "Placer vinduet i den højre halvdel af skærmen."
+
+#: gettingstarted.html:1484
 msgid "Place window in the bottom left corner of the screen."
 msgstr "Placer vinduet i det nederste venstre hjørne af skærmen."
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1494
 msgid "Place window in the bottom half of the screen."
 msgstr "Placer vinduer i den nederste halvdel af skærmen."
 
-#: gettingstarted.html:1400
+#: gettingstarted.html:1512
 msgid "Place window in the bottom right corner of the screen."
 msgstr "Placer vinduet i det nederste højre hjørne af skærmen."
 
-#: gettingstarted.html:1404
+#: gettingstarted.html:1516
 msgid "Mouse Shortcuts"
 msgstr "Musegenveje"
 
-#: gettingstarted.html:1410
+#: gettingstarted.html:1522
 msgid "Left-click while dragging mouse"
 msgstr "Venstreklik mens du trækker musen"
 
-#: gettingstarted.html:1412
+#: gettingstarted.html:1524
 msgid "Moves the window."
 msgstr "flytter vinduet."
 
-#: gettingstarted.html:1418
+#: gettingstarted.html:1530
 msgid "Right-click while dragging mouse"
 msgstr "Højreklik mens du flytter musen"
 
-#: gettingstarted.html:1420
+#: gettingstarted.html:1532
 msgid "Resizes the window (closest window edge)."
 msgstr "ændrer størrelsen på vinduet (afhængigt af den nærmeste side af skærmen)."
 
-#: gettingstarted.html:1424
+#: gettingstarted.html:1536
 msgid "Compiz Effects Shortcuts"
 msgstr "Compiz skærmeffektsgenveje"
 
-#: gettingstarted.html:1425
+#: gettingstarted.html:1537
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "Alle genvejene i denne sektion, kræver at du har Compiz slået til."
 
-#: gettingstarted.html:1433
+#: gettingstarted.html:1545
 msgid "Zoom out, show workspace switcher."
 msgstr "Zoom ud, lader dig skifte imellem virtuelle skriveborde."
 
-#: gettingstarted.html:1441
+#: gettingstarted.html:1553
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "Viser alle åbne vinduer fra det aktive virtuelle skrivebord."
 
-#: gettingstarted.html:1451
+#: gettingstarted.html:1563
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "Viser alle åbne vinduer fra alle aktive virtuelle skriveborde."
 
-#: gettingstarted.html:1459
+#: gettingstarted.html:1571
 msgid "Invert colors of the focused window."
 msgstr "Viser det aktive vindue i negative farver."
 
-#: gettingstarted.html:1467
+#: gettingstarted.html:1579
 msgid "Invert colors for the whole screen."
 msgstr "Viser hele skærmen i negative farver."
 
-#: gettingstarted.html:1473
+#: gettingstarted.html:1585
 msgid "Scroll Wheel"
 msgstr "Musehjul"
 
-#: gettingstarted.html:1475
+#: gettingstarted.html:1587
 msgid "Zooms in on the screen."
 msgstr "Zoomer ind på skærmen."
 
-#: gettingstarted.html1481, 1497
+#: gettingstarted.html1593, 1609
 msgid "Middle Click"
 msgstr "Midterste museklik"
 
-#: gettingstarted.html:1483
+#: gettingstarted.html:1595
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "Vælg en del af skærmen at zoome ind på, ved at trække en firkant med musen."
 
-#: gettingstarted.html:1489
+#: gettingstarted.html:1601
 msgid "Left Click"
 msgstr "Venstreklik"
 
-#: gettingstarted.html:1491
+#: gettingstarted.html:1603
 msgid "Move focused window."
 msgstr "Flyt det aktive vindue."
 
-#: gettingstarted.html:1499
+#: gettingstarted.html:1611
 msgid "Resize focused window."
 msgstr "Ændre størrelsen på det aktive vindue."
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1617
 msgid "Right Click"
 msgstr "Højreklik"
 
-#: gettingstarted.html:1507
+#: gettingstarted.html:1619
 msgid "Show window menu."
 msgstr "Vis vinduets menu."
 
-#: gettingstarted.html:1520
+#: gettingstarted.html:1632
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "Din computer er lavet af diverse individuelle komponenter der arbejder sammen med hinanden. Denne information er værdifuld hvis du modtager teknisk hjælp, da den kan hjælpe med at sikre at din hardware og software fungerer korrekt."
 
-#: gettingstarted.html:1524
+#: gettingstarted.html:1636
 msgid "View System Requirements"
 msgstr "Vis systemkravene"
 
-#: gettingstarted.html:1528
+#: gettingstarted.html:1640
 msgid "Basic"
 msgstr "Grundlæggende"
 
-#: gettingstarted.html:1529
-msgid "Detailed"
-msgstr "Detaljeret"
-
-#: gettingstarted.html:1545
+#: gettingstarted.html:1656
 msgid "Distribution:"
 msgstr "Distribution:"
 
-#: gettingstarted.html:1549
+#: gettingstarted.html:1660
 msgid "Kernel:"
 msgstr "Kerne:"
 
-#: gettingstarted.html:1552
+#: gettingstarted.html:1663
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Linux kernen er hjertet i Ubuntu."
 
-#: gettingstarted.html:1558
+#: gettingstarted.html:1669
 msgid "Motherboard:"
 msgstr "Bundkort:"
 
-#: gettingstarted.html:1562
+#: gettingstarted.html:1673
 msgid "Boot Mode:"
 msgstr "Boot metode:"
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1676
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Viser metoden Ubuntu MATE benytter til at kommunikere med firmwaren."
 
-#: gettingstarted.html:1573
+#: gettingstarted.html:1684
 msgid "Processor"
 msgstr "Processor"
 
-#: gettingstarted.html:1576
+#: gettingstarted.html:1687
 msgid "Model:"
 msgstr "Model:"
 
-#: gettingstarted.html:1580
+#: gettingstarted.html:1691
 msgid "Speed:"
 msgstr "Hastighed"
 
-#: gettingstarted.html:1584
+#: gettingstarted.html:1695
 msgid "Architecture in use:"
 msgstr "Arkitektur i brug:"
 
-#: gettingstarted.html:1587
+#: gettingstarted.html:1698
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "Arkitekturen operativsystemet benytter. For eksempel, i386 = 32-bit."
 
-#: gettingstarted.html:1593
+#: gettingstarted.html:1704
 msgid "Architecture(s) supported:"
 msgstr "Understøttede arkitektur(er):"
 
-#: gettingstarted.html:1596
+#: gettingstarted.html:1707
 msgid "Architectures that are supported by this processor."
 msgstr "Arkitekturer der er understøttet af denne processor."
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1715
 msgid "Components"
 msgstr "Komponenter"
 
-#: gettingstarted.html:1607
+#: gettingstarted.html:1718
 msgid "Memory (RAM):"
 msgstr "Hukommelse (RAM):"
 
-#: gettingstarted.html:1610
+#: gettingstarted.html:1721
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Jo flere RAM, jo flere applikationer kan der køre samtidigt."
 
-#: gettingstarted.html:1616
+#: gettingstarted.html:1727
 msgid "Graphics:"
 msgstr "Grafik:"
 
-#: gettingstarted.html:1620
+#: gettingstarted.html:1731
 msgid "Internet Access:"
 msgstr "Internetadgang:"
 
-#: gettingstarted.html:1622
+#: gettingstarted.html:1733
 msgid "Connected"
 msgstr "Forbundet"
 
-#: gettingstarted.html:1623
+#: gettingstarted.html:1734
 msgid "Not Connected"
 msgstr "Ikke forbundet"
 
-#: gettingstarted.html:1630
+#: gettingstarted.html:1741
 msgid "Storage"
 msgstr "Lagerplads"
 
-#: gettingstarted.html:1634
+#: gettingstarted.html:1745
 msgid "Root File System:"
 msgstr "Rodens filsystem:"
 
-#: gettingstarted.html:1637
+#: gettingstarted.html:1748
 msgid "The file system where Ubuntu MATE is installed."
-msgstr "Filsystemet hvor Ubuntu MATE er installered"
+msgstr "Filsystemet hvor Ubuntu MATE er installeret."
 
-#: gettingstarted.html:1643
+#: gettingstarted.html:1754
 msgid "Entire Disk Capacity:"
 msgstr "Hele harddiskens kapacitet:"
 
-#: gettingstarted.html:1648
+#: gettingstarted.html:1759
 msgid "Ubuntu MATE Usage"
 msgstr "Ubuntu MATEs forbrug"
 
-#: gettingstarted.html:1657
+#: gettingstarted.html:1768
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Allokeret til Ubuntu MATE:"
 
-#: gettingstarted.html:1660
+#: gettingstarted.html:1771
 msgid "The size of your operating system partition."
 msgstr "Størrelsen af din operativssystems partition."
 
-#: gettingstarted.html:1666
+#: gettingstarted.html:1777
 msgid "Used Space:"
 msgstr "Opbrugt lagerplads:"
 
-#: gettingstarted.html:1672
+#: gettingstarted.html:1783
 msgid "Free Space:"
 msgstr "Ledig lagerplads:"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1789
 msgid "Other Usage:"
 msgstr "Andre formål:"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1792
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Reserveret af systemet, andre partitioner, u-allokeret eller swap."
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1800
 msgid "Why do I see two units?"
 msgstr "Hvorfor ser jeg to enheder?"
 
-#: gettingstarted.html:1695
+#: gettingstarted.html:1806
 msgid "SI or IEC Units?"
 msgstr "SI eller IEC enheder?"
 
-#: gettingstarted.html:1697
+#: gettingstarted.html:1808
 msgid "Decimal (SI Standard)"
 msgstr "Decimal (SI Standard)"
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1810
 msgid "1 KB = 1000 bytes"
 msgstr "1 Kb = 1000 bytes"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1811
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "udtales \"ga\" - som i \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1701
+#: gettingstarted.html:1812
 msgid "Common in every day applications and file storage."
 msgstr "Almindelig i hverdagsprogrammer og filopbevaring."
 
-#: gettingstarted.html:1705
+#: gettingstarted.html:1816
 msgid "Binary (IEC Standard)"
 msgstr "Binær (IEC Standard)"
 
-#: gettingstarted.html:1707
+#: gettingstarted.html:1818
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1708
+#: gettingstarted.html:1819
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Udtales som \"bai\" - som i \"Mebai\" og \"Gibai\"."
 
-#: gettingstarted.html:1709
+#: gettingstarted.html:1820
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Almen i RAM, Harddrev og partitioner, inkluderer værktøjer såsom GParted."
 
-#: gettingstarted.html:1718
-msgid ""
-"The following information is retrieved directly from the inxi command line "
-"program."
-msgstr "Flg. information er hentet directe fra inxi kommandolinje programmet."
-
-#: gettingstarted.html:1719
-msgid "Gathering data..."
-msgstr "Indsamler data..."
-
-#: gettingstarted.html:1720
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr "Detaljerede specifikationer kan ikke vises da 'inxi' ikke er installeret."
-
-#: gettingstarted.html:1736
+#: gettingstarted.html:1833
 msgid "System Profiler and Benchmark"
 msgstr "System profiler og referencepunkter"
 
-#: gettingstarted.html:1737
+#: gettingstarted.html:1834
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Se mere specifik systeminformation i et grafisk vindue, informationen inkluderer forbundede USB og PCI enheder og et simpelt CPU referencepunkt."
 
-#: gettingstarted.html:1752
+#: gettingstarted.html:1849
 msgid "Disks"
 msgstr "Diske"
 
-#: gettingstarted.html:1753
+#: gettingstarted.html:1850
 msgid ""
 "A utility that allows basic configuration to your disks and partitions, "
 "including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
 "writing images to SD cards/USB drives."
 msgstr "Et redskab der giver mulighed for grundlæggende konfiguration af dine diske og partitioner, inklusiv formatering, partitionering, montering, visning af S.M.A.R.T-data og skrivning af aftryk til SD-kort/USB-drev."
 
-#: gettingstarted.html:1770
+#: gettingstarted.html:1867
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Et avanceret værktøj til visning, opretning, modificering og sletning af partitioner. Det har ligeledes funktioner der kan forstørre/formindske filsystemer og det supporterer en bred række af formater."
 
-#: gettingstarted.html:1785
+#: gettingstarted.html:1882
 msgid "Disk Usage Analyser"
 msgstr "Analysering af diskplads forbrug"
 
-#: gettingstarted.html:1786
+#: gettingstarted.html:1883
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Et grafisk værktøj der lader dig udforske dit filsystem med henblik på at analysere hvad der optager plads på din harddisk."
 
-#: gettingstarted.html:1801
+#: gettingstarted.html:1898
 msgid "System Monitor"
 msgstr "System information"
 
-#: gettingstarted.html:1802
+#: gettingstarted.html:1899
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Viser de pt. kørende processer, resourceforbrug og hvor meget plads der er tilgængelig på de monterede filsystemer."
 
-#: gettingstarted.html:1817
+#: gettingstarted.html:1914
 msgid "Psensor"
 msgstr "Psensor"
 
-#: gettingstarted.html:1818
+#: gettingstarted.html:1915
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."

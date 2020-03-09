@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 10:18+0100\n"
-"PO-Revision-Date: 2018-05-03 08:33+0000\n"
-"Last-Translator: nomen omen\n"
+"POT-Creation-Date: 2019-09-24 21:56+0100\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/ubuntu-mate/"
 "ubuntu-mate-welcome/language/fi_FI/)\n"
 "Language: fi_FI\n"
@@ -28,493 +28,493 @@ msgstr ""
 "Ohjelmistomuutokset ovat kesken. Ole hyvä ja anna muutosten valmistua ennen "
 "kuin suljet Tervetuloa-sovelluksen."
 
-#: ubuntu-mate-welcome:89 ubuntu-mate-welcome:2748
+#: ubuntu-mate-welcome:89 ubuntu-mate-welcome:2668
 msgid "OK"
 msgstr "OK"
 
-#: ubuntu-mate-welcome:174 ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:132 ubuntu-mate-welcome:783
+msgid "Software Boutique"
+msgstr "Ohjelmisto Putiikki"
+
+#: ubuntu-mate-welcome:179 ubuntu-mate-welcome:189
 msgid "Successfully performed fix."
 msgstr "Korjaus suoritettu onnistuneesti."
 
-#: ubuntu-mate-welcome:174
+#: ubuntu-mate-welcome:179
 msgid "Any previously incomplete installations have been finished."
 msgstr "Kaikki aikaisemmin kesken jääneet asennukset ovat valmiita."
 
-#: ubuntu-mate-welcome:177 ubuntu-mate-welcome:187
+#: ubuntu-mate-welcome:182 ubuntu-mate-welcome:192
 msgid "Failed to perform fix."
 msgstr "Korjaus ei onnistunut."
 
-#: ubuntu-mate-welcome:177
+#: ubuntu-mate-welcome:182
 msgid "Errors occurred while finishing an incomplete installation."
 msgstr "Kesken jääneen asennuksen viimeistelyssä esiintyi virheitä."
 
-#: ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:189
 msgid "Packages with broken dependencies have been resolved."
 msgstr "Paketit, joilla oli rikkinäisiä riippuvuuksia, ovat korjattuja."
 
-#: ubuntu-mate-welcome:187
+#: ubuntu-mate-welcome:192
 msgid "Packages may still have broken dependencies."
 msgstr "Paketeilla saattaa vielä olla rikkinäisiä riippuvuuksia."
 
-#: ubuntu-mate-welcome:196
+#: ubuntu-mate-welcome:201
 msgid "Successfully updated cache."
 msgstr "Välimuisti päivitetty onnistuneesti."
 
-#: ubuntu-mate-welcome:196
+#: ubuntu-mate-welcome:201
 msgid "Software is now ready to install."
 msgstr "Ohjelmisto on nyt valmiina asennettavaksi."
 
-#: ubuntu-mate-welcome:199
+#: ubuntu-mate-welcome:204
 msgid "Failed to update cache."
 msgstr "Välimuistin päivitys epäonnistui."
 
-#: ubuntu-mate-welcome:199
+#: ubuntu-mate-welcome:204
 msgid "There may be a problem with your repository configuration."
 msgstr "Ohjelmalähteesi konfiguraatiossa saattaa olla ongelma."
 
-#: ubuntu-mate-welcome:255
+#: ubuntu-mate-welcome:260
 msgid "Welcome will stay up-to-date."
 msgstr "Tervetuloa pysyy päivitettynä."
 
-#: ubuntu-mate-welcome:256
+#: ubuntu-mate-welcome:261
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
 msgstr ""
 "Tervetuloa-sovellus sekä Ohjelmisto Putiikki saavat uusimmat päivitykset."
 
-#: ubuntu-mate-welcome:262
+#: ubuntu-mate-welcome:267
 msgid "Everything is up-to-date"
 msgstr "Kaikki on ajan tasalla."
 
-#: ubuntu-mate-welcome:263
+#: ubuntu-mate-welcome:268
 msgid "All packages have been upgraded to the latest versions."
 msgstr "Kaikki paketit on päivitetty uusimpiin versioihin."
 
-#: ubuntu-mate-welcome:268 ubuntu-mate-welcome:3309
+#: ubuntu-mate-welcome:273 ubuntu-mate-welcome:3234
 msgid "Installed"
 msgstr "Asennettu"
 
-#: ubuntu-mate-welcome:269 ubuntu-mate-welcome:3309
+#: ubuntu-mate-welcome:274 ubuntu-mate-welcome:3234
 msgid "The application is now ready to use."
 msgstr "Sovellus on valmis käytettäväksi."
 
-#: ubuntu-mate-welcome:271
+#: ubuntu-mate-welcome:276
 msgid "was not installed."
 msgstr "ei asennettu."
 
-#: ubuntu-mate-welcome:272 ubuntu-mate-welcome:282
+#: ubuntu-mate-welcome:277 ubuntu-mate-welcome:287
 msgid "The operation was cancelled."
 msgstr "Toiminto peruttiin."
 
-#: ubuntu-mate-welcome:274 ubuntu-mate-welcome:3313
+#: ubuntu-mate-welcome:279 ubuntu-mate-welcome:3238
 msgid "failed to install"
 msgstr "ei asentunut"
 
-#: ubuntu-mate-welcome:275 ubuntu-mate-welcome:3313
+#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3238
 msgid "There was a problem installing this application."
 msgstr "Tämän sovelluksen asennuksessa oli ongelma."
 
-#: ubuntu-mate-welcome:278 ubuntu-mate-welcome:834 ubuntu-mate-welcome:3318
+#: ubuntu-mate-welcome:283 ubuntu-mate-welcome:849 ubuntu-mate-welcome:3243
 msgid "Removed"
 msgstr "Poistettu"
 
-#: ubuntu-mate-welcome:279 ubuntu-mate-welcome:3318
+#: ubuntu-mate-welcome:284 ubuntu-mate-welcome:3243
 msgid "The application has been uninstalled."
 msgstr "Sovellus on poistettu."
 
-#: ubuntu-mate-welcome:281
+#: ubuntu-mate-welcome:286
 msgid "was not removed."
 msgstr "ei poistettu."
 
-#: ubuntu-mate-welcome:284 ubuntu-mate-welcome:3322
+#: ubuntu-mate-welcome:289 ubuntu-mate-welcome:3247
 msgid "failed to remove"
 msgstr "ei poistunut"
 
-#: ubuntu-mate-welcome:285 ubuntu-mate-welcome:3322
+#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:3247
 msgid "A problem is preventing this application from being removed."
 msgstr "Jokin ongelma estää tämän sovelluksen poistamista."
 
-#: ubuntu-mate-welcome:288
+#: ubuntu-mate-welcome:293
 msgid "Upgraded"
 msgstr "Päivitetty"
 
-#: ubuntu-mate-welcome:289
+#: ubuntu-mate-welcome:294
 msgid "This application is set to use the latest version."
 msgstr "Tämä sovellus käyttää uusinta versiota."
 
-#: ubuntu-mate-welcome:291
+#: ubuntu-mate-welcome:296
 msgid "was not upgraded."
 msgstr "ei päivitetty."
 
-#: ubuntu-mate-welcome:292
+#: ubuntu-mate-welcome:297
 msgid "The application will continue to use the stable version."
 msgstr "Tämä sovellus jatkaa vakaan version käyttämistä."
 
-#: ubuntu-mate-welcome:294
+#: ubuntu-mate-welcome:299
 msgid "failed to upgrade"
 msgstr "ei päivittynyt"
 
-#: ubuntu-mate-welcome:295
+#: ubuntu-mate-welcome:300
 msgid "A problem is preventing this application from being upgraded."
 msgstr "Jokin ongelma estää tämän sovelluksen päivittämistä."
 
-#: ubuntu-mate-welcome:465
+#: ubuntu-mate-welcome:469
 msgid "Blu-ray AACS database install succeeded"
 msgstr "Blu-ray AACS tietokannan asennus onnistui"
 
-#: ubuntu-mate-welcome:466
+#: ubuntu-mate-welcome:470
 msgid "Successfully installed the Blu-ray AACS database."
 msgstr "Blu-ray AACS tietokanta asennettu onnistuneesti."
 
-#: ubuntu-mate-welcome:466
+#: ubuntu-mate-welcome:470
 msgid "Installation of the Blu-ray AACS database was successful."
 msgstr "Blu-ray AACS tietokannan asennus onnistui."
 
-#: ubuntu-mate-welcome:469
+#: ubuntu-mate-welcome:473
 msgid "Blu-ray AACS database install failed"
 msgstr "Blu-ray AACS tietokannan asennus epäonnistui"
 
-#: ubuntu-mate-welcome:470
+#: ubuntu-mate-welcome:474
 msgid "Failed to install the Blu-ray AACS database."
 msgstr "Blu-ray AACS tietokanta ei voitu asentaa."
 
-#: ubuntu-mate-welcome:470
+#: ubuntu-mate-welcome:474
 msgid "Installation of the Blu-ray AACS database failed."
 msgstr "Blu-ray AACS tietokannan asennus epäonnistui."
 
-#: ubuntu-mate-welcome:767
+#: ubuntu-mate-welcome:782
 msgid "Welcome"
 msgstr "Tervetuloa"
 
-#: ubuntu-mate-welcome:768
-msgid "Software Boutique"
-msgstr "Ohjelmisto Putiikki"
-
-#: ubuntu-mate-welcome:769
+#: ubuntu-mate-welcome:784
 msgid "Close"
 msgstr "Sulje"
 
-#: ubuntu-mate-welcome:770
+#: ubuntu-mate-welcome:785
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: ubuntu-mate-welcome:773
+#: ubuntu-mate-welcome:788
 msgid "Set to retrieve the latest software listings."
 msgstr "Hae uusimmat ohjelmistolistaukset."
 
-#: ubuntu-mate-welcome:774
+#: ubuntu-mate-welcome:789
 msgid "Retrieve the latest software listings."
 msgstr "Hae uusimmat ohjelmistolistaukset."
 
-#: ubuntu-mate-welcome:775
+#: ubuntu-mate-welcome:790
 msgid "Please wait while the application is being updated..."
 msgstr "Ole hyvä ja odota kun sovellus päivitetään..."
 
-#: ubuntu-mate-welcome:776
+#: ubuntu-mate-welcome:791
 msgid "Version:"
 msgstr "Versio:"
 
-#: ubuntu-mate-welcome:779
+#: ubuntu-mate-welcome:794
 msgid "This application is set to receive the latest updates."
 msgstr "Tämä sovellus on asetettu saamaan uusimmat päivitykset."
 
-#: ubuntu-mate-welcome:780
+#: ubuntu-mate-welcome:795
 msgid "Alternative to:"
 msgstr "Vaihtoehto:"
 
-#: ubuntu-mate-welcome:781
+#: ubuntu-mate-welcome:796
 msgid "Hide"
 msgstr "Piilota"
 
-#: ubuntu-mate-welcome:782
+#: ubuntu-mate-welcome:797
 msgid "Details"
 msgstr "Yksityiskohdat"
 
-#: ubuntu-mate-welcome:783
+#: ubuntu-mate-welcome:798
 msgid "Install"
 msgstr "Asenna"
 
-#: ubuntu-mate-welcome:784
+#: ubuntu-mate-welcome:799
 msgid "Reinstall"
 msgstr "Uudelleenasenna"
 
-#: ubuntu-mate-welcome:785
+#: ubuntu-mate-welcome:800
 msgid "Remove"
 msgstr "Poista"
 
-#: ubuntu-mate-welcome:786
+#: ubuntu-mate-welcome:801
 msgid "Upgrade"
 msgstr "Päivitä"
 
-#: ubuntu-mate-welcome:787
+#: ubuntu-mate-welcome:802
 msgid "Launch"
 msgstr "Käynnistä"
 
-#: ubuntu-mate-welcome:788
+#: ubuntu-mate-welcome:803
 msgid "License"
 msgstr "Lisenssi"
 
-#: ubuntu-mate-welcome:789
+#: ubuntu-mate-welcome:804
 msgid "Platform"
 msgstr "Alusta"
 
-#: ubuntu-mate-welcome:790
+#: ubuntu-mate-welcome:805
 msgid "Category"
 msgstr "Kategoria"
 
-#: ubuntu-mate-welcome:791
+#: ubuntu-mate-welcome:806
 msgid "Website"
 msgstr "Verkkosivu"
 
-#: ubuntu-mate-welcome:792
+#: ubuntu-mate-welcome:807
 msgid "Screenshot"
 msgstr "Kuvakaappaus"
 
-#: ubuntu-mate-welcome:793 ubuntu-mate-welcome:805
+#: ubuntu-mate-welcome:808 ubuntu-mate-welcome:820
 msgid "Source"
 msgstr "Lähde"
 
-#: ubuntu-mate-welcome:794
+#: ubuntu-mate-welcome:809
 msgid "Ubuntu Repository"
 msgstr "Ubuntu Pakettivarasto"
 
-#: ubuntu-mate-welcome:795
+#: ubuntu-mate-welcome:810
 msgid "Ubuntu Community Maintained Repository"
 msgstr "Ubuntu Yhteisön Ylläpitämä Pakettivarasto"
 
-#: ubuntu-mate-welcome:796
+#: ubuntu-mate-welcome:811
 msgid "Ubuntu Proprietary Drivers Repository"
 msgstr "Ubuntu Omisteisten Ajureiden Pakettivarasto"
 
-#: ubuntu-mate-welcome:797
+#: ubuntu-mate-welcome:812
 msgid "Ubuntu Non-Free Repository"
 msgstr "Ubuntu Ei-Vapaa Pakettivarasto"
 
-#: ubuntu-mate-welcome:798
+#: ubuntu-mate-welcome:813
 msgid "Canonical Partner Repository"
 msgstr "Canonical Partner Pakettivarasto"
 
-#: ubuntu-mate-welcome:799
+#: ubuntu-mate-welcome:814
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ubuntu-mate-welcome:800
+#: ubuntu-mate-welcome:815
 msgid "Undo Changes"
 msgstr "Kumoa Muutokset"
 
-#: ubuntu-mate-welcome:803
+#: ubuntu-mate-welcome:818
 msgid "External Repository"
 msgstr "Ulkoinen Pakettivarasto"
 
-#: ubuntu-mate-welcome:804
+#: ubuntu-mate-welcome:819
 msgid "Software"
 msgstr "Ohjelmisto"
 
-#: ubuntu-mate-welcome:808
+#: ubuntu-mate-welcome:823
 msgid "Installing..."
 msgstr "Asennetaan..."
 
-#: ubuntu-mate-welcome:809
+#: ubuntu-mate-welcome:824
 msgid "Removing..."
 msgstr "Poistetaan..."
 
-#: ubuntu-mate-welcome:810
+#: ubuntu-mate-welcome:825
 msgid "Upgrading..."
 msgstr "Päivitetään..."
 
-#: ubuntu-mate-welcome:813
+#: ubuntu-mate-welcome:828
 msgid "Accessories"
 msgstr "Apuohjelmat"
 
-#: ubuntu-mate-welcome:814
+#: ubuntu-mate-welcome:829
 msgid "Education"
 msgstr "Opetusohjelmat"
 
-#: ubuntu-mate-welcome:815
+#: ubuntu-mate-welcome:830
 msgid "Games"
 msgstr "Pelit."
 
-#: ubuntu-mate-welcome:816
+#: ubuntu-mate-welcome:831
 msgid "Graphics"
 msgstr "Grafiikka"
 
-#: ubuntu-mate-welcome:817
+#: ubuntu-mate-welcome:832
 msgid "Internet"
 msgstr "Internet"
 
-#: ubuntu-mate-welcome:818
+#: ubuntu-mate-welcome:833
 msgid "Office"
 msgstr "Toimisto"
 
-#: ubuntu-mate-welcome:819
+#: ubuntu-mate-welcome:834
 msgid "Programming"
 msgstr "Ohjelmointi"
 
-#: ubuntu-mate-welcome:820
+#: ubuntu-mate-welcome:835
 msgid "Sound & Video"
 msgstr "Ääni ja video"
 
-#: ubuntu-mate-welcome:821
+#: ubuntu-mate-welcome:836
 msgid "System Tools"
 msgstr "Järjestelmätyökalut"
 
-#: ubuntu-mate-welcome:822
+#: ubuntu-mate-welcome:837
 msgid "Universal Access"
 msgstr "Esteettömyys"
 
-#: ubuntu-mate-welcome:823
+#: ubuntu-mate-welcome:838
 msgid "Server One-Click Installation"
 msgstr "Palvelimen yhden napsautuksen asennus"
 
-#: ubuntu-mate-welcome:824
+#: ubuntu-mate-welcome:839
 msgid "Miscellaneous"
 msgstr "Sekalaiset"
 
-#: ubuntu-mate-welcome:827
+#: ubuntu-mate-welcome:842
 msgid "Search"
 msgstr "Etsi"
 
-#: ubuntu-mate-welcome:828
+#: ubuntu-mate-welcome:843
 msgid "Please enter a keyword to begin."
 msgstr "Ole hyvä ja syötä avainsana aloittaaksesi."
 
-#: ubuntu-mate-welcome:829
+#: ubuntu-mate-welcome:844
 msgid "Please enter at least 3 characters."
 msgstr "Ole hyvä ja anna vähintään 3 merkkiä."
 
-#: ubuntu-mate-welcome:832
+#: ubuntu-mate-welcome:847
 msgid "Added"
 msgstr "Lisätty"
 
-#: ubuntu-mate-welcome:833
+#: ubuntu-mate-welcome:848
 msgid "Fixed"
 msgstr "Korjattu"
 
-#: ubuntu-mate-welcome:837
+#: ubuntu-mate-welcome:852
 msgid "Queued for installation."
 msgstr "Lisätty asennusjonoon."
 
-#: ubuntu-mate-welcome:838
+#: ubuntu-mate-welcome:853
 msgid "Queued for removal."
 msgstr "Lisätty poistojonoon."
 
-#: ubuntu-mate-welcome:839
+#: ubuntu-mate-welcome:854
 msgid "Preparing to remove:"
 msgstr "Valmistaudutaan poistamaan:"
 
-#: ubuntu-mate-welcome:840
+#: ubuntu-mate-welcome:855
 msgid "Preparing to install:"
 msgstr "Valmistaudutaan asentamaan:"
 
-#: ubuntu-mate-welcome:841
+#: ubuntu-mate-welcome:856
 msgid "Removing:"
 msgstr "Poistetaan:"
 
-#: ubuntu-mate-welcome:842
+#: ubuntu-mate-welcome:857
 msgid "Installing:"
 msgstr "Asennetaan:"
 
-#: ubuntu-mate-welcome:843
+#: ubuntu-mate-welcome:858
 msgid "Updating cache..."
 msgstr "Välimuisti päivitetään..."
 
-#: ubuntu-mate-welcome:844
+#: ubuntu-mate-welcome:859
 msgid "Verifying software changes..."
 msgstr "Ohjelmistomuutokset vahvistetaan..."
 
-#: ubuntu-mate-welcome:845
+#: ubuntu-mate-welcome:860
 msgid "Successfully Installed"
 msgstr "Asennettu onnistuneesti"
 
-#: ubuntu-mate-welcome:846
+#: ubuntu-mate-welcome:861
 msgid "Failed to Install"
 msgstr "Asennus epäonnistui"
 
-#: ubuntu-mate-welcome:847
+#: ubuntu-mate-welcome:862
 msgid "Successfully Removed"
 msgstr "Poistettu onnistuneesti"
 
-#: ubuntu-mate-welcome:848
+#: ubuntu-mate-welcome:863
 msgid "Failed to Remove"
 msgstr "Poisto epäonnistui"
 
-#: ubuntu-mate-welcome:849
+#: ubuntu-mate-welcome:864
 msgid "To be installed"
 msgstr "Asennetaan"
 
-#: ubuntu-mate-welcome:850
+#: ubuntu-mate-welcome:865
 msgid "To be removed"
 msgstr "Poistetaan"
 
-#: ubuntu-mate-welcome:910
+#: ubuntu-mate-welcome:925
 msgid "Scroll Up"
 msgstr "Vieritä Ylös"
 
-#: ubuntu-mate-welcome:1033
+#: ubuntu-mate-welcome:1050
 msgid "Installation Guide"
 msgstr "Asennusohje"
 
-#: ubuntu-mate-welcome:1077
+#: ubuntu-mate-welcome:1094
 msgid "Servers"
 msgstr "Palvelimet"
 
-#: ubuntu-mate-welcome:1139
+#: ubuntu-mate-welcome:1155
 msgid "Jan"
 msgstr "Tam"
 
-#: ubuntu-mate-welcome:1140
+#: ubuntu-mate-welcome:1156
 msgid "Feb"
 msgstr "Hel"
 
-#: ubuntu-mate-welcome:1141
+#: ubuntu-mate-welcome:1157
 msgid "Mar"
 msgstr "Maa"
 
-#: ubuntu-mate-welcome:1142
+#: ubuntu-mate-welcome:1158
 msgid "Apr"
 msgstr "Huh"
 
-#: ubuntu-mate-welcome:1143
+#: ubuntu-mate-welcome:1159
 msgid "May"
 msgstr "Tou"
 
-#: ubuntu-mate-welcome:1144
+#: ubuntu-mate-welcome:1160
 msgid "Jun"
 msgstr "Kes"
 
-#: ubuntu-mate-welcome:1145
+#: ubuntu-mate-welcome:1161
 msgid "Jul"
 msgstr "Hei"
 
-#: ubuntu-mate-welcome:1146
+#: ubuntu-mate-welcome:1162
 msgid "Aug"
 msgstr "Elo"
 
-#: ubuntu-mate-welcome:1147
+#: ubuntu-mate-welcome:1163
 msgid "Sep"
 msgstr "Syy"
 
-#: ubuntu-mate-welcome:1148
+#: ubuntu-mate-welcome:1164
 msgid "Oct"
 msgstr "Lok"
 
-#: ubuntu-mate-welcome:1149
+#: ubuntu-mate-welcome:1165
 msgid "Nov"
 msgstr "Mar"
 
-#: ubuntu-mate-welcome:1150
+#: ubuntu-mate-welcome:1166
 msgid "Dec"
 msgstr "Jou"
 
-#: ubuntu-mate-welcome:1163
+#: ubuntu-mate-welcome:1179
 msgid "Unsupported Distribution"
 msgstr "Tukematon Jakelu"
 
-#: ubuntu-mate-welcome:1164
+#: ubuntu-mate-welcome:1180
 msgid "Your mileage may wary."
 msgstr "Käyttökokemuksesi voi poiketa."
 
-#: ubuntu-mate-welcome:1165
+#: ubuntu-mate-welcome:1181
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
@@ -522,7 +522,7 @@ msgstr ""
 "Ohjelmistoputiikki on suunniteltu Ubuntu MATEa varten, mutta vaikuttaa "
 "siltä, että käytät eri jakelua."
 
-#: ubuntu-mate-welcome:1166
+#: ubuntu-mate-welcome:1182
 msgid ""
 "While a large selection of software will work on other Ubuntu-based "
 "distributions, we cannot guarantee our featured picks will work flawlessly "
@@ -532,119 +532,51 @@ msgstr ""
 "jakeluilla, emme voi taata, että esillä olevat valikoidut ohjelmat toimivat "
 "moitteettomasti sinun järjestelmässi."
 
-#: ubuntu-mate-welcome:1169
+#: ubuntu-mate-welcome:1185
 msgid "This message will not be shown again."
 msgstr "Tätä viestiä ei näytetä enää."
 
-#: ubuntu-mate-welcome:1174 ubuntu-mate-welcome:1181
-msgid "Help Improve Ubuntu MATE"
-msgstr "Auta parantamaan Ubuntu MATEa"
-
-#: ubuntu-mate-welcome:1175
-msgid "Thank you!"
-msgstr "Kiitos!"
-
-#: ubuntu-mate-welcome:1176
-msgid ""
-"This data was successfully sent and will be used to improve future "
-"installations."
-msgstr ""
-"Nämä tiedot lähetettiin onnistuneesti ja niitä käytetään tulevien asennusten "
-"parantamiseen."
-
-#: ubuntu-mate-welcome:1182
-msgid "Communication Error"
-msgstr "Yhteysvirhe"
-
-#: ubuntu-mate-welcome:1183
-msgid "The server couldn't be contacted at this time. Please try again later."
-msgstr ""
-"Palvelimeen ei saatu yhteyttä tällä kertaa. Ole hyvä ja koeta myöhemmin "
-"uudestaan."
-
-#: ubuntu-mate-welcome:1197
+#: ubuntu-mate-welcome:1199
 msgid "Continue"
 msgstr "Jatkaa"
 
-#: ubuntu-mate-welcome:1495
+#: ubuntu-mate-welcome:1503
 msgid "Ubuntu MATE Website"
 msgstr "Ubuntu MATE Verkkosivusto"
 
-#: ubuntu-mate-welcome:1500
+#: ubuntu-mate-welcome:1508
 msgid "Donate to Ubuntu MATE"
 msgstr "Lahjoita Ubuntu MATElle"
 
-#: ubuntu-mate-welcome:1862
+#: ubuntu-mate-welcome:1873
 msgid "MB"
 msgstr "MB"
 
-#: ubuntu-mate-welcome:1863
+#: ubuntu-mate-welcome:1874
 msgid "MiB"
 msgstr "MiB"
 
-#: ubuntu-mate-welcome:1864
+#: ubuntu-mate-welcome:1875
 msgid "GB"
 msgstr "GB"
 
-#: ubuntu-mate-welcome:1865
+#: ubuntu-mate-welcome:1876
 msgid "GiB"
 msgstr "GiB"
 
-#: ubuntu-mate-welcome:1873
+#: ubuntu-mate-welcome:1879
 msgid "Could not gather data."
 msgstr "Tietoa ei voitu kerätä."
 
-#: ubuntu-mate-welcome:2164
-msgid "Raspberry Pi Partition Resize"
-msgstr "Raspberry Pi osion koon muuttaminen"
-
-#: ubuntu-mate-welcome:2181
-msgid "Root partition has been resized."
-msgstr "Juuriosion koko on muutettu."
-
-#: ubuntu-mate-welcome:2181
-msgid "The filesystem will be enlarged upon the next reboot."
-msgstr ""
-"Tiedostojärjestelmä suurennetaan seuraavan uudelleenkäynnistyksen yhteydessä."
-
-#: ubuntu-mate-welcome:2187 ubuntu-mate-welcome:2189 ubuntu-mate-welcome:2191
-#: ubuntu-mate-welcome:2193
-msgid "Don't know how to expand."
-msgstr "Ei tietoa, miten suurentaa."
-
-#: ubuntu-mate-welcome:2187
-msgid "does not exist or is not a symlink."
-msgstr "ei ole olemassa tai ei ole symbolista linkkiä."
-
-#: ubuntu-mate-welcome:2189
-msgid "is not an SD card."
-msgstr "ei ole SD-kortti."
-
-#: ubuntu-mate-welcome:2191
-msgid "Your partition layout is not currently supported by this tool."
-msgstr "Tämä työkalu ei tällä hetkellä tue osiosi rakennetta. "
-
-#: ubuntu-mate-welcome:2193
-msgid "is not the last partition."
-msgstr "ei ole viimeistä osiota."
-
-#: ubuntu-mate-welcome:2195
-msgid "Failed to run resize script."
-msgstr "Koon muuttamisen skriptin ajo epäonnistui."
-
-#: ubuntu-mate-welcome:2195
-msgid "The returned error code is:"
-msgstr "Palautettu virhekoodi on:"
-
-#: ubuntu-mate-welcome:2418
+#: ubuntu-mate-welcome:2338
 msgid "Open Source"
 msgstr "Avoin lähdekoodi"
 
-#: ubuntu-mate-welcome:2420
+#: ubuntu-mate-welcome:2340
 msgid "Proprietary"
 msgstr "Suljettu"
 
-#: ubuntu-mate-welcome:2536
+#: ubuntu-mate-welcome:2456
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
@@ -652,7 +584,7 @@ msgstr ""
 "Valitettavasti Tervetuloa-sovellus ei voinut tarjota tässä kategoriassa "
 "mitään tähän järjestelmään sopivia sovelluksia."
 
-#: ubuntu-mate-welcome:2749
+#: ubuntu-mate-welcome:2669
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
@@ -660,58 +592,58 @@ msgstr ""
 "Virhe tapahtui PROGRAM_NAME:n käynnistyessä. Ole hyvä ja harkitse "
 "sovelluksen uudelleenasentamista."
 
-#: ubuntu-mate-welcome:2750
+#: ubuntu-mate-welcome:2670
 msgid "Command:"
 msgstr "Komento:"
 
-#: ubuntu-mate-welcome:2832
+#: ubuntu-mate-welcome:2757
 msgid "Uses a new or updated source."
 msgstr "Käyttää uutta tai päivitettyä lähdettä."
 
-#: ubuntu-mate-welcome:2834
+#: ubuntu-mate-welcome:2759
 msgid "Now works for various versions of Ubuntu."
 msgstr "Nyt toimii monelle Ubuntu-versiolle."
 
-#: ubuntu-mate-welcome:2836
+#: ubuntu-mate-welcome:2761
 msgid "Now a snappy package."
 msgstr "Nyt snappy-pakettina."
 
-#: ubuntu-mate-welcome:2838
+#: ubuntu-mate-welcome:2763
 msgid "General maintenance."
 msgstr "Yleinen ylläpito."
 
-#: ubuntu-mate-welcome:2840
+#: ubuntu-mate-welcome:2765
 msgid "Broken or problematic source."
 msgstr "Rikkinäinen tai ongelmallinen lähde."
 
-#: ubuntu-mate-welcome:2842
+#: ubuntu-mate-welcome:2767
 msgid "Not yet available for some releases."
 msgstr "Ei vielä tarjolla joillekin julkaisuille."
 
-#: ubuntu-mate-welcome:2844
+#: ubuntu-mate-welcome:2769
 msgid "No longer works for some releases."
 msgstr "Ei enää toimi joillakin julkaisuilla."
 
-#: ubuntu-mate-welcome:2846
+#: ubuntu-mate-welcome:2771
 msgid "Not suitable for production machines."
 msgstr "Ei sovi tuotantolaitteille."
 
-#: ubuntu-mate-welcome:2848
+#: ubuntu-mate-welcome:2773
 msgid "Requires further testing."
 msgstr "Vaatii jatkotestausta."
 
-#: ubuntu-mate-welcome:2850
+#: ubuntu-mate-welcome:2775
 msgid "Does not meet our standards to be featured."
 msgstr "Ei täytä kriteereitämme ollakseen tarjolla."
 
-#: ubuntu-mate-welcome:3024
+#: ubuntu-mate-welcome:2949
 msgid "applications found."
 msgstr "sovellusta löytyi."
 
-#: ubuntu-mate-welcome:3028
+#: ubuntu-mate-welcome:2953
 msgid "proprietary applications are hidden."
 msgstr "suljettua sovellusta ovat piilotettuina."
 
-#: ubuntu-mate-welcome:3031
+#: ubuntu-mate-welcome:2956
 msgid "Software Sources"
 msgstr "Ohjelmistolähteet"

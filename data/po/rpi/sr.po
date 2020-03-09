@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 22:41+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,232 +31,161 @@ msgid ""
 msgstr "Док је искуство визуелно слично издању радне површи Убунту Мејта, основна архитектура је веома различита. Ова страница ће истаћи неке од тих разлика."
 
 #: rpi.html:33
-msgid "Resizing the file system"
-msgstr "Промена величине система датотека"
-
-#: rpi.html:36
-msgid "Your file system has already been resized."
-msgstr "Вашем систему датотека је већ промењена величина."
-
-#: rpi.html:39
-msgid ""
-"After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
-"file system will be restricted to the size of the original image, which is "
-"about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr "Након што по први пут подесите Убунту Мејт на вашем Расберију Пи, систем датотека биће ограничен на величину оригиналне слике, што је око 3,9 GB. Употребите ово дугме да промените величину и попуните целу Микро-СД картицу."
-
-#: rpi.html:43
-msgid "Resize Now"
-msgstr "Сада промени величину"
-
-#: rpi.html:47
-msgid ""
-"To complete the resize of your Raspberry Pi file system, please close all "
-"open windows and restart now."
-msgstr "Да довршите промену величине система датотека вашег Расперија Пи, затворите све отворене прозоре и поново покрените систем."
-
-#: rpi.html:49
-msgid "Reboot"
-msgstr "Поново покрени"
-
-#: rpi.html:53
 msgid "Incompatible Software"
 msgstr "Несагласан софтвер"
 
-#: rpi.html:54
+#: rpi.html:34
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
 msgstr "Неки пакети доступни за Убунту су написани и преведени само за"
 
-#: rpi.html55, 110
+#: rpi.html35, 37
 msgid "or"
 msgstr "или"
 
-#: rpi.html:56
+#: rpi.html:36
 msgid "architecture. As the Raspberry Pi is based on"
 msgstr "архитектуру. Како је Расбери Пи заснован на"
 
-#: rpi.html:57
+#: rpi.html:37
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
 msgstr "ти пакети неће бити доступни за инсталацију. Зависно од пакета, може постојати могућност да их преведете сами или да користите спољну пригодбу."
 
-#: rpi.html:64
+#: rpi.html:44
 msgid "Incompatible:"
 msgstr "Несагласан:"
 
-#: rpi.html:73
+#: rpi.html:52
 msgid "Compatible:"
 msgstr "Сагласан:"
 
-#: rpi.html:86
+#: rpi.html:64
 msgid "Upgrades"
 msgstr "Надоградње"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "Please"
 msgstr "Молим"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "do not"
 msgstr "немојте"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "attempt to"
 msgstr "покушати да"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "upgrade"
 msgstr "надоградите"
 
-#: rpi.html:88
+#: rpi.html:66
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
-" 15.04 to 15.10), as the underlying kernel is"
-msgstr "ваш Расбери Пи на новије издање дистрибуције (на пример, са 15.04 на 15.10), јер основно језгро"
+" 16.04 to 18.04), as the underlying kernel is"
+msgstr ""
 
-#: rpi.html:90
+#: rpi.html:68
 msgid "not designed"
 msgstr "није осмишљено"
 
-#: rpi.html:90
+#: rpi.html:68
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
 msgstr "да то уради. Овај поступак ће одузети превише времена да би се обавио док би евентуално могао да испуни СД картицу до те мере и да не остави више слободног простора."
 
-#: rpi.html:95
+#: rpi.html:73
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
 msgstr "Безбедније је да направите резерву свих ваших података које желите да задржите и да поново набаците нови одраз на картицу. Покушај надоградње може да оштети СД картицу, да омете вашу инсталацију приликом подизања система, или да изазове озбиљне сметње."
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "You can, however, install"
 msgstr "Можете, међутим, да инсталирате"
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "regular updates"
 msgstr "редовна освежења"
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "via the"
 msgstr "путем"
 
-#: rpi.html101, 110
+#: rpi.html:79
 msgid "Software Updater"
 msgstr "Освежавача софтвера"
 
-#: rpi.html:101
+#: rpi.html:79
 msgid "utility for your installed software."
 msgstr "за ваш инсталирани софтвер."
 
-#: rpi.html:104
-msgid "Kernel Updates"
-msgstr "Освежења језгра"
-
-#: rpi.html:105
-msgid "The same kernel provided by the"
-msgstr "Исто језгро које доставља"
-
-#: rpi.html:106
-msgid "Raspberry Pi foundation"
-msgstr "фондација Расберија Пи"
-
-#: rpi.html:107
-msgid ""
-"is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
-"\"firmware\" blob, updates are not distributed via the"
-msgstr "се користи у овом издању Убунту Мејта. Како се ово језгро испоручује као мехур „уграђеног програма“, освежења се не расподељују путем"
-
-#: rpi.html:112
-msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr "Уместо тога, да освежите језгро, отворите терминал и покрените:"
-
-#: rpi.html:116
+#: rpi.html:82
 msgid "Hardware Acceleration"
 msgstr "Хардверско убрзање"
 
-#: rpi.html:117
-msgid "Currently, hardware accelerated applications are"
-msgstr "Тренутно, хардверски убрзани програми"
+#: rpi.html:83
+msgid "For playing videos,"
+msgstr ""
 
-#: rpi.html:117
-msgid "not supported"
-msgstr "нису подржани"
-
-#: rpi.html:118
-msgid "unlike"
-msgstr "осим"
-
-#: rpi.html:119
-msgid ""
-"Applications that depend on OpenGL ES libraries or require the GPU will fail"
-" to start."
-msgstr "Програма који зависе од ОпенГЛ ЕС библиотека или захтевају графички процесор не успеју да се покрену."
-
-#: rpi.html:122
-msgid "For playing videos, the application"
-msgstr "За пуштање снимака, програм"
-
-#: rpi.html:122
+#: rpi.html:83
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
 msgstr "ће моћи то да одради јер је унапред инсталиран. Ако покушавате да пустите МПЕГ-2 или ВЦ-1 датотеке снимака онда"
 
-#: rpi.html:124
+#: rpi.html:85
 msgid "you will need MPEG-2 and/or VC-1 licenses from the"
 msgstr "ће вам требати МПЕГ-2 и/или ВЦ-1 дозволе из"
 
-#: rpi.html:125
+#: rpi.html:86
 msgid "Raspberry Pi Store."
 msgstr "радње Расберија Пи."
 
-#: rpi.html:128
+#: rpi.html:89
 msgid "Enable/Disable X11"
 msgstr "Укључите/искључите Икс-11"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "For users who are looking to create their own headless"
 msgstr "За кориснике који желе да направе свој сопствени безглави"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "\"server\""
 msgstr "„сервер“"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
 msgstr "користећи Убунту Мејт, постоји помагало за искључивање графичког окружења."
 
-#: rpi.html:132
-msgid "To disable X11 and login via the console:"
-msgstr "Да искључите Икс-11 и да се пријавите путем конзоле:"
+#: rpi.html:93
+msgid "To enable/disable X11 and login via the console:"
+msgstr ""
 
-#: rpi.html:136
-msgid "To enable X11 to restore the Ubuntu MATE desktop:"
-msgstr "Да укључите Икс-11 да бисте вратили радну површ Убунту Мејта:"
+#: rpi.html:97
+msgid ""
+"Choose the \"Desktop / CLI\" in the Boot Options. Changes take effect after "
+"a reboot."
+msgstr ""
 
-#: rpi.html:139
-msgid "Changes take effect after a reboot."
-msgstr "Измене ступају на снагу након поновног покретања."
-
-#: rpi.html:143
+#: rpi.html:100
 msgid "Release Notes"
 msgstr "Напомене о издању"
 
-#: rpi.html:144
+#: rpi.html:101
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
 msgstr "Да прочитате напомене о издању и изменама у верзији, постите веб сајт Убуну Мејта."
 
-#: rpi.html:151
+#: rpi.html:108
 msgid "Raspberry Pi is a trademark of the"
 msgstr "Расбери Пи је робна марка"

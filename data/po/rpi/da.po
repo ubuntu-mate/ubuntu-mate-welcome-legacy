@@ -1,14 +1,15 @@
 # 
 # Translators:
+# Joe Hansen <joedalton2@yahoo.dk>, 2019
 # Jorgen Rhode Jensen, 2017
 # scootergrisen, 2017
-# scootergrisen, 2018
+# scootergrisen, 2018-2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-09-28 15:48+0000\n"
-"Last-Translator: scootergrisen\n"
+"PO-Revision-Date: 2019-12-22 16:54+0000\n"
+"Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,232 +34,161 @@ msgid ""
 msgstr "Selvom det visuelle udtryk er i stil med desktop versionen af Ubuntu MATE, er den underliggende arkitektur meget anderledes. Denne side vil fremhæve et par af disse forskelle."
 
 #: rpi.html:33
-msgid "Resizing the file system"
-msgstr "Ændre af størrelsen af filsystemet"
-
-#: rpi.html:36
-msgid "Your file system has already been resized."
-msgstr "Dit fil systems størrelse er allerede ændret."
-
-#: rpi.html:39
-msgid ""
-"After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
-"file system will be restricted to the size of the original image, which is "
-"about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr "Efter endt installation af Ubuntu MATE for første gang på din Raspberry Pi, vil filsystemets størrelse være begrænset til det oprindelige image, som er ca. 3.9 GB. Brug knappen til at ændre størrelsen til at bruge hele Micro-SD kortet."
-
-#: rpi.html:43
-msgid "Resize Now"
-msgstr "Ændr størrelse nu"
-
-#: rpi.html:47
-msgid ""
-"To complete the resize of your Raspberry Pi file system, please close all "
-"open windows and restart now."
-msgstr "For et gennemføre ændringen på din Raspberry Pi's filsystem, luk venligst alle åbne vinduer og genstart nu."
-
-#: rpi.html:49
-msgid "Reboot"
-msgstr "Genstart"
-
-#: rpi.html:53
 msgid "Incompatible Software"
 msgstr "Inkompatibel software"
 
-#: rpi.html:54
+#: rpi.html:34
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
-msgstr "Nogle pakker tilgængelige på Ubuntu er kun udviklet og bygget til "
+msgstr "Nogle pakker tilgængelige på Ubuntu er kun udviklet og bygget til"
 
-#: rpi.html55, 110
+#: rpi.html35, 37
 msgid "or"
 msgstr "eller"
 
-#: rpi.html:56
+#: rpi.html:36
 msgid "architecture. As the Raspberry Pi is based on"
 msgstr "arkitektur. Da Raspberry Pi er baseret på"
 
-#: rpi.html:57
+#: rpi.html:37
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
 msgstr "vil disse pakker ikke være mulige at installere. Afhængig af pakken, kan det være muligt bygge dem selv, eller brug en pre-bygget pakke."
 
-#: rpi.html:64
+#: rpi.html:44
 msgid "Incompatible:"
 msgstr "Inkompatibel:"
 
-#: rpi.html:73
+#: rpi.html:52
 msgid "Compatible:"
 msgstr "Kompatibel:"
 
-#: rpi.html:86
+#: rpi.html:64
 msgid "Upgrades"
 msgstr "Opgraderinger"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "Please"
 msgstr "Venligst"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "do not"
 msgstr "undlad"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "attempt to"
 msgstr "at forsøge at"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "upgrade"
 msgstr "opgradere"
 
-#: rpi.html:88
+#: rpi.html:66
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
-" 15.04 to 15.10), as the underlying kernel is"
-msgstr "din Raspberry Pi til den nyeste verion af distributionen (fra 15.04 til 15.10), da den underliggende kerne er"
+" 16.04 to 18.04), as the underlying kernel is"
+msgstr "din Raspberry Pi til en nyere version af distributionen (fra 16.04 til 18.04), da den underliggende kerne er"
 
-#: rpi.html:90
+#: rpi.html:68
 msgid "not designed"
 msgstr "ikke designet"
 
-#: rpi.html:90
+#: rpi.html:68
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
 msgstr "til dette. Denne process vil tage meget lang tid at gennemføre samtidigt med at den potentielt fylder dit SD kort, til et punkt hvor der ikke er mere ledig plads."
 
-#: rpi.html:95
+#: rpi.html:73
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
 msgstr "Det er mere sikkert at lave en fuld backup af al din data du ønbsker at beholde og så overskrive dit flash kort med et nyt image. Forsøg på opgradering kan korrumpere SD kortet, forhundre dit system i at boote, eller forårsage fejl."
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "You can, however, install"
 msgstr "Du kan dog, installere"
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "regular updates"
 msgstr "almindelige opdateringer"
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "via the"
 msgstr "via"
 
-#: rpi.html101, 110
+#: rpi.html:79
 msgid "Software Updater"
 msgstr "Softwareopdatering"
 
-#: rpi.html:101
+#: rpi.html:79
 msgid "utility for your installed software."
 msgstr "værktøjet for de installerede applikationer."
 
-#: rpi.html:104
-msgid "Kernel Updates"
-msgstr "Kerne opdateringer"
-
-#: rpi.html:105
-msgid "The same kernel provided by the"
-msgstr "Den samme kerne leveret af "
-
-#: rpi.html:106
-msgid "Raspberry Pi foundation"
-msgstr "Raspberry Pi foundation"
-
-#: rpi.html:107
-msgid ""
-"is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
-"\"firmware\" blob, updates are not distributed via the"
-msgstr "er brugt i denne udgave a Ubuntu MATE. Da denne kerne bliver leveret  som et \"firmware\" image, bliver opdateringer ikke distribueret via"
-
-#: rpi.html:112
-msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr "Istedet, for at opdatere kernen, ånb en terminal og kør:"
-
-#: rpi.html:116
+#: rpi.html:82
 msgid "Hardware Acceleration"
 msgstr "Hardware Acceleration"
 
-#: rpi.html:117
-msgid "Currently, hardware accelerated applications are"
-msgstr "På nuværende tidspunkt er accelererede applikationer "
+#: rpi.html:83
+msgid "For playing videos,"
+msgstr "For at kunne afspiller videoer,"
 
-#: rpi.html:117
-msgid "not supported"
-msgstr "ikke supporteret"
-
-#: rpi.html:118
-msgid "unlike"
-msgstr "modsat"
-
-#: rpi.html:119
-msgid ""
-"Applications that depend on OpenGL ES libraries or require the GPU will fail"
-" to start."
-msgstr "Applikationer der er afhængige af OpenCL ES biblioteker eller en GPU will ikke kunne starte."
-
-#: rpi.html:122
-msgid "For playing videos, the application"
-msgstr "For at kunne afspiller videoer, må applikationen"
-
-#: rpi.html:122
+#: rpi.html:83
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
 msgstr "være istand til at gøre dette og er pre-installeret. Hvis du ønsker at afspille MPEG-2 eller VC-1 filer"
 
-#: rpi.html:124
+#: rpi.html:85
 msgid "you will need MPEG-2 and/or VC-1 licenses from the"
 msgstr "du får brug for en MPEG-2 og/eller VC-1 licens fra"
 
-#: rpi.html:125
+#: rpi.html:86
 msgid "Raspberry Pi Store."
 msgstr "Raspberry Pi Butik."
 
-#: rpi.html:128
+#: rpi.html:89
 msgid "Enable/Disable X11"
-msgstr "Aktiver/Deaktiver X11"
+msgstr "Aktivér/deaktivér X11"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "For users who are looking to create their own headless"
 msgstr "For brugere der ønsker at etablere deres skærmløse"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "\"server\""
 msgstr "\"server\""
 
-#: rpi.html:129
+#: rpi.html:90
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
 msgstr "ved brug a Ubuntu MATE, er der et program til at aktivere og deaktivere den  grafiske desktop."
 
-#: rpi.html:132
-msgid "To disable X11 and login via the console:"
-msgstr "For at deaktivere X11 og logge ind via konsollen:"
+#: rpi.html:93
+msgid "To enable/disable X11 and login via the console:"
+msgstr "For at aktivere/deaktivere X11 og indlogning via konsollen:"
 
-#: rpi.html:136
-msgid "To enable X11 to restore the Ubuntu MATE desktop:"
-msgstr "For at aktivere X11 og genskabe Ubuntu MATE desktop:"
+#: rpi.html:97
+msgid ""
+"Choose the \"Desktop / CLI\" in the Boot Options. Changes take effect after "
+"a reboot."
+msgstr "Vælg »Desktop/CLI« i opstartsindstillingerne. Ændringer træder i kraft efter en genstart."
 
-#: rpi.html:139
-msgid "Changes take effect after a reboot."
-msgstr "Ændringerne træder i kræft efter genstart."
-
-#: rpi.html:143
+#: rpi.html:100
 msgid "Release Notes"
 msgstr "Release Notes"
 
-#: rpi.html:144
+#: rpi.html:101
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
 msgstr "For at læse release notes og ændringer pr version, besøg Ubuntu MATE's website."
 
-#: rpi.html:151
+#: rpi.html:108
 msgid "Raspberry Pi is a trademark of the"
 msgstr "Raspberri Pi er et varemærke tilhørende"

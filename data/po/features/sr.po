@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 22:41+0000\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,16 +122,12 @@ msgstr "Фајерфокс испоручује сигурно, једноста
 
 #: features.html:143
 msgid ""
-"Thunderbird is a full-featured email, RSS and newsgroup client that makes "
-"emailing safer, faster and easier than ever before. It supports different "
-"mail accounts (POP, IMAP, Gmail), has a simple mail account setup wizard, "
-"one-click address book, tabbed interface, an integrated learning spam "
-"filter, advanced search and indexing capabilities, and offers easy "
-"organization of mails with tagging and virtual folders. It also features "
-"unrivalled extensibility."
-msgstr "Тандерберд је потпуно функционалан клијент за е-пошту, РСС и групу вести који чини рад са е-поштом сигурнијим, бржим и лакшим него икада раније. Подржава различите налоге поште (ПОП, ИМАП, Г-пошта), има једноставног чаробњака за подешавање налога поште, адресар на један клик, сучеље са језичцима, уграђени самоучиви филтер нежељене е-поште, напредне могућности претраживања и индексирања, и нуди једноставно разврставање поште означавањем и виртуелним фасциклама. Одликује га такође и могућност проширења без премца."
+"Evolution is an integrated mail, calendar and address book suite. It "
+"features integration with Exchange and Google servers, a newsgroup client, "
+"LDAP support, web calendars and RSS reader."
+msgstr ""
 
-#: features.html:159
+#: features.html:154
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
@@ -140,35 +136,35 @@ msgid ""
 "and Open Source Office suite on the market:"
 msgstr "Либреофис је потпуно опремљен пакет канцеларијске продуктивности који обезбеђује скоро потпуну замена за Мајкрософт(Р) Офис; његово чисто сучеље и моћни алати омогућавају вам да ослободите своју креативност и побољшате вашу учинковитост. Либреофис обједињује неколико апликација које га чине најмоћнијим канцеларијским пакетом слободног и отвореног кода на тржишту:"
 
-#: features.html:166
+#: features.html:161
 msgid "Writer, the word processor."
 msgstr "Писац, обрађивач текста."
 
-#: features.html:167
+#: features.html:162
 msgid "Calc, the spreadsheet application."
 msgstr "Рачун, програм унакрсних табела."
 
-#: features.html:168
+#: features.html:163
 msgid "Impress, the presentation engine."
 msgstr "Импрес, погон презентација."
 
-#: features.html:169
+#: features.html:164
 msgid "Draw, the drawing and flowcharting application."
 msgstr "Цртеж, програм за цртање и графиконе."
 
-#: features.html:170
+#: features.html:165
 msgid "Base, the database and database frontend."
 msgstr "База, база података и челник базе података."
 
-#: features.html:171
+#: features.html:166
 msgid "Math, for editing mathematics."
 msgstr "Матиш, за рад у математици."
 
-#: features.html:178
+#: features.html:173
 msgid "Entertainment"
 msgstr "Забава"
 
-#: features.html:184
+#: features.html:179
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
@@ -177,7 +173,7 @@ msgid ""
 "burning, Audio CD playback, music sharing, and Podcasts."
 msgstr "Ритам машина је програм за управљање и пуштање музике који је врло једноставан који подржава широк спектар формата звука (укључујући мп3 и огг). Првобитно инспирисан Ејпловим иТјунсом, тренутна верзија такође подржава Интернет радио, иПод интеграцију и опште преносне музичке справице, нарезивање звучног ЦД-а, пуштање звучног ЦД-а, дељење музике и Подемисије."
 
-#: features.html:198
+#: features.html:193
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
@@ -185,75 +181,64 @@ msgid ""
 "a lot of different image formats, also including raw CR2 files."
 msgstr "Фото-бунар је дигитални сређивач фотографија. Омогућава вам да увезете фотографије са диска или фото-апарата, разврстате их на разне начине, да их приказујете у пуном прозору или преко целог екрана, и да их извезете да бисте их поделили са другима. Може да управља великим бројем различитих формата слика, укључујући и сирове ЦР2 датотеке."
 
-#: features.html:211
+#: features.html:206
 msgid ""
-"VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
-"DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
-"podcasts, and multimedia streams from various network sources."
-msgstr "ВЛЦ је програм за пуштање медијског садржаја са пројекта ВидеоЛАН-а. Пушта МПЕГ, МПЕГ-2, МПЕГ-4, ДивИкс, МОВ, ВМВ, КвикТајм, ВебМ, ФЛАЦ, МП3, Огг/Ворбис датотеке, ДВД, ВЦД, подепизоде, и мултимедијалне токове из различитих извора на мрежи."
+"Celluloid (formerly GNOME MPV) is a simple media player that aims to be easy"
+" to use while maintaining a high level of configurability. Features include "
+"comprehensive media format support, drag and drop playlist management and "
+"MPRIS D-Bus Interface that provides integration with the desktop "
+"environment."
+msgstr ""
 
 #: features.html:215
-msgid ""
-"VLC can also be used as a streaming server that duplicates the stream it "
-"reads and multicasts them through the network to other clients, or serves "
-"them through HTTP."
-msgstr "ВЛЦ може такође да се користи као сервер тока који удвостручава ток који чита и неколико пута га емитује кроз мрежу другим клијентима, или их сервира кроз ХТТП."
-
-#: features.html:218
-msgid ""
-"VLC has support for on-the-fly transcoding of audio and video formats, "
-"either for broadcasting purposes or for movie format transformations."
-msgstr "ВЛЦ има подршку за претварање звучних и видео формата у лету, било за потребе емитовања или за претварања формата филма."
-
-#: features.html:226
 msgid "... And a whole lot more!"
 msgstr "... И још много тога!"
 
-#: features.html:228
+#: features.html:217
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
 msgstr "Наравно да ћете такође наћи мрежну баријеру, програм за резерве, скенер документата/фотографија и управљање штампачем у Убунту Мејту. А ово је само почетак."
 
-#: features.html:231
+#: features.html:220
 msgid "Software"
 msgstr "Софтвер"
 
-#: features.html:231
+#: features.html:220
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
 msgstr "одељак укључује програме најбоље у класи за већину задатака и инсталер на један клик"
 
-#: features.html:233
+#: features.html:222
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
 msgstr "који ће вам дати приступ хиљадама програма погодних за било коју професионалну или рекреативну сврху."
 
-#: features.html:240
+#: features.html:229
 msgid "Games"
 msgstr "Игре"
 
-#: features.html:246
+#: features.html:235
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
 msgstr "У последњих неколико година Линукс је постао прворазредна играчка платформа захваљујући"
 
-#: features.html:249
+#: features.html:238
 msgid "bringing the"
 msgstr "доношењем"
 
-#: features.html:251
+#: features.html:240
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
 msgstr "платформе на Линукс. У време писања Стим има више од 1000 квалитетних независних и ААА наслова на доступних за Линукс. Убунту Мејт је потпуно компатибилан са Стимом за Линукс."
 
-#: features.html:256
+#: features.html:245
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
@@ -262,38 +247,38 @@ msgid ""
 "you entertained."
 msgstr "Докје Стим велики корак напред за играње на Линуксу, има такође и много наслова игара високог квалитета отвореног кода доступних за Убунту Мејт. Није битно да ли више волите симулаторе лета, трке мотора, пуцачине у првом лицу, скокове и трчање или карташке игре, наћи ћете нешто што ће вас забављати."
 
-#: features.html:266
+#: features.html:255
 msgid "Accessibility"
 msgstr "Приступачност"
 
-#: features.html:272
+#: features.html:261
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
 msgstr "Стварање приступачног оперативног система је кључни приоритет када су оснивачи Убунту Мејта у почетку одређивали циљеве пројекта."
 
-#: features.html:276
+#: features.html:265
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
 msgstr "Убунту Мејт никада неће бити у стању да понуди свеобухватну интеграцију помоћних технологија које"
 
-#: features.html:278
+#: features.html:267
 msgid "Sonar GNU/Linux"
 msgstr "Сонар Гну/Линукс"
 
-#: features.html:279
+#: features.html:268
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
 msgstr "обезбеђује. Али Убунту Мејт ће наставити да прати њихово вођство, тако да Убунту Мејт буде одрживо решење радне површи где приступ рачунару деле у домаћинству или на послу где се индивидуалне потребе разликују."
 
-#: features.html:287
+#: features.html:276
 msgid "Mobile Integration"
 msgstr "Мобилна интеграција"
 
-#: features.html:293
+#: features.html:282
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "

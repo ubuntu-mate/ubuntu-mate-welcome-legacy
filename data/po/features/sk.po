@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-01-15 09:18+0000\n"
-"Last-Translator: peter\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: features.html:18
@@ -122,16 +122,12 @@ msgstr "Firefox poskytuje bezpečné a ľahké prehliadanie webu. Známe použí
 
 #: features.html:143
 msgid ""
-"Thunderbird is a full-featured email, RSS and newsgroup client that makes "
-"emailing safer, faster and easier than ever before. It supports different "
-"mail accounts (POP, IMAP, Gmail), has a simple mail account setup wizard, "
-"one-click address book, tabbed interface, an integrated learning spam "
-"filter, advanced search and indexing capabilities, and offers easy "
-"organization of mails with tagging and virtual folders. It also features "
-"unrivalled extensibility."
-msgstr "Thunderbird je plnohodnotný emailový, RSS a diskusný klient, ktorý robí email bezpečnejším, rýchlejším a jednoduchším ako kedykoľvek predtým. Podporuje rôzne mailové účty (POP, IMAP, Gmail), má jednoduchého sprievodca nastavením účtu, zoznam kontaktov, rozhranie podporujúce záložky, integrovaný spamový filter, pokročilé vyhľadávanie a indexovanie a ponúka jednoduchú organizáciu pošty štítkovaním a virtuálnymi priečinkami. Taktiež ponúka bezkonkurenčnú ponuku rozšírení."
+"Evolution is an integrated mail, calendar and address book suite. It "
+"features integration with Exchange and Google servers, a newsgroup client, "
+"LDAP support, web calendars and RSS reader."
+msgstr ""
 
-#: features.html:159
+#: features.html:154
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
@@ -140,35 +136,35 @@ msgid ""
 "and Open Source Office suite on the market:"
 msgstr "Libre-office je plnohodnotný kancelársky balík, ktorý poskyuje takmer stopercentnú náhradu za Microsoft(R) Offce. Jeho jednoduché rozhranie a mocné nástroje vám umožnia využiť svoju kreativitu a rozšíriť svoju produktivitu. LibreOffice obsahuje viacero aplikácií, ktoré ho činia najmocnejším slobodným a Open Source kancelárskym balíkom na trhu:"
 
-#: features.html:166
+#: features.html:161
 msgid "Writer, the word processor."
 msgstr "Writer, textový procesor."
 
-#: features.html:167
+#: features.html:162
 msgid "Calc, the spreadsheet application."
 msgstr "Calc, tabuľkový procesor."
 
-#: features.html:168
+#: features.html:163
 msgid "Impress, the presentation engine."
 msgstr "Impress, nástroj na tvorby prezentácií."
 
-#: features.html:169
+#: features.html:164
 msgid "Draw, the drawing and flowcharting application."
 msgstr "Draw, aplikácia na kreslenie a tvorbu vývojových diagramov."
 
-#: features.html:170
+#: features.html:165
 msgid "Base, the database and database frontend."
 msgstr "Base, databáza a databázový frontend."
 
-#: features.html:171
+#: features.html:166
 msgid "Math, for editing mathematics."
 msgstr "Math, na úpravu matematických rovníc."
 
-#: features.html:178
+#: features.html:173
 msgid "Entertainment"
 msgstr "Zábava"
 
-#: features.html:184
+#: features.html:179
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
@@ -177,7 +173,7 @@ msgid ""
 "burning, Audio CD playback, music sharing, and Podcasts."
 msgstr "Rhythmbox je veľmi ľahko použiteľný prehrávač hudby, ktorý podporuje širokú ponuku audio formátov (vrátane mp3 a ogg). Bol pôvodne inšpirovaný programom iTunes od Apple, jeho súčasná verzia tiež podporuje internetové rádia, integráciu iPodov a ostatných prenosných prehrávačov, napaľovanie Hudobných CD, prehrávanie Hudobných CD, zdieľanie hudby a Podcasty."
 
-#: features.html:198
+#: features.html:193
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
@@ -185,75 +181,64 @@ msgid ""
 "a lot of different image formats, also including raw CR2 files."
 msgstr "Shotwell je správca Vašich digitálnych fotografií. Umožní Vám importovať fotografie z disku alebo fotoaparátu, usporiadať ich rôznymi spôsobmi, zobrazovať ich v jednom okne aj v režimu celej obrazovky, exportovať ich a zdielať s ostatnými. Je schopný zvládnuť veľa rôznych obrazových formátov a to aj súborov raw CR2."
 
-#: features.html:211
+#: features.html:206
 msgid ""
-"VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
-"DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
-"podcasts, and multimedia streams from various network sources."
-msgstr "VLC je video prehrávač z projektu VideoLAN. Prehráva MPEG, MPEG-2, MPEG-4, DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis súbory, DVD, VCD, podcasty a multimediálne streamy z rôznych  sieťových zdrojov."
+"Celluloid (formerly GNOME MPV) is a simple media player that aims to be easy"
+" to use while maintaining a high level of configurability. Features include "
+"comprehensive media format support, drag and drop playlist management and "
+"MPRIS D-Bus Interface that provides integration with the desktop "
+"environment."
+msgstr ""
 
 #: features.html:215
-msgid ""
-"VLC can also be used as a streaming server that duplicates the stream it "
-"reads and multicasts them through the network to other clients, or serves "
-"them through HTTP."
-msgstr "VLC môže byť tiež použitý ako streamovací server, ktorý kopíruje tok, ktorý prečíta a vysiela ako multicast cez sieť k ostatným klientom alebo serverom pomocou HTTP."
-
-#: features.html:218
-msgid ""
-"VLC has support for on-the-fly transcoding of audio and video formats, "
-"either for broadcasting purposes or for movie format transformations."
-msgstr "VLC podporuje on-the-fly prekódovania audio a video formátov a to pre účely vysielania alebo transformovanie filmových formátov."
-
-#: features.html:226
 msgid "... And a whole lot more!"
 msgstr "... A omnoho viac!"
 
-#: features.html:228
+#: features.html:217
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
 msgstr "V Ubuntu MATE samozrejme nájdete aj firewall, aplikáciou pre zálohovanie, skener dokumentov/fotiek a správu tlačiarne. A to je len začiatok."
 
-#: features.html:231
+#: features.html:220
 msgid "Software"
 msgstr "Softvér"
 
-#: features.html:231
+#: features.html:220
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
 msgstr "sekcia obsahuje najlepšie aplikácie vo svojej triede pre väčšinu  úloh a inštalačný program na jedno kliknutie."
 
-#: features.html:233
+#: features.html:222
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
 msgstr ", čím získate prístup k tisíckam aplikáciám vhodných pre akúkoľvek profesionálnu alebo amatérsku činnosť."
 
-#: features.html:240
+#: features.html:229
 msgid "Games"
 msgstr "Hry"
 
-#: features.html:246
+#: features.html:235
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
 msgstr "V posledných niekoľko rokov sa Linux stal prvotriednou platformou vďaka tomu, že"
 
-#: features.html:249
+#: features.html:238
 msgid "bringing the"
 msgstr "prinieslo"
 
-#: features.html:251
+#: features.html:240
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
 msgstr "platformu pre Linux. V dobe písania ma Steam viac než 1000 vysoko kvalitných indie a AAA titulov, ktoré sú k dispozícii pre Linux. Ubuntu MATE je plne kompatibilné so Steam pre Linux."
 
-#: features.html:256
+#: features.html:245
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
@@ -262,38 +247,38 @@ msgid ""
 "you entertained."
 msgstr "Zatiaľ čo Steam je významným krokom vpred pred hranie hier na Linuxu, existuje tiež množstvo kvalitných a príjemných open source herných titulov, ktoré sú k dispozícii pre Ubuntu MATE. Nezáleží na tom či sa Vám páčia letecké simulátory, automobilové preteky, strielačky, skoky, beh alebo kartové hry, vždy nájdete niečo, čo Vás bude baviť."
 
-#: features.html:266
+#: features.html:255
 msgid "Accessibility"
 msgstr "Prístupnosť"
 
-#: features.html:272
+#: features.html:261
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
 msgstr "Vytvoriť prístupný operačný systém bolo kľúčovou prioritou pre zakladateľov Ubuntu MATE, keď si stanovili ciele projektu."
 
-#: features.html:276
+#: features.html:265
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
 msgstr "Ubuntu MATE nikdy nebude schopná ponúknuť takú komplexnú integráciu podporných technológií, akú poskytuje distribúcia"
 
-#: features.html:278
+#: features.html:267
 msgid "Sonar GNU/Linux"
 msgstr "Sonar GNU/Linux"
 
-#: features.html:279
+#: features.html:268
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
 msgstr " Ale Ubuntu MATE bude i naďalej nasledovať ich príkladom, takže Ubuntu MATE je realizovateľným riešením pre zdielaný prístup k počítaču v rámci domácnosti či firmy, kde sa individuálne potreby líšia."
 
-#: features.html:287
+#: features.html:276
 msgid "Mobile Integration"
 msgstr "Mobilná integrácia"
 
-#: features.html:293
+#: features.html:282
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "

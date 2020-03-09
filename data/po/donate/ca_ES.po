@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Agustín Alcaraz <alcaraz.agustin@gmail.com>, 2016
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 21:40+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,122 +20,77 @@ msgstr ""
 msgid "Donate"
 msgstr "Fer un donatiu"
 
-#: donate.html:26
-msgid "About Donations"
-msgstr "Quant a les donacions"
+#: donate.html:24
+msgid "Support Ubuntu MATE Development"
+msgstr "Doneu suport al desenvolupament d'Ubuntu MATE"
 
 #: donate.html:27
-msgid "Our Supporters"
-msgstr "Els nostres donants"
+msgid ""
+"Ubuntu MATE is funded by our community. Your donations help improve project "
+"momentum in the following ways:"
+msgstr "Ubuntu MATE està subvencionat per la nostra comunitat. Les vostres donacions ajuden a millorar el moment del projecte de les maneres següents:"
+
+#: donate.html:29
+msgid "Fund developers working on MATE Desktop and Ubuntu MATE projects."
+msgstr "Subvenciona els desenvolupadors que treballen en projectes de l'escriptori MATE i Ubuntu MATE."
 
 #: donate.html:30
-msgid ""
-"It appears you are not connected to the Internet. Please check your "
-"connection to access this content."
-msgstr "Sembla que no esteu connectat a Internet. Si us plau, comproveu la vostra connexió per tal d'accedir a aquest contingut."
-
-#: donate.html:31
-msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Ho sentim, la Benvinguda no ha pogut establir la connexió."
-
-#: donate.html:32
-msgid "Retry"
-msgstr "Tornar a provar"
-
-#: donate.html:41
-msgid ""
-"Ubuntu MATE is funded by our community. Your donations help pay towards:"
-msgstr "Ubuntu MATE està subvencionat per la nostra comunitat. Les vostres donacions aniran destinades a:"
-
-#: donate.html:43
-msgid "Web hosting and bandwidth costs."
-msgstr "Despeses d'allotjament web i d'amplada de banda."
-
-#: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
 msgstr "Manteniment dels projectes de codi obert que Ubuntu MATE en depèn."
 
-#: donate.html:45
-msgid ""
-"Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr "Ocasionalment retribució als desenvolupadors a temps complet d'Ubuntu MATE i l'escriptori MATE."
+#: donate.html:31
+msgid "Travel expenses to attend conferences."
+msgstr "Despeses de viatges per assistir a conferències."
 
-#: donate.html:47
+#: donate.html:32
+msgid "Miscellaneous hosting costs for the project."
+msgstr "Diverses despeses d'allotjament per al projecte."
+
+#: donate.html:34
 msgid "Patreon"
 msgstr "Patreon"
 
-#: donate.html:47
+#: donate.html:34
 msgid ""
 "is a unique way to fund an Open Source project. A regular monthly income "
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
-" with exclusive project news, updates and invited to participate in video "
-"conferences where you can talk to the developers directly."
-msgstr "és una manera única de subvencionar un projecte de codi obert. Un ingrés regular mensual assegura la sostenibilitat del projecte Ubuntu MATE. Els patrons seran recompensats amb notícies exclusives del projecte, actualitzacions i seran convidats a videoconferències on podran parlar directament amb els desenvolupadors."
+" with exclusive project news, updates and developer access."
+msgstr "és una manera única de subvencionar un projecte de codi obert. Un ingrés regular mensual assegura la sostenibilitat del projecte Ubuntu MATE. Els patrons seran recompensats amb notícies exclusives del projecte, actualitzacions i accés al desenvolupador."
 
-#: donate.html:52
+#: donate.html:38
 msgid "If you would prefer to use"
 msgstr "Si preferiu utilitzar"
 
-#: donate.html:52
+#: donate.html:38
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
 msgstr "llavors tenim opcions per donar mensualment o fer una donació simple. Finalment, també acceptem donacions via"
 
-#: donate.html:54
+#: donate.html:40
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: donate.html59, 72
+#: donate.html47, 60
 msgid "Become a Patron"
 msgstr "Esdevenir un patró"
 
-#: donate.html:62
+#: donate.html:50
 msgid "Donate with PayPal"
 msgstr "Donar amb PayPal"
 
-#: donate.html:65
+#: donate.html:53
 msgid "Donate with Bitcoin"
 msgstr "Donar amb Bitcoin"
 
-#: donate.html:71
+#: donate.html:59
 msgid "Commercial sponsorship"
 msgstr "El patrocini comercial"
 
-#: donate.html:71
+#: donate.html:59
 msgid "is also available. Click the"
 msgstr "també està disponible. Feu clic al botó"
 
-#: donate.html:72
+#: donate.html:60
 msgid "button above to find out more."
 msgstr "de dalt per descobrir-ne més."
-
-#: donate.html:80
-msgid "Thank you!"
-msgstr "Gràcies!"
-
-#: donate.html:81
-msgid ""
-"Every month, we compile a list of our donations and detail how they are "
-"spent."
-msgstr "Cada mes, compilem una llista de les nostres donacions i es detalla on van destinades."
-
-#: donate.html:82
-msgid "This information is published monthly to the"
-msgstr "Aquesta informació és publicada mensualment al "
-
-#: donate.html:82
-msgid "Ubuntu MATE Blog"
-msgstr "Blog d'Ubuntu MATE"
-
-#: donate.html:83
-msgid "which you can take a look below."
-msgstr "a la qual podeu donar una ullada més avall."
-
-#: donate.html:89
-msgid "Year"
-msgstr "Any"
-
-#: donate.html:90
-msgid "Month"
-msgstr "Mes"

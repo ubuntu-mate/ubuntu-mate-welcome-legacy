@@ -2,12 +2,13 @@
 # Translators:
 # biqiu-ssw <shenshuaiwen@gmail.com>, 2018
 # Edsger Lin <edsgerlin@gmail.com>, 2016
+# liulitchi <xingzuo88@qq.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-06-20 14:46+0000\n"
-"Last-Translator: biqiu-ssw <shenshuaiwen@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,122 +21,77 @@ msgstr ""
 msgid "Donate"
 msgstr "捐赠"
 
-#: donate.html:26
-msgid "About Donations"
-msgstr "关于捐赠"
+#: donate.html:24
+msgid "Support Ubuntu MATE Development"
+msgstr "支持Ubuntu MATE开发"
 
 #: donate.html:27
-msgid "Our Supporters"
-msgstr "支持者列表"
+msgid ""
+"Ubuntu MATE is funded by our community. Your donations help improve project "
+"momentum in the following ways:"
+msgstr "Ubuntu MATE 由社区资助。 你的善款通过以下方式帮助我们："
+
+#: donate.html:29
+msgid "Fund developers working on MATE Desktop and Ubuntu MATE projects."
+msgstr "从事 MATE 桌面和Ubuntu MATE项目的基金开发人员。"
 
 #: donate.html:30
-msgid ""
-"It appears you are not connected to the Internet. Please check your "
-"connection to access this content."
-msgstr "你似乎并没有连接上网络，请检查你的网络连接。"
-
-#: donate.html:31
-msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "抱歉，欢迎界面无法连接网络"
-
-#: donate.html:32
-msgid "Retry"
-msgstr "重试"
-
-#: donate.html:41
-msgid ""
-"Ubuntu MATE is funded by our community. Your donations help pay towards:"
-msgstr "Ubuntu MATE 是一个社区 驱动的发行版。你的捐赠将会用于："
-
-#: donate.html:43
-msgid "Web hosting and bandwidth costs."
-msgstr "网站及服务器维护费用。"
-
-#: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
 msgstr "资助 Ubuntu MATE 所依赖的上游开源项目。"
 
-#: donate.html:45
-msgid ""
-"Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr "以及 Ubuntu MATE 及 MATE 桌面环境的全职开发者的工资。"
+#: donate.html:31
+msgid "Travel expenses to attend conferences."
+msgstr "参加会议的旅行费用。"
 
-#: donate.html:47
+#: donate.html:32
+msgid "Miscellaneous hosting costs for the project."
+msgstr "项目托管费用。"
+
+#: donate.html:34
 msgid "Patreon"
 msgstr "Patreon"
 
-#: donate.html:47
+#: donate.html:34
 msgid ""
 "is a unique way to fund an Open Source project. A regular monthly income "
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
-" with exclusive project news, updates and invited to participate in video "
-"conferences where you can talk to the developers directly."
-msgstr "是一种建立开源项目的独特方式，常规的每月收入会增进 Ubuntu MATE 的可持续发展。Patrons 会提供一些专有的项目，更新，视频以及与开发者交流的方式。（Patreon 是国外一家众筹网站，但不针对某一项目众筹，为会员制，会员可享受该网站独享资源，会员费的一部分会赞助给你所支持的项目）"
+" with exclusive project news, updates and developer access."
+msgstr "一种独特的开源项目资助方式。 每月定期捐助，可确保Ubuntu MATE项目可持续发展。 赞助商将会获得独家项目新闻，更新和开发人员访问权。"
 
-#: donate.html:52
+#: donate.html:38
 msgid "If you would prefer to use"
 msgstr "如果你更倾向于使用"
 
-#: donate.html:52
+#: donate.html:38
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
 msgstr "那么我们也提供按月捐赠或者一次性捐赠的方式。我们也接受以下捐赠方式"
 
-#: donate.html:54
+#: donate.html:40
 msgid "Bitcoin"
 msgstr "比特币"
 
-#: donate.html59, 72
+#: donate.html47, 60
 msgid "Become a Patron"
 msgstr "加入 Patron"
 
-#: donate.html:62
+#: donate.html:50
 msgid "Donate with PayPal"
 msgstr "使用 PayPal 捐赠"
 
-#: donate.html:65
+#: donate.html:53
 msgid "Donate with Bitcoin"
 msgstr "使用比特币捐赠"
 
-#: donate.html:71
+#: donate.html:59
 msgid "Commercial sponsorship"
 msgstr "商业赞助"
 
-#: donate.html:71
+#: donate.html:59
 msgid "is also available. Click the"
 msgstr "也可用。点击这里"
 
-#: donate.html:72
+#: donate.html:60
 msgid "button above to find out more."
 msgstr "上方的按钮了解更多"
-
-#: donate.html:80
-msgid "Thank you!"
-msgstr "谢谢你！"
-
-#: donate.html:81
-msgid ""
-"Every month, we compile a list of our donations and detail how they are "
-"spent."
-msgstr "每个月我们都会整理一份捐赠者名单及捐赠的金额。"
-
-#: donate.html:82
-msgid "This information is published monthly to the"
-msgstr "这些信息每个月都会发布到这里"
-
-#: donate.html:82
-msgid "Ubuntu MATE Blog"
-msgstr "Ubuntu MATE 博客"
-
-#: donate.html:83
-msgid "which you can take a look below."
-msgstr "你可以在下面查看详细信息"
-
-#: donate.html:89
-msgid "Year"
-msgstr "年"
-
-#: donate.html:90
-msgid "Month"
-msgstr "月"

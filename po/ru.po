@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 10:18+0100\n"
-"PO-Revision-Date: 2018-05-05 13:14+0000\n"
-"Last-Translator: Oleg Okhotnikov <alex462002@gmail.com>\n"
+"POT-Creation-Date: 2019-09-24 21:56+0100\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Russian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-"
 "welcome/language/ru/)\n"
 "Language: ru\n"
@@ -30,494 +30,494 @@ msgstr ""
 "Выполняются изменения программного обеспечения. Пожалуйста, позвольте им "
 "завершиться, прежде чем закрыть окно Приветствия."
 
-#: ubuntu-mate-welcome:89 ubuntu-mate-welcome:2748
+#: ubuntu-mate-welcome:89 ubuntu-mate-welcome:2668
 msgid "OK"
 msgstr "ОК"
 
-#: ubuntu-mate-welcome:174 ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:132 ubuntu-mate-welcome:783
+msgid "Software Boutique"
+msgstr "Магазин программного обеспечения"
+
+#: ubuntu-mate-welcome:179 ubuntu-mate-welcome:189
 msgid "Successfully performed fix."
 msgstr "Успешно применено исправление."
 
-#: ubuntu-mate-welcome:174
+#: ubuntu-mate-welcome:179
 msgid "Any previously incomplete installations have been finished."
 msgstr "Все ранее незавершенные установки были завершены."
 
-#: ubuntu-mate-welcome:177 ubuntu-mate-welcome:187
+#: ubuntu-mate-welcome:182 ubuntu-mate-welcome:192
 msgid "Failed to perform fix."
 msgstr "Не удалось применить исправление."
 
-#: ubuntu-mate-welcome:177
+#: ubuntu-mate-welcome:182
 msgid "Errors occurred while finishing an incomplete installation."
 msgstr "Во время завершения незаконченной установки произошли ошибки."
 
-#: ubuntu-mate-welcome:184
+#: ubuntu-mate-welcome:189
 msgid "Packages with broken dependencies have been resolved."
 msgstr "Были решены проблемы с пакетами с нарушенными зависимостями."
 
-#: ubuntu-mate-welcome:187
+#: ubuntu-mate-welcome:192
 msgid "Packages may still have broken dependencies."
 msgstr "Пакеты всё ещё могут иметь нарушенные зависимости."
 
-#: ubuntu-mate-welcome:196
+#: ubuntu-mate-welcome:201
 msgid "Successfully updated cache."
 msgstr "Успешно обновлён кэш."
 
-#: ubuntu-mate-welcome:196
+#: ubuntu-mate-welcome:201
 msgid "Software is now ready to install."
 msgstr "Программное обеспечение теперь готово к установке"
 
-#: ubuntu-mate-welcome:199
+#: ubuntu-mate-welcome:204
 msgid "Failed to update cache."
 msgstr "Не удалось обновить кэш."
 
-#: ubuntu-mate-welcome:199
+#: ubuntu-mate-welcome:204
 msgid "There may be a problem with your repository configuration."
 msgstr "С конфигурацией вашего репозитория могла возникнуть проблема."
 
-#: ubuntu-mate-welcome:255
+#: ubuntu-mate-welcome:260
 msgid "Welcome will stay up-to-date."
 msgstr "Программа Добро пожаловать будет оставаться обновленной."
 
-#: ubuntu-mate-welcome:256
+#: ubuntu-mate-welcome:261
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
 msgstr ""
 "Программы Добро пожаловать и Магазина программного обеспечения будут "
 "получать новейшие обновления."
 
-#: ubuntu-mate-welcome:262
+#: ubuntu-mate-welcome:267
 msgid "Everything is up-to-date"
 msgstr "Всё обновлено"
 
-#: ubuntu-mate-welcome:263
+#: ubuntu-mate-welcome:268
 msgid "All packages have been upgraded to the latest versions."
 msgstr "Все пакеты были обновлены до актуальных версий."
 
-#: ubuntu-mate-welcome:268 ubuntu-mate-welcome:3309
+#: ubuntu-mate-welcome:273 ubuntu-mate-welcome:3234
 msgid "Installed"
 msgstr "Установлено"
 
-#: ubuntu-mate-welcome:269 ubuntu-mate-welcome:3309
+#: ubuntu-mate-welcome:274 ubuntu-mate-welcome:3234
 msgid "The application is now ready to use."
 msgstr "Приложение теперь готово к использованию."
 
-#: ubuntu-mate-welcome:271
+#: ubuntu-mate-welcome:276
 msgid "was not installed."
 msgstr "не было установлено."
 
-#: ubuntu-mate-welcome:272 ubuntu-mate-welcome:282
+#: ubuntu-mate-welcome:277 ubuntu-mate-welcome:287
 msgid "The operation was cancelled."
 msgstr "Операция отменена."
 
-#: ubuntu-mate-welcome:274 ubuntu-mate-welcome:3313
+#: ubuntu-mate-welcome:279 ubuntu-mate-welcome:3238
 msgid "failed to install"
 msgstr "не удалось установить"
 
-#: ubuntu-mate-welcome:275 ubuntu-mate-welcome:3313
+#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3238
 msgid "There was a problem installing this application."
 msgstr "В процессе установки этого приложения возникла проблема."
 
-#: ubuntu-mate-welcome:278 ubuntu-mate-welcome:834 ubuntu-mate-welcome:3318
+#: ubuntu-mate-welcome:283 ubuntu-mate-welcome:849 ubuntu-mate-welcome:3243
 msgid "Removed"
 msgstr "Удалено"
 
-#: ubuntu-mate-welcome:279 ubuntu-mate-welcome:3318
+#: ubuntu-mate-welcome:284 ubuntu-mate-welcome:3243
 msgid "The application has been uninstalled."
 msgstr "Приложение было удалено."
 
-#: ubuntu-mate-welcome:281
+#: ubuntu-mate-welcome:286
 msgid "was not removed."
 msgstr "не было удалено."
 
-#: ubuntu-mate-welcome:284 ubuntu-mate-welcome:3322
+#: ubuntu-mate-welcome:289 ubuntu-mate-welcome:3247
 msgid "failed to remove"
 msgstr "не удалось удалить."
 
-#: ubuntu-mate-welcome:285 ubuntu-mate-welcome:3322
+#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:3247
 msgid "A problem is preventing this application from being removed."
 msgstr "Удаление этого приложения предотвращается некоторой проблемой."
 
-#: ubuntu-mate-welcome:288
+#: ubuntu-mate-welcome:293
 msgid "Upgraded"
 msgstr "Обновлено"
 
-#: ubuntu-mate-welcome:289
+#: ubuntu-mate-welcome:294
 msgid "This application is set to use the latest version."
 msgstr "Приложение будет использовать новейшую версию."
 
-#: ubuntu-mate-welcome:291
+#: ubuntu-mate-welcome:296
 msgid "was not upgraded."
 msgstr "не было обновлено."
 
-#: ubuntu-mate-welcome:292
+#: ubuntu-mate-welcome:297
 msgid "The application will continue to use the stable version."
 msgstr "Приложение будет продолжать использовать стабильную версию."
 
-#: ubuntu-mate-welcome:294
+#: ubuntu-mate-welcome:299
 msgid "failed to upgrade"
 msgstr "не удалось обновить"
 
-#: ubuntu-mate-welcome:295
+#: ubuntu-mate-welcome:300
 msgid "A problem is preventing this application from being upgraded."
 msgstr "Обновление этого приложения предотвращается некоторой проблемой."
 
-#: ubuntu-mate-welcome:465
+#: ubuntu-mate-welcome:469
 msgid "Blu-ray AACS database install succeeded"
 msgstr "Успешная установка базы данных Blu-ray AACS"
 
-#: ubuntu-mate-welcome:466
+#: ubuntu-mate-welcome:470
 msgid "Successfully installed the Blu-ray AACS database."
 msgstr "Удалось установить базу данных Blu-ray AACS."
 
-#: ubuntu-mate-welcome:466
+#: ubuntu-mate-welcome:470
 msgid "Installation of the Blu-ray AACS database was successful."
 msgstr "Установка базы данных Blu-ray AACS была успешной."
 
-#: ubuntu-mate-welcome:469
+#: ubuntu-mate-welcome:473
 msgid "Blu-ray AACS database install failed"
 msgstr "Не удалось установить базу данных Blu-ray AACS"
 
-#: ubuntu-mate-welcome:470
+#: ubuntu-mate-welcome:474
 msgid "Failed to install the Blu-ray AACS database."
 msgstr "Не удалось установить базу данных Blu-ray AACS."
 
-#: ubuntu-mate-welcome:470
+#: ubuntu-mate-welcome:474
 msgid "Installation of the Blu-ray AACS database failed."
 msgstr "Установка базы данных Blu-ray AACS не была успешной."
 
-#: ubuntu-mate-welcome:767
+#: ubuntu-mate-welcome:782
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
-#: ubuntu-mate-welcome:768
-msgid "Software Boutique"
-msgstr "Магазин программного обеспечения"
-
-#: ubuntu-mate-welcome:769
+#: ubuntu-mate-welcome:784
 msgid "Close"
 msgstr "Закрыть"
 
-#: ubuntu-mate-welcome:770
+#: ubuntu-mate-welcome:785
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ubuntu-mate-welcome:773
+#: ubuntu-mate-welcome:788
 msgid "Set to retrieve the latest software listings."
 msgstr "Будет получать новейшие списки ПО."
 
-#: ubuntu-mate-welcome:774
+#: ubuntu-mate-welcome:789
 msgid "Retrieve the latest software listings."
 msgstr "Получить последние списки ПО."
 
-#: ubuntu-mate-welcome:775
+#: ubuntu-mate-welcome:790
 msgid "Please wait while the application is being updated..."
 msgstr "Подождите, пожалуйста, пока приложение обновляется..."
 
-#: ubuntu-mate-welcome:776
+#: ubuntu-mate-welcome:791
 msgid "Version:"
 msgstr "Версия:"
 
-#: ubuntu-mate-welcome:779
+#: ubuntu-mate-welcome:794
 msgid "This application is set to receive the latest updates."
 msgstr "Это приложение будет получать новейшие обновления."
 
-#: ubuntu-mate-welcome:780
+#: ubuntu-mate-welcome:795
 msgid "Alternative to:"
 msgstr "Альтернатива:"
 
-#: ubuntu-mate-welcome:781
+#: ubuntu-mate-welcome:796
 msgid "Hide"
 msgstr "Скрыть"
 
-#: ubuntu-mate-welcome:782
+#: ubuntu-mate-welcome:797
 msgid "Details"
 msgstr "Детали"
 
-#: ubuntu-mate-welcome:783
+#: ubuntu-mate-welcome:798
 msgid "Install"
 msgstr "Установить"
 
-#: ubuntu-mate-welcome:784
+#: ubuntu-mate-welcome:799
 msgid "Reinstall"
 msgstr "Переустановить"
 
-#: ubuntu-mate-welcome:785
+#: ubuntu-mate-welcome:800
 msgid "Remove"
 msgstr "Удалить"
 
-#: ubuntu-mate-welcome:786
+#: ubuntu-mate-welcome:801
 msgid "Upgrade"
 msgstr "Обновить"
 
-#: ubuntu-mate-welcome:787
+#: ubuntu-mate-welcome:802
 msgid "Launch"
 msgstr "Запустить"
 
-#: ubuntu-mate-welcome:788
+#: ubuntu-mate-welcome:803
 msgid "License"
 msgstr "Лицензия"
 
-#: ubuntu-mate-welcome:789
+#: ubuntu-mate-welcome:804
 msgid "Platform"
 msgstr "Платформа"
 
-#: ubuntu-mate-welcome:790
+#: ubuntu-mate-welcome:805
 msgid "Category"
 msgstr "Категория"
 
-#: ubuntu-mate-welcome:791
+#: ubuntu-mate-welcome:806
 msgid "Website"
 msgstr "Вебсайт"
 
-#: ubuntu-mate-welcome:792
+#: ubuntu-mate-welcome:807
 msgid "Screenshot"
 msgstr "Снимок экрана"
 
-#: ubuntu-mate-welcome:793 ubuntu-mate-welcome:805
+#: ubuntu-mate-welcome:808 ubuntu-mate-welcome:820
 msgid "Source"
 msgstr "Исходный код"
 
-#: ubuntu-mate-welcome:794
+#: ubuntu-mate-welcome:809
 msgid "Ubuntu Repository"
 msgstr "Репозиторий Ubuntu"
 
-#: ubuntu-mate-welcome:795
+#: ubuntu-mate-welcome:810
 msgid "Ubuntu Community Maintained Repository"
 msgstr "Репозиторий, поддерживаемый сообществом Ubuntu"
 
-#: ubuntu-mate-welcome:796
+#: ubuntu-mate-welcome:811
 msgid "Ubuntu Proprietary Drivers Repository"
 msgstr "Репозиторий проприетарных драйверов Ubuntu"
 
-#: ubuntu-mate-welcome:797
+#: ubuntu-mate-welcome:812
 msgid "Ubuntu Non-Free Repository"
 msgstr "Репозиторий несвободного ПО Ubuntu"
 
-#: ubuntu-mate-welcome:798
+#: ubuntu-mate-welcome:813
 msgid "Canonical Partner Repository"
 msgstr "Репозиторий партнёров Canonical"
 
-#: ubuntu-mate-welcome:799
+#: ubuntu-mate-welcome:814
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ubuntu-mate-welcome:800
+#: ubuntu-mate-welcome:815
 msgid "Undo Changes"
 msgstr "Отменить изменения"
 
-#: ubuntu-mate-welcome:803
+#: ubuntu-mate-welcome:818
 msgid "External Repository"
 msgstr "Внешний репозиторий"
 
-#: ubuntu-mate-welcome:804
+#: ubuntu-mate-welcome:819
 msgid "Software"
 msgstr "Программное обеспечение"
 
-#: ubuntu-mate-welcome:808
+#: ubuntu-mate-welcome:823
 msgid "Installing..."
 msgstr "Установка..."
 
-#: ubuntu-mate-welcome:809
+#: ubuntu-mate-welcome:824
 msgid "Removing..."
 msgstr "Удаление..."
 
-#: ubuntu-mate-welcome:810
+#: ubuntu-mate-welcome:825
 msgid "Upgrading..."
 msgstr "Обновление..."
 
-#: ubuntu-mate-welcome:813
+#: ubuntu-mate-welcome:828
 msgid "Accessories"
 msgstr "Стандартные"
 
-#: ubuntu-mate-welcome:814
+#: ubuntu-mate-welcome:829
 msgid "Education"
 msgstr "Образование"
 
-#: ubuntu-mate-welcome:815
+#: ubuntu-mate-welcome:830
 msgid "Games"
 msgstr "Игры"
 
-#: ubuntu-mate-welcome:816
+#: ubuntu-mate-welcome:831
 msgid "Graphics"
 msgstr "Графика"
 
-#: ubuntu-mate-welcome:817
+#: ubuntu-mate-welcome:832
 msgid "Internet"
 msgstr "Интернет"
 
-#: ubuntu-mate-welcome:818
+#: ubuntu-mate-welcome:833
 msgid "Office"
 msgstr "Офис"
 
-#: ubuntu-mate-welcome:819
+#: ubuntu-mate-welcome:834
 msgid "Programming"
 msgstr "Программирование"
 
-#: ubuntu-mate-welcome:820
+#: ubuntu-mate-welcome:835
 msgid "Sound & Video"
 msgstr "Звук и видео"
 
-#: ubuntu-mate-welcome:821
+#: ubuntu-mate-welcome:836
 msgid "System Tools"
 msgstr "Системные утилиты"
 
-#: ubuntu-mate-welcome:822
+#: ubuntu-mate-welcome:837
 msgid "Universal Access"
 msgstr "Универсальный доступ"
 
-#: ubuntu-mate-welcome:823
+#: ubuntu-mate-welcome:838
 msgid "Server One-Click Installation"
 msgstr "Установка сервера в один клик"
 
-#: ubuntu-mate-welcome:824
+#: ubuntu-mate-welcome:839
 msgid "Miscellaneous"
 msgstr "Разное"
 
-#: ubuntu-mate-welcome:827
+#: ubuntu-mate-welcome:842
 msgid "Search"
 msgstr "Поиск"
 
-#: ubuntu-mate-welcome:828
+#: ubuntu-mate-welcome:843
 msgid "Please enter a keyword to begin."
 msgstr "Введите ключевое слово, чтобы начать."
 
-#: ubuntu-mate-welcome:829
+#: ubuntu-mate-welcome:844
 msgid "Please enter at least 3 characters."
 msgstr "Введите не менее 3 символов."
 
-#: ubuntu-mate-welcome:832
+#: ubuntu-mate-welcome:847
 msgid "Added"
 msgstr "Добавлено"
 
-#: ubuntu-mate-welcome:833
+#: ubuntu-mate-welcome:848
 msgid "Fixed"
 msgstr "Исправлено"
 
-#: ubuntu-mate-welcome:837
+#: ubuntu-mate-welcome:852
 msgid "Queued for installation."
 msgstr "В очереди к установке"
 
-#: ubuntu-mate-welcome:838
+#: ubuntu-mate-welcome:853
 msgid "Queued for removal."
 msgstr "В очереди к удалению"
 
-#: ubuntu-mate-welcome:839
+#: ubuntu-mate-welcome:854
 msgid "Preparing to remove:"
 msgstr "Подготовка к удалению:"
 
-#: ubuntu-mate-welcome:840
+#: ubuntu-mate-welcome:855
 msgid "Preparing to install:"
 msgstr "Подготовка к установке:"
 
-#: ubuntu-mate-welcome:841
+#: ubuntu-mate-welcome:856
 msgid "Removing:"
 msgstr "Удаление:"
 
-#: ubuntu-mate-welcome:842
+#: ubuntu-mate-welcome:857
 msgid "Installing:"
 msgstr "Установка:"
 
-#: ubuntu-mate-welcome:843
+#: ubuntu-mate-welcome:858
 msgid "Updating cache..."
 msgstr "Обновление кэша..."
 
-#: ubuntu-mate-welcome:844
+#: ubuntu-mate-welcome:859
 msgid "Verifying software changes..."
 msgstr "Проверка изменений программного обеспечения..."
 
-#: ubuntu-mate-welcome:845
+#: ubuntu-mate-welcome:860
 msgid "Successfully Installed"
 msgstr "Успешно установлено"
 
-#: ubuntu-mate-welcome:846
+#: ubuntu-mate-welcome:861
 msgid "Failed to Install"
 msgstr "Не удалось установить"
 
-#: ubuntu-mate-welcome:847
+#: ubuntu-mate-welcome:862
 msgid "Successfully Removed"
 msgstr "Успешно удалено"
 
-#: ubuntu-mate-welcome:848
+#: ubuntu-mate-welcome:863
 msgid "Failed to Remove"
 msgstr "Не удалось удалить"
 
-#: ubuntu-mate-welcome:849
+#: ubuntu-mate-welcome:864
 msgid "To be installed"
 msgstr "К установке"
 
-#: ubuntu-mate-welcome:850
+#: ubuntu-mate-welcome:865
 msgid "To be removed"
 msgstr "К удалению"
 
-#: ubuntu-mate-welcome:910
+#: ubuntu-mate-welcome:925
 msgid "Scroll Up"
 msgstr "Прокрутка вверх"
 
-#: ubuntu-mate-welcome:1033
+#: ubuntu-mate-welcome:1050
 msgid "Installation Guide"
 msgstr "Руководство по установке"
 
-#: ubuntu-mate-welcome:1077
+#: ubuntu-mate-welcome:1094
 msgid "Servers"
 msgstr "Серверы"
 
-#: ubuntu-mate-welcome:1139
+#: ubuntu-mate-welcome:1155
 msgid "Jan"
 msgstr "Янв"
 
-#: ubuntu-mate-welcome:1140
+#: ubuntu-mate-welcome:1156
 msgid "Feb"
 msgstr "Фев"
 
-#: ubuntu-mate-welcome:1141
+#: ubuntu-mate-welcome:1157
 msgid "Mar"
 msgstr "Мар"
 
-#: ubuntu-mate-welcome:1142
+#: ubuntu-mate-welcome:1158
 msgid "Apr"
 msgstr "Апр"
 
-#: ubuntu-mate-welcome:1143
+#: ubuntu-mate-welcome:1159
 msgid "May"
 msgstr "Май"
 
-#: ubuntu-mate-welcome:1144
+#: ubuntu-mate-welcome:1160
 msgid "Jun"
 msgstr "Июн"
 
-#: ubuntu-mate-welcome:1145
+#: ubuntu-mate-welcome:1161
 msgid "Jul"
 msgstr "Июл"
 
-#: ubuntu-mate-welcome:1146
+#: ubuntu-mate-welcome:1162
 msgid "Aug"
 msgstr "Авг"
 
-#: ubuntu-mate-welcome:1147
+#: ubuntu-mate-welcome:1163
 msgid "Sep"
 msgstr "Сен"
 
-#: ubuntu-mate-welcome:1148
+#: ubuntu-mate-welcome:1164
 msgid "Oct"
 msgstr "Окт"
 
-#: ubuntu-mate-welcome:1149
+#: ubuntu-mate-welcome:1165
 msgid "Nov"
 msgstr "Ноя"
 
-#: ubuntu-mate-welcome:1150
+#: ubuntu-mate-welcome:1166
 msgid "Dec"
 msgstr "Дек"
 
-#: ubuntu-mate-welcome:1163
+#: ubuntu-mate-welcome:1179
 msgid "Unsupported Distribution"
 msgstr "Неподдерживаемый дистрибутив"
 
-#: ubuntu-mate-welcome:1164
+#: ubuntu-mate-welcome:1180
 msgid "Your mileage may wary."
 msgstr "Используйте на свой страх и риск."
 
-#: ubuntu-mate-welcome:1165
+#: ubuntu-mate-welcome:1181
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
@@ -525,7 +525,7 @@ msgstr ""
 "Магазин программного обеспечения был предназначен для Ubuntu MATE, но "
 "похоже, что у вас другой дистрибутив."
 
-#: ubuntu-mate-welcome:1166
+#: ubuntu-mate-welcome:1182
 msgid ""
 "While a large selection of software will work on other Ubuntu-based "
 "distributions, we cannot guarantee our featured picks will work flawlessly "
@@ -535,117 +535,51 @@ msgstr ""
 "на Ubuntu, мы не можем гарантировать, что избранные нами приложения будут "
 "работать на вашей системе безупречно."
 
-#: ubuntu-mate-welcome:1169
+#: ubuntu-mate-welcome:1185
 msgid "This message will not be shown again."
 msgstr "Это сообщение будет показано только один раз."
 
-#: ubuntu-mate-welcome:1174 ubuntu-mate-welcome:1181
-msgid "Help Improve Ubuntu MATE"
-msgstr "Помогите улучшить Ubuntu MATE"
-
-#: ubuntu-mate-welcome:1175
-msgid "Thank you!"
-msgstr "Спасибо!"
-
-#: ubuntu-mate-welcome:1176
-msgid ""
-"This data was successfully sent and will be used to improve future "
-"installations."
-msgstr ""
-"Эти данные были успешно отправлены и будут использованы для улучшения "
-"будущих установок."
-
-#: ubuntu-mate-welcome:1182
-msgid "Communication Error"
-msgstr "Ошибка связи"
-
-#: ubuntu-mate-welcome:1183
-msgid "The server couldn't be contacted at this time. Please try again later."
-msgstr ""
-"Попытка контакта с сервером завершилась неудачей. Попробуйте снова позже."
-
-#: ubuntu-mate-welcome:1197
+#: ubuntu-mate-welcome:1199
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ubuntu-mate-welcome:1495
+#: ubuntu-mate-welcome:1503
 msgid "Ubuntu MATE Website"
 msgstr "Вебсайт Ubuntu MATE"
 
-#: ubuntu-mate-welcome:1500
+#: ubuntu-mate-welcome:1508
 msgid "Donate to Ubuntu MATE"
 msgstr "Совершить пожертвование Ubuntu MATE"
 
-#: ubuntu-mate-welcome:1862
+#: ubuntu-mate-welcome:1873
 msgid "MB"
 msgstr "МБ"
 
-#: ubuntu-mate-welcome:1863
+#: ubuntu-mate-welcome:1874
 msgid "MiB"
 msgstr "МиБ"
 
-#: ubuntu-mate-welcome:1864
+#: ubuntu-mate-welcome:1875
 msgid "GB"
 msgstr "ГБ"
 
-#: ubuntu-mate-welcome:1865
+#: ubuntu-mate-welcome:1876
 msgid "GiB"
 msgstr "ГиБ"
 
-#: ubuntu-mate-welcome:1873
+#: ubuntu-mate-welcome:1879
 msgid "Could not gather data."
 msgstr "Не удалось собрать данные."
 
-#: ubuntu-mate-welcome:2164
-msgid "Raspberry Pi Partition Resize"
-msgstr "Изменение размера раздела Raspberry Pi"
-
-#: ubuntu-mate-welcome:2181
-msgid "Root partition has been resized."
-msgstr "Размер корневого раздела был изменён."
-
-#: ubuntu-mate-welcome:2181
-msgid "The filesystem will be enlarged upon the next reboot."
-msgstr "Файловая система будет расширена во время следующей перезагрузки."
-
-#: ubuntu-mate-welcome:2187 ubuntu-mate-welcome:2189 ubuntu-mate-welcome:2191
-#: ubuntu-mate-welcome:2193
-msgid "Don't know how to expand."
-msgstr "Невозможно расширить."
-
-#: ubuntu-mate-welcome:2187
-msgid "does not exist or is not a symlink."
-msgstr "не существует или не является символической ссылкой."
-
-#: ubuntu-mate-welcome:2189
-msgid "is not an SD card."
-msgstr "не является SD-картой."
-
-#: ubuntu-mate-welcome:2191
-msgid "Your partition layout is not currently supported by this tool."
-msgstr "Структура вашего раздела не поддерживается этой утилитой."
-
-#: ubuntu-mate-welcome:2193
-msgid "is not the last partition."
-msgstr "не является последним разделом."
-
-#: ubuntu-mate-welcome:2195
-msgid "Failed to run resize script."
-msgstr "Не удалось запустить скрипт изменения размера."
-
-#: ubuntu-mate-welcome:2195
-msgid "The returned error code is:"
-msgstr "Возвращённый код ошибки:"
-
-#: ubuntu-mate-welcome:2418
+#: ubuntu-mate-welcome:2338
 msgid "Open Source"
 msgstr "Открытое программное обеспечение (Open Source)"
 
-#: ubuntu-mate-welcome:2420
+#: ubuntu-mate-welcome:2340
 msgid "Proprietary"
 msgstr "Проприетарный"
 
-#: ubuntu-mate-welcome:2536
+#: ubuntu-mate-welcome:2456
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
@@ -653,7 +587,7 @@ msgstr ""
 "Извините, программа Добро пожаловать не может представить совместимого с "
 "этой системой ПО в этой категории."
 
-#: ubuntu-mate-welcome:2749
+#: ubuntu-mate-welcome:2669
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
@@ -661,58 +595,58 @@ msgstr ""
 "Во время запуска PROGRAM_NAME произошла ошибка. Пожалуйста, переустановите "
 "приложение."
 
-#: ubuntu-mate-welcome:2750
+#: ubuntu-mate-welcome:2670
 msgid "Command:"
 msgstr "Команда:"
 
-#: ubuntu-mate-welcome:2832
+#: ubuntu-mate-welcome:2757
 msgid "Uses a new or updated source."
 msgstr "Использует новый или обновленный источник."
 
-#: ubuntu-mate-welcome:2834
+#: ubuntu-mate-welcome:2759
 msgid "Now works for various versions of Ubuntu."
 msgstr "Теперь работает с различными версиями Ubuntu."
 
-#: ubuntu-mate-welcome:2836
+#: ubuntu-mate-welcome:2761
 msgid "Now a snappy package."
 msgstr "Теперь snappy-пакет."
 
-#: ubuntu-mate-welcome:2838
+#: ubuntu-mate-welcome:2763
 msgid "General maintenance."
 msgstr "Общая поддержка."
 
-#: ubuntu-mate-welcome:2840
+#: ubuntu-mate-welcome:2765
 msgid "Broken or problematic source."
 msgstr "Неверный или некорректный источник."
 
-#: ubuntu-mate-welcome:2842
+#: ubuntu-mate-welcome:2767
 msgid "Not yet available for some releases."
 msgstr "Не доступно для некоторых релизов."
 
-#: ubuntu-mate-welcome:2844
+#: ubuntu-mate-welcome:2769
 msgid "No longer works for some releases."
 msgstr "Больше не работает для некоторых релизов."
 
-#: ubuntu-mate-welcome:2846
+#: ubuntu-mate-welcome:2771
 msgid "Not suitable for production machines."
 msgstr "Не предназначено для машин производства."
 
-#: ubuntu-mate-welcome:2848
+#: ubuntu-mate-welcome:2773
 msgid "Requires further testing."
 msgstr "Требует дальнейшего тестирования."
 
-#: ubuntu-mate-welcome:2850
+#: ubuntu-mate-welcome:2775
 msgid "Does not meet our standards to be featured."
 msgstr "Не соответствует нашим стандартам."
 
-#: ubuntu-mate-welcome:3024
+#: ubuntu-mate-welcome:2949
 msgid "applications found."
 msgstr "приложений найдено."
 
-#: ubuntu-mate-welcome:3028
+#: ubuntu-mate-welcome:2953
 msgid "proprietary applications are hidden."
 msgstr "проприетарных приложений скрыто."
 
-#: ubuntu-mate-welcome:3031
+#: ubuntu-mate-welcome:2956
 msgid "Software Sources"
 msgstr "Источники программного обеспечения"

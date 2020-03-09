@@ -1,12 +1,13 @@
 # 
 # Translators:
 # Kisbenedek Márton <kmarton815@gmail.com>, 2016-2017
+# ng1tbr@protonmail.com, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 21:37+0000\n"
-"Last-Translator: Kisbenedek Márton <kmarton815@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,122 +20,77 @@ msgstr ""
 msgid "Donate"
 msgstr "Adományozás"
 
-#: donate.html:26
-msgid "About Donations"
-msgstr "Az adományokról"
+#: donate.html:24
+msgid "Support Ubuntu MATE Development"
+msgstr "Támogasd az Ubuntu MATE fejlesztését"
 
 #: donate.html:27
-msgid "Our Supporters"
-msgstr "Támogatóink"
+msgid ""
+"Ubuntu MATE is funded by our community. Your donations help improve project "
+"momentum in the following ways:"
+msgstr "Az Ubuntu MATE-t a közösségünk támogatja anyagilag. Az adományod az alábbiakhoz járul hozzá:"
+
+#: donate.html:29
+msgid "Fund developers working on MATE Desktop and Ubuntu MATE projects."
+msgstr "Fejlesztők támogatása akik a MATE felületen és Ubuntu MATE projekteken dolgoznak."
 
 #: donate.html:30
-msgid ""
-"It appears you are not connected to the Internet. Please check your "
-"connection to access this content."
-msgstr "Úgy tűnik, nem csatlakozol az internetre. Kérlek ellenőrizd az internetkapcsolatod, hogy elérd ezt a tartalmat."
-
-#: donate.html:31
-msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Elnézést, az Üdvözlőképernyő nem képes létrehozni a kapcsolatot."
-
-#: donate.html:32
-msgid "Retry"
-msgstr "Megismétel"
-
-#: donate.html:41
-msgid ""
-"Ubuntu MATE is funded by our community. Your donations help pay towards:"
-msgstr "Az Ubuntu MATE-t a közösségünk támogatja. Az adományod az alábbiakhoz járul hozzá:"
-
-#: donate.html:43
-msgid "Web hosting and bandwidth costs."
-msgstr "Web tárhely és internet költségek."
-
-#: donate.html:44
 msgid "Supporting Open Source projects that Ubuntu MATE depends upon."
 msgstr "Olyan nyílt forrású projektek támogatása, amikre az Ubuntu MATE épül."
 
-#: donate.html:45
-msgid ""
-"Eventually pay for full time developers of Ubuntu MATE and MATE Desktop."
-msgstr "Végeredményben az Ubuntu MATE és a MATE asztali környezet teljes munkaidőben dolgozó fejlesztőinek fizetése."
+#: donate.html:31
+msgid "Travel expenses to attend conferences."
+msgstr "Konferenciák utazási költségei."
 
-#: donate.html:47
+#: donate.html:32
+msgid "Miscellaneous hosting costs for the project."
+msgstr "A projektekhez tartozó egyéb rendezvények költségei."
+
+#: donate.html:34
 msgid "Patreon"
 msgstr "A Patreon"
 
-#: donate.html:47
+#: donate.html:34
 msgid ""
 "is a unique way to fund an Open Source project. A regular monthly income "
 "ensures sustainability for the Ubuntu MATE project. Patrons will be rewarded"
-" with exclusive project news, updates and invited to participate in video "
-"conferences where you can talk to the developers directly."
+" with exclusive project news, updates and developer access."
 msgstr "egy egyedi módja egy nyílt forrású projekt támogatásának. A rendszeres havi jövedelem biztosítja az Ubuntu MATE projekt fenntarthatóságát. A támogatók cserébe kizárólag számukra elérhető híreket, frissítéseket kapnak, és részvételi lehetőségeket videóbeszélgetésre a fejlesztőkkel."
 
-#: donate.html:52
+#: donate.html:38
 msgid "If you would prefer to use"
 msgstr "Ha inkább a"
 
-#: donate.html:52
+#: donate.html:38
 msgid ""
 "then we have options to donate monthly or make a one off donation. Finally, "
 "we also accept donations via"
 msgstr "használatát részesíted előnyben, akkor lehetőség van havi adományozásra vagy egyszeri adományozásra. Végül elfogadunk még adományokat az alábbi módon is:"
 
-#: donate.html:54
+#: donate.html:40
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: donate.html59, 72
+#: donate.html47, 60
 msgid "Become a Patron"
 msgstr "Légy támogató"
 
-#: donate.html:62
+#: donate.html:50
 msgid "Donate with PayPal"
 msgstr "Adományozz PayPal-lel"
 
-#: donate.html:65
+#: donate.html:53
 msgid "Donate with Bitcoin"
 msgstr "Adományozz Bitcoin-nal"
 
-#: donate.html:71
+#: donate.html:59
 msgid "Commercial sponsorship"
 msgstr "Kereskedelmi támogatás"
 
-#: donate.html:71
+#: donate.html:59
 msgid "is also available. Click the"
 msgstr "szintén elérhető. Kattints a"
 
-#: donate.html:72
+#: donate.html:60
 msgid "button above to find out more."
 msgstr "gombra fent több információért."
-
-#: donate.html:80
-msgid "Thank you!"
-msgstr "Köszönjük!"
-
-#: donate.html:81
-msgid ""
-"Every month, we compile a list of our donations and detail how they are "
-"spent."
-msgstr "Minden hónapban összeállítunk egy listát az adományokról és részleteket arról, hogy mire fordítottuk."
-
-#: donate.html:82
-msgid "This information is published monthly to the"
-msgstr "Ezt az információt havonta közzétesszük az"
-
-#: donate.html:82
-msgid "Ubuntu MATE Blog"
-msgstr "Ubuntu MATE Blogon"
-
-#: donate.html:83
-msgid "which you can take a look below."
-msgstr "amit alább megtekinthetsz."
-
-#: donate.html:89
-msgid "Year"
-msgstr "Év"
-
-#: donate.html:90
-msgid "Month"
-msgstr "Hónap"

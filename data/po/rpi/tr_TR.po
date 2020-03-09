@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-22 22:18+0000\n"
-"Last-Translator: Kaan BODUR <kaanbodur@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr_TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: rpi.html:18
@@ -32,232 +32,161 @@ msgid ""
 msgstr "Deneyiminiz görsel olarak Ubuntu MATE ile aynı olsa da, temel alınan mimari oldukça farklıdır. Bu sayfa ile bahsedilen bu farklılıklardan birkaçının altını çizeceğiz. "
 
 #: rpi.html:33
-msgid "Resizing the file system"
-msgstr "Dosya sistemi yeniden boyutlandırılıyor"
-
-#: rpi.html:36
-msgid "Your file system has already been resized."
-msgstr "Dosya sisteminin zaten boyutlandırılmış. "
-
-#: rpi.html:39
-msgid ""
-"After setting up Ubuntu MATE for the first time on your Raspberry Pi, the "
-"file system will be restricted to the size of the original image, which is "
-"about 3.9 GB. Use this button to resize and fill the entire Micro-SD card."
-msgstr "Raspberry Pi üzerinde Ubuntu MATE'yi ilk defa kurduktan sonra, dosya sisteminiz kalıp dosyasının boyutu olan 3.9 GB değeri ile sınırlandırılacak. Yeniden boyutlandırmak ve Micro-SD kartı tamamen doldurmak için bu butonu kullanın. "
-
-#: rpi.html:43
-msgid "Resize Now"
-msgstr "Şimdi Yeniden Boyutlandır"
-
-#: rpi.html:47
-msgid ""
-"To complete the resize of your Raspberry Pi file system, please close all "
-"open windows and restart now."
-msgstr "Raspberry Pi dosya sisteminin boyutlandırma işlemini tamamlamak için lütfen tüm açık pencereleri kapatın ve sistemi yeniden başlatın. "
-
-#: rpi.html:49
-msgid "Reboot"
-msgstr "Yeniden Başlat"
-
-#: rpi.html:53
 msgid "Incompatible Software"
 msgstr "Uyumsuz Yazılım"
 
-#: rpi.html:54
+#: rpi.html:34
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
 msgstr "Ubuntu için mevcut olan paketleri bazıları sadece şunun için yazılmış ve derlenmiş olabilir: "
 
-#: rpi.html55, 110
+#: rpi.html35, 37
 msgid "or"
 msgstr "ya da "
 
-#: rpi.html:56
+#: rpi.html:36
 msgid "architecture. As the Raspberry Pi is based on"
 msgstr "Raspberry Pi'ın tabanı"
 
-#: rpi.html:57
+#: rpi.html:37
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
 msgstr "olduğundan bu paketlerin kurulması mümkün değildir. Pakete göre değişmekle birlikte, bunları kendiniz derleyebilir ve kullanabilirsiniz. "
 
-#: rpi.html:64
+#: rpi.html:44
 msgid "Incompatible:"
 msgstr "Uyumsuz:"
 
-#: rpi.html:73
+#: rpi.html:52
 msgid "Compatible:"
 msgstr "Uyumlu:"
 
-#: rpi.html:86
+#: rpi.html:64
 msgid "Upgrades"
 msgstr "Yükseltmeler"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "Please"
 msgstr "Lütfen"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "do not"
 msgstr "Raspberry Pi bilgisayarınızı"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "attempt to"
 msgstr "yükseltmeyi"
 
-#: rpi.html:87
+#: rpi.html:65
 msgid "upgrade"
 msgstr "denemeyin"
 
-#: rpi.html:88
+#: rpi.html:66
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
-" 15.04 to 15.10), as the underlying kernel is"
-msgstr "Raspberry Pi bilgisayarınızı dağıtımın yeni bir versiyonuna yükseltmeyi denemeyin. (15.04'den 15.10'e gibi)"
+" 16.04 to 18.04), as the underlying kernel is"
+msgstr ""
 
-#: rpi.html:90
+#: rpi.html:68
 msgid "not designed"
 msgstr "Mevcut karnel bu yöntemi desteklememektedir. "
 
-#: rpi.html:90
+#: rpi.html:68
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
 msgstr "Bu işlem oldukça uzun sürecek ve SD kartınızın da dolmasına sebep olabilecek bir noktaya ulaşacaktır."
 
-#: rpi.html:95
+#: rpi.html:73
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
 msgstr "Saklamak istediğiniz verileri yedeklemeniz ve kartınızı yeni bir kalıp ile yeniden yakmanız daha güvenlidir. Yükseltme denemesi kartınızı bozabilir, sistem başlatmanızı engelleyebilir ve daha ciddi teknik sorunlara sebep olabilir. "
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "You can, however, install"
 msgstr "Fakat aynı zamanda"
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "regular updates"
 msgstr "yüklü yazılımlarınız "
 
-#: rpi.html:99
+#: rpi.html:77
 msgid "via the"
 msgstr "için "
 
-#: rpi.html101, 110
+#: rpi.html:79
 msgid "Software Updater"
 msgstr "Yazılım Güncelleştirici"
 
-#: rpi.html:101
+#: rpi.html:79
 msgid "utility for your installed software."
 msgstr "yardımıyla düzenli güncellemeleri alabilirsiniz."
 
-#: rpi.html:104
-msgid "Kernel Updates"
-msgstr "Çekirdek Güncellemeleri"
-
-#: rpi.html:105
-msgid "The same kernel provided by the"
-msgstr "Bu sürüm için"
-
-#: rpi.html:106
-msgid "Raspberry Pi foundation"
-msgstr "Raspberry Pi Vakfı"
-
-#: rpi.html:107
-msgid ""
-"is used in this edition of Ubuntu MATE. As this kernel is delivered like a "
-"\"firmware\" blob, updates are not distributed via the"
-msgstr "tarafından sağlanan aynı çekirdek kullanılmıştır. çekirdek yazılım gibi sunulmadığından güncellemeleri normal yollardan alamazsınız. "
-
-#: rpi.html:112
-msgid "Instead, to update the kernel, open a terminal and run:"
-msgstr "Bununu yerine, çekirdek güncellemeleri için uçbirimi açıp şu kodu çalıştırın: "
-
-#: rpi.html:116
+#: rpi.html:82
 msgid "Hardware Acceleration"
 msgstr "Donanım Hızlandırması"
 
-#: rpi.html:117
-msgid "Currently, hardware accelerated applications are"
-msgstr "Şu anda, donanımsal hızlandırmaya sahip uygulamalar "
+#: rpi.html:83
+msgid "For playing videos,"
+msgstr ""
 
-#: rpi.html:117
-msgid "not supported"
-msgstr "desteklenmemektedir. "
-
-#: rpi.html:118
-msgid "unlike"
-msgstr "Şunun aksine: "
-
-#: rpi.html:119
-msgid ""
-"Applications that depend on OpenGL ES libraries or require the GPU will fail"
-" to start."
-msgstr "OpenGL ES bağımlılığı ya da GPU gerektiren uygulamalar çalışmayacaktır. "
-
-#: rpi.html:122
-msgid "For playing videos, the application"
-msgstr "Video oynatmak için, "
-
-#: rpi.html:122
+#: rpi.html:83
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
 msgstr "uygulaması ön yüklü olarak gelir ve işinizi görecektir. MPEG-2 ya da VC-1 vidyo dosyalarını oynatmak istiyorsanız, "
 
-#: rpi.html:124
+#: rpi.html:85
 msgid "you will need MPEG-2 and/or VC-1 licenses from the"
 msgstr "MPEG-2 ve VC-1 lisanlarına ihtiyacınız vardır. "
 
-#: rpi.html:125
+#: rpi.html:86
 msgid "Raspberry Pi Store."
 msgstr "Raspberry Pi Mağaza"
 
-#: rpi.html:128
+#: rpi.html:89
 msgid "Enable/Disable X11"
 msgstr "X11 Devrede/Devredışı"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "For users who are looking to create their own headless"
 msgstr "Ubuntu MATE'yi kullanarak kendi "
 
-#: rpi.html:129
+#: rpi.html:90
 msgid "\"server\""
 msgstr "sunucusunu"
 
-#: rpi.html:129
+#: rpi.html:90
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
 msgstr "oluşturmak isteyenler için grafik ekrana geçiş yapmaya yarayan bir araç vardır. "
 
-#: rpi.html:132
-msgid "To disable X11 and login via the console:"
-msgstr "X11'i devreden çıkart ve konsol aracılığı ile giriş yap."
+#: rpi.html:93
+msgid "To enable/disable X11 and login via the console:"
+msgstr ""
 
-#: rpi.html:136
-msgid "To enable X11 to restore the Ubuntu MATE desktop:"
-msgstr "Ubuntu MATE masaüstünün geri getirme amacıyla X11'i etkinleştirmek için:"
+#: rpi.html:97
+msgid ""
+"Choose the \"Desktop / CLI\" in the Boot Options. Changes take effect after "
+"a reboot."
+msgstr ""
 
-#: rpi.html:139
-msgid "Changes take effect after a reboot."
-msgstr "Değişiklikler makine yeniden başlatıldığı zaman etkin olacak."
-
-#: rpi.html:143
+#: rpi.html:100
 msgid "Release Notes"
 msgstr "Sürüm Notları"
 
-#: rpi.html:144
+#: rpi.html:101
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
 msgstr "Sürüm notlarını ve bu sürüm ile birlikte değişenleri okumak için Ubuntu Mate websitesini ziyaret edin."
 
-#: rpi.html:151
+#: rpi.html:108
 msgid "Raspberry Pi is a trademark of the"
 msgstr "Raspberry Pi bir ticari markadır. "

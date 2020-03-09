@@ -1,26 +1,28 @@
 # Translators:
 # Moo, 2018
+# Mantas Kriaučiūnas <mantas@akl.lt>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Moo, 2018\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>, 2019\n"
 "Language-Team: Lithuanian (Lithuania) (https://www.transifex.com/ubuntu-mate/teams/61536/lt_LT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt_LT\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: panel-selection.html:18
 msgid "Desktop Layout"
-msgstr ""
+msgstr "Darbalaukio išdėstymas"
 
 #: panel-selection.html:26
 msgid "A desktop for everyone's tastes"
-msgstr ""
+msgstr "Darbalaukio išvaizda kiekvieno poreikiams"
 
 #: panel-selection.html:27
 msgid ""
@@ -28,78 +30,95 @@ msgid ""
 "ability to choose a desktop layout that most suits your workflow. You can "
 "choose one as a starting point and make further changes to it later."
 msgstr ""
+"Ubuntu MATE siūlo platų individualizavimo parametrų pasirinkimą, įskaitant "
+"galimybę pasirinkti darbalaukio išdėstymą, kuris labiausiai tinka jūsų darbo"
+" eigai. Pradžiai, galite pasirinkti kurį nors vieną, o toliau atlikti jam "
+"pakeitimus."
 
 #: panel-selection.html:32
 msgid ""
 "The default experience, a familiar two panel layout with a searchable menu"
 msgstr ""
+"Numatytoji išvaizda, pažįstamas dviejų skydelių išdėstymas su programų "
+"meniu, kuriame galima atlikti paiešką"
 
 #: panel-selection.html34, 62, 67
 msgid "Ubuntu MATE optimised"
-msgstr ""
+msgstr "Ubuntu MATE optimizuotas"
 
 #: panel-selection.html:37
 msgid ""
 "Application dock, searchable launcher and global menus similar to Unity 7"
 msgstr ""
+"Programų dokas, leistukas, kuriame galima atlikti paiešką ir visuotiniai "
+"meniu, panašūs į Unity 7"
 
 #: panel-selection.html:39
 msgid "Inspired by Ubuntu Unity"
-msgstr ""
+msgstr "Įkvėptas Ubuntu Unity"
 
 #: panel-selection.html:42
 msgid ""
 "Single bottom panel with a searchable menu, similar to the taskbar in "
 "Windows"
 msgstr ""
+"Vienas apatinis skydelis su meniu, kuriame galima atlikti paiešką, panašus į"
+" Windows sistemose esančią užduočių juostą"
 
 #: panel-selection.html:44
 msgid "Most familiar for Windows users"
-msgstr ""
+msgstr "Labiausiai pažįstamas Windows naudotojams"
 
 #: panel-selection.html:47
 msgid ""
 "A dock and top panel with searchable launcher and global menus similar to "
 "macOS"
 msgstr ""
+"Dokas ir viršutinis skydelis su leistuku, kuriame galima atlikti paiešką ir "
+"visuotiniais meniu, panašiais į macOS"
 
 #: panel-selection.html:49
 msgid "Most familiar for macOS users"
-msgstr ""
+msgstr "Labiausiai pažįstamas macOS naudotojams"
 
 #: panel-selection.html:55
 msgid ""
 "Two panel layout featuring the iconic 'Applications, Places, System' menu"
 msgstr ""
+"Dviejų skydelių išdėstymas su piktograminiu \"Programos, Vietos, Sistema\" "
+"meniu"
 
 #: panel-selection.html:57
 msgid "Most familiar for GNOME 2 users"
-msgstr ""
+msgstr "Labiausiai pažįstamas GNOME 2 naudotojams"
 
 #: panel-selection.html:60
 msgid ""
 "Modernised two panel layout featuring a searchable menu with global menus."
 msgstr ""
+"Modernizuotas dviejų skydelių išdėstymas su meniu, kuriame galima atlikti "
+"paiešką ir visuotiniais meniu."
 
 #: panel-selection.html:65
 msgid "A compact, single top panel layout, ideal for small screens"
 msgstr ""
+"Kompaktiškas, vieno viršutinio skydelio išdėstymas, idealus mažiems ekranams"
 
 #: panel-selection.html:70
 msgid "A dock and top panel with a searchable menu"
-msgstr ""
+msgstr "Dokas ir viršutinis skydelis su meniu, kuriame galima atlikti paiešką"
 
 #: panel-selection.html:72
 msgid "Inspired by elementaryOS"
-msgstr ""
+msgstr "Įkvėptas elementaryOS"
 
 #: panel-selection.html:79
 msgid "Show More"
-msgstr ""
+msgstr "Rodyti daugiau"
 
 #: panel-selection.html:84
 msgid "Panel layouts can be changed later in"
-msgstr ""
+msgstr "Skydelio išdėstymus vėliau galima keisti"
 
 #: panel-selection.html:84
 msgid "MATE Tweak"
@@ -107,8 +126,8 @@ msgstr "MATE papildomi nustatymai"
 
 #: panel-selection.html:98
 msgid "Keep Existing Settings"
-msgstr ""
+msgstr "Palikti esamus nustatymus"
 
 #: panel-selection.html:99
 msgid "Use These Settings"
-msgstr ""
+msgstr "Naudoti šiuos nustatymus"

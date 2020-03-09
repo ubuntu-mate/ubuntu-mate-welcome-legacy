@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-06-23 11:10+0000\n"
-"Last-Translator: biqiu-ssw <shenshuaiwen@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,16 +120,12 @@ msgstr "火狐提供安全，轻松的网页浏览体验，拥有你所熟悉的
 
 #: features.html:143
 msgid ""
-"Thunderbird is a full-featured email, RSS and newsgroup client that makes "
-"emailing safer, faster and easier than ever before. It supports different "
-"mail accounts (POP, IMAP, Gmail), has a simple mail account setup wizard, "
-"one-click address book, tabbed interface, an integrated learning spam "
-"filter, advanced search and indexing capabilities, and offers easy "
-"organization of mails with tagging and virtual folders. It also features "
-"unrivalled extensibility."
-msgstr "雷鸟是一个全功能的电子邮件，RSS 和新闻组客户端它使发送电子邮件比以往更安全，更快速，更轻松。雷鸟支持不同的邮件协议（POP，IMAP，Gmail），拥有简单的邮件帐户设置向导，一键式通讯录，标签式界面，集成的垃圾邮件过滤器，高级搜索和索引功能，并提供易于组织邮件的标签和文件夹。同时还具有无与伦比的可扩展性。"
+"Evolution is an integrated mail, calendar and address book suite. It "
+"features integration with Exchange and Google servers, a newsgroup client, "
+"LDAP support, web calendars and RSS reader."
+msgstr ""
 
-#: features.html:159
+#: features.html:154
 msgid ""
 "LibreOffice is a full-featured office productivity suite that provides a "
 "near drop-in replacement for Microsoft(R) Office; its clean interface and "
@@ -138,35 +134,35 @@ msgid ""
 "and Open Source Office suite on the market:"
 msgstr "LibreOffice 是一个全功能办公用生产力工具，是 Microsoft(R) Office 最好的替代品：其清晰的界面和强大的工具有助于释放你的创意并提高你的工作效率。LibreOffice嵌入了多个应用程序，使其成为市场上功能最强大的免费开源办公套件："
 
-#: features.html:166
+#: features.html:161
 msgid "Writer, the word processor."
 msgstr "Writer ，文本专业解决方案。"
 
-#: features.html:167
+#: features.html:162
 msgid "Calc, the spreadsheet application."
 msgstr "Cal ，表格专业解决方案。"
 
-#: features.html:168
+#: features.html:163
 msgid "Impress, the presentation engine."
 msgstr "Impress ，幻灯片专业解决方案。"
 
-#: features.html:169
+#: features.html:164
 msgid "Draw, the drawing and flowcharting application."
 msgstr "Draw，流程图绘制工具。"
 
-#: features.html:170
+#: features.html:165
 msgid "Base, the database and database frontend."
 msgstr "Base，数据库前端。"
 
-#: features.html:171
+#: features.html:166
 msgid "Math, for editing mathematics."
 msgstr "Mat，数学公式编辑器。"
 
-#: features.html:178
+#: features.html:173
 msgid "Entertainment"
 msgstr "娱乐"
 
-#: features.html:184
+#: features.html:179
 msgid ""
 "Rhythmbox is a very easy to use music playing and management program which "
 "supports a wide range of audio formats (including mp3 and ogg). Originally "
@@ -175,7 +171,7 @@ msgid ""
 "burning, Audio CD playback, music sharing, and Podcasts."
 msgstr "Rhythmbo 是一个支持大量音频格式（包括 mp3 和 ogg）的简单易用的播放器。最初受 iTunes 启发而设计，当前版本支持网络电台，iPod 及通用便携播放设备的管理，播放 CD， 音乐分享以及播客。"
 
-#: features.html:198
+#: features.html:193
 msgid ""
 "Shotwell is a digital photo organizer. It allows you to import photos from "
 "disk or camera, organize them in various ways, view them in full-window or "
@@ -183,75 +179,64 @@ msgid ""
 "a lot of different image formats, also including raw CR2 files."
 msgstr "Shotwell 是一个照片管理软件。它允许你从存储设备或者相机中导出，管理，最大化或者全屏查看照片以及分享给他人。支持包括 raw CR2 在内的大量图片格式。"
 
-#: features.html:211
+#: features.html:206
 msgid ""
-"VLC is the VideoLAN project's media player. It plays MPEG, MPEG-2, MPEG-4, "
-"DivX, MOV, WMV, QuickTime, WebM, FLAC, MP3, Ogg/Vorbis files, DVDs, VCDs, "
-"podcasts, and multimedia streams from various network sources."
-msgstr "VLC 是 VideoLAN 项目的播放器，用于播放 MPEG， MPEG-2， MPEG-4， DivX， MOV,，WMV， QuickTime， WebM， FLAC， MP3， Ogg/Vorbis 文件， DVDs， VCDs，podcasts,网络多媒体串流。"
+"Celluloid (formerly GNOME MPV) is a simple media player that aims to be easy"
+" to use while maintaining a high level of configurability. Features include "
+"comprehensive media format support, drag and drop playlist management and "
+"MPRIS D-Bus Interface that provides integration with the desktop "
+"environment."
+msgstr ""
 
 #: features.html:215
-msgid ""
-"VLC can also be used as a streaming server that duplicates the stream it "
-"reads and multicasts them through the network to other clients, or serves "
-"them through HTTP."
-msgstr "VLC 还可以用作流媒体服务器，它可以复制读取的流并通过网络将其广播到其他客户端，或通过 HTTP 提供服务。"
-
-#: features.html:218
-msgid ""
-"VLC has support for on-the-fly transcoding of audio and video formats, "
-"either for broadcasting purposes or for movie format transformations."
-msgstr "VLC还 支持音频和视频格式的即时转码，无论是用于广播还是电影格式的转换。"
-
-#: features.html:226
 msgid "... And a whole lot more!"
 msgstr "...以及其他许多！"
 
-#: features.html:228
+#: features.html:217
 msgid ""
 "Naturally you'll also find a firewall, backup application, document/photo "
 "scanner and printer management all included in Ubuntu MATE. And this is just"
 " the start. The"
 msgstr "理所当然的你可以在 Ubuntu MATE 中找到防火墙，备份，文档扫描，打印机管理等服务。并且这只是一个开始。"
 
-#: features.html:231
+#: features.html:220
 msgid "Software"
 msgstr "软件商店"
 
-#: features.html:231
+#: features.html:220
 msgid ""
 "sections includes best-in-class applications for most tasks and a one-click "
 "installer for an"
 msgstr "包含了了针对大多数情况的优秀解决方案以及一键安装程序，"
 
-#: features.html:233
+#: features.html:222
 msgid ""
 "that will give you access to thousands of applications suitable for just "
 "about any professional or recreational pursuit."
 msgstr "提供了简单快捷的途径获取数以千计的专业或者娱乐用应用套件。"
 
-#: features.html:240
+#: features.html:229
 msgid "Games"
 msgstr "游戏"
 
-#: features.html:246
+#: features.html:235
 msgid ""
 "In the last couple of years Linux has become a first class gaming platform "
 "thanks to"
 msgstr "在过去的几年中，Linux 已经成为一流的游戏平台，这归功于"
 
-#: features.html:249
+#: features.html:238
 msgid "bringing the"
 msgstr "带来这个"
 
-#: features.html:251
+#: features.html:240
 msgid ""
 "platform to Linux. At the time of writing Steam has more than 1000 high "
 "quality indie and AAA titles available for Linux. Ubuntu MATE is fully "
 "compatible with Steam for Linux."
 msgstr "这个平台到 Linux 。在撰写本文时，Steam 拥有超过 1000 款可用于 Linux 的高品质独立游戏和 3A 级游戏。Ubuntu MATE与Steam for Linux 完全兼容。"
 
-#: features.html:256
+#: features.html:245
 msgid ""
 "While Steam is a major step forward for gaming on Linux, there are also many"
 " high quality and enjoyable Open Source games titles available for Ubuntu "
@@ -260,38 +245,38 @@ msgid ""
 "you entertained."
 msgstr "虽然 Steam 是 Linux 上游戏的重要一环，但也有许多高品质和令人愉快的开源游戏可供 Ubuntu MATE 使用。无论你喜欢飞行模拟器，赛车，第一人称射击，动作游戏还是纸牌游戏，你都会发现一些让你流连忘返的东西。"
 
-#: features.html:266
+#: features.html:255
 msgid "Accessibility"
 msgstr "无障碍"
 
-#: features.html:272
+#: features.html:261
 msgid ""
 "Making an accessible operating system was a key priority when the Ubuntu "
 "MATE founders initially set out the goals of the project."
 msgstr "当 Ubuntu MATE 创始人最初确定项目的目标时，便于使用是当时的一个优先事项。"
 
-#: features.html:276
+#: features.html:265
 msgid ""
 "Ubuntu MATE is never going to be able to offer the comprehensive integration"
 " of assistive technologies that"
 msgstr "Ubuntu MATE 永远无法全面整合"
 
-#: features.html:278
+#: features.html:267
 msgid "Sonar GNU/Linux"
 msgstr "Sonar GNU/Linux"
 
-#: features.html:279
+#: features.html:268
 msgid ""
 "provides. But Ubuntu MATE will continue to follow their lead so that Ubuntu "
 "MATE is a viable desktop solution where computer access is shared within a "
 "household or business where individual needs differ."
 msgstr "所提供的辅助技术。但是 Ubuntu MATE 将时刻跟进他们的技术，因此 Ubuntu MATE 是一个可行的桌面解决方案。"
 
-#: features.html:287
+#: features.html:276
 msgid "Mobile Integration"
 msgstr "移动端"
 
-#: features.html:293
+#: features.html:282
 msgid ""
 "Currently Ubuntu MATE has the essential mobile device support you'd expect. "
 "You can plug in a phone, media player or digital camera and the device is "

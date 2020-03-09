@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-05-10 17:23+0000\n"
-"Last-Translator: Bogdan B. <bogdanke8@gmail.com>\n"
+"PO-Revision-Date: 2019-09-24 20:57+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgstr "Instalare"
 msgid "Install Now"
 msgstr "Instalează acum"
 
-#: gettingstarted.html68, 1530
+#: gettingstarted.html68, 1641
 msgid "Utilities"
 msgstr "Utilităţi"
 
@@ -107,7 +107,7 @@ msgstr "Scurtături tastatură"
 msgid "Troubleshooting"
 msgstr "Depanare"
 
-#: gettingstarted.html123, 1516
+#: gettingstarted.html123, 1628
 msgid "System Specifications"
 msgstr "Specificaţii sistem"
 
@@ -159,7 +159,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Sistemul de operare va rula mult mai eficient dacă calculatorul dvs. îndeplineşte sau depăşeşte cerinţele recomandate."
 
-#: gettingstarted.html158, 1519
+#: gettingstarted.html158, 1631
 msgid "What's inside my computer?"
 msgstr "Ce este în calculatorul meu?"
 
@@ -417,7 +417,7 @@ msgstr "din linia de comandă pentru a verifica sistemul de fişiere de erori. W
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Utilizaţi GParted sau opţiunea aplicaţiei de instalare \"Personalizat\". "
 
-#: gettingstarted.html296, 1769
+#: gettingstarted.html296, 1866
 msgid "GParted"
 msgstr "GParted"
 
@@ -429,7 +429,7 @@ msgstr "este disponibil doar în timpul sesiunii live."
 msgid "It is located under the"
 msgstr "Este localizat sub"
 
-#: gettingstarted.html297, 423, 666, 1542
+#: gettingstarted.html297, 423, 666, 1653
 msgid "System"
 msgstr "Sistem"
 
@@ -587,7 +587,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Versiunile mai noi de Windows oferă un instrument de a reduce volumul NTFS din Windows. Aceasta este o metodă mai sigură dacă este important ca Windows să pornească în continuare pe calculatorul dvs. în timp ce utilizaţi Ubuntu MATE."
 
-#: gettingstarted.html346, 689, 711, 748, 1740, 1757, 1773, 1789, 1805, 1821
+#: gettingstarted.html346, 689, 711, 748, 1837, 1854, 1870, 1886, 1902, 1918
 msgid "Open"
 msgstr "Deschide"
 
@@ -728,7 +728,7 @@ msgid "Applying Changes..."
 msgstr "Aplicarea modificărilor..."
 
 #: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
-#: 874, 1741, 1758, 1774, 1790, 1806, 1822
+#: 874, 1838, 1855, 1871, 1887, 1903, 1919
 msgid "Install"
 msgstr "Instalează"
 
@@ -743,12 +743,20 @@ msgstr "Suport redare Blu-ray şi DVD"
 #: gettingstarted.html:460
 msgid ""
 "Installs libraries that enable Blu-ray and DVD playback in VLC. After "
-"install DVDs will work but for Blu-ray you will need to download"
-msgstr "Instalează biblioteci care permit redarea blu-ray şi DVD în VLC. După instalare, DVD-urile vor funcţiona, dar pentru blu-ray va trebui să descărcați"
+"install you will need to run"
+msgstr ""
+
+#: gettingstarted.html:461
+msgid "to enable encrypted DVD playback and you will need to obtain a copy of"
+msgstr ""
 
 #: gettingstarted.html:463
 msgid "and save it to"
 msgstr "şi salvaţi-l "
+
+#: gettingstarted.html:463
+msgid "to enable encrypted Blu-ray playback."
+msgstr ""
 
 #: gettingstarted.html:478
 msgid "Additional Screen Savers"
@@ -1140,7 +1148,7 @@ msgstr ""
 
 #: gettingstarted.html:813
 msgid ""
-"Nothing is more important then having a backup of your personal files, just "
+"Nothing is more important than having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
 msgstr ""
 
@@ -1322,8 +1330,8 @@ msgid "These shortcuts apply in most applications."
 msgstr "Aceste comenzi rapide se aplică în majoritatea aplicațiilor."
 
 #: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
-#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1164, 1202, 1218, 1228, 1238,
-#: 1250, 1323, 1334, 1344, 1354, 1364, 1374, 1384, 1394
+#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1168, 1252, 1268, 1278, 1288,
+#: 1300, 1373, 1384, 1400, 1410, 1426, 1442, 1456, 1470, 1488, 1498
 msgid "Ctrl"
 msgstr "Ctrl"
 
@@ -1379,6 +1387,10 @@ msgstr "Tipăriţi documentul curent"
 msgid "Undo the last change you made"
 msgstr "Renunțați la ultima schimbare pe care ați făcut-o"
 
+#: gettingstarted.html1064, 1127, 1208, 1292, 1303, 1476, 1504, 1559
+msgid "Shift"
+msgstr ""
+
 #: gettingstarted.html:1068
 msgid "Redo a change that you just undid"
 msgstr "Refaceți o schimbare pe care tocmai ați desființat-o"
@@ -1397,7 +1409,9 @@ msgid ""
 "parts of the desktop."
 msgstr "Această secțiune conține comenzi rapide comune de la tastatură pe care le puteți utiliza pentru a acționa componente ale desktopului."
 
-#: gettingstarted.html1085, 1176, 1429, 1437, 1445, 1455, 1463, 1471, 1479
+#: gettingstarted.html1085, 1160, 1174, 1182, 1190, 1198, 1216, 1226, 1392,
+#: 1418, 1434, 1448, 1462, 1480, 1508, 1541, 1549, 1557, 1567, 1575, 1583,
+#: 1591
 msgid "Super Key"
 msgstr ""
 
@@ -1445,492 +1459,505 @@ msgstr "Deschideţi caseta de dialog pentru oprire, repornire sau suspendare."
 msgid "Toggles 'Show Desktop'."
 msgstr "Cumutaţi 'Afişaţi desktopul'."
 
-#: gettingstarted.html:1160
+#: gettingstarted.html:1164
 msgid "Lock your screen."
 msgstr "Blocaţi ecranul."
 
-#: gettingstarted.html:1170
+#: gettingstarted.html:1178
 msgid "Open a terminal."
 msgstr "Deschideţi un terminal."
 
-#: gettingstarted.html:1180
-msgid "Screen reader enable/disable."
-msgstr "Activare/dezactivare cititor de ecran."
-
-#: gettingstarted.html:1184
-msgid "Window shortcuts"
-msgstr "Comenzi rapide pentru ferestre"
-
-#: gettingstarted.html:1189
-msgid "Tab"
-msgstr "Tab"
-
-#: gettingstarted.html:1192
-msgid "Switch between currently-open windows."
+#: gettingstarted.html:1186
+msgid "Open the file manager"
 msgstr ""
 
 #: gettingstarted.html:1194
+msgid "Open Control Center"
+msgstr ""
+
+#: gettingstarted.html:1202
+msgid "Open Search"
+msgstr ""
+
+#: gettingstarted.html:1206
+msgid "CTRL"
+msgstr ""
+
+#: gettingstarted.html:1212
+msgid "Open System Monitor"
+msgstr ""
+
+#: gettingstarted.html:1218
+msgid "Pause"
+msgstr ""
+
+#: gettingstarted.html:1220
+msgid "Open System Information"
+msgstr ""
+
+#: gettingstarted.html:1230
+msgid "Screen reader enable/disable."
+msgstr "Activare/dezactivare cititor de ecran."
+
+#: gettingstarted.html:1234
+msgid "Window shortcuts"
+msgstr "Comenzi rapide pentru ferestre"
+
+#: gettingstarted.html:1239
+msgid "Tab"
+msgstr "Tab"
+
+#: gettingstarted.html:1242
+msgid "Switch between currently-open windows."
+msgstr ""
+
+#: gettingstarted.html:1244
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr ""
 
-#: gettingstarted.html1195, 1211
+#: gettingstarted.html1245, 1261
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr ""
 
-#: gettingstarted.html:1196
+#: gettingstarted.html:1246
 msgid "Release the Alt key to switch to the selected window."
 msgstr ""
 
-#: gettingstarted.html:1209
+#: gettingstarted.html:1259
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr ""
 
-#: gettingstarted.html:1212
+#: gettingstarted.html:1262
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr ""
 
-#: gettingstarted.html1222, 1244
+#: gettingstarted.html1272, 1294, 1394, 1450, 1482
 msgid "Left"
 msgstr ""
 
-#: gettingstarted.html:1224
+#: gettingstarted.html:1274
 msgid "Switch to the previous workspace."
 msgstr ""
 
-#: gettingstarted.html1232, 1255
+#: gettingstarted.html1282, 1305, 1420, 1464, 1510
 msgid "Right"
 msgstr ""
 
-#: gettingstarted.html:1234
+#: gettingstarted.html:1284
 msgid "Switch to the next workspace."
 msgstr ""
 
-#: gettingstarted.html1242, 1253, 1447
-msgid "Shift"
-msgstr ""
-
-#: gettingstarted.html:1246
+#: gettingstarted.html:1296
 msgid "Move the current window to the previous workspace."
 msgstr ""
 
-#: gettingstarted.html:1257
+#: gettingstarted.html:1307
 msgid "Move the current window to the next workspace."
 msgstr ""
 
-#: gettingstarted.html:1265
+#: gettingstarted.html:1315
 msgid "Closes window."
 msgstr ""
 
-#: gettingstarted.html:1273
+#: gettingstarted.html:1323
 msgid "Returns window to 'normal' or previous size."
 msgstr ""
 
-#: gettingstarted.html:1281
+#: gettingstarted.html:1331
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr ""
 
-#: gettingstarted.html:1289
+#: gettingstarted.html:1339
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr ""
 
-#: gettingstarted.html:1297
+#: gettingstarted.html:1347
 msgid "Minimizes current window."
 msgstr ""
 
-#: gettingstarted.html:1305
+#: gettingstarted.html:1355
 msgid "Maximizes current window."
 msgstr ""
 
-#: gettingstarted.html:1311
+#: gettingstarted.html:1361
 msgid "Pulldown Terminal, if enabled in MATE Tweak."
 msgstr ""
 
-#: gettingstarted.html:1317
+#: gettingstarted.html:1367
 msgid "Space"
 msgstr ""
 
-#: gettingstarted.html:1319
+#: gettingstarted.html:1369
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr ""
 
-#: gettingstarted.html:1329
+#: gettingstarted.html:1379
 msgid "Toggle shaded state."
 msgstr ""
 
-#: gettingstarted.html1338, 1348, 1358, 1368, 1378, 1388, 1398
+#: gettingstarted.html1388, 1404, 1414, 1430, 1446, 1460, 1474, 1492, 1502
 msgid "Numpad"
 msgstr ""
 
-#: gettingstarted.html:1340
+#: gettingstarted.html:1396
 msgid "Place window in top left corner of screen."
 msgstr ""
 
-#: gettingstarted.html:1350
+#: gettingstarted.html:1406
 msgid "Place window in top half of screen."
 msgstr ""
 
-#: gettingstarted.html:1360
+#: gettingstarted.html:1422
 msgid "Place window in top right corner of screen."
 msgstr ""
 
-#: gettingstarted.html:1370
+#: gettingstarted.html:1438
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr ""
 
-#: gettingstarted.html:1380
+#: gettingstarted.html:1452
+msgid "Place window to the left half of the screen."
+msgstr ""
+
+#: gettingstarted.html:1466
+msgid "Place window to the right half of the screen."
+msgstr ""
+
+#: gettingstarted.html:1484
 msgid "Place window in the bottom left corner of the screen."
 msgstr ""
 
-#: gettingstarted.html:1390
+#: gettingstarted.html:1494
 msgid "Place window in the bottom half of the screen."
 msgstr ""
 
-#: gettingstarted.html:1400
+#: gettingstarted.html:1512
 msgid "Place window in the bottom right corner of the screen."
 msgstr ""
 
-#: gettingstarted.html:1404
+#: gettingstarted.html:1516
 msgid "Mouse Shortcuts"
 msgstr "Scurtături mouse"
 
-#: gettingstarted.html:1410
+#: gettingstarted.html:1522
 msgid "Left-click while dragging mouse"
 msgstr ""
 
-#: gettingstarted.html:1412
+#: gettingstarted.html:1524
 msgid "Moves the window."
 msgstr "Mută fereastra."
 
-#: gettingstarted.html:1418
+#: gettingstarted.html:1530
 msgid "Right-click while dragging mouse"
 msgstr ""
 
-#: gettingstarted.html:1420
+#: gettingstarted.html:1532
 msgid "Resizes the window (closest window edge)."
 msgstr ""
 
-#: gettingstarted.html:1424
+#: gettingstarted.html:1536
 msgid "Compiz Effects Shortcuts"
 msgstr ""
 
-#: gettingstarted.html:1425
+#: gettingstarted.html:1537
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr ""
 
-#: gettingstarted.html:1433
+#: gettingstarted.html:1545
 msgid "Zoom out, show workspace switcher."
 msgstr ""
 
-#: gettingstarted.html:1441
+#: gettingstarted.html:1553
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr ""
 
-#: gettingstarted.html:1451
+#: gettingstarted.html:1563
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr ""
 
-#: gettingstarted.html:1459
+#: gettingstarted.html:1571
 msgid "Invert colors of the focused window."
 msgstr ""
 
-#: gettingstarted.html:1467
+#: gettingstarted.html:1579
 msgid "Invert colors for the whole screen."
 msgstr ""
 
-#: gettingstarted.html:1473
+#: gettingstarted.html:1585
 msgid "Scroll Wheel"
 msgstr ""
 
-#: gettingstarted.html:1475
+#: gettingstarted.html:1587
 msgid "Zooms in on the screen."
 msgstr ""
 
-#: gettingstarted.html1481, 1497
+#: gettingstarted.html1593, 1609
 msgid "Middle Click"
 msgstr ""
 
-#: gettingstarted.html:1483
+#: gettingstarted.html:1595
 msgid "Select a region to zoom into, using a rectangle."
 msgstr ""
 
-#: gettingstarted.html:1489
+#: gettingstarted.html:1601
 msgid "Left Click"
 msgstr "Click stânga"
 
-#: gettingstarted.html:1491
+#: gettingstarted.html:1603
 msgid "Move focused window."
 msgstr ""
 
-#: gettingstarted.html:1499
+#: gettingstarted.html:1611
 msgid "Resize focused window."
 msgstr ""
 
-#: gettingstarted.html:1505
+#: gettingstarted.html:1617
 msgid "Right Click"
 msgstr "Click dreapta"
 
-#: gettingstarted.html:1507
+#: gettingstarted.html:1619
 msgid "Show window menu."
 msgstr ""
 
-#: gettingstarted.html:1520
+#: gettingstarted.html:1632
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr ""
 
-#: gettingstarted.html:1524
+#: gettingstarted.html:1636
 msgid "View System Requirements"
 msgstr ""
 
-#: gettingstarted.html:1528
+#: gettingstarted.html:1640
 msgid "Basic"
 msgstr "De bază"
 
-#: gettingstarted.html:1529
-msgid "Detailed"
-msgstr "Detaliate"
-
-#: gettingstarted.html:1545
+#: gettingstarted.html:1656
 msgid "Distribution:"
 msgstr "Distribuţie:"
 
-#: gettingstarted.html:1549
+#: gettingstarted.html:1660
 msgid "Kernel:"
 msgstr "Kernel:"
 
-#: gettingstarted.html:1552
+#: gettingstarted.html:1663
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Kernelul Linux este elementul principal la Ubuntu."
 
-#: gettingstarted.html:1558
+#: gettingstarted.html:1669
 msgid "Motherboard:"
 msgstr "Placa de bază:"
 
-#: gettingstarted.html:1562
+#: gettingstarted.html:1673
 msgid "Boot Mode:"
 msgstr ""
 
-#: gettingstarted.html:1565
+#: gettingstarted.html:1676
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr ""
 
-#: gettingstarted.html:1573
+#: gettingstarted.html:1684
 msgid "Processor"
 msgstr ""
 
-#: gettingstarted.html:1576
+#: gettingstarted.html:1687
 msgid "Model:"
 msgstr "Model:"
 
-#: gettingstarted.html:1580
+#: gettingstarted.html:1691
 msgid "Speed:"
 msgstr "Viteza:"
 
-#: gettingstarted.html:1584
+#: gettingstarted.html:1695
 msgid "Architecture in use:"
 msgstr ""
 
-#: gettingstarted.html:1587
+#: gettingstarted.html:1698
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr ""
 
-#: gettingstarted.html:1593
+#: gettingstarted.html:1704
 msgid "Architecture(s) supported:"
 msgstr ""
 
-#: gettingstarted.html:1596
+#: gettingstarted.html:1707
 msgid "Architectures that are supported by this processor."
 msgstr ""
 
-#: gettingstarted.html:1604
+#: gettingstarted.html:1715
 msgid "Components"
 msgstr "Componente"
 
-#: gettingstarted.html:1607
+#: gettingstarted.html:1718
 msgid "Memory (RAM):"
 msgstr "Memorie (RAM):"
 
-#: gettingstarted.html:1610
+#: gettingstarted.html:1721
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Mai mult RAM permite mai multor aplicații să ruleze simultan."
 
-#: gettingstarted.html:1616
+#: gettingstarted.html:1727
 msgid "Graphics:"
 msgstr ""
 
-#: gettingstarted.html:1620
+#: gettingstarted.html:1731
 msgid "Internet Access:"
 msgstr "Acces la Internet:"
 
-#: gettingstarted.html:1622
+#: gettingstarted.html:1733
 msgid "Connected"
 msgstr "Conectat"
 
-#: gettingstarted.html:1623
+#: gettingstarted.html:1734
 msgid "Not Connected"
 msgstr "Nu este conectat"
 
-#: gettingstarted.html:1630
+#: gettingstarted.html:1741
 msgid "Storage"
 msgstr "Spaţiu stocare"
 
-#: gettingstarted.html:1634
+#: gettingstarted.html:1745
 msgid "Root File System:"
 msgstr ""
 
-#: gettingstarted.html:1637
+#: gettingstarted.html:1748
 msgid "The file system where Ubuntu MATE is installed."
 msgstr ""
 
-#: gettingstarted.html:1643
+#: gettingstarted.html:1754
 msgid "Entire Disk Capacity:"
 msgstr ""
 
-#: gettingstarted.html:1648
+#: gettingstarted.html:1759
 msgid "Ubuntu MATE Usage"
 msgstr "Utilizare Ubuntu MATE"
 
-#: gettingstarted.html:1657
+#: gettingstarted.html:1768
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Alocat pentru Ubuntu MATE"
 
-#: gettingstarted.html:1660
+#: gettingstarted.html:1771
 msgid "The size of your operating system partition."
 msgstr ""
 
-#: gettingstarted.html:1666
+#: gettingstarted.html:1777
 msgid "Used Space:"
 msgstr "Spaţiu folosit:"
 
-#: gettingstarted.html:1672
+#: gettingstarted.html:1783
 msgid "Free Space:"
 msgstr "Spaţiu liber:"
 
-#: gettingstarted.html:1678
+#: gettingstarted.html:1789
 msgid "Other Usage:"
 msgstr "Alte utilizări:"
 
-#: gettingstarted.html:1681
+#: gettingstarted.html:1792
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr ""
 
-#: gettingstarted.html:1689
+#: gettingstarted.html:1800
 msgid "Why do I see two units?"
 msgstr "De ce sunt două elemente?"
 
-#: gettingstarted.html:1695
+#: gettingstarted.html:1806
 msgid "SI or IEC Units?"
 msgstr ""
 
-#: gettingstarted.html:1697
+#: gettingstarted.html:1808
 msgid "Decimal (SI Standard)"
 msgstr ""
 
-#: gettingstarted.html:1699
+#: gettingstarted.html:1810
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1700
+#: gettingstarted.html:1811
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr ""
 
-#: gettingstarted.html:1701
+#: gettingstarted.html:1812
 msgid "Common in every day applications and file storage."
 msgstr ""
 
-#: gettingstarted.html:1705
+#: gettingstarted.html:1816
 msgid "Binary (IEC Standard)"
 msgstr ""
 
-#: gettingstarted.html:1707
+#: gettingstarted.html:1818
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1708
+#: gettingstarted.html:1819
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr ""
 
-#: gettingstarted.html:1709
+#: gettingstarted.html:1820
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Frecvente în RAM, unități și partiții, inclusiv instrumente cum ar fi GParted."
 
-#: gettingstarted.html:1718
-msgid ""
-"The following information is retrieved directly from the inxi command line "
-"program."
-msgstr "Următoarele informații sunt preluate direct din programul liniei de comandă inxi."
-
-#: gettingstarted.html:1719
-msgid "Gathering data..."
-msgstr "Colectez date..."
-
-#: gettingstarted.html:1720
-msgid ""
-"Detailed specifications cannot be displayed as 'inxi' is not installed."
-msgstr ""
-
-#: gettingstarted.html:1736
+#: gettingstarted.html:1833
 msgid "System Profiler and Benchmark"
 msgstr ""
 
-#: gettingstarted.html:1737
+#: gettingstarted.html:1834
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr ""
 
-#: gettingstarted.html:1752
+#: gettingstarted.html:1849
 msgid "Disks"
 msgstr "Discuri"
 
-#: gettingstarted.html:1753
+#: gettingstarted.html:1850
 msgid ""
 "A utility that allows basic configuration to your disks and partitions, "
 "including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
 "writing images to SD cards/USB drives."
 msgstr ""
 
-#: gettingstarted.html:1770
+#: gettingstarted.html:1867
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr ""
 
-#: gettingstarted.html:1785
+#: gettingstarted.html:1882
 msgid "Disk Usage Analyser"
 msgstr "Analizator folosire disc"
 
-#: gettingstarted.html:1786
+#: gettingstarted.html:1883
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr ""
 
-#: gettingstarted.html:1801
+#: gettingstarted.html:1898
 msgid "System Monitor"
 msgstr "Monitorizare sistem"
 
-#: gettingstarted.html:1802
+#: gettingstarted.html:1899
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr ""
 
-#: gettingstarted.html:1817
+#: gettingstarted.html:1914
 msgid "Psensor"
 msgstr ""
 
-#: gettingstarted.html:1818
+#: gettingstarted.html:1915
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."

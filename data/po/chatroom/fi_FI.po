@@ -1,13 +1,14 @@
 # 
 # Translators:
-# nomen omen <vapoursoft@gmail.com>, 2017
+# Kalevipoeg <linux@disroot.org>, 2020
+# nomen omen, 2017
 # KoneetKiertoon <paul.brown@koneetkiertoon.fi>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2017-09-23 00:34+0000\n"
-"Last-Translator: nomen omen <vapoursoft@gmail.com>\n"
+"PO-Revision-Date: 2020-02-02 12:28+0000\n"
+"Last-Translator: Kalevipoeg <linux@disroot.org>\n"
 "Language-Team: Finnish (Finland) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fi_FI/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,39 +26,45 @@ msgid "Chat with fellow users"
 msgstr "Juttele muiden käyttäjien kanssa."
 
 #: chatroom.html:27
-msgid "This IRC client is pre-configured so you can jump into our"
-msgstr "Tämä IRC-asiakasohjelma on määritelty valmiiksi niin, että voit sukeltaa meidän"
+msgid "Come and say hello by connecting to our"
+msgstr "Käy sisään ja sano terve ottamalla yhteyden"
 
 #: chatroom.html:28
 msgid "channel on"
 msgstr "-kanavalle"
 
-#: chatroom.html:29
-msgid ""
-"Most of the Ubuntu MATE team are on here but they have real lives too. If "
-"you have a question, feel free to ask."
-msgstr "-verkossa. Suurin osa Ubuntu MATE -tiimistä löytyy täältä, mutta on heilläkin oikea elämä. Jos sinulla on kysyttävää, kysy pois."
+#: chatroom.html:30
+msgid "You'll need an IRC client, such as Hexchat."
+msgstr "Tarvitset IRC-asiakasohjelman kuten Hexchat"
 
 #: chatroom.html:31
 msgid ""
-"However, it may take a while for someone to reply. Just be patient and don't"
-" disconnect right away."
-msgstr "Mutta huomaa, että vastaus saattaa viipyä. Odota vain kärsivällisesti äläkä lopeta yhteyttä välittömästi."
+"If you're looking for technical support, consider stopping by at our "
+"Community instead."
+msgstr "Jos etsit teknistä tukea, piipahda Yhteisössämme"
 
-#: chatroom.html:35
+#: chatroom.html:34
 msgid ""
 "It appears you are not connected to the Internet. Please check your "
 "connection to access this content."
 msgstr "Internet-yhteyttä ei ole saatavilla. Ole hyvä ja tarkista verkkoyhteytesi käyttääksesi tätä sisältöä."
 
-#: chatroom.html:36
+#: chatroom.html:35
 msgid "Sorry, Welcome was unable to establish a connection."
 msgstr "Valitettavasti Tervetuloa ei onnistunut muodostamaan yhteyttä."
 
-#: chatroom.html:37
+#: chatroom.html:36
 msgid "Retry"
 msgstr "Yritä uudelleen"
 
-#: chatroom.html:40
+#: chatroom.html:39
 msgid "Join the IRC in Hexchat"
 msgstr "Liity IRCiin HexChatillä"
+
+#: chatroom.html:40
+msgid "Install"
+msgstr "Asenna"
+
+#: chatroom.html:41
+msgid "Installing..."
+msgstr "Asennetaan..."
