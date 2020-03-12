@@ -1499,6 +1499,25 @@ class AppView(WebKit2.WebView):
                 dbg.stdout('ubuntu-report', 'Threw exception: ' + str(e), 0, 1)
                 result = 1
             self.run_js("smoothPageFade('index.html')")
+        elif cmd.startswith('set-theme?'):
+            theme = cmd.split('set-theme')[1]
+            colour = theme.split('ubuntu-mate-colours-')[1].capitalize()
+            current_gtk_theme = get_gconf_value('org.mate.interface', 'gtk-theme')
+
+            if current_gtk_theme.startswith('Ambiant-MATE-Dark'):
+                set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE-Dark-' + colour)
+                set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE-' + colour)
+                set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE-' + colour)
+
+            elif current_gtk_theme.startswith('Radiant-MATE'):
+                set_gconf_value('org.mate.interface', 'gtk-theme', 'Radiant-MATE-' + colour)
+                set_gconf_value('org.mate.interface', 'icon-theme', 'Radiant-MATE-' + colour)
+                set_gconf_value('org.mate.Marco.general', 'theme', 'Radiant-MATE-' + colour)
+
+            else:
+                set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE-' + colour)
+                set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE-' + colour)
+                set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE-' + colour)
 
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
@@ -3701,6 +3720,18 @@ def should_offer_custom_themes():
         return False
 
 
+def get_gconf_value(schema, key):
+    cmd = 'gsettings get {0} {1}'.format(schema, key)
+    dbg.stdout('Subprocess', 'Running: ' + cmd, 3, 1)
+    return subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE).communicate()[0].decode('utf-8')
+
+
+def set_gconf_value(schema, key, value):
+    cmd = 'gsettings set {0} {1} {2}'.format(schema, key, value)
+    dbg.stdout('Subprocess', 'Running: ' + cmd, 3, 1)
+    return subprocess.Popen(cmd, shell=True)
+
+
 ##################################
 #  Program Initialisation
 ##################################
@@ -3761,7 +3792,7 @@ if __name__ == "__main__":
             dialog_app = which('yad')
         else:
             dialog_app = None
-        
+
         message = "Sorry, Ubuntu MATE Welcome is not currently supported on your distribution. We will soon be releasing a new version of Welcome that will support more distributions."
 
         if dialog_app is not None:

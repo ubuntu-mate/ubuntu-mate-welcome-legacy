@@ -1457,3 +1457,30 @@ blockquote.terminal {
 .browser-option.active .default-button {
     display: none;
 }
+
+/************************
+ * Colour Selection Screen
+*************************/
+.browser-option .icon1,
+.browser-option .icon2 {
+    position: absolute;
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.browser-option .icon1 {
+    opacity: 0;
+}
+
+.browser-option .icon1 ~ span {
+    display: block;
+    margin: 4px 38px;
+}
+
+.browser-option:hover .icon1 {
+    opacity: 1;
+}
+
+.browser-option:hover .icon2 {
+    opacity: 0;
+}
