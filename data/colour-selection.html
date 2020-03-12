@@ -28,9 +28,6 @@
             With the Ubuntu MATE Colours project, you can tailor the Ambiant-MATE
             and Radiant-MATE themes to match your favorite color.&zwnj;</p>
 
-            <img src="img/colours/preview.jpg"/>
-            <br><br>
-
             <div class="alert alert-warning offline2" hidden>
                 <span class="fa fa-warning"></span> &zwnj;You must be connected to the internet to download and install software.&zwnj;
             </div>
@@ -161,6 +158,38 @@
                         <button class="btn btn-success ubuntu-mate-colours-yellow-install" onclick="cmd('install-appid?ubuntu-mate-colours-yellow')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
                         <button class="btn btn-danger ubuntu-mate-colours-yellow-remove" onclick="cmd('remove-appid?ubuntu-mate-colours-yellow')"><span class="fa fa-trash"></span></button>
                         <span class="ubuntu-mate-colours-yellow-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                    </div>
+                </div>
+            </div>
+
+            <h3>&zwnj;Light or dark?&zwnj;</h3>
+            <p>&zwnj;Every theme comes with one of three variants.&zwnj;</p>
+            <div id="variant-selection">
+                <div id="ambiant" class="browser-option">
+                    <div class="left">
+                        <img class="variant" src="img/colours/variants/Ambiant.png"/>
+                        <span>Ambiant</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-ambiant')"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                    </div>
+                </div>
+                <div id="radiant" class="browser-option">
+                    <div class="left">
+                        <img class="variant" src="img/colours/variants/Radiant.png"/>
+                        <span>Radiant</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-radiant')"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                    </div>
+                </div>
+                <div id="ambiant-dark" class="browser-option">
+                    <div class="left">
+                        <img class="variant" src="img/colours/variants/Ambiant-Dark.png"/>
+                        <span>Ambiant-Dark</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-ambiant-dark')"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
                     </div>
                 </div>
             </div>

@@ -1507,15 +1507,34 @@ class AppView(WebKit2.WebView):
                 result = 1
             self.run_js("smoothPageFade('index.html')")
         elif cmd.startswith('set-theme?'):
-            theme = cmd.split('set-theme')[1]
+            theme = cmd.split('set-theme?')[1]
             current_gtk_theme = get_gconf_value('org.mate.interface', 'gtk-theme').strip().replace("'", '')
 
             try:
-                prefix = '-' + theme.split('ubuntu-mate-colours-')[1].capitalize()
+                suffix = '-' + theme.split('ubuntu-mate-colours-')[1].capitalize()
             except IndexError:
                 # Default theme
-                prefix = ''
+                suffix = ''
 
+            # Switching between variants
+            if theme in ['switch-ambiant', 'switch-ambiant-dark', 'switch-radiant']:
+                # Use the same suffix (e.g. "-green") if used by existing theme
+                suffix = ''
+                for colour in UBUNTU_MATE_COLOURS:
+                    if current_gtk_theme.endswith(colour):
+                        suffix = '-' + colour
+                        break
+
+                # Switch theme name to desired variant
+                if theme == 'switch-ambiant':
+                    current_gtk_theme = 'Ambiant-MATE' + suffix
+                elif theme == 'switch-ambiant-dark':
+                    current_gtk_theme = 'Ambiant-MATE-Dark' + suffix
+                elif theme == 'switch-radiant':
+                    current_gtk_theme = 'Radiant-MATE' + suffix
+                print('variant: ' + current_gtk_theme)
+
+            # Set a new theme from a colour
             if current_gtk_theme.startswith('Ambiant-MATE-Dark'):
                 gtk_theme = 'Ambiant-MATE-Dark'
                 icon_theme = 'Ambiant-MATE'
@@ -1531,9 +1550,9 @@ class AppView(WebKit2.WebView):
                 icon_theme = 'Ambiant-MATE'
                 window_theme = 'Ambiant-MATE'
 
-            set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme + prefix)
-            set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + prefix)
-            set_gconf_value('org.mate.Marco.general', 'theme', window_theme + prefix)
+            set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme + suffix)
+            set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
+            set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
 
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
