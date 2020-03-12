@@ -3749,7 +3749,7 @@ def should_offer_custom_themes():
     """
     Determine if user is running Ubuntu [MATE] 18.04 or later.
     """
-    if float(systemstate.os_version) >= 18.04:
+    if float(systemstate.os_version) >= 18.04 and which("gsettings") != None:
         return True
     else:
         return False
