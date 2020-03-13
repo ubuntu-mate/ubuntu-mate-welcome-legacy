@@ -1245,6 +1245,7 @@ class AppView(WebKit2.WebView):
 
         ### Custom Colours ###
         if app.current_page == 'colour-selection.html':
+            app.update_page('#current-gtk-theme', 'html', get_current_theme())
             # Update listings
             for colour in UBUNTU_MATE_COLOURS:
                 dynamicapps.update_app_status(self, 'ubuntu-mate-colours-' + colour.lower())
@@ -1508,7 +1509,7 @@ class AppView(WebKit2.WebView):
             self.run_js("smoothPageFade('index.html')")
         elif cmd.startswith('set-theme?'):
             theme = cmd.split('set-theme?')[1]
-            current_gtk_theme = get_gconf_value('org.mate.interface', 'gtk-theme').strip().replace("'", '')
+            current_gtk_theme = get_current_theme()
 
             try:
                 suffix = '-' + theme.split('ubuntu-mate-colours-')[1].capitalize()
@@ -1553,6 +1554,7 @@ class AppView(WebKit2.WebView):
             set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme + suffix)
             set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
             set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
+            app.update_page('#current-gtk-theme', 'html', gtk_theme + suffix)
 
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
@@ -3767,6 +3769,13 @@ def set_gconf_value(schema, key, value):
     return subprocess.Popen(cmd, shell=True)
 
 
+def get_current_theme():
+    """
+    Return the name of the current GTK theme.
+    """
+    return get_gconf_value('org.mate.interface', 'gtk-theme').strip().replace("'", '')
+
+
 def verify_theme_status(package_name, is_remove):
     """
     Verify the current theme status after installing or removing themes.
@@ -3794,22 +3803,25 @@ def verify_theme_status(package_name, is_remove):
     # If theme being removed is still in use, revert to default.
     if is_remove:
         colour = package_name.split('ubuntu-mate-colours-')[1].capitalize()
-        current_gtk_theme = get_gconf_value('org.mate.interface', 'gtk-theme').strip().replace("'", '')
+        current_gtk_theme = get_current_theme()
 
         if current_gtk_theme == 'Ambiant-MATE-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE')
+            app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE')
 
         elif current_gtk_theme == 'Ambiant-MATE-Dark-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE-Dark')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE-Dark')
+            app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE-Dark')
 
         elif current_gtk_theme == 'Radiant-MATE-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Radiant-MATE')
+            app.update_page('#current-gtk-theme', 'html', 'Radiant-MATE')
 
 
 ##################################
