@@ -1591,7 +1591,9 @@ class AppView(WebKit2.WebView):
             app.update_page('#current-gtk-theme', 'html', gtk_theme + suffix)
 
             self._load_changed_cb(None, None)
-            # FIXME: GTK doesn't reload that quickly, so colours may be wrong.
+            app.webkit.refresh_gtk_colors()
+
+        elif cmd == 'force-gtk-theme-refresh':
             app.webkit.refresh_gtk_colors()
 
         else:
