@@ -975,6 +975,10 @@ class AppView(WebKit2.WebView):
 
         app.update_page("body", "append", "<style>:root {" + ";".join(css) + "}</style>")
 
+        # For High Contrast theme
+        if bg_color in ["#000", "#000000"]:
+            app.update_page("body", "addClass", "bg-is-black")
+
     def run_js(self, function):
         """
         Runs a JavaScript function on the page, regardless of which thread it is called from.

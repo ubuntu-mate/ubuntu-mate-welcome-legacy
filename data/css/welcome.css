@@ -795,6 +795,11 @@ blockquote.terminal {
   pointer-events: none;
 }
 
+/* High contrast theme only */
+.bg-is-black .logo-part-ubuntu {
+    filter: invert(1);
+}
+
 .menu-bkgnd {
   height: 390px;
   width: 390px;
