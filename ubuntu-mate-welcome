@@ -1071,6 +1071,9 @@ class AppView(WebKit2.WebView):
             if systemstate.session_type == 'pi':
                 btns.remove('browser-selection')
                 btns.append('raspberry-pi')
+            else:
+                # Destroy RPi button instead of hiding to fix margin
+                app.update_page('#raspberry-pi', 'remove')
 
             # Enable panel customisation if supported in this version
             if should_offer_to_change_panels() == True:
