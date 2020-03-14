@@ -497,8 +497,20 @@ hr.soften-light {
   margin-left: -20px;
   margin-right: -20px;
   height: 530px;
-  background: #5C8F3A;
+  background-color: #87a952;
   -webkit-mask-image: -webkit-gradient(linear, left 85%, left bottom, from(rgba(0,0,0,1)), to(rgba(244,244,244,0)));
+  background-image: url(../img/wallpapers/focal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.slogan-box.bionic {
+  background-image: url(../img/wallpapers/bionic.jpg);
+}
+
+.slogan-box.xenial {
+  background-image: url(../img/wallpapers/xenial.jpg);
 }
 
 .slogan-area {

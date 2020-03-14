@@ -1293,12 +1293,11 @@ class AppView(WebKit2.WebView):
 
         ### Introduction ###
         if app.current_page == 'introduction.html':
-            for path in ["/usr/share/backgrounds/ubuntu-mate-common/Green-Wall.png",
-                        "/usr/share/backgrounds/mate/desktop/Ubuntu-Mate-Cold-no-logo.png",
-                        "/usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold-no-logo.jpg"]:
-                if os.path.exists(path):
-                    app.update_page(".slogan-box", "attr", "style", "background:url(" + path + ")")
-                    break
+            if float(systemstate.os_version) < 18.04:
+                app.update_page(".slogan-box", "addClass", "xenial")
+            elif float(systemstate.os_version) < 20.04:
+                app.update_page(".slogan-box", "addClass", "bionic")
+            print(systemstate.os_version)
 
         ### Panel Selection ###
         if app.current_page == 'panel-selection.html':
