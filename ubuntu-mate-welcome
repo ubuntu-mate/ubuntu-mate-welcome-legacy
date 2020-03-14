@@ -31,6 +31,7 @@ gi.require_version("WebKit2", "4.0")
 
 import apt
 #import distro
+import colorsys
 import errno
 import gettext
 import inspect
@@ -920,6 +921,34 @@ class AppView(WebKit2.WebView):
                 color = _rgba_to_hex(style_context.lookup_color(fallback_color)[1])
             return color
 
+        def _get_hex_variant(string, offset):
+            """
+            Converts hex input #RRGGBB to RGB and HLS to increase lightness independently
+            """
+            string = string.lstrip("#")
+            rgb = list(int(string[i:i+2], 16) for i in (0, 2 ,4))
+
+            # colorsys module converts to HLS to brighten/darken
+            hls = colorsys.rgb_to_hls(rgb[0], rgb[1], rgb[2])
+            newbright = hls[1] + offset
+            newbright = min([255, max([0, newbright])])
+            hls = (hls[0], newbright, hls[2])
+
+            # Re-convert to rgb and hex
+            newrgb = colorsys.hls_to_rgb(hls[0], hls[1], hls[2])
+
+            def _validate(value):
+                value = int(value)
+                if value > 255:
+                    return 255
+                elif value < 0:
+                    return 0
+                return value
+
+            newrgb = [_validate(newrgb[0]), _validate(newrgb[1]), _validate(newrgb[2])]
+            newhex = '#%02x%02x%02x' % (newrgb[0], newrgb[1], newrgb[2])
+            return newhex
+
         bg_color = _get_color(style_context, "base_color", "theme_bg_color")
         text_color = _get_color(style_context, "fg_color", "theme_fg_color")
         section_bg_color = _get_color(style_context, "dark_bg_color", "theme_bg_color")
@@ -936,7 +965,12 @@ class AppView(WebKit2.WebView):
         css.append("--section_text: " + section_text_color)
         css.append("--selected_bg: " + selected_bg_color)
         css.append("--selected_text: " + selected_text_color)
-        css.append("--button_bg: " + button_bg_color)
+        css.append("--button_bg: linear-gradient(to bottom, {0}, {1})".format(
+                                          _get_hex_variant(button_bg_color, 8),
+                                          _get_hex_variant(button_bg_color, -8)))
+        css.append("--selected_button_bg: linear-gradient(to bottom, {0}, {1})".format(
+                                                      _get_hex_variant(selected_bg_color, 8),
+                                                      _get_hex_variant(selected_bg_color, -8)))
         css.append("--button_text: " + button_text_color)
 
         app.update_page("body", "append", "<style>:root {" + ";".join(css) + "}</style>")
