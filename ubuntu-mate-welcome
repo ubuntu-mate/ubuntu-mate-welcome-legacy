@@ -898,6 +898,49 @@ class AppView(WebKit2.WebView):
         # Perform a smooth transition for footer icons.
         self.do_smooth_footer = False
 
+    def refresh_gtk_colors(self):
+        """
+        Updates the CSS on the page to use the colours from GTK.
+        """
+        window = Gtk.Window()
+        style_context = window.get_style_context()
+
+        def _rgba_to_hex(color):
+           """
+           Return hexadecimal string for :class:`Gdk.RGBA` `color`.
+           """
+           return "#{0:02x}{1:02x}{2:02x}".format(
+                                            int(color.red   * 255),
+                                            int(color.green * 255),
+                                            int(color.blue  * 255))
+
+        def _get_color(style_context, preferred_color, fallback_color):
+            color = _rgba_to_hex(style_context.lookup_color(preferred_color)[1])
+            if color == "#000000":
+                color = _rgba_to_hex(style_context.lookup_color(fallback_color)[1])
+            return color
+
+        bg_color = _get_color(style_context, "base_color", "theme_bg_color")
+        text_color = _get_color(style_context, "fg_color", "theme_fg_color")
+        section_bg_color = _get_color(style_context, "dark_bg_color", "theme_bg_color")
+        section_text_color = _get_color(style_context, "dark_fg_color", "theme_fg_color")
+        selected_bg_color = _get_color(style_context, "selected_bg_color", "theme_selected_bg_color")
+        selected_text_color = _get_color(style_context, "selected_fg_color", "theme_selected_fg_color")
+        button_bg_color = _get_color(style_context, "button_bg_color", "theme_bg_color")
+        button_text_color = _get_color(style_context, "text_color", "theme_fg_color")
+
+        css = []
+        css.append("--bg: " + bg_color)
+        css.append("--text: " + text_color)
+        css.append("--section_bg: " + section_bg_color)
+        css.append("--section_text: " + section_text_color)
+        css.append("--selected_bg: " + selected_bg_color)
+        css.append("--selected_text: " + selected_text_color)
+        css.append("--button_bg: " + button_bg_color)
+        css.append("--button_text: " + button_text_color)
+
+        app.update_page("body", "append", "<style>:root {" + ";".join(css) + "}</style>")
+
     def run_js(self, function):
         """
         Runs a JavaScript function on the page, regardless of which thread it is called from.
@@ -1259,57 +1302,12 @@ class AppView(WebKit2.WebView):
     def _load_changed_cb(self, view, frame):
         uri = str(self.get_uri())
         app.current_page = uri.rsplit('/', 1)[1]
-
-        ### Tweaks to execute before fully loading the page. Prevents flicker in some cases. ###
-        # Adapt the header/footer if a different theme is in use.
-        def light_theme():
-            app.update_page('#navigation', 'css', 'color', 'black')
-            app.update_page('#navigation a', 'css', 'color', 'black')
-            app.update_page('#navigation button', 'css', 'color', 'black')
-            app.update_page('#footer', 'css', 'color', 'black')
-            app.update_page('#footer a', 'css', 'color', 'black')
-            app.update_page('.btn-inverse', 'removeClass', 'btn-inverse')
-
-        if systemstate.theme == 'BlackMATE':
-            app.update_page('#navigation', 'css', 'background-color', '#3D3D3F')
-            app.update_page('#footer', 'css', 'background-color', '#3D3D3F')
-        elif systemstate.theme == 'BlueMenta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Blue-Submarine':
-            app.update_page('#navigation', 'css', 'background-color', '#2C404F')
-            app.update_page('#footer', 'css', 'background-color', '#2C404F')
-        elif systemstate.theme == 'GreenLaguna':
-            app.update_page('#navigation', 'css', 'background-color', '#EAF0E8')
-            app.update_page('#footer', 'css', 'background-color', '#EAF0E8')
-            light_theme()
-        elif systemstate.theme == 'ContrastHigh':
-            app.update_page('#navigation', 'css', 'background-color', 'white')
-            app.update_page('#footer', 'css', 'background-color', 'white')
-            light_theme()
-        elif systemstate.theme == 'ContrastHighInverse':
-            app.update_page('#navigation', 'css', 'background-color', 'black')
-            app.update_page('#footer', 'css', 'background-color', 'black')
-        elif systemstate.theme == 'Menta':
-            app.update_page('#navigation', 'css', 'background-color', '#D2D2D2')
-            app.update_page('#footer', 'css', 'background-color', '#D2D2D2')
-            light_theme()
-        elif systemstate.theme == 'Radiant-MATE':
-            app.update_page('#navigation', 'css', 'background-color', '#DFD7CF')
-            app.update_page('#footer', 'css', 'background-color', '#DFD7CF')
-            light_theme()
-        elif systemstate.theme == 'TraditionalGreen' or systemstate.theme == 'TraditionalOk':
-            app.update_page('#navigation', 'css', 'background-color', '#E7E6E5')
-            app.update_page('#footer', 'css', 'background-color', '#E7E6E5')
-            light_theme()
-        elif systemstate.theme == 'TraditionalOkTest':
-            app.update_page('#navigation', 'css', 'background-color', '#868883')
-            app.update_page('#footer', 'css', 'background-color', '#868883')
+        self.refresh_gtk_colors()
 
         # Push contents to page when finished loading.
         if not self.is_loading():
             dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
+            self.refresh_gtk_colors()
             self._push_config()
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
@@ -1533,7 +1531,6 @@ class AppView(WebKit2.WebView):
                     current_gtk_theme = 'Ambiant-MATE-Dark' + suffix
                 elif theme == 'switch-radiant':
                     current_gtk_theme = 'Radiant-MATE' + suffix
-                print('variant: ' + current_gtk_theme)
 
             # Set a new theme from a colour
             if current_gtk_theme.startswith('Ambiant-MATE-Dark'):
@@ -1555,6 +1552,10 @@ class AppView(WebKit2.WebView):
             set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
             set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
             app.update_page('#current-gtk-theme', 'html', gtk_theme + suffix)
+
+            self._load_changed_cb(None, None)
+            # FIXME: GTK doesn't reload that quickly, so colours may be wrong.
+            app.webkit.refresh_gtk_colors()
 
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
@@ -3810,18 +3811,21 @@ def verify_theme_status(package_name, is_remove):
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE')
             app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE')
+            app.refresh_gtk_colors()
 
         elif current_gtk_theme == 'Ambiant-MATE-Dark-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE-Dark')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE-Dark')
             app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE-Dark')
+            app.refresh_gtk_colors()
 
         elif current_gtk_theme == 'Radiant-MATE-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Radiant-MATE')
             app.update_page('#current-gtk-theme', 'html', 'Radiant-MATE')
+            app.refresh_gtk_colors()
 
 
 ##################################

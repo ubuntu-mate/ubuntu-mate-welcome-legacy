@@ -1,3 +1,15 @@
+/* The software will change these on page load */
+:root {
+    --bg: #F4F4F4;
+    --text: #000;
+    --section_bg: #3C3B37;
+    --section_text: #DED9CB;
+    --selected_bg: #667E40;
+    --selected_text: #FFF;
+    --button_bg: #f6f5f5;
+    --button_text: #3c3c3c;
+}
+
 @font-face {
   font-family: 'Ubuntu';
   font-style: normal;
@@ -22,6 +34,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  color: var(--text);
   /* Behave more like an application by
    * preventing text highlighting / dragging. */
   -webkit-user-select: none;
@@ -43,8 +56,10 @@ body, button, input {
 }
 
 .backdrop-simple {
-  background-color: #f4f4f4;
-  background: #F4F4F4 url("../img/welcome/background.svg") no-repeat fixed right bottom;
+  background-color: var(--bg);
+  background-image: url("../img/welcome/background.svg");
+  background-repeat: no-repeat;
+  background-position: fixed right bottom;
   background-position: calc(100% + 2px) calc(100% - 63px);
   background-size: 50%;
 }
@@ -68,15 +83,16 @@ button {
   background: transparent;
   border: none;
   padding: 0;
+  outline: 0 !important;
   font: inherit;
   border: 1px solid transparent;
   cursor: default !important;
-  color: #758A53;
+  color: var(--selected_bg);
 }
 
 button:focus {
   cursor: default;
-  border: 1px solid #87A556;
+  box-shadow: 0px 0px 2px gray !important;
 }
 
 .link:hover {
@@ -133,17 +149,17 @@ button:focus {
   margin-bottom: 8px;
   z-index: 10;
   /* Ambience Theme Integration */
-  background-color: #3C3B37;
+  background-color: var(--section_bg);
 	font-size: 24px;
 	font-weight: normal;
-  color: #DED9CB;
+  color: var(--section_text);
   box-shadow: -8px 2px 10px rgba(0,0,0,0.5);
 }
 
 .navigation-button {
   width: 40px;
   height: 30px;
-	color: #DED9CB;
+  color: var(--section_text);
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 0;
@@ -154,6 +170,10 @@ button:focus {
   text-decoration: none !important;
 }
 
+.footer-right button {
+  color: var(--section_text);
+}
+
 .navigation-button.with-text {
   width: auto;
 }
@@ -162,13 +182,17 @@ button:focus {
   color: #fff;
 }
 
+.navigation-button:focus {
+  border-color: var(--selected_bg);
+}
+
 .navigation-button:active {
-  background-color: #667E40;
+  background-color: var(--selected_bg);
   color: #fff;
 }
 
 .navigation-button.active {
-  background-color: #667E40;
+  background-color: var(--selected_bg);
 }
 
 #navigation-title {
@@ -277,7 +301,7 @@ img, a {
  * Footer
 *************************/
 #footer {
-  background-color: #3C3B37;
+  background-color: var(--section_bg);
   position: fixed;
   bottom: 0;
   height: 64px;
@@ -409,8 +433,8 @@ hr.soften-light {
 }
 
 /* Feedback with button interactions */
-.btn:active, .btn:focus, .btn:hover {
-  border: 1px solid #87A556;
+.btn:focus {
+  border: 1px solid var(--selected_bg);
 }
 
 /* Alert Box for Facts */
@@ -571,7 +595,7 @@ hr.soften-light {
 /* Always keep category tabs visible */
 #category-tabs {
   position: fixed;
-  background-image: -webkit-linear-gradient(top, rgba(244,244,244,1), rgba(244,244,244,1), rgba(244,244,244,0.9), rgba(244,244,244,0));
+  background: var(--bg);
   width: auto;
   left: 0;
   right: 16px;
@@ -579,7 +603,7 @@ hr.soften-light {
   z-index: 5;
   padding-top: 8px;
   margin-bottom: 2px;
-  padding-bottom: 28px;
+  padding-bottom: 0;
 }
 
 /* Always show the back to top button when disabled */
@@ -696,7 +720,7 @@ blockquote.terminal {
 }
 
 .screenshot:hover, .screenshot:focus {
-  border: 2px solid #799251;
+  border: 2px solid var(--selected_bg);
 }
 
 .screenshot-link {
@@ -714,13 +738,13 @@ blockquote.terminal {
   text-align: center;
   font-family: "Ubuntu";
   font-size: 40px;
-  color: #5A6943;
+  color: var(--text);
   pointer-events: none;
 }
 
 /* Preferences */
 #pref-table > tbody > tr > td > button {
-  color: black;
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -756,7 +780,7 @@ blockquote.terminal {
   vertical-align: bottom;
   font-weight: bold;
   font-size: 18px;
-  color: #5A6943;
+  color: var(--text);
 }
 
 .main-menu-version {
@@ -764,7 +788,7 @@ blockquote.terminal {
   font-size: 20px;
   font-weight: bold;
   vertical-align: top;
-  color: #5A6943;
+  color: var(--text);
   pointer-events: none;
 }
 
@@ -855,7 +879,7 @@ blockquote.terminal {
   font-family: "Ubuntu";
   font-weight: 100;
   font-size: 20px;
-  color: #5A6943;
+  color: var(--text);
 }
 
 #splash-welcome {
@@ -946,6 +970,10 @@ blockquote.terminal {
   box-shadow: -8px 2px 10px rgba(0,0,0,0.5);
 }
 
+#topic-subheading .navigation-button {
+  color: #DED9CB !important;
+}
+
 #topic-subheading > .left {
   float: left;
   margin-top: 2px;
@@ -976,12 +1004,12 @@ blockquote.terminal {
   min-width: 200px;
   width: auto;
   height: 44px;
-  background-color: white;
+  background-color: rgba(224,224,224,0.1);
   box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
   transition: all 0.1s linear;
   padding: 8px;
   margin: 8px;
-  color: black;
+  color: var(--text);
 }
 
 .topic-card:hover,
@@ -1050,7 +1078,7 @@ blockquote.terminal {
 }
 
 .specs-box h4 {
-  color: #758A53;
+  color: var(--selected_bg);
 }
 
 .specs-error {
@@ -1079,7 +1107,7 @@ blockquote.terminal {
 }
 
 #disk-used {
-  background-color: #87A556;
+  background-color: var(--selected_bg);
 }
 
 #disk-free {
@@ -1232,7 +1260,7 @@ blockquote.terminal {
 
 .queue-card > .status > .drop {
   float: right;
-  color: black;
+  color: var(--text);
   margin-left: 16px;
   margin-right: 8px;
 }
@@ -1257,10 +1285,10 @@ blockquote.terminal {
 
 /* Glow Queue button on add/remove */
 @-webkit-keyframes queue-glow-add {
-  0% { background-color: #3C3B37; color: #DED9CB; }
-  40% { background-color: #A0CA5F; color: #A0CA5F; }
-  60% { background-color: #A0CA5F; color: #A0CA5F; }
-  100% { background-color: #3C3B37; color: #DED9CB; }
+  0% { background-color: var(--section_bg); color: var(--section_text); }
+  40% { background-color: var(--selected_bg); color: var(--selected_bg); }
+  60% { background-color: var(--selected_bg); color: var(--selected_bg); }
+  100% { background-color: var(--section_bg); color: var(--section_text); }
 }
 
 .queue-glow-add {
@@ -1268,10 +1296,10 @@ blockquote.terminal {
 }
 
 @-webkit-keyframes queue-glow-remove {
-  0% { background-color: #3C3B37; color: #DED9CB; }
-  40% { background-color: #CA645F; color: #CA645F; }
-  60% { background-color: #CA645F; color: #CA645F; }
-  100% { background-color: #3C3B37; color: #DED9CB; }
+  0% { background-color: var(--section_bg); color: var(--section_text); }
+  40% { background-color: var(--selected_bg); color: var(--selected_bg); }
+  60% { background-color: var(--selected_bg); color: var(--selected_bg); }
+  100% { background-color: var(--section_bg); color: var(--section_text); }
 }
 
 .queue-glow-remove {
@@ -1320,7 +1348,7 @@ blockquote.terminal {
   line-height: 8px;
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #3C3B37;
+  background-color: var(--section_bg);
   color: white;
 }
 
@@ -1344,12 +1372,12 @@ blockquote.terminal {
     text-align: center;
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: var(--bg);
     box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
     transition: all 0.1s linear;
     padding: 8px;
     margin: 8px;
-    color: black;
+    color: var(--text);
 }
 
 .panel-option:hover,
@@ -1360,9 +1388,9 @@ blockquote.terminal {
 }
 
 .panel-option.active {
-    background-color: #87a556;
-    box-shadow: 0 0 10px #87a556;
-    color: #fff;
+    background-color: var(--selected_bg);
+    box-shadow: 0 0 10px var(--selected_bg);
+    color: var(--selected_text);
     position: relative;
 }
 
@@ -1416,12 +1444,12 @@ blockquote.terminal {
     position: relative;
     width: calc(49% - 32px);
     text-align: center;
-    background-color: white;
-    box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
+    background-color: rgba(224,224,224,0.1);
+    box-shadow: 0px 0px 1px rgba(192,192,192,0.5);
     transition: all 0.1s linear;
     padding: 8px;
     margin: 8px;
-    color: black;
+    color: var(--text);
     text-align: left;
     vertical-align: top;
 }
@@ -1445,7 +1473,7 @@ blockquote.terminal {
 
 .browser-option .default-label {
     display: none;
-    color: #4D5F30;
+    color: var(--selected_bg);
     padding-left: 34px;
 }
 
@@ -1487,5 +1515,7 @@ blockquote.terminal {
 
 .browser-option .variant {
     width: 80px;
+    border-radius: 10px;
+    padding-right: 4px;
 }
 
