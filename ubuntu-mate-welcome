@@ -1327,7 +1327,7 @@ class AppView(WebKit2.WebView):
             # Highlight default browser
             if which('xdg-settings') != None:
                 default_browser = subprocess.Popen(['xdg-settings', 'get', 'default-web-browser'], stdout=subprocess.PIPE).communicate()[0]
-                default_browser = default_browser.decode('UTF-8').strip().replace('.desktop', '')
+                default_browser = default_browser.decode('UTF-8').strip().replace('.desktop', '').replace(';', '')
                 app.update_page('#' + default_browser, 'addClass', 'active')
 
         ### Custom Colours ###
