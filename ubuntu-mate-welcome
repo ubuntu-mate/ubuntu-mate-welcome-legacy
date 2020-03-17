@@ -1350,6 +1350,7 @@ class AppView(WebKit2.WebView):
             dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
             self.refresh_gtk_colors()
             self._push_config()
+            app._window.show_all()
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
         # Disable context menu.
@@ -1703,7 +1704,6 @@ class WelcomeApp(object):
         # Add the box to the parent window and show
         w.add(b)
         w.connect('delete-event', goodbye)
-        w.show_all()
 
         self._window = w
 
