@@ -1022,14 +1022,11 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: 20px;
-  padding: 4px 6px;
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
   vertical-align: middle;
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
 }
 
 input,
@@ -1114,8 +1111,6 @@ input[type="file"] {
 
 select {
   width: 220px;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
 }
 
 select[multiple],
@@ -1915,7 +1910,7 @@ table {
 }
 
 .table .table {
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .table-condensed th,
@@ -1924,7 +1919,7 @@ table {
 }
 
 .table-bordered {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--bg-alt);
   border-collapse: separate;
   border-left: 0;
   -webkit-border-radius: 4px;
@@ -1933,7 +1928,7 @@ table {
 
 .table-bordered th,
 .table-bordered td {
-  border-left: 1px solid #dddddd;
+  border-left: 1px solid var(--bg-alt);
 }
 
 .table-bordered caption + thead tr:first-child th,
@@ -2008,12 +2003,12 @@ table {
 
 .table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: var(--bg-alt);
 }
 
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background-color: #f5f5f5;
+  background-color: var(--bg-alt);
 }
 
 table td[class*="span"],
@@ -4399,11 +4394,12 @@ input[type="submit"].btn.btn-mini {
   left: 0;
   z-index: 1010;
   display: none;
-  max-width: 276px;
+  max-width: 400px;
   padding: 1px;
   text-align: left;
   white-space: normal;
-  background-color: #ffffff;
+  background-color: var(--bg);
+  color: var(--text);
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 6px;
@@ -4436,8 +4432,8 @@ input[type="submit"].btn.btn-mini {
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #ebebeb;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--bg);
   -webkit-border-radius: 5px 5px 0 0;
           border-radius: 5px 5px 0 0;
 }
@@ -4473,7 +4469,7 @@ input[type="submit"].btn.btn-mini {
   bottom: -11px;
   left: 50%;
   margin-left: -11px;
-  border-top-color: #999;
+  border-top-color: var(--bg);
   border-top-color: rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
 }
@@ -4481,7 +4477,7 @@ input[type="submit"].btn.btn-mini {
 .popover.top .arrow:after {
   bottom: 1px;
   margin-left: -10px;
-  border-top-color: #ffffff;
+  border-top-color: var(--bg);
   border-bottom-width: 0;
 }
 
@@ -4489,7 +4485,7 @@ input[type="submit"].btn.btn-mini {
   top: 50%;
   left: -11px;
   margin-top: -11px;
-  border-right-color: #999;
+  border-right-color: var(--bg);
   border-right-color: rgba(0, 0, 0, 0.25);
   border-left-width: 0;
 }
@@ -4497,7 +4493,7 @@ input[type="submit"].btn.btn-mini {
 .popover.right .arrow:after {
   bottom: -10px;
   left: 1px;
-  border-right-color: #ffffff;
+  border-right-color: var(--bg);
   border-left-width: 0;
 }
 
@@ -4505,7 +4501,7 @@ input[type="submit"].btn.btn-mini {
   top: -11px;
   left: 50%;
   margin-left: -11px;
-  border-bottom-color: #999;
+  border-bottom-color: var(--bg);
   border-bottom-color: rgba(0, 0, 0, 0.25);
   border-top-width: 0;
 }
@@ -4513,7 +4509,7 @@ input[type="submit"].btn.btn-mini {
 .popover.bottom .arrow:after {
   top: 1px;
   margin-left: -10px;
-  border-bottom-color: #ffffff;
+  border-bottom-color: var(--bg);
   border-top-width: 0;
 }
 
@@ -4521,7 +4517,7 @@ input[type="submit"].btn.btn-mini {
   top: 50%;
   right: -11px;
   margin-top: -11px;
-  border-left-color: #999;
+  border-left-color: var(--bg);
   border-left-color: rgba(0, 0, 0, 0.25);
   border-right-width: 0;
 }
@@ -4529,7 +4525,7 @@ input[type="submit"].btn.btn-mini {
 .popover.left .arrow:after {
   right: 1px;
   bottom: -10px;
-  border-left-color: #ffffff;
+  border-left-color: var(--bg);
   border-right-width: 0;
 }
 

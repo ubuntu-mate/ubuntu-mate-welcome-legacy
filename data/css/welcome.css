@@ -1,6 +1,7 @@
 /* The software will change these on page load */
 :root {
     --bg: #F4F4F4;
+    --bg-alt: #C0C0C0;
     --text: #000;
     --section_bg: #3C3B37;
     --section_text: #DED9CB;
@@ -631,7 +632,7 @@ hr.soften-light {
   height: auto;
   right: 4px;
   bottom: 68px;
-  background-color: white;
+  background-color: var(--bg);
   border: 1px solid black;
 }
 
@@ -755,6 +756,11 @@ blockquote.terminal {
   padding-top: 8px;
   color: #7F7F7F;
   font-size: smaller;
+}
+
+/* Search */
+#search-terms {
+    padding: 4px;
 }
 
 /************************
@@ -1241,12 +1247,11 @@ blockquote.terminal {
 /* Card Layout */
 .queue-card {
   height: 50px;
-  width: 98%;
-  background-color: rgba(255,255,255,0.8);
-  border: 1px solid #E8E8E8;
+  width: calc(100% - 32px);
+  background-color: var(--bg-alt);
+  border: 1px solid #C0C0C0;
   margin: 8px;
   padding: 8px;
-  box-shadow: 2px 2px 2px #C8C8C8;
 }
 
 .queue-card > .icon {
@@ -1280,15 +1285,6 @@ blockquote.terminal {
 
 .queue-card.failed {
   border: 3px solid #800000;
-}
-
-/* Card Labels */
-.queue-card > .status > .success, .queue-plan.install {
-  color: #008000 !important;
-}
-
-.queue-card > .status > .failed, .queue-plan.remove {
-  color: #800000 !important;
 }
 
 /* Glow Queue button on add/remove */

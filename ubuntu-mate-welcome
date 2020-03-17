@@ -960,6 +960,7 @@ class AppView(WebKit2.WebView):
 
         css = []
         css.append("--bg: " + bg_color)
+        css.append("--bg-alt: " + _get_hex_variant(bg_color, -10))
         css.append("--text: " + text_color)
         css.append("--section_bg: " + section_bg_color)
         css.append("--section_text: " + section_text_color)
@@ -3250,14 +3251,14 @@ class ChangesQueue(object):
         if queue == 'install':
             self.install_queue.append(program_id)
             self.ui_add_card(program_id, 'install')
-            plan_html = '<span class="fa fa-download"></span> ' + string.queue_install
+            plan_html = '<div class="alert alert-success"><span class="fa fa-download"></span> ' + string.queue_install + '</div>'
             plan_css = 'install'
             app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-add')
 
         elif queue == 'remove':
             self.remove_queue.append(program_id)
             self.ui_add_card(program_id, 'remove')
-            plan_html = '<span class="fa fa-trash"></span> ' + string.queue_remove
+            plan_html = '<div class="alert alert-danger"><span class="fa fa-trash"></span> ' + string.queue_remove + '</div>'
             plan_css = 'remove'
             app.update_page('#navigation-queue', 'jAnimateOnce', 'queue-glow-remove')
 
@@ -3277,7 +3278,7 @@ class ChangesQueue(object):
         app.update_page('.'+css_class+'-remove', 'hide')
         app.update_page('.'+css_class+'-upgrade', 'hide')
         app.update_page('.'+css_class+'-undo', 'show')
-        app.update_page('.'+css_class+'-plan', 'slideDown', 'fast')
+        app.update_page('.'+css_class+'-plan', 'fadeIn', 'fast')
         app.update_page('.'+css_class+'-plan', 'html', plan_html)
         app.update_page('.'+css_class+'-plan', 'addClass', plan_css)
 
