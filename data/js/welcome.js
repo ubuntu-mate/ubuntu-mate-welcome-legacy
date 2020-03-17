@@ -443,32 +443,16 @@ if ( current_page == 'splash.html' ) {
     // "Quicker" splash transition from white
     $('body').show();
     $('#white-start').fadeOut();
-    $('#header').show();
-    $('#footer').show();
-    $('#header').jAnimateOnce('fadeInDown');
-    $('#footer').jAnimateOnce('fadeInUp');
+    $('#header').show().jAnimateOnce('fadeInDown');
+    $('#footer').show().jAnimateOnce('fadeInUp');
     $('.backdrop-simple.splash').addClass('splashIn');
     setTimeout(function(){
-        continueToPage(false);
-    }, 500);
+        window.location.href = splashNextPage + '.html';
+    }, 1100);
   });
 
   // In live sessions, show a "Hello" page instead to introduce ourselves.
-  var splashNextPage = 'index'
-
-  function continueToPage(skipped) {
-    if ( skipped == true ) {
-      $('#splash-logo').fadeOut('fast');
-      $('#white-start').fadeOut('fast');
-      $('#header').fadeIn('fast');
-      $('#footer').fadeIn('fast');
-      setTimeout(function(){
-          smoothPageFade(splashNextPage + '.html');
-      }, 100);
-    } else {
-      smoothPageFade(splashNextPage + '.html');
-    }
-  }
+  var splashNextPage = 'index';
 }
 
 
@@ -495,6 +479,10 @@ if ( current_page == 'splash-boutique.html' ) {
       $('#Text2').css('opacity','');
       $('#Text2').fadeIn(750);
     }, 200);
+
+    setTimeout(function() {
+        window.location.href = 'software.html';
+    }, 1500);
 }
 
 
