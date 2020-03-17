@@ -879,6 +879,9 @@ class AppView(WebKit2.WebView):
         webkit = WebKit2
         webkit.WebView.__init__(self)
 
+        # Set WebKit background to the same as GTK
+        self.set_background_color(Gdk.RGBA(0, 0, 0, 0))
+
         # Connect signals to application
         self.connect('load-changed', self._load_changed_cb)
         self.connect('notify::title', self._title_changed_cb)
