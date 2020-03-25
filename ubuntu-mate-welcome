@@ -1704,6 +1704,11 @@ class WelcomeApp(object):
         b = Gtk.VBox(homogeneous=False, spacing=0)
         b.pack_start(sw, expand=True, fill=True, padding=0)
 
+        # If debugging, show the inspector window
+        if arg.inspector:
+            self.webkit.get_settings().set_property("enable-developer-extras", True)
+            inspector = self.webkit.get_inspector()
+            inspector.show()
         # Add the box to the parent window and show
         w.add(b)
         w.connect('delete-event', goodbye)
@@ -3657,6 +3662,7 @@ class Arguments(object):
         self.locale = None
         self.jump_to = None
         self.font_dpi_override = None
+        self.inspector = False
 
         archs = ['i386', 'amd64', 'armhf', 'arm64', 'powerpc', 'ppc64el']
         sessions = ['guest', 'live', 'oem', 'pi', 'vbox']
@@ -3688,6 +3694,10 @@ class Arguments(object):
               print('  -v, --verbose                Show more details to stdout (for diagnosis).')
               print('')
               exit()
+
+          if arg == '--inspect':
+              dbg.stdout('Debug', 'Inspector enabled.', 0, 0)
+              self.inspector = True
 
           if arg == '--autostart' or arg == '-a':
               dbg.stdout('Debug', 'Autostart mode enabled.', 0, 0)
