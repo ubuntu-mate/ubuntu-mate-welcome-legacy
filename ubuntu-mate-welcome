@@ -3889,7 +3889,7 @@ if __name__ == "__main__":
     #codename = platform.dist()[2]       # → xenial, bionic
     desktop = os.environ.get('XDG_CURRENT_DESKTOP').lower()
 
-    if distro == 'ubuntu' and desktop == 'mate':
+    if distro == 'ubuntu' and desktop == 'mate' or not os.environ.get('SNAP'):
         # Process any parameters passed to the program.
         dbg = Debug()
         arg = Arguments()
@@ -3935,7 +3935,7 @@ if __name__ == "__main__":
         else:
             dialog_app = None
 
-        message = "Sorry, Ubuntu MATE Welcome is not currently supported on your distribution. We will soon be releasing a new version of Welcome that will support more distributions."
+        message = "Sorry, Ubuntu MATE Welcome is not currently supported on your distribution."
 
         if dialog_app is not None:
             messagebox = subprocess.Popen([dialog_app,
