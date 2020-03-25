@@ -1040,6 +1040,11 @@ class AppView(WebKit2.WebView):
             app.update_page('#navigation-right', 'hide')
             app.update_page('#navigation-right', 'fadeIn')
 
+        # Apply RTL for known locales
+        if trans.locale[:2] in ['ar', 'arc', 'dv', 'fa', 'ha', 'he', 'khw', 'ks', 'ku', 'ps', 'ur', 'yi']:
+            app.update_page('html', 'attr', 'dir', 'rtl')
+            app.update_page('html', 'addClass', 'rtl')
+
         # Individual Page Actions
         ### Main Menu ###
         if app.current_page == 'index.html':

@@ -145,7 +145,7 @@ button:focus {
   top: 0;
   position: fixed;
   padding: 8px;
-  width: 100%;
+  width: calc(100% - 16px);
   height: 32px;
   padding: 8px;
   margin-bottom: 8px;
@@ -287,7 +287,7 @@ img, a {
 /* Collapsible Sub-Sections */
 .sub-collapse {
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 16px);
   text-align: left;
 }
 
@@ -315,18 +315,22 @@ img, a {
 
 #footer .footer-content {
   padding: 16px;
+  display: flex;
+  flex-direction: row;
 }
 
-.footer-content > div.form {
-  display: inline-block;
-  position: absolute;
-  right: 16px;
+.footer-content > #footer-right {
+  margin-left: auto;
 }
 
-.footer-content > div.form > button {
+.footer-content > #footer-right > button {
   color: #fff;
   text-decoration: none;
   margin-right: 8px;
+}
+
+.footer-content > #footer-right > *:first-child {
+  margin-left: auto;
 }
 
 .footer-content > div > label {
@@ -1512,3 +1516,89 @@ blockquote.terminal {
     padding-right: 4px;
 }
 
+/************************
+ * RTL Modifications
+*************************/
+.rtl .footer-content,
+.rtl #navigation {
+  flex-direction: row-reverse;
+}
+
+.rtl .footer-content > #footer-right {
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.rtl .footer-content > #footer-right > button {
+  margin-left: 8px;
+  margin-right: auto;
+}
+
+.rtl .fa-chevron-left,
+.rtl .fa-chevron-right,
+.rtl .fa-caret-left,
+.rtl .fa-caret-right {
+    transform: rotate(180deg);
+}
+
+.rtl #navigation-right {
+    right: unset;
+    left: 8px;
+}
+
+.rtl .topic-card,
+.rtl .topic-card > span {
+    float: right;
+}
+
+.rtl .sub-collapse {
+    text-align: right;
+}
+
+.rtl .text-left {
+    text-align: right;
+}
+
+.rtl .text-right {
+    text-align: left;
+}
+
+.rtl .table th,
+.rtl .table td {
+    text-align: right;
+}
+
+.rtl .topic-card > p {
+    float: right;
+    padding: 4px 8px;
+}
+
+.rtl #specs-box {
+    left: 0;
+}
+
+.rtl .browser-option .right {
+    float: left;
+}
+
+.rtl .browser-option .left {
+    float: right;
+}
+
+.rtl .browser-option .icon1,
+.rtl .browser-option .icon2 {
+    right: 0;
+}
+
+.rtl .filter-box {
+    float: none;
+}
+
+.rtl .queue-card > .status {
+    float: left;
+    display: flex;
+}
+
+.rtl .queue-zoom-icon {
+    right: 5px;
+}
