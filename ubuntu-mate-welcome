@@ -2001,6 +2001,8 @@ class SystemState(object):
             self.graphics_vendor = 'Intel'
         elif output.find('VirtualBox') != -1:
             self.graphics_vendor = 'VirtualBox'
+        elif output.find('VMware') != -1:
+            self.graphics_vendor = 'VirtualBox'
         else:
             self.graphics_vendor = 'Unknown'
 
