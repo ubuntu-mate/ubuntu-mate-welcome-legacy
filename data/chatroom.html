@@ -13,14 +13,14 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+        <button id="menu-button" class="navigation-button animated fadeIn" onclick="smoothPageFade('index.html')">
           <span class="fa fa-chevron-left"></span>
         </button>
-        <div id="navigation-title" style="display:none">&zwnj;Chat Room&zwnj;</div>
+        <div id="navigation-title" class="animated fadeIn">&zwnj;Chat Room&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
     </div>
-    <div id="content" class="container-fluid entire-page-fade" hidden>
+    <div id="content" class="container-fluid entire-page-fade">
       <div class="row-fluid">
         <div class="span12">
           <!--Body content-->
@@ -31,14 +31,14 @@
           &zwnj;You'll need an IRC client, such as Hexchat.&zwnj;</p>
           <p>&zwnj;If you're looking for technical support, consider stopping by
           at our Community instead.&zwnj;</p>
-          <div class="alert alert-warning offline">
+          <div class="alert alert-warning offline" style="display:none">
             <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
             <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
             <button onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</button>
           </div>
           <div align="center">
-            <button class="hexchat-launch btn btn-lg btn-inverse" onclick="cmd('chatroom')"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Join the IRC in Hexchat&zwnj;</button>
-            <button class="hexchat-install btn btn-lg btn-inverse" onclick="cmd('install-appid?hexchat')"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Install&zwnj; Hexchat</button>
+            <button style="display:none" class="hexchat-launch btn btn-lg btn-inverse" onclick="cmd('chatroom')"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Join the IRC in Hexchat&zwnj;</button>
+            <button style="display:none" class="hexchat-install btn btn-lg btn-inverse" onclick="cmd('install-appid?hexchat')"><img src="img/applications/hexchat.png" width="20px" height="20px">&nbsp; &zwnj;Install&zwnj; Hexchat</button>
             <span class="hexchat-applying" style="display:none"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Installing...&zwnj;</span>
           </div>
         </div>

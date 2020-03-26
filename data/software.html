@@ -12,16 +12,16 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <button id="menu-button" class="navigation-button" style="display:none" onclick="smoothPageFade('index.html');$('#footer-left').fadeOut();$('#non-free-toggle').fadeOut();$('#show-misc-cmds').fadeOut()">
+        <button id="menu-button" class="navigation-button animated fadeIn" style="display:none" onclick="smoothPageFade('index.html');$('#footer-left').fadeOut();$('#non-free-toggle').fadeOut();$('#show-misc-cmds').fadeOut()">
           <span class="fa fa-chevron-left"></span>
         </button>
-        <div id="navigation-title" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"></span></div>
+        <div id="navigation-title" class="animated fadeIn" hidden>&zwnj;Software&zwnj; - <span id="navigation-sub-title"></span></div>
         <div id="navigation-right" hidden>
-          <button id="navigation-queue" class="navigation-button" onclick="showQueue('&zwnj;Bulk Queue&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue&zwnj;">                  <span class="fa fa-clone"></span><div id="navigation-queue-count" class="empty">0</div></button>
-          <button id="navigation-queue-disabled" class="navigation-button" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue Disabled&zwnj;" style="display:none">                         <span class="fa fa-clone" style="opacity:0.5"></span></button>
-          <button id="navigation-search" class="navigation-button" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">                        <span class="fa fa-search"></span></button>
-          <button id="navigation-news" class="navigation-button" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">              <span class="fa fa-newspaper-o"></span></button>
-          <button id="navigation-prefs" class="navigation-button" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">                <span class="fa fa-wrench"></span></button>
+          <button id="navigation-queue" class="navigation-button animated fadeIn" onclick="showQueue('&zwnj;Bulk Queue&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue&zwnj;">                  <span class="fa fa-clone"></span><div id="navigation-queue-count" class="empty">0</div></button>
+          <button id="navigation-queue-disabled" class="navigation-button animated fadeIn" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Bulk Queue Disabled&zwnj;" style="display:none">                         <span class="fa fa-clone" style="opacity:0.5"></span></button>
+          <button id="navigation-search" class="navigation-button animated fadeIn" onclick="showSearch('&zwnj;Search&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Search&zwnj;">                        <span class="fa fa-search"></span></button>
+          <button id="navigation-news" class="navigation-button animated fadeIn" onclick="showNews('&zwnj;Boutique News&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Boutique News&zwnj;">              <span class="fa fa-newspaper-o"></span></button>
+          <button id="navigation-prefs" class="navigation-button animated fadeIn" onclick="showPrefs('&zwnj;Preferences&zwnj;')" data-toggle="tooltip" data-placement="bottom" title="&zwnj;Preferences&zwnj;">                <span class="fa fa-wrench"></span></button>
           <button id="scroll-top-always-show" class="navigation-button disabled" onclick="backToTop()"><span class="fa fa-chevron-up"></span></button>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <li data-toggle="tooltip" data-placement="bottom" title="&zwnj;Fixes&zwnj;">            <button id="MiscBtn"        data-toggle="tab" onclick="changeCategoryTab('#Misc',        '&zwnj;Fixes&zwnj;');">            <span class="fa fa-2x fa-va fa-check-square-o"> </span></button></li>
       </ul>
     </div>
-    <div id="boutique-loading" class="animated pageIn">
+    <div id="boutique-loading" class="animated fadeIn">
       <img src="img/welcome/boutique-loading.png"/>
       <p>&zwnj;Stocking the Boutique...&zwnj;</p>
     </div>

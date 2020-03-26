@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
   <div id="mate-blur" class="menu-bkgnd" hidden></div>
   <div class="container-fluid">
     <div id="navigation">
-      <div id="navigation-title" style="display:none">&zwnj;Main Menu&zwnj;</div>
+      <div id="navigation-title" class="animated fadeIn">&zwnj;Main Menu&zwnj;</div>
       <div id="navigation-right" class="entire-page-fade">
         <div id="update-notification" class="heads-up">
           <button onclick="cmd('subscribe-updates')" class="btn btn-inverse"  style="display:none" data-toggle="tooltip" data-placement="bottom"
@@ -28,9 +28,9 @@
       </div>
     </div>
   </div>
-  <img id="main-menu-logo" class="entire-page-fade main-menu-logo" src="img/welcome/ubuntu-mate-icon.svg" width="50%" height="50%" hidden>
+  <img id="main-menu-logo" class="main-menu-logo enter" src="img/welcome/ubuntu-mate-icon.svg">
   <div class="entire-page-fade" id="wrapper" hidden>
-    <div id="header" class="container-fluid" style="padding-top: 64px">
+    <div id="header" class="container-fluid animated fadeIn" style="padding-top: 64px">
       <div class="row-fluid">
         <div class="span12 center splash-version">
           <img class="logo-part-ubuntu" src="img/welcome/um-text-ubuntu.svg" width="107px" height="28px">
@@ -74,7 +74,7 @@
         <div class="span4 btn-showcase"></div>
         <br>
         <div class="span4 btn-showcase">
-          <button style="display:none" id="raspberry-pi" class="btn btn-block btn-rpi" onclick="exitMenu('rpi.html')">
+          <button style="display:none" id="rpi" class="btn btn-block btn-rpi" onclick="exitMenu('rpi.html')">
             <img src="img/logos/raspberry-pi-mono.png"/>
             &nbsp;&zwnj;Raspberry Pi Information&zwnj;
           </button>

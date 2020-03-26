@@ -1083,10 +1083,10 @@ class AppView(WebKit2.WebView):
             # Raspberry Pi button
             if systemstate.session_type == 'pi':
                 btns.remove('browser-selection')
-                btns.append('raspberry-pi')
+                btns.append('rpi')
             else:
                 # Destroy RPi button instead of hiding to fix margin
-                app.update_page('#raspberry-pi', 'remove')
+                app.update_page('#rpi', 'remove')
 
             # Enable panel customisation if supported in this version
             if should_offer_to_change_panels() == True:
@@ -1105,7 +1105,8 @@ class AppView(WebKit2.WebView):
 
             # Fade in the menu buttons.
             for btn_id in btns:
-                app.update_page('#'+btn_id, 'fadeIn')
+                app.update_page('#' + btn_id, 'addClass', 'animated fadeIn')
+                app.update_page('#' + btn_id, 'show')
 
             # Check whether the system is subscribed for receiving more up-to-date versions of Welcome.
             app.update_page('#update-subscribing', 'hide')
@@ -1118,6 +1119,12 @@ class AppView(WebKit2.WebView):
             # Disable install button on installed systems.
             if not which("ubiquity"):
                 app.update_page("#install", "prop", "disabled", "true")
+
+            # Resume animation when returning to main menu
+            if app.last_page:
+                app.update_page("#" + app.last_page.replace(".html",""), "addClass", "button-return")
+
+            app.last_page = None
 
         ### Splash ###
         if app.current_page == 'splash.html':
@@ -1231,7 +1238,7 @@ class AppView(WebKit2.WebView):
                 queue.clear()
 
                 # Smoothly fade to introduction page.
-                app.update_page('#boutique-loading', 'jAnimate', 'pageOut')
+                app.update_page('#boutique-loading', 'jAnimate', 'fadeOut')
                 app.update_page('#category-tabs', 'show')
                 app.update_page('#category-tabs', 'jAnimate', 'fadeInDown')
                 app.webkit.run_js("setTimeout(function(){ switchCategory('#boutique-loading', '#Intro', '" + string.welcome + "', true) }, 500);")
@@ -1341,6 +1348,8 @@ class AppView(WebKit2.WebView):
             # Update listings
             for colour in UBUNTU_MATE_COLOURS:
                 dynamicapps.update_app_status(self, 'ubuntu-mate-colours-' + colour.lower())
+
+        app.last_page = app.current_page
 
     def _title_changed_cb(self, view, frame):
         title = self.get_title()
@@ -1621,6 +1630,7 @@ class WelcomeApp(object):
     def __init__(self):
         # Set variables
         self.current_page = ""
+        self.last_page = ""
         self.webkit = None
         self.load_app()
 
@@ -1653,7 +1663,7 @@ class WelcomeApp(object):
             title = string.welcome
             width = 800
             height = 552
-            load_file = 'splash.html'
+            load_file = 'index.html'
 
         # Enlarge the window should the text be any larger.
         if systemstate.zoom_level == 1.1:

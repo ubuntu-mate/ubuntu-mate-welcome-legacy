@@ -13,21 +13,21 @@
   <div id="wrapper">
     <div class="container-fluid">
       <div id="navigation">
-        <button id="menu-button" class="navigation-button" onclick="smoothPageFade('index.html')" style="display:none">
+        <button id="menu-button" class="navigation-button animated fadeIn" onclick="smoothPageFade('index.html')">
           <span class="fa fa-chevron-left"></span>
         </button>
-        <div id="navigation-title" style="display:none">&zwnj;Get Involved&zwnj;</div>
+        <div id="navigation-title" class="animated fadeIn">&zwnj;Get Involved&zwnj;</div>
         <div id="navigation-right"></div>
       </div>
     </div>
-    <div id="content" class="container-fluid entire-page-fade" hidden>
+    <div id="content" class="container-fluid entire-page-fade">
       <div class="row-fluid">
         <div class="span12">
           <h3>&zwnj;Development&zwnj;</h3>
           <p>&zwnj;This is where you can get involved with Ubuntu MATE and MATE Desktop development.&zwnj;</p>
         </div>
       </div>
-      <div class="alert alert-warning offline">
+      <div class="alert alert-warning offline" style="display:none">
         <h5>&zwnj;It appears you are not connected to the Internet. Please check your connection to access this content.&zwnj;</h5>
         <div id="reconnectFailed" hidden><p><span class="fa fa-warning"></span> &zwnj;Sorry, Welcome was unable to establish a connection.&zwnj;</p></div>
         <button onclick="reconnectRetry();" class="btn btn-warning"> <span class="fa fa-refresh"></span> &zwnj;Retry&zwnj;</button>

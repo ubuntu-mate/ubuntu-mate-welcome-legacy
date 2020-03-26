@@ -24,28 +24,31 @@ function cmd(instruction) {
 // Global across all pages
 $(window).load(function() {
     // Smoothly fade into the page.
-    $('.entire-page-fade').jAnimate('pageIn');
-    $('.entire-page-fade').show();
-    $('#navigation-right').hide();
-    $('#navigation-right').fadeIn('fast');
+    $('.entire-page-fade').show().addClass("in");
 });
 
 // Smoothly fade out of the page.
 function smoothPageFade(target_href) {
-    $('.entire-page-fade').jAnimate('pageOut');
-    $('#navigation-title').fadeOut('fast');
-    $('#navigation-right').fadeOut('fast');
-    $('.navigation-button').fadeOut('fast');
+    $('.entire-page-fade').addClass("out");
+    $('#navigation-title').addClass("animated fadeOut");
+    $('#navigation-right').addClass("animated fadeOut");
+    $('.navigation-button').addClass("animated fadeOut");
     setTimeout(function(){
         window.location.href = target_href;
-    }, 260);
+    }, 350);
+
+    if (window.location.href.endsWith("index.html") == true) {
+        $("#main-menu-logo").addClass("exit");
+        $(".btn-block").removeClass("animated fadeIn");
+        $("#" + target_href.replace(".html","")).addClass("button-enter");
+    }
 }
 
 // Back to the top function
 function backToTop() {
     $("#content").animate({
         scrollTop: 0
-    }, 400);
+    }, 300);
     $('#scroll-top').addClass('active');
     return false;
 };
@@ -56,9 +59,9 @@ $(document).ready(function() {
   if ( current_page != 'splash-boutique.html' ) {
     if ( current_page != 'software.html') {
       $('#menu-button').show();
-      $('#menu-button').jAnimateOnce('pageIn');
+      $('#menu-button').jAnimateOnce('fadeIn');
       $('#navigation-title').show();
-      $('#navigation-title').jAnimateOnce('pageIn');
+      $('#navigation-title').jAnimateOnce('fadeIn');
     }
   }
 
@@ -134,7 +137,8 @@ if ( current_page == 'index.html' ) {
   $('#mate-blur').show();
 
   function exitMenu(target) {
-      $("#open-at-start").fadeOut();
+      $("#open-at-start").fadeOut('fast');
+
       // Show a "wait" cursor for the Software page, as there is a slight delay.
       if ( target == 'software.html' ) {
           setCursorBusy()
@@ -152,7 +156,7 @@ if ( current_page == 'index.html' ) {
   // Sssh... You found the little secrets! ;)
   //// Logo starts to animate after a minute.
     setTimeout(function(){
-      $('#main-menu-logo').jAnimateOnce('tada');
+      $('#main-menu-logo').removeClass('enter').jAnimateOnce('tada');
     }, 50000);
 
     setTimeout(function(){

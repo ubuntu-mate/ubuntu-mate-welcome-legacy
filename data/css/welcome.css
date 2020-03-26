@@ -459,39 +459,49 @@ hr.soften-light {
 /************************
 ** Page Transitions
 *************************/
-/* Page Entry - Glide In */
-@-webkit-keyframes pageIn {
-  0% {
+/* Main Menu */
+.button-return {
+    animation: button-return 0.3s ease-in-out forwards;
+}
+
+@keyframes button-return {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.button-enter {
+    animation: button-enter 0.3s linear forwards;
+    z-index: 1;
+}
+
+@keyframes button-enter {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(4);
+    }
+}
+
+.entire-page-fade {
+    transition: opacity 0.3s;
     opacity: 0;
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-  }
-
-  50% {
-    opacity: 1;
-  }
 }
 
-.pageIn {
-  -webkit-animation-name: pageIn;
-  -webkit-animation-duration: 0.5s;
+.entire-page-fade.in {
+    opacity: 1;
 }
 
-/* Page Exit - Glide Out */
-@-webkit-keyframes pageOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
+.entire-page-fade.out {
     opacity: 0;
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-  }
 }
 
-.pageOut {
-  -webkit-animation-name: pageOut;
-  -webkit-animation-duration: 0.25s;
-}
 
 /************************
  * Introduction Page
@@ -565,7 +575,6 @@ hr.soften-light {
     -webkit-transform: translate(0px, 50px);
   }
 }
-
 
 /************************
  * Software Page / Boutique
@@ -778,6 +787,34 @@ blockquote.terminal {
   position: absolute;
   z-index: -1;
   pointer-events: none;
+}
+
+.main-menu-logo.enter {
+  animation: logo-enter 0.5s cubic-bezier(.15,.45,.07,.85) forwards;
+}
+
+.main-menu-logo.exit {
+  animation: logo-exit 0.3s cubic-bezier(.15,.45,.07,.85) forwards;
+}
+
+@keyframes logo-enter {
+    0% {
+        transform: scale(0.8) rotate(-20deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes logo-exit {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .main-menu-textbox {
@@ -1181,6 +1218,7 @@ blockquote.terminal {
   text-align: center;
   vertical-align: middle;
   z-index: 100;
+  cursor: busy;
 }
 
 #boutique-loading > p {
