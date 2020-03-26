@@ -442,17 +442,10 @@ if ( current_page == 'software.html' ) {
 if ( current_page == 'splash.html' ) {
 
   // Scenes - Delayed elements to appear
-  $(document).ready(function()
-  {
-    // "Quicker" splash transition from white
-    $('body').show();
-    $('#white-start').fadeOut(300);
-    $('#header').show().jAnimateOnce('fadeInDown');
-    $('#footer').show().jAnimateOnce('fadeInUp');
-    $('.backdrop-simple.splash').addClass('splashIn');
+  $(document).ready(function() {
     setTimeout(function(){
         window.location.href = splashNextPage + '.html';
-    }, 1100);
+    }, 100);
   });
 
   // In live sessions, show a "Hello" page instead to introduce ourselves.

@@ -1367,7 +1367,9 @@ class AppView(WebKit2.WebView):
             dbg.stdout('Welcome', 'Page: ' + app.current_page + '\n      ' + uri, 2, 4)
             self.refresh_gtk_colors()
             self._push_config()
-            app._window.show_all()
+
+            if app.current_page != 'splash.html':
+                app._window.show_all()
 
     def _context_menu_cb(self, webview, menu, event, htr, user_data=None):
         # Disable context menu.
@@ -1663,7 +1665,7 @@ class WelcomeApp(object):
             title = string.welcome
             width = 800
             height = 552
-            load_file = 'index.html'
+            load_file = 'splash.html'
 
         # Enlarge the window should the text be any larger.
         if systemstate.zoom_level == 1.1:
