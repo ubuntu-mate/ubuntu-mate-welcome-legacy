@@ -35,7 +35,7 @@ function smoothPageFade(target_href) {
     $('.navigation-button').addClass("animated fadeOut");
     setTimeout(function(){
         window.location.href = target_href;
-    }, 350);
+    }, 305);
 
     if (window.location.href.endsWith("index.html") == true) {
         $("#main-menu-logo").addClass("exit");
@@ -80,8 +80,8 @@ $(document).ready(function() {
 
 // Smoothly fade between two elements (by ID)
 function smoothFade(from, to) {
-  $(from).fadeOut();
-  setTimeout(function(){ $(to).fadeIn(); }, 400 );
+  $(from).fadeOut(150);
+  setTimeout(function(){ $(to).fadeIn(150); }, 151 );
 }
 
 // Smoothly fade the navigation sub-title
@@ -229,19 +229,19 @@ if ( current_page == 'software.html' ) {
         if ( next == '#Misc' ) {
           smoothFade('#non-free-toggle','#show-misc-cmds');
         } else if ( hideCheckmarks == true ) {
-          $('#non-free-toggle').fadeOut();
-          $('#show-misc-cmds').fadeOut();
+          $('#non-free-toggle').fadeOut(300);
+          $('#show-misc-cmds').fadeOut(300);
         } else {
           smoothFade('#show-misc-cmds','#non-free-toggle');
         }
 
         // Animate out, then animate in next category.
-        $(now).fadeOut();
+        $(now).fadeOut(150);
         setTimeout(function() {
           $(now).hide();
           currentCategory = next;
-          $(next).fadeIn();
-        }, 250);
+          $(next).fadeIn(150);
+        }, 151);
 
         // Show all apps again, in case the previous page was filtered.
         $('.app-entry').fadeIn();
@@ -260,7 +260,7 @@ if ( current_page == 'software.html' ) {
     // A category tab is clicked.
     function changeCategoryTab(id,humanText) {
       switchCategory(currentCategory, id, humanText);
-      $('#categoryHover').fadeOut()
+      $('#categoryHover').fadeOut(300)
     }
 
     function jumpOneClickServers(appno) {
@@ -362,7 +362,7 @@ if ( current_page == 'software.html' ) {
       } else {
         // Hide the terminal commands.
         showMiscCommands = false;
-        $('.miscCmd').fadeOut();
+        $('.miscCmd').fadeOut(300);
         $("#MiscCheckbox").addClass("fa-square");
         $("#MiscCheckbox").removeClass("fa-check-square");
       }
@@ -375,8 +375,8 @@ if ( current_page == 'software.html' ) {
     // Toggling right navigation "tabs"
     function resetNavTabs() {
       $('#tabs li').removeClass('active');
-      $('#non-free-toggle').fadeOut();
-      $('#show-misc-cmds').fadeOut();
+      $('#non-free-toggle').fadeOut(300);
+      $('#show-misc-cmds').fadeOut(300);
     }
 
     // Toggling to show the Boutique News
@@ -429,7 +429,7 @@ if ( current_page == 'software.html' ) {
         $('#navigation-right').addClass('disabled');
         $('#category-tabs').addClass('disabled');
         smoothFade("#queue-options","#queue-busy");
-        $('#queue-error').fadeOut();
+        $('#queue-error').fadeOut(300);
         $('.drop').hide();
         setTimeout(function() {
             cmd("queue-start");
@@ -446,7 +446,7 @@ if ( current_page == 'splash.html' ) {
   {
     // "Quicker" splash transition from white
     $('body').show();
-    $('#white-start').fadeOut();
+    $('#white-start').fadeOut(300);
     $('#header').show().jAnimateOnce('fadeInDown');
     $('#footer').show().jAnimateOnce('fadeInUp');
     $('.backdrop-simple.splash').addClass('splashIn');
@@ -506,15 +506,15 @@ if ( current_page == 'gettingstarted.html' ) {
     }
 
     // Smoothly fade between topics
-    $('.topicContents').fadeOut();
-    $('#current-topic').fadeOut();
-    $('#current-icon').fadeOut();
+    $('.topicContents').fadeOut(150);
+    $('#current-topic').fadeOut(150);
+    $('#current-icon').fadeOut(150);
 
     setTimeout(function() {
       $('#current-topic').html(title);
-      $('#current-topic').fadeIn();
-      $('#current-icon').fadeIn();
-      $(id).fadeIn();
+      $('#current-topic').fadeIn(150);
+      $('#current-icon').fadeIn(150);
+      $(id).fadeIn(150);
 
       $("#current-icon").removeClass();
       $("#current-icon").addClass("fa").addClass(icon);
@@ -543,7 +543,7 @@ if ( current_page == 'gettingstarted.html' ) {
           InitSystemInfo();
         }
       }
-    }, 500);
+    }, 151);
   }
 
   // On page entry, animate the topic subheading.
@@ -560,9 +560,9 @@ if ( current_page == 'gettingstarted.html' ) {
   $('.dualBootWin').hide();
   $('#showDualBootWin').click(function() {
     if ( $(this).prop('checked') == true ) {
-      $('.dualBootWin').fadeIn();
+      $('.dualBootWin').fadeIn(300);
     } else {
-      $('.dualBootWin').fadeOut();
+      $('.dualBootWin').fadeOut(300);
     }
   });
 

@@ -574,6 +574,7 @@ EDITED: Non-WebKit lines are filtered out.
 
 .fadeIn {
   -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 0.3s;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -716,6 +717,7 @@ EDITED: Non-WebKit lines are filtered out.
 
 .fadeOut {
   -webkit-animation-name: fadeOut;
+  -webkit-animation-duration: 0.3s;
 }
 
 @-webkit-keyframes fadeOutDown {
