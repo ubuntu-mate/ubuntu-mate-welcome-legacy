@@ -1192,6 +1192,10 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'polychromatic')
             dynamicapps.update_app_status(self, 'openrazer')
 
+            # Hide keyboard shortcuts not avaliable for the current release.
+            app.update_page(".19-10-onwards", "hide")
+            if float(systemstate.os_version) >= 19.10:
+                app.update_page(".19-10-onwards", "show")
         ### Software Page ###
         if app.current_page == 'software.html':
             dynamicapps.toggle_non_free()
