@@ -1,45 +1,78 @@
+# Translators:
+# peter, 2018
+# tylnesh <kohutek.michal@gmail.com>, 2018
+# Vladimir Frano <vlado@eavf.eu>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-04-22 19:37+0000\n"
+"Last-Translator: Vladimir Frano <vlado@eavf.eu>, 2019\n"
 "Language-Team: Slovak (https://www.transifex.com/ubuntu-mate/teams/61536/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: telemetry.html15, 26
+#: telemetry.html16, 28
 msgid "Help Improve Ubuntu MATE"
-msgstr ""
+msgstr "Pomôžte vylepšiť Ubuntu MATE"
 
-#: telemetry.html:28
+#: telemetry.html:30
 msgid ""
 "Ubuntu MATE can submit anonymised system information that will help the "
 "developers better understand what devices Ubuntu MATE is being used on. This"
 " data will be transmitted one time only and includes basic system components"
 " but nothing that is uniquely identifiable."
 msgstr ""
-
-#: telemetry.html:34
-msgid "Would you like to send this information?"
-msgstr ""
+"Ubuntu MATE môže odoslať anonymizované informácie, ktoré pomôžu vývojárom "
+"lepšie pochopiť na akých zariadeniach je Ubuntu MATE používané. Tieto údaje "
+"budú odoslané iba jeden raz a zahŕňajú základné systémové komponenty avšak "
+"nič, čo by bolo jedinečne identifikovateľné."
 
 #: telemetry.html:36
+msgid "Would you like to send this information?"
+msgstr "Prajete si poslať tieto informácie?"
+
+#: telemetry.html:38
 msgid "Preview data"
-msgstr ""
+msgstr "Prezrieť údaje"
 
-#: telemetry.html:37
+#: telemetry.html:39
 msgid "This is the data that will be sent:"
-msgstr ""
+msgstr "Tieto dáta budú poslané :"
 
-#: telemetry.html:41
+#: telemetry.html:43
 msgid "Send Telemetry"
-msgstr ""
+msgstr "Poslať telemetriu"
 
-#: telemetry.html:42
+#: telemetry.html:44
 msgid "Do Not Send"
+msgstr "Neposlať"
+
+#: telemetry.html:47
+msgid "Thank you!"
+msgstr "Ďakujeme!"
+
+#: telemetry.html:49
+msgid ""
+"This data was successfully sent and will be used to improve future "
+"installations."
 msgstr ""
+"Informácie boli úspešne poslané a budú využité na zlepšenie budúcich "
+"inštalácií."
+
+#: telemetry.html51, 58
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: telemetry.html:54
+msgid "Communication Error"
+msgstr "Chyba v komunikácii"
+
+#: telemetry.html:56
+msgid "The server couldn't be contacted at this time. Please try again later."
+msgstr "Server nemôže byť kontaktovaný v tomto čase. Skúste neskôr."

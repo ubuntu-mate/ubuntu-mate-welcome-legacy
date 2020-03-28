@@ -1,112 +1,128 @@
+# Translators:
+# Vladimir Frano <vlado@eavf.eu>, 2019
+# peter, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-04-17 18:35+0000\n"
+"Last-Translator: peter, 2019\n"
 "Language-Team: Slovak (https://www.transifex.com/ubuntu-mate/teams/61536/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: panel-selection.html:18
+#: panel-selection.html:19
 msgid "Desktop Layout"
-msgstr ""
-
-#: panel-selection.html:26
-msgid "A desktop for everyone's tastes"
-msgstr ""
+msgstr "Dizajn rozloženia plochy"
 
 #: panel-selection.html:27
+msgid "A desktop for everyone's tastes"
+msgstr "Desktop na každú chuť "
+
+#: panel-selection.html:28
 msgid ""
 "Ubuntu MATE offers a wide range of customisation options, including the "
 "ability to choose a desktop layout that most suits your workflow. You can "
 "choose one as a starting point and make further changes to it later."
 msgstr ""
+"Ubuntu MATE ponúka širokú škálu nastaviteľných možností, vrátane schopnosti "
+"vybrať dizajnu rozloženia desktop, ktorý najvic vyhovuje Vášim pracovným "
+"postupom. Môžete si vybrať jeden ako počiatočný bod a tento neskôr zmenami "
+"upravovať."
 
-#: panel-selection.html:32
+#: panel-selection.html:33
 msgid ""
 "The default experience, a familiar two panel layout with a searchable menu"
 msgstr ""
+"Východzí zážitok, známe rozloženie dvoch panelov s prehľadávateľnou ponukou"
 
-#: panel-selection.html34, 62, 67
+#: panel-selection.html35, 63, 68
 msgid "Ubuntu MATE optimised"
-msgstr ""
+msgstr "Ubuntu MATE optimalizovaný"
 
-#: panel-selection.html:37
+#: panel-selection.html:38
 msgid ""
 "Application dock, searchable launcher and global menus similar to Unity 7"
 msgstr ""
+"Aplikačný dock, prehľadávateľný spúšťač a globálne ponuky podobné Unity 7"
 
-#: panel-selection.html:39
+#: panel-selection.html:40
 msgid "Inspired by Ubuntu Unity"
-msgstr ""
+msgstr "Inšpirovaný z Ubuntu Unity"
 
-#: panel-selection.html:42
+#: panel-selection.html:43
 msgid ""
 "Single bottom panel with a searchable menu, similar to the taskbar in "
 "Windows"
 msgstr ""
+"Jeden spodný panel s prehľadávateľnou ponukou, podobné hlavnému menu Windows"
 
-#: panel-selection.html:44
+#: panel-selection.html:45
 msgid "Most familiar for Windows users"
-msgstr ""
+msgstr "Najznámejšia pre Windows užívateľov"
 
-#: panel-selection.html:47
+#: panel-selection.html:48
 msgid ""
 "A dock and top panel with searchable launcher and global menus similar to "
 "macOS"
 msgstr ""
+"Dock a horný panel s prehľadávateľnými spúštačami a globálnymi ponukami "
+"macOS"
 
-#: panel-selection.html:49
+#: panel-selection.html:50
 msgid "Most familiar for macOS users"
-msgstr ""
+msgstr "Najznámejšia pre macOS užívateľov"
 
-#: panel-selection.html:55
+#: panel-selection.html:56
 msgid ""
 "Two panel layout featuring the iconic 'Applications, Places, System' menu"
-msgstr ""
+msgstr "Dvojplanelové usporiadanie s ponukou \"Aplikácie, Miesta, Systém\""
 
-#: panel-selection.html:57
+#: panel-selection.html:58
 msgid "Most familiar for GNOME 2 users"
-msgstr ""
+msgstr "Najznámejšia pre GNOME 2 užívateľov"
 
-#: panel-selection.html:60
+#: panel-selection.html:61
 msgid ""
 "Modernised two panel layout featuring a searchable menu with global menus."
 msgstr ""
+"Modernizované dvojpanelové usporiadanie s prehľadávateľnou ponukou a "
+"globálnymi ponukami."
 
-#: panel-selection.html:65
+#: panel-selection.html:66
 msgid "A compact, single top panel layout, ideal for small screens"
 msgstr ""
+"Kompatkné usporiadanie s jedným horným panelom, ideálne pre malé obrazovky"
 
-#: panel-selection.html:70
+#: panel-selection.html:71
 msgid "A dock and top panel with a searchable menu"
-msgstr ""
+msgstr "Dock a horný panel s prehľadávateľnou ponukou"
 
-#: panel-selection.html:72
+#: panel-selection.html:73
 msgid "Inspired by elementaryOS"
-msgstr ""
+msgstr "Inšpirované z elementaryOS"
 
-#: panel-selection.html:79
+#: panel-selection.html:80
 msgid "Show More"
-msgstr ""
+msgstr "Zobraz viac"
 
-#: panel-selection.html:84
+#: panel-selection.html:85
 msgid "Panel layouts can be changed later in"
-msgstr ""
+msgstr "Rozloženie panelka je možné zmeniť neskôr v "
 
-#: panel-selection.html:84
+#: panel-selection.html:85
 msgid "MATE Tweak"
-msgstr ""
-
-#: panel-selection.html:98
-msgid "Keep Existing Settings"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: panel-selection.html:99
+msgid "Keep Existing Settings"
+msgstr "Zachovaj existujúce nastavenia"
+
+#: panel-selection.html:100
 msgid "Use These Settings"
-msgstr ""
+msgstr "Použi tieto nastavenia"

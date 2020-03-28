@@ -1,11 +1,12 @@
 # 
 # Translators:
+# Pieter Aerts <pieter.info@telenet.be>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2019-09-24 20:57+0000\n"
-"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
+"PO-Revision-Date: 2020-03-19 14:58+0000\n"
+"Last-Translator: Pieter Aerts <pieter.info@telenet.be>\n"
 "Language-Team: Dutch (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,177 +15,177 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: rpi.html:18
+#: rpi.html:19
 msgid "Raspberry Pi Information"
 msgstr "Raspberry Pi Informatie"
 
-#: rpi.html:26
-msgid "A few important notes."
-msgstr ""
-
 #: rpi.html:27
+msgid "A few important notes."
+msgstr "Enkele belangrijke opmerkingen."
+
+#: rpi.html:28
 msgid ""
 "While the experience is visually similar to the desktop edition of Ubuntu "
 "MATE, the underlying architecture is very different. This page will "
 "highlight a few of these differences."
-msgstr ""
-
-#: rpi.html:33
-msgid "Incompatible Software"
-msgstr ""
+msgstr "Hoewel de ervaring visueel vergelijkbaar is met de desktopeditie van Ubuntu MATE, is de onderliggende architectuur heel anders. Op deze pagina worden enkele van deze verschillen belicht."
 
 #: rpi.html:34
+msgid "Incompatible Software"
+msgstr "Incompatibele software"
+
+#: rpi.html:35
 msgid ""
 "Some packages available for Ubuntu have only been written and compiled for "
 "the"
-msgstr ""
+msgstr "Sommige pakketten die beschikbaar zijn voor Ubuntu zijn alleen geschreven en samengesteld voor de"
 
-#: rpi.html35, 37
+#: rpi.html36, 38
 msgid "or"
 msgstr "of"
 
-#: rpi.html:36
-msgid "architecture. As the Raspberry Pi is based on"
-msgstr ""
-
 #: rpi.html:37
+msgid "architecture. As the Raspberry Pi is based on"
+msgstr "architectuur. Zoals de Raspberry Pi op is gebaseerd"
+
+#: rpi.html:38
 msgid ""
 "these packages will not be available to install. Depending on the package, "
 "it may be possible to compile these yourself or use an existing port."
-msgstr ""
+msgstr "deze pakketten kunnen niet worden geïnstalleerd. Afhankelijk van het pakket is het mogelijk om deze zelf samen te stellen of een bestaande poort te gebruiken."
 
-#: rpi.html:44
+#: rpi.html:45
 msgid "Incompatible:"
-msgstr ""
+msgstr "Onverenigbaar:"
 
-#: rpi.html:52
+#: rpi.html:53
 msgid "Compatible:"
-msgstr ""
+msgstr "Compatibel:"
 
-#: rpi.html:64
+#: rpi.html:65
 msgid "Upgrades"
-msgstr ""
-
-#: rpi.html:65
-msgid "Please"
-msgstr ""
-
-#: rpi.html:65
-msgid "do not"
-msgstr ""
-
-#: rpi.html:65
-msgid "attempt to"
-msgstr ""
-
-#: rpi.html:65
-msgid "upgrade"
-msgstr ""
+msgstr "Upgrades"
 
 #: rpi.html:66
+msgid "Please"
+msgstr "Alstublieft"
+
+#: rpi.html:66
+msgid "do not"
+msgstr "Niet doen"
+
+#: rpi.html:66
+msgid "attempt to"
+msgstr "proberen"
+
+#: rpi.html:66
+msgid "upgrade"
+msgstr "upgrade"
+
+#: rpi.html:67
 msgid ""
 "your Raspberry Pi to a newer version of the distribution (for instance, from"
 " 16.04 to 18.04), as the underlying kernel is"
-msgstr ""
+msgstr "uw Raspberry Pi naar een nieuwere versie van de distributie (bijvoorbeeld van 16.04 tot 18.04), zoals de onderliggende kernel"
 
-#: rpi.html:68
+#: rpi.html:69
 msgid "not designed"
-msgstr ""
+msgstr "niet ontworpen"
 
-#: rpi.html:68
+#: rpi.html:69
 msgid ""
 "to do this. This process will take a very long time to complete while "
 "potentially filling up your SD card to a point where there is no more free "
 "space."
-msgstr ""
+msgstr "om dit te doen. Dit proces kan erg lang duren vooraleer het is voltooid terwijl het mogelijk uw SD kaart volledig vult waardoor er geen vrije ruimte meer beschikbaar is."
 
-#: rpi.html:73
+#: rpi.html:74
 msgid ""
 "It is safer to back up all of your data you wish to keep and re-flash the "
 "card with the new image. Attempting to upgrade may corrupt the SD card, "
 "prevent your installation from booting, or cause severe glitches."
-msgstr ""
+msgstr "Het is veiliger om een back-up te maken van al uw gegevens die u wil bewaren en de kaart opnieuw te flashen met de nieuwe image. Als u probeert te upgraden, kan de SD kaart beschadigd raken en uw installatie mogelijk niet meer opstarten of kunnen er ernstige storingen optreden."
 
-#: rpi.html:77
+#: rpi.html:78
 msgid "You can, however, install"
-msgstr ""
+msgstr "U kunt echter wel installeren"
 
-#: rpi.html:77
+#: rpi.html:78
 msgid "regular updates"
-msgstr ""
+msgstr "regelmatige updates"
 
-#: rpi.html:77
+#: rpi.html:78
 msgid "via the"
-msgstr ""
+msgstr "via de"
 
-#: rpi.html:79
+#: rpi.html:80
 msgid "Software Updater"
-msgstr ""
+msgstr "Software Updater"
 
-#: rpi.html:79
+#: rpi.html:80
 msgid "utility for your installed software."
-msgstr ""
+msgstr "hulpprogramma voor uw geïnstalleerde software."
 
-#: rpi.html:82
+#: rpi.html:83
 msgid "Hardware Acceleration"
-msgstr ""
+msgstr "Hardware acceleratie"
 
-#: rpi.html:83
+#: rpi.html:84
 msgid "For playing videos,"
-msgstr ""
+msgstr "Voor het afspelen van video's,"
 
-#: rpi.html:83
+#: rpi.html:84
 msgid ""
 "will be able to do this and is pre-installed. If you are looking to play "
 "MPEG-2 or VC-1 video files then"
-msgstr ""
-
-#: rpi.html:85
-msgid "you will need MPEG-2 and/or VC-1 licenses from the"
-msgstr ""
+msgstr "kan dit doen en is vooraf geïnstalleerd. Als u MPEG-2- of VC-1 videobestanden wilt afspelen, dan"
 
 #: rpi.html:86
+msgid "you will need MPEG-2 and/or VC-1 licenses from the"
+msgstr "je hebt MPEG-2 en/of VC-1 licenties nodig van de"
+
+#: rpi.html:87
 msgid "Raspberry Pi Store."
-msgstr ""
+msgstr "Raspberry Pi winkel."
 
-#: rpi.html:89
+#: rpi.html:90
 msgid "Enable/Disable X11"
-msgstr ""
+msgstr "Inschakelen/uitschakelen X11"
 
-#: rpi.html:90
+#: rpi.html:91
 msgid "For users who are looking to create their own headless"
-msgstr ""
+msgstr "Voor gebruikers die hun eigen headless willen maken"
 
-#: rpi.html:90
+#: rpi.html:91
 msgid "\"server\""
-msgstr ""
+msgstr "\"server\""
 
-#: rpi.html:90
+#: rpi.html:91
 msgid ""
 "using Ubuntu MATE, there is a utility for toggling the graphical "
 "environment."
-msgstr ""
+msgstr "met Ubuntu MATE is er een hulpprogramma om de grafische omgeving te wisselen."
 
-#: rpi.html:93
+#: rpi.html:94
 msgid "To enable/disable X11 and login via the console:"
-msgstr ""
+msgstr "Om X11 in/uit te schakelen en in te loggen via de console:"
 
-#: rpi.html:97
+#: rpi.html:98
 msgid ""
 "Choose the \"Desktop / CLI\" in the Boot Options. Changes take effect after "
 "a reboot."
-msgstr ""
-
-#: rpi.html:100
-msgid "Release Notes"
-msgstr ""
+msgstr "Kies de \"Desktop / CLI\" in de opstartopties. Wijzigingen worden van kracht na een herstart."
 
 #: rpi.html:101
+msgid "Release Notes"
+msgstr "Release opmerkingen"
+
+#: rpi.html:102
 msgid ""
 "To read up on release notes and changes by version, visit the Ubuntu MATE "
 "website."
-msgstr ""
+msgstr "Bezoek de Ubuntu MATE website voor meer informatie over release opmerkingen en wijzigingen per versie."
 
-#: rpi.html:108
+#: rpi.html:109
 msgid "Raspberry Pi is a trademark of the"
-msgstr ""
+msgstr "Raspberry Pi is een handelsmerk van de"

@@ -1,10 +1,12 @@
 # Translators:
+# Edsger Lin <edsgerlin@gmail.com>, 2018
 # biqiu-ssw <shenshuaiwen@gmail.com>, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-04-22 19:37+0000\n"
 "Last-Translator: biqiu-ssw <shenshuaiwen@gmail.com>, 2018\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/ubuntu-mate/teams/61536/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: telemetry.html15, 26
+#: telemetry.html16, 28
 msgid "Help Improve Ubuntu MATE"
 msgstr "帮助完善 Ubuntu MATE"
 
-#: telemetry.html:28
+#: telemetry.html:30
 msgid ""
 "Ubuntu MATE can submit anonymised system information that will help the "
 "developers better understand what devices Ubuntu MATE is being used on. This"
@@ -28,22 +30,44 @@ msgstr ""
 "Ubuntu MATE 会收集一些帮助开发人员更好的了解您的设备的Ubuntu MATE "
 "常用匿名信息。这些数据只包含一些系统组件信息而完全不包含唯一性个人信息，且只会被收集一次。"
 
-#: telemetry.html:34
+#: telemetry.html:36
 msgid "Would you like to send this information?"
 msgstr "您是否愿意发送该信息？"
 
-#: telemetry.html:36
+#: telemetry.html:38
 msgid "Preview data"
 msgstr "预览信息"
 
-#: telemetry.html:37
+#: telemetry.html:39
 msgid "This is the data that will be sent:"
 msgstr "这些信息将会被发送："
 
-#: telemetry.html:41
+#: telemetry.html:43
 msgid "Send Telemetry"
 msgstr "发送反馈"
 
-#: telemetry.html:42
+#: telemetry.html:44
 msgid "Do Not Send"
 msgstr "不要发送"
+
+#: telemetry.html:47
+msgid "Thank you!"
+msgstr "谢谢你！"
+
+#: telemetry.html:49
+msgid ""
+"This data was successfully sent and will be used to improve future "
+"installations."
+msgstr "用于改善安装的信息已经发送完成。"
+
+#: telemetry.html51, 58
+msgid "Continue"
+msgstr "继续"
+
+#: telemetry.html:54
+msgid "Communication Error"
+msgstr "连接失败"
+
+#: telemetry.html:56
+msgid "The server couldn't be contacted at this time. Please try again later."
+msgstr "当前服务器不可用，请稍后尝试。"

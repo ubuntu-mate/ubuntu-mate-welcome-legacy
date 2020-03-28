@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Ludvig Nybogård <ludvig@nybogard.nu>, 2018-2019
+# Ludvig Nybogård <ludvig@nybogard.nu>, 2018-2020
 # Marcus Larborg, 2016-2017
 # Marcus Larborg, 2017
 # Tobias Lekare <lekare@linux.com>, 2017
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2019-12-17 15:55+0000\n"
-"Last-Translator: Ludvig Nybogård <ludvig@nybogard.nu>\n"
+"PO-Revision-Date: 2020-03-28 14:21+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +62,7 @@ msgstr "Installation"
 msgid "Install Now"
 msgstr "Installera Nu"
 
-#: gettingstarted.html68, 1641
+#: gettingstarted.html68, 1460
 msgid "Utilities"
 msgstr "Verktyg"
 
@@ -110,7 +110,7 @@ msgstr "Tangentbordsgenvägar"
 msgid "Troubleshooting"
 msgstr "Felsökning"
 
-#: gettingstarted.html123, 1628
+#: gettingstarted.html123, 1447
 msgid "System Specifications"
 msgstr "Systemspecifikationer"
 
@@ -149,8 +149,8 @@ msgid "Core 2 Duo 1.6 gigahertz (GHz)"
 msgstr "Core 2 Duo 1,6 Gigahertz (GHz)"
 
 #: gettingstarted.html:149
-msgid "2 gigabytes (GB) of RAM"
-msgstr "2 Gigabyte (GB) med RAM"
+msgid "4 gigabytes (GB) of RAM"
+msgstr ""
 
 #: gettingstarted.html:150
 msgid "16 gigabytes (GB) of disk space"
@@ -162,7 +162,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Operativsystemet kommer att köras mycket mer effektivt om datorn uppfyller eller överträffar de rekommenderade kraven."
 
-#: gettingstarted.html158, 1631
+#: gettingstarted.html158, 1450
 msgid "What's inside my computer?"
 msgstr "Vad finns inuti datorn?"
 
@@ -420,7 +420,7 @@ msgstr "från kommandoraden för att kontrollera filsystemet för fel. Windows k
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Använd GParted eller installationens \"Anpassa\" alternativ."
 
-#: gettingstarted.html296, 1866
+#: gettingstarted.html296, 1685
 msgid "GParted"
 msgstr "Gparted"
 
@@ -432,7 +432,7 @@ msgstr "finns tillgänglig endast under live session."
 msgid "It is located under the"
 msgstr "Det ligger under"
 
-#: gettingstarted.html297, 423, 666, 1653
+#: gettingstarted.html297, 423, 666, 1472
 msgid "System"
 msgstr "System"
 
@@ -590,7 +590,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Nyare versioner av Windows har ett verktyg för att krympa NTFS-volym i Windows. Detta är en säkrare satsning om det är viktigt att Windows fortfarande kan boota på din dator medan du upplever Ubuntu MATE."
 
-#: gettingstarted.html346, 689, 711, 748, 1837, 1854, 1870, 1886, 1902, 1918
+#: gettingstarted.html346, 689, 711, 748, 1656, 1673, 1689, 1705, 1721, 1737
 msgid "Open"
 msgstr "Öppna"
 
@@ -731,7 +731,7 @@ msgid "Applying Changes..."
 msgstr "Tillämpar ändringar..."
 
 #: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
-#: 874, 1838, 1855, 1871, 1887, 1903, 1919
+#: 874, 1657, 1674, 1690, 1706, 1722, 1738
 msgid "Install"
 msgstr "Installera"
 
@@ -838,7 +838,7 @@ msgstr "kan hittas senare i"
 
 #: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
-msgstr "Kontrollcenter"
+msgstr "Kontrollpanel"
 
 #: gettingstarted.html:568
 msgid "Graphics"
@@ -1332,635 +1332,635 @@ msgstr "Vanliga programgenvägar"
 msgid "These shortcuts apply in most applications."
 msgstr "Dessa genvägar gäller i de flesta program."
 
-#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
-#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1168, 1252, 1268, 1278, 1288,
-#: 1300, 1373, 1384, 1400, 1410, 1426, 1442, 1456, 1470, 1488, 1498
+#: gettingstarted.html958, 964, 970, 976, 982, 988, 994, 1000, 1006, 1012,
+#: 1018, 1024, 1030, 1036, 1097, 1102, 1108, 1119, 1180, 1192, 1198, 1204,
+#: 1210, 1265, 1272, 1283, 1289, 1300, 1311, 1322, 1333, 1344, 1350
 msgid "Ctrl"
 msgstr "Ctrl"
 
-#: gettingstarted.html:962
+#: gettingstarted.html:960
 msgid "Copy the selected text/object"
 msgstr "Kopiera markerad text/objekt"
 
-#: gettingstarted.html:970
+#: gettingstarted.html:966
 msgid "Cut the selected text/object"
 msgstr "Klipp markerad text/objekt"
 
-#: gettingstarted.html:978
+#: gettingstarted.html:972
 msgid "Paste/insert the selected text/object"
 msgstr "Klistra in markerad text/objekt"
 
-#: gettingstarted.html:986
+#: gettingstarted.html:978
 msgid "Select all text"
 msgstr "Markera all text"
 
-#: gettingstarted.html:994
+#: gettingstarted.html:984
 msgid "Find and replace words"
 msgstr "Hitta och ersätta ord"
 
-#: gettingstarted.html:1002
+#: gettingstarted.html:990
 msgid "Make the selected text bold"
 msgstr "Gör den markerade texten fet"
 
-#: gettingstarted.html:1010
+#: gettingstarted.html:996
 msgid "Make the selected text italic"
 msgstr "Gör den markerade texten kursiv"
 
-#: gettingstarted.html:1018
+#: gettingstarted.html:1002
 msgid "Underline the selected text"
 msgstr "Stryka under den markerade texten"
 
-#: gettingstarted.html:1026
+#: gettingstarted.html:1008
 msgid "Open a new document or window"
 msgstr "Öppna ett nytt dokument eller fönster"
 
-#: gettingstarted.html:1034
+#: gettingstarted.html:1014
 msgid "Save the current document"
 msgstr "Spara det aktuella dokumentet"
 
-#: gettingstarted.html:1042
+#: gettingstarted.html:1020
 msgid "Open another document"
 msgstr "Öppna ett annat dokument"
 
-#: gettingstarted.html:1050
+#: gettingstarted.html:1026
 msgid "Print the current document"
 msgstr "Skriv ut det aktuella dokumentet"
 
-#: gettingstarted.html:1058
+#: gettingstarted.html:1032
 msgid "Undo the last change you made"
 msgstr "Ångra den senaste ändringen du gjort"
 
-#: gettingstarted.html1064, 1127, 1208, 1292, 1303, 1476, 1504, 1559
+#: gettingstarted.html1036, 1091, 1146, 1204, 1211, 1339, 1356, 1394
 msgid "Shift"
 msgstr "Shift"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1038
 msgid "Redo a change that you just undid"
 msgstr "Göra om en förändring som du just ångrat"
 
-#: gettingstarted.html:1074
+#: gettingstarted.html:1044
 msgid "Toggle the current application between full-screen and windowed"
 msgstr "Växla det aktuella programmet mellan fullskärm och fönsterläge"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1048
 msgid "Desktop shortcuts"
 msgstr "Skrivbordsgenvägar"
 
-#: gettingstarted.html:1079
+#: gettingstarted.html:1049
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
 msgstr "Det här avsnittet innehåller vanliga kortkommandon som du kan använda för att manövrera delar av skrivbordet."
 
-#: gettingstarted.html1085, 1160, 1174, 1182, 1190, 1198, 1216, 1226, 1392,
-#: 1418, 1434, 1448, 1462, 1480, 1508, 1541, 1549, 1557, 1567, 1575, 1583,
-#: 1591
+#: gettingstarted.html1055, 1114, 1124, 1128, 1134, 1140, 1152, 1158, 1278,
+#: 1295, 1306, 1317, 1328, 1339, 1356, 1382, 1388, 1394, 1400, 1406, 1412,
+#: 1418
 msgid "Super Key"
 msgstr "Super-tangenten"
 
-#: gettingstarted.html:1087
+#: gettingstarted.html:1057
 msgid "Activate Brisk Menu or MATE Menu launcher"
 msgstr "Aktiverar Brisk Meny eller MATE Meny startare"
 
-#: gettingstarted.html:1093
+#: gettingstarted.html:1063
 msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
 msgstr "Öppna Heads-Up Displayen (HUD), om den är aktiverad i MATE Tweak."
 
-#: gettingstarted.html:1101
+#: gettingstarted.html:1069
 msgid "Open the Applications menu"
 msgstr "Öppna Program menyn"
 
-#: gettingstarted.html:1109
+#: gettingstarted.html:1075
 msgid "Run an application by typing its name in the box which appears"
 msgstr "Köra ett program genom att skriva namnet i rutan som visas"
 
-#: gettingstarted.html:1113
+#: gettingstarted.html:1079
 msgid "Prt Sc"
 msgstr "Prt sc"
 
-#: gettingstarted.html:1115
+#: gettingstarted.html:1081
 msgid "Take a screenshot of the whole screen"
 msgstr "Ta en skärmdump av hela skärmen"
 
-#: gettingstarted.html:1123
+#: gettingstarted.html:1087
 msgid "Take a screenshot of the current window"
 msgstr "Ta en skärmdump av det aktuella fönstret"
 
-#: gettingstarted.html:1131
+#: gettingstarted.html:1093
 msgid "Take a screenshot of a selected area"
 msgstr "Ta ett skärmklipp av den markerade området"
 
-#: gettingstarted.html:1139
+#: gettingstarted.html:1097
 msgid "Delete"
 msgstr "Radera"
 
-#: gettingstarted.html:1141
+#: gettingstarted.html:1099
 msgid "Open the dialog box to shutdown, restart or suspend."
 msgstr "Öppna dialogrutan för att stänga av, starta om eller gå ner i viloläge."
 
-#: gettingstarted.html:1150
+#: gettingstarted.html:1104
 msgid "Toggles 'Show Desktop'."
 msgstr "Växlar \"Visa skrivbordet\"."
 
-#: gettingstarted.html:1164
+#: gettingstarted.html:1110
 msgid "Lock your screen."
 msgstr "Lås skärmen"
 
-#: gettingstarted.html:1178
+#: gettingstarted.html:1121
 msgid "Open a terminal."
 msgstr "Öppna en terminal"
 
-#: gettingstarted.html:1186
+#: gettingstarted.html:1130
 msgid "Open the file manager"
 msgstr "Öppna filhanteraren"
 
-#: gettingstarted.html:1194
+#: gettingstarted.html:1136
 msgid "Open Control Center"
 msgstr "Öppna kontrollpanelen"
 
-#: gettingstarted.html:1202
+#: gettingstarted.html:1142
 msgid "Open Search"
 msgstr "Öppna sökfönstret"
 
-#: gettingstarted.html:1206
+#: gettingstarted.html:1146
 msgid "CTRL"
 msgstr "Ctrl"
 
-#: gettingstarted.html:1212
+#: gettingstarted.html:1148
 msgid "Open System Monitor"
 msgstr "Öppna systemövervakaren"
 
-#: gettingstarted.html:1218
+#: gettingstarted.html:1152
 msgid "Pause"
 msgstr "Pause"
 
-#: gettingstarted.html:1220
+#: gettingstarted.html:1154
 msgid "Open System Information"
 msgstr "Öppna systeminformation"
 
-#: gettingstarted.html:1230
+#: gettingstarted.html:1160
 msgid "Screen reader enable/disable."
 msgstr "Skärmläsare aktivera/inaktivera."
 
-#: gettingstarted.html:1234
+#: gettingstarted.html:1164
 msgid "Window shortcuts"
 msgstr "Fönstergenvägar"
 
-#: gettingstarted.html:1239
+#: gettingstarted.html:1167
 msgid "Tab"
 msgstr "Tab"
 
-#: gettingstarted.html:1242
+#: gettingstarted.html:1170
 msgid "Switch between currently-open windows."
 msgstr "Växla mellan öppna fönster."
 
-#: gettingstarted.html:1244
+#: gettingstarted.html:1172
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
 msgstr "Tryck Alt + Tab och släpp sedan Tab (men fortsätt att hålla Alt)."
 
-#: gettingstarted.html1245, 1261
+#: gettingstarted.html1173, 1185
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
 msgstr "Tryck Tab upprepade gånger för att gå igenom listan över tillgängliga fönster som visas på skärmen."
 
-#: gettingstarted.html:1246
+#: gettingstarted.html:1174
 msgid "Release the Alt key to switch to the selected window."
 msgstr "Släpp Alt-tangenten för att växla till det valda fönstret."
 
-#: gettingstarted.html:1259
+#: gettingstarted.html:1183
 msgid "Switch between currently-open windows in all Workspaces."
 msgstr "Växla mellan öppna fönster i alla arbetsytor."
 
-#: gettingstarted.html:1262
+#: gettingstarted.html:1186
 msgid "Release the Ctrl and Alt keys to switch to the selected window."
 msgstr "Släpp Ctrl och Alt för att byta till det valda fönstret."
 
-#: gettingstarted.html1272, 1294, 1394, 1450, 1482
+#: gettingstarted.html1192, 1204, 1278, 1317, 1339
 msgid "Left"
 msgstr "Vänster"
 
-#: gettingstarted.html:1274
+#: gettingstarted.html:1194
 msgid "Switch to the previous workspace."
 msgstr "Växla till föregående arbetsyta."
 
-#: gettingstarted.html1282, 1305, 1420, 1464, 1510
+#: gettingstarted.html1198, 1211, 1295, 1328, 1356
 msgid "Right"
 msgstr "Höger"
 
-#: gettingstarted.html:1284
+#: gettingstarted.html:1200
 msgid "Switch to the next workspace."
 msgstr "Växla till nästa arbetsyta."
 
-#: gettingstarted.html:1296
+#: gettingstarted.html:1206
 msgid "Move the current window to the previous workspace."
 msgstr "Flytta det aktuella fönstret till föregående arbetsyta."
 
-#: gettingstarted.html:1307
+#: gettingstarted.html:1213
 msgid "Move the current window to the next workspace."
 msgstr "Flytta det aktuella fönstret till nästa arbetsyta."
 
-#: gettingstarted.html:1315
+#: gettingstarted.html:1219
 msgid "Closes window."
 msgstr "Stäng fönster."
 
-#: gettingstarted.html:1323
+#: gettingstarted.html:1225
 msgid "Returns window to 'normal' or previous size."
 msgstr "Återställer fönstret till \"normal\" eller tidigare storlek."
 
-#: gettingstarted.html:1331
+#: gettingstarted.html:1231
 msgid "Moves the current window (can be moved with mouse or keyboard)."
 msgstr "Flyttar det aktuella fönstret (kan flyttas med musen eller tangentbordet)."
 
-#: gettingstarted.html:1339
+#: gettingstarted.html:1237
 msgid "Resizes current window (again, can be moved with mouse or keyboard)."
 msgstr "Ändra storlek på aktuellt fönster (igen, kan flyttas med musen eller tangentbordet)."
 
-#: gettingstarted.html:1347
+#: gettingstarted.html:1243
 msgid "Minimizes current window."
 msgstr "Minimera aktuellt fönster."
 
-#: gettingstarted.html:1355
-msgid "Maximizes current window."
-msgstr "Maximera aktuellt fönster."
+#: gettingstarted.html:1249
+msgid "Maximize (or restore) current window."
+msgstr ""
 
-#: gettingstarted.html:1361
+#: gettingstarted.html:1255
 msgid "Pulldown Terminal, if enabled in MATE Tweak."
 msgstr "Rullgardinsterminal, om den är aktiverad i MATE Tweak."
 
-#: gettingstarted.html:1367
+#: gettingstarted.html:1259
 msgid "Space"
 msgstr "Space"
 
-#: gettingstarted.html:1369
+#: gettingstarted.html:1261
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
 msgstr "Visar fönstermenyn med alternativ såsom \"Alltid på topp\" och \"Minimera\" och \"Maximera\" och kommandon ovan."
 
-#: gettingstarted.html:1379
+#: gettingstarted.html:1267
 msgid "Toggle shaded state."
 msgstr "Aktivera skuggat läge."
 
-#: gettingstarted.html1388, 1404, 1414, 1430, 1446, 1460, 1474, 1492, 1502
+#: gettingstarted.html1272, 1283, 1289, 1300, 1311, 1322, 1333, 1344, 1350
 msgid "Numpad"
 msgstr "Numeriskt tangentbord"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1274
 msgid "Place window in top left corner of screen."
 msgstr "Placera fönster i övre vänstra hörnet på skärmen."
 
-#: gettingstarted.html:1406
+#: gettingstarted.html:1285
 msgid "Place window in top half of screen."
 msgstr "Placera fönster i övre halvan på skärmen."
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1291
 msgid "Place window in top right corner of screen."
 msgstr "Placera fönster i övre högra hörnet på skärmen."
 
-#: gettingstarted.html:1438
+#: gettingstarted.html:1302
 msgid "Center/Maximize the window in the middle of the screen."
 msgstr "Centrera/Maximera fönstret i mitten på skärmen."
 
-#: gettingstarted.html:1452
+#: gettingstarted.html:1313
 msgid "Place window to the left half of the screen."
 msgstr "Placera fönster i vänstra halvan av skärmen."
 
-#: gettingstarted.html:1466
+#: gettingstarted.html:1324
 msgid "Place window to the right half of the screen."
 msgstr "Placera fönster i högra halvan av skärmen."
 
-#: gettingstarted.html:1484
+#: gettingstarted.html:1335
 msgid "Place window in the bottom left corner of the screen."
 msgstr "Placera fönster i nedre vänstra hörnet på skärmen."
 
-#: gettingstarted.html:1494
+#: gettingstarted.html:1346
 msgid "Place window in the bottom half of the screen."
 msgstr "Placera fönster i nedre halvan på skärmen."
 
-#: gettingstarted.html:1512
+#: gettingstarted.html:1352
 msgid "Place window in the bottom right corner of the screen."
 msgstr "Placera fönster i nedre högra hörnet på skärmen."
 
-#: gettingstarted.html:1516
+#: gettingstarted.html:1361
 msgid "Mouse Shortcuts"
 msgstr "Musgenvägar"
 
-#: gettingstarted.html:1522
+#: gettingstarted.html:1365
 msgid "Left-click while dragging mouse"
 msgstr "Vänsterklicka när du drar musen"
 
-#: gettingstarted.html:1524
+#: gettingstarted.html:1367
 msgid "Moves the window."
 msgstr "Flyttar fönstret."
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1371
 msgid "Right-click while dragging mouse"
 msgstr "Högerklicka när du drar musen"
 
-#: gettingstarted.html:1532
+#: gettingstarted.html:1373
 msgid "Resizes the window (closest window edge)."
 msgstr "Ändrar storlek på fönstret (närmast fönsterkanten)."
 
-#: gettingstarted.html:1536
+#: gettingstarted.html:1377
 msgid "Compiz Effects Shortcuts"
 msgstr "Compiz Effektergenvägar"
 
-#: gettingstarted.html:1537
+#: gettingstarted.html:1378
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
 msgstr "Alla genvägar som anges i det här avsnittet kräver att Compiz är aktiverat."
 
-#: gettingstarted.html:1545
+#: gettingstarted.html:1384
 msgid "Zoom out, show workspace switcher."
 msgstr "Zooma ut, visar arbetsyteväxlaren."
 
-#: gettingstarted.html:1553
+#: gettingstarted.html:1390
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
 msgstr "Aktiverar \"skal\"-effekten, visar alla fönster från den aktuella arbetsytan."
 
-#: gettingstarted.html:1563
+#: gettingstarted.html:1396
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
 msgstr "Aktiverar \"skal\"-effekten, visar alla fönster från alla arbetsytor."
 
-#: gettingstarted.html:1571
+#: gettingstarted.html:1402
 msgid "Invert colors of the focused window."
 msgstr "Invertera färgerna i det fokuserade fönstret."
 
-#: gettingstarted.html:1579
+#: gettingstarted.html:1408
 msgid "Invert colors for the whole screen."
 msgstr "Invertera färgerna för hela skärmen."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1412
 msgid "Scroll Wheel"
 msgstr "Skrollhjul"
 
-#: gettingstarted.html:1587
+#: gettingstarted.html:1414
 msgid "Zooms in on the screen."
 msgstr "Zoomar in på skärmen."
 
-#: gettingstarted.html1593, 1609
+#: gettingstarted.html1418, 1430
 msgid "Middle Click"
 msgstr "Mittenmusknapp"
 
-#: gettingstarted.html:1595
+#: gettingstarted.html:1420
 msgid "Select a region to zoom into, using a rectangle."
 msgstr "Välj ett område att zooma in med hjälp av en rektangel."
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1424
 msgid "Left Click"
 msgstr "Vänsterklicka"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1426
 msgid "Move focused window."
 msgstr "Flytta det fokuserade fönstret."
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1432
 msgid "Resize focused window."
 msgstr "Ändra storlek på det fokuserade fönstret."
 
-#: gettingstarted.html:1617
+#: gettingstarted.html:1436
 msgid "Right Click"
 msgstr "Högerklicka"
 
-#: gettingstarted.html:1619
+#: gettingstarted.html:1438
 msgid "Show window menu."
 msgstr "Visa fönstermeny."
 
-#: gettingstarted.html:1632
+#: gettingstarted.html:1451
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
 msgstr "Din maskin består av olika komponenter som interagerar med varandra. Denna information är användbar vid tillhandahållande av stöd för att säkerställa hårdvara och mjukvara fungerar på din dator."
 
-#: gettingstarted.html:1636
+#: gettingstarted.html:1455
 msgid "View System Requirements"
 msgstr "Visa Systemkraven"
 
-#: gettingstarted.html:1640
+#: gettingstarted.html:1459
 msgid "Basic"
 msgstr "Grundläggande"
 
-#: gettingstarted.html:1656
+#: gettingstarted.html:1475
 msgid "Distribution:"
 msgstr "Distribution:"
 
-#: gettingstarted.html:1660
+#: gettingstarted.html:1479
 msgid "Kernel:"
 msgstr "Kärna:"
 
-#: gettingstarted.html:1663
+#: gettingstarted.html:1482
 msgid "The Linux kernel is the heart of Ubuntu."
 msgstr "Linuxkärnan är hjärtat i Ubuntu"
 
-#: gettingstarted.html:1669
+#: gettingstarted.html:1488
 msgid "Motherboard:"
 msgstr "Moderkort:"
 
-#: gettingstarted.html:1673
+#: gettingstarted.html:1492
 msgid "Boot Mode:"
 msgstr "Uppstartsläge:"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1495
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
 msgstr "Visar det läge som Ubuntu MATE kommunicerar med den fasta programvaran."
 
-#: gettingstarted.html:1684
+#: gettingstarted.html:1503
 msgid "Processor"
 msgstr "Processor"
 
-#: gettingstarted.html:1687
+#: gettingstarted.html:1506
 msgid "Model:"
 msgstr "Modell:"
 
-#: gettingstarted.html:1691
+#: gettingstarted.html:1510
 msgid "Speed:"
 msgstr "Hastighet:"
 
-#: gettingstarted.html:1695
+#: gettingstarted.html:1514
 msgid "Architecture in use:"
 msgstr "Arkitektur i användning:"
 
-#: gettingstarted.html:1698
+#: gettingstarted.html:1517
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
 msgstr "Operativsystemets arkitektur som används. Till exempel, i386 = 32-bitars."
 
-#: gettingstarted.html:1704
+#: gettingstarted.html:1523
 msgid "Architecture(s) supported:"
 msgstr "Arkitektur(er) som stöds:"
 
-#: gettingstarted.html:1707
+#: gettingstarted.html:1526
 msgid "Architectures that are supported by this processor."
 msgstr "Arkitekturer som stöds av denna processor."
 
-#: gettingstarted.html:1715
+#: gettingstarted.html:1534
 msgid "Components"
 msgstr "Komponenter"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1537
 msgid "Memory (RAM):"
 msgstr "Minne (RAM):"
 
-#: gettingstarted.html:1721
+#: gettingstarted.html:1540
 msgid "More RAM allows more applications to run simultaneously."
 msgstr "Mer RAM-minne tillåter fler applikationer att köras samtidigt."
 
-#: gettingstarted.html:1727
+#: gettingstarted.html:1546
 msgid "Graphics:"
 msgstr "Grafik:"
 
-#: gettingstarted.html:1731
+#: gettingstarted.html:1550
 msgid "Internet Access:"
 msgstr "Internetåtkomst:"
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1552
 msgid "Connected"
 msgstr "Ansluten"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1553
 msgid "Not Connected"
 msgstr "Inte Ansluten"
 
-#: gettingstarted.html:1741
+#: gettingstarted.html:1560
 msgid "Storage"
 msgstr "Utrymme"
 
-#: gettingstarted.html:1745
+#: gettingstarted.html:1564
 msgid "Root File System:"
 msgstr "Rotfilsystemet:"
 
-#: gettingstarted.html:1748
+#: gettingstarted.html:1567
 msgid "The file system where Ubuntu MATE is installed."
 msgstr "Filsystemet där Ubuntu MATE är installerat."
 
-#: gettingstarted.html:1754
+#: gettingstarted.html:1573
 msgid "Entire Disk Capacity:"
 msgstr "Hela diskkapaciteten:"
 
-#: gettingstarted.html:1759
+#: gettingstarted.html:1578
 msgid "Ubuntu MATE Usage"
 msgstr "Ubuntu MATEs användning"
 
-#: gettingstarted.html:1768
+#: gettingstarted.html:1587
 msgid "Allocated for Ubuntu MATE:"
 msgstr "Allokerat för Ubuntu MATE:"
 
-#: gettingstarted.html:1771
+#: gettingstarted.html:1590
 msgid "The size of your operating system partition."
 msgstr "Storleken på operativsystemets partition."
 
-#: gettingstarted.html:1777
+#: gettingstarted.html:1596
 msgid "Used Space:"
 msgstr "Använt utrymme: "
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1602
 msgid "Free Space:"
 msgstr "Tillgängligt utrymme:"
 
-#: gettingstarted.html:1789
+#: gettingstarted.html:1608
 msgid "Other Usage:"
 msgstr "Annan användning: "
 
-#: gettingstarted.html:1792
+#: gettingstarted.html:1611
 msgid "Reserved by system, other partitions, unallocated or swap."
 msgstr "Reserverat av systemet, andra partitioner, oallokerat eller swap."
 
-#: gettingstarted.html:1800
+#: gettingstarted.html:1619
 msgid "Why do I see two units?"
 msgstr "Varför ser jag två enheter?"
 
-#: gettingstarted.html:1806
+#: gettingstarted.html:1625
 msgid "SI or IEC Units?"
 msgstr "SI- eller IEC-enheter?"
 
-#: gettingstarted.html:1808
+#: gettingstarted.html:1627
 msgid "Decimal (SI Standard)"
 msgstr "Decimal (SI-standard)"
 
-#: gettingstarted.html:1810
+#: gettingstarted.html:1629
 msgid "1 KB = 1000 bytes"
 msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1811
+#: gettingstarted.html:1630
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
 msgstr "Uttalas \"ga\" som i \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1812
+#: gettingstarted.html:1631
 msgid "Common in every day applications and file storage."
 msgstr "Vanligt i vardagliga applikationer och fillagring."
 
-#: gettingstarted.html:1816
+#: gettingstarted.html:1635
 msgid "Binary (IEC Standard)"
 msgstr "Binärt (IEC-standard)"
 
-#: gettingstarted.html:1818
+#: gettingstarted.html:1637
 msgid "1 KiB = 1024 bytes"
 msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1819
+#: gettingstarted.html:1638
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
 msgstr "Uttalas \"bi\" som i \"Mebi\", \"Gibi\"."
 
-#: gettingstarted.html:1820
+#: gettingstarted.html:1639
 msgid "Common in RAM, drives and partitions, including tools like GParted."
 msgstr "Vanligt i RAM, hårddiskar och partitioner, inklusive verktyg som GParted."
 
-#: gettingstarted.html:1833
+#: gettingstarted.html:1652
 msgid "System Profiler and Benchmark"
 msgstr "Systemprofilering och Benchmarking"
 
-#: gettingstarted.html:1834
+#: gettingstarted.html:1653
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
 msgstr "Se mer specifik systeminformation i ett grafiskt fönster, inklusive anslutna USB:er, PCI-enheter och en enkel CPU-benchmarking."
 
-#: gettingstarted.html:1849
+#: gettingstarted.html:1668
 msgid "Disks"
 msgstr "Diskar"
 
-#: gettingstarted.html:1850
+#: gettingstarted.html:1669
 msgid ""
 "A utility that allows basic configuration to your disks and partitions, "
 "including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
 "writing images to SD cards/USB drives."
 msgstr "Ett verktyg som möjliggör enkel konfigurering av dina hårddiskar och partitioner, inklusive formatering, partitionering, montering, granskning, visning av S.M.A.R.T-data och skriva diskavbildningar till SD-kort/USB-enheter."
 
-#: gettingstarted.html:1867
+#: gettingstarted.html:1686
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
 msgstr "Ett avancerat verktyg för att visa, skapa, ändra och ta bort partitioner. Det har också funktioner för att expandera/krympa filsystem och stöder en mängd olika format."
 
-#: gettingstarted.html:1882
+#: gettingstarted.html:1701
 msgid "Disk Usage Analyser"
 msgstr "Diskanvändningsanalysator"
 
-#: gettingstarted.html:1883
+#: gettingstarted.html:1702
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
 msgstr "Ett grafiskt verktyg för att analysera diskanvändning i ditt filsystem och individuella kataloger."
 
-#: gettingstarted.html:1898
+#: gettingstarted.html:1717
 msgid "System Monitor"
 msgstr "Systemöversikt"
 
-#: gettingstarted.html:1899
+#: gettingstarted.html:1718
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
 msgstr "Visar aktiva processer, resursanvändningen samt mängden utrymme som används och är tillgängligt för de monterade hårddiskar."
 
-#: gettingstarted.html:1914
+#: gettingstarted.html:1733
 msgid "Psensor"
 msgstr "Psensor"
 
-#: gettingstarted.html:1915
+#: gettingstarted.html:1734
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."

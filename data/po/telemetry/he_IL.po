@@ -1,11 +1,13 @@
 # Translators:
-# shy tzedaka <shaytzedaka123@gmail.com>, 2018
+# James Walker (Ya'aqov), 2018
+# shy tzedaka <shaytzedaka123@gmail.com>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: shy tzedaka <shaytzedaka123@gmail.com>, 2018\n"
+"PO-Revision-Date: 2018-04-22 19:37+0000\n"
+"Last-Translator: shy tzedaka <shaytzedaka123@gmail.com>, 2020\n"
 "Language-Team: Hebrew (Israel) (https://www.transifex.com/ubuntu-mate/teams/61536/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,37 +16,59 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: telemetry.html15, 26
+#: telemetry.html16, 28
 msgid "Help Improve Ubuntu MATE"
 msgstr "עזור לשפר את Ubuntu MATE"
 
-#: telemetry.html:28
+#: telemetry.html:30
 msgid ""
 "Ubuntu MATE can submit anonymised system information that will help the "
 "developers better understand what devices Ubuntu MATE is being used on. This"
 " data will be transmitted one time only and includes basic system components"
 " but nothing that is uniquely identifiable."
 msgstr ""
-"Ubuntu MATE יכול לשלוח מידע מערכת אנונימי שיעזור למפתחים להבין יותר טוב "
-"באיזה מכשירים Ubuntu MATE משומש בהם. המידע הזה ישלח רק פעם אחת והוא כולל "
+"Ubuntu MATE יכולה לשלוח מידע מערכת בעילום שם שיעזור למפתחים להבין יותר טוב "
+"באיזה מכשירים Ubuntu MATE משומשת בהם. המידע הזה ישלח רק פעם אחת והוא כולל "
 "מידע מערכת בסיסי אבל שום דבר שהוא ייחודי לזיהוי."
 
-#: telemetry.html:34
+#: telemetry.html:36
 msgid "Would you like to send this information?"
 msgstr "האם ברצונך לשלוח את המידע הזה?"
 
-#: telemetry.html:36
+#: telemetry.html:38
 msgid "Preview data"
 msgstr "הצג נתונים"
 
-#: telemetry.html:37
+#: telemetry.html:39
 msgid "This is the data that will be sent:"
 msgstr "אלה הנתונים שיישלחו:"
 
-#: telemetry.html:41
+#: telemetry.html:43
 msgid "Send Telemetry"
-msgstr "שלח טלמטריה"
+msgstr "שלח נתונים"
 
-#: telemetry.html:42
+#: telemetry.html:44
 msgid "Do Not Send"
-msgstr "אל תשלח"
+msgstr "אל תשלח נתונים"
+
+#: telemetry.html:47
+msgid "Thank you!"
+msgstr "תודה!"
+
+#: telemetry.html:49
+msgid ""
+"This data was successfully sent and will be used to improve future "
+"installations."
+msgstr "הנתונים נשלחו בהצלחה, ויישמשו לשיפור התקנות עתידיות."
+
+#: telemetry.html51, 58
+msgid "Continue"
+msgstr "המשך"
+
+#: telemetry.html:54
+msgid "Communication Error"
+msgstr "שגיאה בתקשורת"
+
+#: telemetry.html:56
+msgid "The server couldn't be contacted at this time. Please try again later."
+msgstr "לא ניתן ליצור קשר עם השרת ברגע זה. אנא נסה שוב מאוחר יותר."

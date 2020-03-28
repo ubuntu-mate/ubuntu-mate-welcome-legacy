@@ -1,10 +1,11 @@
 # Translators:
 # ToMáš Marný, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-04-22 19:37+0000\n"
 "Last-Translator: ToMáš Marný, 2018\n"
 "Language-Team: Czech (https://www.transifex.com/ubuntu-mate/teams/61536/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +15,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: telemetry.html15, 26
+#: telemetry.html16, 28
 msgid "Help Improve Ubuntu MATE"
 msgstr "Pomozte zlepšit Ubuntu MATE"
 
-#: telemetry.html:28
+#: telemetry.html:30
 msgid ""
 "Ubuntu MATE can submit anonymised system information that will help the "
 "developers better understand what devices Ubuntu MATE is being used on. This"
@@ -30,22 +31,48 @@ msgstr ""
 "data budou odeslána pouze jednou a zahrnují základní součásti systému, ale "
 "nic, co je jednoznačně identifikovatelné."
 
-#: telemetry.html:34
+#: telemetry.html:36
 msgid "Would you like to send this information?"
 msgstr "Chcete tyto informace poslat?"
 
-#: telemetry.html:36
+#: telemetry.html:38
 msgid "Preview data"
 msgstr "Náhled dat"
 
-#: telemetry.html:37
+#: telemetry.html:39
 msgid "This is the data that will be sent:"
 msgstr "Toto jsou údaje, které budou odeslány:"
 
-#: telemetry.html:41
+#: telemetry.html:43
 msgid "Send Telemetry"
 msgstr "Odeslat telemetrii"
 
-#: telemetry.html:42
+#: telemetry.html:44
 msgid "Do Not Send"
 msgstr "Neodesílat"
+
+#: telemetry.html:47
+msgid "Thank you!"
+msgstr "Děkujeme!"
+
+#: telemetry.html:49
+msgid ""
+"This data was successfully sent and will be used to improve future "
+"installations."
+msgstr ""
+"Tato data byla úspěšně odeslána a budou použita k vylepšení budoucích "
+"instalací."
+
+#: telemetry.html51, 58
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: telemetry.html:54
+msgid "Communication Error"
+msgstr "Chyba v komunikaci"
+
+#: telemetry.html:56
+msgid "The server couldn't be contacted at this time. Please try again later."
+msgstr ""
+"V tuto chvíli nebylo možné kontaktovat server. Prosím zkuste to znovu "
+"později."

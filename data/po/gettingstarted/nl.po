@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2020-03-12 21:10+0000\n"
-"Last-Translator: Pieter Aerts <pieter.info@telenet.be>\n"
+"PO-Revision-Date: 2020-03-28 14:21+0000\n"
+"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgstr "Installatie"
 msgid "Install Now"
 msgstr "Installeer Nu"
 
-#: gettingstarted.html68, 1641
+#: gettingstarted.html68, 1460
 msgid "Utilities"
 msgstr "Gereedschap"
 
@@ -107,7 +107,7 @@ msgstr "Toetsenbord sneltoetsen"
 msgid "Troubleshooting"
 msgstr "Probleemoplossen"
 
-#: gettingstarted.html123, 1628
+#: gettingstarted.html123, 1447
 msgid "System Specifications"
 msgstr "Systeem specificaties"
 
@@ -146,8 +146,8 @@ msgid "Core 2 Duo 1.6 gigahertz (GHz)"
 msgstr "Core 2 Duo 1.6 gigahertz (GHz)"
 
 #: gettingstarted.html:149
-msgid "2 gigabytes (GB) of RAM"
-msgstr "2 gigabytes (GB) of RAM"
+msgid "4 gigabytes (GB) of RAM"
+msgstr ""
 
 #: gettingstarted.html:150
 msgid "16 gigabytes (GB) of disk space"
@@ -159,7 +159,7 @@ msgid ""
 "or surpasses the recommended requirements."
 msgstr "Het besturingssysteem zal veel efficiënter werken als uw computer aan de aanbevolen vereisten voldoet of deze overtreft."
 
-#: gettingstarted.html158, 1631
+#: gettingstarted.html158, 1450
 msgid "What's inside my computer?"
 msgstr "Wat zit er in mijn computer?"
 
@@ -417,7 +417,7 @@ msgstr "Om het bestandssysteem vanuit de opdracht prompt te controleren op foute
 msgid "Use GParted or the installer's \"Custom\" option."
 msgstr "Gebruik GParted of de \"Aanpassen\" optie van het installatieprogramma."
 
-#: gettingstarted.html296, 1866
+#: gettingstarted.html296, 1685
 msgid "GParted"
 msgstr "GParted"
 
@@ -429,7 +429,7 @@ msgstr "is alleen beschikbaar tijdens de live sessie."
 msgid "It is located under the"
 msgstr "Het is gelegen onder de"
 
-#: gettingstarted.html297, 423, 666, 1653
+#: gettingstarted.html297, 423, 666, 1472
 msgid "System"
 msgstr "Systeem"
 
@@ -587,7 +587,7 @@ msgid ""
 "boots on your computer while experiencing Ubuntu MATE."
 msgstr "Nieuwere versies van Windows bieden een hulpmiddel om het NTFS-volume vanuit Windows te verkleinen. Dit is een veiligere gok als het essentieel is dat Windows nog steeds opstart op uw computer terwijl u Ubuntu MATE ervaart."
 
-#: gettingstarted.html346, 689, 711, 748, 1837, 1854, 1870, 1886, 1902, 1918
+#: gettingstarted.html346, 689, 711, 748, 1656, 1673, 1689, 1705, 1721, 1737
 msgid "Open"
 msgstr "Open"
 
@@ -605,45 +605,45 @@ msgstr "Klik met de rechtermuisknop op de gewenste schijf en kies"
 
 #: gettingstarted.html:351
 msgid "Shrink Partition"
-msgstr ""
+msgstr "Partitie verkleinen"
 
 #: gettingstarted.html:351
 msgid "from the context menu."
-msgstr ""
+msgstr "vanuit het snelmenu"
 
 #: gettingstarted.html:356
 msgid "Enter the amount to shrink your system partition by."
-msgstr ""
+msgstr "Voer de hoeveelheid in waarmee u uw systeem partitie wilt verkleinen."
 
 #: gettingstarted.html:362
 msgid "Remember, Ubuntu MATE needs at minimum 8 GB of disk space."
-msgstr ""
+msgstr "Hou er rekening mee dat Ubuntu MATE minimaal 8 GB schijfruimte nodig heeft."
 
 #: gettingstarted.html:367
 msgid "Further Reading"
-msgstr ""
+msgstr "Verder lezen"
 
 #: gettingstarted.html:368
 msgid ""
 "For further information on the best practices to modify partitions "
 "containing Windows, see the following"
-msgstr ""
+msgstr "Zie het volgende voor meer informatie over de best manier om partities met Windows te wijzigen"
 
 #: gettingstarted.html:371
 msgid "help article"
-msgstr ""
+msgstr "Help artikel"
 
 #: gettingstarted.html:371
 msgid "online"
-msgstr ""
+msgstr "online"
 
 #: gettingstarted.html:375
 msgid "Repairing Boot Problems"
-msgstr ""
+msgstr "Opstartproblemen herstellen"
 
 #: gettingstarted.html:377
 msgid "Linux distributions use a boot loader known as"
-msgstr ""
+msgstr "Linux-distributies gebruiken een opstartsysteem die bekend staat als"
 
 #: gettingstarted.html:378
 msgid ""
@@ -651,31 +651,31 @@ msgid ""
 " systems (such as Windows) do not integrate with existing boot loaders and "
 "will overwrite them, with the potential to lose access to Ubuntu MATE "
 "temporally."
-msgstr ""
+msgstr "die het besturingssysteem zoekt en opstart. Sommige besturingssystemen (zoals Windows) integreren echter niet met bestaande opstartsystemen en zullen ze overschrijven, waardoor de toegang tot Ubuntu MATE tijdelijk verloren kan gaan."
 
 #: gettingstarted.html:383
 msgid "Fortunately, you can use the"
-msgstr ""
+msgstr "Gelukkig kun je de ... gebruiken"
 
 #: gettingstarted.html:383
 msgid "Boot Repair"
-msgstr ""
+msgstr "Opstart herstelling"
 
 #: gettingstarted.html:383
 msgid "tool to repair common problems caused by other operating systems."
-msgstr ""
+msgstr "tool om veelvoorkomende problemen veroorzaakt door andere besturingssystemen te herstellen."
 
 #: gettingstarted.html:388
 msgid "Requires downloading a package."
-msgstr ""
+msgstr "Vereist het downloaden van een pakket."
 
 #: gettingstarted.html:389
 msgid "Please connect to the Internet to download and use this utility."
-msgstr ""
+msgstr "Maak verbinding met internet om dit hulpprogramma te downloaden en te gebruiken."
 
 #: gettingstarted.html:390
 msgid "Sorry, Welcome was unable to establish a connection."
-msgstr "Sorry, Welcome was niet in staat om een verbinding tot stand te brengen."
+msgstr "Sorry, Welkom kon geen verbinding tot stand brengen."
 
 #: gettingstarted.html:391
 msgid "Retry"
@@ -683,52 +683,52 @@ msgstr "Probeer opnieuw"
 
 #: gettingstarted.html:394
 msgid "Download Boot Repair"
-msgstr ""
+msgstr "Download Opstart Hersteller"
 
 #: gettingstarted.html:395
 msgid "Open Boot-Repair"
-msgstr ""
+msgstr "Open Opstart Hersteller"
 
 #: gettingstarted.html:408
 msgid "An Internet connection is required to download and install updates."
-msgstr ""
+msgstr "Een internetverbinding is vereist om updates te downloaden en te installeren."
 
 #: gettingstarted.html416, 422
 msgid "Software Updater"
-msgstr ""
+msgstr "Software Updater"
 
 #: gettingstarted.html:417
 msgid ""
 "Ubuntu MATE periodically will check to see if new software and security "
 "updates are available for your computer. If you have just installed Ubuntu "
 "MATE, you might want to do this now."
-msgstr ""
+msgstr "Ubuntu MATE controleert regelmatig of er nieuwe software en beveiligingsupdates beschikbaar zijn voor uw computer. Als je Ubuntu MATE net hebt geïnstalleerd, wil je dit misschien nu doen."
 
 #: gettingstarted.html:422
 msgid "can be found later in"
-msgstr ""
+msgstr "vindt u later in"
 
 #: gettingstarted.html:428
 msgid "Check for Updates"
-msgstr ""
+msgstr "Controleer op updates"
 
 #: gettingstarted.html:440
 msgid "Additional Codecs"
-msgstr ""
+msgstr "Extra Codecs"
 
 #: gettingstarted.html:441
 msgid ""
 "The codecs package include a complete, cross-platform solution to decode, "
 "encode, record, convert and stream audio and video. It also includes a MP3 "
 "audio decoder that permits the playback of MPEG 1 audio layer III (MP3)."
-msgstr ""
+msgstr "Het codecs pakket bevat een complete platform onafhankelijke oplossing voor het decoderen, coderen, opnemen, converteren en streamen van audio en video. Het bevat ook een MP3-audiodecoder waarmee MPEG 1-audiolaag III (MP3) kan worden afgespeeld."
 
 #: gettingstarted.html446, 465, 485, 504, 523
 msgid "Applying Changes..."
-msgstr ""
+msgstr "Veranderingen doorvoeren..."
 
 #: gettingstarted.html447, 466, 486, 505, 524, 690, 712, 730, 749, 822, 851,
-#: 874, 1838, 1855, 1871, 1887, 1903, 1919
+#: 874, 1657, 1674, 1690, 1706, 1722, 1738
 msgid "Install"
 msgstr "Installeer"
 
@@ -738,29 +738,29 @@ msgstr "Verwijderen"
 
 #: gettingstarted.html:459
 msgid "Blu-ray and DVD Playback Support"
-msgstr ""
+msgstr "Ondersteuning voor afspelen van Blu-ray en dvd"
 
 #: gettingstarted.html:460
 msgid ""
 "Installs libraries that enable Blu-ray and DVD playback in VLC. After "
 "install you will need to run"
-msgstr ""
+msgstr "Installeert bibliotheken die Blu-ray en DVD weergave in VLC mogelijk maken. Na installatie moet je het uitvoeren"
 
 #: gettingstarted.html:461
 msgid "to enable encrypted DVD playback and you will need to obtain a copy of"
-msgstr ""
+msgstr "om versleuteld afspelen van DVD's mogelijk te maken hebt U een kopie nodig"
 
 #: gettingstarted.html:463
 msgid "and save it to"
-msgstr ""
+msgstr "en sla het op"
 
 #: gettingstarted.html:463
 msgid "to enable encrypted Blu-ray playback."
-msgstr ""
+msgstr "om versleutelde Blu-ray weergave mogelijk te maken."
 
 #: gettingstarted.html:478
 msgid "Additional Screen Savers"
-msgstr ""
+msgstr "Extra Schermbeveiliger"
 
 #: gettingstarted.html:479
 msgid ""
@@ -768,21 +768,21 @@ msgid ""
 "periods of time. Screen savers were originally created to reduce burn-in for"
 " cathode ray tube (CRT) monitors displaying the same image for long periods "
 "of time."
-msgstr ""
+msgstr "Installeer meer dan 200 schermbeveiligingen voor als uw computer lange tijd niet wordt gebruikt. Schermbeveiligingen zijn oorspronkelijk gemaakt om inbranden te verminderen voor beeldschermen van kathodestraalbuizen (CRT) die hetzelfde beeld gedurende lange tijd weergeven."
 
 #: gettingstarted.html:488
 msgid "Change Screen Saver"
-msgstr ""
+msgstr "Schermbeveiliging wijzigen"
 
 #: gettingstarted.html:499
 msgid "Additional Themes"
-msgstr ""
+msgstr "Extra thema's"
 
 #: gettingstarted.html:500
 msgid ""
 "Install additional themes and icons, such as Numix and Arc, to expand the "
 "selection available so you can tweak the look and feel to your liking."
-msgstr ""
+msgstr "Installeer extra thema's en pictogrammen, zoals Numix en Arc, om de beschikbare selectie uit te breiden, zodat u het uiterlijke naar hand kunt aanpassen."
 
 #: gettingstarted.html507, 526
 msgid "Change Appearance"
@@ -790,24 +790,24 @@ msgstr "Verander uiterlijk"
 
 #: gettingstarted.html:518
 msgid "Additional Community Wallpapers"
-msgstr ""
+msgstr "Extra Gemeenschappelijke Achtergronden"
 
 #: gettingstarted.html:519
 msgid ""
 "The Ubuntu MATE Community have contributed dozens of desktop wallpaper "
 "images over the years. Why not install them and find something that suits "
 "your tastes?"
-msgstr ""
+msgstr "De Ubuntu MATE Gemeenschap heeft in de loop der jaren tientallen bureaublad achtergrond afbeeldingen gemaakt. Waarom  ze niet installeren en iets vinden dat bij u past?"
 
 #: gettingstarted.html:531
 msgid ""
 "You'll need the Blu-ray AACS database in order to play AACS encrypted or BD+"
 " protected discs."
-msgstr ""
+msgstr "Je hebt de Blu-ray AACS database nodig om gecodeerde AACS of BD+ beveiligde schijven af te spelen."
 
 #: gettingstarted.html:534
 msgid "Install Blu-ray AACS Database"
-msgstr ""
+msgstr "Installeer de Blu-ray AACS Database"
 
 #: gettingstarted.html:545
 msgid ""
@@ -815,23 +815,23 @@ msgid ""
 "some components and peripherals that require proprietary drivers to function"
 " properly. Installing the firmware package is often required to get some "
 "devices, typically Bluetooth and Wi-Fi, to work correctly."
-msgstr ""
+msgstr "Hoewel een breed scala aan hardware compatibel is met Ubuntu MATE, zijn er sommige componenten en randapparatuur waarvoor eigen stuurprogramma's nodig zijn om correct te functioneren. Het installeren van het firmware pakket is vaak vereist om sommige apparaten, meestal Bluetooth en Wi-Fi, correct te laten werken."
 
 #: gettingstarted.html:551
 msgid "An Internet connection is required to download and install drivers."
-msgstr ""
+msgstr "Een internetverbinding is vereist om stuurprogramma's te downloaden en te installeren."
 
 #: gettingstarted.html555, 563, 633
 msgid "Additional Drivers"
-msgstr ""
+msgstr "Extra Stuurprogramma's"
 
 #: gettingstarted.html:558
 msgid "Install Firmware Package"
-msgstr ""
+msgstr "Installeer het Firmware Pakket"
 
 #: gettingstarted.html564, 773, 827, 879, 902, 925
 msgid "can be found later in the"
-msgstr ""
+msgstr "kan later teruggevonden worden in het"
 
 #: gettingstarted.html564, 773, 827, 879, 902, 925, 929, 934
 msgid "Control Center"
@@ -845,11 +845,11 @@ msgstr "Graphics"
 msgid ""
 "Sorry, Welcome was unable to automatically identify the graphics vendor on "
 "this system."
-msgstr ""
+msgstr "Sorry, Welkom kon de grafische leverancier niet automatisch identificeren op dit systeem."
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Card/Chipset:"
-msgstr ""
+msgstr "Kaart/Chipset:"
 
 #: gettingstarted.html573, 579, 587, 593
 msgid "Unknown"
@@ -857,146 +857,146 @@ msgstr "Onbekend"
 
 #: gettingstarted.html577, 583
 msgid "Graphics Card Detected."
-msgstr ""
+msgstr "Grafische kaart gedetecteerd."
 
 #: gettingstarted.html:578
 msgid ""
 "may have drivers for your card that can boost performance for 3D "
 "applications and games as well as deliver improvements to power management."
-msgstr ""
+msgstr "heeft mogelijk stuurprogramma's voor uw kaart die prestaties voor games en 3D-toepassingen kunnen verbeteren alsook optimaliseren van het  energiebeheer."
 
 #: gettingstarted.html:584
 msgid ""
 "AMD's drivers are no longer supported on Ubuntu. The open source drivers you"
 " are currently using will deliver the most stable performance out of your "
 "card."
-msgstr ""
+msgstr "De stuurprogramma's van AMD worden niet langer ondersteund op Ubuntu. De open source stuurprogramma's die u momenteel gebruikt, leveren de meest stabiele prestaties voor uw kaart."
 
 #: gettingstarted.html:591
 msgid "You're already good to go."
-msgstr ""
+msgstr "Je bent klaar om te gaan."
 
 #: gettingstarted.html:592
 msgid ""
 "Intel's drivers are open source and are maintained/updated in the kernel."
-msgstr ""
+msgstr "De stuurprogramma's van Intel zijn open source en worden onderhouden/bijgewerkt in de kernel."
 
 #: gettingstarted.html:597
 msgid "VirtualBox Guest Additions"
-msgstr ""
+msgstr "VirtualBox Gast Toepassingen"
 
 #: gettingstarted.html:598
 msgid ""
 "To accelerate graphics performance inside the virtual machine, please "
 "install Guest Additions."
-msgstr ""
+msgstr "Om de grafische prestaties binnen de virtuele machine te versnellen, dient u de Gast Toepassingen te installeren."
 
 #: gettingstarted.html:602
 msgid "Proprietary or Open Source Drivers?"
-msgstr ""
+msgstr "Eigen of Vrije Stuurprogramma's?"
 
 #: gettingstarted.html:603
 msgid "Proprietary drivers come directly from the manufacturer."
-msgstr ""
+msgstr "Eigen stuurprogramma's komen rechtstreeks van de fabrikant."
 
 #: gettingstarted.html:604
 msgid "As they are not open source, Ubuntu developers are"
-msgstr ""
+msgstr "Omdat ze niet open source zijn, zijn Ubuntu ontwikkelaars dat wel"
 
 #: gettingstarted.html:604
 msgid "unable to review and improve their code"
-msgstr ""
+msgstr "niet in staat om hun code te herzien en te verbeteren"
 
 #: gettingstarted.html:604
 msgid "which means that you'll have to rely on the manufacturer for support."
-msgstr ""
+msgstr "wat betekent dat u voor ondersteuning op de fabrikant moet vertrouwen."
 
 #: gettingstarted.html:607
 msgid "In addition, proprietary drivers can"
-msgstr ""
+msgstr "Bovendien kunnen eigen stuurprogramma's"
 
 #: gettingstarted.html:607
 msgid "significantly improve graphics performance"
-msgstr ""
+msgstr "de grafische prestaties aanzienlijk verbeteren"
 
 #: gettingstarted.html:607
 msgid "and as a result,"
-msgstr ""
+msgstr "en als een resultaat,"
 
 #: gettingstarted.html:608
 msgid "the entire system. Users may wish to install these drivers to:"
-msgstr ""
+msgstr "het hele systeem. Gebruikers kunnen deze stuurprogramma's installeren om:"
 
 #: gettingstarted.html:610
 msgid "Run 3D applications and games."
-msgstr ""
+msgstr "Start 3D applicaties en games."
 
 #: gettingstarted.html:611
 msgid "Use Compiz's window effects."
-msgstr ""
+msgstr "Gebruik Compiz venster effecten."
 
 #: gettingstarted.html:612
 msgid ""
 "Improve power management, particularly if the device experiences overheating"
 " problems under open source drivers."
-msgstr ""
+msgstr "Verbeter het energiebeheer, vooral als het apparaat oververhittingsproblemen ondervindt onder open source stuurprogramma's."
 
 #: gettingstarted.html:613
 msgid "Improve support for high resolutions and multiple monitors."
-msgstr ""
+msgstr "Verbeter de ondersteuning voor hoge resoluties en meerdere monitoren."
 
 #: gettingstarted.html:614
 msgid "Fix blank screen issues."
-msgstr ""
+msgstr "Los problemen met een leeg scherm op."
 
 #: gettingstarted.html:617
 msgid ""
 "Proprietary drivers are known as \"binary blobs\". Certain hardware may "
 "experience worse behavior,"
-msgstr ""
+msgstr "Eigen stuurprogramma's staan bekend als \"binaire blobs\". Bepaalde hardware kan slechter gedrag vertonen,"
 
 #: gettingstarted.html:618
 msgid "causing more issues then the open source drivers, such as:"
-msgstr ""
+msgstr "die meer problemen veroorzaken dan de open source stuurprogramma's, zoals:"
 
 #: gettingstarted.html:620
 msgid "Failing to boot to the graphical desktop."
-msgstr ""
+msgstr "Kan niet opstarten naar het grafische bureaublad."
 
 #: gettingstarted.html:621
 msgid "Broken drivers after an upgrade."
-msgstr ""
+msgstr "Kapotte stuurprogramma's na een upgrade."
 
 #: gettingstarted.html:622
 msgid "Severe graphical glitches."
-msgstr ""
+msgstr "Ernstige grafische storingen."
 
 #: gettingstarted.html:623
 msgid "Problems with applications/games requiring hardware acceleration."
-msgstr ""
+msgstr "Problemen met applicaties/games die hardwareversnelling vereisen."
 
 #: gettingstarted.html:627
 msgid "is the open source driver for your card."
-msgstr ""
+msgstr "is het open source stuurprogramma voor uw kaart."
 
 #: gettingstarted.html:632
 msgid "What about the latest NVIDIA drivers?"
-msgstr ""
+msgstr "Hoe zit het met de nieuwste NVIDIA stuurprogramma's?"
 
 #: gettingstarted.html:633
 msgid "fetches the latest tested driver from the Ubuntu repositories."
-msgstr ""
+msgstr "haalt de nieuwste geteste driver op uit de Ubuntu repository's."
 
 #: gettingstarted.html:639
 msgid "Wireless, Bluetooth and Other Devices"
-msgstr ""
+msgstr "Draadloos, Bluetooth en andere apparaten"
 
 #: gettingstarted.html:641
 msgid ""
 "If there were no additional drivers found for the hardware nor did it work "
 "after installing the firmware packages, you may need to research your device"
 " to find the appropriate driver."
-msgstr ""
+msgstr "Als er geen extra stuurprogramma's voor de hardware zijn gevonden en het ook niet werkte na het installeren van de firmware pakketten, moet u mogelijk uw apparaat onderzoeken om het juiste stuurprogramma te vinden."
 
 #: gettingstarted.html:645
 msgid ""
@@ -1004,57 +1004,57 @@ msgid ""
 "hasn't provided any source code for developers to freely use, or there is "
 "insufficient documentation to create drivers for your particular brand and "
 "model."
-msgstr ""
+msgstr "Helaas is dit te wijten aan het feit dat de fabrikant voor uw hardware geen broncode heeft verstrekt die ontwikkelaars vrij kunnen gebruiken, of dat er onvoldoende documentatie is om stuurprogramma's voor uw specifieke merk en model te maken."
 
 #: gettingstarted.html:651
 msgid ""
 "Some manufacturers may provide closed source drivers provided by themselves "
 "directly. If you require assistance, feel free to"
-msgstr ""
+msgstr "Sommige fabrikanten leveren mogelijk rechtstreeks door  closed source stuurprogramma's. Als u hulp nodig heeft, kunt u dat gerust vragen"
 
 #: gettingstarted.html:653
 msgid "ask the community"
-msgstr ""
+msgstr "vraag het in de gemeenschap"
 
 #: gettingstarted.html:656
 msgid "Read more on troubleshooting wireless hardware."
-msgstr ""
+msgstr "Lees meer over het oplossen van problemen met draadloze hardware."
 
 #: gettingstarted.html660, 665
 msgid "Printers"
-msgstr ""
+msgstr "Printers"
 
 #: gettingstarted.html:662
 msgid "When you set up a printer in the"
-msgstr ""
+msgstr "Wanneer u een printer instelt in de"
 
 #: gettingstarted.html:666
 msgid "utility"
-msgstr ""
+msgstr "hulpprogramma"
 
 #: gettingstarted.html:666
 msgid "under"
-msgstr ""
+msgstr "onder"
 
 #: gettingstarted.html:667
 msgid ""
 "you will be presented with a list of drivers available to use, if "
 "applicable."
-msgstr ""
+msgstr "u krijgt een lijst met beschikbare stuurprogramma's te zien, indien van toepassing."
 
 #: gettingstarted.html:670
 msgid ""
 "Some manufacturers may provide their own drivers and require you to download"
 " them from their website."
-msgstr ""
+msgstr "Sommige fabrikanten leveren mogelijk hun eigen stuurprogramma's en vereisen dat u deze van hun website downloadt."
 
 #: gettingstarted.html:673
 msgid "Read more on printing"
-msgstr ""
+msgstr "Lees meer over printen"
 
 #: gettingstarted.html:682
 msgid "HP Linux Printing and Imaging System"
-msgstr ""
+msgstr "HP Linux Afdruk en Beeldsysteem"
 
 #: gettingstarted.html:683
 msgid ""
@@ -1062,105 +1062,105 @@ msgid ""
 "printing on most HP SFP (single function peripheral) inkjets and many "
 "LaserJets, and for scanning, sending faxes and for photo-card access on most"
 " HP MFP (multi-function peripheral) printers."
-msgstr ""
+msgstr "Aanbevolen als u een HP printer hebt, aangezien deze volledige ondersteuning biedt voor het afdrukken op de meeste HP SFP inkjet printers (Single Function Peripheral) en vele Laser Jets, en voor het scannen, verzenden van faxen en voor fotokaarttoegang op de meeste HP MFP's (Multi Function Peripheral) printers."
 
 #: gettingstarted.html:697
 msgid "Software Utilities for Peripherals"
-msgstr ""
+msgstr "Software Hulpprogramma's voor randapparatuur"
 
 #: gettingstarted.html:706
 msgid "Solaar"
-msgstr ""
+msgstr "Solaar"
 
 #: gettingstarted.html:707
 msgid ""
 "A device manager for Logitech’s Unifying Receiver peripherals. This enables "
 "features like managing paired devices and reading battery status."
-msgstr ""
+msgstr "Een apparaat beheerder voor Logitech's Unifying Receiver randapparatuur. Dit maakt functies mogelijk zoals het beheren van gekoppelde apparaten en het lezen van de batterijstatus."
 
 #: gettingstarted.html710, 729, 747
 msgid "Learn More"
-msgstr ""
+msgstr "Kom meer te weten"
 
 #: gettingstarted.html:725
 msgid "OpenRazer"
-msgstr ""
+msgstr "OpenRazer"
 
 #: gettingstarted.html:726
 msgid ""
 "A community-driven driver and daemon that utilities the full functionality "
 "of many Razer peripherals ranging from keyboards, mice and mouse mats."
-msgstr ""
+msgstr "Een door de gemeenschap aangestuurde driver en daemon die de volledige functionaliteit van veel Razer randapparatuur gebruikt, variërend van toetsenborden, muizen en muismatten."
 
 #: gettingstarted.html:744
 msgid ""
 "A front-end for managing Razer devices, with support for application "
 "profiles, setting effects and enabling features of the keyboard."
-msgstr ""
+msgstr "Een front-end voor het beheren van Razer apparaten, met ondersteuning voor applicatieprofielen, instellingseffecten en activerende functies van het toetsenbord."
 
 #: gettingstarted.html:745
 msgid "Requires OpenRazer to be installed first."
-msgstr ""
+msgstr "Vereist om OpenRazer eerst te ïnstalleren"
 
 #: gettingstarted.html764, 769, 772
 msgid "Language Support"
-msgstr ""
+msgstr "Taalondersteuning"
 
 #: gettingstarted.html:765
 msgid ""
 "Your computer may require updates to your language and localization "
 "settings, or you may want to install additional language support."
-msgstr ""
+msgstr "Mogelijk heeft uw computer updates voor uw taal en lokalisatie instellingen nodig of misschien wilt u extra taalondersteuning installeren."
 
 #: gettingstarted.html:779
 msgid "Complex Input"
-msgstr ""
+msgstr "Complexe invoer"
 
 #: gettingstarted.html:780
 msgid "Some regions of the world require complex inputs."
-msgstr ""
+msgstr "Sommige regio's in de wereld hebben complexe inputs nodig."
 
 #: gettingstarted.html:785
 msgid "Chinese"
-msgstr ""
+msgstr "Chinese"
 
 #: gettingstarted.html:788
 msgid "Japanese"
-msgstr ""
+msgstr "Japanese"
 
 #: gettingstarted.html:791
 msgid "Korean"
-msgstr ""
+msgstr "Koreaans"
 
 #: gettingstarted.html:800
 msgid "Backup, Firewall and User Management"
-msgstr ""
+msgstr "Back-up, Firewall en Gebruikersbeheer"
 
 #: gettingstarted.html:801
 msgid ""
 "Ubuntu MATE provides tools to backup your files, comes with a firewall pre-"
 "installed and supports multiple user accounts."
-msgstr ""
+msgstr "Ubuntu MATE biedt tools om een back-up van uw bestanden te maken, wordt geleverd met een vooraf geïnstalleerde firewall en ondersteunt meerdere gebruikersaccounts."
 
 #: gettingstarted.html812, 826
 msgid "Backups"
-msgstr ""
+msgstr "Back-ups"
 
 #: gettingstarted.html:813
 msgid ""
 "Nothing is more important than having a backup of your personal files, just "
 "in case something disastrous happens to your computer."
-msgstr ""
+msgstr "Niets is zo belangrijk als een back-up van uw persoonlijke bestanden, voor het geval er iets rampzalig met uw computer gebeurt."
 
 #: gettingstarted.html:817
 msgid ""
 "comes pre-installed and supports backups to local devices as well as online "
 "cloud-based services."
-msgstr ""
+msgstr "wordt vooraf geïnstalleerd en ondersteunt back-ups naar lokale apparaten en online cloudgebaseerde services."
 
 #: gettingstarted.html:820
 msgid "Configure Backup"
-msgstr ""
+msgstr "Configureer back-up"
 
 #: gettingstarted.html823, 875
 msgid "Installing..."
@@ -1168,146 +1168,146 @@ msgstr "Aan het installeren"
 
 #: gettingstarted.html:838
 msgid "Network Shares"
-msgstr ""
+msgstr "Netwerkaandelen"
 
 #: gettingstarted.html:839
 msgid "Need to access files and folders with multiple computers?"
-msgstr ""
+msgstr "Wilt u bestanden en mappen openen met meerdere computers?"
 
 #: gettingstarted.html:842
 msgid "Samba"
-msgstr ""
+msgstr "Samba"
 
 #: gettingstarted.html:842
 msgid ""
 "is available to install, which integrates with the Caja File Manager, "
 "allowing you to seamless retrieve data stored on another computer."
-msgstr ""
+msgstr "is beschikbaar om te installeren, dat integreert met de Caja File Manager, zodat u naadloos gegevens kunt ophalen die op een andere computer zijn opgeslagen."
 
 #: gettingstarted.html:847
 msgid "Samba is installed."
-msgstr ""
+msgstr "Samba is geïnstalleerd."
 
 #: gettingstarted.html:848
 msgid "Choose a folder and select \"Sharing Options\"."
-msgstr ""
+msgstr "Kies een map en selecteer \"Opties voor delen\"."
 
 #: gettingstarted.html:852
 msgid "Samba is available from the Software Boutique under \"Servers\"."
-msgstr ""
+msgstr "Samba is verkrijgbaar bij de Software Shop onder \"Servers\"."
 
 #: gettingstarted.html:863
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: gettingstarted.html:864
 msgid ""
 "Firewalls prevent malicious connections entering and leaving your computer. "
 "By default, the firewall is disabled,"
-msgstr ""
+msgstr "Firewalls voorkomen dat kwaadaardige verbindingen uw computer binnenkomen en verlaten. Standaard is de firewall uitgeschakeld,"
 
 #: gettingstarted.html:866
 msgid "learn more about firewalls"
-msgstr ""
+msgstr "lees meer over firewalls"
 
 #: gettingstarted.html:868
 msgid "provides a graphical frontend to"
-msgstr ""
+msgstr "biedt een grafisch frontend aan"
 
 #: gettingstarted.html:869
 msgid "Uncomplicated Firewall"
-msgstr ""
+msgstr "Eenvoudige Firewall"
 
 #: gettingstarted.html:869
 msgid "If security is important to you, there are"
-msgstr ""
+msgstr "Als beveiliging belangrijk voor u is, zijn er"
 
 #: gettingstarted.html:870
 msgid "more ways to stay secure too"
-msgstr ""
+msgstr "meer manieren om ook veilig te blijven"
 
 #: gettingstarted.html:872
 msgid "Configure Firewall"
-msgstr ""
+msgstr "Configureer Firewall"
 
 #: gettingstarted.html:878
 msgid "Firewall Configuration"
-msgstr ""
+msgstr "Firewall Configuratie"
 
 #: gettingstarted.html:890
 msgid "Users"
-msgstr ""
+msgstr "Gebruikers"
 
 #: gettingstarted.html:892
 msgid ""
 "Share your computer with others? Set up a separate user account for each "
 "user to protect the individual privacy of each user sharing the same "
 "computer."
-msgstr ""
+msgstr "Deel je computer met anderen? Stel voor elke gebruiker een apart gebruikersaccount in om de individuele privacy van elke gebruiker die dezelfde computer deelt te beschermen."
 
 #: gettingstarted.html:895
 msgid "You can also log in to a"
-msgstr ""
+msgstr "U kunt ook inloggen op een"
 
 #: gettingstarted.html:895
 msgid "Guest Session"
-msgstr ""
+msgstr "Gast Sessie "
 
 #: gettingstarted.html:895
 msgid "if someone is using your computer as a one-off."
-msgstr ""
+msgstr "als iemand uw computer eenmalig gebruikt."
 
 #: gettingstarted.html:898
 msgid "Configure Users"
-msgstr ""
+msgstr "Configureer de gebruikers"
 
 #: gettingstarted.html:901
 msgid "Users and Groups"
-msgstr ""
+msgstr "Gebruikers en Groepen"
 
 #: gettingstarted.html:909
 msgid "Customisation"
-msgstr ""
+msgstr "Maatwerk"
 
 #: gettingstarted.html913, 921
 msgid "User Interface"
-msgstr ""
+msgstr "Gebruikersomgeving"
 
 #: gettingstarted.html:914
 msgid ""
 "Ubuntu MATE provides a unique tool to transform the user interface. It can "
 "be used to quickly setup the user interface to broadly reflect how other "
 "popular operating systems look and feel. The"
-msgstr ""
+msgstr "Ubuntu MATE biedt een uniek hulpmiddel aan om de gebruikersinterface te transformeren. Het kan de gebruikersinterface snel instellen en in grote lijnen weergeven hoe andere populaire besturingssystemen eruit zien en aanvoelen. De"
 
 #: gettingstarted.html:917
 msgid "layout is similar to Microsoft Windows, while the"
-msgstr ""
+msgstr "lay-out is vergelijkbaar met Microsoft Windows, terwijl de"
 
 #: gettingstarted.html:918
 msgid "layout is similar to Apple Mac OS X."
-msgstr ""
+msgstr "lay-out is vergelijkbaar met Apple Mac OS X."
 
 #: gettingstarted.html:924
 msgid "MATE Tweak"
-msgstr ""
+msgstr "MATE Tweak"
 
 #: gettingstarted.html:930
 msgid ""
 "The utilities mentioned above are all part of the extensive Control Center "
 "that Ubuntu MATE provides. You can configure just about every aspect of your"
 " computer from the Control Center."
-msgstr ""
+msgstr "De hierboven genoemde hulpprogramma's maken allemaal deel uit van het uitgebreide Controle Center dat Ubuntu MATE biedt. U kunt zowat elk aspect van uw computer configureren vanuit het Controle Center."
 
 #: gettingstarted.html:941
 msgid "Keyboard & Mouse Shortcuts"
-msgstr ""
+msgstr "Sneltoetsen voor toetsenbord & muis"
 
 #: gettingstarted.html:945
 msgid ""
 "Ubuntu MATE has many keyboard shortcuts that help make using your computer "
 "more efficient."
-msgstr ""
+msgstr "Ubuntu MATE heeft veel sneltoetsen waarmee u uw computer efficiënter kunt gebruiken."
 
 #: gettingstarted.html:949
 msgid "The"
@@ -1315,650 +1315,650 @@ msgstr "De"
 
 #: gettingstarted.html:949
 msgid "Super"
-msgstr ""
+msgstr "Super"
 
 #: gettingstarted.html:949
 msgid "key is your Windows key. For Mac keyboards, this is the ⌘ Command key."
-msgstr ""
+msgstr "sleutel is uw Windowssleutel. Voor Mac toetsenborden is ⌘ de Commandotoets.  "
 
 #: gettingstarted.html:952
 msgid "Common application shortcuts"
-msgstr ""
+msgstr "Snelkoppelingen voor algemene toepassing "
 
 #: gettingstarted.html:953
 msgid "These shortcuts apply in most applications."
-msgstr ""
+msgstr "Deze sneltoetsen zijn van toepassing op de meeste applicaties."
 
-#: gettingstarted.html958, 966, 974, 982, 990, 998, 1006, 1014, 1022, 1030,
-#: 1038, 1046, 1054, 1062, 1135, 1144, 1154, 1168, 1252, 1268, 1278, 1288,
-#: 1300, 1373, 1384, 1400, 1410, 1426, 1442, 1456, 1470, 1488, 1498
+#: gettingstarted.html958, 964, 970, 976, 982, 988, 994, 1000, 1006, 1012,
+#: 1018, 1024, 1030, 1036, 1097, 1102, 1108, 1119, 1180, 1192, 1198, 1204,
+#: 1210, 1265, 1272, 1283, 1289, 1300, 1311, 1322, 1333, 1344, 1350
 msgid "Ctrl"
-msgstr ""
+msgstr "Ctrl"
 
-#: gettingstarted.html:962
+#: gettingstarted.html:960
 msgid "Copy the selected text/object"
-msgstr ""
+msgstr "Kopieer de geselecteerde tekst/object"
 
-#: gettingstarted.html:970
+#: gettingstarted.html:966
 msgid "Cut the selected text/object"
-msgstr ""
+msgstr "Knip de geselecteerde tekst/object"
+
+#: gettingstarted.html:972
+msgid "Paste/insert the selected text/object"
+msgstr "Plak/voeg de geselecteerde tekst/object in"
 
 #: gettingstarted.html:978
-msgid "Paste/insert the selected text/object"
-msgstr ""
-
-#: gettingstarted.html:986
 msgid "Select all text"
-msgstr ""
+msgstr "Selecteer alle tekst"
 
-#: gettingstarted.html:994
+#: gettingstarted.html:984
 msgid "Find and replace words"
-msgstr ""
+msgstr "Zoek en vervang woorden"
+
+#: gettingstarted.html:990
+msgid "Make the selected text bold"
+msgstr "Maak de geselecteerde tekst vet"
+
+#: gettingstarted.html:996
+msgid "Make the selected text italic"
+msgstr "Maak de geselecteerde tekst cursief"
 
 #: gettingstarted.html:1002
-msgid "Make the selected text bold"
-msgstr ""
-
-#: gettingstarted.html:1010
-msgid "Make the selected text italic"
-msgstr ""
-
-#: gettingstarted.html:1018
 msgid "Underline the selected text"
-msgstr ""
+msgstr "Onderstreep de geselecteerde tekst"
+
+#: gettingstarted.html:1008
+msgid "Open a new document or window"
+msgstr "Open een nieuw document of venster"
+
+#: gettingstarted.html:1014
+msgid "Save the current document"
+msgstr "Sla het huidige document op"
+
+#: gettingstarted.html:1020
+msgid "Open another document"
+msgstr "Open een ander document"
 
 #: gettingstarted.html:1026
-msgid "Open a new document or window"
-msgstr ""
-
-#: gettingstarted.html:1034
-msgid "Save the current document"
-msgstr ""
-
-#: gettingstarted.html:1042
-msgid "Open another document"
-msgstr ""
-
-#: gettingstarted.html:1050
 msgid "Print the current document"
-msgstr ""
+msgstr "Druk het huidige document af"
 
-#: gettingstarted.html:1058
+#: gettingstarted.html:1032
 msgid "Undo the last change you made"
-msgstr ""
+msgstr "Maak de laatste wijziging die u heeft aangebracht ongedaan"
 
-#: gettingstarted.html1064, 1127, 1208, 1292, 1303, 1476, 1504, 1559
+#: gettingstarted.html1036, 1091, 1146, 1204, 1211, 1339, 1356, 1394
 msgid "Shift"
-msgstr ""
+msgstr "Shift"
 
-#: gettingstarted.html:1068
+#: gettingstarted.html:1038
 msgid "Redo a change that you just undid"
-msgstr ""
+msgstr "Herhaal een verandering die je net ongedaan hebt gemaakt"
 
-#: gettingstarted.html:1074
+#: gettingstarted.html:1044
 msgid "Toggle the current application between full-screen and windowed"
-msgstr ""
+msgstr "Schakel de huidige applicatie tussen volledig scherm en venster"
 
-#: gettingstarted.html:1078
+#: gettingstarted.html:1048
 msgid "Desktop shortcuts"
-msgstr ""
+msgstr "Snelkoppelingen op het bureaublad"
 
-#: gettingstarted.html:1079
+#: gettingstarted.html:1049
 msgid ""
 "This section lists common keyboard shortcuts which you can use to operate "
 "parts of the desktop."
-msgstr ""
+msgstr "Dit gedeelte bevat algemene sneltoetsen die u kunt gebruiken om delen van het bureaublad te bedienen."
 
-#: gettingstarted.html1085, 1160, 1174, 1182, 1190, 1198, 1216, 1226, 1392,
-#: 1418, 1434, 1448, 1462, 1480, 1508, 1541, 1549, 1557, 1567, 1575, 1583,
-#: 1591
+#: gettingstarted.html1055, 1114, 1124, 1128, 1134, 1140, 1152, 1158, 1278,
+#: 1295, 1306, 1317, 1328, 1339, 1356, 1382, 1388, 1394, 1400, 1406, 1412,
+#: 1418
 msgid "Super Key"
-msgstr ""
+msgstr "Super Toets"
+
+#: gettingstarted.html:1057
+msgid "Activate Brisk Menu or MATE Menu launcher"
+msgstr "Activeer Brisk Menu of MATE Menu launcher"
+
+#: gettingstarted.html:1063
+msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
+msgstr "Activeer Heads-up Display (HUD), indien ingeschakeld in MATE Tweak."
+
+#: gettingstarted.html:1069
+msgid "Open the Applications menu"
+msgstr "Open het menu Toepassingen"
+
+#: gettingstarted.html:1075
+msgid "Run an application by typing its name in the box which appears"
+msgstr "Voer een applicatie uit door de naam te typen in het vak dat verschijnt"
+
+#: gettingstarted.html:1079
+msgid "Prt Sc"
+msgstr "Prt Sc"
+
+#: gettingstarted.html:1081
+msgid "Take a screenshot of the whole screen"
+msgstr "Maak een screenshot van het hele scherm"
 
 #: gettingstarted.html:1087
-msgid "Activate Brisk Menu or MATE Menu launcher"
-msgstr ""
+msgid "Take a screenshot of the current window"
+msgstr "Maak een screenshot van het huidige venster"
 
 #: gettingstarted.html:1093
-msgid "Activate Heads-up Display (HUD), if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1101
-msgid "Open the Applications menu"
-msgstr ""
-
-#: gettingstarted.html:1109
-msgid "Run an application by typing its name in the box which appears"
-msgstr ""
-
-#: gettingstarted.html:1113
-msgid "Prt Sc"
-msgstr ""
-
-#: gettingstarted.html:1115
-msgid "Take a screenshot of the whole screen"
-msgstr ""
-
-#: gettingstarted.html:1123
-msgid "Take a screenshot of the current window"
-msgstr ""
-
-#: gettingstarted.html:1131
 msgid "Take a screenshot of a selected area"
-msgstr ""
+msgstr "Maak een screenshot van een geselecteerd gebied"
 
-#: gettingstarted.html:1139
+#: gettingstarted.html:1097
 msgid "Delete"
-msgstr ""
+msgstr "Verwijderen"
 
-#: gettingstarted.html:1141
+#: gettingstarted.html:1099
 msgid "Open the dialog box to shutdown, restart or suspend."
-msgstr ""
+msgstr "Open het dialoogvenster om af te sluiten, opnieuw op te starten of te onderbreken."
 
-#: gettingstarted.html:1150
+#: gettingstarted.html:1104
 msgid "Toggles 'Show Desktop'."
-msgstr ""
+msgstr "Schakel 'Show Desktop' in."
+
+#: gettingstarted.html:1110
+msgid "Lock your screen."
+msgstr "Vergrendel je scherm."
+
+#: gettingstarted.html:1121
+msgid "Open a terminal."
+msgstr "Open een terminal."
+
+#: gettingstarted.html:1130
+msgid "Open the file manager"
+msgstr "Open de bestandsbeheerder"
+
+#: gettingstarted.html:1136
+msgid "Open Control Center"
+msgstr "Open Controle Center"
+
+#: gettingstarted.html:1142
+msgid "Open Search"
+msgstr "Open Zoeken"
+
+#: gettingstarted.html:1146
+msgid "CTRL"
+msgstr "CTRL"
+
+#: gettingstarted.html:1148
+msgid "Open System Monitor"
+msgstr "Open Systeem Monitor"
+
+#: gettingstarted.html:1152
+msgid "Pause"
+msgstr "Pauze"
+
+#: gettingstarted.html:1154
+msgid "Open System Information"
+msgstr "Open Systeem Informatie"
+
+#: gettingstarted.html:1160
+msgid "Screen reader enable/disable."
+msgstr "Schermlezer inschakelen/uitschakelen."
 
 #: gettingstarted.html:1164
-msgid "Lock your screen."
-msgstr ""
-
-#: gettingstarted.html:1178
-msgid "Open a terminal."
-msgstr ""
-
-#: gettingstarted.html:1186
-msgid "Open the file manager"
-msgstr ""
-
-#: gettingstarted.html:1194
-msgid "Open Control Center"
-msgstr ""
-
-#: gettingstarted.html:1202
-msgid "Open Search"
-msgstr ""
-
-#: gettingstarted.html:1206
-msgid "CTRL"
-msgstr ""
-
-#: gettingstarted.html:1212
-msgid "Open System Monitor"
-msgstr ""
-
-#: gettingstarted.html:1218
-msgid "Pause"
-msgstr ""
-
-#: gettingstarted.html:1220
-msgid "Open System Information"
-msgstr ""
-
-#: gettingstarted.html:1230
-msgid "Screen reader enable/disable."
-msgstr ""
-
-#: gettingstarted.html:1234
 msgid "Window shortcuts"
-msgstr ""
+msgstr "Venster snelkoppelingen"
 
-#: gettingstarted.html:1239
+#: gettingstarted.html:1167
 msgid "Tab"
-msgstr ""
+msgstr "Tab"
 
-#: gettingstarted.html:1242
+#: gettingstarted.html:1170
 msgid "Switch between currently-open windows."
-msgstr ""
+msgstr "Schakel tussen momenteel geopende vensters."
 
-#: gettingstarted.html:1244
+#: gettingstarted.html:1172
 msgid "Press Alt + Tab and then release Tab (but continue to hold Alt)."
-msgstr ""
+msgstr "Druk op Alt + Tab en laat vervolgens Tab los (maar houd Alt ingedrukt)."
 
-#: gettingstarted.html1245, 1261
+#: gettingstarted.html1173, 1185
 msgid ""
 "Press Tab repeatedly to cycle through the list of available windows which "
 "appears on the screen."
+msgstr "Druk herhaaldelijk op Tab om door de lijst met beschikbare vensters te bladeren die op het scherm verschijnt."
+
+#: gettingstarted.html:1174
+msgid "Release the Alt key to switch to the selected window."
+msgstr "Laat de Alt toets los om over te schakelen naar het geselecteerde venster."
+
+#: gettingstarted.html:1183
+msgid "Switch between currently-open windows in all Workspaces."
+msgstr "Schakel tussen momenteel geopende vensters in alle werkruimten."
+
+#: gettingstarted.html:1186
+msgid "Release the Ctrl and Alt keys to switch to the selected window."
+msgstr "Laat de Ctrl en Alt toetsen los om over te schakelen naar het geselecteerde venster."
+
+#: gettingstarted.html1192, 1204, 1278, 1317, 1339
+msgid "Left"
+msgstr "Links"
+
+#: gettingstarted.html:1194
+msgid "Switch to the previous workspace."
+msgstr "Schakel over naar de vorige werkruimte."
+
+#: gettingstarted.html1198, 1211, 1295, 1328, 1356
+msgid "Right"
+msgstr "Rechts"
+
+#: gettingstarted.html:1200
+msgid "Switch to the next workspace."
+msgstr "Schakel over naar de volgende werkruimte."
+
+#: gettingstarted.html:1206
+msgid "Move the current window to the previous workspace."
+msgstr "Verplaats het huidige venster naar de vorige werkruimte."
+
+#: gettingstarted.html:1213
+msgid "Move the current window to the next workspace."
+msgstr "Verplaats het huidige venster naar de volgende werkruimte."
+
+#: gettingstarted.html:1219
+msgid "Closes window."
+msgstr "Venster sluiten."
+
+#: gettingstarted.html:1225
+msgid "Returns window to 'normal' or previous size."
+msgstr "Zet het venster terug naar 'normale' of vorige grootte."
+
+#: gettingstarted.html:1231
+msgid "Moves the current window (can be moved with mouse or keyboard)."
+msgstr "Verplaatst het huidige venster (kan worden verplaatst met muis of toetsenbord)."
+
+#: gettingstarted.html:1237
+msgid "Resizes current window (again, can be moved with mouse or keyboard)."
+msgstr "Verkleint het huidige venster (nogmaals, kan met muis of toetsenbord worden verplaatst)"
+
+#: gettingstarted.html:1243
+msgid "Minimizes current window."
+msgstr "Minimaliseer het huidige venster."
+
+#: gettingstarted.html:1249
+msgid "Maximize (or restore) current window."
 msgstr ""
 
-#: gettingstarted.html:1246
-msgid "Release the Alt key to switch to the selected window."
-msgstr ""
+#: gettingstarted.html:1255
+msgid "Pulldown Terminal, if enabled in MATE Tweak."
+msgstr "Pulldown Terminal, indien ingeschakeld in MATE Tweak."
 
 #: gettingstarted.html:1259
-msgid "Switch between currently-open windows in all Workspaces."
-msgstr ""
-
-#: gettingstarted.html:1262
-msgid "Release the Ctrl and Alt keys to switch to the selected window."
-msgstr ""
-
-#: gettingstarted.html1272, 1294, 1394, 1450, 1482
-msgid "Left"
-msgstr ""
-
-#: gettingstarted.html:1274
-msgid "Switch to the previous workspace."
-msgstr ""
-
-#: gettingstarted.html1282, 1305, 1420, 1464, 1510
-msgid "Right"
-msgstr ""
-
-#: gettingstarted.html:1284
-msgid "Switch to the next workspace."
-msgstr ""
-
-#: gettingstarted.html:1296
-msgid "Move the current window to the previous workspace."
-msgstr ""
-
-#: gettingstarted.html:1307
-msgid "Move the current window to the next workspace."
-msgstr ""
-
-#: gettingstarted.html:1315
-msgid "Closes window."
-msgstr ""
-
-#: gettingstarted.html:1323
-msgid "Returns window to 'normal' or previous size."
-msgstr ""
-
-#: gettingstarted.html:1331
-msgid "Moves the current window (can be moved with mouse or keyboard)."
-msgstr ""
-
-#: gettingstarted.html:1339
-msgid "Resizes current window (again, can be moved with mouse or keyboard)."
-msgstr ""
-
-#: gettingstarted.html:1347
-msgid "Minimizes current window."
-msgstr ""
-
-#: gettingstarted.html:1355
-msgid "Maximizes current window."
-msgstr ""
-
-#: gettingstarted.html:1361
-msgid "Pulldown Terminal, if enabled in MATE Tweak."
-msgstr ""
-
-#: gettingstarted.html:1367
 msgid "Space"
-msgstr ""
+msgstr "Ruimte"
 
-#: gettingstarted.html:1369
+#: gettingstarted.html:1261
 msgid ""
 "Displays the window menu with options such as 'Always on Top' and 'Minimize'"
 " and 'Maximize' and above commands."
-msgstr ""
+msgstr "Geeft het venstermenu weer met opties zoals Altijd op voorgrond, Minimaliseren, Maximaliseren en bovenstaande opdrachten."
 
-#: gettingstarted.html:1379
+#: gettingstarted.html:1267
 msgid "Toggle shaded state."
-msgstr ""
+msgstr "Schakel gearceerde staat in."
 
-#: gettingstarted.html1388, 1404, 1414, 1430, 1446, 1460, 1474, 1492, 1502
+#: gettingstarted.html1272, 1283, 1289, 1300, 1311, 1322, 1333, 1344, 1350
 msgid "Numpad"
-msgstr ""
+msgstr "Numpad"
 
-#: gettingstarted.html:1396
+#: gettingstarted.html:1274
 msgid "Place window in top left corner of screen."
-msgstr ""
+msgstr "Plaats het venster in linker bovenhoek van het scherm."
 
-#: gettingstarted.html:1406
+#: gettingstarted.html:1285
 msgid "Place window in top half of screen."
-msgstr ""
+msgstr "Plaats het venster in de bovenste helft van het scherm."
 
-#: gettingstarted.html:1422
+#: gettingstarted.html:1291
 msgid "Place window in top right corner of screen."
-msgstr ""
+msgstr "Plaats het venster in de rechterbovenhoek van het scherm."
 
-#: gettingstarted.html:1438
+#: gettingstarted.html:1302
 msgid "Center/Maximize the window in the middle of the screen."
-msgstr ""
+msgstr "Center / Maximaliseer het venster in het midden van het scherm."
 
-#: gettingstarted.html:1452
+#: gettingstarted.html:1313
 msgid "Place window to the left half of the screen."
-msgstr ""
+msgstr "Plaats venster op de linkerhelft van het scherm."
 
-#: gettingstarted.html:1466
+#: gettingstarted.html:1324
 msgid "Place window to the right half of the screen."
-msgstr ""
+msgstr "Plaats venster op de rechterhelft van het scherm."
 
-#: gettingstarted.html:1484
+#: gettingstarted.html:1335
 msgid "Place window in the bottom left corner of the screen."
-msgstr ""
+msgstr "Plaats het venster linksonder in de hoek van het scherm"
 
-#: gettingstarted.html:1494
+#: gettingstarted.html:1346
 msgid "Place window in the bottom half of the screen."
-msgstr ""
+msgstr "Plaats het venster in de onderste helft van het scherm."
 
-#: gettingstarted.html:1512
+#: gettingstarted.html:1352
 msgid "Place window in the bottom right corner of the screen."
-msgstr ""
+msgstr "Plaats het venster rechtsonder in de hoek van het scherm"
 
-#: gettingstarted.html:1516
+#: gettingstarted.html:1361
 msgid "Mouse Shortcuts"
-msgstr ""
+msgstr "Muis Snelkoppelingen"
 
-#: gettingstarted.html:1522
+#: gettingstarted.html:1365
 msgid "Left-click while dragging mouse"
-msgstr ""
+msgstr "Klik met de linkermuisknop terwijl u de muis sleept"
 
-#: gettingstarted.html:1524
+#: gettingstarted.html:1367
 msgid "Moves the window."
-msgstr ""
+msgstr "Verplaats het venster."
 
-#: gettingstarted.html:1530
+#: gettingstarted.html:1371
 msgid "Right-click while dragging mouse"
-msgstr ""
+msgstr "Klik met de rechtermuisknop terwijl u de muis sleept"
 
-#: gettingstarted.html:1532
+#: gettingstarted.html:1373
 msgid "Resizes the window (closest window edge)."
-msgstr ""
+msgstr "Verklein het venster (dichtstbijzijnde vensterrand)."
 
-#: gettingstarted.html:1536
+#: gettingstarted.html:1377
 msgid "Compiz Effects Shortcuts"
-msgstr ""
+msgstr " Snelkoppelingen voor Compiz Effects"
 
-#: gettingstarted.html:1537
+#: gettingstarted.html:1378
 msgid ""
 "All of the shortcuts listed in this section require Compiz to be enabled."
-msgstr ""
+msgstr "Voor alle snelkoppelingen in deze sectie moet Compiz zijn ingeschakeld."
 
-#: gettingstarted.html:1545
+#: gettingstarted.html:1384
 msgid "Zoom out, show workspace switcher."
-msgstr ""
+msgstr "Zoom uit, toon werkruimte schakelaar."
 
-#: gettingstarted.html:1553
+#: gettingstarted.html:1390
 msgid ""
 "Enables the 'scale' effect, it shows all windows from the current workspace."
-msgstr ""
+msgstr "Schakelt het 'Scale'-effect in, het toont alle vensters van de huidige werkruimte."
 
-#: gettingstarted.html:1563
+#: gettingstarted.html:1396
 msgid "Enables the 'scale' effect, it shows all windows from all workspaces."
-msgstr ""
+msgstr "Schakelt het 'schaal'-effect in, het toont alle vensters van de huidige werkruimte."
 
-#: gettingstarted.html:1571
+#: gettingstarted.html:1402
 msgid "Invert colors of the focused window."
-msgstr ""
+msgstr "Keer de kleuren om van het gefocuste venster."
 
-#: gettingstarted.html:1579
+#: gettingstarted.html:1408
 msgid "Invert colors for the whole screen."
-msgstr ""
+msgstr "Keer de kleuren om voor het hele scherm."
 
-#: gettingstarted.html:1585
+#: gettingstarted.html:1412
 msgid "Scroll Wheel"
-msgstr ""
+msgstr "Scroll Wiel"
 
-#: gettingstarted.html:1587
+#: gettingstarted.html:1414
 msgid "Zooms in on the screen."
-msgstr ""
+msgstr "Zoomt in op het scherm."
 
-#: gettingstarted.html1593, 1609
+#: gettingstarted.html1418, 1430
 msgid "Middle Click"
-msgstr ""
+msgstr "Middelste klik"
 
-#: gettingstarted.html:1595
+#: gettingstarted.html:1420
 msgid "Select a region to zoom into, using a rectangle."
-msgstr ""
+msgstr "Selecteer een regio om in te zoomen met een rechthoek."
 
-#: gettingstarted.html:1601
+#: gettingstarted.html:1424
 msgid "Left Click"
-msgstr ""
+msgstr "Links klikken"
 
-#: gettingstarted.html:1603
+#: gettingstarted.html:1426
 msgid "Move focused window."
-msgstr ""
+msgstr "Verplaats doelgericht venster."
 
-#: gettingstarted.html:1611
+#: gettingstarted.html:1432
 msgid "Resize focused window."
-msgstr ""
+msgstr "Wijzig het formaat van het doelgericht venster"
 
-#: gettingstarted.html:1617
+#: gettingstarted.html:1436
 msgid "Right Click"
-msgstr ""
+msgstr "Klik Rechts"
 
-#: gettingstarted.html:1619
+#: gettingstarted.html:1438
 msgid "Show window menu."
-msgstr ""
+msgstr "Venstermenu weergeven."
 
-#: gettingstarted.html:1632
+#: gettingstarted.html:1451
 msgid ""
 "Your machine is made up of various components that interact with one "
 "another. This information is useful when providing support to ensure "
 "hardware and software works on your machine."
-msgstr ""
+msgstr "Uw machine bestaat uit verschillende componenten die met elkaar in wisselwerking staan. Deze informatie is nuttig bij het bieden van ondersteuning om ervoor te zorgen dat hardware en software op uw computer werken."
 
-#: gettingstarted.html:1636
+#: gettingstarted.html:1455
 msgid "View System Requirements"
-msgstr ""
+msgstr "Bekijk systeemvereisten"
 
-#: gettingstarted.html:1640
+#: gettingstarted.html:1459
 msgid "Basic"
-msgstr ""
+msgstr "Basis"
 
-#: gettingstarted.html:1656
+#: gettingstarted.html:1475
 msgid "Distribution:"
-msgstr ""
+msgstr "Distributie:"
 
-#: gettingstarted.html:1660
+#: gettingstarted.html:1479
 msgid "Kernel:"
-msgstr ""
+msgstr "Kernel:"
 
-#: gettingstarted.html:1663
+#: gettingstarted.html:1482
 msgid "The Linux kernel is the heart of Ubuntu."
-msgstr ""
+msgstr "De Linux kernel is het hart van Ubuntu."
 
-#: gettingstarted.html:1669
+#: gettingstarted.html:1488
 msgid "Motherboard:"
-msgstr ""
+msgstr "Moederbord:"
 
-#: gettingstarted.html:1673
+#: gettingstarted.html:1492
 msgid "Boot Mode:"
-msgstr ""
+msgstr "Opstart Modus:"
 
-#: gettingstarted.html:1676
+#: gettingstarted.html:1495
 msgid "Displays the mode that Ubuntu MATE is communicating with the firmware."
-msgstr ""
+msgstr "Geeft de modus weer die Ubuntu MATE communiceert met de firmware."
 
-#: gettingstarted.html:1684
+#: gettingstarted.html:1503
 msgid "Processor"
-msgstr ""
+msgstr "Processor"
 
-#: gettingstarted.html:1687
+#: gettingstarted.html:1506
 msgid "Model:"
-msgstr ""
+msgstr "Model:"
 
-#: gettingstarted.html:1691
+#: gettingstarted.html:1510
 msgid "Speed:"
-msgstr ""
+msgstr "Snelheid:"
 
-#: gettingstarted.html:1695
+#: gettingstarted.html:1514
 msgid "Architecture in use:"
-msgstr ""
+msgstr "Architectuur in gebruik:"
 
-#: gettingstarted.html:1698
+#: gettingstarted.html:1517
 msgid ""
 "The operating system's architecture in use. For instance, i386 = 32-bit."
-msgstr ""
+msgstr "De gebruikte architectuur van het besturingssysteem. Bijvoorbeeld i386 = 32-bit."
 
-#: gettingstarted.html:1704
+#: gettingstarted.html:1523
 msgid "Architecture(s) supported:"
-msgstr ""
+msgstr "Ondersteunde architectuur (en):"
 
-#: gettingstarted.html:1707
+#: gettingstarted.html:1526
 msgid "Architectures that are supported by this processor."
-msgstr ""
+msgstr "Architecturen die door deze processor worden ondersteund."
 
-#: gettingstarted.html:1715
+#: gettingstarted.html:1534
 msgid "Components"
-msgstr ""
+msgstr "Componenten"
 
-#: gettingstarted.html:1718
+#: gettingstarted.html:1537
 msgid "Memory (RAM):"
-msgstr ""
+msgstr "Geheugen (RAM):"
 
-#: gettingstarted.html:1721
+#: gettingstarted.html:1540
 msgid "More RAM allows more applications to run simultaneously."
-msgstr ""
+msgstr "Met meer RAM kunnen meer applicaties tegelijkertijd worden uitgevoerd."
 
-#: gettingstarted.html:1727
+#: gettingstarted.html:1546
 msgid "Graphics:"
-msgstr ""
+msgstr "Grafische:"
 
-#: gettingstarted.html:1731
+#: gettingstarted.html:1550
 msgid "Internet Access:"
-msgstr ""
+msgstr "Internet toegang:"
 
-#: gettingstarted.html:1733
+#: gettingstarted.html:1552
 msgid "Connected"
-msgstr ""
+msgstr "Verbonden"
 
-#: gettingstarted.html:1734
+#: gettingstarted.html:1553
 msgid "Not Connected"
-msgstr ""
+msgstr "Niet verbonden"
 
-#: gettingstarted.html:1741
+#: gettingstarted.html:1560
 msgid "Storage"
-msgstr ""
+msgstr "Opslag"
 
-#: gettingstarted.html:1745
+#: gettingstarted.html:1564
 msgid "Root File System:"
-msgstr ""
+msgstr "Root Bestandssysteem:"
 
-#: gettingstarted.html:1748
+#: gettingstarted.html:1567
 msgid "The file system where Ubuntu MATE is installed."
-msgstr ""
+msgstr "Het bestandssysteem waarop Ubuntu MATE is geïnstalleerd."
 
-#: gettingstarted.html:1754
+#: gettingstarted.html:1573
 msgid "Entire Disk Capacity:"
-msgstr ""
+msgstr "Gehele Schijf Capaciteit:"
 
-#: gettingstarted.html:1759
+#: gettingstarted.html:1578
 msgid "Ubuntu MATE Usage"
-msgstr ""
+msgstr "Ubuntu MATE gebruik"
 
-#: gettingstarted.html:1768
+#: gettingstarted.html:1587
 msgid "Allocated for Ubuntu MATE:"
-msgstr ""
+msgstr "Toegekend voor Ubuntu MATE:"
 
-#: gettingstarted.html:1771
+#: gettingstarted.html:1590
 msgid "The size of your operating system partition."
-msgstr ""
+msgstr "De grootte van uw besturingssysteem partitie."
 
-#: gettingstarted.html:1777
+#: gettingstarted.html:1596
 msgid "Used Space:"
-msgstr ""
+msgstr "Gebruikte ruimte:"
 
-#: gettingstarted.html:1783
+#: gettingstarted.html:1602
 msgid "Free Space:"
-msgstr ""
+msgstr "Vrije ruimte:"
 
-#: gettingstarted.html:1789
+#: gettingstarted.html:1608
 msgid "Other Usage:"
-msgstr ""
+msgstr "Ander gebruik:"
 
-#: gettingstarted.html:1792
+#: gettingstarted.html:1611
 msgid "Reserved by system, other partitions, unallocated or swap."
-msgstr ""
+msgstr "Gereserveerd door systeem, andere partities, niet toegewezen of verwisseld."
 
-#: gettingstarted.html:1800
+#: gettingstarted.html:1619
 msgid "Why do I see two units?"
-msgstr ""
+msgstr "Waarom zie ik twee eenheden?"
 
-#: gettingstarted.html:1806
+#: gettingstarted.html:1625
 msgid "SI or IEC Units?"
-msgstr ""
+msgstr "SI of IEC eenheden?"
 
-#: gettingstarted.html:1808
+#: gettingstarted.html:1627
 msgid "Decimal (SI Standard)"
-msgstr ""
+msgstr "Decimaal (SI standaard)"
 
-#: gettingstarted.html:1810
+#: gettingstarted.html:1629
 msgid "1 KB = 1000 bytes"
-msgstr ""
+msgstr "1 KB = 1000 bytes"
 
-#: gettingstarted.html:1811
+#: gettingstarted.html:1630
 msgid "Pronounced as \"ga\" - like \"Mega\", \"Giga\"."
-msgstr ""
+msgstr "Uitgesproken als \"ga\" - zoals \"Mega\", \"Giga\"."
 
-#: gettingstarted.html:1812
+#: gettingstarted.html:1631
 msgid "Common in every day applications and file storage."
-msgstr ""
+msgstr "Gebruikelijk in dagelijkse applicaties en bestandsopslag."
 
-#: gettingstarted.html:1816
+#: gettingstarted.html:1635
 msgid "Binary (IEC Standard)"
-msgstr ""
+msgstr "Binair (IEC Standaard)"
 
-#: gettingstarted.html:1818
+#: gettingstarted.html:1637
 msgid "1 KiB = 1024 bytes"
-msgstr ""
+msgstr "1 KiB = 1024 bytes"
 
-#: gettingstarted.html:1819
+#: gettingstarted.html:1638
 msgid "Pronounced as \"bi\" - like \"Mebi\", \"Gibi\"."
-msgstr ""
+msgstr "Uitgesproken als \"bi\" - zoals \"Mebi\", \"Gibi\"."
 
-#: gettingstarted.html:1820
+#: gettingstarted.html:1639
 msgid "Common in RAM, drives and partitions, including tools like GParted."
-msgstr ""
+msgstr "Veel voorkomend in RAM, schijven en partities, inclusief tools zoals GParted."
 
-#: gettingstarted.html:1833
+#: gettingstarted.html:1652
 msgid "System Profiler and Benchmark"
-msgstr ""
+msgstr "Systeemprofiel en standaard"
 
-#: gettingstarted.html:1834
+#: gettingstarted.html:1653
 msgid ""
 "See more specific system information in a graphical window, including "
 "connected USBs, PCI devices and a simple CPU benchmark."
-msgstr ""
+msgstr "Bekijk meer specifieke systeeminformatie in een grafisch venster, inclusief aangesloten USB's, PCI apparaten en een eenvoudige CPU standaard."
 
-#: gettingstarted.html:1849
+#: gettingstarted.html:1668
 msgid "Disks"
-msgstr ""
+msgstr "Schijven"
 
-#: gettingstarted.html:1850
+#: gettingstarted.html:1669
 msgid ""
 "A utility that allows basic configuration to your disks and partitions, "
 "including formatting, partitioning, mounting, viewing S.M.A.R.T data and "
 "writing images to SD cards/USB drives."
-msgstr ""
+msgstr "Een hulpprogramma dat basisconfiguratie voor uw schijven en partities mogelijk maakt, inclusief formatteren, partitioneren, monteren, S.M.A.R.T gegevens bekijken en afbeeldingen naar SD kaarten / USB drives schrijven"
 
-#: gettingstarted.html:1867
+#: gettingstarted.html:1686
 msgid ""
 "An advanced tool for viewing, creating, modifying and deleting partitions. "
 "It also has features to expand/shrink file systems and supports a wide range"
 " of formats."
-msgstr ""
+msgstr "Een geavanceerde tool voor het bekijken, maken, wijzigen en verwijderen van partities. Het heeft ook functies om bestandssystemen uit te breiden/verkleinen en ondersteunt een breed scala aan formaten."
 
-#: gettingstarted.html:1882
+#: gettingstarted.html:1701
 msgid "Disk Usage Analyser"
-msgstr ""
+msgstr "Analyse van schijfgebruik"
 
-#: gettingstarted.html:1883
+#: gettingstarted.html:1702
 msgid ""
 "A graphical tool for exploring your file system or individual folders to "
 "determine how much space is being used."
-msgstr ""
+msgstr "Een grafische tool voor het verkennen van uw bestandssysteem of individuele mappen om te bepalen hoeveel ruimte er wordt gebruikt."
 
-#: gettingstarted.html:1898
+#: gettingstarted.html:1717
 msgid "System Monitor"
-msgstr ""
+msgstr "Systeem Monitor"
 
-#: gettingstarted.html:1899
+#: gettingstarted.html:1718
 msgid ""
 "Views currently running processes, resource usage, and the amount of space "
 "used and free for currently mounted file systems."
-msgstr ""
+msgstr "Bekijkt momenteel lopende processen, het gebruik van bronnen en de hoeveelheid gebruikte en vrije ruimte voor momenteel gekoppelde bestandssystemen."
 
-#: gettingstarted.html:1914
+#: gettingstarted.html:1733
 msgid "Psensor"
-msgstr ""
+msgstr "Psensor"
 
-#: gettingstarted.html:1915
+#: gettingstarted.html:1734
 msgid ""
 "Views and graphs the current temperature of components attached to the "
 "system. Including: Motherboard, CPU, GPU and hard disks."
-msgstr ""
+msgstr "Bekijkt en toont de huidige temperatuur van componenten die op het systeem zijn aangesloten. Inbegrepen: moederbord, CPU, GPU en harde schijven."

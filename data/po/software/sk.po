@@ -1,18 +1,19 @@
 # 
 # Translators:
-# peter, 2018
+# peter, 2018-2019
+# Vladimir Frano <vlado@eavf.eu>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "POT-Creation-Date: 2016-02-27 12:48+0100\n"
-"PO-Revision-Date: 2018-01-16 10:09+0000\n"
+"PO-Revision-Date: 2019-08-02 10:17+0000\n"
 "Last-Translator: peter\n"
 "Language-Team: Slovak (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
 #: software.html:18
@@ -93,7 +94,7 @@ msgstr "Opravy"
 
 #: software.html:48
 msgid "Stocking the Boutique..."
-msgstr "Plnenie Boutique..."
+msgstr "Načítavam Boutique..."
 
 #: software.html:57
 msgid "Software Boutique"
@@ -110,152 +111,152 @@ msgstr "Pre Ubuntu MATE je k dispozícii veľké množstvo dostupného softvéru
 
 #: software.html:65
 msgid "If you can't find what you're looking for, install one of the"
-msgstr ""
+msgstr "Ak nemôžete nájsť čo hľadáte, nainštalujte jednu z "
 
 #: software.html66, 364
 msgid "Get More Apps"
-msgstr ""
+msgstr "Získaj viac aplikácií"
 
 #: software.html:67
 msgid "software centers"
-msgstr ""
+msgstr "softvérové centrá"
 
 #: software.html:68
 msgid "to explore the complete Ubuntu software catalog."
-msgstr ""
+msgstr "preskúmať kompletný katalóg softvéru Ubuntu."
 
 #: software.html:72
 msgid "More Apps Await."
-msgstr ""
+msgstr "Viac aplikácií čaká."
 
 #: software.html:73
 msgid ""
 "Connect your computer to the Internet to explore a wide selection of "
 "applications for Ubuntu MATE."
-msgstr ""
+msgstr "Pripojte svoj počítač k internetu a objavte široký výber aplikácií pre Ubuntu MATE."
 
 #: software.html:75
 msgid ""
 "Once online, you'll be able to download and install tried & tested software "
 "right here. Our picks ensure that the featured software integrates well on "
 "the Ubuntu MATE desktop."
-msgstr ""
+msgstr "Keď ste online, budete schopní stiahnuť a inštalovať vyskúšaný a testovaný softvér priamo tu. Náš výber zabezpečuje, že vybraný softvér sa integruje dobre na Ubuntu MATE Desktope."
 
 #: software.html:81
 msgid ""
 "Sorry, Welcome could not establish a connection to the Ubuntu repository "
 "server. Please check your connection and try again."
-msgstr ""
+msgstr "Prepáčte, program Vitajte nedokáže nadviazať spojenie na úložisko Ubuntu."
 
 #: software.html:86
 msgid "Retry Connection"
-msgstr ""
+msgstr "Zopakuj pripojenie"
 
 #: software.html:89
 msgid "Connection Troubleshooting"
-msgstr ""
+msgstr "Riešenie problémov spojenia"
 
 #: software.html:90
 msgid "Connection Help"
-msgstr ""
+msgstr "Pomoc so spojením"
 
 #: software.html:96
 msgid "Get Connected."
-msgstr ""
+msgstr "Spojiť sa!"
 
 #: software.html:97
 msgid ""
 "Here's a few things you can check, depending on the type of connection you "
 "have:"
-msgstr ""
+msgstr "Tu je pár vecí, ktoré môžete skontrolovať v závislosti od typu pripojenia, ktoré máte :"
 
 #: software.html:98
 msgid "Wired Connection"
-msgstr ""
+msgstr "Káblové pripojenie"
 
 #: software.html:100
 msgid "Is the cable securely plugged in?"
-msgstr ""
+msgstr "Je kábel bezpečne zastrčený vnútri?"
 
 #: software.html:101
 msgid ""
 "Is the router online and can other devices access the network? Try "
 "restarting the router."
-msgstr ""
+msgstr "Je router online a môžu ostatné zariadenia dosiahnuť sieť?"
 
 #: software.html:104
 msgid "Wireless Connection"
-msgstr ""
+msgstr "Bezdrôtové pripojenie"
 
 #: software.html:105
 msgid "Have you entered the correct wireless password from the"
-msgstr ""
+msgstr "Vložili ste správne heslo zodpovedajúce "
 
 #: software.html:105
 msgid "network indicator"
-msgstr ""
+msgstr "identifikátoru siete "
 
 #: software.html:105
 msgid "in the upper-right?"
-msgstr ""
+msgstr "vpravo hore?"
 
 #: software.html:107
 msgid "When disconnected, the applet looks like this:"
-msgstr ""
+msgstr "Keď je odpojený, applet vyzerá takto :"
 
 #: software.html:109
 msgid ""
 "Is there a physical switch that may have accidentally switched off wireless "
 "functionality?"
-msgstr ""
+msgstr "Nie je tam náhodou fyzický vypínač, ktorým ste mohli omylom vypnúť bezdrôtovú funkcionalitu?"
 
 #: software.html:111
 msgid "Is there a soft (keyboard) switch that toggles it off?"
-msgstr ""
+msgstr "Nie je tam klávesový (softvérový) vypínač, ktorý to vypína ?"
 
 #: software.html:113
 msgid "You may need to hold the FN key while pressing the function key."
-msgstr ""
+msgstr "Možno budete musieť držať Fn klávesu počas stláčania funkčnej klávesy."
 
 #: software.html:114
 msgid "Here's an example:"
-msgstr ""
+msgstr "Tu je príklad :"
 
 #: software.html:118
 msgid "Not working at all or experiencing sluggish connections?"
-msgstr ""
+msgstr "Vôbec nepracuje alebo má pomalé pripojenie?"
 
 #: software.html:119
 msgid ""
 "Sorry to hear that. You will need a temporary wired connection to install "
 "working drivers."
-msgstr ""
+msgstr "Je mi ľúto, že sa to stalo. Budete potrebovať dočasne káblové pripojenie na nainštalovanie doplňujúcich ovládačov."
 
 #: software.html:121
 msgid "The"
-msgstr "Aplikácia"
+msgstr "Tab"
 
 #: software.html:121
 msgid "Additional Drivers"
-msgstr ""
+msgstr "Doplňujúce ovládače"
 
 #: software.html:121
 msgid "tab may have them available for your system."
-msgstr ""
+msgstr "ich môže mať pre Váš systém."
 
 #: software.html:122
 msgid ""
 "Otherwise, you will need to manually install third party drivers for your "
 "hardware, or a download specific package containing the firmware. See"
-msgstr ""
+msgstr "Inak, budete musieť manuálne nainštalovať ovládače trtích strán pre Vaše zariadenia, alebo stiahnuť špecifické balíčky obsahujúce firmvér. Viď"
 
 #: software.html:123
 msgid "Drivers"
-msgstr ""
+msgstr "Ovládače"
 
 #: software.html:123
 msgid "in the"
-msgstr ""
+msgstr "v"
 
 #: software.html:123
 msgid "Getting Started"
@@ -263,23 +264,23 @@ msgstr "Začíname"
 
 #: software.html:124
 msgid "section for more details."
-msgstr ""
+msgstr "sekcii pre ďalšie informácie."
 
 #: software.html:125
 msgid "Feel free to"
-msgstr ""
+msgstr "Neváhajte "
 
 #: software.html:125
 msgid "ask the community"
-msgstr ""
+msgstr "sa spýtať komunity "
 
 #: software.html:125
 msgid "if you need assistance."
-msgstr ""
+msgstr "ak potrebujete asistenciu."
 
 #: software.html:129
 msgid "Our Picks"
-msgstr ""
+msgstr "Náš výber"
 
 #: software.html:130
 msgid "OK"
@@ -287,75 +288,75 @@ msgstr "OK"
 
 #: software.html144, 157, 170, 183, 196, 209, 222, 235, 248
 msgid "No Filter"
-msgstr ""
+msgstr "Bez filtra"
 
 #: software.html:146
 msgid "Handy utilities for your computing needs."
-msgstr ""
+msgstr "Užitočné nástroje pre Vaše výpočtové potreby."
 
 #: software.html:159
 msgid "For study and children."
-msgstr ""
+msgstr "Pre štúdium a deti."
 
 #: software.html:172
 msgid "A selection of 2D and 3D games for your enjoyment."
-msgstr ""
+msgstr "Výber 2D a 3D hier pre Vašu zábavu."
 
 #: software.html:185
 msgid "For producing and editing works of art."
-msgstr ""
+msgstr "Pre produkciu a editovanie umenia."
 
 #: software.html:198
 msgid "For staying connected and enjoying the features of your own cloud."
-msgstr ""
+msgstr "Ostať pripojený a užívať si črty svojho vlastného cloudu."
 
 #: software.html:211
 msgid "For more then just documents and spreadsheets."
-msgstr ""
+msgstr "Pre viac ako iba dokumenty a tabuľky."
 
 #: software.html:224
 msgid "For the developers and system administrators out there."
-msgstr ""
+msgstr "Pre vývojárov a systémových administrátorov."
 
 #: software.html:237
 msgid "Multimedia software for listening and production."
-msgstr ""
+msgstr "Multimediálny softvér na počávanie a produkciu."
 
 #: software.html:250
 msgid "Software that makes the most out of your system resources."
-msgstr ""
+msgstr "Softvér, ktorý vyžaží najviac z Vašich systémových zdrojov.."
 
 #: software.html:260
 msgid "Software that makes your computer more accessible."
-msgstr ""
+msgstr "Softvér, ktorý urobí Váš počítač prístupnejším."
 
 #: software.html:270
 msgid "One-click installations for serving the network."
-msgstr ""
+msgstr "Jedno-klikové inštalácie na zabezpečenie dobrého chodu siete."
 
 #: software.html:279
 msgid "Discover More Software"
-msgstr ""
+msgstr "Objav viac softvéru"
 
 #: software.html:280
 msgid ""
 "Graphical interfaces to browse a wide selection of software available for "
 "your operating system."
-msgstr ""
+msgstr "Grafické rozhranie na vyhľadávanie širokého výberu softvéru dostupného pre Váš operačný systém."
 
 #: software.html:288
 msgid "Miscellaneous Fixes"
-msgstr ""
+msgstr "Rôzne opravy"
 
 #: software.html:289
 msgid ""
 "This section contains operations that can fix common problems should you "
 "encounter an error while upgrading or installing new software."
-msgstr ""
+msgstr "Táto sekcia obsahuje operácie, ktoré môžu opraviť bežné problémy, ktoré mohli vzniknúť pri chybách počas aktualizácie alebo inštalácie nových programov."
 
 #: software.html:296
 msgid "Outdated Package Lists?"
-msgstr ""
+msgstr "Neaktuálny zoznam balíkov?"
 
 #: software.html:297
 msgid "Your repository lists may be out of date, which can cause"
@@ -363,7 +364,7 @@ msgstr ""
 
 #: software.html:297
 msgid "Not Found"
-msgstr ""
+msgstr "Nenájdený"
 
 #: software.html:297
 msgid "errors and"
@@ -436,7 +437,7 @@ msgstr ""
 
 #: software.html:333
 msgid "Software Updater"
-msgstr ""
+msgstr "Software updater"
 
 #: software.html:335
 msgid "Upgrade all packages that have a new version available:"
@@ -461,7 +462,7 @@ msgstr ""
 
 #: software.html:356
 msgid "Name of Application"
-msgstr ""
+msgstr "Názov aplikácie"
 
 #: software.html:361
 msgid "No software matched your key words."
@@ -497,7 +498,7 @@ msgstr ""
 
 #: software.html392, 394
 msgid "Installation"
-msgstr ""
+msgstr "Inštalácia"
 
 #: software.html:397
 msgid "Enable the Bulk Queue."
@@ -519,7 +520,7 @@ msgstr ""
 
 #: software.html412, 414
 msgid "Advanced"
-msgstr ""
+msgstr "Pokročilý"
 
 #: software.html:416
 msgid "Show technical package details."
@@ -549,7 +550,7 @@ msgstr ""
 
 #: software.html:436
 msgid "Apply Changes"
-msgstr ""
+msgstr "Aplikuj zmeny"
 
 #: software.html:437
 msgid "Clear"
@@ -621,11 +622,11 @@ msgstr ""
 
 #: software.html:499
 msgid "Free and Open Source Software"
-msgstr ""
+msgstr "Voľný softvér s otvoreným zdrojovým kódom "
 
 #: software.html:500
 msgid ""
 "grants the user the freedom to share, study and modify the software without "
 "restriction. For instance, the GPL is an example of a 'Free Software' "
 "license."
-msgstr ""
+msgstr "garantuje užívateľovi voľnosť zdieľania, štúdia a modifikovania softvéru bez obmädzení. Napríklad, GPL je príklad na licenciu \"Voľný softvér\"."

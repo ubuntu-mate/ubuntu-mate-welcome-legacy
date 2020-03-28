@@ -12,69 +12,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt_LT\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "Report-Msgid-Bugs-To : you@example.com\n"
 
-#: introduction.html:18
+#: introduction.html:19
 msgid "Introduction"
 msgstr "Įvadas"
 
-#: introduction.html:28
+#: introduction.html:29
 msgid "For a retrospective future."
 msgstr "Retrospektyviai ateičiai."
 
-#: introduction.html:31
+#: introduction.html:32
 msgid "Scroll down to learn more."
 msgstr "Norėdami sužinoti daugiau, slinkite žemyn."
 
-#: introduction.html:52
+#: introduction.html:53
 msgid ""
 "Ubuntu MATE is an operating system -- the core software that runs your "
 "computer, similar to"
 msgstr "Ubuntu MATE yra operacinė sistema -- pagrindinė jūsų kompiuterį valdanti programinė įranga, panaši į"
 
-#: introduction.html:55
+#: introduction.html:56
 msgid "Microsoft's Windows"
 msgstr "Microsoft Windows"
 
-#: introduction.html:57
+#: introduction.html:58
 msgid "Apple's OS X"
 msgstr "Apple OS X"
 
-#: introduction.html57, 130
+#: introduction.html58, 131
 msgid "and"
 msgstr "ir"
 
-#: introduction.html:59
+#: introduction.html:60
 msgid "Google's Chrome OS"
 msgstr "Google Chrome OS"
 
-#: introduction.html:61
+#: introduction.html:62
 msgid ""
 "Ubuntu MATE is a desktop distribution (variation) of GNU/Linux -- a "
 "dependable, secure, capable, and modern computer system that rivals all "
 "others in popularity and usage."
 msgstr "Ubuntu MATE yra GNU/Linux darbalaukio distribucija (variacija) -- patikima, saugi, veiksni ir šiuolaikinė kompiuterinė sistema, kuri konkuruoja su visomis kitomis pagal populiarumą bei naudojimą."
 
-#: introduction.html:64
+#: introduction.html:65
 msgid "Unlike other operating systems, Linux is used:"
 msgstr "Kitaip nei kitos operacinės sistemos, Linux yra naudojama:"
 
-#: introduction.html:66
+#: introduction.html:67
 msgid "on most of the world's fastest and most powerful supercomputers"
 msgstr "pačiuose greičiausiuose ir galingiausiuose pasaulio superkompiuteriuose"
 
-#: introduction.html:68
+#: introduction.html:69
 msgid ""
 "on many of, if not most of, the computers that make up the backbone of "
 "Internet"
 msgstr "daugelyje, jei ne visuose, kompiuteriuose, kurie sudaro interneto pagrindą"
 
-#: introduction.html:70
+#: introduction.html:71
 msgid "and on corporate servers that require stability and reliability"
 msgstr "ir korporaciniuose serveriuose, kurie reikalauja stabilumo ir patikimumo"
 
-#: introduction.html:75
+#: introduction.html:76
 msgid ""
 "Ubuntu MATE is a stable, easy-to-use operating system with a configurable "
 "desktop environment. It is ideal for those who want the most out of their "
@@ -83,13 +83,13 @@ msgid ""
 "computers (such as the Raspberry Pi) and older hardware alike."
 msgstr "Ubuntu MATE yra stabili, lengva naudoti operacinė sistema su konfigūruojama darbalaukio aplinka. Ji idealiai tinka tiems, kas nori pilnai išnaudoti savo kompiuterį ir teikia pirmenybę tradicinei darbalaukio aplinkai. Su vidutiniais aparatinės įrangos reikalavimais, Ubuntu MATE tinka šiuolaikiniams staliniams bei nešiojamiesiems kompiuteriams, vienplokščiams kompiuteriams (tokiems kaip Raspberry Pi), o taip pat senesnei aparatinei įrangai."
 
-#: introduction.html:83
+#: introduction.html:84
 msgid ""
 "The operating system is more secure, and better supported than the operating"
 " system pre-installed on most home computer hardware today."
 msgstr "Operacinė sistema yra saugesnė ir geriau palaikoma nei daugelis, šiuo metu į namų naudotojų kompiuterius iš anksto įdiegtų operacinių sistemų."
 
-#: introduction.html:87
+#: introduction.html:88
 msgid ""
 "Using Ubuntu MATE provides you with the freedom to run a complete, full-"
 "featured operating system, pre-configured with most (if not all) of the "
@@ -98,110 +98,110 @@ msgid ""
 " taste."
 msgstr "Naudojimasis Ubuntu MATE pateikia jums laisvę vykdyti pilną, visiškai parengtą operacinę sistemą su iš anksto sukonfigūruotomis daugeliu (jei ne visomis) jums kasdieniam naudojimui reikalingomis programomis. Keiskite bet ką: išvaizdą, veikseną ar vykdomas programas taip, kad jos patenkintų jūsų poreikius."
 
-#: introduction.html:97
+#: introduction.html:98
 msgid "Objectives"
 msgstr "Tikslai"
 
-#: introduction.html:98
+#: introduction.html:99
 msgid "Ubuntu MATE has a number of guiding objectives and goals:"
 msgstr "Ubuntu MATE turi kelis pagrindinius tikslus ir uždavinius:"
 
-#: introduction.html:100
+#: introduction.html:101
 msgid "Accessible to all, regardless of language and physical ability."
 msgstr "Prieinama visiems, nepriklausomai nuo kalbos ir fizinių galimybių."
 
-#: introduction.html:101
+#: introduction.html:102
 msgid "Increase both Ubuntu and MATE Desktop user adoption."
 msgstr "Padidinti tiek Ubuntu, tiek MATE darbalaukio priglaustų naudotojų skaičių."
 
-#: introduction.html:102
+#: introduction.html:103
 msgid ""
 "Ubuntu alternative for computers that aren't powerful enough to run a "
 "composited desktop."
 msgstr "Ubuntu alternatyva kompiuteriams, kurie nėra pakankamai galingi, kad vykdytų komponuojamąjį darbalaukį."
 
-#: introduction.html:103
+#: introduction.html:104
 msgid ""
 "First choice Ubuntu platform for remote workstation solutions such as LTSP "
 "and X2Go."
 msgstr "Pirminis Ubuntu platformos pasirinkimas nuotolinių darbo vietų sprendimams, tokiems kaip LTSP ir X2Go."
 
-#: introduction.html:104
+#: introduction.html:105
 msgid ""
 "Recreate the halcyon days of Ubuntu for users who prefer a traditional "
 "desktop metaphor."
 msgstr "Iš naujo sugrąžinti ramius laikus Ubuntu naudotojams, teikiantiems pirmenybę tradicinei darbalaukio aplinkai."
 
-#: introduction.html:105
+#: introduction.html:106
 msgid ""
 "Use themes and artwork similar to Ubuntu so that Ubuntu MATE is immediately "
 "familiar."
 msgstr "Naudoti panašias kaip Ubuntu temas ir apipavidalinimą taip, kad Ubuntu MATE iš karto būtų pažįstama."
 
-#: introduction.html:106
+#: introduction.html:107
 msgid ""
 "When possible, contribute to Debian so both the Debian and Ubuntu "
 "communities benefit."
 msgstr "Kai įmanoma, talkinti Debian, kad tokiu būdu naudą gautų tiek Debian, tiek Ubuntu bendruomenė. "
 
-#: introduction.html:107
+#: introduction.html:108
 msgid ""
 "Software favors functionality and stability, as opposed to being fancy or "
 "light on features."
 msgstr "Programinė įranga teikia pirmenybę funkcionalumui ir stabilumui, o ne prašmatnumui ir ypatybių supaprastinimui."
 
-#: introduction.html:113
+#: introduction.html:114
 msgid "What is Ubuntu MATE?"
 msgstr "Kas yra Ubuntu MATE?"
 
-#: introduction.html:124
+#: introduction.html:125
 msgid "is one of, if not the, largest deployed"
 msgstr "yra viena iš plačiausiai pasaulyje paplitusių"
 
-#: introduction.html:127
+#: introduction.html:128
 msgid ""
 "based desktop operating systems in the world. Linux is at the heart of "
 "Ubuntu and makes it possible to create secure, powerful and versatile "
 "operating systems, such as"
 msgstr "pagrįstų darbalaukio operacinių sistemų. Linux yra Ubuntu širdyje ir savo ruožtu padaro saugios, galingos ir lanksčios operacinės sistemos kūrimą įmanomą, kaip pavyzdžiui"
 
-#: introduction.html:131
+#: introduction.html:132
 msgid ""
 "Android is now in the hands of billions of people around the world and it's "
 "also powered by Linux."
 msgstr "Milijardai žmonių šiuo metu laiko Android savo rankose ir ši sistema taip pat veikia su Linux."
 
-#: introduction.html:134
+#: introduction.html:135
 msgid "Ubuntu is available in a number of different"
 msgstr "Yra prieinama daugybė skirtingų Ubuntu"
 
-#: introduction.html:135
+#: introduction.html:136
 msgid "flavors"
 msgstr "atmainų,"
 
-#: introduction.html:135
+#: introduction.html:136
 msgid ""
 "each coming with its own desktop environment. Ubuntu MATE takes the Ubuntu "
 "base operating system and adds the"
 msgstr "iš kurių kiekviena yra pateikiama su savo darbalaukio aplinka. Ubuntu MATE yra panaudojamas Ubuntu operacinės sistemos pagrindas ir pridedamas"
 
-#: introduction.html138, 144
+#: introduction.html139, 145
 msgid "MATE Desktop"
 msgstr "MATE darbalaukis"
 
-#: introduction.html:151
+#: introduction.html:152
 msgid "Wikipedia says that a"
 msgstr "Vikipedija rašo, kad"
 
-#: introduction.html:153
+#: introduction.html:154
 msgid "Desktop Environment"
 msgstr "darbalaukio aplinka"
 
-#: introduction.html:153
+#: introduction.html:154
 msgid "is"
 msgstr "yra"
 
-#: introduction.html:155
+#: introduction.html:156
 msgid ""
 "an implementation of the desktop metaphor made of a bundle of programs "
 "running on top of a computer operating system, which share a common "
@@ -209,63 +209,63 @@ msgid ""
 "and edit files."
 msgstr "iš daugybės programų su bendra grafine naudotojo sąsaja (GUI), vykdomų ant kompiuterio operacinės sistemos pagrindo, sudarytas, darbalaukio metaforos įgyvendinimas. Darbalaukio grafinė naudotojo sąsaja padeda naudotojui lengvai prieiti prie failų ir juos redaguoti."
 
-#: introduction.html:161
+#: introduction.html:162
 msgid ""
 "The MATE Desktop implements essential features that you'd expect in a "
 "desktop environment, such as:"
 msgstr "MATE darbalaukis įgyvendina visas būtiniausias ypatybes, kurių galėtumėte tikėtis iš darbalaukio aplinkos, tokias kaip:"
 
-#: introduction.html:174
+#: introduction.html:175
 msgid "File Browser"
 msgstr "Failų naršyklė"
 
-#: introduction.html:175
+#: introduction.html:176
 msgid "Calculator"
 msgstr "Skaičiuotuvas"
 
-#: introduction.html:176
+#: introduction.html:177
 msgid "Archive Manager"
 msgstr "Archyvų tvarkytuvė"
 
-#: introduction.html:177
+#: introduction.html:178
 msgid "Image Viewer"
 msgstr "Atvaizdų žiūryklė"
 
-#: introduction.html:178
+#: introduction.html:179
 msgid "Document Viewer"
 msgstr "Dokumentų žiūryklė"
 
-#: introduction.html:179
+#: introduction.html:180
 msgid "MATE System Monitor"
 msgstr "MATE sistemos monitorius"
 
-#: introduction.html:180
+#: introduction.html:181
 msgid "MATE Terminal"
 msgstr "MATE terminalas"
 
-#: introduction.html:192
+#: introduction.html:193
 msgid "All of which are highly customisable and managed via the"
 msgstr "Jos visos yra plačiai konfigūruojamos ir tvarkomos per"
 
-#: introduction.html:195
+#: introduction.html:196
 msgid "Control Center"
 msgstr "Valdymo centrą"
 
-#: introduction.html:197
+#: introduction.html:198
 msgid ""
 "MATE Desktop provides an intuitive and attractive desktop environment using "
 "traditional metaphors, which means if you've ever used"
 msgstr "MATE darbalaukis pateikia intuityvią ir patrauklią darbalaukio aplinką, naudodamas tradicines metaforas, o tai reiškia, kad jeigu kada nors esate naudoję"
 
-#: introduction.html:201
+#: introduction.html:202
 msgid "or"
 msgstr "ar"
 
-#: introduction.html:204
+#: introduction.html:205
 msgid "it will feel very familiar."
 msgstr "jis atrodys labai pažįstamas."
 
-#: introduction.html:206
+#: introduction.html:207
 msgid ""
 "The MATE Desktop has a rich history and is the continuation of the GNOME 2 "
 "desktop, which was the default desktop environment on many Linux and Unix "
@@ -273,11 +273,11 @@ msgid ""
 "tested and very reliable."
 msgstr "MATE darbalaukis turi turtingą istoriją ir yra GNOME 2 darbalaukio, kuris daugiau kaip dešimt metų buvo numatytąja darbalaukio aplinka daugelyje Linux ir Unix operacinių sistemų, pratęsimas."
 
-#: introduction.html:215
+#: introduction.html:216
 msgid "Open Source"
 msgstr "Atviras kodas"
 
-#: introduction.html:222
+#: introduction.html:223
 msgid ""
 "What Linux, Ubuntu and MATE Desktop all have in common is they are Open "
 "Source. This software can be freely used, changed, and shared (in modified "
@@ -285,7 +285,7 @@ msgid ""
 "truest sense of the word."
 msgstr "Viena, kas yra bendro tarp Linux, Ubuntu ir MATE darbalaukio yra tai, kad ši programinė įranga yra Atviro kodo. Ji gali būti kiekvieno žmogaus laisvai naudojama, keičiama ir dalinama (pakeistoje ar nepakeistoje formoje). Trumpai tariant, Ubuntu MATE yra nemokama ir laisva tikrąja to žodžio prasme."
 
-#: introduction.html:228
+#: introduction.html:229
 msgid ""
 "Although you will find some distributions (variations) of Linux for "
 "purchase, the vast majority are provided free of charge, like Ubuntu MATE. "
@@ -300,7 +300,7 @@ msgid ""
 "next release of Ubuntu MATE."
 msgstr "Nors jūs galite rasti, jog kai kurias Linux distribucijas (variacijas) galima įsigyti, didžioji jų dauguma, kaip ir Ubuntu MATE, yra pateikiamos nemokamai. Distribucija yra licencijuota tokiu būdu, kad kiekvienam būtų leidžiama nemokamai ją atiduoti, be jokių papildomų sąlygų. Pavyzdžiui, licencija suteikia kiekvienam bendruomenės nariui laisvę naudoti Linux bet kokiems tikslams: platinimui, modifikavimui, perskirstymui ar netgi operacinės sistemos pardavimui. Jeigu jūs modifikuosite, o tada perskirstysite Linux su savo modifikacijomis, tuomet pagal licenciją iš jūsų yra reikalaujama pateikti savo modifikacijas, galimam jų įtraukimui į būsimas versijas. Nėra jokios garantijos, kad taip įvyks, tačiau jeigu jūs padarėte sistemą geresnę, tuomet jūsų pakeitimai gali būti įtraukti į kitą Ubuntu MATE laidą."
 
-#: introduction.html:243
+#: introduction.html:244
 msgid ""
 "Many of the users of Linux are corporations that use the operating system to"
 " run their businesses, or include it within their products. Many of these "
@@ -308,17 +308,17 @@ msgid ""
 "software for their businesses."
 msgstr "Daugelis Linux naudotojų yra korporacijos, kurios naudoja operacinę sistemą savo versle arba įtraukia ją į savo produktus. Kadangi šios korporacijos naudoja programinę įrangą savo verslo reikmėms, daugelis iš jų pateikia Linux pataisymus bei naujas ypatybes."
 
-#: introduction.html:249
+#: introduction.html:250
 msgid "These improvements are given back"
 msgstr "Šie patobulinimai yra grąžinami atgal"
 
-#: introduction.html:250
+#: introduction.html:251
 msgid ""
 "to the Linux community and Ubuntu MATE improves as a result. This is how we "
 "can continually improve and grow without having to charge our users money."
 msgstr "į Linux bendruomenę ir to pasekoje taip pat tobulėja ir Ubuntu MATE. Štai taip mes galime be perstojo tobulėti ir augti, nereikalaudami iš savo naudotojų jokių pinigų."
 
-#: introduction.html:254
+#: introduction.html:255
 msgid ""
 "Unlike Windows and OS X, Linux is not created and supported by just one "
 "company. It is supported by Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas"
@@ -326,7 +326,7 @@ msgid ""
 "developers contributed to Linux over the last 15 years."
 msgstr "Kitaip nei Windows ir OS X, Linux nėra sukurta ir palaikoma tik vienos kompanijos. Ją palaiko Intel, Redhat, Linaro, Samsung, IBM, SUSE, Texas Instruments, Google, Canonical, Oracle, AMD, ir Microsoft. Per paskutinius 15 metų, prie Linux kūrimo prisidėjo virš 4000 talkininkų."
 
-#: introduction.html:260
+#: introduction.html:261
 msgid ""
 "Whether you are a home user of Ubuntu MATE, an Ubuntu MATE software or "
 "application developer, or an employee of an organization that uses the "
