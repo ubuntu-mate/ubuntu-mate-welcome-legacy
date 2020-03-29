@@ -451,7 +451,7 @@
             </div>
             <hr class="soften">
 
-            <div class="row-fluid">
+            <div class="row-fluid 20-04-obsolete">
               <div class="span2 center-inside">
                 <img src="img/applications/dvd.png" width="64px" height="64px" style="margin-top:16px;"/>
               </div>
@@ -462,9 +462,26 @@
                 to enable encrypted DVD playback and you will need to obtain a copy of&zwnj;<code>KEYDB.cfg</code>
                 &zwnj;and save it to&zwnj;<code>~/.config/aacs/KEYDB.cfg</code> &zwnj;to enable encrypted Blu-ray playback.&zwnj;</p>
                 <p class="text-right">
-                  <span class="libdvdcss2-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
-                  <button class="btn btn-lg btn-success libdvdcss2-install" onclick="cmd('install-appid?libdvdcss2')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
-                  <button class="btn btn-lg btn-danger libdvdcss2-remove"   onclick="cmd('remove-appid?libdvdcss2')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</button>
+                  <span class="libdvdcss2-old-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <button class="btn btn-lg btn-success libdvdcss2-old-install" onclick="cmd('install-appid?libdvdcss2-old')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                  <button class="btn btn-lg btn-danger libdvdcss2-old-remove"   onclick="cmd('remove-appid?libdvdcss2-old')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</button>
+                </p>
+              </div>
+            </div>
+            <div class="row-fluid 20-04-onwards">
+              <div class="span2 center-inside">
+                <img src="img/applications/dvd.png" width="64px" height="64px" style="margin-top:16px;"/>
+              </div>
+              <div class="span10">
+                <h4>&zwnj;Blu-ray and DVD Playback Support&zwnj;</h4>
+                <p>&zwnj;Installs libraries that enable Blu-ray and DVD playback in VLC.
+                After install you will need to run&zwnj; <code>sudo apt install libdvd-pkg && sudo dpkg-reconfigure libdvd-pkg</code>&zwnj;
+                to enable encrypted DVD playback and you will need to obtain a copy of&zwnj;<code>KEYDB.cfg</code>
+                &zwnj;and save it to&zwnj;<code>~/.config/aacs/KEYDB.cfg</code> &zwnj;to enable encrypted Blu-ray playback.&zwnj;</p>
+                <p class="text-right">
+                  <span class="libdvdcss2-new-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/> &zwnj;Applying Changes...&zwnj;</span>
+                  <button class="btn btn-lg btn-success libdvdcss2-new-install" onclick="cmd('install-appid?libdvdcss2-new')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                  <button class="btn btn-lg btn-danger libdvdcss2-new-remove"   onclick="cmd('remove-appid?libdvdcss2-new')"> <span class="fa fa-trash"></span>&nbsp; &zwnj;Remove&zwnj;</button>
                 </p>
               </div>
             </div>

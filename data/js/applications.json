@@ -5605,7 +5605,7 @@
             },
             "working": true
         },
-        "libdvdcss2": {
+        "libdvdcss2-old": {
             "name": "Blu-ray and DVD Playback Support",
             "img": "dvd",
             "main-package": "libbluray-bdj",
@@ -5624,7 +5624,34 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal",
+            "releases": "xenial,bionic,eoan",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "libdvdcss2-new": {
+            "name": "Blu-ray and DVD Playback Support",
+            "img": "dvd",
+            "main-package": "libbluray-bdj",
+            "launch-command": null,
+            "install-packages": "libaacs0,libbluray-bdj,libdvdnav4,libdvdread7",
+            "remove-packages": "libbluray-bdj",
+            "description": [
+                "Installs libraries that enable Blu-ray and DVD playback in VLC.",
+                "After install DVD will work but Blu-ray will need to put",
+                "http://www.labdv.com/aacs/KEYDB.cfg in ~/.config/aacs/KEYDB.cfg."
+            ],
+            "alternate-to": null,
+            "subcategory": "Codecs / Libraries",
+            "open-source": true,
+            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "focal",
             "pre-install": {
                 "all": {
                     "method": "skip"
