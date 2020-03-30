@@ -35,6 +35,7 @@ def show_usage():
     print("                              translateable strings from the .pot file\n")
     print("  --install                   Compile all of the .po files in the po directory")        
     print("                              and install them under ./locale/\n")
+    print("  --update-launchers          Update the name/description in .launcher files\n")
     print("  --help                      Show this message\n")
     print(" Requirements:                Must be run in the same directory as ubuntu-mate-welcome")
     print("                              Requires xgettext, pot2po, msgmerge, msgfmt \n")
@@ -136,6 +137,61 @@ def compile_and_install(po_dir, locale_dir):
 
     print ("All languages compiled.")
 
+###########################################################
+def update_desktop_launchers(po_dir):
+    """
+    Updates the .launcher files to use localized strings.
+
+    <!> The string is hardcoded here, if it is updated, it must be
+        changed in ubuntu-mate-welcome too.
+    """
+    welcome_name = "Welcome"
+    welcome_comment = "Start here with helpful resources and utilities"
+    boutique_name = "Software Boutique"
+    boutique_comment = "Discover software from a curated collection that compliments Ubuntu MATE"
+
+    welcome_launcher = os.path.join(po_dir, "../ubuntu-mate-welcome.desktop")
+    boutique_launcher = os.path.join(po_dir, "../ubuntu-mate-software.desktop")
+
+    # Welcome
+    def _rewrite_launcher(path, name, comment):
+        print("Updating: " + os.path.basename(path))
+        with open(path, "r") as f:
+            raw = f.readlines()
+
+        new_launcher = []
+
+        # Discard old i18n lines
+        for line in raw:
+            if not line.startswith("Name[") and not line.startswith("Comment["):
+                new_launcher.append(line)
+
+        # Write new i18n lines from PO files
+        for locale in glob.glob(po_dir + "/*.po"):
+            locale_code = os.path.basename(locale).replace(".po", "")
+            with open(locale, "r") as f:
+                locale_data = f.readlines()
+
+            for i in range(0, len(locale_data) - 1):
+                line = locale_data[i]
+                next_line = locale_data[i + 1]
+
+                if line.startswith('msgid "{0}"'.format(name)):
+                    i18n_name = next_line.replace('msgstr ', '').replace('"', '')
+                    if len(i18n_name) > 2:
+                        new_launcher.append("Name[{0}]={1}".format(locale_code, i18n_name))
+
+                elif line.startswith('msgid "{0}"'.format(comment)):
+                    i18n_name = next_line.replace('msgstr ', '').replace('"', '')
+                    if len(i18n_name) > 2:
+                        new_launcher.append("Comment[{0}]={1}".format(locale_code, i18n_name))
+
+        with open(path, "w") as f:
+            f.writelines(new_launcher)
+
+    _rewrite_launcher(welcome_launcher, welcome_name, welcome_comment)
+    _rewrite_launcher(boutique_launcher, boutique_name, boutique_comment)
+
 
 if (len(sys.argv)==1) or (sys.argv[1]=="--help"):
     show_usage()
@@ -160,4 +216,8 @@ if arg=="--update-pos":
 
 if arg=="--install":
     compile_and_install(po_dir, locale_dir)
+    exit()
+
+if arg=="--update-launchers":
+    update_desktop_launchers(po_dir)
     exit()

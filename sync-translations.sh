@@ -6,4 +6,5 @@ tx pull -a --minimum-perc=5
 ./welcome-po.py --update-pos
 ./edgar-allan create-all-pots
 ./edgar-allan translate-all
+./welcome-po.py --update-launchers
 tx push -s

@@ -9,3 +9,4 @@ mkdir ./locale/
 mkdir ./data/i18n/
 ./welcome-po.py --install
 ./edgar-allan translate-all
+./welcome-po.py --update-launchers

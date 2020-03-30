@@ -786,10 +786,14 @@ class Strings(object):
         ## variables are intentional to be strings.
 
         # General
-        self.welcome = str(_("Welcome"))
-        self.boutique = str(_("Software Boutique"))
         self.close = str(_("Close"))
         self.cancel = str(_("Cancel"))
+
+        # Desktop launchers (not used by application - just translation scripts)
+        self.welcome = str(_("Welcome"))
+        self.welcome_comment = _("Start here with helpful resources and utilities")
+        self.boutique = str(_("Software Boutique"))
+        self.boutique_comment = _("Discover software from a curated collection that compliments Ubuntu MATE")
 
         # Boutique Footer
         self.subscribed = str(_("Set to retrieve the latest software listings."))
