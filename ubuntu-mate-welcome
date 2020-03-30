@@ -761,10 +761,10 @@ class Translations(object):
 
         # Initalise i18n for Python translations.
         if self.relative_i18n:
-            i18n_path = os.path.join(os.path.dirname(__file__), 'locale/')
-        elif os.environ.get('SNAP'):
-            i18n_path = os.path.join(os.path.dirname(__file__), '../share/locale/')
-        else:
+            i18n_path = os.path.realpath(os.path.dirname(__file__) + '/locale/')
+        if os.environ.get('SNAP'):
+            i18n_path = os.path.realpath(os.path.dirname(__file__), '/../share/locale/')
+        if not self.relative_i18n:
             i18n_path = '/usr/share/locale/'
 
         global t, _
