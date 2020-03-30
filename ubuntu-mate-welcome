@@ -763,7 +763,7 @@ class Translations(object):
         if self.relative_i18n:
             i18n_path = os.path.realpath(os.path.dirname(__file__) + '/locale/')
         if os.environ.get('SNAP'):
-            i18n_path = os.path.realpath(os.path.dirname(__file__), '/../share/locale/')
+            i18n_path = os.path.realpath(os.path.dirname(__file__) + '/../share/locale/')
         if not self.relative_i18n:
             i18n_path = '/usr/share/locale/'
 
