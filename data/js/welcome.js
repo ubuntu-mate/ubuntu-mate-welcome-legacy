@@ -435,6 +435,16 @@ if ( current_page == 'software.html' ) {
             cmd("queue-start");
         }, 1000);
     }
+
+    // Show a hint when using the queue for the first time
+    function show_queue_hint() {
+        var queue_btn = $("#navigation-queue");
+        var tooltip = $("#queue-hint-runonce");
+        tooltip.css("top", queue_btn.offset().top + queue_btn.outerHeight() + 2)
+        tooltip.css("left", (queue_btn.offset().left - (tooltip.outerWidth() / 2) + (queue_btn.outerWidth() / 2)))
+        tooltip.show().addClass("in");
+        queue_btn.addClass("hint-border");
+    }
 }
 
 

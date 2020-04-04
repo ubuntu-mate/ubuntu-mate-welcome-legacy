@@ -1640,6 +1640,11 @@ class AppView(WebKit2.WebView):
         elif cmd == 'force-gtk-theme-refresh':
             app.webkit.refresh_gtk_colors()
 
+        elif cmd == 'dismiss-queue-intro':
+            pref.set("queue-hint-runonce", True)
+            app.update_page("#queue-hint-runonce", "fadeOut", "300")
+            app.update_page("#navigation-queue", "removeClass", "hint-border")
+
         else:
             dbg.stdout('Welcome', 'Unknown command: ' + cmd, 0, 1)
 
@@ -2711,6 +2716,9 @@ class DynamicApps(object):
         #   -   Upgrade a package (on an individual basis)
         if queue.is_enabled() and app.current_page == 'software.html' and not action == "upgrade":
             queue.add_item(program_id, action)
+
+            if pref.get("queue-hint-runonce", False) == False:
+                app.webkit.run_js("show_queue_hint()")
 
         else:
             # Indicate changes are in progress.
