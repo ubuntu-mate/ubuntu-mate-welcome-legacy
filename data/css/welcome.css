@@ -1333,26 +1333,44 @@ blockquote.terminal {
 }
 
 /* Glow Queue button on add/remove */
-@-webkit-keyframes queue-glow-add {
-  0% { background-color: var(--section_bg); color: var(--section_text); }
-  40% { background-color: var(--selected_bg); color: var(--selected_bg); }
-  60% { background-color: var(--selected_bg); color: var(--selected_bg); }
-  100% { background-color: var(--section_bg); color: var(--section_text); }
+@keyframes queue-glow {
+  0% { opacity: 0; }
+  40% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-.queue-glow-add {
-  -webkit-animation: queue-glow-add;
+@keyframes queue-glow-inverse {
+  0% { opacity: 1; }
+  40% { opacity: 0; }
+  60% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@-webkit-keyframes queue-glow-remove {
-  0% { background-color: var(--section_bg); color: var(--section_text); }
-  40% { background-color: var(--selected_bg); color: var(--selected_bg); }
-  60% { background-color: var(--selected_bg); color: var(--selected_bg); }
-  100% { background-color: var(--section_bg); color: var(--section_text); }
+.queue-glow-add::before,
+.queue-glow-remove::before {
+    content: " ";
+    position: absolute;
+    border: 1px solid;
+    opacity: 0;
+    animation: queue-glow 1.5s;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 40px;
 }
 
-.queue-glow-remove {
-  -webkit-animation: queue-glow-remove;
+.queue-glow-add::before {
+  border-color: var(--selected_bg);
+}
+
+.queue-glow-remove::before {
+  border-color: #CA645F;
+}
+
+.queue-glow-add span,
+.queue-glow-remove span {
+    animation: queue-glow-inverse 1.5s;
 }
 
 /* Animate program icons into the queue */
@@ -1366,7 +1384,7 @@ blockquote.terminal {
   opacity: 0;
   pointer-events: none;
   -webkit-animation: queue-zoom-icon;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 1.5s;
   -webkit-animation-timing-function: ease-in-out;
 }
 
