@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # biqiu-ssw <shenshuaiwen@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 16:36+0100\n"
+"POT-Creation-Date: 2020-04-04 14:31+0100\n"
 "PO-Revision-Date: 2020-03-30 15:37+0000\n"
 "Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/zh_CN/)\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/ubuntu-mate/ubuntu-"
+"mate-welcome/language/zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ubuntu-mate-welcome:91
@@ -24,7 +25,7 @@ msgid ""
 "closing Welcome."
 msgstr "正在进行一些更改，在关闭欢迎界面前请等待更改完成"
 
-#: ubuntu-mate-welcome:92 ubuntu-mate-welcome:2835
+#: ubuntu-mate-welcome:92 ubuntu-mate-welcome:2843
 msgid "OK"
 msgstr "确定"
 
@@ -89,11 +90,11 @@ msgstr "所有软件都已是最新版"
 msgid "All packages have been upgraded to the latest versions."
 msgstr "所有的安装包都已更新到最新版。"
 
-#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3405
+#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3413
 msgid "Installed"
 msgstr "已安装"
 
-#: ubuntu-mate-welcome:281 ubuntu-mate-welcome:3405
+#: ubuntu-mate-welcome:281 ubuntu-mate-welcome:3413
 msgid "The application is now ready to use."
 msgstr "该应用已经可以使用了"
 
@@ -105,19 +106,19 @@ msgstr "未完成安装"
 msgid "The operation was cancelled."
 msgstr "操作已取消"
 
-#: ubuntu-mate-welcome:286 ubuntu-mate-welcome:3409
+#: ubuntu-mate-welcome:286 ubuntu-mate-welcome:3417
 msgid "failed to install"
 msgstr "安装失败"
 
-#: ubuntu-mate-welcome:287 ubuntu-mate-welcome:3409
+#: ubuntu-mate-welcome:287 ubuntu-mate-welcome:3417
 msgid "There was a problem installing this application."
 msgstr "安装应用出现问题"
 
-#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:860 ubuntu-mate-welcome:3414
+#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:860 ubuntu-mate-welcome:3422
 msgid "Removed"
 msgstr "移除"
 
-#: ubuntu-mate-welcome:291 ubuntu-mate-welcome:3414
+#: ubuntu-mate-welcome:291 ubuntu-mate-welcome:3422
 msgid "The application has been uninstalled."
 msgstr "该应用已移除"
 
@@ -125,11 +126,11 @@ msgstr "该应用已移除"
 msgid "was not removed."
 msgstr "未完成移除"
 
-#: ubuntu-mate-welcome:296 ubuntu-mate-welcome:3418
+#: ubuntu-mate-welcome:296 ubuntu-mate-welcome:3426
 msgid "failed to remove"
 msgstr "移除失败"
 
-#: ubuntu-mate-welcome:297 ubuntu-mate-welcome:3418
+#: ubuntu-mate-welcome:297 ubuntu-mate-welcome:3426
 msgid "A problem is preventing this application from being removed."
 msgstr "某个问题正在阻止移除该应用"
 
@@ -529,7 +530,9 @@ msgid ""
 "While a large selection of software will work on other Ubuntu-based "
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
-msgstr "商店内大部分软件都能在其他基于 Ubuntu 的发行版上运行，但是我们不保证所有功能都能使用。"
+msgstr ""
+"商店内大部分软件都能在其他基于 Ubuntu 的发行版上运行，但是我们不保证所有功能"
+"都能使用。"
 
 #: ubuntu-mate-welcome:1318
 msgid "This message will not be shown again."
@@ -539,106 +542,106 @@ msgstr "该消息将不再显示"
 msgid "Continue"
 msgstr "继续"
 
-#: ubuntu-mate-welcome:1661
+#: ubuntu-mate-welcome:1666
 msgid "Ubuntu MATE Website"
 msgstr "Ubuntu MATE 官网"
 
-#: ubuntu-mate-welcome:1666
+#: ubuntu-mate-welcome:1671
 msgid "Donate to Ubuntu MATE"
 msgstr "给 Ubuntu MATE 捐赠"
 
-#: ubuntu-mate-welcome:2040
+#: ubuntu-mate-welcome:2045
 msgid "MB"
 msgstr "MB"
 
-#: ubuntu-mate-welcome:2041
+#: ubuntu-mate-welcome:2046
 msgid "MiB"
 msgstr "MiB"
 
-#: ubuntu-mate-welcome:2042
+#: ubuntu-mate-welcome:2047
 msgid "GB"
 msgstr "GB"
 
-#: ubuntu-mate-welcome:2043
+#: ubuntu-mate-welcome:2048
 msgid "GiB"
 msgstr "GiB"
 
-#: ubuntu-mate-welcome:2046
+#: ubuntu-mate-welcome:2051
 msgid "Could not gather data."
 msgstr "无法收集信息"
 
-#: ubuntu-mate-welcome:2505
+#: ubuntu-mate-welcome:2510
 msgid "Open Source"
 msgstr "开源"
 
-#: ubuntu-mate-welcome:2507
+#: ubuntu-mate-welcome:2512
 msgid "Proprietary"
 msgstr "私有"
 
-#: ubuntu-mate-welcome:2623
+#: ubuntu-mate-welcome:2628
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
 msgstr "抱歉，欢迎程序不能推荐任何应用因为分类与您的系统不兼容。"
 
-#: ubuntu-mate-welcome:2836
+#: ubuntu-mate-welcome:2844
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
 msgstr "启动 PROGRAM_NAME 时遇到了一个错误，重装应用或许可以解决这个问题。"
 
-#: ubuntu-mate-welcome:2837
+#: ubuntu-mate-welcome:2845
 msgid "Command:"
 msgstr "命令："
 
-#: ubuntu-mate-welcome:2928
+#: ubuntu-mate-welcome:2936
 msgid "Uses a new or updated source."
 msgstr "使用新的或者更新后的源"
 
-#: ubuntu-mate-welcome:2930
+#: ubuntu-mate-welcome:2938
 msgid "Now works for various versions of Ubuntu."
 msgstr "现在可以在众多的 Ubuntu 版本中工作"
 
-#: ubuntu-mate-welcome:2932
+#: ubuntu-mate-welcome:2940
 msgid "Now a snappy package."
 msgstr "使用 snappy 安装包"
 
-#: ubuntu-mate-welcome:2934
+#: ubuntu-mate-welcome:2942
 msgid "General maintenance."
 msgstr "正常维护"
 
-#: ubuntu-mate-welcome:2936
+#: ubuntu-mate-welcome:2944
 msgid "Broken or problematic source."
 msgstr "损坏的或者有问题的源"
 
-#: ubuntu-mate-welcome:2938
+#: ubuntu-mate-welcome:2946
 msgid "Not yet available for some releases."
 msgstr "部分发行版本不可用"
 
-#: ubuntu-mate-welcome:2940
+#: ubuntu-mate-welcome:2948
 msgid "No longer works for some releases."
 msgstr "不再支持部分版本"
 
-#: ubuntu-mate-welcome:2942
+#: ubuntu-mate-welcome:2950
 msgid "Not suitable for production machines."
 msgstr "不适合在工作用电脑上使用"
 
-#: ubuntu-mate-welcome:2944
+#: ubuntu-mate-welcome:2952
 msgid "Requires further testing."
 msgstr "需要更多的测试"
 
-#: ubuntu-mate-welcome:2946
+#: ubuntu-mate-welcome:2954
 msgid "Does not meet our standards to be featured."
 msgstr "不符合我们的标准"
 
-#: ubuntu-mate-welcome:3120
+#: ubuntu-mate-welcome:3128
 msgid "applications found."
 msgstr "应用已找到"
 
-#: ubuntu-mate-welcome:3124
+#: ubuntu-mate-welcome:3132
 msgid "proprietary applications are hidden."
 msgstr "私有软件已隐藏"
 
-#: ubuntu-mate-welcome:3127
+#: ubuntu-mate-welcome:3135
 msgid "Software Sources"
 msgstr "软件源"

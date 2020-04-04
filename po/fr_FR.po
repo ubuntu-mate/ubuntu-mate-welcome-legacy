@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # bf5man <bf5man@gmail.com>, 2016
 # Clement Krys <krys.clement@gmail.com>, 2016
+# Hervé CARAMONA <herve.caramona@gmail.com>, 2020
 # L'Africain <lafricain79@gmail.com>, 2018
 # utybo <utybo@users.noreply.github.com>, 2016
 # d80ebd4b9692a268e2da589d73937486, 2018
@@ -15,23 +16,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Ubuntu MATE Welcome\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 16:36+0100\n"
-"PO-Revision-Date: 2020-03-30 15:37+0000\n"
-"Last-Translator: Luke Horwell <luke@ubuntu-mate.org>\n"
-"Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-mate-welcome/language/fr_FR/)\n"
+"POT-Creation-Date: 2020-04-04 14:31+0100\n"
+"PO-Revision-Date: 2020-04-03 14:50+0000\n"
+"Last-Translator: Hervé CARAMONA <herve.caramona@gmail.com>\n"
+"Language-Team: French (France) (http://www.transifex.com/ubuntu-mate/ubuntu-"
+"mate-welcome/language/fr_FR/)\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ubuntu-mate-welcome:91
 msgid ""
 "Software changes are in progress. Please allow them to complete before "
 "closing Welcome."
-msgstr "Des modifications logicielles sont en cours. Veuillez laisser Bienvenue terminer ces opérations avant de fermer la fenêtre."
+msgstr ""
+"Des modifications logicielles sont en cours. Veuillez laisser Bienvenue "
+"terminer ces opérations avant de fermer la fenêtre."
 
-#: ubuntu-mate-welcome:92 ubuntu-mate-welcome:2835
+#: ubuntu-mate-welcome:92 ubuntu-mate-welcome:2843
 msgid "OK"
 msgstr "OK"
 
@@ -53,7 +57,8 @@ msgstr "Échec de l'application de la correction."
 
 #: ubuntu-mate-welcome:189
 msgid "Errors occurred while finishing an incomplete installation."
-msgstr "Il y a eu des erreurs lors de la finalisation d'une installation incomplète"
+msgstr ""
+"Il y a eu des erreurs lors de la finalisation d'une installation incomplète"
 
 #: ubuntu-mate-welcome:196
 msgid "Packages with broken dependencies have been resolved."
@@ -86,7 +91,9 @@ msgstr "Bienvenue restera à jour."
 #: ubuntu-mate-welcome:268
 msgid ""
 "Welcome and the Software Boutique are set to receive the latest updates."
-msgstr "Bienvenue et la Boutique de logiciels sont configurés pour recevoir les dernières mises à jour."
+msgstr ""
+"Bienvenue et la Boutique de logiciels sont configurés pour recevoir les "
+"dernières mises à jour."
 
 #: ubuntu-mate-welcome:274
 msgid "Everything is up-to-date"
@@ -96,11 +103,11 @@ msgstr "Tout est à jour"
 msgid "All packages have been upgraded to the latest versions."
 msgstr "Tous les paquets ont été mis à jour à la dernière version."
 
-#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3405
+#: ubuntu-mate-welcome:280 ubuntu-mate-welcome:3413
 msgid "Installed"
 msgstr "Installé"
 
-#: ubuntu-mate-welcome:281 ubuntu-mate-welcome:3405
+#: ubuntu-mate-welcome:281 ubuntu-mate-welcome:3413
 msgid "The application is now ready to use."
 msgstr "L'application est maintenant prête à l'emploi."
 
@@ -112,19 +119,19 @@ msgstr "n'a pas été installé."
 msgid "The operation was cancelled."
 msgstr "L'opération a été annulée."
 
-#: ubuntu-mate-welcome:286 ubuntu-mate-welcome:3409
+#: ubuntu-mate-welcome:286 ubuntu-mate-welcome:3417
 msgid "failed to install"
 msgstr "n'a pas pu être installé"
 
-#: ubuntu-mate-welcome:287 ubuntu-mate-welcome:3409
+#: ubuntu-mate-welcome:287 ubuntu-mate-welcome:3417
 msgid "There was a problem installing this application."
 msgstr "Il y a eu un problème pendant l'installation de cette application."
 
-#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:860 ubuntu-mate-welcome:3414
+#: ubuntu-mate-welcome:290 ubuntu-mate-welcome:860 ubuntu-mate-welcome:3422
 msgid "Removed"
 msgstr "Désinstallé"
 
-#: ubuntu-mate-welcome:291 ubuntu-mate-welcome:3414
+#: ubuntu-mate-welcome:291 ubuntu-mate-welcome:3422
 msgid "The application has been uninstalled."
 msgstr "Cette application a été désinstallée."
 
@@ -132,11 +139,11 @@ msgstr "Cette application a été désinstallée."
 msgid "was not removed."
 msgstr "n'a pas été désinstallé."
 
-#: ubuntu-mate-welcome:296 ubuntu-mate-welcome:3418
+#: ubuntu-mate-welcome:296 ubuntu-mate-welcome:3426
 msgid "failed to remove"
 msgstr "n'a pas pu être désinstallé."
 
-#: ubuntu-mate-welcome:297 ubuntu-mate-welcome:3418
+#: ubuntu-mate-welcome:297 ubuntu-mate-welcome:3426
 msgid "A problem is preventing this application from being removed."
 msgstr "Un problème empêche cette application d'être supprimée."
 
@@ -202,12 +209,12 @@ msgstr "Bienvenue"
 
 #: ubuntu-mate-welcome:794
 msgid "Start here with helpful resources and utilities"
-msgstr ""
+msgstr "Commencez ici avec des ressources utiles et des utilitaires"
 
 #: ubuntu-mate-welcome:796
 msgid ""
 "Discover software from a curated collection that compliments Ubuntu MATE"
-msgstr ""
+msgstr "Découvrez une collection de logiciels qui font le succès d'Ubuntu MATE"
 
 #: ubuntu-mate-welcome:799
 msgid "Set to retrieve the latest software listings."
@@ -219,7 +226,9 @@ msgstr "Récupérer le catalogue de logiciels le plus récent."
 
 #: ubuntu-mate-welcome:801
 msgid "Please wait while the application is being updated..."
-msgstr "Veuillez attendre pendant que l'application est en train de se mettre à jour..."
+msgstr ""
+"Veuillez attendre pendant que l'application est en train de se mettre à "
+"jour..."
 
 #: ubuntu-mate-welcome:802
 msgid "Version:"
@@ -529,14 +538,19 @@ msgstr "Votre configuration peut varier."
 msgid ""
 "Software Boutique is designed for Ubuntu MATE, but it appears you are "
 "running a different distribution."
-msgstr "Software Boutique est conçu pour Ubuntu MATE, mais il semble que vous utilisez une distribution différente."
+msgstr ""
+"Software Boutique est conçu pour Ubuntu MATE, mais il semble que vous "
+"utilisez une distribution différente."
 
 #: ubuntu-mate-welcome:1315
 msgid ""
 "While a large selection of software will work on other Ubuntu-based "
 "distributions, we cannot guarantee our featured picks will work flawlessly "
 "on your system."
-msgstr "Bien qu'un large éventail de logiciels fonctionnent sur d'autres distributions basées sur Ubuntu, nous ne pouvons pas garantir que nos choix sélectionnés fonctionneront sans problème sur votre système."
+msgstr ""
+"Bien qu'un large éventail de logiciels fonctionnent sur d'autres "
+"distributions basées sur Ubuntu, nous ne pouvons pas garantir que nos choix "
+"sélectionnés fonctionneront sans problème sur votre système."
 
 #: ubuntu-mate-welcome:1318
 msgid "This message will not be shown again."
@@ -546,106 +560,110 @@ msgstr "Ce message ne sera plus affiché."
 msgid "Continue"
 msgstr "Continuer"
 
-#: ubuntu-mate-welcome:1661
+#: ubuntu-mate-welcome:1666
 msgid "Ubuntu MATE Website"
 msgstr "Site Ubuntu MATE"
 
-#: ubuntu-mate-welcome:1666
+#: ubuntu-mate-welcome:1671
 msgid "Donate to Ubuntu MATE"
 msgstr "Faire un don à Ubuntu MATE"
 
-#: ubuntu-mate-welcome:2040
+#: ubuntu-mate-welcome:2045
 msgid "MB"
 msgstr "Mo"
 
-#: ubuntu-mate-welcome:2041
+#: ubuntu-mate-welcome:2046
 msgid "MiB"
 msgstr "MiB"
 
-#: ubuntu-mate-welcome:2042
+#: ubuntu-mate-welcome:2047
 msgid "GB"
 msgstr "Go"
 
-#: ubuntu-mate-welcome:2043
+#: ubuntu-mate-welcome:2048
 msgid "GiB"
 msgstr "GiB"
 
-#: ubuntu-mate-welcome:2046
+#: ubuntu-mate-welcome:2051
 msgid "Could not gather data."
 msgstr "Impossible de rassembler les données."
 
-#: ubuntu-mate-welcome:2505
+#: ubuntu-mate-welcome:2510
 msgid "Open Source"
 msgstr "Open Source"
 
-#: ubuntu-mate-welcome:2507
+#: ubuntu-mate-welcome:2512
 msgid "Proprietary"
 msgstr "Propriétaire"
 
-#: ubuntu-mate-welcome:2623
+#: ubuntu-mate-welcome:2628
 msgid ""
 "Sorry, Welcome could not feature any software for this category that is "
 "compatible on this system."
-msgstr "Désolé, Bienvenue n'a pas pu afficher de logiciels compatibles dans cette catégorie."
+msgstr ""
+"Désolé, Bienvenue n'a pas pu afficher de logiciels compatibles dans cette "
+"catégorie."
 
-#: ubuntu-mate-welcome:2836
+#: ubuntu-mate-welcome:2844
 msgid ""
 "An error occurred while launching PROGRAM_NAME. Please consider re-"
 "installing the application."
-msgstr "Une erreur est survenue au moment de lancer PROGRAM_NAME. Veuillez considérer réinstaller cette application."
+msgstr ""
+"Une erreur est survenue au moment de lancer PROGRAM_NAME. Veuillez "
+"considérer réinstaller cette application."
 
-#: ubuntu-mate-welcome:2837
+#: ubuntu-mate-welcome:2845
 msgid "Command:"
 msgstr "Commande :"
 
-#: ubuntu-mate-welcome:2928
+#: ubuntu-mate-welcome:2936
 msgid "Uses a new or updated source."
 msgstr "Utilise une source nouvelle ou mise à jour."
 
-#: ubuntu-mate-welcome:2930
+#: ubuntu-mate-welcome:2938
 msgid "Now works for various versions of Ubuntu."
 msgstr "Fonctionne désormais avec plusieurs versions d'Ubuntu."
 
-#: ubuntu-mate-welcome:2932
+#: ubuntu-mate-welcome:2940
 msgid "Now a snappy package."
 msgstr "Est désormais un paquet rapide."
 
-#: ubuntu-mate-welcome:2934
+#: ubuntu-mate-welcome:2942
 msgid "General maintenance."
 msgstr "Maintenance générale."
 
-#: ubuntu-mate-welcome:2936
+#: ubuntu-mate-welcome:2944
 msgid "Broken or problematic source."
 msgstr "Source erronée ou problématique."
 
-#: ubuntu-mate-welcome:2938
+#: ubuntu-mate-welcome:2946
 msgid "Not yet available for some releases."
 msgstr "Pas encore disponible pour certaines versions."
 
-#: ubuntu-mate-welcome:2940
+#: ubuntu-mate-welcome:2948
 msgid "No longer works for some releases."
 msgstr "Ne fonctionne plus pour certaines versions."
 
-#: ubuntu-mate-welcome:2942
+#: ubuntu-mate-welcome:2950
 msgid "Not suitable for production machines."
 msgstr "Ne convient pas pour des machines en production."
 
-#: ubuntu-mate-welcome:2944
+#: ubuntu-mate-welcome:2952
 msgid "Requires further testing."
 msgstr "A besoin de plus de tests."
 
-#: ubuntu-mate-welcome:2946
+#: ubuntu-mate-welcome:2954
 msgid "Does not meet our standards to be featured."
 msgstr "Ne correspond pas à nos standards pour faire parti de la sélection."
 
-#: ubuntu-mate-welcome:3120
+#: ubuntu-mate-welcome:3128
 msgid "applications found."
 msgstr "applications trouvées."
 
-#: ubuntu-mate-welcome:3124
+#: ubuntu-mate-welcome:3132
 msgid "proprietary applications are hidden."
 msgstr "Les applications propriétaires sont masquées."
 
-#: ubuntu-mate-welcome:3127
+#: ubuntu-mate-welcome:3135
 msgid "Software Sources"
 msgstr "Sources de Logiciels"
