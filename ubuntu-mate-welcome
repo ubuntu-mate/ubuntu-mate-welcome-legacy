@@ -4007,6 +4007,9 @@ def verify_theme_status(package_name, is_remove):
                 'picture-filename',
                 '/usr/share/backgrounds/ubuntu-mate-common/' + filename.replace(colour, 'Green'))
 
+    # Automatically apply newly installed themes
+    app.webkit._do_command('set-theme?' + package_name)
+
 
 ##################################
 #  Program Initialisation
