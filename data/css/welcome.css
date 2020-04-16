@@ -75,8 +75,8 @@ body, button, input {
   background-position: calc(100% + 2px) calc(100% - 63px);
 }
 
-.cursor-wait {
-  cursor: wait;
+.cursor-wait * {
+  cursor: wait !important;
 }
 
 /* Buttons behave like anchors by default */
