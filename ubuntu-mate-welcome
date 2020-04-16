@@ -45,6 +45,7 @@ import subprocess
 import sys
 import time
 import webbrowser
+import re
 
 import urllib.error
 import urllib.parse
@@ -3076,6 +3077,7 @@ class DynamicApps(object):
         hidden_results = 0
 
         matches = []
+        tag_regex = re.compile(r'<[^>]+>')
         for category in self.all_categories:
             app_id = list(self.index[category].keys())
             app_id.sort()
@@ -3086,6 +3088,7 @@ class DynamicApps(object):
                 name = self.index[category][program_id]['name'].lower()
                 desc = self.index[category][program_id]['description']
                 desc = ' '.join(desc).lower()
+                desc = tag_regex.sub('', desc)
                 alto = str(self.index[category][program_id]['alternate-to']).lower()
                 program = {
                     'id': program_id,
