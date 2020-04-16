@@ -3958,21 +3958,21 @@ def verify_theme_status(package_name, is_remove):
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE')
             app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE')
-            app.refresh_gtk_colors()
+            app.webkit.refresh_gtk_colors()
 
         elif current_gtk_theme == 'Ambiant-MATE-Dark-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Ambiant-MATE-Dark')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Ambiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Ambiant-MATE-Dark')
             app.update_page('#current-gtk-theme', 'html', 'Ambiant-MATE-Dark')
-            app.refresh_gtk_colors()
+            app.webkit.refresh_gtk_colors()
 
         elif current_gtk_theme == 'Radiant-MATE-' + colour:
             set_gconf_value('org.mate.interface', 'gtk-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.interface', 'icon-theme', 'Radiant-MATE')
             set_gconf_value('org.mate.Marco.general', 'theme', 'Radiant-MATE')
             app.update_page('#current-gtk-theme', 'html', 'Radiant-MATE')
-            app.refresh_gtk_colors()
+            app.webkit.refresh_gtk_colors()
 
     # Restore default wallpaper if current colour theme is being uninstalled.
     if is_remove:
