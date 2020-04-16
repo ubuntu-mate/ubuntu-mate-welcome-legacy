@@ -69,6 +69,13 @@ except ImportError:
 __VERSION__ = '20.04.0'
 
 UBUNTU_MATE_COLOURS = ['Aqua', 'Blue', 'Brown', 'Orange', 'Pink', 'Purple', 'Red', 'Teal', 'Yellow']
+UBUNTU_MATE_WALLPAPERS = [
+    '[]-Jazz.jpg',
+    '[]-Wall-Logo-Text.png',
+    '[]-Wall-Logo.png',
+    '[]-Wall.png',
+    'Ubuntu-MATE-Splash.jpg'
+]
 
 ##################################
 #  Miscellaneous
@@ -1591,10 +1598,12 @@ class AppView(WebKit2.WebView):
             current_gtk_theme = get_current_theme()
 
             try:
-                suffix = '-' + theme.split('ubuntu-mate-colours-')[1].capitalize()
+                colour = theme.split('ubuntu-mate-colours-')[1].capitalize()
+                suffix = '-' + colour
             except IndexError:
                 # Default theme
                 suffix = ''
+                colour = ''
 
             # Switching between variants
             if theme in ['switch-ambiant', 'switch-ambiant-dark', 'switch-radiant']:
@@ -1633,6 +1642,41 @@ class AppView(WebKit2.WebView):
             set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
             set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
             app.update_page('#current-gtk-theme', 'html', gtk_theme + suffix)
+
+            # If a default wallpaper is in use, switch to the colour variant.
+            current_background = get_gconf_value('org.mate.background', 'picture-filename').replace("'", '').strip()
+            current_filename = os.path.basename(current_background).strip()
+            new_filename = current_filename
+
+            # -- Condition 1: Does current wallpaper filename match a default/colourised wallpaper?
+            default_in_use = False
+            colours = UBUNTU_MATE_COLOURS.copy()
+            colours.append("Green") # Default
+            for c in colours:
+                for wallpaper in UBUNTU_MATE_WALLPAPERS:
+                    if current_filename == wallpaper.replace('[]', c):
+                        if len(colour) == 0:
+                            colour = 'Green'
+                        new_filename = new_filename.replace(c, colour)
+                        default_in_use = True
+
+            # -- Condition 2: Is current wallpaper in default backgrounds folder?
+            if current_background.find('/usr/share/backgrounds/ubuntu-mate-common/') == -1 and \
+                current_background.find('/usr/share/backgrounds/ubuntu-mate-colours-') == -1:
+                    default_in_use = False
+
+            if default_in_use:
+                new_background = '/usr/share/backgrounds/ubuntu-mate-colours-{0}/{1}'.format(colour.lower(), new_filename).strip()
+
+                # Back to non-colourised variants
+                if colour == 'Green':
+                    new_background = '/usr/share/backgrounds/ubuntu-mate-common/' + new_filename
+
+                if os.path.exists(new_background):
+                    dbg.stdout('Welcome', 'Switching default wallpaper from {0} to {1}...'.format(current_background, new_background), 1, 2)
+                    set_gconf_value('org.mate.background', 'picture-filename', new_background)
+                else:
+                    dbg.stdout('Welcome', 'Did not switch default wallpaper as it does not exist: {0}...'.format(new_background), 1, 1)
 
             self._load_changed_cb(None, None)
             app.webkit.refresh_gtk_colors()
@@ -3929,6 +3973,15 @@ def verify_theme_status(package_name, is_remove):
             set_gconf_value('org.mate.Marco.general', 'theme', 'Radiant-MATE')
             app.update_page('#current-gtk-theme', 'html', 'Radiant-MATE')
             app.refresh_gtk_colors()
+
+    # Restore default wallpaper if current colour theme is being uninstalled.
+    if is_remove:
+        current_path = get_gconf_value('org.mate.background', 'picture-filename').replace("'", '').strip()
+        filename = os.path.basename(current_path)
+        if current_path.find("ubuntu-mate-colours-" + colour.lower()) != -1:
+            set_gconf_value('org.mate.background',
+                'picture-filename',
+                '/usr/share/backgrounds/ubuntu-mate-common/' + filename.replace(colour, 'Green'))
 
 
 ##################################
