@@ -45,6 +45,7 @@ import subprocess
 import sys
 import time
 import webbrowser
+import re
 
 import urllib.error
 import urllib.parse
@@ -3113,11 +3114,14 @@ class DynamicApps(object):
         # Start Searching!
         dbg.stdout('Apps', 'Searching for: ' + terms, 1, 4)
         app.update_page('#navigation-sub-title', 'html', string.search + ': ' + terms)
-        terms.lower()
+        terms = terms.lower()
         app.update_page('#search-results', 'hide')
         app.update_page('#search-results', 'html', ' ')
         total_results = 0
         hidden_results = 0
+
+        matches = []
+        tag_regex = re.compile(r'<[^>]+>')
         for category in self.all_categories:
             app_id = list(self.index[category].keys())
             app_id.sort()
@@ -3125,40 +3129,60 @@ class DynamicApps(object):
             # Gather sources to search for each app in this category
             # Also search case insensitive
             for program_id in app_id:
-                name = self.index[category][program_id]['name']
-                name.lower()
+                name = self.index[category][program_id]['name'].lower()
                 desc = self.index[category][program_id]['description']
-                desc = ' '.join(desc)
-                desc.lower()
-                alto = str(self.index[category][program_id]['alternate-to'])
-                alto.lower()
+                desc = ' '.join(desc).lower()
+                desc = tag_regex.sub('', desc)
+                alto = str(self.index[category][program_id]['alternate-to']).lower()
+                program = {
+                    'id': program_id,
+                    'name': name,
+                    'description': desc,
+                    'alto': alto
+                }
 
-                # Any matches? List them!
+                rankings = {
+                    'name': 4,
+                    'description': 3,
+                    'id': 2,
+                    'alto': 1
+                }
+
+                rank = 0
                 app_matched = False
-                matched_results = []
-                for term in terms.split(' '):
-                    matched_results.append(program_id.find(term))
-                    matched_results.append(name.find(term))
-                    matched_results.append(desc.find(term))
-                    matched_results.append(alto.find(term))
+                for key, value in program.items():
+                    matched_results = []
+                    for term in terms.split(' '):
+                        matched_results.append(value.find(term))
+                    
                     for status in matched_results:
                         if status != -1:
                             app_matched = True
-                            break
+                            rank = rank + rankings.get(key, 1)
 
-                if app_matched:
-                    # Skip this if user doesn't want non-free software.
-                    oss = self.index[category][program_id]['open-source']
-                    if self.hide_non_free and not oss:
-                        hidden_results += 1
-                        continue
+                if (app_matched): 
+                    matches.append({
+                        'category': category,
+                        'program_id': program_id,
+                        'rank': rank
+                    })
+        
+        for match in (sorted(matches, key=lambda m: m['rank'], reverse=True)):
+            category = match['category']
+            program_id = match['program_id']
+            
+            # Skip this if user doesn't want non-free software.
+            oss = self.index[category][program_id]['open-source']
+            if self.hide_non_free and not oss:
+                hidden_results += 1
+                continue
 
-                    # Display result to user, if it works on the system (return code 0)
-                    self.set_app_info(category, program_id)
-                    return_code = self.append_app_listing(category, program_id, '#search-results')
-                    if not return_code == 1 or return_code == 2:
-                        dynamicapps.update_app_status(self, program_id)
-                        total_results = total_results + 1
+            # Display result to user, if it works on the system (return code 0)
+            self.set_app_info(category, program_id)
+            return_code = self.append_app_listing(category, program_id, '#search-results')
+            if not return_code == 1 or return_code == 2:
+                dynamicapps.update_app_status(self, program_id)
+                total_results = total_results + 1
 
         if total_results == 0:
             app.update_page('#search-empty', 'fadeIn')
