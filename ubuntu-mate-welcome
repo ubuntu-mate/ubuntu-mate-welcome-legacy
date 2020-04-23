@@ -3160,23 +3160,23 @@ class DynamicApps(object):
                     matched_results = []
                     for term in terms.split(' '):
                         matched_results.append(value.find(term))
-                    
+
                     for status in matched_results:
                         if status != -1:
                             app_matched = True
                             rank = rank + rankings.get(key, 1)
 
-                if (app_matched): 
+                if (app_matched):
                     matches.append({
                         'category': category,
                         'program_id': program_id,
                         'rank': rank
                     })
-        
+
         for match in (sorted(matches, key=lambda m: m['rank'], reverse=True)):
             category = match['category']
             program_id = match['program_id']
-            
+
             # Skip this if user doesn't want non-free software.
             oss = self.index[category][program_id]['open-source']
             if self.hide_non_free and not oss:
