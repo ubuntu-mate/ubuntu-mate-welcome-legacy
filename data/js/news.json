@@ -1,4 +1,31 @@
 {
+    "20.04.0": {
+        "add": [
+            "keepassxc"
+        ],
+        "fix": {
+            "codecs": "general",
+            "spotify": "general"
+        },
+        "del": {
+            "subsurface": "no-source",
+            "veracrypt": "no-source",
+            "keepass": "new-source",
+            "pgadmin": "no-source",
+            "anoise": "no-source",
+            "flacon": "no-source",
+            "musescore": "no-source",
+            "audio-recorder": "no-source",
+            "atom": "no-source",
+            "obs-studio": "no-source",
+            "youtube-dlg": "no-source",
+            "gns3": "no-source",
+            "insync": "no-source",
+            "nextcloud-client": "no-source",
+            "jellyfin": "no-source",
+            "zenmap": "no-source"
+        }
+    },
     "19.10.0": {
         "add": [
             "evolution",
