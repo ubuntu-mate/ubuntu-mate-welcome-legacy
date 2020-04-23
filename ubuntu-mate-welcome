@@ -3081,10 +3081,16 @@ class DynamicApps(object):
                 list_del.sort()
                 news_buffer = news_buffer + '<h5 id="news-del" class="news-list-version"><span class="fa fa-remove"></span> ' + string.removed + '</h5>'
                 news_buffer = news_buffer + '<div class="news-list-items"><ul>'
-                for item_name in list_del:
+                for item_id in list_del:
                     try:
-                        item_img = 'unknown'
-                        item_reason = get_reason_string(self.news[version]['del'][item_name])
+                        item_name = self.get_attribute_for_app(item_id, 'name')
+                        item_img = self.get_attribute_for_app(item_id, 'img')
+
+                        if not item_name or not item_img:
+                            item_name = item_id
+                            item_img = 'unknown'
+
+                        item_reason = str(get_reason_string(self.news[version]['del'][item_id]))
                         news_buffer = news_buffer + '<li><img src="' + trans.res_dir + 'img/applications/' + item_img + '.png" width="16px" height="16px"/> ' + item_name + '<span class="news-reason">-- ' + item_reason + '</span></li>'
                     except Exception as e:
                         dbg.stdout('Apps', 'Failed to process news item: ' + item_name, 0, 1)
