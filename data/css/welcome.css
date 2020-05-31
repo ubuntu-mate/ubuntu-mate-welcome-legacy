@@ -172,16 +172,12 @@ button:focus {
   text-decoration: none !important;
 }
 
-.footer-right button {
-  color: var(--section_text);
-}
-
 .navigation-button.with-text {
   width: auto;
 }
 
 .navigation-button:hover {
-  color: #fff;
+  color: var(--section_text);
 }
 
 .navigation-button:focus {
@@ -334,7 +330,7 @@ kbd {
 }
 
 .footer-content > #footer-right > button {
-  color: #fff;
+  color: var(--section_text);
   text-decoration: none;
   margin-right: 8px;
 }
