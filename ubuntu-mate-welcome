@@ -1199,8 +1199,9 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'keyboard-japanese')
             dynamicapps.update_app_status(self, 'keyboard-korean')
             dynamicapps.update_app_status(self, 'caja-share')
-            dynamicapps.update_app_status(self, 'libdvdcss2-old')
-            dynamicapps.update_app_status(self, 'libdvdcss2-new')
+            dynamicapps.update_app_status(self, 'libdvdcss2-v4')
+            dynamicapps.update_app_status(self, 'libdvdcss2-v7')
+            dynamicapps.update_app_status(self, 'libdvdcss2-v8')
             dynamicapps.update_app_status(self, 'xscreensaver')
             dynamicapps.update_app_status(self, 'xthemes')
             dynamicapps.update_app_status(self, 'wallpapers')
@@ -1210,15 +1211,20 @@ class AppView(WebKit2.WebView):
             # Conditional based on release
             # - Hide keyboard shortcuts not avaliable for the current release.
             # - DVD Playback: Packages changed on 20.04 onwards
-            app.update_page(".20-04-obsolete", "show")
+            app.update_page(".before-20-04", "show")
             app.update_page(".19-10-onwards", "hide")
-            app.update_page(".20-04-onwards", "hide")
+            app.update_page(".20-04-only", "hide")
+            app.update_page(".20-10-onwards", "hide")
 
             if float(systemstate.os_version) >= 19.10:
                 app.update_page(".19-10-onwards", "show")
+                app.update_page(".before-20-04", "show")
             if float(systemstate.os_version) >= 20.04:
-                app.update_page(".20-04-obsolete", "hide")
-                app.update_page(".20-04-onwards", "show")
+                app.update_page(".before-20-04", "hide")
+                app.update_page(".20-04-only", "show")
+            if float(systemstate.os_version) >= 20.10:
+                app.update_page(".20-04-only", "hide")
+                app.update_page(".20-10-onwards", "show")
 
         ### Software Page ###
         if app.current_page == 'software.html':

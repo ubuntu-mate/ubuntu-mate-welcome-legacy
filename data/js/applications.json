@@ -5605,10 +5605,10 @@
             },
             "working": true
         },
-        "libdvdcss2-old": {
+        "libdvdcss2-v4": {
             "name": "Blu-ray and DVD Playback Support",
             "img": "dvd",
-            "main-package": "libbluray-bdj",
+            "main-package": "libdvdread4",
             "launch-command": null,
             "install-packages": "libaacs0,libbluray-bdj,libdvdnav4,libdvdread4",
             "remove-packages": "libbluray-bdj",
@@ -5632,10 +5632,10 @@
             },
             "working": true
         },
-        "libdvdcss2-new": {
+        "libdvdcss2-v7": {
             "name": "Blu-ray and DVD Playback Support",
             "img": "dvd",
-            "main-package": "libbluray-bdj",
+            "main-package": "libdvdread7",
             "launch-command": null,
             "install-packages": "libaacs0,libbluray-bdj,libdvdnav4,libdvdread7",
             "remove-packages": "libbluray-bdj",
@@ -5652,6 +5652,33 @@
             "url-ios": null,
             "arch": "amd64",
             "releases": "focal",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "libdvdcss2-v8": {
+            "name": "Blu-ray and DVD Playback Support",
+            "img": "dvd",
+            "main-package": "libdvdread8",
+            "launch-command": null,
+            "install-packages": "libaacs0,libbluray-bdj,libdvdnav4,libdvdread8",
+            "remove-packages": "libbluray-bdj",
+            "description": [
+                "Installs libraries that enable Blu-ray and DVD playback in VLC.",
+                "After install DVD will work but Blu-ray will need to put",
+                "http://www.labdv.com/aacs/KEYDB.cfg in ~/.config/aacs/KEYDB.cfg."
+            ],
+            "alternate-to": null,
+            "subcategory": "Codecs / Libraries",
+            "open-source": true,
+            "url-info": "http://www.videolan.org/developers/libdvdcss.html",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "groovy",
             "pre-install": {
                 "all": {
                     "method": "skip"
