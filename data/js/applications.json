@@ -4451,12 +4451,12 @@
             "arch": "i386,amd64",
             "releases": "xenial,bionic,eoan,focal,groovy",
             "pre-install": {
-                "all": {
+                "xenial,bionic": {
                     "method": "ppa",
                     "enable-ppa": "ppa:peek-developers/stable",
                     "source-file": "peek-developers-ubuntu-stable-CODENAME"
                 },
-                "eoan,focal": {
+                "all": {
                     "method": "skip"
                 }
             },
