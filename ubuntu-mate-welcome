@@ -5,7 +5,7 @@
 # Copyright 2013 "Manjaro Linux" <support@manjaro.org>
 # Copyright 2014 Antergos
 # Copyright 2015-2016 Martin Wimpress <code@flexion.org>
-# Copyright 2015-2016 Luke Horwell <luke@ubuntu-mate.org>
+# Copyright 2015-2020 Luke Horwell <luke@ubuntu-mate.org>
 #
 # Ubuntu MATE Welcome is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -1161,15 +1161,6 @@ class AppView(WebKit2.WebView):
             # Smoothly fade footer when entering main menu.
             self.splash_finished = True
 
-        ### Chat Page ###
-        if app.current_page == 'chatroom.html':
-            if systemstate.apt_cache['hexchat'].is_installed:
-                app.update_page('.hexchat-launch', 'show')
-                app.update_page('.hexchat-install', 'hide')
-            else:
-                app.update_page('.hexchat-launch', 'hide')
-                app.update_page('.hexchat-install', 'show')
-
         ### Getting Started Page ###
         if app.current_page == 'gettingstarted.html':
             # Rename the page title when running in a live session.
@@ -1483,8 +1474,6 @@ class AppView(WebKit2.WebView):
                 subprocess.Popen(['deja-dup-preferences'])
             else:
                 subprocess.Popen(['deja-dup'])
-        elif cmd == 'chatroom':
-            subprocess.Popen(['hexchat','IRC://irc.freenode.net/ubuntu-mate'])
         elif cmd == 'control':
             subprocess.Popen(['mate-control-center'])
         elif cmd == 'drivers':
