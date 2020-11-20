@@ -4293,6 +4293,35 @@
             },
             "working": true
         },
+        "lollypop": {
+            "name": "Lollypop",
+            "img": "lollypop",
+            "main-package": "lollypop",
+            "launch-command": "lollypop",
+            "install-packages": "lollypop",
+            "remove-packages": "lollypop",
+            "description": [
+                "Lollypop is a lightweight modern music player",
+                "which supports a wide range of audio formats (including mp3, flac, and ogg).",
+                "audio formats (including mp3, flac, and ogg). Lollypop supports",
+                "Internet Radio, Android integration, party mode,",
+                "and automatic downloads of lyrics and cover art."
+            ],
+            "alternate-to": "Apple iTunes",
+            "subcategory": "Media Playback",
+            "open-source": true,
+            "url-info": "https://wiki.gnome.org/Apps/Lollypop",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64,arm64,armhf",
+            "releases": "focal,groovy",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
         "makemkv": {
             "name": "MakeMKV",
             "img": "makemkv",
