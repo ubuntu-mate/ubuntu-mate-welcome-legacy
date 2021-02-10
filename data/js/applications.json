@@ -1861,7 +1861,7 @@
                     "method": "skip"
                 }
             },
-            "working": true
+            "working": false
         },
         "brave": {
             "name": "Brave",
@@ -2286,6 +2286,39 @@
             "pre-install": {
                 "all": {
                     "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "microsoft-edge": {
+            "name": "Microsoft Edge",
+            "img": "microsoft-edge",
+            "main-package": "microsoft-edge-dev",
+            "launch-command": "microsoft-edge",
+            "install-packages": "microsoft-edge-dev",
+            "remove-packages": "microsoft-edge-dev",
+            "description": [
+                "Microsoft Edge comes complete with features designed to customize",
+                "your browsing experience and to help make you more productive.", 
+                "Edge offers performance, compatibility, and speed to make browsing",
+                "the web even more effortless."
+            ],
+            "alternate-to": null,
+            "subcategory": "Web Browser",
+            "open-source": false,
+            "url-info": "https://www.microsoft.com/en-us/edge",
+            "url-android": "https://play.google.com/store/apps/details?id=com.microsoft.emmx",
+            "url-ios": "https://apps.apple.com/us/app/microsoft-edge-web-browser/id1288723196",
+            "arch": "amd64",
+            "releases": "bionic,eoan,focal,groovy",
+            "pre-install": {
+                "all": {
+                    "method": "manual",
+                    "source-file": "microsoft-edge",
+                    "apt-key-url": "https://packages.microsoft.com/keys/microsoft.asc",
+                    "apt-sources": [
+                        "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main"
+                    ]
                 }
             },
             "working": true
