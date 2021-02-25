@@ -349,42 +349,47 @@ kbd {
   color: #fff;
 }
 
+/* Based on ubuntu-mate.org style, but smaller */
 #social {
-  margin: 6px 0px 0 0;
+    margin: 4px 0;
+}
+
+#social button {
+  background: #21211F;
+  margin: 0 2px;
+  opacity: 0.7;
+}
+
+#social button:hover {
+  background: #494843;
+  opacity: 1;
 }
 
 #social img, .social-large img {
-  width: 24px; height: 24px;
-  position: relative;
-  top: 0px;
-  margin-left: 2px;
-  margin-right: 2px;
-  opacity: 0.7;
-
-  -webkit-filter: grayscale(1);
-
-  -webkit-backface-visibility: hidden;
-  transition: all 0.2s ease-in-out;
-
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
-  -webkit-transition-delay: initial;
+  width: 24px;
+  height: 24px;
 }
 
-#social img:hover, .social-large img:hover {
-  top: -4px;
-  opacity: 1.0;
-  -webkit-filter: grayscale(0);
+/* Except Ubuntu MATE Website */
+#social button:first-child,
+#social button:hover:first-child {
+    background: transparent;
+    filter: grayscale(1);
 }
 
 .social-large img {
   width: 48px !important;
   height: 48px !important;
-  padding-bottom: 8px;
-  -webkit-filter: grayscale(0);
 }
 
+.social-large button {
+    opacity: 0.8;
+}
+
+.social-large button:hover,
+.social-large button:focus {
+    opacity: 1;
+}
 
 /* No margin for social icon in navbar */
 img.centered {
