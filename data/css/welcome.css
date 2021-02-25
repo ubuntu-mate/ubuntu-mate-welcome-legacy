@@ -330,7 +330,7 @@ kbd {
   margin-left: auto;
 }
 
-.footer-content > #footer-right > button {
+.footer-content > #footer-right > button:not(.btn) {
   color: var(--section_text);
   text-decoration: none;
   margin-right: 8px;
