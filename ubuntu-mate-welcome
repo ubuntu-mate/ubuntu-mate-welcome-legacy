@@ -1494,7 +1494,11 @@ class AppView(WebKit2.WebView):
         elif cmd == 'printers':
             subprocess.Popen(['system-config-printer'])
         elif cmd == 'gparted':
-            subprocess.Popen(['gparted-pkexec'])
+            if systemstate.session_type == 'live':
+                # gparted-pkexec is not installed in live session
+                subprocess.Popen(['gparted'])
+            else:
+                subprocess.Popen(['gparted-pkexec'])
         elif cmd == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
         elif cmd.startswith('run?'):
