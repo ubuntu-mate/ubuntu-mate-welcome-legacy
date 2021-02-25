@@ -46,6 +46,7 @@ import sys
 import time
 import webbrowser
 import re
+import math
 
 import urllib.error
 import urllib.parse
@@ -932,6 +933,10 @@ class AppView(WebKit2.WebView):
                                             int(color.green * 255),
                                             int(color.blue  * 255))
 
+        def hex_to_rgb(hex_string):
+            hex_string = hex_string.lstrip("#")
+            return list(int(hex_string[i:i+2], 16) for i in (0, 2 ,4))
+
         def _get_color(style_context, preferred_color, fallback_color):
             color = _rgba_to_hex(style_context.lookup_color(preferred_color)[1])
             if color == "#000000":
@@ -994,7 +999,14 @@ class AppView(WebKit2.WebView):
         app.update_page("body", "append", "<style>:root {" + ";".join(css) + "}</style>")
 
         # For High Contrast theme
-        if bg_color in ["#000", "#000000"]:
+        def is_bg_dark(hex_value):
+            [r,g,b] = hex_to_rgb(hex_value)
+            hsp = math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
+            if (hsp > 127.5):
+                return False
+            return True
+
+        if is_bg_dark(bg_color):
             app.update_page("body", "addClass", "bg-is-black")
 
     def run_js(self, function):
