@@ -1295,26 +1295,6 @@ class AppView(WebKit2.WebView):
             thread = Thread(target=load_thread, args=[self])
             thread.start()
 
-        ### Raspberry Pi Page ###
-        if app.current_page == 'rpi.html':
-            pass
-
-        ### Donate ###
-        if app.current_page == 'donate.html':
-            # Pass translatable short-hand month strings for the supporters grid.
-            self.run_js('short_jan = "' + _("Jan") + '"')
-            self.run_js('short_feb = "' + _("Feb") + '"')
-            self.run_js('short_mar = "' + _("Mar") + '"')
-            self.run_js('short_apr = "' + _("Apr") + '"')
-            self.run_js('short_may = "' + _("May") + '"')
-            self.run_js('short_jun = "' + _("Jun") + '"')
-            self.run_js('short_jul = "' + _("Jul") + '"')
-            self.run_js('short_aug = "' + _("Aug") + '"')
-            self.run_js('short_sep = "' + _("Sep") + '"')
-            self.run_js('short_oct = "' + _("Oct") + '"')
-            self.run_js('short_nov = "' + _("Nov") + '"')
-            self.run_js('short_dec = "' + _("Dec") + '"')
-
         ### Message ###
         if app.current_page == 'message.html':
             """ Displays one-time information. """
