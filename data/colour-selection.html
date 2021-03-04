@@ -26,13 +26,43 @@
 
             <h2>&zwnj;Give your desktop a splash of color&zwnj;</h2>
             <p>&zwnj;Themes typically resolve around a single set of colors.
-            With the Ubuntu MATE Colours project, you can tailor the Ambiant-MATE
-            and Radiant-MATE themes to match your favorite color.&zwnj;</p>
+            With the Ubuntu MATE Colours project, you can tailor selected themes
+            and icons to match your favorite color.&zwnj;</p>
 
             <div class="alert alert-warning offline" style="display:none">
                 <span class="fa fa-warning"></span> &zwnj;You must be connected to the internet to download and install software.&zwnj;
             </div>
 
+            <div class="alert alert-info">
+                &zwnj;Your current theme is:&zwnj; <strong id="current-gtk-theme">...</strong>
+            </div>
+
+            <!-- Yaru-MATE was introduced in 21.04 -->
+            <h3 class="21-04-onwards" style="display:none">&zwnj;Themes&zwnj;</h3>
+            <div id="theme-selection" class="21-04-onwards" style="display:none">
+                <div id="default-yaru-mate" class="browser-option">
+                    <div class="left">
+                        <img class="icon1" src="img/colours/default/yaru-folder.svg"/>
+                        <img class="icon2" src="img/colours/default/yaru-mate.svg"/>
+                        <span>&zwnj;Yaru-MATE&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?Yaru-MATE-light'); show_yaru_variants(); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                    </div>
+                </div>
+                <div id="default-ambiant-mate" class="browser-option">
+                    <div class="left">
+                        <img class="icon1" src="img/colours/icon1/Default.svg"/>
+                        <img class="icon2" src="img/colours/default/ambiant-mate.svg"/>
+                        <span>&zwnj;Ambiant-MATE&zwnj;</span>
+                    </div>
+                    <div class="right">
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?Ambiant-MATE'); show_ambiant_variants(); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="21-04-onwards" style="display:none">&zwnj;Colors&zwnj;</h3>
             <div id="colour-selection">
                 <div id="ubuntu-mate-themes" class="browser-option">
                     <div class="left">
@@ -163,13 +193,7 @@
                 </div>
             </div>
 
-            <br>
-            <div class="alert alert-info">
-                &zwnj;Your current theme is:&zwnj; <strong id="current-gtk-theme">???</strong>
-            </div>
-
-            <h3>&zwnj;Light or dark?&zwnj;</h3>
-            <p>&zwnj;Every theme comes in one of three variants.&zwnj;</p>
+            <h3>&zwnj;Variants&zwnj;</h3>
             <div id="variant-selection">
                 <div id="ambiant" class="browser-option">
                     <div class="left">
@@ -177,25 +201,25 @@
                         <span>Ambiant</span>
                     </div>
                     <div class="right">
-                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-ambiant'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?ambiant'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
                     </div>
                 </div>
                 <div id="radiant" class="browser-option">
                     <div class="left">
                         <img class="variant" src="img/colours/variants/Radiant.png" onclick="cmd('set-theme?switch-radiant'); refresh_gtk(this)"/>
-                        <span>Radiant</span>
+                        <span id="light-name">Radiant</span>
                     </div>
                     <div class="right">
-                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-radiant'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?light'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
                     </div>
                 </div>
                 <div id="ambiant-dark" class="browser-option">
                     <div class="left">
                         <img class="variant" src="img/colours/variants/Ambiant-Dark.png" onclick="cmd('set-theme?switch-ambiant-dark'); refresh_gtk(this)"/>
-                        <span>Ambiant-Dark</span>
+                        <span id="dark-name">Ambiant-Dark</span>
                     </div>
                     <div class="right">
-                        <button class="btn btn-inverse" onclick="cmd('set-theme?switch-ambiant-dark'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
+                        <button class="btn btn-inverse" onclick="cmd('set-theme?dark'); refresh_gtk(this)"><span class="fa fa-check"></span> &zwnj;Apply&zwnj;</button>
                     </div>
                 </div>
             </div>
@@ -224,6 +248,19 @@
                 $("body").removeClass("cursor-wait");
                 $(element).removeClass("disabled").attr("disabled", false);
             }, 1000);
+        }
+
+        // Variants change depending on Yaru/Ambiant theme
+        function show_ambiant_variants() {
+            $("#ambiant").show();
+            $("#light-name").html("Radiant");
+            $("#dark-name").html("Ambiant-Dark");
+        }
+
+        function show_yaru_variants() {
+            $("#ambiant").hide();
+            $("#light-name").html("&zwnj;Light&zwnj;");
+            $("#dark-name").html("&zwnj;Dark&zwnj;");
         }
       </script>
 

@@ -1383,9 +1383,18 @@ class AppView(WebKit2.WebView):
         ### Custom Colours ###
         if app.current_page == 'colour-selection.html':
             app.update_page('#current-gtk-theme', 'html', get_current_theme())
-            # Update listings
+
+            # Refresh installed colour packages
             for colour in UBUNTU_MATE_COLOURS:
                 dynamicapps.update_app_status(self, 'ubuntu-mate-colours-' + colour.lower())
+
+            # Yaru is only available in 21.04 and newer.
+            if float(systemstate.os_version) >= 21.04:
+                app.update_page(".21-04-onwards", "show")
+
+                # Yaru-MATE does not have a mixed dark/light theme like Ambiant-MATE
+                if not get_current_theme().startswith('Ambiant-MATE') and not get_current_theme().startswith('Radiant-MATE'):
+                    self.run_js('show_yaru_variants();')
 
         app.last_page = app.current_page
 
@@ -1610,6 +1619,13 @@ class AppView(WebKit2.WebView):
             theme = cmd.split('set-theme?')[1]
             current_gtk_theme = get_current_theme()
 
+            # User selects theme from "Themes" section
+            if theme == 'Ambiant-MATE':
+                current_gtk_theme = 'Ambiant-MATE'
+            elif theme == 'Yaru-MATE-light':
+                current_gtk_theme = 'Yaru-MATE-light'
+
+            # User selects theme from "Colours" section
             try:
                 colour = theme.split('ubuntu-mate-colours-')[1].capitalize()
                 suffix = '-' + colour
@@ -1618,24 +1634,30 @@ class AppView(WebKit2.WebView):
                 suffix = ''
                 colour = ''
 
-            # Switching between variants
-            if theme in ['switch-ambiant', 'switch-ambiant-dark', 'switch-radiant']:
-                # Use the same suffix (e.g. "-green") if used by existing theme
+            # User selects theme from "Variants" section
+            if theme in ['ambiant', 'light', 'dark']:
+                # Append suffix (e.g. "-green") if a colour theme is in use
                 suffix = ''
                 for colour in UBUNTU_MATE_COLOURS:
                     if current_gtk_theme.endswith(colour):
                         suffix = '-' + colour
                         break
 
-                # Switch theme name to desired variant
-                if theme == 'switch-ambiant':
+                # Set theme name accordingly
+                is_ambiant = current_gtk_theme.startswith('Ambiant') or current_gtk_theme.startswith('Radiant')
+                is_yaru = current_gtk_theme.startswith('Yaru')
+                if is_ambiant and theme == 'ambiant':
                     current_gtk_theme = 'Ambiant-MATE' + suffix
-                elif theme == 'switch-ambiant-dark':
+                elif is_ambiant and theme == 'dark':
                     current_gtk_theme = 'Ambiant-MATE-Dark' + suffix
-                elif theme == 'switch-radiant':
+                elif is_ambiant and theme == 'light':
                     current_gtk_theme = 'Radiant-MATE' + suffix
+                elif is_yaru and theme == 'light':
+                    current_gtk_theme = 'Yaru-MATE-light' + suffix
+                elif is_yaru and theme == 'dark':
+                    current_gtk_theme = 'Yaru-MATE-dark' + suffix
 
-            # Set a new theme from a colour
+            # Determine other theme names (GTK, icons, window)
             if current_gtk_theme.startswith('Ambiant-MATE-Dark'):
                 gtk_theme = 'Ambiant-MATE-Dark'
                 icon_theme = 'Ambiant-MATE'
@@ -1646,11 +1668,22 @@ class AppView(WebKit2.WebView):
                 icon_theme = 'Radiant-MATE'
                 window_theme = 'Radiant-MATE'
 
+            elif current_gtk_theme.startswith('Yaru-MATE-light'):
+                gtk_theme = 'Yaru-MATE-light'
+                icon_theme = 'Yaru-MATE-light'
+                window_theme = 'Yaru-MATE-light'
+
+            elif current_gtk_theme.startswith('Yaru-MATE-dark'):
+                gtk_theme = 'Yaru-MATE-dark'
+                icon_theme = 'Yaru-MATE-dark'
+                window_theme = 'Yaru-MATE-dark'
+
             else:
                 gtk_theme = 'Ambiant-MATE'
                 icon_theme = 'Ambiant-MATE'
                 window_theme = 'Ambiant-MATE'
 
+            # Apply theme
             set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme + suffix)
             set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
             set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
