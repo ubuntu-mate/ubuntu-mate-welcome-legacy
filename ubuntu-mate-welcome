@@ -1598,12 +1598,11 @@ class AppView(WebKit2.WebView):
         elif cmd.startswith('set-theme?'):
             theme = cmd.split('set-theme?')[1]
             current_gtk_theme = get_current_theme()
+            new_theme = current_gtk_theme
 
-            # User selects theme from "Themes" section
-            if theme == 'Ambiant-MATE':
-                current_gtk_theme = 'Ambiant-MATE'
-            elif theme == 'Yaru-MATE-light':
-                current_gtk_theme = 'Yaru-MATE-light'
+            # User selects theme from "Themes" section - resets to default
+            if theme in ['Ambiant-MATE', 'Yaru-MATE-light']:
+                new_theme = theme
 
             # User selects theme from "Colours" section
             try:
@@ -1614,60 +1613,61 @@ class AppView(WebKit2.WebView):
                 suffix = ''
                 colour = ''
 
-            # User selects theme from "Variants" section
+            # User switches theme from "Variants" section
             if theme in ['ambiant', 'light', 'dark']:
                 # Append suffix (e.g. "-green") if a colour theme is in use
                 suffix = ''
                 for colour in UBUNTU_MATE_COLOURS:
-                    if current_gtk_theme.endswith(colour):
+                    if current_gtk_theme.find(colour) != -1:
                         suffix = '-' + colour
                         break
 
                 # Set theme name accordingly
                 is_ambiant = current_gtk_theme.startswith('Ambiant') or current_gtk_theme.startswith('Radiant')
-                is_yaru = current_gtk_theme.startswith('Yaru')
+                is_yaru = current_gtk_theme.startswith('Yaru-MATE')
+
                 if is_ambiant and theme == 'ambiant':
-                    current_gtk_theme = 'Ambiant-MATE' + suffix
+                    new_theme = 'Ambiant-MATE' + suffix
                 elif is_ambiant and theme == 'dark':
-                    current_gtk_theme = 'Ambiant-MATE-Dark' + suffix
+                    new_theme = 'Ambiant-MATE-Dark' + suffix
                 elif is_ambiant and theme == 'light':
-                    current_gtk_theme = 'Radiant-MATE' + suffix
+                    new_theme = 'Radiant-MATE' + suffix
                 elif is_yaru and theme == 'light':
-                    current_gtk_theme = 'Yaru-MATE-light' + suffix
+                    new_theme = 'Yaru-MATE' + suffix + '-light'
                 elif is_yaru and theme == 'dark':
-                    current_gtk_theme = 'Yaru-MATE-dark' + suffix
+                    new_theme = 'Yaru-MATE' + suffix + '-dark'
 
             # Determine other theme names (GTK, icons, window)
-            if current_gtk_theme.startswith('Ambiant-MATE-Dark'):
-                gtk_theme = 'Ambiant-MATE-Dark'
-                icon_theme = 'Ambiant-MATE'
-                window_theme = 'Ambiant-MATE'
+            if new_theme.startswith('Ambiant-MATE-Dark'):
+                gtk_theme = 'Ambiant-MATE-Dark' + suffix
+                icon_theme = 'Ambiant-MATE' + suffix
+                window_theme = 'Ambiant-MATE' + suffix
 
-            elif current_gtk_theme.startswith('Radiant-MATE'):
-                gtk_theme = 'Radiant-MATE'
-                icon_theme = 'Radiant-MATE'
-                window_theme = 'Radiant-MATE'
+            elif new_theme.startswith('Radiant-MATE'):
+                gtk_theme = 'Radiant-MATE' + suffix
+                icon_theme = 'Radiant-MATE' + suffix
+                window_theme = 'Radiant-MATE' + suffix
 
-            elif current_gtk_theme.startswith('Yaru-MATE-light'):
-                gtk_theme = 'Yaru-MATE-light'
-                icon_theme = 'Yaru-MATE-light'
-                window_theme = 'Yaru-MATE-light'
+            elif new_theme.startswith('Yaru-MATE') and new_theme.endswith('light'):
+                gtk_theme = 'Yaru-MATE' + suffix + '-light'
+                icon_theme = 'Yaru-MATE' + suffix + '-light'
+                window_theme = 'Yaru-MATE' + suffix + '-light'
 
-            elif current_gtk_theme.startswith('Yaru-MATE-dark'):
-                gtk_theme = 'Yaru-MATE-dark'
-                icon_theme = 'Yaru-MATE-dark'
-                window_theme = 'Yaru-MATE-dark'
+            elif new_theme.startswith('Yaru-MATE') and new_theme.endswith('dark'):
+                gtk_theme = 'Yaru-MATE' + suffix + '-dark'
+                icon_theme = 'Yaru-MATE' + suffix + '-dark'
+                window_theme = 'Yaru-MATE' + suffix + '-dark'
 
             else:
-                gtk_theme = 'Ambiant-MATE'
-                icon_theme = 'Ambiant-MATE'
-                window_theme = 'Ambiant-MATE'
+                gtk_theme = 'Ambiant-MATE' + suffix
+                icon_theme = 'Ambiant-MATE' + suffix
+                window_theme = 'Ambiant-MATE' + suffix
 
             # Apply theme
-            set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme + suffix)
-            set_gconf_value('org.mate.interface', 'icon-theme', icon_theme + suffix)
-            set_gconf_value('org.mate.Marco.general', 'theme', window_theme + suffix)
-            app.update_page('#current-gtk-theme', 'html', gtk_theme + suffix)
+            set_gconf_value('org.mate.interface', 'gtk-theme', gtk_theme)
+            set_gconf_value('org.mate.interface', 'icon-theme', icon_theme)
+            set_gconf_value('org.mate.Marco.general', 'theme', window_theme)
+            app.update_page('#current-gtk-theme', 'html', gtk_theme)
 
             # If a default wallpaper is in use, switch to the colour variant.
             current_background = get_gconf_value('org.mate.background', 'picture-filename').replace("'", '').strip()
