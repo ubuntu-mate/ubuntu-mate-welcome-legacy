@@ -1558,34 +1558,13 @@ blockquote.terminal {
 /************************
  * Colour Selection Screen
 *************************/
-.browser-option .icon1,
-.browser-option .icon2 {
-    position: absolute;
-    transition: opacity 0.2s;
-    opacity: 1;
-}
-
-.browser-option .icon1 {
-    opacity: 0;
-}
-
-.browser-option .icon1 ~ span {
-    display: block;
-    margin: 4px 38px;
-}
-
-.browser-option:hover .icon1 {
-    opacity: 1;
-}
-
-.browser-option:hover .icon2 {
-    opacity: 0;
-}
-
-.browser-option .variant {
-    width: 80px;
-    border-radius: 10px;
-    padding-right: 4px;
+.colour-block {
+    box-shadow: 0px 0px 4px lightgray;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin: 2px;
+    vertical-align: middle;
 }
 
 /************************
