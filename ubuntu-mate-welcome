@@ -1600,9 +1600,14 @@ class AppView(WebKit2.WebView):
             current_gtk_theme = get_current_theme()
             new_theme = current_gtk_theme
 
-            # User selects theme from "Themes" section - resets to default
-            if theme in ['Ambiant-MATE', 'Yaru-MATE-light']:
-                new_theme = theme
+            # User switches from neither Ambiant/Yaru themes
+            if not current_gtk_theme.startswith('Ambiant-MATE') and \
+                not current_gtk_theme.startswith('Radiant-MATE') and \
+                not current_gtk_theme.startswith('Yaru-MATE'):
+                    if float(systemstate.os_version) >= 21.04:
+                        current_gtk_theme = 'Yaru-MATE'
+                    else:
+                        current_gtk_theme = 'Ambiant-MATE'
 
             # User selects theme from "Colours" section
             try:
@@ -1613,8 +1618,8 @@ class AppView(WebKit2.WebView):
                 suffix = ''
                 colour = ''
 
-            # User switches theme from "Variants" section
-            if theme in ['ambiant', 'light', 'dark']:
+            # User switches theme from "Themes" or "Variants" section
+            if theme in ['ambiant', 'light', 'dark', 'Ambiant-MATE', 'Yaru-MATE']:
                 # Append suffix (e.g. "-green") if a colour theme is in use
                 suffix = ''
                 for colour in UBUNTU_MATE_COLOURS:
@@ -1622,9 +1627,41 @@ class AppView(WebKit2.WebView):
                         suffix = '-' + colour
                         break
 
-                # Set theme name accordingly
+                # Determine theme to apply
                 is_ambiant = current_gtk_theme.startswith('Ambiant') or current_gtk_theme.startswith('Radiant')
                 is_yaru = current_gtk_theme.startswith('Yaru-MATE')
+
+                # User switches theme from "Themes" section
+                if theme == 'Yaru-MATE' and current_gtk_theme.startswith('Ambiant-MATE-Dark'):
+                    # Ambiant-MATE-Dark-* --> Yaru-MATE-*-dark
+                    is_yaru = True
+                    is_ambiant = False
+                    new_theme = 'Yaru-MATE-dark'
+                    theme = 'dark'
+                elif theme == 'Yaru-MATE' and current_gtk_theme.startswith('Ambiant-MATE'):
+                    # Ambiant-MATE-* --> Yaru-MATE-*-light
+                    is_yaru = True
+                    is_ambiant = False
+                    new_theme = 'Yaru-MATE-light'
+                    theme = 'light'
+                elif theme == 'Yaru-MATE' and current_gtk_theme.startswith('Radiant-MATE'):
+                    # Ambiant-MATE-* --> Yaru-MATE-*-light
+                    is_yaru = True
+                    is_ambiant = False
+                    new_theme = 'Yaru-MATE-light'
+                    theme = 'light'
+                elif theme == 'Ambiant-MATE' and current_gtk_theme.endswith('-light'):
+                    # Yaru-MATE-*-light --> Ambiant-MATE
+                    is_ambiant = True
+                    is_yaru = False
+                    new_theme = 'Ambiant-MATE'
+                    theme = 'ambiant'
+                elif theme == 'Ambiant-MATE' and current_gtk_theme.endswith('-dark'):
+                    # Yaru-MATE-*-dark --> Ambiant-MATE-Dark
+                    is_ambiant = True
+                    is_yaru = False
+                    new_theme = 'Ambiant-MATE-Dark'
+                    theme = 'dark'
 
                 if is_ambiant and theme == 'ambiant':
                     new_theme = 'Ambiant-MATE' + suffix
