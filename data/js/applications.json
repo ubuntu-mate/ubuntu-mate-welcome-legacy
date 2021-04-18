@@ -272,7 +272,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute",
+            "releases": "xenial,bionic,eoan,focal,groovy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -677,7 +677,7 @@
             "name": "Extreme Tux Racer",
             "img": "extremetuxracer",
             "main-package": "extremetuxracer",
-            "launch-command": "extremetuxracer",
+            "launch-command": "etr",
             "install-packages": "extremetuxracer,extremetuxracer-data",
             "remove-packages": "extremetuxracer,extremetuxracer-data",
             "description": [
@@ -707,7 +707,7 @@
             "name": "Flightgear",
             "img": "flightgear",
             "main-package": "flightgear",
-            "launch-command": "flightgear",
+            "launch-command": "fgfs --launcher",
             "install-packages": "flightgear",
             "remove-packages": "flightgear",
             "description": [
@@ -2279,6 +2279,17 @@
                     "apt-sources": [
                         "deb http://apt.insync.io/ubuntu focal non-free contrib"
                     ]
+                },
+                "hirsute": {
+                    "method": "manual",
+                    "source-file": "insync",
+                    "apt-key-server": [
+                        "keyserver.ubuntu.com",
+                        "ACCAF35C"
+                    ],
+                    "apt-sources": [
+                        "deb http://apt.insync.io/ubuntu focal non-free contrib"
+                    ]
                 }
             },
             "working": true
@@ -3167,7 +3178,7 @@
             "name": "Foliate",
             "img": "foliate",
             "main-package": "foliate",
-            "launch-command": "foliate",
+            "launch-command": "com.github.johnfactotum.Foliate",
             "install-packages": "foliate",
             "remove-packages": "foliate",
             "description": [
@@ -4284,7 +4295,7 @@
                     ]
                 }
             },
-            "working": true
+            "working": false
         },
         "handbrake": {
             "name": "Handbrake",
@@ -5111,7 +5122,7 @@
                     "method": "skip"
                 }
             },
-            "working": true
+            "working": false
         },
         "workrave": {
             "name": "Workrave",
