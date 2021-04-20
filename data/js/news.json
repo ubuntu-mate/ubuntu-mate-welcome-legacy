@@ -1,11 +1,23 @@
 {
-    "20.10.1": {
+    "21.04.0": {
+        "add": [
+            "ulauncher",
+            "tilix",
+            "foliate"
+        ],
+        "del": {
+            "terminator": "not-nice",
+            "redshift": "broken",
+            "google-musicmanager": "broken",
+            "google-play-music-desktop-player": "broken",
+            "eviacam": "broken"    
+        }        
+    },
+    "20.10.0": {
         "add": [
             "microsoft-edge-dev",
             "lollypop"
-        ]
-    },
-    "20.10.0": {
+        ],
         "fix": {
             "spotify": "general",
             "insync": "new-source"
