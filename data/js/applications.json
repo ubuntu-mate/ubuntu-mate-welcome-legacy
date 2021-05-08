@@ -203,12 +203,9 @@
                 "all": {
                     "method": "manual",
                     "source-file": "balena-etcher",
-                    "apt-key-server": [
-                        "keyserver.ubuntu.com",
-                        "379CE192D401AB61"
-                    ],
+                    "apt-key-url": "https://dl.cloudsmith.io/public/balena/etcher/gpg.70528471AFF9A051.key",
                     "apt-sources": [
-                        "deb https://deb.etcher.io stable etcher"
+                        "deb https://dl.cloudsmith.io/public/balena/etcher/deb/ubuntu CODENAME main"
                     ]
                 }
             },
