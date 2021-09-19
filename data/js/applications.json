@@ -3923,7 +3923,7 @@
             "name": "Ardour",
             "img": "ardour",
             "main-package": "ardour",
-            "launch-command": "gio launch /usr/share/applications/ardour.desktop",
+            "launch-command": "gtk-launch ardour.desktop",
             "install-packages": "ardour",
             "remove-packages": "ardour",
             "description": [
