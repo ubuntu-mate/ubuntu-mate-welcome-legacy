@@ -183,7 +183,7 @@
             "name": "Etcher",
             "img": "etcher",
             "main-package": "balena-etcher-electron",
-            "launch-command": "balena-etcher-electron",
+            "launch-command": "/opt/balenaEtcher/balena-etcher-electron",
             "install-packages": "balena-etcher-electron",
             "remove-packages": "balena-etcher-electron",
             "description": [
@@ -2552,13 +2552,13 @@
             "img": "remmina",
             "main-package": "remmina",
             "launch-command": "remmina",
-            "install-packages": "remmina,remmina-plugin-rdp,remmina-plugin-vnc,remmina-plugin-nx,remmina-plugin-xdmcp",
-            "remove-packages": "remmina,remmina-plugin-rdp,remmina-plugin-vnc,remmina-plugin-nx,remmina-plugin-xdmcp",
+            "install-packages": "remmina,remmina-plugin-rdp,remmina-plugin-vnc",
+            "remove-packages": "remmina,remmina-plugin-rdp,remmina-plugin-vnc",
             "description": [
                 "A remote desktop connection client able",
                 "to display and control a remote desktop session. It supports",
                 "multiple network protocols in an integrated and consistent",
-                "user interface. Currently RDP, VNC, NX, XDMCP and SSH",
+                "user interface. Currently RDP, VNC and SSH",
                 "protocols are supported."
             ],
             "alternate-to": "Microsoft&reg; Remote Desktop",
@@ -2691,7 +2691,7 @@
             "name": "Slack",
             "img": "slack",
             "main-package": "slack-desktop",
-            "launch-command": "slack-desktop",
+            "launch-command": "slack",
             "install-packages": "slack-desktop",
             "remove-packages": "slack-desktop",
             "description": [
@@ -2982,7 +2982,7 @@
             "name": "Wire",
             "img": "wire-desktop",
             "main-package": "wire-desktop",
-            "launch-command": "/opt/wire-desktop/wire-desktop",
+            "launch-command": "/opt/Wire/wire-desktop",
             "install-packages": "wire-desktop",
             "remove-packages": "wire-desktop",
             "description": [
@@ -3012,10 +3012,10 @@
         "wireshark": {
             "name": "Wireshark",
             "img": "wireshark",
-            "main-package": "wireshark-gtk",
-            "launch-command": "wireshark-gtk",
-            "install-packages": "wireshark-gtk",
-            "remove-packages": "wireshark-gtk,wireshark-common",
+            "main-package": "wireshark-qt",
+            "launch-command": "wireshark",
+            "install-packages": "wireshark-qt",
+            "remove-packages": "wireshark-qt,wireshark-common",
             "description": [
                 "The world&#8217;s foremost network protocol analyzer. It",
                 "lets you see what&#8217;s happening on your network at a",
@@ -3923,7 +3923,7 @@
             "name": "Ardour",
             "img": "ardour",
             "main-package": "ardour",
-            "launch-command": "ardour4",
+            "launch-command": "gio launch /usr/share/applications/ardour.desktop",
             "install-packages": "ardour",
             "remove-packages": "ardour",
             "description": [
@@ -5396,8 +5396,8 @@
             "img": "synaptic",
             "main-package": "synaptic",
             "launch-command": "pkexec synaptic",
-            "install-packages": "synaptic",
-            "remove-packages": "synaptic",
+            "install-packages": "synaptic,apt-xapian-index",
+            "remove-packages": "synaptic,apt-xapian-index",
             "description": [
                 "A graphical package management program",
                 "for <code>apt</code>. It provides the same features as the",
