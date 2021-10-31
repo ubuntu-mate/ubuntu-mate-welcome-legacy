@@ -1775,7 +1775,6 @@ class WelcomeApp(object):
         <button onclick="cmd(\'link?https://launchpad.net/ubuntu-mate\')" title="Launchpad"><img src="' + trans.res_dir + 'img/social/launchpad.svg"></button> \
         <button onclick="cmd(\'link?https://github.com/ubuntu-mate/\')" title="GitHub"><img src="' + trans.res_dir + 'img/social/github.svg"></button> \
         <button onclick="cmd(\'link?https://twitter.com/ubuntu_mate\')" title="Twitter"><img src="' + trans.res_dir + 'img/social/twitter.svg"></button> \
-        <button onclick="cmd(\'link?https://www.facebook.com/UbuntuMATEedition/\')" title="Facebook"><img src="' + trans.res_dir + 'img/social/facebook.svg"></button> \
         <button onclick="cmd(\'link?https://discord.gg/T8NDH5RaEj\')" title="Discord"><img src="' + trans.res_dir + 'img/social/discord.svg"></button> \
         </div>'
         self.footer_close = '<button onclick="cmd(\'quit\')" class="btn btn-inverse">' + string.close + '&zwnj;</button>'
