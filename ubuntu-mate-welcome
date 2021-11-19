@@ -1353,7 +1353,6 @@ class AppView(WebKit2.WebView):
             dynamicapps.update_app_status(self, 'vivaldi')
             dynamicapps.update_app_status(self, 'brave')
             dynamicapps.update_app_status(self, 'microsoft-edge-stable')
-            dynamicapps.update_app_status(self, 'epiphany-browser')
 
             # Highlight default browser
             if which('xdg-settings') != None:
