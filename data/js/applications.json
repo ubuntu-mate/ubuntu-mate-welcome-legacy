@@ -2002,7 +2002,7 @@
                     "method": "skip"
                 }
             },
-            "working": true
+            "working": false
         },
         "filezilla": {
             "name": "FileZilla",
@@ -2355,13 +2355,13 @@
             },
             "working": true
         },
-        "microsoft-edge-beta": {
+        "microsoft-edge-stable": {
             "name": "Microsoft Edge",
             "img": "microsoft-edge",
-            "main-package": "microsoft-edge-beta",
+            "main-package": "microsoft-edge-stable",
             "launch-command": "microsoft-edge",
-            "install-packages": "microsoft-edge-beta",
-            "remove-packages": "microsoft-edge-beta",
+            "install-packages": "microsoft-edge-stable",
+            "remove-packages": "microsoft-edge-stable",
             "description": [
                 "Microsoft Edge comes complete with features designed to customize",
                 "your browsing experience and to help make you more productive.", 
