@@ -20,13 +20,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:caffeine-developers/ppa",
-                    "source-file": "caffeine-developers-ubuntu-ppa-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -54,7 +49,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -84,7 +79,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -116,7 +111,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -143,7 +138,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -171,7 +166,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -198,7 +193,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -233,7 +228,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -269,7 +264,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy",
+            "releases": "bionic,focal",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -301,7 +296,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.subsurfacedivelog.mobile",
             "url-ios": "https://itunes.apple.com/gb/app/subsurface/id907870605?mt=8",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -330,7 +325,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "bionic,disco,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -362,7 +357,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -391,7 +386,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -408,8 +403,8 @@
             "img": "gcompris",
             "main-package": "gcompris",
             "launch-command": "gcompris",
-            "install-packages": "gcompris,gcompris-data,gcompris-sound-af,gcompris-sound-ar,gcompris-sound-ast,gcompris-sound-bg,gcompris-sound-br,gcompris-sound-cs,gcompris-sound-da,gcompris-sound-de,gcompris-sound-el,gcompris-sound-en,gcompris-sound-eo,gcompris-sound-es,gcompris-sound-eu,gcompris-sound-fi,gcompris-sound-fr,gcompris-sound-gd,gcompris-sound-he,gcompris-sound-hi,gcompris-sound-hu,gcompris-sound-id,gcompris-sound-it,gcompris-sound-kn,gcompris-sound-lt,gcompris-sound-mr,gcompris-sound-nb,gcompris-sound-nl,gcompris-sound-nn,gcompris-sound-pa,gcompris-sound-pt,gcompris-sound-ptbr,gcompris-sound-ru,gcompris-sound-sk,gcompris-sound-sl,gcompris-sound-so,gcompris-sound-sr,gcompris-sound-sv,gcompris-sound-th,gcompris-sound-tr,gcompris-sound-ur,gcompris-sound-zhcn",
-            "remove-packages": "gcompris,gcompris-data,gcompris-sound-af,gcompris-sound-ar,gcompris-sound-ast,gcompris-sound-bg,gcompris-sound-br,gcompris-sound-cs,gcompris-sound-da,gcompris-sound-de,gcompris-sound-el,gcompris-sound-en,gcompris-sound-eo,gcompris-sound-es,gcompris-sound-eu,gcompris-sound-fi,gcompris-sound-fr,gcompris-sound-gd,gcompris-sound-he,gcompris-sound-hi,gcompris-sound-hu,gcompris-sound-id,gcompris-sound-it,gcompris-sound-kn,gcompris-sound-lt,gcompris-sound-mr,gcompris-sound-nb,gcompris-sound-nl,gcompris-sound-nn,gcompris-sound-pa,gcompris-sound-pt,gcompris-sound-ptbr,gcompris-sound-ru,gcompris-sound-sk,gcompris-sound-sl,gcompris-sound-so,gcompris-sound-sr,gcompris-sound-sv,gcompris-sound-th,gcompris-sound-tr,gcompris-sound-ur,gcompris-sound-zhcn",
+            "install-packages": "gcompris",
+            "remove-packages": "gcompris",
             "description": [
                 "A high quality educational software",
                 "suite comprising of numerous activities for children aged 2",
@@ -427,7 +422,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -459,7 +454,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -489,7 +484,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -521,7 +516,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -563,7 +558,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -593,7 +588,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -627,13 +622,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:wfg/0ad",
-                    "source-file": "wfg-ubuntu-0ad-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -662,7 +652,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -692,7 +682,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -722,7 +712,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -750,7 +740,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -784,7 +774,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -809,7 +799,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -844,14 +834,13 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
                 }
             },
-            "working": true,
-            "notes": "no packages for armhf on xenial"
+            "working": true
         },
         "lutris": {
             "name": "Lutris",
@@ -871,7 +860,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -908,7 +897,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -938,13 +927,8 @@
             "url-ios": null,
             "arch": "armhf",
             "session": "pi",
-            "releases": "xenial,bionic",
+            "releases": "bionic,focal",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/minecraft",
-                    "source-file": "flexiondotorg-ubuntu-minecraft-CODENAME"
-                },
                 "all": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntu-pi-flavour-makers/ppa",
@@ -975,7 +959,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1005,7 +989,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1038,7 +1022,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1065,12 +1049,12 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
                 },
-                "xenial,bionic": {
+                "bionic": {
                     "method": "manual",
                     "apt-key-url": "http://deb.playonlinux.com/public.gpg",
                     "source-file": "playonlinux",
@@ -1108,7 +1092,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1136,7 +1120,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1162,13 +1146,8 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:libretro/stable",
-                    "source-file": "libretro-ubuntu-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -1198,7 +1177,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "i386,amd64",
-            "releases": "xenial",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "multiverse-repo"
@@ -1230,7 +1209,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.valvesoftware.android.steam.community&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/steam-mobile/id495369748",
             "arch": "i386,amd64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "multiverse-repo"
@@ -1299,7 +1278,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1329,7 +1308,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1362,7 +1341,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1394,7 +1373,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1431,7 +1410,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1442,10 +1421,10 @@
         "dia": {
             "name": "Dia",
             "img": "dia",
-            "main-package": "dia-gnome",
-            "launch-command": "dia-gnome",
-            "install-packages": "dia-gnome",
-            "remove-packages": "dia-gnome",
+            "main-package": "dia",
+            "launch-command": "dia",
+            "install-packages": "dia",
+            "remove-packages": "dia",
             "description": [
                 "An editor for diagrams, graphs, charts etc.",
                 "There is support for UML static structure diagrams (class",
@@ -1460,7 +1439,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1493,7 +1472,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "eoan",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1535,7 +1514,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1568,7 +1547,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1597,7 +1576,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                  "all": {
                     "method": "skip"
@@ -1632,7 +1611,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1660,7 +1639,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1696,7 +1675,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1732,7 +1711,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1762,7 +1741,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1791,7 +1770,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1824,7 +1803,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1851,7 +1830,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1881,7 +1860,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal",
+            "releases": "bionic,focal",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1909,7 +1888,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.brave.browser",
             "url-ios": "https://itunes.apple.com/us/app/brave-web-browser-fast-with-built-in-adblock/id1052879175",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -1941,7 +1920,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1968,7 +1947,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.dropbox.android",
             "url-ios": "https://itunes.apple.com/us/app/dropbox/id327630330",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1996,7 +1975,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,armhf,arm64",
-            "releases": "bionic,focal,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2031,7 +2010,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2060,7 +2039,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.mozilla.firefox",
             "url-ios": "https://itunes.apple.com/us/app/firefox-web-browser/id989804926",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2088,7 +2067,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2118,7 +2097,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2146,7 +2125,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.android.chrome",
             "url-ios": "https://itunes.apple.com/gb/app/chrome-web-browser-by-google/id535886823",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2179,7 +2158,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.earth",
             "url-ios": "https://itunes.apple.com/gb/app/google-earth/id293622097",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2215,7 +2194,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
             "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2248,7 +2227,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2281,7 +2260,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.apps.docs",
             "url-ios": "https://itunes.apple.com/gb/app/google-drive-free-online-storage/id507874739",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2294,7 +2273,7 @@
                         "deb http://apt.insync.io/ubuntu CODENAME non-free contrib"
                     ]
                 },
-                "groovy": {
+                "jammy": {
                     "method": "manual",
                     "source-file": "insync",
                     "apt-key-server": [
@@ -2302,18 +2281,7 @@
                         "ACCAF35C"
                     ],
                     "apt-sources": [
-                        "deb http://apt.insync.io/ubuntu focal non-free contrib"
-                    ]
-                },
-                "hirsute": {
-                    "method": "manual",
-                    "source-file": "insync",
-                    "apt-key-server": [
-                        "keyserver.ubuntu.com",
-                        "ACCAF35C"
-                    ],
-                    "apt-sources": [
-                        "deb http://apt.insync.io/ubuntu focal non-free contrib"
+                        "deb http://apt.insync.io/ubuntu impish non-free contrib"
                     ]
                 }
             },
@@ -2347,7 +2315,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2375,7 +2343,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.microsoft.emmx",
             "url-ios": "https://apps.apple.com/us/app/microsoft-edge-web-browser/id1288723196",
             "arch": "amd64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2414,13 +2382,8 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
             "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mumble/release",
-                    "source-file": "mumble-ubuntu-release-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -2447,7 +2410,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.opera.browser",
             "url-ios": "https://itunes.apple.com/gb/app/opera-mini-web-browser/id363729560",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2478,7 +2441,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.nextcloud.client",
             "url-ios": "https://itunes.apple.com/gb/app/nextcloud/id1125420102",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -2506,7 +2469,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.owncloud.android",
             "url-ios": "https://itunes.apple.com/gb/app/owncloud/id543672169",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic",
+            "releases": "bionic,focal,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2539,7 +2502,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2568,7 +2531,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2598,7 +2561,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.skype.raider",
             "url-ios": "https://itunes.apple.com/gb/app/skype-for-iphone/id304878510",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2642,7 +2605,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2673,7 +2636,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.spideroak.android",
             "url-ios": "https://itunes.apple.com/gb/app/spideroak/id360584371",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2708,7 +2671,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.Slack&hl=en",
             "url-ios": "https://itunes.apple.com/gb/app/slack/id803453959?mt=12",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2742,7 +2705,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid",
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2782,7 +2745,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.telegram.messenger",
             "url-ios": "https://itunes.apple.com/gb/app/telegram-messenger/id686449807",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2814,7 +2777,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2847,7 +2810,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2875,7 +2838,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -2904,12 +2867,12 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
                 },
-                "xenial,bionic": {
+                "bionic": {
                     "method": "ppa",
                     "enable-ppa": "ppa:plushuang-tw/uget-stable",
                     "source-file": "plushuang-tw-ubuntu-uget-stable-CODENAME"
@@ -2934,7 +2897,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2965,7 +2928,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2998,7 +2961,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.wire",
             "url-ios": "https://itunes.apple.com/gb/app/wire-private-messenger/id930944768",
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3030,15 +2993,10 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
-                },
-                "xenial": {
-                  "method": "ppa",
-                  "enable-ppa": "ppa:wireshark-dev/stable",
-                  "source-file": "wireshark-ubuntu-stable-CODENAME"
                 }
             },
             "working": true
@@ -3063,7 +3021,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3091,7 +3049,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3131,7 +3089,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3158,7 +3116,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3191,7 +3149,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3216,7 +3174,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3248,7 +3206,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3283,7 +3241,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3314,7 +3272,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3343,7 +3301,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial",
+            "releases": "bionic,focal",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3372,7 +3330,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3400,7 +3358,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3432,13 +3390,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:texworks/stable",
-                    "source-file": "texworks-ubuntu-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -3468,7 +3421,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3496,7 +3449,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial",
+            "releases": "impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3525,7 +3478,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3556,7 +3509,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3590,7 +3543,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3622,7 +3575,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3650,7 +3603,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3680,7 +3633,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3708,7 +3661,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,i386",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3739,7 +3692,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,i386",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3775,7 +3728,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3808,7 +3761,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic",
+            "releases": "bionic,impish",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3841,7 +3794,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -3877,7 +3830,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3909,7 +3862,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,disco",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -3946,7 +3899,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -3976,7 +3929,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4002,7 +3955,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4033,7 +3986,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4060,7 +4013,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4087,13 +4040,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:me-davidsansome/clementine",
-                    "source-file": "me-davidsansome-ubuntu-clementine-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -4125,13 +4073,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mscore-ubuntu/mscore-stable",
-                    "source-file": "mscore-ubuntu-mscore-stable-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -4163,7 +4106,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4193,7 +4136,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4250,7 +4193,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4280,7 +4223,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4309,7 +4252,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
             "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4342,7 +4285,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4374,7 +4317,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4405,15 +4348,10 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
-                },
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:team-xbmc/ppa",
-                    "source-file": "team-xbmc-ubuntu-ppa-CODENAME"
                 }
             },
             "working": true
@@ -4439,7 +4377,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,arm64,armhf",
-            "releases": "focal,groovy,hirsute,impish,jammy",
+            "releases": "focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4477,7 +4415,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4512,12 +4450,10 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:obsproject/obs-studio",
-                    "source-file": "obsproject-ubuntu-obs-studio-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
@@ -4544,7 +4480,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.pandora.android",
             "url-ios": "https://itunes.apple.com/en/app/pandora-radio/id284035177",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4573,7 +4509,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4603,9 +4539,9 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial,bionic": {
+                "bionic": {
                     "method": "ppa",
                     "enable-ppa": "ppa:peek-developers/stable",
                     "source-file": "peek-developers-ubuntu-stable-CODENAME"
@@ -4636,7 +4572,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4667,7 +4603,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4696,13 +4632,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:maarten-baert/simplescreenrecorder",
-                    "source-file": "maarten-baert-ubuntu-simplescreenrecorder-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -4729,7 +4660,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4755,7 +4686,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.spotify.music",
             "url-ios": "https://itunes.apple.com/gb/app/spotify-music/id324684580",
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -4787,7 +4718,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.videolan.vlc",
             "url-ios": "https://itunes.apple.com/gb/app/vlc-for-mobile/id650377962",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4814,7 +4745,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,disco",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -4850,7 +4781,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4881,7 +4812,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4908,7 +4839,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4935,7 +4866,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4963,7 +4894,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4990,7 +4921,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp",
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5018,7 +4949,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5045,7 +4976,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5075,7 +5006,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,disco",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                   "method": "skip"
@@ -5105,7 +5036,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5136,13 +5067,8 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:cesar-crea-si/eviacam",
-                    "source-file": "cesar-crea-si-ubuntu-eviacam-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -5169,7 +5095,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5198,7 +5124,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5230,7 +5156,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64,armhf",
-            "releases": "xenial,bionic,disco,focal,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -5263,7 +5189,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5293,13 +5219,8 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.morlunk.mumbleclient.free",
             "url-ios": "http://itunes.apple.com/us/app/mumble/id443472808",
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
-                "xenial": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:mumble/release",
-                    "source-file": "mumble-ubuntu-release-CODENAME"
-                },
                 "all": {
                     "method": "skip"
                 }
@@ -5328,7 +5249,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5356,7 +5277,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5383,7 +5304,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5414,7 +5335,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5441,7 +5362,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5468,7 +5389,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5491,7 +5412,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5516,7 +5437,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5539,7 +5460,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5562,7 +5483,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5585,7 +5506,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5608,7 +5529,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5631,7 +5552,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5654,7 +5575,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5677,7 +5598,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5700,7 +5621,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5723,7 +5644,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5746,7 +5667,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5773,7 +5694,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan",
+            "releases": "bionic",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5827,7 +5748,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "groovy",
+            "releases": "impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5850,7 +5771,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5873,7 +5794,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5896,7 +5817,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5921,7 +5842,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64",
-            "releases": "xenial,bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5946,7 +5867,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5971,7 +5892,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5996,7 +5917,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6021,7 +5942,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6046,7 +5967,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6071,7 +5992,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6096,7 +6017,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6121,7 +6042,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6146,7 +6067,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,eoan,focal,groovy,hirsute,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "ppa",
