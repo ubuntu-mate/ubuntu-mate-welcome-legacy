@@ -227,7 +227,7 @@
             "url-info": "https://www.keepassxc.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -264,7 +264,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -385,7 +385,7 @@
             "url-info": "https://veracrypt.codeplex.com/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -621,7 +621,7 @@
             "url-info": "http://play0ad.com/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -711,7 +711,7 @@
             "url-info": "http://www.flightgear.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,arm64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -833,7 +833,7 @@
             "url-info": "http://www.hedgewars.org",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -859,7 +859,7 @@
             "url-info": "http://lutris.net",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -896,7 +896,7 @@
             "url-info": "https://minecraft.net",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1021,7 +1021,7 @@
             "url-info": "http://www.alientrap.org/games/nexuiz",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1145,7 +1145,7 @@
             "url-info": "http://libretro.com",
             "url-android": "https://play.google.com/store/apps/details?id=com.retroarch",
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1239,12 +1239,20 @@
             "url-ios": null,
             "arch": "armhf",
             "session": "pi",
-            "releases": "bionic",
+            "releases": "bionic,focal",
             "pre-install": {
                 "all": {
+                    "method": "skip"
+                },
+                "bionic": {
                     "method": "ppa",
                     "enable-ppa": "ppa:ubuntu-pi-flavour-makers/ppa",
                     "source-file": "ubuntu-pi-flavour-makers-ubuntu-ppa-CODENAME"
+                },
+                "focal": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:ubuntu-pi-flavour-makers/steamlink",
+                    "source-file": "ubuntu-pi-flavour-makers-ubuntu-steamlink-CODENAME"
                 }
             },
             "working": true
@@ -1340,7 +1348,7 @@
             "url-info": "https://wz2100.net/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1372,7 +1380,7 @@
             "url-info": "http://wesnoth.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1409,7 +1417,7 @@
             "url-info": "https://www.blender.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -1710,8 +1718,8 @@
             "url-info": "http://qtpfsgui.sourceforge.net/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "bionic,focal,impish,jammy",
+            "arch": "i386,amd64,armhf,arm64",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -1888,7 +1896,7 @@
             "url-android": "https://play.google.com/store/apps/details?id=com.brave.browser",
             "url-ios": "https://itunes.apple.com/us/app/brave-web-browser-fast-with-built-in-adblock/id1052879175",
             "arch": "amd64",
-            "releases": "bionic,focal,focal,impish,jammy",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
@@ -2096,7 +2104,7 @@
             "url-info": "https://gobby.github.io",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -2440,7 +2448,7 @@
             "url-info": "https://nextcloud.com/",
             "url-android": "https://play.google.com/store/apps/details?id=com.nextcloud.client",
             "url-ios": "https://itunes.apple.com/gb/app/nextcloud/id1125420102",
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -2604,7 +2612,7 @@
             "url-info": "http://sparkleshare.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -2704,7 +2712,7 @@
             "url-info": "https://syncthing.net/",
             "url-android": "https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid",
             "url-ios": null,
-            "arch": "i386,amd64,armhf",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -3300,7 +3308,7 @@
             "url-info": "https://www.libreoffice.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal",
             "pre-install": {
                 "all": {
@@ -4039,7 +4047,7 @@
             "url-info": "http://www.clementine-player.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -4284,7 +4292,7 @@
             "url-info": "https://handbrake.fr",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -4347,7 +4355,7 @@
             "url-info": "https://kodi.tv/",
             "url-android": "https://play.google.com/store/apps/details?id=org.xbmc.kodi",
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -4449,7 +4457,7 @@
             "url-info": "https://obsproject.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64",
+            "arch": "amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -4538,7 +4546,7 @@
             "url-info": "https://github.com/phw/peek",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "bionic": {
@@ -4631,7 +4639,7 @@
             "url-info": "http://www.maartenbaert.be/simplescreenrecorder/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -5155,7 +5163,7 @@
             "url-info": "https://jellyfin.github.io/",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64,armhf",
+            "arch": "amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -5411,7 +5419,7 @@
             "url-info": "",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -5528,7 +5536,7 @@
             "url-info": "",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -5693,7 +5701,7 @@
             "url-info": "http://www.videolan.org/developers/libdvdcss.html",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64",
+            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic",
             "pre-install": {
                 "all": {
@@ -5720,7 +5728,7 @@
             "url-info": "http://www.videolan.org/developers/libdvdcss.html",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64",
+            "arch": "amd64,armhf,arm64",
             "releases": "focal",
             "pre-install": {
                 "all": {
@@ -5747,7 +5755,7 @@
             "url-info": "http://www.videolan.org/developers/libdvdcss.html",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64",
+            "arch": "amd64,armhf,arm64",
             "releases": "impish,jammy",
             "pre-install": {
                 "all": {
