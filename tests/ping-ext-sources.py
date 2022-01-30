@@ -19,13 +19,18 @@ import requests
 test.start()
 
 # Default placeholders for manual entries.
-default_codename = 'xenial'
-default_version  = '16.04'
+default_codename = 'bionic'
+default_version  = '18.04'
 
 # Skipped Checks (Program IDs)
 skipped_ids = [
                'google-chrome',     # Purposefully 404's
-               'emby',              # No 16.04 source
+               'google-earth',      # Purposefully 404's
+               'etcher',            # Purposefully 404's
+               'sublime-text',      # Purposefully 404's
+               'sublime-merge',     # Purposefully 404's
+               'atom',              # Purposefully 404's
+               'slack'              # Purposefully 404's
               ]
 
 # Dictonary of URLs. Unique to prevent duplicates.
