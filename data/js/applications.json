@@ -5300,10 +5300,13 @@
             "img": "gnome-software",
             "main-package": "gnome-software",
             "launch-command": "gnome-software",
-            "install-packages": "gnome-software",
-            "remove-packages": "gnome-software",
+            "install-packages": "gnome-software,gnome-software-plugin-flatpak,gnome-software-plugin-snap",
+            "remove-packages": "gnome-software,gnome-software-common,gnome-software-plugin-flatpak,gnome-software-plugin-snap",
             "description": [
-                "Software lets you install and update applications and system extensions."
+                "Software lets you install and update deb-, Flatpak- and ",
+                "Snap- applications and system extensions.", 
+                "It also allows to find and install the applications to support ",
+                "various file-types which are not yet known for the installed system."
             ],
             "alternate-to": null,
             "subcategory": "Software Center",
