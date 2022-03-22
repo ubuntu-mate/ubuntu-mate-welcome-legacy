@@ -1092,8 +1092,12 @@ class AppView(WebKit2.WebView):
                 app.update_page('#autostart', 'addClass', 'fa-square')
 
             # Enable custom coloured themes if supported in this version
-            if should_offer_custom_themes() == True:
+            if should_offer_custom_themes():
                 btns.append('colour-selection')
+
+            # Show button to change theme
+            if float(systemstate.os_version) >= 22.04:
+                btns.append('change-theme')
 
             # Disable features that are unavailable to guests.
             if systemstate.session_type == 'guest':
@@ -1502,6 +1506,8 @@ class AppView(WebKit2.WebView):
                 subprocess.Popen(['gparted-pkexec'])
         elif cmd == 'sysmonitor':
             subprocess.Popen(['mate-system-monitor'])
+        elif cmd == 'theme':
+            subprocess.Popen(['mate-appearance-properties', '--show-page', 'theme'])
         elif cmd.startswith('run?'):
             subprocess.Popen([cmd[4:]])
         elif cmd.startswith('link?'):
@@ -3988,9 +3994,11 @@ def should_offer_to_change_panels():
 
 def should_offer_custom_themes():
     """
-    Determine if user is running Ubuntu [MATE] 18.04 or later.
+    Colour themes were provided by the community project "ubuntu-mate-colours".
+    These were introduced in 18.04 for Ambiant-MATE; 21.04 for Yaru-MATE and
+    then removed starting in 22.04, as these are bundled with the distro itself.
     """
-    if float(systemstate.os_version) >= 18.04 and which("gsettings") != None:
+    if float(systemstate.os_version) >= 18.04 and float(systemstate.os_version) <= 21.10 and which("gsettings") != None:
         return True
     else:
         return False
