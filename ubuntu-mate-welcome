@@ -1347,6 +1347,10 @@ class AppView(WebKit2.WebView):
             app.update_page(".panel-option", "removeClass", "active")
             app.update_page("#layout-" + layout, "addClass", "active")
 
+            # Netbook layout discontinued starting in 22.04
+            if float(systemstate.os_version) >= 22.04:
+                app.update_page("#layout-netbook", "hide")
+
         ### Browser Selection ###
         if app.current_page == 'browser-selection.html':
             # Update browser listings
