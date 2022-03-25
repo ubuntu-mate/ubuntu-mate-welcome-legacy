@@ -838,6 +838,7 @@ class Strings(object):
         self.repo_unknown = str(_("External Repository"))
         self.head_software = str(_("Software"))
         self.head_source = str(_("Source"))
+        self.third_party_warning = str(_("This software originates from a third party source. Ubuntu cannot guarantee its reliability or security, and is not eligible for support."))
 
         # Applying Changes
         self.install_text = str(_("Installing..."))
@@ -2550,6 +2551,17 @@ class DynamicApps(object):
             dbg.stdout('Apps', ' Skipping unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ' and sessio: ' + str(self.app_session) + ')', 2, 4)
             return 1
 
+        # Gather details about the application
+        preinstall = dynamicapps.index[category][program_id]['pre-install']
+        codenames = list(preinstall.keys())
+        target = None
+        for name in codenames:
+            if name == systemstate.codename:
+                target = name
+        if not target:
+            target = 'all'
+        methods = preinstall[target]['method'].split('+')
+
         # If the app has made it this far, it can be added to the grid.
         # CSS breaks with dots (.), so any must become hyphens (-).
         dbg.stdout('Apps', ' Added: ' + self.app_name, 2, 2)
@@ -2595,6 +2607,12 @@ class DynamicApps(object):
 
         if not self.app_alternate_to == None:
             html_buffer += '<ul><li class="' + css_class + '-text"><b>' + string.alternate_to + ' </b><i>' + self.app_alternate_to + '</i></li></ul>'
+
+        # Ubuntu Technical Board requires the user to be aware of non-Ubuntu supported software
+        if "ppa" in methods or "manual" in methods:
+            html_buffer += '<div class="alert alert-warn"><span class="fa fa-warning"></span> ' + string.third_party_warning + '</div>'
+
+        # Installation buttons
         html_buffer += '<p class="text-right">'
         html_buffer += '<button class="btn info-show-' + css_class + '" onclick="cmd(\'app-info-show?' + css_class + '\')"><span class="fa fa-chevron-down"></span> ' + string.show + '</button>&nbsp;'
         html_buffer += '<button hidden class="btn info-hide-' + css_class + '" onclick="cmd(\'app-info-hide?' + css_class + '\')"><span class="fa fa-chevron-up"></span> ' + string.hide + '</button>&nbsp;'
@@ -2649,17 +2667,6 @@ class DynamicApps(object):
 
         ## Add details about the source of this file.
         try:
-            preinstall = dynamicapps.index[category][program_id]['pre-install']
-            codenames = list(preinstall.keys())
-            target = None
-            for name in codenames:
-                if name == systemstate.codename:
-                    target = name
-                    break
-            if not target:
-                    target = 'all'
-
-            methods = preinstall[target]['method'].split('+')
             self.source_info = []
             if len(methods) > 1:
                 multiple_sources = True
