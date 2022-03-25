@@ -2055,6 +2055,36 @@
             },
             "working": true
         },
+    "firefox-esr": {
+        "name": "Firefox ESR",
+        "img": "firefox-esr",
+        "main-package": "firefox-esr",
+        "launch-command": "firefox-esr",
+        "install-packages": "firefox-esr",
+        "remove-packages": "firefox-esr",
+        "description": [
+            "Firefox ESR (Extended Support Release) delivers safe web browsing.",
+            "With a familiar user interface, and enhanced security features.",
+            "Firefox ESR does not come with the latest features but is has",
+            "the latest security and stability fixes."
+        ],
+        "alternate-to": null,
+        "subcategory": "Web Browser",
+        "open-source": true,
+        "url-info": "https://www.mozilla.org/en-US/firefox/enterprise/",
+        "url-android": "https://play.google.com/store/apps/details?id=org.mozilla.firefox",
+        "url-ios": "https://itunes.apple.com/us/app/firefox-web-browser/id989804926",
+        "arch": "amd64,armhf,arm64",
+        "releases": "bionic,focal,impish,jammy",
+        "pre-install": {
+            "all": {
+                "method": "ppa",
+                "enable-ppa": "ppa:mozillateam/ppa",
+                "source-file": "mozillateam-ubuntu-ppa-CODENAME"
+            }
+        },
+        "working": true
+        },
         "gajim": {
             "name": "Gajim",
             "img": "gajim",

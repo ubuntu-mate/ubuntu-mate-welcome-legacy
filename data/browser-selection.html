@@ -46,6 +46,19 @@
                         <span class="firefox-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
                     </div>
                 </div>
+                <div id="firefox-esr" class="browser-option">
+                  <div class="left">
+                      <img src="img/applications/firefox-esr.png"/>
+                      <span>Firefox ESR</span>
+                  </div>
+                  <div class="right">
+                      <span class="default-label"><span class="fa fa-check-circle"></span>&nbsp; &zwnj;Default&zwnj;</span>
+                      <button style="display:none" class="btn btn-success firefox-esr-remove default-button" onclick="cmd('set-default-web-browser?firefox-esr')">&zwnj;Set Default&zwnj;</button>
+                      <button style="display:none" class="btn btn-success firefox-esr-install" onclick="cmd('install-appid?firefox-esr')"><span class="fa fa-download"></span>&nbsp; &zwnj;Install&zwnj;</button>
+                      <button style="display:none" class="btn btn-danger firefox-esr-remove" onclick="cmd('remove-appid?firefox-esr')"><span class="fa fa-trash"></span></button>
+                      <span class="firefox-esr-applying"><img src="img/welcome/processing.gif" width="24px" height="24px"/></span>
+                  </div>
+              </div>
                 <div id="google-chrome" class="browser-option">
                     <div class="left">
                         <img src="img/applications/google-chrome.png"/>

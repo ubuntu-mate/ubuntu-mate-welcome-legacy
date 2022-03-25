@@ -1355,6 +1355,7 @@ class AppView(WebKit2.WebView):
         if app.current_page == 'browser-selection.html':
             # Update browser listings
             dynamicapps.update_app_status(self, 'firefox')
+            dynamicapps.update_app_status(self, 'firefox-esr')
             dynamicapps.update_app_status(self, 'chromium')
             dynamicapps.update_app_status(self, 'google-chrome')
             dynamicapps.update_app_status(self, 'opera-browser')
