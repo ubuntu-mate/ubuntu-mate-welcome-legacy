@@ -2550,6 +2550,17 @@ class DynamicApps(object):
             dbg.stdout('Apps', ' Skipping unsupported: ' + self.app_name + ' (Only for architectures: ' + self.app_arch + ' and releases: ' + self.app_releases + ' and sessio: ' + str(self.app_session) + ')', 2, 4)
             return 1
 
+        # Gather details about the application
+        preinstall = dynamicapps.index[category][program_id]['pre-install']
+        codenames = list(preinstall.keys())
+        target = None
+        for name in codenames:
+            if name == systemstate.codename:
+                target = name
+        if not target:
+            target = 'all'
+        methods = preinstall[target]['method'].split('+')
+
         # If the app has made it this far, it can be added to the grid.
         # CSS breaks with dots (.), so any must become hyphens (-).
         dbg.stdout('Apps', ' Added: ' + self.app_name, 2, 2)
@@ -2649,17 +2660,6 @@ class DynamicApps(object):
 
         ## Add details about the source of this file.
         try:
-            preinstall = dynamicapps.index[category][program_id]['pre-install']
-            codenames = list(preinstall.keys())
-            target = None
-            for name in codenames:
-                if name == systemstate.codename:
-                    target = name
-                    break
-            if not target:
-                    target = 'all'
-
-            methods = preinstall[target]['method'].split('+')
             self.source_info = []
             if len(methods) > 1:
                 multiple_sources = True
