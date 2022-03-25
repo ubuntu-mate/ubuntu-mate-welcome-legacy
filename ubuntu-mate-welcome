@@ -838,7 +838,7 @@ class Strings(object):
         self.repo_unknown = str(_("External Repository"))
         self.head_software = str(_("Software"))
         self.head_source = str(_("Source"))
-        self.third_party_warning = str(_("This software originates from a third party source. Ubuntu cannot guarantee its reliability or security, and is not eligible for support."))
+        self.third_party_warning = str(_("This software isn't supported by Ubuntu, and requires trusting third party repositories to install."))
 
         # Applying Changes
         self.install_text = str(_("Installing..."))
