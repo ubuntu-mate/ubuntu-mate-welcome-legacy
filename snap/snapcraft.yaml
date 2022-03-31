@@ -5,7 +5,7 @@ description: |
  A welcome screen for Ubuntu MATE that provides links to helpful
  resources, utilities and a selection of software packages.
 
-base: core18
+base: core20
 grade: stable
 confinement: classic
 
@@ -51,7 +51,7 @@ parts:
 
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
       cp ubuntu-mate-welcome.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1
-    
+
     prime:
       - usr/bin/
       - usr/share/ubuntu-mate-welcome/
