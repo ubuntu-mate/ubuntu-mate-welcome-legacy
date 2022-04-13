@@ -2873,6 +2873,19 @@ class DynamicApps(object):
             systemstate.apt_cache = apt.Cache()
             self.update_app_status(webkit, program_id)
 
+    def package_type(self, program_id):
+        main_package = self.get_attribute_for_app(program_id, 'main-package')
+        try:
+            if systemstate.apt_cache[main_package].is_installed:
+                return 'deb'
+            elif main_package in ['firefox', 'chromium']:
+                if subprocess.call(['snap', 'list', main_package], stdout=DEVNULL, stderr=DEVNULL) == 0:
+                    return 'snap'
+                else:
+                    return None
+        except:
+            return None
+
     def is_app_installed(self, program_id):
         main_package = self.get_attribute_for_app(program_id, 'main-package')
         try:
@@ -2904,6 +2917,10 @@ class DynamicApps(object):
         # Check whether the application is installed or not.
         installed = self.is_app_installed(program_id)
         main_package = self.get_attribute_for_app(program_id, 'main-package')
+        if installed:
+            type_package = self.package_type(program_id)
+        else:
+            type_package = None
 
         # Replace any dots with dashes, as they are unsupported in CSS.
         css_class = program_id.replace('.','-')
@@ -2915,12 +2932,18 @@ class DynamicApps(object):
         app.update_page('.'+css_class+'-plan', 'removeClass', 'install')
         app.update_page('.'+css_class+'-plan', 'removeClass', 'remove')
 
-        if installed:
+        if installed and type_package == 'deb':
             app.update_page('.'+css_class+'-launch', 'show')
             app.update_page('.'+css_class+'-install', 'hide')
             app.update_page('.'+css_class+'-reinstall', 'show')
             app.update_page('.'+css_class+'-remove', 'show')
             app.update_page('.'+css_class+'-upgrade', 'show')
+        elif installed and type_package == 'snap':
+            app.update_page('.'+css_class+'-launch', 'show')
+            app.update_page('.'+css_class+'-install', 'hide')
+            app.update_page('.'+css_class+'-reinstall', 'hide')
+            app.update_page('.'+css_class+'-remove', 'hide')
+            app.update_page('.'+css_class+'-upgrade', 'hide')
         else:
             app.update_page('.'+css_class+'-launch', 'hide')
             app.update_page('.'+css_class+'-install', 'show')
