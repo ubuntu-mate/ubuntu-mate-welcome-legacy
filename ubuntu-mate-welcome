@@ -2879,6 +2879,13 @@ class DynamicApps(object):
             if systemstate.apt_cache[main_package].is_installed:
                 dbg.stdout('Apt', 'Package "' + main_package + '" is present.', 1, 4)
                 return True
+            elif main_package in ['firefox', 'chromium']:
+                if subprocess.call(['snap', 'list', main_package], stdout=DEVNULL, stderr=DEVNULL) == 0:
+                    dbg.stdout('Snap', 'Package "' + main_package + '" is installed.', 1, 4)
+                    return True
+                else:
+                    dbg.stdout('Snap', 'Package "' + main_package + '" is not installed.', 1, 4)
+                    return False
             else:
                 dbg.stdout('Apt', 'Package "' + main_package + '" is not installed.', 1, 4)
                 return False
