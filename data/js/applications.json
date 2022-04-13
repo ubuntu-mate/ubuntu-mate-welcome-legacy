@@ -325,7 +325,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -1455,39 +1455,6 @@
             },
             "working": true
         },
-        "displaycal": {
-            "name": "DisplayCAL",
-            "img": "displaycal",
-            "main-package": "dispcalgui",
-            "launch-command": "displaycal",
-            "install-packages": "dispcalgui",
-            "remove-packages": "dispcalgui",
-            "description": [
-                "Calibrates and characterizes display devices using a hardware sensor,",
-                "driven by the open source color management system Argyll CMS. Supports",
-                "multi-display setups and a variety of available settings like customizable",
-                "whitepoint, luminance, black level, tone response curve as well as the",
-                "creation of matrix and look-up-table ICC profiles with optional gamut",
-                "mapping. Calibrations and profiles can be verified through measurements,",
-                "and profiles can be installed to make them available to color management",
-                "aware applications. Profile installation can utilize Argyll CMS, Oyranos",
-                "and/or GNOME Color Manager if available, for flexible integration."
-            ],
-            "alternate-to": null,
-            "subcategory": "Calibration",
-            "open-source": true,
-            "url-info": "https://displaycal.net",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
         "darktable": {
             "name": "Darktable",
             "img": "darktable",
@@ -1848,34 +1815,6 @@
         }
     },
     "Internet": {
-        "adobeflash": {
-            "name": "Adobe&reg; Flash&reg; Player",
-            "img": "adobeflash",
-            "main-package": "flashplugin-installer",
-            "launch-command": null,
-            "install-packages": "flashplugin-installer",
-            "remove-packages": "flashplugin-installer",
-            "description": [
-                "A cross-platform, browser-based application runtime that",
-                "provides uncompromised viewing of expressive applications, content, and videos",
-                "across browsers and operating systems. This package provides",
-                "plugins compatible with the Firefox Web Browser."
-            ],
-            "alternate-to": null,
-            "subcategory": "Plug-in",
-            "open-source": false,
-            "url-info": "http://www.adobe.com/products/flashplayer.html",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64",
-            "releases": "bionic,focal",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": false
-        },
         "brave": {
             "name": "Brave",
             "img": "brave",
@@ -1962,34 +1901,6 @@
                 }
             },
             "working": true
-        },
-        "epiphany-browser": {
-            "name": "GNOME Web",
-            "img": "epiphany-browser",
-            "main-package": "epiphany-browser",
-            "launch-command": "epiphany-browser",
-            "install-packages": "epiphany-browser",
-            "remove-packages": "epiphany-browser",
-            "description": [
-                "Web is the web browser based on the popular WebKit engine.",
-                "It offers a simple, clean, beautiful view of the web ",
-                "featuring a built-in adblocker enabled by default, and ",
-                "Intelligent Tracking Prevention. Its code name is Epiphany."
-            ],
-            "alternate-to": null,
-            "subcategory": "Web Browser",
-            "open-source": true,
-            "url-info": "https://wiki.gnome.org/Apps/Web",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": false
         },
         "filezilla": {
             "name": "FileZilla",
@@ -2209,42 +2120,6 @@
             },
             "working": true
         },
-        "google-musicmanager": {
-            "name": "Google Music Manager",
-            "img": "google-musicmanager",
-            "main-package": "google-musicmanager-beta",
-            "launch-command": "google-musicmanager",
-            "install-packages": "google-musicmanager-beta",
-            "remove-packages": "google-musicmanager-beta",
-            "description": [
-                "A simple application for",
-                "adding the music files on your computer to ",
-                "<a onclick=\"cmd('link?http://music.google.com')\">Google Play Music</a>.",
-                "Use Music Manager to upload your favorite songs from your",
-                "computer to your Google Play library. You can upload up to",
-                "50,000 songs and listen on your mobile device, computer, or",
-                "Chromecast."
-            ],
-            "alternate-to": "Apple iTunes",
-            "subcategory": "Cloud and Sync",
-            "open-source": false,
-            "url-info": "https://music.google.com/music/listen?#manager_pl",
-            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
-            "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
-            "arch": "amd64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "google-musicmanager",
-                    "apt-key-url": "https://dl-ssl.google.com/linux/linux_signing_key.pub",
-                    "apt-sources": [
-                        "deb [arch=amd64] http://dl.google.com/linux/musicmanager/deb/ stable main"
-                    ]
-                }
-            },
-            "working": false
-        },
         "hexchat": {
             "name": "Hexchat",
             "img": "hexchat",
@@ -2370,7 +2245,7 @@
             "remove-packages": "microsoft-edge-stable",
             "description": [
                 "Microsoft Edge comes complete with features designed to customize",
-                "your browsing experience and to help make you more productive.", 
+                "your browsing experience and to help make you more productive.",
                 "Edge offers performance, compatibility, and speed to make browsing",
                 "the web even more effortless."
             ],
@@ -2485,37 +2360,6 @@
                     "method": "ppa",
                     "enable-ppa": "ppa:nextcloud-devs/client",
                     "source-file": "nextcloud-devs-ubuntu-client-CODENAME"
-                }
-            },
-            "working": true
-        },
-        "owncloud-client": {
-            "name": "ownCloud Client",
-            "img": "owncloud",
-            "main-package": "owncloud-client-caja",
-            "launch-command": "owncloud",
-            "install-packages": "owncloud-client,owncloud-client-caja",
-            "remove-packages": "owncloud-client,owncloud-client-caja",
-            "description": [
-                "A tool to synchronize files from",
-                "an ownCloud Server with your computer."
-            ],
-            "alternate-to": null,
-            "subcategory": "Cloud and Sync",
-            "open-source": true,
-            "url-info": "https://owncloud.org/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.owncloud.android",
-            "url-ios": "https://itunes.apple.com/gb/app/owncloud/id543672169",
-            "arch": "i386,amd64",
-            "releases": "bionic",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "owncloud-client",
-                    "apt-key-url": "https://download.opensuse.org/repositories/isv:ownCloud:desktop/Ubuntu_OSVERSION/Release.key",
-                    "apt-sources": [
-                        "deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/Ubuntu_OSVERSION/ /"
-                    ]
                 }
             },
             "working": true
@@ -2970,10 +2814,10 @@
             "pre-install": {
                 "all": {
                     "method": "manual",
-                    "source-file": "wavebox",
+                    "source-file": "wavebox-stable",
                     "apt-key-url": "https://wavebox.pro/dl/client/repo/archive.key",
                     "apt-sources": [
-                        "deb https://wavebox.io/dl/client/repo/ x86_64/"
+                        "deb [arch=amd64] https://download.wavebox.app/stable/linux/deb/ amd64/"
                     ]
                 }
             },
@@ -3005,7 +2849,9 @@
                     "method": "manual",
                     "source-file": "wire-desktop.list",
                     "apt-key-url": "https://wire-app.wire.com/linux/releases.key",
-                    "apt-sources": ["deb [arch=amd64] https://wire-app.wire.com/linux/debian stable main"]
+                    "apt-sources": [
+                        "deb [arch=amd64] https://wire-app.wire.com/linux/debian stable main"
+                    ]
                 }
             },
             "working": true
@@ -3526,40 +3372,6 @@
         }
     },
     "Programming": {
-        "atom": {
-            "name": "Atom",
-            "img": "atom",
-            "main-package": "atom",
-            "launch-command": "atom",
-            "install-packages": "atom",
-            "remove-packages": "atom",
-            "description": [
-                "Atom is a text editor that is modern,",
-                "approachable, yet hackable to the core-a",
-                "tool you can customize to do anything but",
-                "also use productively without ever touching",
-                "a config file."
-            ],
-            "alternate-to": null,
-            "subcategory": "IDEs",
-            "open-source": true,
-            "url-info": "http://atom.io/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "amd64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "atom",
-                    "apt-key-url": "https://packagecloud.io/AtomEditor/atom/gpgkey",
-                    "apt-sources": [
-                        "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main"
-                    ]
-                }
-            },
-            "working": true
-        },
         "d-feet": {
             "name": "d-feet",
             "img": "d-feet",
@@ -3808,12 +3620,12 @@
             "working": true
         },
         "pgadmin": {
-            "name": "pgAdmin 3",
+            "name": "pgAdmin",
             "img": "pgadmin3",
-            "main-package": "pgadmin3",
-            "launch-command": "pgadmin3",
-            "install-packages": "pgadmin3",
-            "remove-packages": "pgadmin3",
+            "main-package": "pgadmin4-desktop",
+            "launch-command": "/usr/pgadmin4/bin/pgadmin4",
+            "install-packages": "pgadmin4-desktop",
+            "remove-packages": "pgadmin4-desktop",
             "description": [
                 "A database design and management",
                 "application for use with PostgreSQL. pgAdmin is designed",
@@ -3832,14 +3644,22 @@
             "url-android": null,
             "url-ios": null,
             "arch": "amd64",
-            "releases": "bionic,focal",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "manual",
-                    "source-file": "pgdg.list",
-                    "apt-key-url": "https://www.postgresql.org/media/keys/ACCC4CF8.asc",
+                    "source-file": "pgadmin4",
+                    "apt-key-url": "https://www.pgadmin.org/static/packages_pgadmin_org.pub",
                     "apt-sources": [
-                        "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ CODENAME-pgdg main"
+                        "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/CODENAME pgadmin4 main"
+                    ]
+                },
+                "jammy": {
+                    "method": "manual",
+                    "source-file": "pgadmin4",
+                    "apt-key-url": "https://www.pgadmin.org/static/packages_pgadmin_org.pub",
+                    "apt-sources": [
+                        "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/impish pgadmin4 main"
                     ]
                 }
             },
@@ -4032,49 +3852,33 @@
             },
             "working": true
         },
-        "cheese": {
-            "name": "Cheese",
-            "img": "cheese",
-            "main-package": "cheese",
-            "launch-command": "cheese",
-            "install-packages": "cheese",
-            "remove-packages": "cheese,cheese-common",
+        "webcamoid": {
+            "name": "Webcamoid",
+            "img": "webcamoid",
+            "main-package": "webcamoid",
+            "launch-command": "webcamoid",
+            "install-packages": "webcamoid",
+            "remove-packages": "webcamoid,webcamoid-data,webcamoid-plugins",
             "description": [
-                "An application that allows you to take pictures or record video using",
-                "your webcam. You can also apply fancy visual effects, fine-tune image",
-                "settings as well as the Multi-Burst mode and countdown timer for photos."
+                "webcamoid allows you to capture, save and view a video stream.",
+                "It also has some fun filters. Features:",
+                "<ul><li>Take pictures and record videos with the webcam.</li>",
+                "<li>Manages multiple webcams.</li>",
+                "<li>GUI interface.</li>",
+                "<li>Custom controls for each webcam.</li>",
+                "<li>Add funny effects to the webcam.</li>",
+                "<li>+60 effects available.</li>",
+                "<li>Effects with live previews.</li>",
+                "<li>Translated to many languages.</li>",
+                "<li>Use custom network and local files as capture devices.</li>",
+                "<li>Capture from desktop.</li>",
+                "<li>Many recording formats.</li>",
+                "<li>Virtual webcam support for feeding other programs.</li></ul>"
             ],
             "alternate-to": null,
             "subcategory": "Photography",
             "open-source": true,
-            "url-info": "https://wiki.gnome.org/Apps/Cheese",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
-        "clementine": {
-            "name": "Clementine",
-            "img": "clementine",
-            "main-package": "clementine",
-            "launch-command": "clementine",
-            "install-packages": "clementine",
-            "remove-packages": "clementine",
-            "description": [
-                "Clementine is a multiplatform music player focusing on a",
-                "fast and easy-to-use interface for searching and playing",
-                "your music."
-            ],
-            "alternate-to": null,
-            "subcategory": "Media Playback",
-            "open-source": true,
-            "url-info": "http://www.clementine-player.org/",
+            "url-info": "https://webcamoid.github.io/",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
@@ -4202,7 +4006,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "focal",
+            "releases": "focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4269,40 +4073,6 @@
             },
             "working": true
         },
-        "google-play-music-desktop-player": {
-            "name": "Google Play Music Desktop Player",
-            "img": "google-play-music-desktop-player",
-            "main-package": "google-play-music-desktop-player",
-            "launch-command": "google-play-music-desktop-player",
-            "install-packages": "google-play-music-desktop-player",
-            "remove-packages": "google-play-music-desktop-player",
-            "description": [
-                "A beautiful cross platform Desktop Player for Google Play Music.",
-                "You can change your theme, customize the colors, send your play",
-                "history straight to last.fm, and it even has a built-in equalizer.",
-                "From advanced audio controls to simple song change notifications,",
-                "this desktop player literally does it all."
-            ],
-            "alternate-to": "Apple iTunes",
-            "subcategory": "Media Playback",
-            "open-source": true,
-            "url-info": "https://www.googleplaymusicdesktopplayer.com/",
-            "url-android": "https://play.google.com/store/apps/details?id=com.google.android.music",
-            "url-ios": "https://itunes.apple.com/gb/app/google-play-music/id691797987",
-            "arch": "i386,amd64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "manual",
-                    "source-file": "gpmdp",
-                    "apt-key-url": "http://gpmdp.xyz/bintray-public.key.asc",
-                    "apt-sources": [
-                        "deb https://dl.bintray.com/marshallofsound/deb trusty main"
-                    ]
-                }
-            },
-            "working": false
-        },
         "handbrake": {
             "name": "Handbrake",
             "img": "handbrake",
@@ -4331,31 +4101,28 @@
             },
             "working": true
         },
-        "kdenlive": {
-            "name": "kdenlive",
-            "img": "kdenlive",
-            "main-package": "kdenlive",
-            "launch-command": "kdenlive",
-            "install-packages": "kdenlive,breeze-icon-theme",
-            "remove-packages": "kdenlive",
+        "shotcut": {
+            "name": "Shotcut",
+            "img": "shotcut",
+            "main-package": "shotcut",
+            "launch-command": "shotcut",
+            "install-packages": "shotcut",
+            "remove-packages": "shotcut,shotcut-data",
             "description": [
-                "A non-linear video editing suite, which supports DV, HDV and",
-                "many more formats. Its main features are:",
-                "<ul><li>Guides and marker for organizing timelines</li>",
-                "<li>Copy and paste support for clips, effects and transitions</li>",
-                "<li>Real time changes</li>",
-                "<li>FireWire and Video4Linux capture</li>",
-                "<li>Screen grabbing</li>",
-                "<li>Exporting to any by FFMPEG supported format</li>"
+                "Shotcut is a free, open source, cross-platform video editor.",
+                "Major features include support for a wide range of formats; no",
+                "import required meaning native timeline editing; Blackmagic",
+                "Design support for input and preview monitoring; hardware",
+                "acceleration; and resolution support to 4k."
             ],
             "alternate-to": "Adobe&reg; Premiere Pro",
             "subcategory": "Video Production",
             "open-source": true,
-            "url-info": "http://www.kdenlive.org/",
+            "url-info": "https://www.shotcut.org/",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "arch": "amd64,armhf,arm64",
+            "releases": "focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -4487,11 +4254,46 @@
             "url-info": "https://obsproject.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "amd64,armhf,arm64",
+            "arch": "armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "obs-fullyloaded": {
+            "name": "OBS Studio (Fully Loaded)",
+            "img": "obs-studio",
+            "main-package": "obs-studio",
+            "launch-command": "obs",
+            "install-packages": "obs-studio",
+            "remove-packages": "obs-studio",
+            "description": [
+                "Free and Open Source software for video recording and",
+                "live streaming. Supported features include, encoding",
+                "using H264 (x264) and AAC, support for Intel Quick",
+                "Sync Video (QSV) and NVENC, unlimited number of scenes",
+                "and sources. Live RTMP streaming to Twitch, YouTube,",
+                "DailyMotion, Hitbox and more. File output to MP4 or FLV,",
+                "GPU-based game capture for high performance game streaming,",
+                "capture device support (webcams, capture cards, etc),",
+                "bi-linear or lanczos3 resampling."
+            ],
+            "alternate-to": "telestream Wirecast",
+            "subcategory": "Video Production",
+            "open-source": true,
+            "url-info": "https://obsproject.com",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "focal,impish,jammy",
+            "pre-install": {
+                "all": {
+                    "method": "ppa",
+                    "enable-ppa": "ppa:flexiondotorg/obs-fully-loaded",
+                    "source-file": "flexiondotorg-ubuntu-obs-fully-loaded-CODENAME"
                 }
             },
             "working": true
@@ -4563,12 +4365,9 @@
             "install-packages": "peek",
             "remove-packages": "peek",
             "description": [
-                "Simple animated GIF screen recorder with an easy to use interface.",
-                "Peek creates animated GIF screencasts using FFmpeg and ImageMagick.",
-                "It was built for the specific use case of recording screen areas,",
-                "e.g., for easily showing UI features of your own apps or for showing",
-                "a bug in bug reports. It is not a general purpose screencast app",
-                "with extended features and it never will be."
+                "Peek is a simple screen recorder. It is optimized for generating",
+                "animated GIFs but you can also directly record to WebM or MP4",
+                "if you prefer."
             ],
             "alternate-to": null,
             "subcategory": "Video Production",
@@ -4584,34 +4383,6 @@
                     "enable-ppa": "ppa:peek-developers/stable",
                     "source-file": "peek-developers-ubuntu-stable-CODENAME"
                 },
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
-        "kazam": {
-            "name": "Kazam",
-            "img": "kazam",
-            "main-package": "kazam",
-            "launch-command": "kazam",
-            "install-packages": "kazam",
-            "remove-packages": "kazam",
-            "description": [
-                "A well designed and easy to use interface for capturing",
-                "screencasts and screenshots. It can record desktop video and multiple audio",
-                "streams simultaneously with control over audio levels and the screen region",
-                "being captured."
-            ],
-            "alternate-to": null,
-            "subcategory": "Video Production",
-            "open-source": true,
-            "url-info": "https://launchpad.net/kazam",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
                 "all": {
                     "method": "skip"
                 }
@@ -4641,35 +4412,6 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": true
-        },
-        "simplescreenrecorder": {
-            "name": "SimpleScreenRecorder",
-            "img": "simplescreenrecorder",
-            "main-package": "simplescreenrecorder",
-            "launch-command": "simplescreenrecorder",
-            "install-packages": "simplescreenrecorder",
-            "remove-packages": "simplescreenrecorder",
-            "description": [
-                "A feature-rich screen",
-                "recorder that can record the entire screen or part of it, or",
-                "record OpenGL applications directly. The recording can be",
-                "paused and resumed at any time. Many different file formats",
-                "and codecs are supported."
-            ],
-            "alternate-to": null,
-            "subcategory": "Video Production",
-            "open-source": true,
-            "url-info": "http://www.maartenbaert.be/simplescreenrecorder/",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
             "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
@@ -4764,31 +4506,29 @@
             },
             "working": true
         },
-        "youtube-dlg": {
+        "youtubedl-gui": {
             "name": "YouTube Downloader",
-            "img": "youtube-dlg",
-            "main-package": "youtube-dl-gui",
-            "launch-command": "youtube-dl-gui",
-            "install-packages": "youtube-dl,youtube-dl-gui",
-            "remove-packages": "youtube-dl,youtube-dl-gui",
+            "img": "youtubedl-gui",
+            "main-package": "youtubedl-gui",
+            "launch-command": "youtubedl-gui",
+            "install-packages": "youtube-dl,youtubedl-gui",
+            "remove-packages": "youtubedl-gui",
             "description": [
-                "A front-end GUI of the popular youtube-dl, which can download videos from",
-                "YouTube, and hundreds of other sites, that do not provide direct links to the videos",
-                "served."
+                "Graphical interface to youtube-dl, the CLI for downloading videos",
+                "from a variety of sites. Allows control of format, resolution, audio",
+                "and video codecs, etc."
             ],
             "alternate-to": null,
             "subcategory": "Media Conversion",
             "open-source": true,
-            "url-info": "https://github.com/MrS0m30n3/youtube-dl-gui",
+            "url-info": "https://github.com/JaGoLi/ytdl-gui",
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic",
+            "releases": "impish,jammy",
             "pre-install": {
                 "all": {
-                    "method": "ppa",
-                    "enable-ppa": "ppa:flexiondotorg/youtube-dl-gui",
-                    "source-file": "flexiondotorg-ubuntu-youtube-dl-gui-CODENAME"
+                    "method": "skip"
                 }
             },
             "working": true
@@ -4851,6 +4591,37 @@
             "url-ios": null,
             "arch": "i386,amd64,arm64,armhf",
             "releases": "bionic,focal,impish,jammy",
+            "pre-install": {
+                "all": {
+                    "method": "skip"
+                }
+            },
+            "working": true
+        },
+        "cpu-x": {
+            "name": "CPU-X",
+            "img": "cpu-x",
+            "main-package": "cpu-x",
+            "launch-command": "cpu-x",
+            "install-packages": "cpu-x",
+            "remove-packages": "cpu-x",
+            "description": [
+                "CPU-X is a system profiling and monitoring application that can report on:",
+                "<ul><li>Processor</li>",
+                "<li>Motherboard</li>",
+                "<li>Memory</li>",
+                "<li>System</li>",
+                "<li>Graphic card</li>",
+                "<li>Performance</li></ul>"
+            ],
+            "alternate-to": "CPUID CPU-Z",
+            "subcategory": "System Information",
+            "open-source": true,
+            "url-info": "https://x0rg.github.io/CPU-X/",
+            "url-android": null,
+            "url-ios": null,
+            "arch": "amd64",
+            "releases": "focal,impish,jammy",
             "pre-install": {
                 "all": {
                     "method": "skip"
@@ -5043,11 +4814,13 @@
             "url-info": "https://gns3.com",
             "url-android": null,
             "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic",
+            "arch": "amd64,arm64",
+            "releases": "bionic,focal,impish,jammy",
             "pre-install": {
                 "all": {
-                  "method": "skip"
+                    "method": "ppa",
+                    "enable-ppa": "ppa:gns3/ppa",
+                    "source-file": "gns3-ubuntu-ppa-CODENAME"
                 }
             },
             "working": true
@@ -5084,35 +4857,6 @@
         }
     },
     "UnivAccess": {
-        "eviacam": {
-            "name": "Enable Viacam",
-            "img": "eviacam",
-            "main-package": "eviacam",
-            "launch-command": "eviacam",
-            "install-packages": "eviacam",
-            "remove-packages": "eviacam",
-            "description": [
-                "Enable Viacam (aka eViacam) is a mouse replacement",
-                "program that moves the pointer as you move your head. It",
-                "works on a standard computer equipped with a web camera. No",
-                "additional hardware is required. Based on the award winning",
-                "Facial Mouse software."
-            ],
-            "alternate-to": null,
-            "subcategory": "Accessibility",
-            "open-source": true,
-            "url-info": "http://eviacam.sourceforge.net/index.php",
-            "url-android": null,
-            "url-ios": null,
-            "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
-            "pre-install": {
-                "all": {
-                    "method": "skip"
-                }
-            },
-            "working": false
-        },
         "workrave": {
             "name": "Workrave",
             "img": "workrave",
@@ -5201,7 +4945,7 @@
                     "source-file": "jellyfin",
                     "apt-key-url": "https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key",
                     "apt-sources": [
-                        "deb [arch=amd64,armhf] https://repo.jellyfin.org/ubuntu CODENAME main"
+                        "deb [arch=amd64,arm64,armhf] https://repo.jellyfin.org/ubuntu CODENAME main"
                     ]
                 }
             },
@@ -5334,7 +5078,7 @@
             "remove-packages": "gnome-software,gnome-software-common,gnome-software-plugin-flatpak,gnome-software-plugin-snap",
             "description": [
                 "Software lets you install and update deb-, Flatpak- and ",
-                "Snap- applications and system extensions.", 
+                "Snap- applications and system extensions.",
                 "It also allows to find and install the applications to support ",
                 "various file-types which are not yet known for the installed system."
             ],
@@ -5823,10 +5567,10 @@
         "xthemes": {
             "name": "Additional themes",
             "img": "appearance",
-            "main-package": "breeze-icon-theme",
+            "main-package": "arc-theme",
             "launch-command": null,
-            "install-packages": "arc-theme,greybird-gtk-theme,numix-gtk-theme,numix-icon-theme,breeze-cursor-theme,breeze-icon-theme",
-            "remove-packages": "arc-theme,greybird-gtk-theme,numix-gtk-theme,numix-icon-theme,breeze-cursor-theme,breeze-icon-theme",
+            "install-packages": "arc-theme,greybird-gtk-theme,mate-themes",
+            "remove-packages": "arc-theme,greybird-gtk-theme,mate-themes",
             "description": "Additional themes and icons for Ubuntu MATE",
             "alternate-to": null,
             "subcategory": "null",
@@ -5908,7 +5652,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5933,7 +5677,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5958,7 +5702,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -5983,7 +5727,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6008,7 +5752,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6033,7 +5777,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6058,7 +5802,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6083,7 +5827,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
@@ -6108,7 +5852,7 @@
             "url-android": null,
             "url-ios": null,
             "arch": "i386,amd64,armhf,arm64",
-            "releases": "bionic,focal,impish,jammy",
+            "releases": "bionic,focal,impish",
             "pre-install": {
                 "all": {
                     "method": "ppa",
