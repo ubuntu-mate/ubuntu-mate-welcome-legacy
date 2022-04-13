@@ -1,8 +1,37 @@
 {
+    "22.04.0": {
+        "add": [
+            "cpu-x",
+            "obs-fullyloaded",
+            "shotcut",
+            "webcamoid",
+            "youtubedl-gui"
+        ],
+        "fix": {
+            "gns3": "new-source",
+            "pgadmin": "new-source"
+        },
+        "del": {
+            "adobeflash": "no-source",
+            "atom": "not-nice",
+            "cheese": "not-nice",
+            "clementine": "not-nice",
+            "displaycal": "no-source",
+            "epiphany-browser": "not-nice",
+            "kazam": "not-nice",
+            "kdenlive": "not-nice",
+            "owncloud-client": "no-source",
+            "simplescreenrecorder": "not-nice",
+            "youtube-dlg": "no-source"
+        }
+    },
     "21.10.0": {
         "add": [
             "microsoft-edge-stable"
-        ]        
+        ],
+        "del": {
+            "microsoft-edge-dev": "not-nice"
+        }
     },
     "21.04.0": {
         "add": [
@@ -12,15 +41,13 @@
         ],
         "del": {
             "terminator": "not-nice",
-            "redshift": "broken",
             "google-musicmanager": "broken",
             "google-play-music-desktop-player": "broken",
-            "eviacam": "broken"    
-        }        
+            "eviacam": "broken"
+        }
     },
     "20.10.0": {
         "add": [
-            "microsoft-edge-dev",
             "lollypop"
         ],
         "fix": {
@@ -41,38 +68,8 @@
         },
         "del": {
             "clementine": "broken",
-            "subsurface": "no-source",
-            "veracrypt": "no-source",
             "keepass": "new-source",
-            "pgadmin": "no-source",
-            "anoise": "no-source",
-            "flacon": "no-source",
-            "musescore": "no-source",
-            "audio-recorder": "no-source",
-            "atom": "no-source",
-            "obs-studio": "no-source",
-            "youtube-dlg": "no-source",
-            "gns3": "no-source",
-            "insync": "no-source",
-            "nextcloud-client": "no-source",
-            "jellyfin": "no-source",
-            "zenmap": "no-source"
-        }
-    },
-    "19.10.0": {
-        "add": [
-            "evolution",
-            "sublime-text",
-            "sublime-merge",
-            "gnome-mpv"
-        ],
-        "fix": {
-            "playonlinux": "new-source"
-        },
-        "del": {
-            "enpass": "not-nice",
-            "git-cola": "not-nice",
-            "bzr": "no-source"
+            "pgadmin": "no-source"
         }
     }
 }
